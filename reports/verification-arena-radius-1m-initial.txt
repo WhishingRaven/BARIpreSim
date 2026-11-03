@@ -1,0 +1,32 @@
+.....................................................................F.. [ 82%]
+...............                                                          [100%]
+=================================== FAILURES ===================================
+____ test_contact_after_a_completed_hold_disqualifies_segment_success[wall] ____
+
+violation = 'wall'
+
+    @pytest.mark.parametrize("violation", ["robot", "wall"])
+    def test_contact_after_a_completed_hold_disqualifies_segment_success(violation):
+        config = Config(hold_seconds=.3, sensor_noise_std=0)
+        points = targets("circle", config)
+        poses = np.column_stack((points, np.zeros(5)))
+        if violation == "robot":
+            direction = points[1]-points[0]
+            poses[0, 2] = np.arctan2(direction[1], direction[0])
+        env = Environment(config)
+        env.reset(poses=poses)
+        for _ in range(3):
+            env.step(np.zeros((5, 2)))
+        assert env.tracker.success
+        action = np.zeros((5, 2)); action[0] = [1, 1]
+        for _ in range(40):
+            env.step(action)
+            if env.collisions or env.wall_violations:
+                break
+>       assert env.collisions > 0 if violation == "robot" else env.wall_violations > 0
+E       assert False
+
+tests/test_metrics.py:87: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_metrics.py::test_contact_after_a_completed_hold_disqualifies_segment_success[wall]
+1 failed, 86 passed in 24.72s

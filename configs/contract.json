@@ -1,0 +1,51 @@
+{
+  "version": "bari-ir-gru-v1",
+  "dtype": "float32",
+  "batch_size_on_robot": 1,
+  "local_order": [
+    "range_0",
+    "range_60",
+    "range_120",
+    "range_180",
+    "range_240",
+    "range_300",
+    "previous_left_command",
+    "previous_right_command",
+    "is_leader"
+  ],
+  "local_shape": [
+    9
+  ],
+  "task_order": [
+    "circle",
+    "square",
+    "line",
+    "follow"
+  ],
+  "task_shape": [
+    4
+  ],
+  "hidden_shape": [
+    32
+  ],
+  "sensor_angles_deg": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+  "sensor_min": 0.015,
+  "sensor_max": 0.8,
+  "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+  "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+  "max_wheel_speed_m_s": 0.1,
+  "acceleration_m_s2": 0.3,
+  "control_dt_s": 0.1,
+  "previous_action": "previous saturated requested command, not measured velocity",
+  "reset": "zero hidden, previous command and sensor queue at episode/controller reset only",
+  "switch": "same actor and hidden; new task before next control action; world preserved",
+  "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity"
+}

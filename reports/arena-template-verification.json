@@ -1,0 +1,128 @@
+{
+  "status": "digital geometry and complete final visual review passed; physical verification pending",
+  "observed_utc": "2026-11-03T04:07:40.610612+00:00",
+  "nominal_radius_mm": 1000,
+  "nominal_inner_diameter_mm": 2000,
+  "outputs": [
+    {
+      "path": "output/pdf/bari-arena-full-size.pdf",
+      "pages": 1,
+      "bytes": 3796,
+      "sha256": "b226e8bd91f3a9c7a4f227b97d73bc3af0c7bacd8bbc05ddcd20799f44ec97e1"
+    },
+    {
+      "path": "output/pdf/bari-arena-a4-tiles.pdf",
+      "pages": 97,
+      "bytes": 2801691,
+      "sha256": "f2cf1ecbf16f15d7680fcede55ea5e978cc7d8963f2977ea4eda86f0ef544c83"
+    }
+  ],
+  "generator": {
+    "path": "hardware/arena_template.py",
+    "bytes": 11095,
+    "sha256": "5f7f1475422414343952834121f82a0ed98d92ff646817e6a499a125f6de6a94"
+  },
+  "config_sha256": "ac61e2f123808481ef57091e7b75d69547fc32fbf1246174ebd3d934d668fd5f",
+  "digital_checks": "87-test suite passed, including physical PDF units/radius/rulers and all 96 tile translations/coverage.",
+  "visual_review": {
+    "status": "complete; no outstanding layout defects",
+    "all_97_a4_pages_rendered": true,
+    "a4_dpi": 100,
+    "full_sheet_dpi": 50,
+    "evidence": [
+      {
+        "path": "output/pdf/qa/assembly-guide.png",
+        "sha256": "ab147111cab170a351b96bd1188812456e53d4dd23fdc834f972a752eaaaab02"
+      },
+      {
+        "path": "output/pdf/qa/full-sheet-text.png",
+        "sha256": "4ae8e1d10dc780fa1d3cae3ea90265bcc68a0b08bfdc2abe3b36c5147e8635c3"
+      },
+      {
+        "path": "output/pdf/qa/full-sheet.png",
+        "sha256": "2b852b04a65f23f4a16fcfe5117ebd63936b9419bccd9bd2bfe3d5b6dfb7b7cf"
+      },
+      {
+        "path": "output/pdf/qa/render-manifest.json",
+        "sha256": "503ba2a5ba0fb09182cb232c50c694f5dd7c196b37ddd8404d99dc1cea6b4853"
+      },
+      {
+        "path": "output/pdf/qa/text-02-33.png",
+        "sha256": "12901035348b5140c0570296659a2713181a06328296515f119ba0925418f135"
+      },
+      {
+        "path": "output/pdf/qa/text-34-65.png",
+        "sha256": "5968afdc66337c7e1f1e9009b8e2c7d06b74692448a476005cc06b6405180ffb"
+      },
+      {
+        "path": "output/pdf/qa/text-66-97.png",
+        "sha256": "4176813e08da2371fde9ada681a346ae92a18b424d4afa815475b985df1a5385"
+      },
+      {
+        "path": "output/pdf/qa/tiles-02-17.png",
+        "sha256": "913ea9286134f688cdcfefce4a75f124e7f3f8eff69ff976f77e98839cb4cd39"
+      },
+      {
+        "path": "output/pdf/qa/tiles-18-33.png",
+        "sha256": "e87d1362c043bff95cb11f3e42900ae55283b7c45524d4c8b86f5e4564c4dd80"
+      },
+      {
+        "path": "output/pdf/qa/tiles-34-49.png",
+        "sha256": "c8fdc7ec8668e2374aab53c42f15614cb5313902f49fe3edc828cea383df35a4"
+      },
+      {
+        "path": "output/pdf/qa/tiles-50-65.png",
+        "sha256": "bbc15fe38966f8a6334f9b40d7b66b3180069c051c400b7b2cbc15e00e9d0de9"
+      },
+      {
+        "path": "output/pdf/qa/tiles-66-81.png",
+        "sha256": "2777da8c8f95bc9ad8bb74bb1cc56b519faaa7b0c6d7c9d0b8014dfae5e4b58e"
+      },
+      {
+        "path": "output/pdf/qa/tiles-82-97.png",
+        "sha256": "d80cd404d128d4c4946f1cff5c44fe9d18e93867a33b98ee98d58a7bedd630e2"
+      }
+    ],
+    "reviewed_utc": "2026-11-03T08:09:26.742777+00:00",
+    "inspected": [
+      "assembly guide",
+      "full sheet geometry and text",
+      "all 96 tile geometry pages",
+      "all 96 tile headers, footers, scale labels and page counters"
+    ]
+  },
+  "physical_measurements": {
+    "diameter_x_mm": null,
+    "diameter_y_mm": null,
+    "wall_height_mm": null,
+    "wall_material": null,
+    "ir_response": null
+  },
+  "pending": [
+    "actual printing and scale/diameter measurements",
+    "wall construction and IR/stopping checks"
+  ],
+  "previous_radius_0_5m_record": "reports/arena-template-verification-radius-0.5m.json",
+  "artifacts": [
+    {
+      "path": "output/pdf/arena-template-manifest.json",
+      "bytes": 32730,
+      "sha256": "78dc0cbfc82143292373e5250c86045d337a122922c63bc9b9607c8946495153"
+    },
+    {
+      "path": "hardware/arena.template.json",
+      "bytes": 599,
+      "sha256": "a2bcc80bf558c2e98823735423a706e60c039b82a58806a946df0fe2e2f1ae12"
+    },
+    {
+      "path": "tests/test_arena_template.py",
+      "bytes": 3448,
+      "sha256": "38bc739c01052ed94edf7fa978ef951ed40f395c8d0e4d861424591a827611f3"
+    },
+    {
+      "path": "reports/verification-arena-radius-1m.txt",
+      "bytes": 180,
+      "sha256": "877f260b4bdc536e06992682542f614b8b0701201c05f6a9a9378d57f3e17721"
+    }
+  ]
+}

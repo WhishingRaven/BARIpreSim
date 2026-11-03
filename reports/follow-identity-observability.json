@@ -1,0 +1,190 @@
+{
+  "status": "observability counterexample verified",
+  "source": {
+    "commit": "uncommitted",
+    "dirty": true,
+    "python_source_sha256": "c1dc48922215d8912ed75f831577c3a6fb6a38d0799d4683ac6f2bc488615d1a"
+  },
+  "config": {
+    "robots": 5,
+    "arena_radius": 1.0,
+    "body_radius": 0.069,
+    "wheel_radius": 0.022,
+    "wheel_separation": 0.082,
+    "max_wheel_speed": 0.1,
+    "max_wheel_acceleration": 0.3,
+    "physics_dt": 0.01,
+    "control_dt": 0.1,
+    "sensor_period": 0.1,
+    "sensor_latency": 0,
+    "sensor_min": 0.015,
+    "sensor_max": 0.8,
+    "sensor_noise_std": 0,
+    "sensor_dropout": 0.0,
+    "sensor_mount_radius": 0.045,
+    "sensor_height": 0.078,
+    "sensor_angles_deg": [
+      0,
+      60,
+      120,
+      180,
+      240,
+      300
+    ],
+    "sensor_fov_deg": 0.0,
+    "circle_radius": 0.24,
+    "square_side": 0.32,
+    "line_spacing": 0.17,
+    "follow_spacing": 0.16,
+    "formation_tolerance": 0.035,
+    "follow_path_tolerance": 0.055,
+    "follow_spacing_tolerance": 0.055,
+    "follow_min_leader_travel": 0.3,
+    "hold_seconds": 3.0,
+    "timeout_seconds": 30.0,
+    "max_collisions": 0,
+    "max_wall_violations": 0,
+    "required_success_rate": 0.9,
+    "evaluation_seeds": [
+      10001,
+      10007,
+      10009,
+      10037,
+      10039
+    ],
+    "training_seeds": [
+      11,
+      23,
+      47
+    ],
+    "hidden_size": 32,
+    "sequence_length": 16,
+    "rollout_steps": 128,
+    "ppo_epochs": 3,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_ratio": 0.2,
+    "entropy_weight": 0.005,
+    "reward_error": 2.0,
+    "reward_progress": 5.0,
+    "reward_collision": 2.0,
+    "reward_wall": 2.0,
+    "reward_energy": 0.01,
+    "reward_change": 0.02,
+    "reward_time": 0.01,
+    "obstacles": []
+  },
+  "checkpoint": "runs/v9-operator-probe/checkpoint.pt",
+  "actor_checkpoint_sha256": "9e92fc09b1a1232214c2f843037f715e96de43d09c2bad5ad3c50dd40ea1b7d8",
+  "follower_relabeling": [
+    0,
+    2,
+    1,
+    3,
+    4
+  ],
+  "verified_control_steps": 30,
+  "checks": [
+    "physical trajectories bit equal under follower relabeling",
+    "local observations and mission context bit equal under same permutation",
+    "wheel commands and independent GRU hidden vectors bit equal under same permutation"
+  ],
+  "initial_evaluator_metrics": [
+    {
+      "path_error_m": 0.0,
+      "spacing_error_m": 2.7755575615628914e-17,
+      "chain_order_preserved": true,
+      "max_error_m": 0.0
+    },
+    {
+      "path_error_m": 0.09999999999999998,
+      "spacing_error_m": 0.15999999999999995,
+      "chain_order_preserved": true,
+      "max_error_m": 0.31999999999999995
+    }
+  ],
+  "scope": "A fixed follower-index path/spacing requirement distinguishes physically identical anonymous queues. IR-only actors cannot observe that labeling. This is a task observability limitation, not proof that all four behaviors are impossible. No evaluator, actor inputs, or thresholds changed.",
+  "artifacts": [
+    {
+      "path": "runs/follow-identity-observability/counterexample.npz",
+      "sha256": "4c88932dfecc41a4d633fdbb776cf363b3f9b0cb694d2343d7441c33fc08a3ab"
+    },
+    {
+      "path": "runs/follow-identity-observability/diagnostic.py",
+      "sha256": "09ad49502d1083d578a1ab6b5f577e2d91a5de01d6de7b0b1344fd16de811200"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/baseline.py",
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/cli.py",
+      "sha256": "608c73b8cfdc30020c8f398384ea195439cfa1f5a2310d8e30a97f9020b13e54"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/curriculum.py",
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/env.py",
+      "sha256": "0e85a8c283e8ec0c62d0474b2bfd9c513404f0350caec169b934b35ce59bc30f"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/evaluate.py",
+      "sha256": "5c5d223c2fe5102eb04849663007cd54ec1b10680438158cd19647a0447520bf"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/imitation.py",
+      "sha256": "e647c5c88572eed470eb5bed0a167a1a6a5eacd478e01ef332efc427ad6a47da"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/metrics.py",
+      "sha256": "bc5207e484ae5dcce8edd979e903f55f3ad8a8873fa9052f513f93f67c69efe4"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/policy.py",
+      "sha256": "84b0dcd6933a5c507c5149dccee7169d1360ee50e4275886ca61cd65a91ae9db"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/replay.py",
+      "sha256": "7acc29fc334a40606dd00ac4991b2adc9f4265008d89260808253cb6d04b0acd"
+    },
+    {
+      "path": "runs/follow-identity-observability/source/train.py",
+      "sha256": "79c6fe4ab9b67f838b65d013282178d5e6c1d38e09f31c9dbc09b7e20863dfc4"
+    }
+  ]
+}

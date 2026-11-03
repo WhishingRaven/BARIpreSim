@@ -1,0 +1,51 @@
+..........................................................F............. [ 72%]
+............................                                             [100%]
+=================================== FAILURES ===================================
+_ test_aggregation_loads_legacy_teacher_data_and_keeps_executed_commands_separate _
+
+tmp_path = PosixPath('/private/var/folders/tp/dlq2cm0j3mx5q4cfdxyg87vw0000gn/T/pytest-of-whishingraven/pytest-2/test_aggregation_loads_legacy_0')
+
+    def test_aggregation_loads_legacy_teacher_data_and_keeps_executed_commands_separate(tmp_path):
+        import json
+        config = Config(timeout_seconds=.4)
+        path = collect_teacher(config, 31337, 4, tmp_path/"teacher")
+        data, metadata, _, _ = load_demonstrations(path)
+        legacy = tmp_path/"legacy.npz"
+        metadata["version"] = "bari-teacher-local-v1"
+        np.savez_compressed(legacy, **{k:v for k,v in data.items() if k != "executed_commands"}, metadata=json.dumps(metadata))
+        old, _, _, old_hash = load_demonstrations(legacy)
+        np.testing.assert_array_equal(old["executed_commands"], old["expert_commands"])
+        other = collect_teacher(config, 31338, 4, tmp_path/"other")
+>       result = imitate([legacy, other], 47, 1, tmp_path/"aggregate")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_imitation.py:127: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = [PosixPath('/private/var/folders/tp/dlq2cm0j3mx5q4cfdxyg87vw0000gn/T/pytest-of-whishingraven/pytest-2/test_aggregation...0j3mx5q4cfdxyg87vw0000gn/T/pytest-of-whishingraven/pytest-2/test_aggregation_loads_legacy_0/other/demonstrations.npz')]
+seed = 47, epochs = 1
+output = PosixPath('/private/var/folders/tp/dlq2cm0j3mx5q4cfdxyg87vw0000gn/T/pytest-of-whishingraven/pytest-2/test_aggregation_loads_legacy_0/aggregate')
+
+    def imitate(path, seed, epochs, output):
+        if epochs < 1:
+            raise ValueError("At least one imitation epoch required")
+        paths = [path] if isinstance(path, (str, Path)) else list(path)
+        if not paths:
+            raise ValueError("At least one demonstration dataset required")
+        loaded = [load_demonstrations(item) for item in paths]
+        config = loaded[0][2]
+        hashes = [item[3] for item in loaded]
+        if len(set(hashes)) != len(hashes):
+            raise ValueError("Each demonstration dataset may be aggregated only once")
+        for arrays, metadata, saved, _ in loaded:
+            if metadata["follow_ordering"] != loaded[0][1]["follow_ordering"]:
+>               raise ValueError("Aggregated datasets must preserve following-order semantics")
+E               ValueError: Aggregated datasets must preserve following-order semantics
+
+bari/imitation.py:198: ValueError
+----------------------------- Captured stdout call -----------------------------
+{"dataset": "/private/var/folders/tp/dlq2cm0j3mx5q4cfdxyg87vw0000gn/T/pytest-of-whishingraven/pytest-2/test_aggregation_loads_legacy_0/teacher/demonstrations.npz", "episodes": 4, "timesteps": 4}
+{"dataset": "/private/var/folders/tp/dlq2cm0j3mx5q4cfdxyg87vw0000gn/T/pytest-of-whishingraven/pytest-2/test_aggregation_loads_legacy_0/other/demonstrations.npz", "episodes": 4, "timesteps": 4}
+=========================== short test summary info ============================
+FAILED tests/test_imitation.py::test_aggregation_loads_legacy_teacher_data_and_keeps_executed_commands_separate
+1 failed, 99 passed in 28.84s

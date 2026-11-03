@@ -1,0 +1,39 @@
+{
+  "status": "pass",
+  "scope": "Numerical preservation of historical version-8 and version-9 training across episode resets after the anonymous-order migration",
+  "current_source": {
+    "commit": "uncommitted",
+    "dirty": true,
+    "python_source_sha256": "d2b42bd0f8a52e9bea7c26910958a112cdae61457765f12f3e493e113468865f"
+  },
+  "checkpoints": [
+    {
+      "checkpoint": "runs/train-multiworld-11/checkpoint.pt",
+      "checkpoint_sha256": "54286cc8cb4482a9a5d064aab43c7c8351b33fa6c6209a5c4fb1a10c28612df8",
+      "archived_source": {
+        "commit": "uncommitted",
+        "dirty": true,
+        "python_source_sha256": "fcd8d3538ac0637064db7dddc48e43f748232400517cfe4c01ed33ca871935b5"
+      },
+      "starting_update": 1000,
+      "joint_steps": 1024,
+      "episode_resets_tested": 8,
+      "legacy_fixed_order_preserved_after_resets": true,
+      "checks": "all rollout arrays, optimizer diagnostics/state, actor, critic/PopArt, exploration RNG, world sampling RNG, and complete simulator snapshots are bit exact after removing only the three new semantic metadata fields"
+    },
+    {
+      "checkpoint": "runs/train-radius1m-v9-11/checkpoint.pt",
+      "checkpoint_sha256": "58f292a760ddecb8d42e733a19dd07b83e6442ac90f0c1d77963803bb5cae929",
+      "archived_source": {
+        "commit": "uncommitted",
+        "dirty": true,
+        "python_source_sha256": "c1dc48922215d8912ed75f831577c3a6fb6a38d0799d4683ac6f2bc488615d1a"
+      },
+      "starting_update": 1000,
+      "joint_steps": 1024,
+      "episode_resets_tested": 8,
+      "legacy_fixed_order_preserved_after_resets": true,
+      "checks": "all rollout arrays, optimizer diagnostics/state, actor, critic/PopArt, exploration RNG, world sampling RNG, and complete simulator snapshots are bit exact after removing only the three new semantic metadata fields"
+    }
+  ]
+}

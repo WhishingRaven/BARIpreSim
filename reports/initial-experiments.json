@@ -1,0 +1,628 @@
+{
+  "status": "incomplete; behavioral gates failed; device measurements pending",
+  "runs": {
+    "baseline": {
+      "model": "scripted-privileged",
+      "checkpoint_sha256": null,
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001
+      ],
+      "training_seed": null,
+      "training_updates": null,
+      "action_selection": "deterministic",
+      "summary": {
+        "circle": {
+          "episodes": 1,
+          "success_rate": 1.0,
+          "mean_final_max_error_m": 1.9610777697348507e-07,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": true
+        },
+        "square": {
+          "episodes": 1,
+          "success_rate": 1.0,
+          "mean_final_max_error_m": 2.703582731139067e-05,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": true
+        },
+        "line": {
+          "episodes": 1,
+          "success_rate": 1.0,
+          "mean_final_max_error_m": 0.016110555876931623,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": true
+        },
+        "follow": {
+          "episodes": 1,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.38986013365986016,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": null,
+      "directed_transition_episodes": 12,
+      "directed_transition_successes": 5
+    },
+    "eval-11": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "0865940d438deee7c08fee78b40e5d4e51d792f013c086984fb45c80089345ce",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seed": null,
+      "training_updates": null,
+      "action_selection": "deterministic",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2449501735250037,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.25534604765040486,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.18741546282696608,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5164773268416122,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": null,
+      "directed_transition_episodes": 60,
+      "directed_transition_successes": 0
+    },
+    "eval-23": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "83b8b6c92c1d641076a227298529552c12dacc0ffc4d5847065530a442b38a2c",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seed": null,
+      "training_updates": null,
+      "action_selection": "deterministic",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.14351077224027947,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.23174247035796558,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1506676557652963,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.47052210736363487,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": null,
+      "directed_transition_episodes": 0,
+      "directed_transition_successes": 0
+    },
+    "eval-47": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "58eccdee418a9d9b5fcd3b68201eac7667931af25d10afb069908f2fa7340f1f",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seed": null,
+      "training_updates": null,
+      "action_selection": "deterministic",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2180846078482103,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.22042776906444503,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2972274426151469,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5040879040812444,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": null,
+      "directed_transition_episodes": 0,
+      "directed_transition_successes": 0
+    },
+    "eval-v2-11": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "0b9c0bf0ced600a667605b6ddacb462ebec69bdb2a640a16ab1e0f2c07096931",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seed": 11,
+      "training_updates": 1000,
+      "action_selection": "deterministic",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.19719155530155716,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.19826436692876953,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.15511836607797344,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.47753956433176337,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "1d23556774f93e79c99ee40b1489478338c514171164a4fc43408de62eb37ff4"
+      },
+      "directed_transition_episodes": 60,
+      "directed_transition_successes": 0
+    },
+    "eval-v2-23": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "bd21edf0e69950781c666305f7fd8b17e4d5a881bd45dd91bf4f15448b86e876",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seed": 23,
+      "training_updates": 1000,
+      "action_selection": "deterministic",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1760998409235222,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.13521043254448356,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1547007595061008,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.45670624428329776,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "1d23556774f93e79c99ee40b1489478338c514171164a4fc43408de62eb37ff4"
+      },
+      "directed_transition_episodes": 0,
+      "directed_transition_successes": 0
+    },
+    "eval-v2-47": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "51aadfdcb6ff0136db7022fd770b00254efc8c40f80889cfd3bf1182fe2b65ed",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seed": 47,
+      "training_updates": 1000,
+      "action_selection": "deterministic",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1903569950197702,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1815058419868289,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.15172440606376209,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.4777592810510736,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "1d23556774f93e79c99ee40b1489478338c514171164a4fc43408de62eb37ff4"
+      },
+      "directed_transition_episodes": 0,
+      "directed_transition_successes": 0
+    },
+    "occluded-v2-11": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "0b9c0bf0ced600a667605b6ddacb462ebec69bdb2a640a16ab1e0f2c07096931",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seed": 11,
+      "training_updates": 1000,
+      "action_selection": "deterministic",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2402869653654273,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2084146790934902,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 1.0,
+          "mean_final_max_error_m": 0.051850902897422814,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": true
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5811601403212392,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "1d23556774f93e79c99ee40b1489478338c514171164a4fc43408de62eb37ff4"
+      },
+      "directed_transition_episodes": 60,
+      "directed_transition_successes": 10
+    },
+    "occluded-reset-v2-11": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "0b9c0bf0ced600a667605b6ddacb462ebec69bdb2a640a16ab1e0f2c07096931",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seed": 11,
+      "training_updates": 1000,
+      "action_selection": "deterministic/hidden-reset",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.23969277631751895,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2077776229404412,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 1.0,
+          "mean_final_max_error_m": 0.05972228647529132,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": true
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.579158075734698,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "1d23556774f93e79c99ee40b1489478338c514171164a4fc43408de62eb37ff4"
+      },
+      "directed_transition_episodes": 60,
+      "directed_transition_successes": 10
+    }
+  },
+  "artifacts": [
+    {
+      "path": "runs/baseline/report.json",
+      "bytes": 29410,
+      "sha256": "4b43f0f86519a42575b306ef4596a0a77cb488f936c05d20b2ee76c3c3e30c0b"
+    },
+    {
+      "path": "runs/eval-11/report.json",
+      "bytes": 171518,
+      "sha256": "2bf46d029c22e41b285864653b6a0de54fe819bfb191e34a3b8714cf42752b1d"
+    },
+    {
+      "path": "runs/eval-23/report.json",
+      "bytes": 17031,
+      "sha256": "e0c083cbf1ee4631a09158704d2dd11901f635d85e694d31ab8ee28295e3957b"
+    },
+    {
+      "path": "runs/eval-47/report.json",
+      "bytes": 17043,
+      "sha256": "eb45158238efc607c16768fd6da84a1fcba07a1149dfdccd6fd3a5d2247072ec"
+    },
+    {
+      "path": "runs/eval-v2-11/report.json",
+      "bytes": 950037,
+      "sha256": "bb4016adf9cd7402d703092a0197ed72a1b2cd1e80efcd37941cfb1b76026299"
+    },
+    {
+      "path": "runs/eval-v2-23/report.json",
+      "bytes": 171931,
+      "sha256": "ce7df6d1243a73ee4b159359c8448cb7ff9aa274566d9f1b6790523c2a15998e"
+    },
+    {
+      "path": "runs/eval-v2-47/report.json",
+      "bytes": 200405,
+      "sha256": "a571fb8aafea16131e9bf5f66f31127a8b50412c185b7b5bfefe43f26b725242"
+    },
+    {
+      "path": "runs/occluded-v2-11/report.json",
+      "bytes": 800078,
+      "sha256": "9e355cc46570f284cc798809ea40a60a8fabff0df3df062a3f830cb2079724a2"
+    },
+    {
+      "path": "runs/occluded-reset-v2-11/report.json",
+      "bytes": 429731,
+      "sha256": "ea4f6a5ac32d5050a3af1642ed901bd0cdb7fe8079d5696760a8b174931c3cbb"
+    },
+    {
+      "path": "runs/train-11/checkpoint.pt",
+      "bytes": 182718,
+      "sha256": "0865940d438deee7c08fee78b40e5d4e51d792f013c086984fb45c80089345ce"
+    },
+    {
+      "path": "runs/train-11/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-11/training.jsonl",
+      "bytes": 21976,
+      "sha256": "708ea280392388a6896a040dd83b50519cf1460a757bd46f325f68923a1cf016"
+    },
+    {
+      "path": "runs/train-v2-11/checkpoint.pt",
+      "bytes": 182846,
+      "sha256": "0b9c0bf0ced600a667605b6ddacb462ebec69bdb2a640a16ab1e0f2c07096931"
+    },
+    {
+      "path": "runs/train-v2-11/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v2-11/training.jsonl",
+      "bytes": 273042,
+      "sha256": "761a984b9adf98e7c49fb03bb3b69ca704ce1f424ad3a8da44df9f9be8daaba5"
+    },
+    {
+      "path": "runs/train-v2-11/revision.json",
+      "bytes": 134,
+      "sha256": "2c965f45cc6430e46277fedac118cdfaee55d3ec97c62c075203e09c590131b5"
+    },
+    {
+      "path": "runs/train-23/checkpoint.pt",
+      "bytes": 182718,
+      "sha256": "83b8b6c92c1d641076a227298529552c12dacc0ffc4d5847065530a442b38a2c"
+    },
+    {
+      "path": "runs/train-23/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-23/training.jsonl",
+      "bytes": 22020,
+      "sha256": "d73ffd8678fda1a3080c680cf15b637d7c195ba58ede80ebfe30cf8d62999e0e"
+    },
+    {
+      "path": "runs/train-v2-23/checkpoint.pt",
+      "bytes": 182846,
+      "sha256": "bd21edf0e69950781c666305f7fd8b17e4d5a881bd45dd91bf4f15448b86e876"
+    },
+    {
+      "path": "runs/train-v2-23/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v2-23/training.jsonl",
+      "bytes": 271339,
+      "sha256": "4e64d8087bc940ee1ec62cac7d21607ac9231e629fc710b051f3d9a3bd48822d"
+    },
+    {
+      "path": "runs/train-v2-23/revision.json",
+      "bytes": 134,
+      "sha256": "2c965f45cc6430e46277fedac118cdfaee55d3ec97c62c075203e09c590131b5"
+    },
+    {
+      "path": "runs/train-47/checkpoint.pt",
+      "bytes": 182718,
+      "sha256": "58eccdee418a9d9b5fcd3b68201eac7667931af25d10afb069908f2fa7340f1f"
+    },
+    {
+      "path": "runs/train-47/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-47/training.jsonl",
+      "bytes": 21892,
+      "sha256": "125063a824e170af648a6a5733edd4a6d5ced36f9ed9f59ea5419b7f779732a6"
+    },
+    {
+      "path": "runs/train-v2-47/checkpoint.pt",
+      "bytes": 182846,
+      "sha256": "51aadfdcb6ff0136db7022fd770b00254efc8c40f80889cfd3bf1182fe2b65ed"
+    },
+    {
+      "path": "runs/train-v2-47/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v2-47/training.jsonl",
+      "bytes": 271482,
+      "sha256": "6a768af6d2d44f9c129a6afc2d50c31ad29e2f7fa60ef5ebe4589b36529e40e6"
+    },
+    {
+      "path": "runs/train-v2-47/revision.json",
+      "bytes": 134,
+      "sha256": "2c965f45cc6430e46277fedac118cdfaee55d3ec97c62c075203e09c590131b5"
+    },
+    {
+      "path": "runs/eval-v2-11/continuous-10001.npz",
+      "bytes": 131001,
+      "sha256": "89da0f16a297d4ba689718c8518995f0fba22199cc7a01db88258a82fd9d3aba"
+    },
+    {
+      "path": "firmware/main/export_data/actor.hpp",
+      "bytes": 122535,
+      "sha256": "76c87ed11b088299c38880af6613463cfc4c1def8576446a98e20b5d5639a67a"
+    },
+    {
+      "path": "firmware/main/export_data/host_report.json",
+      "bytes": 1097,
+      "sha256": "bd024a996751ef96ef383e50f9aea74ff58d4c7007b925a02b8bbcac884081e6"
+    },
+    {
+      "path": "output/continuous-v2-11.gif",
+      "bytes": 3557277,
+      "sha256": "b52de8fa6a0729ab59c06f65593114018db8787a6903a37003b4403291a67cdf",
+      "frames": 61,
+      "fps": 4,
+      "stride": 5
+    }
+  ]
+}

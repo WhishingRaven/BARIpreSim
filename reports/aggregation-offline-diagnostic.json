@@ -1,0 +1,42 @@
+{
+  "scope": "Teacher-forced training-data diagnostic; not closed-loop behavioral acceptance",
+  "datasets": [
+    {
+      "sha256": "ea76bdc5b2615bd51309bdc51f944c4a67184e8d375a09f3583bd2ac54c0fcc0",
+      "execution": "teacher-closed-loop"
+    },
+    {
+      "sha256": "280a9f504a00f489f626cb5fc7da16f55e218f51630eefc12a848d2097e5698e",
+      "execution": "student-closed-loop"
+    }
+  ],
+  "actors": [
+    {
+      "seed": 11,
+      "checkpoint_sha256": "7ac9b489ee4a20ae2fe69d1399751ff53ca06abffad3ad4e260139515d75ead7",
+      "dataset_wheel_mse": [
+        0.03252897974016738,
+        0.2637397081095729
+      ],
+      "aggregate_wheel_mse": 0.14813434392487015
+    },
+    {
+      "seed": 23,
+      "checkpoint_sha256": "6ae2d523f4bf31a2435a60ce659016cbfa0f3e8551967fe899c46ef8eabdf57c",
+      "dataset_wheel_mse": [
+        0.042292853029638165,
+        0.29742250088724675
+      ],
+      "aggregate_wheel_mse": 0.16985767695844245
+    },
+    {
+      "seed": 47,
+      "checkpoint_sha256": "cca89d9b43b0b701ef225743c804092b7bd5530344b0206e698583eeb213df36",
+      "dataset_wheel_mse": [
+        0.0478458882474882,
+        0.2822449285938308
+      ],
+      "aggregate_wheel_mse": 0.1650454084206595
+    }
+  ]
+}

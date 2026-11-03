@@ -1,0 +1,30 @@
+........................................................................ [ 77%]
+....F................                                                    [100%]
+=================================== FAILURES ===================================
+_ test_exact_repeated_path_keeps_continuous_progress_without_hiding_a_swapped_chain _
+
+    def test_exact_repeated_path_keeps_continuous_progress_without_hiding_a_swapped_chain():
+        # Constant-wheel scripted fixture, not evidence of learned following.
+        config = Config()
+        radius, lap_steps = .19, 150
+        angle = -np.arange(5)*config.follow_spacing/radius
+        poses = np.column_stack((radius*np.cos(angle), radius*np.sin(angle), angle+np.pi/2))
+        env = Environment(config)
+        env.reset(task="follow", poses=poses)
+        omega = 2*np.pi/(lap_steps*config.control_dt)
+        speeds = np.array([radius*omega-omega*config.wheel_separation/2,
+                           radius*omega+omega*config.wheel_separation/2])
+        commands = np.tile(speeds/config.max_wheel_speed, (5, 1))
+        assert np.abs(commands).max() < 1
+        env.wheels[:] = speeds  # Valid moving initial state; keep the circle exact.
+        for step in range(1, 2*lap_steps+1):
+            env.step(commands)
+            assert env.valid_poses(env.poses)
+>           assert env.tracker.latest["spacing_error_m"] < config.follow_spacing_tolerance
+E           assert 0.16 < 0.055
+E            +  where 0.055 = Config(robots=5, arena_radius=1.0, body_radius=0.069, wheel_radius=0.022, wheel_separation=0.082, max_wheel_speed=0.1,...ess=5.0, reward_collision=2.0, reward_wall=2.0, reward_energy=0.01, reward_change=0.02, reward_time=0.01, obstacles=[]).follow_spacing_tolerance
+
+tests/test_metrics.py:110: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_metrics.py::test_exact_repeated_path_keeps_continuous_progress_without_hiding_a_swapped_chain
+1 failed, 92 passed in 26.95s

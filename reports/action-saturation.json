@@ -1,0 +1,50 @@
+[
+  {
+    "version": "v3",
+    "seed": 11,
+    "checkpoint_sha256": "a2d4310f83434ea3f9ec7332dd0ec470a87a20a94322da5adec1caa1d25fedca",
+    "saturated_wheel_fraction": 0.151,
+    "mean_translation_command": 0.24452249705791473,
+    "mean_turn_command": 1.343410849571228
+  },
+  {
+    "version": "v3",
+    "seed": 23,
+    "checkpoint_sha256": "f6f3ab2aa36616d886da352058a3f67e2caa9fbda9dc63bf3784d3eb48bb3a52",
+    "saturated_wheel_fraction": 0.984,
+    "mean_translation_command": 0.005431458353996277,
+    "mean_turn_command": -1.9832592010498047
+  },
+  {
+    "version": "v3",
+    "seed": 47,
+    "checkpoint_sha256": "7d1aa98b28b48f2acf4954ac3ae27fc559b80a16f3ae2bde131280b9e9f00c12",
+    "saturated_wheel_fraction": 1.0,
+    "mean_translation_command": -0.0005532538634724915,
+    "mean_turn_command": 1.9976149797439575
+  },
+  {
+    "version": "v4",
+    "seed": 11,
+    "checkpoint_sha256": "1fe702572d65d57735c7843275135756055a046e149176a0185c9381339e74dd",
+    "saturated_wheel_fraction": 0.0,
+    "mean_translation_command": 0.09677347540855408,
+    "mean_turn_command": -0.8258658647537231
+  },
+  {
+    "version": "v4",
+    "seed": 23,
+    "checkpoint_sha256": "6c06cbfc06be8a362ef3ad5c24c860ed9da5afd0037bbf915d5a983e0b619bab",
+    "saturated_wheel_fraction": 0.0,
+    "mean_translation_command": -0.05921000614762306,
+    "mean_turn_command": 0.3143465518951416
+  },
+  {
+    "version": "v4",
+    "seed": 47,
+    "checkpoint_sha256": "2dc84d1f5e0a2a8dd241c32c55234179ca3a3c4e642f446b8dbe2e40d5971d8c",
+    "saturated_wheel_fraction": 0.0,
+    "mean_translation_command": -0.25705865025520325,
+    "mean_turn_command": -0.22878576815128326
+  }
+]

@@ -1,0 +1,5 @@
+if(NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/export_data/actor.hpp")
+    message(FATAL_ERROR "Export actor first: python -m bari export --checkpoint PATH --output firmware/main/export_data")
+endif()
+idf_component_register(SRCS "benchmark.cpp" INCLUDE_DIRS "export_data" REQUIRES esp_timer esp_hw_support)
+target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_17)

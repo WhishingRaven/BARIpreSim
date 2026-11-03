@@ -1,0 +1,44 @@
+{
+  "validation-warm": {
+    "formation_episodes": 45,
+    "ever_in_tolerance": 0,
+    "contact_free": 32,
+    "mean_minimum_error": 0.14293837851752744,
+    "max_hold": 0.0,
+    "by_task": {
+      "circle": {
+        "mean_minimum_error": 0.12486127980330476,
+        "ever_in_tolerance": 0
+      },
+      "square": {
+        "mean_minimum_error": 0.11984830369867042,
+        "ever_in_tolerance": 0
+      },
+      "line": {
+        "mean_minimum_error": 0.18410555205060702,
+        "ever_in_tolerance": 0
+      }
+    }
+  },
+  "validation-aggregate": {
+    "formation_episodes": 45,
+    "ever_in_tolerance": 0,
+    "contact_free": 11,
+    "mean_minimum_error": 0.11775147465938489,
+    "max_hold": 0.0,
+    "by_task": {
+      "circle": {
+        "mean_minimum_error": 0.10429909946820312,
+        "ever_in_tolerance": 0
+      },
+      "square": {
+        "mean_minimum_error": 0.08964185708893387,
+        "ever_in_tolerance": 0
+      },
+      "line": {
+        "mean_minimum_error": 0.15931346742101776,
+        "ever_in_tolerance": 0
+      }
+    }
+  }
+}

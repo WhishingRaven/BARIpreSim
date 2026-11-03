@@ -1,0 +1,171 @@
+{
+  "status": "digital print artifacts verified; physical construction unverified",
+  "observed_utc": "2026-11-03T03:56:40.438874+00:00",
+  "nominal_radius_mm": 500,
+  "nominal_inner_diameter_mm": 1000,
+  "outputs": [
+    {
+      "path": "output/pdf/arena-radius-0.5m/bari-arena-full-size.pdf",
+      "pages": 1,
+      "bytes": 3392,
+      "sha256": "f40d88faa3842b920cf64c245267ec26fd8d3f5813ac8ab3015f8ab078ba9753"
+    },
+    {
+      "path": "output/pdf/arena-radius-0.5m/bari-arena-a4-tiles.pdf",
+      "pages": 25,
+      "bytes": 190870,
+      "sha256": "324912d9c0af364e6a16bf2959d997ff35867d4ca4af969d88d0c5c8c9f0900a"
+    }
+  ],
+  "generator": {
+    "path": "output/pdf/arena-radius-0.5m/arena_template.py",
+    "bytes": 10824,
+    "sha256": "74c556079f2cbd44516c731be4393c14810d5b8bc804eaed2f74928de3d8f345"
+  },
+  "runtime_versions": {
+    "python": "3.14.8",
+    "reportlab": "5.1.0",
+    "pypdf": "6.21.4"
+  },
+  "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+  "checks": {
+    "full_sheet_mm": [
+      1100,
+      1100
+    ],
+    "a4_page_mm": [
+      210,
+      297
+    ],
+    "a4_total_pages": 25,
+    "guide_pages": 1,
+    "tiles": 24,
+    "tile_grid": [
+      6,
+      4
+    ],
+    "overlap_mm": 10,
+    "unscaled_pdf_transforms": true,
+    "viewer_print_scaling": "None",
+    "user_unit": 1,
+    "every_page_has_100_mm_ruler": true,
+    "actual_boundary_bezier_radius_error_below_mm": 0.001,
+    "actual_tile_translations_match_manifest": true,
+    "complete_boundary_coverage": true,
+    "physical_measurement_claim": false
+  },
+  "visual_review": {
+    "renderer": "Poppler",
+    "a4_dpi": 120,
+    "full_sheet_dpi": 60,
+    "all_pages_rendered": true,
+    "all_geometry_and_text_composites_inspected": true,
+    "unresolved_layout_defects": [],
+    "evidence": [
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/assembly-guide.png",
+        "bytes": 111813,
+        "sha256": "8257f1013ccc667f020f1876cc2a0307e09764d4fc120df67d43582497a16449"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/full-sheet.png",
+        "bytes": 118954,
+        "sha256": "ec344b4d057edc61a64a7bc201e59b1289b7f48c1e2213eaa227680ebb8fd90f"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/render-manifest.json",
+        "bytes": 588,
+        "sha256": "0fe7fcc133237d7f6cec188da28dd95c91669e115a50b4c2e4115cdee09598ca"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/text-02-07.png",
+        "bytes": 95225,
+        "sha256": "484aee9c6da933b917acde7aaa1163dfc8d97f1fa8dda73093f902ba743a1d2f"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/text-08-13.png",
+        "bytes": 93602,
+        "sha256": "c1f1405ceec8d06e9663652293d2ee435ae993e152ceb570a0b7206170bc543b"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/text-14-19.png",
+        "bytes": 93833,
+        "sha256": "ddd27f36e01173f650692c9874e01af33648f1ea9e9716ea04ccb147bf640fd0"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/text-20-25.png",
+        "bytes": 94078,
+        "sha256": "e9d2455033083724acf50ff24fd901fd66ae51e09aea74017ab98933570e2ecd"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/tiles-02-07.png",
+        "bytes": 90097,
+        "sha256": "301e6a2915f849e278384d4e78123929eb422d7bdbb205add60464805bb42e85"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/tiles-08-13.png",
+        "bytes": 79732,
+        "sha256": "f7928cd852d0dce9c3949bb9cd63678a06316a22f191e2e4c763c85882ea5b29"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/tiles-14-19.png",
+        "bytes": 79649,
+        "sha256": "6577612b7f31f8c63918fc0754c3f22588ce5096a274cd3050b5e200fc351acd"
+      },
+      {
+        "path": "output/pdf/arena-radius-0.5m/qa/tiles-20-25.png",
+        "bytes": 89714,
+        "sha256": "87db003729a1f868273938830131d2be26a2c50bb56fc647ac9d8e41702b6999"
+      }
+    ]
+  },
+  "verification": {
+    "result": "85 passed in 12.24s",
+    "runtime_warnings": "errors",
+    "output": {
+      "path": "reports/verification-arena-template.txt",
+      "bytes": 180,
+      "sha256": "b8fffd2a80f59dbeb513e1ca719b7791fd7a79b2611c4454d0b4357e5f4f27ce"
+    },
+    "dependency_check": "No broken requirements found."
+  },
+  "physical_measurements": {
+    "diameter_x_mm": null,
+    "diameter_y_mm": null,
+    "wall_height_mm": null,
+    "wall_material": null,
+    "ir_response": null
+  },
+  "pending": [
+    "actual print ruler measurement",
+    "assembled horizontal and vertical diameter measurements",
+    "wall material, height, thickness and IR response",
+    "boundary sensing and stopping",
+    "robot sensor and motor calibration"
+  ],
+  "artifacts": [
+    {
+      "path": "output/pdf/arena-radius-0.5m/arena-template-manifest.json",
+      "bytes": 9123,
+      "sha256": "25a7fcd0066f49e5ccaf6ff47d5f81abd7355019cc05e6b37d919fdaca85bff2"
+    },
+    {
+      "path": "output/pdf/arena-radius-0.5m/arena.template.json",
+      "bytes": 598,
+      "sha256": "48f5903a2df5d96f46a944052067fd0b303ce1c04385397629f5b7a5dfd085ac"
+    },
+    {
+      "path": "output/pdf/arena-radius-0.5m/test_arena_template.py",
+      "bytes": 3444,
+      "sha256": "c2c30cd8ef878e63ee1b1a9bb880607d954f023925be694c1df80a480bab5f81"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 535,
+      "sha256": "2d135b4ee89cc7fcd2e820e5085811b0f2b84e4c7df68fb0f10b675792e3bebf"
+    }
+  ],
+  "superseded_by": "User requested arena radius 1 m; this record applies only to the previous radius 0.5 m.",
+  "historical_manifest_paths": "Captured manifest contents retain original creation paths; matching archived files are retained byte for byte.",
+  "recovered_physical_record_template": "Original blank 0.5 m template recovered by reversing the two nominal-dimension edits; bytes match its previously recorded SHA-256. No measured values were added."
+}

@@ -1,0 +1,19 @@
+{
+  "verification_status": "digital template prepared; physical printing, assembly and sensing unverified",
+  "nominal_inner_diameter_mm": 2000,
+  "nominal_radius_mm": 1000,
+  "template_sha256": null,
+  "printer_model": null,
+  "paper_format": null,
+  "print_scale_percent": null,
+  "measured_test_ruler_mm": null,
+  "measured_inner_diameter_x_mm": null,
+  "measured_inner_diameter_y_mm": null,
+  "wall_height_mm": null,
+  "wall_thickness_mm": null,
+  "wall_material": null,
+  "wall_ir_response": null,
+  "boundary_sensing_and_stopping_verified": null,
+  "measurement_date": null,
+  "notes": null
+}

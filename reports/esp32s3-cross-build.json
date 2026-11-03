@@ -1,0 +1,109 @@
+{
+  "status": "cross-compiled only; not executed on a device",
+  "target": "ESP32-S3",
+  "internal_sram_capacity_bytes": 524288,
+  "psram_permitted": false,
+  "psram_enabled_in_build": false,
+  "esp_idf": "v5.5.1",
+  "esp_idf_commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+  "compiler": "xtensa-esp-elf-g++ (crosstool-NG esp-14.2.0_20241119) 14.2.0",
+  "cmake": "3.30.2",
+  "ninja": "1.12.1",
+  "configured_cpu_mhz": 240,
+  "assumed_flash_bytes": 2097152,
+  "flash_capacity_on_actual_board": null,
+  "assumed_control_period_ms": 100,
+  "physical_control_period_ms": null,
+  "model_checkpoint": "runs/train-v2-11/checkpoint.pt",
+  "model_evidence": "training-unvalidated",
+  "linked_sizes": {
+    "dram_data": 0,
+    "dram_bss": 0,
+    "dram_rodata": 0,
+    "dram_other": 0,
+    "used_dram": 0,
+    "dram_total": 0,
+    "used_dram_ratio": 0,
+    "dram_remain": 0,
+    "iram_vectors": 1028,
+    "iram_text": 15356,
+    "iram_other": 0,
+    "used_iram": 16384,
+    "iram_total": 16384,
+    "used_iram_ratio": 1.0,
+    "iram_remain": 0,
+    "diram_data": 11248,
+    "diram_bss": 17752,
+    "diram_text": 42131,
+    "diram_vectors": 0,
+    "diram_rodata": 0,
+    "diram_other": 0,
+    "diram_total": 341760,
+    "used_diram": 71131,
+    "used_diram_ratio": 0.2081314372659176,
+    "diram_remain": 270629,
+    "flash_code": 101850,
+    "flash_rodata": 88096,
+    "flash_other": 256,
+    "used_flash_non_ram": 190202,
+    "total_size": 259965
+  },
+  "device_peak_ram_bytes": null,
+  "device_inference_latency_ms": null,
+  "complete_firmware_deadline_compliance": null,
+  "instrumentation_static_latency_array_bytes": 15360,
+  "limitations": [
+    "No target board connected",
+    "No sensor/motor drivers or communications runtime included",
+    "Linker static allocation is not peak firmware RAM",
+    "Flash capacity and physical deadline are not yet fixed",
+    "Golden fixtures and latency sample array add benchmark overhead"
+  ],
+  "artifacts": [
+    {
+      "path": "firmware/build/bari_actor_benchmark.bin",
+      "bytes": 260112,
+      "sha256": "99ad950de9bf5b4ab29e8d4e2c0fa06680025fe9839b8ff5c41ffeff312c4e10"
+    },
+    {
+      "path": "firmware/build/bari_actor_benchmark.elf",
+      "bytes": 3833252,
+      "sha256": "2583c0a874f84276917c8fa4ee0b5d0205d261d881938d3bb13545e065d8588f"
+    },
+    {
+      "path": "firmware/build/bari_actor_benchmark.map",
+      "bytes": 3097580,
+      "sha256": "c5199d9a143525f56f0b98cec8596a0eb2428989d43a7f84adf209f07760093f"
+    },
+    {
+      "path": "firmware/main/benchmark.cpp",
+      "bytes": 4388,
+      "sha256": "6abe46e8b3e3d8ce1ab3c0ac2e5b605473576accdcba3bcfd6040a4702521d59"
+    },
+    {
+      "path": "firmware/main/export_data/actor.hpp",
+      "bytes": 122535,
+      "sha256": "76c87ed11b088299c38880af6613463cfc4c1def8576446a98e20b5d5639a67a"
+    },
+    {
+      "path": "firmware/main/export_data/golden_fixture.hpp",
+      "bytes": 75652,
+      "sha256": "c1e19119fb6303eb6b5ddb33f75fe46ab432a23f106dda43e80299962de72c2e"
+    },
+    {
+      "path": "firmware/main/export_data/contract.json",
+      "bytes": 1377,
+      "sha256": "5762ffdc9ee7d92006e7d603241e1ccb7ddb0149ed5fd797045eb0a476838748"
+    },
+    {
+      "path": "firmware/main/export_data/host_report.json",
+      "bytes": 1097,
+      "sha256": "bd024a996751ef96ef383e50f9aea74ff58d4c7007b925a02b8bbcac884081e6"
+    },
+    {
+      "path": "reports/esp32s3-sdkconfig.txt",
+      "bytes": 73024,
+      "sha256": "d49ea4e1bc059f004757e09e3b6da3d61c8ec5f4570a7b210af792a16aedd732"
+    }
+  ]
+}

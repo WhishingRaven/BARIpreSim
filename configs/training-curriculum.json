@@ -1,0 +1,11 @@
+{
+  "version": "bari-training-plan-v1",
+  "isolated_episode_probability": 0.5,
+  "switch_min_seconds": 3.0,
+  "switch_max_seconds": 15.0,
+  "curriculum_updates": 2000,
+  "curriculum_start_probability": 0.8,
+  "position_jitter_start_m": 0.015,
+  "position_jitter_end_m": 0.16,
+  "reserved_seeds": [2001, 2003, 2011, 2017, 2027, 10001, 10007, 10009, 10037, 10039]
+}

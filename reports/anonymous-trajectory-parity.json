@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "scope": "Changing evaluator/reward task semantics does not change deterministic learned-actor commands or physics in evaluation. Anonymous ranks and fitted targets do not leak into the actor.",
+  "checked_arrays": [
+    "time",
+    "poses",
+    "wheels",
+    "commands",
+    "observation",
+    "task",
+    "collisions",
+    "wall_violations",
+    "visible",
+    "contacts",
+    "blocked_robot_beams"
+  ],
+  "episodes": 170,
+  "results": [
+    {
+      "version": "v8",
+      "checkpoint_sha256": "9cca4b357b79ab30c844a7607386baf18c33d6f7e56135d98b49f1512d73bfce",
+      "episodes_bit_exact": 85,
+      "fixed_evaluator": "bari-evaluation-v4-trailing-path",
+      "anonymous_evaluator": "bari-evaluation-v5-anonymous-order",
+      "anonymous_report": "runs/validation-radius1m-v8-anonymous-11/report.json",
+      "anonymous_isolated_successes": 0,
+      "anonymous_transition_successes": 0
+    },
+    {
+      "version": "v9",
+      "checkpoint_sha256": "58f292a760ddecb8d42e733a19dd07b83e6442ac90f0c1d77963803bb5cae929",
+      "episodes_bit_exact": 85,
+      "fixed_evaluator": "bari-evaluation-v4-trailing-path",
+      "anonymous_evaluator": "bari-evaluation-v5-anonymous-order",
+      "anonymous_report": "runs/validation-radius1m-v9-anonymous-11/report.json",
+      "anonymous_isolated_successes": 0,
+      "anonymous_transition_successes": 0
+    }
+  ]
+}

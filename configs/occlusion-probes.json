@@ -1,0 +1,23 @@
+{
+  "version": "bari-natural-occlusion-probe-v1",
+  "purpose": "Scripted sensor/physics verification, not learned task evaluation",
+  "duration_s": 6.0,
+  "observer": 0,
+  "beam": 0,
+  "target": 2,
+  "blocker": 1,
+  "forward_command": 0.1,
+  "blocker_turn_start_s": 2.0,
+  "blocker_turn_end_s": 3.2,
+  "blocker_turn_command": [-0.6, 0.6],
+  "blocker_depart_command": [0.5, 0.5],
+  "initial_poses": [[-0.28, 0, 0], [-0.10, 0, 0], [0.08, 0, 0], [0.23, 0.23, 3.141592653589793], [-0.25, -0.22, 0]],
+  "baseline_blocker_y_m": 0.18,
+  "expected_occlusion": {
+    "baseline": {"onset_s": null, "end_s": null},
+    "persistent": {"onset_s": 0.0, "end_s": null},
+    "transient": {"onset_s": 0.0, "end_s": 4.9}
+  },
+  "timing_tolerance_s": 0.1,
+  "calibration": "Provisional nominal geometry and wheel limits; physical exit calibrated before policy comparison. Not a physical robot measurement."
+}

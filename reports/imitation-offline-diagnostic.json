@@ -1,0 +1,23 @@
+{
+  "scope": "Teacher-forced training-data diagnostics, not closed-loop behavior or held-out evidence",
+  "dataset_sha256": "ea76bdc5b2615bd51309bdc51f944c4a67184e8d375a09f3583bd2ac54c0fcc0",
+  "zero_command_mse": 0.2052013874053955,
+  "previous_command_copy_mse": 0.011910662055015564,
+  "actors": [
+    {
+      "seed": 11,
+      "checkpoint_sha256": "ad126517d3c35af5e408d398024d611b69d02814e902a27c88bcacf0aa3c4440",
+      "teacher_forced_wheel_mse": 0.012785600498318672
+    },
+    {
+      "seed": 23,
+      "checkpoint_sha256": "b7473df6b5ef17d1b659bd1dc11297657a3d2480ce75ac4c817ed1f5c3e361b8",
+      "teacher_forced_wheel_mse": 0.01275941077619791
+    },
+    {
+      "seed": 47,
+      "checkpoint_sha256": "de1ebbb978adcf5f319924459df76db2ec2fda77e7e936627f7d0de01cf34ef5",
+      "teacher_forced_wheel_mse": 0.013082494027912617
+    }
+  ]
+}

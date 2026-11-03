@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "scope": "Version-8 archived source versus current source after adding optional version 9",
+  "checkpoint": "runs/train-multiworld-11/checkpoint.pt",
+  "checkpoint_sha256": "54286cc8cb4482a9a5d064aab43c7c8351b33fa6c6209a5c4fb1a10c28612df8",
+  "starting_update": 1000,
+  "resulting_update": 1001,
+  "archived_source": {
+    "commit": "uncommitted",
+    "dirty": true,
+    "python_source_sha256": "fcd8d3538ac0637064db7dddc48e43f748232400517cfe4c01ed33ca871935b5"
+  },
+  "current_source": {
+    "commit": "uncommitted",
+    "dirty": true,
+    "python_source_sha256": "c1dc48922215d8912ed75f831577c3a6fb6a38d0799d4683ac6f2bc488615d1a"
+  },
+  "checks": [
+    "all 1024 next-rollout arrays bit exact",
+    "optimizer diagnostics equal",
+    "actor and critic/PopArt state bit exact",
+    "optimizer state bit exact",
+    "exploration RNG bit exact"
+  ],
+  "new_version": "bari-mappo-autoregressive-v9",
+  "default_version": "bari-mappo-popart-v7",
+  "legacy_configuration_hashes": "unchanged"
+}

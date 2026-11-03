@@ -1,0 +1,58 @@
+{
+  "method": "One update on identical ordered rollout data and original Adam state; temporary in-memory v5-to-v6 update comparison, not an exact v5 continuation or evidence of behavioral convergence. Actor inputs, rewards, critic, clipping and epoch count unchanged.",
+  "source_revision": {
+    "commit": "HEAD",
+    "dirty": true,
+    "python_source_sha256": "c654dc606beeb107f8d2a3873c8988db5e64a228f5db4e75e8f49cc932dfde3e"
+  },
+  "rows": [
+    {
+      "seed": 11,
+      "checkpoint_sha256": "5f67307fcce15e104c568a1439e52e6d4f8d33384cd1dcc845ccbc78aba031a2",
+      "source_checkpoint_updates": 10000,
+      "samples": 612,
+      "v5": {
+        "optimizer_steps": 24,
+        "post_update_approximate_kl": 0.03748339042067528,
+        "post_update_clip_fraction": 0.25163398692810457
+      },
+      "v6": {
+        "optimizer_steps": 3,
+        "post_update_approximate_kl": 0.0033199507743120193,
+        "post_update_clip_fraction": 0.01797385700047016
+      }
+    },
+    {
+      "seed": 23,
+      "checkpoint_sha256": "9e61f691561c2dc173d3d024d09eed91b99a8430801cf416d9b4117fd6ad4e20",
+      "source_checkpoint_updates": 10000,
+      "samples": 564,
+      "v5": {
+        "optimizer_steps": 24,
+        "post_update_approximate_kl": 0.015229370445013046,
+        "post_update_clip_fraction": 0.20390070921985815
+      },
+      "v6": {
+        "optimizer_steps": 3,
+        "post_update_approximate_kl": 0.0026466932613402605,
+        "post_update_clip_fraction": 0.028368793427944183
+      }
+    },
+    {
+      "seed": 47,
+      "checkpoint_sha256": "6017dafb75a37ee8963fedc323062c41f8823ef68dec9bcee6581ac796cd0311",
+      "source_checkpoint_updates": 10000,
+      "samples": 640,
+      "v5": {
+        "optimizer_steps": 24,
+        "post_update_approximate_kl": 0.00788258295506239,
+        "post_update_clip_fraction": 0.1046875
+      },
+      "v6": {
+        "optimizer_steps": 3,
+        "post_update_approximate_kl": 0.0014508600579574704,
+        "post_update_clip_fraction": 0.0015625000232830644
+      }
+    }
+  ]
+}

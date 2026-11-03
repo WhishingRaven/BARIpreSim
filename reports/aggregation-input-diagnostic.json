@@ -1,0 +1,41 @@
+{
+  "scope": "training-data diagnostic; no behavior acceptance",
+  "teacher_dataset_sha256": "ea76bdc5b2615bd51309bdc51f944c4a67184e8d375a09f3583bd2ac54c0fcc0",
+  "student_dataset_sha256": "280a9f504a00f489f626cb5fc7da16f55e218f51630eefc12a848d2097e5698e",
+  "paired_initial_states_and_switch_requests": true,
+  "student": {
+    "path": "runs/imitate-11/checkpoint.pt",
+    "sha256": "ad126517d3c35af5e408d398024d611b69d02814e902a27c88bcacf0aa3c4440",
+    "evidence": "imitation-only",
+    "training_version": "bari-imitation-v1",
+    "action_selection": "deterministic mean",
+    "teacher_intervention_probability": 0.0,
+    "follow_leader": "scripted mission infrastructure; excluded from actor training"
+  },
+  "datasets": [
+    {
+      "kind": "teacher",
+      "shape": [
+        64,
+        300,
+        5,
+        9
+      ],
+      "zero_wheel_mse": 0.2052013874053955,
+      "previous_command_copy_mse": 0.011910662055015564,
+      "executed_vs_teacher_wheel_mse": 0.0
+    },
+    {
+      "kind": "student",
+      "shape": [
+        64,
+        300,
+        5,
+        9
+      ],
+      "zero_wheel_mse": 0.39460405707359314,
+      "previous_command_copy_mse": 0.6150700449943542,
+      "executed_vs_teacher_wheel_mse": 0.6156736016273499
+    }
+  ]
+}

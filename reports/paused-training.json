@@ -1,0 +1,38 @@
+{
+  "status": "paused at user request; no completed behavioral claim",
+  "observed_utc": "2026-11-03T04:07:40.610612+00:00",
+  "current_default_arena_radius_m": 1.0,
+  "note": "Retained trials use historical radius 0.5 m; do not mix their results with the new arena.",
+  "trials": [
+    {
+      "pid": 52028,
+      "path": "runs/train-multiworld-long-23",
+      "checkpoint": "runs/train-multiworld-long-23/checkpoint.pt",
+      "checkpoint_sha256_at_pause": "2e16c34114a90e9d251dd7ca1cb8157109436696c05258cac5c8d0e4d91e2c55",
+      "updates_at_pause": 1721,
+      "arena_radius_m": 0.5,
+      "resume_command": "python -m bari train --checkpoint runs/train-multiworld-long-23/checkpoint.pt --updates 3279 --output runs/train-multiworld-long-23-resumed",
+      "status": "stopped; last complete atomic checkpoint verified"
+    },
+    {
+      "pid": 52030,
+      "path": "runs/train-multiworld-long-11",
+      "checkpoint": "runs/train-multiworld-long-11/checkpoint.pt",
+      "checkpoint_sha256_at_pause": "6acad61eaf7c880e6546380e36609c32355af282117da9f09d4a7f3c8f461a98",
+      "updates_at_pause": 1722,
+      "arena_radius_m": 0.5,
+      "resume_command": "python -m bari train --checkpoint runs/train-multiworld-long-11/checkpoint.pt --updates 3278 --output runs/train-multiworld-long-11-resumed",
+      "status": "stopped; last complete atomic checkpoint verified"
+    },
+    {
+      "pid": 52031,
+      "path": "runs/train-multiworld-long-47",
+      "checkpoint": "runs/train-multiworld-long-47/checkpoint.pt",
+      "checkpoint_sha256_at_pause": "ab324d965b56ee39daa24f654aef9aa8e24757722d5fbe961ef06944b3a3cf7e",
+      "updates_at_pause": 1723,
+      "arena_radius_m": 0.5,
+      "resume_command": "python -m bari train --checkpoint runs/train-multiworld-long-47/checkpoint.pt --updates 3277 --output runs/train-multiworld-long-47-resumed",
+      "status": "stopped; last complete atomic checkpoint verified"
+    }
+  ]
+}

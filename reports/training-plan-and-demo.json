@@ -1,0 +1,886 @@
+{
+  "status": "incomplete; acquisition still fails; physical measurements pending",
+  "experiments": {
+    "validation-v4-h64-11": {
+      "model": "GRU-64/training-unvalidated",
+      "checkpoint_sha256": "82c8bf3f8598dca86731bfef14f802cdf4809777305a69f4ddfe9bf84a66abf5",
+      "config_sha256": "67e56dbfc2ca7830d60126230de7f63fbd2aa2a1c0c24cfd8cd421ed4fef34fb",
+      "training_seed": 11,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "evaluator_version": null,
+      "evaluation_contract_sha256": null,
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1405480550765487,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1484620407704053,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1690605273027061,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5468175000934937,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 60,
+      "transition_successes": 0
+    },
+    "validation-v4-h64-23": {
+      "model": "GRU-64/training-unvalidated",
+      "checkpoint_sha256": "92792f2e50ce7164d769381b39d4234d6b92e0ac69336a81bb4d90c0d47ba986",
+      "config_sha256": "67e56dbfc2ca7830d60126230de7f63fbd2aa2a1c0c24cfd8cd421ed4fef34fb",
+      "training_seed": 23,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "evaluator_version": null,
+      "evaluation_contract_sha256": null,
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.12199052097336724,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.13854262865731065,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.190030277255518,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5270771201062099,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 0,
+      "transition_successes": 0
+    },
+    "validation-v4-h64-47": {
+      "model": "GRU-64/training-unvalidated",
+      "checkpoint_sha256": "deccd5351606aae16e82f32842d9574e1c6a27251c0dcad2f725ca75a5b5e944",
+      "config_sha256": "67e56dbfc2ca7830d60126230de7f63fbd2aa2a1c0c24cfd8cd421ed4fef34fb",
+      "training_seed": 47,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "evaluator_version": null,
+      "evaluation_contract_sha256": null,
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.12043236639698578,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.15297840548165503,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.22474956696777393,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5297550160276617,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 0,
+      "transition_successes": 0
+    },
+    "validation-curriculum-11": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "5a18c4a8a7d3100a8cc3d1247c891fdcc61df2ed6f4f122e3789e648f1fe43cc",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 11,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "evaluator_version": null,
+      "evaluation_contract_sha256": null,
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.12280862328189608,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.17133936326021937,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.19914103949564183,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.509444882947184,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 60,
+      "transition_successes": 0
+    },
+    "validation-curriculum-23": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "a06269728cff3bc14b1821b6809df9e57d71523b8a6a597ef9a6c4d7b9e0e0a2",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 23,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "evaluator_version": null,
+      "evaluation_contract_sha256": null,
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.13555634596354077,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.12656061729088003,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.188313207620398,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5223368591070449,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 0,
+      "transition_successes": 0
+    },
+    "validation-curriculum-47": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "8976bf92bbb3ef8595e049cae085a4ea845dc8df58f68a215d0d23026e92ad04",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 47,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "evaluator_version": null,
+      "evaluation_contract_sha256": null,
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.17145615121997057,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.16175840929425594,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1905552455838268,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.49431748823547217,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 0,
+      "transition_successes": 0
+    },
+    "validation-context-11": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "47805313facef0ff094bdf1ccbf9d81e08a222b282f849e3bd300562e5d4b7b5",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 11,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-context-critic-v5",
+      "evaluator_version": "bari-evaluation-v2-moving-follow",
+      "evaluation_contract_sha256": "8065221cd11f094defe3910c1abf09903d33416dc8c018a812ba3b0eb35bf64b",
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.145157109698685,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1303285810733843,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.18475358290888969,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.4977192557559024,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 60,
+      "transition_successes": 0
+    },
+    "validation-context-23": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "72499ecdcd4cddc07499777669fc9b909a7066baf76820364a1e289fee313d8d",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 23,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-context-critic-v5",
+      "evaluator_version": "bari-evaluation-v2-moving-follow",
+      "evaluation_contract_sha256": "8065221cd11f094defe3910c1abf09903d33416dc8c018a812ba3b0eb35bf64b",
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.18585083104427652,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.22398826653125425,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2057948047163552,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5530695637215565,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 0,
+      "transition_successes": 0
+    },
+    "validation-context-47": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "fd52a57d7bb4ebd6654b5f706c96db1dbbafdbf98c316f0ecbcaaa1104ef30bf",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 47,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-context-critic-v5",
+      "evaluator_version": "bari-evaluation-v2-moving-follow",
+      "evaluation_contract_sha256": "8065221cd11f094defe3910c1abf09903d33416dc8c018a812ba3b0eb35bf64b",
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "seed_split": "diagnostic/validation",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.17486846050046667,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.144421736438815,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.21701077805148902,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5090940879070052,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 0,
+      "transition_successes": 0
+    },
+    "occluded-v3-evaluator-memory": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "0b9c0bf0ced600a667605b6ddacb462ebec69bdb2a640a16ab1e0f2c07096931",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 11,
+      "training_updates": 1000,
+      "training_version": "legacy-team-reward",
+      "evaluator_version": "bari-evaluation-v3-moving-follow-safety",
+      "evaluation_contract_sha256": "9dc2994e3299b8ec375b95779e520070580d433c8758be2ac714f730e0328281",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "seed_split": "held-out",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2402869653654273,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2084146790934902,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 1.0,
+          "mean_final_max_error_m": 0.051850902897422814,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": true
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5811601403212392,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 60,
+      "transition_successes": 10
+    },
+    "occluded-v3-evaluator-reset": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "0b9c0bf0ced600a667605b6ddacb462ebec69bdb2a640a16ab1e0f2c07096931",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 11,
+      "training_updates": 1000,
+      "training_version": "legacy-team-reward",
+      "evaluator_version": "bari-evaluation-v3-moving-follow-safety",
+      "evaluation_contract_sha256": "9dc2994e3299b8ec375b95779e520070580d433c8758be2ac714f730e0328281",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "seed_split": "held-out",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.23969277631751895,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.2077776229404412,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.05972228647529132,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.579158075734698,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "transition_episodes": 60,
+      "transition_successes": 0
+    }
+  },
+  "artifacts": [
+    {
+      "path": "runs/validation-v4-h64-11/report.json",
+      "bytes": 504378,
+      "sha256": "2cc64a8c713d87ecce0aa5e5cf9ef4cce110f4598f97b8688b30774d734a6710"
+    },
+    {
+      "path": "runs/validation-v4-h64-23/report.json",
+      "bytes": 151294,
+      "sha256": "3bc50e410c92672960c12eae7c289dc469dd3d0e5a04589dd616ff5167c5a909"
+    },
+    {
+      "path": "runs/validation-v4-h64-47/report.json",
+      "bytes": 111360,
+      "sha256": "79bf2f2904fe55b411e868ad6d3d5889b62d9b7024ca7f55da6847e6c363737a"
+    },
+    {
+      "path": "runs/validation-curriculum-11/report.json",
+      "bytes": 371445,
+      "sha256": "ec153ef6410dc1c7cc5bc15f7962ddaa9f4c307107c0e6f1ce36db79ca7a1f48"
+    },
+    {
+      "path": "runs/validation-curriculum-23/report.json",
+      "bytes": 144121,
+      "sha256": "d055a8c5d5a56db102df9b0051f77a7f05f3d6253c6c41ce68e502c1da811bc9"
+    },
+    {
+      "path": "runs/validation-curriculum-47/report.json",
+      "bytes": 87896,
+      "sha256": "4608cf4eff0a374e9dcd1a96bebb0d9fc8d6b88585ec14d5f88ee45694d42f96"
+    },
+    {
+      "path": "runs/validation-context-11/report.json",
+      "bytes": 633311,
+      "sha256": "8bb940542aef9021ccabffe7d449150d6b33179d06334a1264ba26d507aac119"
+    },
+    {
+      "path": "runs/validation-context-11/evaluation_contract.json",
+      "bytes": 1261,
+      "sha256": "8065221cd11f094defe3910c1abf09903d33416dc8c018a812ba3b0eb35bf64b"
+    },
+    {
+      "path": "runs/validation-context-23/report.json",
+      "bytes": 52352,
+      "sha256": "adee59219cc2d9a4e7e4ca99e750e239a6f8b4303dcbec6c0be936968f6d50b1"
+    },
+    {
+      "path": "runs/validation-context-23/evaluation_contract.json",
+      "bytes": 1261,
+      "sha256": "8065221cd11f094defe3910c1abf09903d33416dc8c018a812ba3b0eb35bf64b"
+    },
+    {
+      "path": "runs/validation-context-47/report.json",
+      "bytes": 56750,
+      "sha256": "190ddb6b9b9f3b8e7c8b41830865c3f564e1ca396a1ec8947c162deae4488f4f"
+    },
+    {
+      "path": "runs/validation-context-47/evaluation_contract.json",
+      "bytes": 1261,
+      "sha256": "8065221cd11f094defe3910c1abf09903d33416dc8c018a812ba3b0eb35bf64b"
+    },
+    {
+      "path": "runs/occluded-v3-evaluator-memory/report.json",
+      "bytes": 838392,
+      "sha256": "4ca124d2cf46e2e629a3923110011d6f3451dc8522121cf48b7592324d4da9b3"
+    },
+    {
+      "path": "runs/occluded-v3-evaluator-memory/evaluation_contract.json",
+      "bytes": 1446,
+      "sha256": "9dc2994e3299b8ec375b95779e520070580d433c8758be2ac714f730e0328281"
+    },
+    {
+      "path": "runs/occluded-v3-evaluator-reset/report.json",
+      "bytes": 468034,
+      "sha256": "590057e3c866617203261c0c9989cb179465fabf05e56be92a116afb51444ad5"
+    },
+    {
+      "path": "runs/occluded-v3-evaluator-reset/evaluation_contract.json",
+      "bytes": 1446,
+      "sha256": "9dc2994e3299b8ec375b95779e520070580d433c8758be2ac714f730e0328281"
+    },
+    {
+      "path": "runs/train-v4-h64-11/checkpoint.pt",
+      "bytes": 422209,
+      "sha256": "82c8bf3f8598dca86731bfef14f802cdf4809777305a69f4ddfe9bf84a66abf5"
+    },
+    {
+      "path": "runs/train-v4-h64-11/config.json",
+      "bytes": 1426,
+      "sha256": "cf84270092b583fbce721efd14744d66d09361632b59072c5b4f11ebf5c1bcf6"
+    },
+    {
+      "path": "runs/train-v4-h64-11/revision.json",
+      "bytes": 134,
+      "sha256": "a6668939930ca9940084b23cce4e1a0cbd16e79de98160d30a4d2c8507cb697a"
+    },
+    {
+      "path": "runs/train-v4-h64-11/training.jsonl",
+      "bytes": 930213,
+      "sha256": "3665aa4910605f8946224c87229c837b4e1496e223591f4201636d062532a04e"
+    },
+    {
+      "path": "runs/train-v4-h64-23/checkpoint.pt",
+      "bytes": 421377,
+      "sha256": "92792f2e50ce7164d769381b39d4234d6b92e0ac69336a81bb4d90c0d47ba986"
+    },
+    {
+      "path": "runs/train-v4-h64-23/config.json",
+      "bytes": 1426,
+      "sha256": "cf84270092b583fbce721efd14744d66d09361632b59072c5b4f11ebf5c1bcf6"
+    },
+    {
+      "path": "runs/train-v4-h64-23/revision.json",
+      "bytes": 134,
+      "sha256": "a6668939930ca9940084b23cce4e1a0cbd16e79de98160d30a4d2c8507cb697a"
+    },
+    {
+      "path": "runs/train-v4-h64-23/training.jsonl",
+      "bytes": 929867,
+      "sha256": "8b7e069c4330687d50f01ef8f31ffc13fe4f8e420811535f85d01474c1331b74"
+    },
+    {
+      "path": "runs/train-v4-h64-47/checkpoint.pt",
+      "bytes": 421313,
+      "sha256": "deccd5351606aae16e82f32842d9574e1c6a27251c0dcad2f725ca75a5b5e944"
+    },
+    {
+      "path": "runs/train-v4-h64-47/config.json",
+      "bytes": 1426,
+      "sha256": "cf84270092b583fbce721efd14744d66d09361632b59072c5b4f11ebf5c1bcf6"
+    },
+    {
+      "path": "runs/train-v4-h64-47/revision.json",
+      "bytes": 134,
+      "sha256": "a6668939930ca9940084b23cce4e1a0cbd16e79de98160d30a4d2c8507cb697a"
+    },
+    {
+      "path": "runs/train-v4-h64-47/training.jsonl",
+      "bytes": 930929,
+      "sha256": "16d7c2b50dc3dbc2b444f3d8e95fa741b3cbb620e9e69801d9cb0418fd52cc16"
+    },
+    {
+      "path": "runs/train-curriculum-11/checkpoint.pt",
+      "bytes": 190401,
+      "sha256": "5a18c4a8a7d3100a8cc3d1247c891fdcc61df2ed6f4f122e3789e648f1fe43cc"
+    },
+    {
+      "path": "runs/train-curriculum-11/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-curriculum-11/training_plan.json",
+      "bytes": 408,
+      "sha256": "992a3bd9b6a8aeb4b583e8994d25babde0a9e162a07fc37fed1551d55fed2180"
+    },
+    {
+      "path": "runs/train-curriculum-11/revision.json",
+      "bytes": 134,
+      "sha256": "30e519683d8b60a5baf708aca7566e62b88bf6dda5ca016d347af0fa87fee617"
+    },
+    {
+      "path": "runs/train-curriculum-11/training.jsonl",
+      "bytes": 1312310,
+      "sha256": "4cc778bdec157ad199781b0ca5c4bbbcd0958c746499cffc166ab53a25654865"
+    },
+    {
+      "path": "runs/train-curriculum-23/checkpoint.pt",
+      "bytes": 190913,
+      "sha256": "a06269728cff3bc14b1821b6809df9e57d71523b8a6a597ef9a6c4d7b9e0e0a2"
+    },
+    {
+      "path": "runs/train-curriculum-23/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-curriculum-23/training_plan.json",
+      "bytes": 408,
+      "sha256": "992a3bd9b6a8aeb4b583e8994d25babde0a9e162a07fc37fed1551d55fed2180"
+    },
+    {
+      "path": "runs/train-curriculum-23/revision.json",
+      "bytes": 134,
+      "sha256": "30e519683d8b60a5baf708aca7566e62b88bf6dda5ca016d347af0fa87fee617"
+    },
+    {
+      "path": "runs/train-curriculum-23/training.jsonl",
+      "bytes": 1312475,
+      "sha256": "039e68d12137b05f4fe3c72bb187baa1e06bb96aeb3e5f3d964fa3266551fee4"
+    },
+    {
+      "path": "runs/train-curriculum-47/checkpoint.pt",
+      "bytes": 196353,
+      "sha256": "8976bf92bbb3ef8595e049cae085a4ea845dc8df58f68a215d0d23026e92ad04"
+    },
+    {
+      "path": "runs/train-curriculum-47/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-curriculum-47/training_plan.json",
+      "bytes": 408,
+      "sha256": "992a3bd9b6a8aeb4b583e8994d25babde0a9e162a07fc37fed1551d55fed2180"
+    },
+    {
+      "path": "runs/train-curriculum-47/revision.json",
+      "bytes": 134,
+      "sha256": "30e519683d8b60a5baf708aca7566e62b88bf6dda5ca016d347af0fa87fee617"
+    },
+    {
+      "path": "runs/train-curriculum-47/training.jsonl",
+      "bytes": 1312597,
+      "sha256": "239371b2c9b0ac8a29998f4c76a46ad6b180eba430929faddaaa5253bcdbb376"
+    },
+    {
+      "path": "runs/train-context-11/checkpoint.pt",
+      "bytes": 366337,
+      "sha256": "47805313facef0ff094bdf1ccbf9d81e08a222b282f849e3bd300562e5d4b7b5"
+    },
+    {
+      "path": "runs/train-context-11/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-context-11/training_plan.json",
+      "bytes": 408,
+      "sha256": "992a3bd9b6a8aeb4b583e8994d25babde0a9e162a07fc37fed1551d55fed2180"
+    },
+    {
+      "path": "runs/train-context-11/revision.json",
+      "bytes": 134,
+      "sha256": "8fe559d5bda05c75617f577d5ad20b08f76080201ef65a6ce787ff5fbef53cc3"
+    },
+    {
+      "path": "runs/train-context-11/training.jsonl",
+      "bytes": 1308733,
+      "sha256": "39f5f159d8b7937a037bc0923bd668fde7163a3950caf6b30976e2ce847404f3"
+    },
+    {
+      "path": "runs/train-context-23/checkpoint.pt",
+      "bytes": 366849,
+      "sha256": "72499ecdcd4cddc07499777669fc9b909a7066baf76820364a1e289fee313d8d"
+    },
+    {
+      "path": "runs/train-context-23/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-context-23/training_plan.json",
+      "bytes": 408,
+      "sha256": "992a3bd9b6a8aeb4b583e8994d25babde0a9e162a07fc37fed1551d55fed2180"
+    },
+    {
+      "path": "runs/train-context-23/revision.json",
+      "bytes": 134,
+      "sha256": "8fe559d5bda05c75617f577d5ad20b08f76080201ef65a6ce787ff5fbef53cc3"
+    },
+    {
+      "path": "runs/train-context-23/training.jsonl",
+      "bytes": 1308682,
+      "sha256": "03be4ebea84487c0d6b539c9bd795573360d2fcc443d72ad2f021b8d6aed8cc3"
+    },
+    {
+      "path": "runs/train-context-47/checkpoint.pt",
+      "bytes": 372033,
+      "sha256": "fd52a57d7bb4ebd6654b5f706c96db1dbbafdbf98c316f0ecbcaaa1104ef30bf"
+    },
+    {
+      "path": "runs/train-context-47/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-context-47/training_plan.json",
+      "bytes": 408,
+      "sha256": "992a3bd9b6a8aeb4b583e8994d25babde0a9e162a07fc37fed1551d55fed2180"
+    },
+    {
+      "path": "runs/train-context-47/revision.json",
+      "bytes": 134,
+      "sha256": "8fe559d5bda05c75617f577d5ad20b08f76080201ef65a6ce787ff5fbef53cc3"
+    },
+    {
+      "path": "runs/train-context-47/training.jsonl",
+      "bytes": 1309185,
+      "sha256": "c036b809b8b577315674e88d87358d6a6fd31a649b3e2bebdf046a6a8b10c968"
+    },
+    {
+      "path": "configs/training-curriculum.json",
+      "bytes": 364,
+      "sha256": "6d1d834d82a192277feb382879a8906e598027a21d2b2d3ffa5a4c560f30142d"
+    },
+    {
+      "path": "configs/validation-seeds.json",
+      "bytes": 43,
+      "sha256": "03313cb8e3bca8e78a95dba1943df8c878e10dbea1ba884425c5bef408c045bc"
+    },
+    {
+      "path": "output/export-context-11/host_report.json",
+      "bytes": 1095,
+      "sha256": "e62301902a4788687af653cf2958c7c8c5d17247d489471251583ed48c91362b"
+    },
+    {
+      "path": "output/export-context-11/actor.hpp",
+      "bytes": 122631,
+      "sha256": "e6a86b816982a977227afbfafa3983f508224dc1851d024605f74b9cdddbc80a"
+    }
+  ],
+  "pending_runs": [],
+  "completed_continuations": [
+    {
+      "path": "runs/train-context-long-11",
+      "updates": 10000,
+      "evaluation_path": "runs/validation-context-long-v4-11"
+    },
+    {
+      "path": "runs/train-context-long-23",
+      "updates": 10000,
+      "evaluation_path": "runs/validation-context-long-v4-23"
+    },
+    {
+      "path": "runs/train-context-long-47",
+      "updates": 10000,
+      "evaluation_path": "runs/validation-context-long-v4-47"
+    }
+  ],
+  "current_verification_reference": "reports/verification-popart-cli.txt"
+}

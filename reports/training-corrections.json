@@ -1,0 +1,544 @@
+{
+  "status": "incomplete; behavioral gates still fail; device runtime measurements missing",
+  "runs": {
+    "eval-v3-11": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "a2d4310f83434ea3f9ec7332dd0ec470a87a20a94322da5adec1caa1d25fedca",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 11,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-agent-credit-v3",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1671515368580097,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.08716901368822247,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1519979975593341,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.4736587694238318,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "f43da111685a7917879020ceb96bca9a8aef49281939399ce5e8ca877023420e"
+      },
+      "directed_transition_episodes": 60,
+      "directed_transition_successes": 0
+    },
+    "eval-v3-23": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "f6f3ab2aa36616d886da352058a3f67e2caa9fbda9dc63bf3784d3eb48bb3a52",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 23,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-agent-credit-v3",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.22121864605813535,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.22678238270488374,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1753983387755441,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.50751875997167,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "f43da111685a7917879020ceb96bca9a8aef49281939399ce5e8ca877023420e"
+      },
+      "directed_transition_episodes": 0,
+      "directed_transition_successes": 0
+    },
+    "eval-v3-47": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "7d1aa98b28b48f2acf4954ac3ae27fc559b80a16f3ae2bde131280b9e9f00c12",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 47,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-agent-credit-v3",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.222369286591588,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.22891044371218788,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1757850374257344,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.508577087612964,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "f43da111685a7917879020ceb96bca9a8aef49281939399ce5e8ca877023420e"
+      },
+      "directed_transition_episodes": 0,
+      "directed_transition_successes": 0
+    },
+    "eval-v4-11": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "1fe702572d65d57735c7843275135756055a046e149176a0185c9381339e74dd",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 11,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1664438044195109,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.09924472995397639,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.17596845376642126,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.42870913375680547,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "2aa560faedd9c1e0a3f39a9624bd320ab86eea4db9f671ee596174b6de091afb"
+      },
+      "directed_transition_episodes": 60,
+      "directed_transition_successes": 0
+    },
+    "eval-v4-23": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "6c06cbfc06be8a362ef3ad5c24c860ed9da5afd0037bbf915d5a983e0b619bab",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 23,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.15309537927875863,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.11836553487954211,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.18742313069870678,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.38632335656195593,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "2aa560faedd9c1e0a3f39a9624bd320ab86eea4db9f671ee596174b6de091afb"
+      },
+      "directed_transition_episodes": 0,
+      "directed_transition_successes": 0
+    },
+    "eval-v4-47": {
+      "model": "GRU-32/training-unvalidated",
+      "checkpoint_sha256": "2dc84d1f5e0a2a8dd241c32c55234179ca3a3c4e642f446b8dbe2e40d5971d8c",
+      "config_sha256": "d129d229679ac2a439c044dd0cca3b60b8e5656b5716140f55508d5f58f7a423",
+      "training_seed": 47,
+      "training_updates": 2500,
+      "training_version": "bari-mappo-squashed-entropy-v4",
+      "seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.15234312564174607,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.12331069723397166,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.1986980950570528,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.4485702839746577,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "evaluation_revision": {
+        "commit": "HEAD",
+        "dirty": true,
+        "python_source_sha256": "2aa560faedd9c1e0a3f39a9624bd320ab86eea4db9f671ee596174b6de091afb"
+      },
+      "directed_transition_episodes": 0,
+      "directed_transition_successes": 0
+    }
+  },
+  "artifacts": [
+    {
+      "path": "runs/eval-v3-11/report.json",
+      "bytes": 852538,
+      "sha256": "6c702c305fb57c60abac6f34d8091660eebe938635230beed797984e0db459eb"
+    },
+    {
+      "path": "runs/eval-v3-23/report.json",
+      "bytes": 197213,
+      "sha256": "5e0e27334bd450b31db7ec221085db4d71c8996dad1cd12d53ee9cc40bf7854e"
+    },
+    {
+      "path": "runs/eval-v3-47/report.json",
+      "bytes": 196349,
+      "sha256": "b7143e6c17f72f094682329827df83c7fb322025a2639e38737c6940cdef5bbe"
+    },
+    {
+      "path": "runs/eval-v4-11/report.json",
+      "bytes": 683086,
+      "sha256": "a52f21e1df07f6fd1e9d9f5b19de07efa19093b63af5e1e52cd13161bced3ce4"
+    },
+    {
+      "path": "runs/eval-v4-23/report.json",
+      "bytes": 97230,
+      "sha256": "83c1aa02ddbc19be280e8bf8009e7799e2d5ebfdfc844b1e359b51b9a3eba06e"
+    },
+    {
+      "path": "runs/eval-v4-47/report.json",
+      "bytes": 112985,
+      "sha256": "9308271febf752b74a93f365d915b210313d81571fad899fefbc52604ad7de5c"
+    },
+    {
+      "path": "runs/train-v3-11/checkpoint.pt",
+      "bytes": 191169,
+      "sha256": "a2d4310f83434ea3f9ec7332dd0ec470a87a20a94322da5adec1caa1d25fedca"
+    },
+    {
+      "path": "runs/train-v3-11/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v3-11/training.jsonl",
+      "bytes": 918023,
+      "sha256": "7cfd97174b8651bcf41764b46907318da4158803af035d29d90c9f1eda17c850"
+    },
+    {
+      "path": "runs/train-v3-11/revision.json",
+      "bytes": 134,
+      "sha256": "fa2e4921f0fab48b4c74dbcc13bdd1a74de96c850a7cddb6ca915bc35500d2ce"
+    },
+    {
+      "path": "runs/train-v3-23/checkpoint.pt",
+      "bytes": 191361,
+      "sha256": "f6f3ab2aa36616d886da352058a3f67e2caa9fbda9dc63bf3784d3eb48bb3a52"
+    },
+    {
+      "path": "runs/train-v3-23/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v3-23/training.jsonl",
+      "bytes": 921441,
+      "sha256": "f85af243b05df2f80ff759b6716af454c05e3c29642b93c5839e13b626aca41c"
+    },
+    {
+      "path": "runs/train-v3-23/revision.json",
+      "bytes": 134,
+      "sha256": "fa2e4921f0fab48b4c74dbcc13bdd1a74de96c850a7cddb6ca915bc35500d2ce"
+    },
+    {
+      "path": "runs/train-v3-47/checkpoint.pt",
+      "bytes": 192577,
+      "sha256": "7d1aa98b28b48f2acf4954ac3ae27fc559b80a16f3ae2bde131280b9e9f00c12"
+    },
+    {
+      "path": "runs/train-v3-47/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v3-47/training.jsonl",
+      "bytes": 922067,
+      "sha256": "25e22b150aa783bf64a830b60a60b66ba76b089057865035231376c6b9afb015"
+    },
+    {
+      "path": "runs/train-v3-47/revision.json",
+      "bytes": 134,
+      "sha256": "fa2e4921f0fab48b4c74dbcc13bdd1a74de96c850a7cddb6ca915bc35500d2ce"
+    },
+    {
+      "path": "runs/train-v4-11/checkpoint.pt",
+      "bytes": 191105,
+      "sha256": "1fe702572d65d57735c7843275135756055a046e149176a0185c9381339e74dd"
+    },
+    {
+      "path": "runs/train-v4-11/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v4-11/training.jsonl",
+      "bytes": 929511,
+      "sha256": "1b8ffb1f8a989fa528ac18c9d1c9ac33c6775d8177791603105c9b7794e24dc5"
+    },
+    {
+      "path": "runs/train-v4-11/revision.json",
+      "bytes": 134,
+      "sha256": "3fa4754e9b3d2016edc67b6c75e3ba33d9cac325e23b796b3374ef4ebef52964"
+    },
+    {
+      "path": "runs/train-v4-23/checkpoint.pt",
+      "bytes": 191361,
+      "sha256": "6c06cbfc06be8a362ef3ad5c24c860ed9da5afd0037bbf915d5a983e0b619bab"
+    },
+    {
+      "path": "runs/train-v4-23/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v4-23/training.jsonl",
+      "bytes": 928463,
+      "sha256": "b23ccf7a7183dbde00ddea0814db64457d86bca3d90cccc500f8dccae663f4dd"
+    },
+    {
+      "path": "runs/train-v4-23/revision.json",
+      "bytes": 134,
+      "sha256": "3fa4754e9b3d2016edc67b6c75e3ba33d9cac325e23b796b3374ef4ebef52964"
+    },
+    {
+      "path": "runs/train-v4-47/checkpoint.pt",
+      "bytes": 192577,
+      "sha256": "2dc84d1f5e0a2a8dd241c32c55234179ca3a3c4e642f446b8dbe2e40d5971d8c"
+    },
+    {
+      "path": "runs/train-v4-47/config.json",
+      "bytes": 1426,
+      "sha256": "4a8876ef47e8f9560520ddfc5e7e41b46771352d5eba6d11657caaf3c7e14fb4"
+    },
+    {
+      "path": "runs/train-v4-47/training.jsonl",
+      "bytes": 928836,
+      "sha256": "09a2c752228862360c6d3497f0a9a5003a7a07c32a14c4d0f3eeb88a3a96dfdd"
+    },
+    {
+      "path": "runs/train-v4-47/revision.json",
+      "bytes": 134,
+      "sha256": "3fa4754e9b3d2016edc67b6c75e3ba33d9cac325e23b796b3374ef4ebef52964"
+    },
+    {
+      "path": "runs/occlusion-probes-v1/report.json",
+      "bytes": 352723,
+      "sha256": "0a40abd38a7188414b4e990fe695ea680365fa6e28fca61781788f33abfd67ea"
+    },
+    {
+      "path": "configs/occlusion-probes.json",
+      "bytes": 890,
+      "sha256": "f3da2381a1202b638ccd70aa7705e3a1ebdf1c5070ad03e686cd770c72520be8"
+    },
+    {
+      "path": "reports/action-saturation.json",
+      "bytes": 1654,
+      "sha256": "d08f9dce01834fe9cbb9d32107e83453b4cedc7f89057a1a0867db363b2e8e3b"
+    },
+    {
+      "path": "reports/esp32s3-cross-build.json",
+      "bytes": 3517,
+      "sha256": "fa91f8d012bdfa1d4febb7b6c942a93b7945153c0f63e1a650d026658633dac8"
+    },
+    {
+      "path": "output/export-v4-11/host_report.json",
+      "bytes": 1085,
+      "sha256": "2be2f06d3ddc6eab8f8eef41c3510954895fd0ca18b7f5e84957b9a0cff9afeb"
+    },
+    {
+      "path": "output/export-v4-11/actor.hpp",
+      "bytes": 122569,
+      "sha256": "3cd8c8ca58acd377e6f55060a6185f8a0df58136e730be2a8b23c0cc2f884d18"
+    },
+    {
+      "path": "runs/occlusion-probes-v1-verified/report.json",
+      "bytes": 353485,
+      "sha256": "4649ffb5d50a9e48232d5524f81d27bdc39358cb7949190cabfda382db0433a3"
+    },
+    {
+      "path": "reports/esp-idf-python-environment.txt",
+      "bytes": 1045,
+      "sha256": "6ed77d9d20baa6510848f49458cb4dc252788d51b829af643f21b88f68adc9db"
+    }
+  ],
+  "pending_experiments": [
+    {
+      "run": "runs/train-v4-h64-11",
+      "training_seed": 11,
+      "hidden_size": 64,
+      "sequence_length": 64,
+      "planned_updates": 2500,
+      "status": "training launched; results not accepted"
+    },
+    {
+      "run": "runs/train-v4-h64-23",
+      "training_seed": 23,
+      "hidden_size": 64,
+      "sequence_length": 64,
+      "planned_updates": 2500,
+      "status": "training launched; results not accepted"
+    },
+    {
+      "run": "runs/train-v4-h64-47",
+      "training_seed": 47,
+      "hidden_size": 64,
+      "sequence_length": 64,
+      "planned_updates": 2500,
+      "status": "training launched; results not accepted"
+    }
+  ],
+  "superseded_artifacts": [
+    {
+      "path": "reports/verification.txt",
+      "bytes": 99,
+      "sha256": "39bde0d5fe4c8a97e405eff30bf066dfd80e7d2c615a2a96d4ad4ee33a346ef2",
+      "status": "Original mutable test-output bytes were overwritten by subsequent full-suite runs and were not retained. This hash is historical, not a current artifact claim."
+    }
+  ],
+  "current_verification_reference": "reports/verification-rollout-batch.txt"
+}
