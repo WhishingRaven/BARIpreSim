@@ -1,0 +1,1009 @@
+{
+  "version": "bari-local-follow-learning-v1",
+  "observed_utc": "2026-11-03T14:09:53.002044+00:00",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+  },
+  "status": "No learned policy has met acceptance. First local-teacher clone has2/5 official successes but0/5 final holds; its actual PPO200 continuation scores0/5.",
+  "scope": "Follow-only diagnostic stage, arena1m, hypothetical60-degree planar sensing. Not four-task, randomized-entry, switching, controlled-occlusion, multi-seed, final-heldout, successful3D-demo, or ESP32-S3 acceptance.",
+  "information_boundary": "Local teacher fits anonymous disk hypotheses to scalar ranges, never receives true poses/IDs/classes/ranks/bearings/evaluator targets. Its large host search table is a data-collection tool only. Deployed learned actor remains ordinary local9/task4/GRU64/wheel2; no search table or teacher wrapper.",
+  "verification": {
+    "result": {
+      "path": "reports/verification-cone-final.txt",
+      "sha256": "34dce878c17fb55da73d6e7a1e14e6c38b729dbe33e0a10bfa499ec43859b7bb"
+    },
+    "tests": 169,
+    "source_snapshot": "runs/cone-final-source/bari",
+    "production_python_changed": false,
+    "note": "No production Python changes in this study; archived169-test result, not a rerun."
+  },
+  "studies": {
+    "local-range-follow-probe": {
+      "report": {
+        "path": "reports/local-range-follow-probe.json",
+        "sha256": "ceb9bc5e7af065a09b2a141866e9624cc659d5a4523521d6d7206eb8dcaaaa61"
+      },
+      "summary": [
+        {
+          "arm": 0,
+          "speed_gain": 0.4,
+          "turn_gain": 0.7,
+          "feed_speed_m_s": 0.03,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4416,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.07556261562797198,
+          "mean_path_error_m": 0.005626010341638223,
+          "mean_spacing_error_m": 0.021956325541692537
+        },
+        {
+          "arm": 1,
+          "speed_gain": 0.4,
+          "turn_gain": 0.7,
+          "feed_speed_m_s": 0.05,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4582,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.08595410743892135,
+          "mean_path_error_m": 0.004772648880097244,
+          "mean_spacing_error_m": 0.02189895170520182
+        },
+        {
+          "arm": 2,
+          "speed_gain": 0.4,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.03,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4416,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.07599262863779527,
+          "mean_path_error_m": 0.009498382224838354,
+          "mean_spacing_error_m": 0.022004311060085713
+        },
+        {
+          "arm": 3,
+          "speed_gain": 0.4,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.05,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4583,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.08630285397262914,
+          "mean_path_error_m": 0.008509199517720164,
+          "mean_spacing_error_m": 0.021935447881402892
+        },
+        {
+          "arm": 4,
+          "speed_gain": 0.4,
+          "turn_gain": 2.0,
+          "feed_speed_m_s": 0.03,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4413,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.07669166326241002,
+          "mean_path_error_m": 0.013940282502202826,
+          "mean_spacing_error_m": 0.022069028514642007
+        },
+        {
+          "arm": 5,
+          "speed_gain": 0.4,
+          "turn_gain": 2.0,
+          "feed_speed_m_s": 0.05,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4581,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.08711458996034857,
+          "mean_path_error_m": 0.012765211375549755,
+          "mean_spacing_error_m": 0.022013990573154466
+        },
+        {
+          "arm": 6,
+          "speed_gain": 1.0,
+          "turn_gain": 0.7,
+          "feed_speed_m_s": 0.03,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4255,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.04977821948295488,
+          "mean_path_error_m": 0.005931695652047044,
+          "mean_spacing_error_m": 0.021995987197976116
+        },
+        {
+          "arm": 7,
+          "speed_gain": 1.0,
+          "turn_gain": 0.7,
+          "feed_speed_m_s": 0.05,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4533,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.08550087702639061,
+          "mean_path_error_m": 0.005302440107999778,
+          "mean_spacing_error_m": 0.021989534973595626
+        },
+        {
+          "arm": 8,
+          "speed_gain": 1.0,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.03,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4304,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.049312812822965256,
+          "mean_path_error_m": 0.0098536275300546,
+          "mean_spacing_error_m": 0.022023125226006024
+        },
+        {
+          "arm": 9,
+          "speed_gain": 1.0,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.05,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4552,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.08583595358782825,
+          "mean_path_error_m": 0.008589746435051884,
+          "mean_spacing_error_m": 0.022015662302722894
+        },
+        {
+          "arm": 10,
+          "speed_gain": 1.0,
+          "turn_gain": 2.0,
+          "feed_speed_m_s": 0.03,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4299,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.05005083020856656,
+          "mean_path_error_m": 0.013853999487774573,
+          "mean_spacing_error_m": 0.022069567950132103
+        },
+        {
+          "arm": 11,
+          "speed_gain": 1.0,
+          "turn_gain": 2.0,
+          "feed_speed_m_s": 0.05,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 4533,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.08670073853328117,
+          "mean_path_error_m": 0.012755483239275646,
+          "mean_spacing_error_m": 0.022112802985749837
+        }
+      ]
+    },
+    "local-range-gap-follow-probe": {
+      "report": {
+        "path": "reports/local-range-gap-follow-probe.json",
+        "sha256": "d67b7a5a67b9532c77e1656a048a479038f1baaec229016900c157840692d6d6"
+      },
+      "summary": [
+        {
+          "arm": 0,
+          "speed_gain": 0.4,
+          "turn_gain": 0.7,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 121,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.570852878484047,
+          "mean_path_error_m": 0.4072318201833079,
+          "mean_spacing_error_m": 1.0199999999999998
+        },
+        {
+          "arm": 1,
+          "speed_gain": 0.4,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 0,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.4905036823762642,
+          "mean_path_error_m": 0.27155541871722394,
+          "mean_spacing_error_m": 0.5961966718807342
+        },
+        {
+          "arm": 2,
+          "speed_gain": 0.4,
+          "turn_gain": 2.0,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 674,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.4804246022695261,
+          "mean_path_error_m": 0.26778141303120995,
+          "mean_spacing_error_m": 0.7915849442138896
+        },
+        {
+          "arm": 3,
+          "speed_gain": 1.0,
+          "turn_gain": 0.7,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 113,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.6637518643015871,
+          "mean_path_error_m": 0.4142519175431938,
+          "mean_spacing_error_m": 0.4277426867666059
+        },
+        {
+          "arm": 4,
+          "speed_gain": 1.0,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 169,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.26758782421847016,
+          "mean_path_error_m": 0.11221852121113354,
+          "mean_spacing_error_m": 0.072477427103561
+        },
+        {
+          "arm": 5,
+          "speed_gain": 1.0,
+          "turn_gain": 2.0,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 217,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.4577596624706912,
+          "mean_path_error_m": 0.2901257536153157,
+          "mean_spacing_error_m": 0.6911688522493783
+        },
+        {
+          "arm": 6,
+          "speed_gain": 2.0,
+          "turn_gain": 0.7,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 153,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.6264420185380715,
+          "mean_path_error_m": 0.38488343102564804,
+          "mean_spacing_error_m": 0.6242026067401968
+        },
+        {
+          "arm": 7,
+          "speed_gain": 2.0,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 312,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.1657093851453718,
+          "mean_path_error_m": 0.05451582321628613,
+          "mean_spacing_error_m": 0.07823131766094146
+        },
+        {
+          "arm": 8,
+          "speed_gain": 2.0,
+          "turn_gain": 2.0,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 229,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.4682349300839494,
+          "mean_path_error_m": 0.28167212211647014,
+          "mean_spacing_error_m": 0.5774777010683165
+        },
+        {
+          "arm": 9,
+          "speed_gain": 4.0,
+          "turn_gain": 0.7,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 623,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.5423674891741276,
+          "mean_path_error_m": 0.3594617769027459,
+          "mean_spacing_error_m": 0.8781770039966553
+        },
+        {
+          "arm": 10,
+          "speed_gain": 4.0,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 363,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.18860270505902932,
+          "mean_path_error_m": 0.13148743655162703,
+          "mean_spacing_error_m": 0.09105687619030925
+        },
+        {
+          "arm": 11,
+          "speed_gain": 4.0,
+          "turn_gain": 2.0,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 0,
+          "contacts": 559,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.49083413968783307,
+          "mean_path_error_m": 0.2869741390903615,
+          "mean_spacing_error_m": 0.6124533347463302
+        }
+      ]
+    },
+    "local-follow-factorization": {
+      "report": {
+        "path": "reports/local-follow-factorization.json",
+        "sha256": "8c6745fa687ec5386dd1b03866d4e8b35941795753232325b19084611f7f9187"
+      },
+      "summary": [
+        {
+          "direction": "local",
+          "steering": "pure-pursuit",
+          "successes": 0,
+          "episodes": 4,
+          "contacts": 312,
+          "walls": 0,
+          "mean_final_max_error_m": 0.1657093851453718,
+          "mean_final_path_error_m": 0.05451582321628613,
+          "first5s_mean_abs_bearing_error_rad": 0.1892646022151196
+        },
+        {
+          "direction": "oracle",
+          "steering": "pure-pursuit",
+          "successes": 4,
+          "episodes": 4,
+          "contacts": 0,
+          "walls": 0,
+          "mean_final_max_error_m": 0.15102973141360432,
+          "mean_final_path_error_m": 0.028968635264227424,
+          "first5s_mean_abs_bearing_error_rad": 0.13153585608203563
+        },
+        {
+          "direction": "local",
+          "steering": "angle",
+          "successes": 0,
+          "episodes": 4,
+          "contacts": 1085,
+          "walls": 0,
+          "mean_final_max_error_m": 0.44855966469532393,
+          "mean_final_path_error_m": 0.2652408509584141,
+          "first5s_mean_abs_bearing_error_rad": 0.19456038077135485
+        },
+        {
+          "direction": "oracle",
+          "steering": "angle",
+          "successes": 0,
+          "episodes": 4,
+          "contacts": 508,
+          "walls": 0,
+          "mean_final_max_error_m": 0.5080213965894728,
+          "mean_final_path_error_m": 0.24143192756600573,
+          "first5s_mean_abs_bearing_error_rad": 0.16076460278342117
+        }
+      ]
+    },
+    "local-follow-inference-comparison": {
+      "report": {
+        "path": "reports/local-follow-inference-comparison.json",
+        "sha256": "201a048627627b97b4572b3111e51b67ad2bba9fd0527e0eea75239e31a4a863"
+      },
+      "summary": [
+        {
+          "controller": "local-range-gap-disk-hypothesis-v2",
+          "cases": 196,
+          "mean_bearing_error_rad": 0.13034653324616494,
+          "median_bearing_error_rad": 0.13962832276344006,
+          "max_bearing_error_rad": 0.4278422901783405,
+          "mean_distance_error_m": 0.004521367263126829,
+          "max_distance_error_m": 0.058098423699289276
+        },
+        {
+          "controller": "local-range-consistent-disk-hypothesis-v3",
+          "cases": 196,
+          "mean_bearing_error_rad": 0.014950002429260286,
+          "median_bearing_error_rad": 2.5188169320289333e-05,
+          "max_bearing_error_rad": 0.21840277993902113,
+          "mean_distance_error_m": 0.0017541508921226317,
+          "max_distance_error_m": 0.007999999999999952
+        }
+      ]
+    },
+    "local-follow-consistent": {
+      "report": {
+        "path": "reports/local-follow-consistent.json",
+        "sha256": "f4dd5bf2e04d4e0577e4ead317090b0639fb5a10c9086f502dc1bc79f73eb7a1"
+      },
+      "summary": [
+        {
+          "arm": 0,
+          "speed_gain": 2.0,
+          "turn_gain": 1.2,
+          "feed_speed_m_s": 0.0,
+          "episodes": 4,
+          "successes": 4,
+          "contacts": 0,
+          "wall_attempts": 0,
+          "mean_final_max_error_m": 0.14135379809782914,
+          "mean_path_error_m": 0.025050068740114347,
+          "mean_spacing_error_m": 0.043526517157564365
+        }
+      ]
+    },
+    "local-follow-collection": {
+      "report": {
+        "path": "reports/local-follow-collection.json",
+        "sha256": "d8d750ccc9d4acfeb339bcad6dbef50d8107c22fea486d638d699bd5d4f43902"
+      },
+      "summary": {
+        "episodes": 128,
+        "successes": 128,
+        "contacts": 0,
+        "walls": 0,
+        "minimum_final_hold_s": 5.899999999999995,
+        "mean_final_path_error_m": 0.024304377591544236,
+        "mean_final_spacing_error_m": 0.042374771351795876,
+        "dataset_loader_pass": true,
+        "initial_snapshots_match_reference": true
+      }
+    },
+    "local-follow-warm-distribution": {
+      "report": {
+        "path": "reports/local-follow-warm-distribution.json",
+        "sha256": "4432beaf53e79ff9200f937ee7fdd2f3f3d1d28ab96ee306636a05a18303e103"
+      },
+      "summary": [
+        {
+          "policy": "imitation",
+          "stochastic": false,
+          "episodes": 8,
+          "successes": 1,
+          "final_holding": 0,
+          "contacts": 0,
+          "walls": 65,
+          "mean_final_max_error_m": 0.42489602588906855,
+          "mean_follower_return": -15.531833381238584
+        },
+        {
+          "policy": "imitation",
+          "stochastic": true,
+          "episodes": 8,
+          "successes": 0,
+          "final_holding": 0,
+          "contacts": 1028,
+          "walls": 281,
+          "mean_final_max_error_m": 0.7660698529884538,
+          "mean_follower_return": -123.01511147886276
+        },
+        {
+          "policy": "rl50",
+          "stochastic": false,
+          "episodes": 8,
+          "successes": 0,
+          "final_holding": 0,
+          "contacts": 179,
+          "walls": 0,
+          "mean_final_max_error_m": 0.6825511985590456,
+          "mean_follower_return": -49.05981739613071
+        },
+        {
+          "policy": "rl50",
+          "stochastic": true,
+          "episodes": 8,
+          "successes": 0,
+          "final_holding": 0,
+          "contacts": 1495,
+          "walls": 0,
+          "mean_final_max_error_m": 0.7022778864507463,
+          "mean_follower_return": -192.73161941367948
+        },
+        {
+          "policy": "local-teacher",
+          "stochastic": false,
+          "episodes": 8,
+          "successes": 8,
+          "final_holding": 8,
+          "contacts": 0,
+          "walls": 0,
+          "mean_final_max_error_m": 0.1397264515666141,
+          "mean_follower_return": -8.091611404885896
+        }
+      ]
+    },
+    "local-follow-perturbed-collection": {
+      "report": {
+        "path": "reports/local-follow-perturbed-collection.json",
+        "sha256": "6033bcc6f401c761a86cbfe3fcbe5e6e71ed225980695e99e4607e548a617181"
+      },
+      "summary": {
+        "episodes": 128,
+        "successes": 125,
+        "final_holding": 125,
+        "contacts": 0,
+        "walls": 0,
+        "minimum_final_hold_s": 2.3000000000000007,
+        "dataset_loader_pass": true
+      }
+    },
+    "local-follow-gain3-collection": {
+      "report": {
+        "path": "reports/local-follow-gain3-collection.json",
+        "sha256": "16443651f17fc330b0203da7e0d211dd076d40764ba7c74987a60fc1c419bda4"
+      },
+      "summary": {
+        "episodes": 256,
+        "successes": 256,
+        "final_holding": 256,
+        "contacts": 0,
+        "walls": 0,
+        "minimum_final_hold_s": 7.699999999999989,
+        "initial_snapshot_replay_exact": true,
+        "dataset_loader_pass": true
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "path": "runs/local-follow-imitation-results.json",
+      "sha256": "81182d12364157bd6f7bdbba626577df113f90d4e6ffcf3a9edcceaf3f7a437b"
+    },
+    {
+      "path": "runs/local-follow-rl-results.json",
+      "sha256": "3dd449d0ddf3286d6a34773986e12c6c521e169e2223767dcce150b8a258282b"
+    },
+    {
+      "path": "runs/local-follow-gain3-imitation-results.json",
+      "sha256": "a924e7690b943f9667737cbe9e1eb1be4c83a60c1f069374ac690be19b02b671"
+    },
+    {
+      "path": "runs/local-follow-imitation-terminal-11/capture.json",
+      "sha256": "da1dc1f1dac5cc70b836126eab8b891b25ed4076d7856e78d4532f710b545a78"
+    },
+    {
+      "path": "runs/local-follow-imitation-terminal-11/checkpoint.pt",
+      "sha256": "febdd39bd191eda5c1fbd8e9826196782712349eeb4cd7c0d9ed86a361750786"
+    },
+    {
+      "path": "runs/local-follow-imitation-terminal-11/config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/local-follow-imitation-terminal-11/imitation.jsonl",
+      "sha256": "cedbb5296efe63ddbecadc26396eaeb9249d3d0b2b8de4e556ab80deaf689930"
+    },
+    {
+      "path": "runs/local-follow-imitation-terminal-11/imitation_plan.json",
+      "sha256": "aa57e860353dc119c53915abfcbc98db1d7c758ed7f704e80a0c358a9cb8069a"
+    },
+    {
+      "path": "runs/local-follow-rl-interim-11/capture.json",
+      "sha256": "20c9207b60992cacd4c004e6f9435ed72f96bf3cb6d6d3b106450df354c2671c"
+    },
+    {
+      "path": "runs/local-follow-rl-interim-11/checkpoint.pt",
+      "sha256": "c80ad423231b8159299d22f9da67f2e28f01a260dd4a3a3691ca2cc3a2d2e2bb"
+    },
+    {
+      "path": "runs/local-follow-rl-terminal-11/capture.json",
+      "sha256": "b04f7eb55fd2ed81fa7a5339332b254af630c0458513c43e31779d1d5428697d"
+    },
+    {
+      "path": "runs/local-follow-rl-terminal-11/checkpoint.pt",
+      "sha256": "3fba4928362bbb823b3c58624407d938342cd108a36e4523e6a3e2f5581edb84"
+    },
+    {
+      "path": "runs/local-follow-rl-terminal-11/collector_spec.json",
+      "sha256": "0170173cfe1c170cb7c55baf639592ef247cd8261d72b83bb4966702b7e0c04e"
+    },
+    {
+      "path": "runs/local-follow-rl-terminal-11/config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/local-follow-rl-terminal-11/revision.json",
+      "sha256": "5943bb27579aab8910ff05f56f1e0d2a6ea29e14eacbe6a8991a8ade161d1996"
+    },
+    {
+      "path": "runs/local-follow-rl-terminal-11/training.jsonl",
+      "sha256": "56ae6b43ff1e434e11cf2959484c4d8bf2b1e87915de30d76486eb6f2fc0bbce"
+    },
+    {
+      "path": "runs/local-follow-rl-terminal-11/training_plan.json",
+      "sha256": "5135e4f6be2cd0788e115c32490a8c938ba1d3440823e2b1beb2ec3b9b2842aa"
+    },
+    {
+      "path": "runs/local-follow-gain3-imitation-terminal-11/capture.json",
+      "sha256": "eb8e951b2365152a3462cc8cee2f68274fb2a1943e18f801a700472a8bacd6a8"
+    },
+    {
+      "path": "runs/local-follow-gain3-imitation-terminal-11/checkpoint.pt",
+      "sha256": "6732cc7ffb124b907ae1719f11b0b72825bf134b34c49b5267fbea6c7d4c993b"
+    },
+    {
+      "path": "runs/local-follow-gain3-imitation-terminal-11/config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/local-follow-gain3-imitation-terminal-11/imitation.jsonl",
+      "sha256": "9ea449a73d2b6e6955b005de8d9c211181b3b386f7bf7b285cd62076670df54a"
+    },
+    {
+      "path": "runs/local-follow-gain3-imitation-terminal-11/imitation_plan.json",
+      "sha256": "5d266655c6814768873d23572c80deb1da418aa696142dcbe8b78f9f99ab6e2f"
+    },
+    {
+      "path": "runs/local-follow-imitation-protocol.json",
+      "sha256": "3a1ef4d4173dfdf43e75575779656c56c1e773798eccf7eec976f26fb4a65b45"
+    },
+    {
+      "path": "runs/local-follow-rl-protocol.json",
+      "sha256": "d20ef28f383ec7746185df7169ee8f7def4e0aa14eafad2caed6ce420ad20307"
+    },
+    {
+      "path": "runs/local-follow-rl-initialization.pt",
+      "sha256": "4dbbf8804ce79158806c39887d9c46a1e82a04457fefb7447dc14204c7a9b309"
+    },
+    {
+      "path": "runs/local-follow-gain3-imitation-protocol.json",
+      "sha256": "25bb51a28a2703b86cab92ac05bfc7620e03b229f536f9e37b683bb4cc15df5c"
+    },
+    {
+      "path": "runs/observe-local-follow-gain3-imitation.py",
+      "sha256": "a829167f0052327db09d657fc70a6d7cc02d0a19803a458c1fece542aa698fa7"
+    },
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/update-local-follow-report.py",
+      "sha256": "6d9d82b6124dd2a21304413a2325c575fc7feb1afb7d2a399b760770719601ff"
+    }
+  ],
+  "imitation": {
+    "protocol": {
+      "version": "bari-local-follow-imitation-protocol-v1",
+      "planned_utc": "2026-11-03T13:52:26.951119+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+      },
+      "dataset": {
+        "path": "runs/teacher-follow-local-consistent/demonstrations.npz",
+        "sha256": "3df198577fe410e137a6f6851d9492612d1f28dcf1f7aceaaad6beafd0ae61e8"
+      },
+      "actor": "ordinary fresh shared GRU H64, independent per-robot state",
+      "seed": 11,
+      "epochs": 40,
+      "sequence_length": 64,
+      "episode_batch_size": 8,
+      "optimizer": "existing imitation Adam 0.001, gradient clip 0.5",
+      "validation": "Final epoch 40 only; deterministic actor alone, original scripted leader only, five chain seeds 2001/2003/2011/2017/2027. Only 5/5 success triggers five random-pose follow episodes. No budget extension; no four-task or hardware acceptance from this stage.",
+      "mandatory_RL": "Imitation initialization has zero RL updates; later actual GRU RL still required.",
+      "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+      "validation_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "chain_selection": "Only final epoch40, five cases, no learner assistance. 5/5 permits random-pose follow-only diagnostic; no final-held-out or four-task acceptance.",
+      "profile": "Hypothetical planar 60-degree sensing, hardware aggregation unconfirmed."
+    },
+    "imitation_epochs": 40,
+    "checkpoint": "runs/local-follow-imitation-terminal-11/checkpoint.pt",
+    "checkpoint_sha256": "febdd39bd191eda5c1fbd8e9826196782712349eeb4cd7c0d9ed86a361750786",
+    "chain_report": "runs/validation-local-follow-imitation-11-chain/report.json",
+    "chain_successes": 2,
+    "chain_episodes": 5,
+    "chain_summary": {
+      "follow": {
+        "episodes": 5,
+        "success_rate": 0.4,
+        "mean_final_max_error_m": 0.21724538239211091,
+        "required_success_rate": 0.9,
+        "passes_assumed_gate": false
+      }
+    },
+    "chain_collisions": 0,
+    "chain_wall_attempts": 0,
+    "chain_mean_leader_travel_m": 1.4666124105515823,
+    "random_follow_report": null,
+    "evaluation_teacher_intervention": false,
+    "decision": "chain failed; fixed pilot ended without extension or promotion",
+    "chain_final_holding": 0
+  },
+  "recurrent_rl": {
+    "protocol": {
+      "version": "bari-local-follow-periodic-ppo-pilot-v1",
+      "planned_utc": "2026-11-03T13:54:43.184497+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+      },
+      "config": {
+        "robots": 5,
+        "arena_radius": 1.0,
+        "body_radius": 0.069,
+        "wheel_radius": 0.022,
+        "wheel_separation": 0.082,
+        "max_wheel_speed": 0.1,
+        "max_wheel_acceleration": 0.3,
+        "physics_dt": 0.01,
+        "control_dt": 0.1,
+        "sensor_period": 0.1,
+        "sensor_latency": 0.1,
+        "sensor_min": 0.015,
+        "sensor_max": 0.8,
+        "sensor_noise_std": 0.002,
+        "sensor_dropout": 0.0,
+        "sensor_mount_radius": 0.045,
+        "sensor_height": 0.078,
+        "sensor_angles_deg": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "sensor_fov_deg": 60.0,
+        "circle_radius": 0.24,
+        "square_side": 0.32,
+        "line_spacing": 0.17,
+        "follow_spacing": 0.16,
+        "formation_tolerance": 0.035,
+        "follow_path_tolerance": 0.055,
+        "follow_spacing_tolerance": 0.055,
+        "follow_min_leader_travel": 0.3,
+        "hold_seconds": 3.0,
+        "timeout_seconds": 30.0,
+        "max_collisions": 0,
+        "max_wall_violations": 0,
+        "required_success_rate": 0.9,
+        "evaluation_seeds": [
+          10001,
+          10007,
+          10009,
+          10037,
+          10039
+        ],
+        "training_seeds": [
+          11,
+          23,
+          47
+        ],
+        "hidden_size": 64,
+        "sequence_length": 16,
+        "rollout_steps": 128,
+        "ppo_epochs": 3,
+        "learning_rate": 0.0003,
+        "gamma": 0.99,
+        "gae_lambda": 0.95,
+        "clip_ratio": 0.2,
+        "entropy_weight": 0.005,
+        "reward_error": 2.0,
+        "reward_progress": 5.0,
+        "reward_collision": 2.0,
+        "reward_wall": 2.0,
+        "reward_energy": 0.01,
+        "reward_change": 0.02,
+        "reward_time": 0.01,
+        "obstacles": []
+      },
+      "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+      "plan": {
+        "version": "bari-training-plan-v2",
+        "isolated_episode_probability": 1.0,
+        "switch_min_seconds": 3.0,
+        "switch_max_seconds": 15.0,
+        "curriculum_updates": 1000000000,
+        "curriculum_start_probability": 1.0,
+        "position_jitter_start_m": 0.015,
+        "position_jitter_end_m": 0.015,
+        "reserved_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          10001,
+          10007,
+          10009,
+          10037,
+          10039
+        ],
+        "tasks": [
+          "follow"
+        ]
+      },
+      "initialization": {
+        "path": "runs/local-follow-rl-initialization.pt",
+        "sha256": "4dbbf8804ce79158806c39887d9c46a1e82a04457fefb7447dc14204c7a9b309",
+        "metadata": {
+          "version": "bari-local-follow-actor-initialization-v1",
+          "parent": {
+            "path": "runs/local-follow-imitation-terminal-11/checkpoint.pt",
+            "sha256": "febdd39bd191eda5c1fbd8e9826196782712349eeb4cd7c0d9ed86a361750786",
+            "evidence": "imitation-only"
+          },
+          "change": {
+            "log_std_before": [
+              -0.699999988079071,
+              -0.699999988079071
+            ],
+            "log_std_after": [
+              -3.0,
+              -3.0
+            ]
+          },
+          "semantics": "No learning; deterministic means unchanged. This file supplies actor weights only, not critic/optimizer/world/hidden state.",
+          "experiment_script": {
+            "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-local-follow-rl.py",
+            "sha256": "daafa01045505ddb0115b234875288e407b53c48f826877a70fbd261dd8a61c4"
+          }
+        }
+      },
+      "initialization_proof": {
+        "actor_weights_exact": true,
+        "critic_unchanged": true,
+        "optimizer_empty": true,
+        "all_eight_worlds_rng_hidden_unchanged": true,
+        "torch_rng_unchanged": true
+      },
+      "training_seed": 11,
+      "training_version": "bari-mappo-periodic-critic-v12",
+      "worlds": 8,
+      "updates": 200,
+      "observations": [
+        50,
+        200
+      ],
+      "validation_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "exploration": "Initial independent pre-tanh Gaussian log_std=-3, std=0.0498; trainable thereafter. Deterministic actor output unchanged from the imitation parent.",
+      "hypothesis": "The local-information teacher clone achieved 2/5 official chain holds without contacts but lost final spacing by a few millimeters. Use actual closed-loop RL to improve spacing/retention, with fresh periodic critic and low trainable exploration. Parent remains unvalidated imitation-only.",
+      "evaluation": "Capture first saved update >=50 as interim, then exact terminal200; record actual counts. Five moving visible-chain cases without teacher intervention at each capture. Report final holding separately from sticky success. Only all five official successes AND all five currently holding triggers a random-pose follow-only diagnostic. This follow stage cannot establish four-task completion. No automatic budget extension or promotion.",
+      "scope": "Follow-only near-chain RL stage with hypothetical 60-degree horizontal sensing. Does not replace randomized four-task, all transitions, controlled occlusion/memory, multi-seed/final-heldout or ESP32-S3 no-PSRAM acceptance. Physical zone aggregation remains unconfirmed."
+    },
+    "completed": [
+      {
+        "stage": "interim",
+        "threshold": 50,
+        "actual_updates": 50,
+        "checkpoint": "runs/local-follow-rl-interim-11/checkpoint.pt",
+        "checkpoint_sha256": "c80ad423231b8159299d22f9da67f2e28f01a260dd4a3a3691ca2cc3a2d2e2bb",
+        "chain_report": "runs/validation-local-follow-rl-interim-11-chain/report.json",
+        "chain_successes": 0,
+        "chain_final_holding": 0,
+        "chain_episodes": 5,
+        "chain_summary": {
+          "follow": {
+            "episodes": 5,
+            "success_rate": 0.0,
+            "mean_final_max_error_m": 0.6460624957845346,
+            "required_success_rate": 0.9,
+            "passes_assumed_gate": false
+          }
+        },
+        "chain_collisions": 0,
+        "chain_wall_attempts": 0,
+        "chain_mean_leader_travel_m": 1.4666124105515823,
+        "random_follow_report": null,
+        "evaluation_teacher_intervention": false,
+        "scope": "follow-only hypothetical-sensing RL pilot; no default actor, sensor profile or acceptance gate promoted"
+      },
+      {
+        "stage": "terminal",
+        "threshold": 200,
+        "actual_updates": 200,
+        "checkpoint": "runs/local-follow-rl-terminal-11/checkpoint.pt",
+        "checkpoint_sha256": "3fba4928362bbb823b3c58624407d938342cd108a36e4523e6a3e2f5581edb84",
+        "chain_report": "runs/validation-local-follow-rl-terminal-11-chain/report.json",
+        "chain_successes": 0,
+        "chain_final_holding": 0,
+        "chain_episodes": 5,
+        "chain_summary": {
+          "follow": {
+            "episodes": 5,
+            "success_rate": 0.0,
+            "mean_final_max_error_m": 0.9316535653583509,
+            "required_success_rate": 0.9,
+            "passes_assumed_gate": false
+          }
+        },
+        "chain_collisions": 0,
+        "chain_wall_attempts": 2647,
+        "chain_mean_leader_travel_m": 1.4666124105515823,
+        "random_follow_report": null,
+        "evaluation_teacher_intervention": false,
+        "scope": "follow-only hypothetical-sensing RL pilot; no default actor, sensor profile or acceptance gate promoted"
+      }
+    ]
+  },
+  "gain3_imitation": {
+    "protocol": {
+      "version": "bari-local-follow-gain3-imitation-v1",
+      "planned_utc": "2026-11-03T14:06:54.913573+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+      },
+      "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+      "dataset": {
+        "path": "runs/teacher-follow-local-gain3/demonstrations.npz",
+        "sha256": "d64ec3929e189cd5f14635c6bd336d494f33dcfbb81ad4fe31dca722634eb70e"
+      },
+      "near_initial_states": {
+        "path": "runs/local-follow-warm-distribution/initial_states.json",
+        "sha256": "35ebb1b688bc424a1267533c9a066ff0fb05fed3f72ce73d08f9d8bc0fa8d0cc"
+      },
+      "actor": "fresh ordinary GRU H64",
+      "seed": 11,
+      "epochs": 40,
+      "BPTT": 64,
+      "batch_episodes": 8,
+      "scope": "256 episodes, twice the first128-episode sample/optimizer budget. Data perturbations and teacher gain both changed; do not attribute any improvement to one alone.",
+      "validation": "Final epoch40: five chain validation seeds2001/2003/2011/2017/2027 and eight frozen near-chain diagnostic states from runs/local-follow-warm-distribution/initial_states.json. Require all13 official successes and all13 final holding before any new RL stage. No assistance or automatic extension.",
+      "validation_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ]
+    },
+    "checkpoint": "runs/local-follow-gain3-imitation-terminal-11/checkpoint.pt",
+    "checkpoint_sha256": "6732cc7ffb124b907ae1719f11b0b72825bf134b34c49b5267fbea6c7d4c993b",
+    "imitation_epochs": 40,
+    "RL_updates": 0,
+    "chain_report": "runs/validation-local-follow-gain3-imitation-11-chain/report.json",
+    "chain_successes": 0,
+    "chain_final_holding": 0,
+    "chain_episodes": 5,
+    "chain_contacts": 0,
+    "chain_walls": 448,
+    "near_report": "runs/validation-local-follow-gain3-imitation-11-near/report.json",
+    "near_successes": 0,
+    "near_final_holding": 0,
+    "near_episodes": 8,
+    "near_contacts": 0,
+    "near_walls": 416,
+    "qualified_for_RL_only": false,
+    "teacher_intervention": false,
+    "default_profile_promoted": false,
+    "scope": "Hypothetical sensing, partial following imitation stage; not full GRU-RL or hardware acceptance."
+  },
+  "remaining": [
+    "Successful robust GRU actor and genuine RL validation",
+    "Circle/square/line and one shared conditioned solution",
+    "All12 directed, unfinished and repeated switches",
+    "Controlled seen/unseen occlusion and GRU-memory comparisons",
+    "Multiple training seeds and new final-heldout acceptance",
+    "Successful continuous3D demonstration and validated actor export",
+    "ESP32-S3 physical peak internal SRAM/latency without PSRAM",
+    "Sensor/motor calibration and measured2m arena construction"
+  ]
+}

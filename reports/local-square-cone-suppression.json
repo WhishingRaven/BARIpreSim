@@ -1,0 +1,220 @@
+{
+  "version": "bari-square-scalar-cone-suppression-v1",
+  "seed": 2003,
+  "recorded_last50_world_poses_exactly_stationary": true,
+  "nearest_cone_object_indices_observer_only": [
+    [
+      -1,
+      4,
+      2,
+      3,
+      3,
+      1
+    ],
+    [
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0
+    ],
+    [
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0
+    ],
+    [
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0
+    ],
+    [
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0
+    ]
+  ],
+  "centerline_visibility_observer_only": [
+    [
+      false,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      false,
+      false,
+      true,
+      true
+    ],
+    [
+      true,
+      false,
+      false,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      false,
+      false
+    ]
+  ],
+  "virtual_heading_samples": [
+    {
+      "virtual_heading_offset_deg": 0,
+      "outer_robot_hits_per_outer_observer": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 5,
+      "outer_robot_hits_per_outer_observer": [
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 10,
+      "outer_robot_hits_per_outer_observer": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 15,
+      "outer_robot_hits_per_outer_observer": [
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 20,
+      "outer_robot_hits_per_outer_observer": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 25,
+      "outer_robot_hits_per_outer_observer": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 30,
+      "outer_robot_hits_per_outer_observer": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 35,
+      "outer_robot_hits_per_outer_observer": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 40,
+      "outer_robot_hits_per_outer_observer": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 45,
+      "outer_robot_hits_per_outer_observer": [
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 50,
+      "outer_robot_hits_per_outer_observer": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 55,
+      "outer_robot_hits_per_outer_observer": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "virtual_heading_offset_deg": 60,
+      "outer_robot_hits_per_outer_observer": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "all_outer_robots_have_no_outer_scalar_hit_at_recorded_heading": true,
+  "all_outer_robots_have_two_outer_scalar_hits_at_some_virtual_heading": true,
+  "scope": "Static evaluator geometry only. Centerline visibility differs from scalar cone aggregation. Virtual yaw poses are counterfactual raycast fixtures, not actual robot actions, resets or a motion success claim. No true ID/visibility/count or virtual pose is passed to the teacher/actor. FOV60 remains hypothetical; this is not controlled-occlusion or hardware acceptance.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-square-cone-suppression.py",
+      "sha256": "03daa4cd14898be618c140bf6717113f7f4fe97d2fd4ff1a7a5c9795d271322e"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2003.npz",
+      "sha256": "50dc9cbd4b4ca901fb0dcf575298f960c460bde018c780142feae9a5783f0a9b"
+    },
+    {
+      "path": "reports/local-square-angular-diagnostic.json",
+      "sha256": "da9592409064c112e870f6f2410546aec8d216d7e71501032dfeee780f40b4f9"
+    }
+  ]
+}

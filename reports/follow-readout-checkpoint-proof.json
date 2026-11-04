@@ -1,0 +1,53 @@
+{
+  "version": "bari-readout-search-checkpoint-proof-v1",
+  "checkpoint": {
+    "path": "runs/search-follow-readout-73/checkpoint.pt",
+    "sha256": "06fbb280f8081958a3a50252b65f96744f52b6d4572277cb4555f985d88b5309"
+  },
+  "head_fold_bit_exact": true,
+  "all_non_head_actor_parameters_unchanged": true,
+  "normal_actor_specification": {
+    "version": "bari-gru-v1",
+    "action_correlation": 0.0
+  },
+  "completed_search_generations": 10,
+  "ppo_gradient_updates": 0,
+  "loaded_controller_reference_replay_exact": [
+    {
+      "seed": 3001,
+      "return": -77.08902667276561,
+      "collisions": 110,
+      "success": false
+    },
+    {
+      "seed": 3011,
+      "return": -83.75987990607973,
+      "collisions": 125,
+      "success": false
+    },
+    {
+      "seed": 3023,
+      "return": -83.09960484469775,
+      "collisions": 124,
+      "success": false
+    },
+    {
+      "seed": 3037,
+      "return": -77.72458521113731,
+      "collisions": 112,
+      "success": false
+    }
+  ],
+  "batch_vs_ordinary_mean_return_absolute_difference": 1.4842953532934189e-09,
+  "scope": "Serialization/folding/controller agreement only; every training reference and validation case still fails behavior acceptance.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-readout-search-checkpoint.py",
+      "sha256": "eeeb9a67cae83af7887f49a0852e4bfd3e4aa173024b0437c5bad455548a6803"
+    },
+    {
+      "path": "runs/follow-readout-search-results.json",
+      "sha256": "562c1c3fb121bfb46e20c72374f317cd91b3f7d945446ddaf5e8b84551eb20fa"
+    }
+  ]
+}

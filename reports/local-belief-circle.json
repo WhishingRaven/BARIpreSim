@@ -1,0 +1,1108 @@
+{
+  "version": "bari-local-belief-circle-study-v1",
+  "completed_utc": "2026-11-03T18:26:44.171351+00:00",
+  "verification": {
+    "version": "bari-local-wall-belief-verification-v2",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "specification": {
+      "version": "bari-local-wall-belief-v1",
+      "settings": {
+        "arena_radius": 1.0,
+        "body_radius": 0.069,
+        "max_wheel_speed": 0.1,
+        "max_wheel_acceleration": 0.3,
+        "wheel_separation": 0.082,
+        "physics_dt": 0.01,
+        "control_dt": 0.1,
+        "sensor_latency": 0.1,
+        "sensor_period": 0.1,
+        "sensor_min": 0.015,
+        "sensor_max": 0.8,
+        "sensor_mount_radius": 0.045,
+        "sensor_angles_deg": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "sensor_fov_deg": 60.0
+      },
+      "feature_order": [
+        "estimated_arena_center_x_body_over_radius",
+        "estimated_arena_center_y_body_over_radius",
+        "local_posterior_confidence"
+      ],
+      "particles": 33660,
+      "state_bytes_per_robot_host_ABI": 168440,
+      "loss_dtype": "float32",
+      "evidence_dtype": "uint8 saturated at6",
+      "numeric_dtype": "float32",
+      "inputs": "six normalized nearest-distance readings and own preceding saturated requests only",
+      "confidence": "Computed local posterior concentration/evidence, not sensor validity, true visibility, a detected-object class or a simulator flag",
+      "reset": "Episode/controller reset only; individual stream masks. Task switches preserve state.",
+      "limitations": "Known circular arena and provisional command model; estimates can be wrong and drift after contact. Host ABI size excludes stack, output, actor and firmware; target RAM/latency not measured."
+    },
+    "geometry_cases": 10000,
+    "max_interior_wall_range_error_m": 3.270670636545958e-07,
+    "host_300_controls_five_robots_elapsed_s": 0.35508841599948937,
+    "exact_serialized_continuation": true,
+    "stream_permutation_exact": true,
+    "individual_reset_exact": true,
+    "initial_shared_actor_tensors_exact": true,
+    "new_encoder_columns_initially_zero": true,
+    "initial_actor_max_output_error": 1.1920928955078125e-07,
+    "initial_actor_output_atol": 2e-07,
+    "controller_world_hidden_belief_resume_exact": true,
+    "unfinished_task_switch_preserves_belief": true,
+    "private_checkpoint_roundtrip_exact": true,
+    "legacy_loader_rejects_new_input_contract": true,
+    "behavior_candidates": 0,
+    "scope": "Local-only prototype correctness and host costs, not learned success or on-device RAM/latency",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-wall-belief.py",
+        "sha256": "0f40732eb89c3cd456859733b1fc56e2ca2cd70d48fafa4e14de9ee4e721801b"
+      },
+      {
+        "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+        "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5"
+      },
+      {
+        "path": "runs/local-wall-belief-verification-v2/verification-only-initial.pt",
+        "sha256": "0994f81f14406f5282ddb301603b56e2c13c34d64b793d9415534959b9b338cf"
+      },
+      {
+        "path": "runs/local-wall-belief-verification-v2/first-teacher-features.npz",
+        "sha256": "9a6cd035343f2595de3ec34fccbc566833dfe6acaf3efa0417702491daca3de6"
+      },
+      {
+        "path": "runs/local_belief_actor.py",
+        "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+      },
+      {
+        "path": "runs/local_wall_belief.py",
+        "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+      },
+      {
+        "path": "runs/local_wall_belief.hpp",
+        "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+      },
+      {
+        "path": "runs/local_wall_belief_bridge.cpp",
+        "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+      },
+      {
+        "path": "runs/local-wall-belief-v1.dylib",
+        "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+      },
+      {
+        "path": "runs/local-wall-belief-build-v1.json",
+        "sha256": "1ca623a34471280f24c76540db5fd682ce1c730652fa0d86b3ce63616d171377"
+      }
+    ]
+  },
+  "feature_derivation": {
+    "protocol": {
+      "version": "bari-local-belief-feature-data-v1",
+      "planned_utc": "2026-11-03T18:16:31.773090+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+      },
+      "script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/derive-local-belief-features.py",
+        "sha256": "3671de465d5c04751227fc144652675a151fcb4fdf3ef8fdda9dcf8a9719847b"
+      },
+      "verification": {
+        "path": "reports/local-wall-belief-verification.json",
+        "sha256": "4de5620d9064a86c193441df2b8e2b3d982f3c118daf8edf2644da632337427a"
+      },
+      "datasets": [
+        {
+          "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+          "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5"
+        },
+        {
+          "path": "runs/teacher-local-circle-student1/demonstrations.npz",
+          "sha256": "470d3df1c3f8a52113d20ed97bcf9db60e0c318e4179ea38125df4a426e101d7"
+        }
+      ],
+      "specification": {
+        "version": "bari-local-wall-belief-v1",
+        "settings": {
+          "arena_radius": 1.0,
+          "body_radius": 0.069,
+          "max_wheel_speed": 0.1,
+          "max_wheel_acceleration": 0.3,
+          "wheel_separation": 0.082,
+          "physics_dt": 0.01,
+          "control_dt": 0.1,
+          "sensor_latency": 0.1,
+          "sensor_period": 0.1,
+          "sensor_min": 0.015,
+          "sensor_max": 0.8,
+          "sensor_mount_radius": 0.045,
+          "sensor_angles_deg": [
+            0,
+            60,
+            120,
+            180,
+            240,
+            300
+          ],
+          "sensor_fov_deg": 60.0
+        },
+        "feature_order": [
+          "estimated_arena_center_x_body_over_radius",
+          "estimated_arena_center_y_body_over_radius",
+          "local_posterior_confidence"
+        ],
+        "particles": 33660,
+        "state_bytes_per_robot_host_ABI": 168440,
+        "loss_dtype": "float32",
+        "evidence_dtype": "uint8 saturated at6",
+        "numeric_dtype": "float32",
+        "inputs": "six normalized nearest-distance readings and own preceding saturated requests only",
+        "confidence": "Computed local posterior concentration/evidence, not sensor validity, true visibility, a detected-object class or a simulator flag",
+        "reset": "Episode/controller reset only; individual stream masks. Task switches preserve state.",
+        "limitations": "Known circular arena and provisional command model; estimates can be wrong and drift after contact. Host ABI size excludes stack, output, actor and firmware; target RAM/latency not measured."
+      },
+      "inputs": "Only each recorded normalized local observation and episode reset mask, in original temporal/robot order",
+      "selection": "All128 teacher and all128 student worlds, all300 timesteps and all5 robots. No filtering by success, error, confidence or safety.",
+      "no_new_actions": true,
+      "no_actor_training": true,
+      "limits": "Features are local hypotheses, not true positions. Original teacher commands remain the imitation labels; nominal contact drift remains possible."
+    },
+    "summaries": [
+      {
+        "dataset": "teacher",
+        "episodes": 128,
+        "confidence_fraction": 0.9300729036331177
+      },
+      {
+        "dataset": "student1",
+        "episodes": 128,
+        "confidence_fraction": 0.9279218912124634
+      }
+    ],
+    "comparison_to_old_local_teacher": {
+      "both_confident_samples": 178147,
+      "confidence_agreement": 0.999828125,
+      "mean_center_difference_m_on_common_confident": 1.367910226690583e-05,
+      "p90_center_difference_m_on_common_confident": 1.4226034181774594e-06,
+      "max_center_difference_m_on_common_confident": 0.01623074896633625,
+      "meaning": "Agreement with a local host teacher, not ground-truth accuracy or task success"
+    },
+    "shape": [
+      256,
+      300,
+      5,
+      3
+    ],
+    "host_elapsed_s": 91.27567645799718,
+    "actor_training_runs": 0,
+    "artifacts": [
+      {
+        "path": "runs/local-belief-feature-data-v1/protocol.json",
+        "sha256": "70ebe6be4915a02c39a4402d7e9f6cd3b06ddc960efd2560a2875fe5a46f55c3"
+      },
+      {
+        "path": "runs/local-belief-feature-data-v1/features.npz",
+        "sha256": "06a8784360d2e1e3613aad7fd5ec93f43d9effd8383d951d7d15569d65c79fc5"
+      },
+      {
+        "path": "runs/teacher-local-circle-student1/local-teacher-state.npz",
+        "sha256": "94a31f4fbeb44e3b93e32110715c7e7e007d30ec42302fbc2ae4313101b83b83"
+      }
+    ]
+  },
+  "training": {
+    "protocol": {
+      "version": "bari-local-belief-circle-imitation-v1",
+      "planned_utc": "2026-11-03T18:18:40.763739+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+      },
+      "script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-local-belief-circle.py",
+        "sha256": "c5f3276c31c6e858c920094a03f12154ad4881be3a65e738dce5ea54ceb98113"
+      },
+      "derivation": {
+        "path": "runs/local-belief-feature-data-v1/result.json",
+        "sha256": "89923c8136ae5e928011e2a1db2a7cc6611498020f38af223be535b787eb5fd1"
+      },
+      "datasets": [
+        {
+          "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+          "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5"
+        },
+        {
+          "path": "runs/teacher-local-circle-student1/demonstrations.npz",
+          "sha256": "470d3df1c3f8a52113d20ed97bcf9db60e0c318e4179ea38125df4a426e101d7"
+        }
+      ],
+      "features": {
+        "path": "runs/local-belief-feature-data-v1/features.npz",
+        "sha256": "06a8784360d2e1e3613aad7fd5ec93f43d9effd8383d951d7d15569d65c79fc5"
+      },
+      "verification": {
+        "path": "reports/local-wall-belief-verification.json",
+        "sha256": "4de5620d9064a86c193441df2b8e2b3d982f3c118daf8edf2644da632337427a"
+      },
+      "input_contract": {
+        "version": "bari-local-belief-actor-v1",
+        "dtype": "float32",
+        "batch_size_on_robot": 1,
+        "local_order": [
+          "range_0",
+          "range_60",
+          "range_120",
+          "range_180",
+          "range_240",
+          "range_300",
+          "previous_left_command",
+          "previous_right_command",
+          "is_leader",
+          "estimated_arena_center_x_body_over_radius",
+          "estimated_arena_center_y_body_over_radius",
+          "local_posterior_confidence"
+        ],
+        "local_shape": [
+          12
+        ],
+        "task_order": [
+          "circle",
+          "square",
+          "line",
+          "follow"
+        ],
+        "task_shape": [
+          4
+        ],
+        "hidden_shape": [
+          64
+        ],
+        "sensor_angles_deg": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+        "sensor_min": 0.015,
+        "sensor_max": 0.8,
+        "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+        "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+        "max_wheel_speed_m_s": 0.1,
+        "acceleration_m_s2": 0.3,
+        "control_dt_s": 0.1,
+        "previous_action": "previous saturated requested command, not measured velocity",
+        "reset": "Zero GRU and reset local belief only at controller/episode reset; preserve both across switches",
+        "switch": "same actor and hidden; new task before next control action; world preserved",
+        "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
+        "sensor_model": {
+          "version": "bari-horizontal-cone-v1",
+          "horizontal_fov_deg": 60.0,
+          "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+          "mount_radius_m": 0.045,
+          "height_m": 0.078,
+          "noise_stage": "configured scalar noise/dropout after cone aggregation",
+          "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+          "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"
+        },
+        "raw_sensor_observation_contract": {
+          "version": "bari-ir-gru-v1",
+          "dtype": "float32",
+          "batch_size_on_robot": 1,
+          "local_order": [
+            "range_0",
+            "range_60",
+            "range_120",
+            "range_180",
+            "range_240",
+            "range_300",
+            "previous_left_command",
+            "previous_right_command",
+            "is_leader"
+          ],
+          "local_shape": [
+            9
+          ],
+          "task_order": [
+            "circle",
+            "square",
+            "line",
+            "follow"
+          ],
+          "task_shape": [
+            4
+          ],
+          "hidden_shape": [
+            64
+          ],
+          "sensor_angles_deg": [
+            0,
+            60,
+            120,
+            180,
+            240,
+            300
+          ],
+          "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+          "sensor_min": 0.015,
+          "sensor_max": 0.8,
+          "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+          "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+          "max_wheel_speed_m_s": 0.1,
+          "acceleration_m_s2": 0.3,
+          "control_dt_s": 0.1,
+          "previous_action": "previous saturated requested command, not measured velocity",
+          "reset": "zero hidden, previous command and sensor queue at episode/controller reset only",
+          "switch": "same actor and hidden; new task before next control action; world preserved",
+          "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
+          "sensor_model": {
+            "version": "bari-horizontal-cone-v1",
+            "horizontal_fov_deg": 60.0,
+            "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+            "mount_radius_m": 0.045,
+            "height_m": 0.078,
+            "noise_stage": "configured scalar noise/dropout after cone aggregation",
+            "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+            "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"
+          }
+        },
+        "belief_input": "Only raw local six ranges and own previous requested commands; no poses/IDs/evaluator inputs",
+        "belief_confidence": "Computed posterior concentration, not sensor validity or actual detection/visibility"
+      },
+      "belief": {
+        "version": "bari-local-wall-belief-v1",
+        "settings": {
+          "arena_radius": 1.0,
+          "body_radius": 0.069,
+          "max_wheel_speed": 0.1,
+          "max_wheel_acceleration": 0.3,
+          "wheel_separation": 0.082,
+          "physics_dt": 0.01,
+          "control_dt": 0.1,
+          "sensor_latency": 0.1,
+          "sensor_period": 0.1,
+          "sensor_min": 0.015,
+          "sensor_max": 0.8,
+          "sensor_mount_radius": 0.045,
+          "sensor_angles_deg": [
+            0,
+            60,
+            120,
+            180,
+            240,
+            300
+          ],
+          "sensor_fov_deg": 60.0
+        },
+        "feature_order": [
+          "estimated_arena_center_x_body_over_radius",
+          "estimated_arena_center_y_body_over_radius",
+          "local_posterior_confidence"
+        ],
+        "particles": 33660,
+        "state_bytes_per_robot_host_ABI": 168440,
+        "loss_dtype": "float32",
+        "evidence_dtype": "uint8 saturated at6",
+        "numeric_dtype": "float32",
+        "inputs": "six normalized nearest-distance readings and own preceding saturated requests only",
+        "confidence": "Computed local posterior concentration/evidence, not sensor validity, true visibility, a detected-object class or a simulator flag",
+        "reset": "Episode/controller reset only; individual stream masks. Task switches preserve state.",
+        "limitations": "Known circular arena and provisional command model; estimates can be wrong and drift after contact. Host ABI size excludes stack, output, actor and firmware; target RAM/latency not measured."
+      },
+      "initial_actor": {
+        "path": "runs/train-local-belief-circle-11/initial_actor.pt",
+        "sha256": "cebfb8bf80e3863c7b42714b66b0708a2fe95b10ec54b9e24351148d17bc14a9"
+      },
+      "initial_shared_tensors_exact_to_old_seed11": true,
+      "private_sources": [
+        {
+          "path": "runs/train-local-belief-circle-11/experimental-source/local_wall_belief.py",
+          "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/experimental-source/local_wall_belief.hpp",
+          "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/experimental-source/local_wall_belief_bridge.cpp",
+          "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/experimental-source/local-wall-belief-v1.dylib",
+          "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/experimental-source/local_belief_actor.py",
+          "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/experimental-source/train-local-belief-circle.py",
+          "sha256": "c5f3276c31c6e858c920094a03f12154ad4881be3a65e738dce5ea54ceb98113"
+        }
+      ],
+      "seed": 11,
+      "epochs": 40,
+      "episodes": 256,
+      "batch_episodes": 8,
+      "BPTT": 64,
+      "learning_rate": 0.001,
+      "gradient_clip": 0.5,
+      "expected_optimizer_steps": 6400,
+      "constraint": "Raw previous-command encoder columns6:8, gradients and Adam moments remain zero. New belief columns start at zero and train normally.",
+      "change": "Add three explicitly computed local belief features and their persistent posterior state; no learned action override or teacher at execution.",
+      "controls": "Same256 complete teacher/student episodes, existing labels/weights, seed11 epoch permutations, batch8, BPTT64, Adam0.001 and6400 steps as the earlier raw-input student1 zero-command arm. GRU/head/shared encoder initial tensors exact; new columns zero.",
+      "development_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "larger_gate": {
+        "path": "runs/local-circle-student1-larger-gate.json",
+        "sha256": "f11cfe8bfafb1ef1cad4fded928bc08d2985fdfb1295149501fff29f9003b739"
+      },
+      "larger_seeds": [
+        2120849351,
+        1384627394,
+        1532761059,
+        1376502237,
+        979700136,
+        2122707756,
+        1970561045,
+        24550309,
+        1480293845,
+        578337630,
+        2827126,
+        739355049,
+        373745314,
+        1127354831,
+        25487437,
+        20413573,
+        1950449760,
+        102547314,
+        752152778,
+        1665508353
+      ],
+      "selection": "Exact final40 only. Require5/5 successes AND final holds with zero total safety attempts before the fixed20-case development gate; require>=18/20 successes/holds and zero total safety there. No extension, automatic RL or default promotion.",
+      "scope": "Imitation only, zeroRLupdates; new experimental local-history architecture, hypotheticalFOV60 and central-square starts. Not full-goal, final-heldout, multi-training-seed or device acceptance."
+    },
+    "checkpoint": {
+      "path": "runs/train-local-belief-circle-11/checkpoint.pt",
+      "sha256": "5c3f952db1f78dc64f753fdd315ba50c1a7ed3725b9c81214f8b0e3e008fff97"
+    },
+    "training_log": {
+      "path": "runs/train-local-belief-circle-11/imitation.jsonl",
+      "sha256": "a9aa7d9e1e1e4475d75a2a4df0eca113ae61951615135ae0010e154e4647391c"
+    },
+    "imitation_epochs": 40,
+    "RL_updates": 0,
+    "optimizer_steps": 6400,
+    "epoch_orders_sha256": "c426cbd4bd5af3f1944d5a04ed90b215b58256d7c645459d7eef6d6dde9ded08",
+    "development": {
+      "episodes": 5,
+      "successes": 1,
+      "final_holding": 1,
+      "contacts": 511,
+      "walls": 0,
+      "mean_final_max_error_m": 0.09748513759997271,
+      "rows": [
+        {
+          "seed": 2001,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.018673034414797444,
+          "max_error_m": 0.028801522811412572,
+          "success": true,
+          "acquisition_s": 3.699999999999999,
+          "holding_goal": true,
+          "hold_s": 26.300000000000104,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.037407331969896665,
+          "peak_max_error_m": 0.2055415394667953,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 1.4510856913914283,
+          "min_visible_directed_pairs": 20,
+          "mean_visible_directed_pairs": 20.0,
+          "peak_blocked_robot_beam_pairs": 0,
+          "occlusion_events": []
+        },
+        {
+          "seed": 2003,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.08410502455157763,
+          "max_error_m": 0.14693242817739632,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.15601357269634586,
+          "peak_max_error_m": 0.24796785604029822,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 146,
+          "wall_violations": 0,
+          "control_cost": 1.3255129202731795,
+          "min_visible_directed_pairs": 16,
+          "mean_visible_directed_pairs": 16.846666666666668,
+          "peak_blocked_robot_beam_pairs": 3,
+          "occlusion_events": [
+            {
+              "onset_s": 6.6000000000000005,
+              "end_s": 6.9,
+              "duration_s": 0.2999999999999998,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 7.1000000000000005,
+              "end_s": 8.4,
+              "duration_s": 1.2999999999999998,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 11.3,
+              "end_s": 11.5,
+              "duration_s": 0.1999999999999993,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 12.0,
+              "end_s": 12.1,
+              "duration_s": 0.09999999999999964,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 12.200000000000001,
+              "end_s": 12.5,
+              "duration_s": 0.29999999999999893,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 13.0,
+              "end_s": 30.0,
+              "duration_s": 17.0,
+              "visibility_returned": false
+            }
+          ]
+        },
+        {
+          "seed": 2011,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.032020001588366216,
+          "max_error_m": 0.050060700088515625,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.0619959720514442,
+          "peak_max_error_m": 0.21899798524599462,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 0.96451090697994,
+          "min_visible_directed_pairs": 16,
+          "mean_visible_directed_pairs": 19.746666666666666,
+          "peak_blocked_robot_beam_pairs": 3,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 2.4,
+              "duration_s": 2.3,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 2.6,
+              "end_s": 2.8000000000000003,
+              "duration_s": 0.20000000000000018,
+              "visibility_returned": true
+            }
+          ]
+        },
+        {
+          "seed": 2017,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.1473265254178845,
+          "max_error_m": 0.22362052374036243,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.2090354349350265,
+          "peak_max_error_m": 0.23154828535755287,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 365,
+          "wall_violations": 0,
+          "control_cost": 1.232796190991331,
+          "min_visible_directed_pairs": 14,
+          "mean_visible_directed_pairs": 15.626666666666667,
+          "peak_blocked_robot_beam_pairs": 7,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 30.0,
+              "duration_s": 29.9,
+              "visibility_returned": false
+            }
+          ]
+        },
+        {
+          "seed": 2027,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.02437202392637289,
+          "max_error_m": 0.038010513182176596,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.07286603572360915,
+          "peak_max_error_m": 0.2799818862854328,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 1.5297961712610821,
+          "min_visible_directed_pairs": 18,
+          "mean_visible_directed_pairs": 19.466666666666665,
+          "peak_blocked_robot_beam_pairs": 3,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 5.8,
+              "duration_s": 5.7,
+              "visibility_returned": true
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2001/report.json",
+          "sha256": "840323f728d09b7385590c7ca062243b397d236c6c718811c59a2cfa0af07142"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2001/actual-actor-inputs.npz",
+          "sha256": "5f4583e706f17e432f4f94d9ef19dd1aa987baf17b81baf288e1fb5c118233e2"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2001/circle-2001.npz",
+          "sha256": "476a6650c68a5ed61e26d4ba2b591f3c24b2281a10d62553e38cb86796c68c6a"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2003/report.json",
+          "sha256": "ca50148e61e2cec28b3b3a50f58054ab28893e7a2f7c4c2422781051b6503830"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2003/actual-actor-inputs.npz",
+          "sha256": "55307a9c7e616ee1122d7e642bb53becfa846c01c2760e56ddb509a2c8cb25bb"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2003/circle-2003.npz",
+          "sha256": "ba91b4885f2e6612f3136114afd9eb6c77b775ed7fe8b954005a7231189b6187"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2011/report.json",
+          "sha256": "d3a36fee6e25485bfa1031384c69e543b6d40a7b3b7a1cf9195456c7619c16b1"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2011/actual-actor-inputs.npz",
+          "sha256": "303f4d9396bc37840c3306800e473175431f8fb6aa250ef6098e5ea5d359cc9a"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2011/circle-2011.npz",
+          "sha256": "9bd5de6cbfdd78aac772ba15bebb5615616a090e15b7925b3ab879a66aba39e4"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2017/report.json",
+          "sha256": "eb4ea03737210a6e232ab4ee5759752311f32636fb361c601128c538e948072a"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2017/actual-actor-inputs.npz",
+          "sha256": "866eb350295bde9fedb8c46feae1429db0487323cb3caea5a69266103963cce4"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2017/circle-2017.npz",
+          "sha256": "1d994cd273d95d51e7b87443c2db308ca45325ada69e1cd9ab48ef54a80dc7b5"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2027/report.json",
+          "sha256": "8e0b1fd70b0aa41c5ee1641f0e8e198c606a492d7ad7819cb378e6664d6c7c1c"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2027/actual-actor-inputs.npz",
+          "sha256": "c954d7c5aeeae9719cb4eddc13ac98c3fce81e95ad8836619f928c2db9ca9ff8"
+        },
+        {
+          "path": "runs/train-local-belief-circle-11/evaluation-development/2027/circle-2027.npz",
+          "sha256": "07c8638d95cc47fa000ac92cfbbf298f63103fa98fe545bc02be9a3149cd2ec4"
+        }
+      ]
+    },
+    "larger": null,
+    "qualified_for_separately_planned_next_stage_only": false,
+    "default_promoted": false,
+    "full_goal_complete": false,
+    "decision": "Fixed40-epoch local-belief imitation stage complete. No budget extension, automatic RL or default promotion."
+  },
+  "diagnostic": {
+    "version": "bari-local-belief-circle-diagnostic-v1",
+    "checkpoint": {
+      "path": "runs/train-local-belief-circle-11/checkpoint.pt",
+      "sha256": "5c3f952db1f78dc64f753fdd315ba50c1a7ed3725b9c81214f8b0e3e008fff97"
+    },
+    "fixed_budget_verified": true,
+    "new_epoch_orders_match_source_reconstruction": true,
+    "old_epoch_order_digest_recorded": false,
+    "actor_unchanged": true,
+    "training_fit": {
+      "teacher": {
+        "episodes": 128,
+        "training_data_wheel_mse": 0.11268872022628784,
+        "zero_command_mse": 0.1727360039949417,
+        "high_turn_sample_fraction": 0.42915625,
+        "high_turn_mse": 0.21888089179992676,
+        "other_mse": 0.03285421431064606,
+        "scope": "Training-data fit with final frozen weights, not held-out prediction or task success"
+      },
+      "student1": {
+        "episodes": 128,
+        "training_data_wheel_mse": 0.20277877151966095,
+        "zero_command_mse": 0.37869808077812195,
+        "high_turn_sample_fraction": 0.8804166666666666,
+        "high_turn_mse": 0.21919438242912292,
+        "other_mse": 0.08192100375890732,
+        "scope": "Training-data fit with final frozen weights, not held-out prediction or task success"
+      }
+    },
+    "actual_execution_replay": [
+      {
+        "seed": 2001,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      },
+      {
+        "seed": 2003,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      },
+      {
+        "seed": 2011,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      },
+      {
+        "seed": 2017,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      },
+      {
+        "seed": 2027,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      }
+    ],
+    "new_actor_training_or_updates": 0,
+    "scope": "Read-only fit and execution provenance; cannot promote the failed candidate or establish its failure cause",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/diagnose-local-belief-circle.py",
+        "sha256": "256c27c8f3cb5bf00ca5a45f6440e319288374dc291339631aa816cd7a721b92"
+      },
+      {
+        "path": "runs/train-local-belief-circle-11/result.json",
+        "sha256": "59eb4a5bc61524d47e22776b8ca56738798ede8bd0a40bccc40c5dea4f5471f6"
+      },
+      {
+        "path": "runs/train-local-belief-circle-11/imitation.jsonl",
+        "sha256": "a9aa7d9e1e1e4475d75a2a4df0eca113ae61951615135ae0010e154e4647391c"
+      },
+      {
+        "path": "runs/train-local-circle-student1.py",
+        "sha256": "514289a9871c61eda38e97e60d88537b8ebca7e7bce318552823a91fb9d6a497"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "seed": 2001,
+      "initial_max_error_m": 0.20570944789785536,
+      "final_max_error_m": 0.028801522811412572,
+      "final_hold_s": 26.300000000000104,
+      "success": true,
+      "holding_goal": true,
+      "contacts": 0,
+      "walls": 0
+    },
+    {
+      "seed": 2003,
+      "initial_max_error_m": 0.24698847810560584,
+      "final_max_error_m": 0.14693242817739632,
+      "final_hold_s": 0.0,
+      "success": false,
+      "holding_goal": false,
+      "contacts": 146,
+      "walls": 0
+    },
+    {
+      "seed": 2011,
+      "initial_max_error_m": 0.2175477703481113,
+      "final_max_error_m": 0.050060700088515625,
+      "final_hold_s": 0.0,
+      "success": false,
+      "holding_goal": false,
+      "contacts": 0,
+      "walls": 0
+    },
+    {
+      "seed": 2017,
+      "initial_max_error_m": 0.23088493978933322,
+      "final_max_error_m": 0.22362052374036243,
+      "final_hold_s": 0.0,
+      "success": false,
+      "holding_goal": false,
+      "contacts": 365,
+      "walls": 0
+    },
+    {
+      "seed": 2027,
+      "initial_max_error_m": 0.2800326972357975,
+      "final_max_error_m": 0.038010513182176596,
+      "final_hold_s": 0.0,
+      "success": false,
+      "holding_goal": false,
+      "contacts": 0,
+      "walls": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-local-belief-circle-report.py",
+      "sha256": "f6bdf860776714cbdf95f255527337cbda79f72d6bf2c9c82a0005873d860031"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/result.json",
+      "sha256": "59eb4a5bc61524d47e22776b8ca56738798ede8bd0a40bccc40c5dea4f5471f6"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/protocol.json",
+      "sha256": "438f2fe3cc1e61e58d177b8745818038cd873e6fd4700a9c87875af4834b18f0"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/actor-contract.json",
+      "sha256": "8ed616af5b2b03b2fa07fd44c2284e356fece2e7e4bfa75385f20899ca2d8aa4"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/initial_actor.pt",
+      "sha256": "cebfb8bf80e3863c7b42714b66b0708a2fe95b10ec54b9e24351148d17bc14a9"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/imitation.jsonl",
+      "sha256": "a9aa7d9e1e1e4475d75a2a4df0eca113ae61951615135ae0010e154e4647391c"
+    },
+    {
+      "path": "reports/local-wall-belief-verification.json",
+      "sha256": "4de5620d9064a86c193441df2b8e2b3d982f3c118daf8edf2644da632337427a"
+    },
+    {
+      "path": "runs/local-belief-feature-data-v1/result.json",
+      "sha256": "89923c8136ae5e928011e2a1db2a7cc6611498020f38af223be535b787eb5fd1"
+    },
+    {
+      "path": "reports/local-belief-circle-diagnostic.json",
+      "sha256": "01d349f660a9d4049507087103e1751202b8663a9756d46bc8ac95b11f44647d"
+    },
+    {
+      "path": "runs/local_wall_belief.hpp",
+      "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+    },
+    {
+      "path": "runs/local_wall_belief_bridge.cpp",
+      "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+    },
+    {
+      "path": "runs/local_wall_belief.py",
+      "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+    },
+    {
+      "path": "runs/local_belief_actor.py",
+      "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+    },
+    {
+      "path": "runs/verify-local-wall-belief.py",
+      "sha256": "0f40732eb89c3cd456859733b1fc56e2ca2cd70d48fafa4e14de9ee4e721801b"
+    },
+    {
+      "path": "runs/derive-local-belief-features.py",
+      "sha256": "3671de465d5c04751227fc144652675a151fcb4fdf3ef8fdda9dcf8a9719847b"
+    },
+    {
+      "path": "runs/train-local-belief-circle.py",
+      "sha256": "c5f3276c31c6e858c920094a03f12154ad4881be3a65e738dce5ea54ceb98113"
+    },
+    {
+      "path": "runs/diagnose-local-belief-circle.py",
+      "sha256": "256c27c8f3cb5bf00ca5a45f6440e319288374dc291339631aa816cd7a721b92"
+    },
+    {
+      "path": "runs/local-wall-belief-v1.dylib",
+      "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+    },
+    {
+      "path": "runs/local-wall-belief-build-v1.json",
+      "sha256": "1ca623a34471280f24c76540db5fd682ce1c730652fa0d86b3ce63616d171377"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/experimental-source/local-wall-belief-v1.dylib",
+      "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/experimental-source/local_belief_actor.py",
+      "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/experimental-source/local_wall_belief.hpp",
+      "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/experimental-source/local_wall_belief.py",
+      "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/experimental-source/local_wall_belief_bridge.cpp",
+      "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/experimental-source/train-local-belief-circle.py",
+      "sha256": "c5f3276c31c6e858c920094a03f12154ad4881be3a65e738dce5ea54ceb98113"
+    }
+  ],
+  "production_source_changed": false,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "decision": "The local-belief GRU holds1/5 cases but fails the frozen all-five-case safety/maintenance gate. No larger evaluation, RL, training extension or default promotion. Preserve the new input contract, all failures and measured host costs."
+}

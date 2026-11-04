@@ -1,0 +1,51 @@
+{
+  "version": "bari-constrained-follow-resume-proof-v1",
+  "parent": {
+    "path": "runs/constrained-follow-rl-terminal-23/checkpoint.pt",
+    "sha256": "7d5059bb43b72df896279cea0c4a1affb26ac3fa2f71428813a34b19de0f536b"
+  },
+  "scope": "Isolated verification-only updates51/52 from terminal50. No state here evaluated or promoted; actual PPO pilot remains50 updates.",
+  "worlds": 8,
+  "hidden_size": 64,
+  "actor_constraint": {
+    "version": "bari-zero-command-encoder-v1",
+    "columns": [
+      6,
+      7
+    ],
+    "rule": "encoder weights, gradients and Adam moments remain exactly zero"
+  },
+  "episode_reset_crossed": true,
+  "all_rollout_arrays_exact": true,
+  "exact_state_leaves": 3566,
+  "provenance_fields_ignored": [
+    "trainer.parent_checkpoint",
+    "trainer.world_states.0.parent_checkpoint",
+    "trainer.world_states.1.parent_checkpoint",
+    "trainer.world_states.2.parent_checkpoint",
+    "trainer.world_states.3.parent_checkpoint",
+    "trainer.world_states.4.parent_checkpoint",
+    "trainer.world_states.5.parent_checkpoint",
+    "trainer.world_states.6.parent_checkpoint",
+    "trainer.world_states.7.parent_checkpoint"
+  ],
+  "command_weights_still_zero": true,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-constrained-follow-resume.py",
+      "sha256": "232dc1cedfdbeaa78158c1185613c7697eb5471542b69d6596d91f511cef0a4d"
+    },
+    {
+      "path": "runs/constrained-follow-resume-verification/verification-only-51.pt",
+      "sha256": "fbeb57debc6c93542cbf174a8be3c7af6a1f8f05fc73217f6cd9ff730263eebe"
+    },
+    {
+      "path": "runs/constrained-follow-resume-verification/expected-rollout.npz",
+      "sha256": "9fb9843802882cc279b1a0acfaaffdefdda605a7f92ff61f07224ca284b23e00"
+    },
+    {
+      "path": "runs/constrained-follow-resume-verification/actual-rollout.npz",
+      "sha256": "9fb9843802882cc279b1a0acfaaffdefdda605a7f92ff61f07224ca284b23e00"
+    }
+  ]
+}

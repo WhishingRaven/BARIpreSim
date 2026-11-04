@@ -142,8 +142,11 @@ class View:
         meshes.draw(a)
         if self.show["Sensor ranges"]:
             _, _, origins, directions = e.raycast()
+            if c.sensor_fov_deg:
+                nominal = e.poses[:, 2, None]+np.deg2rad(c.sensor_angles_deg)[None]
+                directions = np.stack((np.cos(nominal), np.sin(nominal)), axis=-1)
             # These are actor-visible, delayed/noisy distances placed on current headings.
-            ranges = np.nan_to_num(e.readings, nan=c.sensor_max, posinf=c.sensor_max)
+            ranges = np.nan_to_num(e.readings, nan=c.sensor_max, posinf=c.sensor_max, neginf=c.sensor_max)
             ranges = np.clip(ranges, c.sensor_min, c.sensor_max)
             segments, ray_colors, hit_points, hit_colors = [], [], [], []
             for i in range(5):
@@ -151,7 +154,16 @@ class View:
                     end = origins[i, j]+directions[i, j]*ranges[i, j]
                     segments.append([[*origins[i, j], c.sensor_height], [*end, c.sensor_height]])
                     ray_colors.append(COLORS[i])
-                    if ranges[i, j] < c.sensor_max:
+                    if c.sensor_fov_deg:
+                        # A scalar cone minimum supplies no measured hit bearing.
+                        spread = nominal[i, j]+np.deg2rad(np.linspace(-c.sensor_fov_deg/2, c.sensor_fov_deg/2, 13))
+                        arc = origins[i, j]+ranges[i, j]*np.column_stack((np.cos(spread), np.sin(spread)))
+                        for edge in (arc[0], arc[-1]):
+                            segments.append([[*origins[i, j], c.sensor_height], [*edge, c.sensor_height]])
+                            ray_colors.append(COLORS[i])
+                        segments.append(np.column_stack((arc, np.full(len(arc), c.sensor_height))))
+                        ray_colors.append(COLORS[i])
+                    elif ranges[i, j] < c.sensor_max:
                         hit_points.append([*end, c.sensor_height])
                         hit_colors.append(COLORS[i])
             a.add_collection3d(Line3DCollection(segments, colors=ray_colors, alpha=.25, linewidths=.6))
@@ -183,7 +195,9 @@ class View:
                           f"Seed {e.seed} | R {c.arena_radius:.2f} m\nModel {model[:22]}\n{stage[:24]}\nSwitch request/application\n"
                           +(f"{last['requested_s']:.2f} / {application} s\n" if last else "none\n")
                           +f"\nOcclusion: natural nearest hit\nVisible pairs: {visible.sum()}/20\nNoise: {c.sensor_noise_std*1000:.1f} mm\n"
-                          +f"Latency: {c.sensor_latency*1000:.0f} ms\n\nGround truth: goals, roles,\nvisibility and error.\nRays: delayed local ranges.\nCenter rays have blind gaps.")
+                          +f"Latency: {c.sensor_latency*1000:.0f} ms\n"
+                          +(f"FOV assumption: {c.sensor_fov_deg:g} deg\nGround truth: goals, roles,\nvisibility and error.\nArcs: scalar local ranges.\nNo measured hit bearing."
+                            if c.sensor_fov_deg else "\nGround truth: goals, roles,\nvisibility and error.\nRays: delayed local ranges.\nCenter rays have blind gaps."))
 
     def save(self, path):
         Path(path).parent.mkdir(parents=True, exist_ok=True)

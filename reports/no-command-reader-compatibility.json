@@ -1,0 +1,55 @@
+{
+  "version": "bari-v13-reader-compatibility-v1",
+  "old": {
+    "side": "old",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+    },
+    "actor_reader_matches_reference_exactly": true,
+    "steps": 96,
+    "training_resume": "rejected",
+    "message": "This checkpoint supports actor evaluation/export only; exact training resume requires v3 trainer state"
+  },
+  "new": {
+    "side": "new",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "actor_reader_matches_reference_exactly": true,
+    "steps": 96,
+    "training_resume": "accepted",
+    "message": null
+  },
+  "actor_sequence_bytes_exact": true,
+  "semantics": "Ordinary actor evaluation/export is compatible with archived reader. Constrained training requires the new trainer; old reader correctly rejects exact resume.",
+  "artifacts": [
+    {
+      "path": "runs/probe-v13-reader-compatibility.py",
+      "sha256": "04758d382b97815f22c80db8ea03953da414e19cb66329f3f4c63463355332d6"
+    },
+    {
+      "path": "runs/constrained-follow-rl-terminal-23/checkpoint.pt",
+      "sha256": "7d5059bb43b72df896279cea0c4a1affb26ac3fa2f71428813a34b19de0f536b"
+    },
+    {
+      "path": "runs/v13-reader-compatibility/new/report.json",
+      "sha256": "631380ae04b36de62397c89c595eecbb2c76990612deb4a24563d5202387b80c"
+    },
+    {
+      "path": "runs/v13-reader-compatibility/old/report.json",
+      "sha256": "6c6a24bc7ccc9b2619fde605f591556bb4c7babc7dd49690c04715aef16f6ae6"
+    },
+    {
+      "path": "runs/v13-reader-compatibility/new/outputs.f32",
+      "sha256": "6d1497996755929ba875dcbd5a9803cd3b3b69590e13e1911b9f188e05edf29e"
+    },
+    {
+      "path": "runs/v13-reader-compatibility/old/outputs.f32",
+      "sha256": "6d1497996755929ba875dcbd5a9803cd3b3b69590e13e1911b9f188e05edf29e"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "version": "bari-finite-return-trust-verification-v1",
+  "accepted_update_within_both_bounds": true,
+  "rejected_update_weights_exact_moments_advance": true,
+  "live_world_and_hidden_unchanged_by_update": true,
+  "unused_critic_std_unchanged": true,
+  "two_world_boundary_resume_all_state_rng_stats_exact": true,
+  "foreign_resume_rejected": true,
+  "changed_trust_semantics_rejected": true,
+  "stats": {
+    "update": 1,
+    "loss": -0.00790201872587204,
+    "actor_gradient_norm": 2.6826882362365723,
+    "raw_action_gradient_rms": 0.003411134472116828,
+    "gradient_component_clip_fraction": 0.0,
+    "mean_reward": -0.004518064204603434,
+    "mean_max_error_m": 0.03047332912683487,
+    "actual_controls": 4,
+    "counterfactual_controls": 280,
+    "counterfactual_controls_this_update": 280,
+    "horizon": 5,
+    "optimizer_steps": 1,
+    "algorithm": "bari-finite-return-trust-v2",
+    "accepted_step_fraction": 0.0625,
+    "max_observed_command_change": 0.013585949316620827,
+    "max_observed_hidden_change": 0.01565098762512207,
+    "raw_surrogate_gain": 2.14276496990351e-05,
+    "accepted_parameter_updates": 1,
+    "rejected_parameter_updates": 0
+  },
+  "verification_only_updates": [
+    1,
+    2
+  ],
+  "behavior_candidates": 0,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-finite-return-trust.py",
+      "sha256": "e282f7205437880327565a80c7733be3df50b5cd18f6cfd850348de3733d6383"
+    },
+    {
+      "path": "runs/finite_return_trust.py",
+      "sha256": "5a6a3483890da94edd476133d3bad865e36db6c33b6301bf2ff176d67af85cd5"
+    },
+    {
+      "path": "runs/finite-return-trust-verification-v1/verification-only-update1.pt",
+      "sha256": "0902e5b3b1b44c5feb4edc64c13122263e816a2cd45938a5b55e54f1f4518c2e"
+    },
+    {
+      "path": "runs/finite-return-trust-verification-v1/invalid-fractions.pt",
+      "sha256": "7e7888d2ad7a3e6985f37ca8a4988c62050144d4df808d76510a2c022aa06ae8"
+    },
+    {
+      "path": "runs/finite-return-trust-verification-v1/expected-rollout.npz",
+      "sha256": "20c0e45a4384920ee947dcc3d44480a4d7f107386a06f37bcf3f1d4b6664734c"
+    },
+    {
+      "path": "runs/finite-return-trust-verification-v1/actual-rollout.npz",
+      "sha256": "20c0e45a4384920ee947dcc3d44480a4d7f107386a06f37bcf3f1d4b6664734c"
+    }
+  ]
+}

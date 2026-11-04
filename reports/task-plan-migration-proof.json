@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "old_source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "67595eb3f608a496a99663edf59a38166208b69f862a9d9f7097eeeea60c22f1"
+  },
+  "new_source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "0acbe2b21578e667c2e3d44c9e95efad288333c9b076c14d84a3643d4fc02337"
+  },
+  "checkpoint": "runs/retention-stage-default-terminal-11/checkpoint.pt",
+  "ordered_rollouts": 3,
+  "joint_steps": 3072,
+  "episode_resets_after_initial_world_starts": 8,
+  "optimizer_updates": 1,
+  "compared_leaves": 2401,
+  "differences": [],
+  "scope": "Bit-exact archived version-1 plan continuation: observations/actions/rewards/values/advantages, actor/critic/optimizer, all worlds, hidden states, Torch and sampling RNGs. Source provenance itself is expected to differ.",
+  "artifacts": [
+    {
+      "path": "runs/task-plan-legacy-proof/old-resets.pt",
+      "sha256": "199a6d091d840ddea08d0d84058f3edb560ae21472c1338075b2723d95528bcc"
+    },
+    {
+      "path": "runs/task-plan-legacy-proof/new-resets.pt",
+      "sha256": "11c5299fc42e7cd01248ad26d28d5467be9c155bb55e4d1e21bb972ab27cefa7"
+    },
+    {
+      "path": "runs/check-task-plan-legacy.py",
+      "sha256": "11787b4ca3580b596890fea8e47f87f2845f99fdcca3b1e7893eaa213c37c674"
+    }
+  ]
+}

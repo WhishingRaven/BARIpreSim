@@ -1,0 +1,1036 @@
+{
+  "version": "bari-local-belief-student-data-verification-v1",
+  "protocol": {
+    "version": "bari-local-belief-student-data-replay-v1",
+    "planned_utc": "2026-11-03T19:05:49.966498+00:00",
+    "script": {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-belief-student-data.py",
+      "sha256": "bd4b2ef05f77f2a2e83b1a9f4c56dbbcba9604c1593a1abe9b3191b8cc62397d"
+    },
+    "collection": {
+      "path": "reports/local-belief-student-collection.json",
+      "sha256": "df42dcd3e0e1c18496b7108de31986dfec1eb1799cb6f532e04d64b5fabbcb1c"
+    },
+    "dataset": {
+      "path": "runs/teacher-local-belief-student1/demonstrations.npz",
+      "sha256": "2b6dc8a23d375e8fc9fa4fa0d4bac24ed6bebd460872c24eb71e6f7bc8bd3c32"
+    },
+    "student": {
+      "path": "runs/train-local-belief-circle-clean-11/checkpoint.pt",
+      "sha256": "7e4adb96e55815da463257af09de33d43ac1d822090c3f2242b35b65a07539e1"
+    },
+    "all_student_episodes": 128,
+    "teacher_label_episodes": [
+      0,
+      32,
+      64,
+      96
+    ],
+    "checks": "Exact raw observations, tasks, actual belief inputs, executed GRU commands, final physical evaluation and control count for all128 worlds. Independently recompute all300 local teacher labels/state for the first world of each shard.",
+    "selection": "All128 student worlds, no success filtering. The label subset is fixed by shard index, not behavior. No training or policy promotion."
+  },
+  "cases": [
+    {
+      "world_seed": 1694273976,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": true
+    },
+    {
+      "world_seed": 1262177412,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1602093686,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1773963588,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1358390113,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 251134855,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1726897552,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 810523912,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 733468377,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 399995351,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 140050403,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 344204264,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1941393888,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 12497452,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1845969589,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2088751460,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1979543414,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 222615921,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1784777989,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2006861825,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1359432818,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 915432740,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 959942161,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1517022567,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2105635371,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 234911073,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 580997905,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1086865265,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 19015109,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1725759485,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 220839492,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 221513649,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 46473349,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": true
+    },
+    {
+      "world_seed": 522122259,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 440159641,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 235818503,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1832339509,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 743971704,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1045623974,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 753152859,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1057063138,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 410349006,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1522881604,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 263239012,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1378652672,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1916681940,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1539042244,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1684094698,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1381740007,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1408597727,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 830748353,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 508380582,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1378280556,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 133695257,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 163734115,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1378651641,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 695018572,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2031354773,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1967086171,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2052465219,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1092825308,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1681885112,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 561676341,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2126765035,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2051894133,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": true
+    },
+    {
+      "world_seed": 43987919,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 658898753,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 633497764,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1878447584,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2085783200,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2034260860,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 329096013,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1137828305,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1117790247,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1319379415,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1958541779,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2019939602,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1356812800,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1261623248,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 878297063,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 301783175,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 405024032,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2099246547,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 651613329,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1874592139,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 509473755,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1237008653,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 7844550,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1771415649,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 502229842,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 48308421,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1332399874,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1724791805,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1550097101,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1340875985,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1634553171,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 823018321,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": true
+    },
+    {
+      "world_seed": 934809621,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 141288581,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 207464862,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1365849472,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 702890644,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 532887974,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 472989622,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1178395111,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1185375262,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1482178786,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 783718696,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2054117715,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 902693778,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 164181808,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1132001614,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1424560048,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1602739328,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 896344174,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 613742598,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1894021544,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 128211403,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1525330517,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1012291045,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 980872572,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1668766329,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1130878069,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 189565693,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2020310425,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 1091893610,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 810118721,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    },
+    {
+      "world_seed": 2030702249,
+      "all_raw_task_belief_and_executed_commands_exact": true,
+      "final_physical_evaluation_exact": true,
+      "restricted_local_policy_view_passed": true,
+      "teacher_labels_and_local_state_exact": false
+    }
+  ],
+  "all_student_episodes_exact": 128,
+  "all_student_controls_exact": 38400,
+  "all_student_robot_control_samples_exact": 192000,
+  "teacher_label_episodes_exact": [
+    0,
+    32,
+    64,
+    96
+  ],
+  "teacher_labels_recomputed_for_all128": false,
+  "restricted_local_policy_view_passed_all128": true,
+  "student_weights_and_checkpoint_unchanged": true,
+  "eligible_for_separately_planned_fresh_imitation": true,
+  "estimate_error_diagnostic": {
+    "teacher_local_estimate": {
+      "all": {
+        "confident_robot_samples": 178384,
+        "mean_vector_error_m": 0.006073831812070421,
+        "p90_vector_error_m": 0.007831138678570012,
+        "max_vector_error_m": 0.9439990901845571,
+        "fraction_over_40mm": 0.028550766884922415,
+        "episodes_with_confident_error_over100mm": 8
+      },
+      "before_any_safety_attempt": {
+        "confident_robot_samples": 133545,
+        "mean_vector_error_m": 0.003815050837121717,
+        "p90_vector_error_m": 0.00656893335834672,
+        "max_vector_error_m": 0.9439990901845571,
+        "fraction_over_40mm": 2.246433786364147e-05,
+        "episodes_with_confident_error_over100mm": 3
+      },
+      "after_any_safety_attempt": {
+        "confident_robot_samples": 44839,
+        "mean_vector_error_m": 0.01280120988248958,
+        "p90_vector_error_m": 0.04309880391873982,
+        "max_vector_error_m": 0.1564969270315446,
+        "fraction_over_40mm": 0.11351725060772988,
+        "episodes_with_confident_error_over100mm": 5
+      }
+    },
+    "student_local_estimate": {
+      "all": {
+        "confident_robot_samples": 178382,
+        "mean_vector_error_m": 0.006074858909757513,
+        "p90_vector_error_m": 0.007831570097655963,
+        "max_vector_error_m": 0.9439990653171607,
+        "fraction_over_40mm": 0.028551086993082262,
+        "episodes_with_confident_error_over100mm": 8
+      },
+      "before_any_safety_attempt": {
+        "confident_robot_samples": 133542,
+        "mean_vector_error_m": 0.0038164352703763723,
+        "p90_vector_error_m": 0.006568672778208289,
+        "max_vector_error_m": 0.9439990653171607,
+        "fraction_over_40mm": 2.2464842521453923e-05,
+        "episodes_with_confident_error_over100mm": 3
+      },
+      "after_any_safety_attempt": {
+        "confident_robot_samples": 44840,
+        "mean_vector_error_m": 0.012800871613821659,
+        "p90_vector_error_m": 0.04309339475714111,
+        "max_vector_error_m": 0.15649710141206194,
+        "fraction_over_40mm": 0.11351471900089206,
+        "episodes_with_confident_error_over100mm": 5
+      }
+    },
+    "scope": "Evaluator-only accuracy diagnostic. No filtering, action/target changes or causal claim."
+  },
+  "new_actor_training_or_updates": 0,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "scope": "Dataset execution/local-input provenance, not learned behavior acceptance, label optimality or hardware validation",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-belief-student-data.py",
+      "sha256": "bd4b2ef05f77f2a2e83b1a9f4c56dbbcba9604c1593a1abe9b3191b8cc62397d"
+    },
+    {
+      "path": "reports/local-belief-student-collection.json",
+      "sha256": "df42dcd3e0e1c18496b7108de31986dfec1eb1799cb6f532e04d64b5fabbcb1c"
+    },
+    {
+      "path": "runs/teacher-local-belief-student1/demonstrations.npz",
+      "sha256": "2b6dc8a23d375e8fc9fa4fa0d4bac24ed6bebd460872c24eb71e6f7bc8bd3c32"
+    },
+    {
+      "path": "runs/local-belief-student-data-replay-v1/protocol.json",
+      "sha256": "18910be27d513d217b98469a211558e22c8a9ae792e69ad5a2b9d194e8d74b5c"
+    },
+    {
+      "path": "runs/local-belief-student-data-replay-v1/teacher-subset-labels.npz",
+      "sha256": "ef9df125db351839879a196b3644f43b78958f28f2a4d7f8ad9d8dd6ba1f90e0"
+    },
+    {
+      "path": "runs/local-belief-student-data-replay-v1/diagnostic-only-center-errors.npz",
+      "sha256": "dd9e312c57ee36752e2e684a777e22934f13685c75aa5f8565a0b102cc686439"
+    },
+    {
+      "path": "runs/teacher-local-belief-student1/student-local-belief.npz",
+      "sha256": "ddc16f0b415037afff951fb69a7e14fe4de6c6039242b4f4041b22ffc4d89478"
+    },
+    {
+      "path": "runs/teacher-local-belief-student1/local-teacher-state.npz",
+      "sha256": "1fb37517d82ed4fe52de04ab07eeae6819a278683881278bf3e5849c6ab0dd66"
+    }
+  ]
+}

@@ -1,0 +1,1368 @@
+{
+  "version": "bari-local-geometry-feature-study-v1",
+  "result": {
+    "protocol": {
+      "version": "bari-local-geometry-imitation-v1",
+      "planned_utc": "2026-11-03T20:47:52.745357+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+      },
+      "script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-local-geometry.py",
+        "sha256": "b1243e46c198f67529debf5386727e5ce58b73920c04648a7873dc08ce58aa8f"
+      },
+      "derivation": {
+        "path": "runs/local-geometry-feature-data-v1/result.json",
+        "sha256": "50782f06dc2a23bd5b68cca885b642554ac6458900669cc88ce117f6c4dfcdb4"
+      },
+      "datasets": [
+        {
+          "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+          "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5"
+        },
+        {
+          "path": "runs/teacher-local-belief-student1/demonstrations.npz",
+          "sha256": "2b6dc8a23d375e8fc9fa4fa0d4bac24ed6bebd460872c24eb71e6f7bc8bd3c32"
+        }
+      ],
+      "features": {
+        "path": "runs/local-geometry-feature-data-v1/features.npz",
+        "sha256": "73a1546bc98b391f5ae82f8d0432720dd88538c42fd34d5b5d3e98da2e3f9be0"
+      },
+      "verification": {
+        "path": "reports/local-geometry-verification.json",
+        "sha256": "da1461e5b6a76e6556fe3c95609b565c5359e9d850c63c871d1102ff8c0966eb"
+      },
+      "new_data_replay": {
+        "path": "reports/local-belief-student-data-verification.json",
+        "sha256": "e2cf7a45bcb7113195a170203773bb7580625a58df11ddd7b249d2ffa803481e"
+      },
+      "preparation_script": {
+        "path": "runs/prepare-local-geometry-training.py",
+        "sha256": "f38b89e0015ee8d6fb10668ab294ea4f801f8f874d0007fc7f235550f8a69692"
+      },
+      "prior_mixed_trial": {
+        "path": "runs/train-local-belief-circle-11/result.json",
+        "sha256": "59eb4a5bc61524d47e22776b8ca56738798ede8bd0a40bccc40c5dea4f5471f6"
+      },
+      "current_student_parent_trial": {
+        "path": "runs/train-local-belief-circle-clean-11/result.json",
+        "sha256": "e34bcd18b3c7e123bcbd1d4f36ec78e989fc729cc05b424e3f559c885bd3674e"
+      },
+      "initial_original_parameter_blocks_exact": true,
+      "paired_h64_trial": {
+        "path": "runs/train-local-belief-current-student-11/result.json",
+        "sha256": "84d248783c75d78f781336b9d6e5882a8503075c1acfad1c0e6ab5119cd8a20e"
+      },
+      "input_contract": {
+        "version": "bari-local-geometry-actor-v1",
+        "dtype": "float32",
+        "batch_size_on_robot": 1,
+        "local_order": [
+          "range_0",
+          "range_60",
+          "range_120",
+          "range_180",
+          "range_240",
+          "range_300",
+          "previous_left_command",
+          "previous_right_command",
+          "is_leader",
+          "estimated_arena_center_x_body_over_radius",
+          "estimated_arena_center_y_body_over_radius",
+          "local_posterior_confidence",
+          "inferred_body_slot_0_x_over_arena_radius",
+          "inferred_body_slot_0_y_over_arena_radius",
+          "inferred_body_slot_1_x_over_arena_radius",
+          "inferred_body_slot_1_y_over_arena_radius",
+          "inferred_body_slot_2_x_over_arena_radius",
+          "inferred_body_slot_2_y_over_arena_radius",
+          "inferred_body_slot_3_x_over_arena_radius",
+          "inferred_body_slot_3_y_over_arena_radius",
+          "inferred_body_slot_4_x_over_arena_radius",
+          "inferred_body_slot_4_y_over_arena_radius",
+          "inferred_body_slot_5_x_over_arena_radius",
+          "inferred_body_slot_5_y_over_arena_radius"
+        ],
+        "local_shape": [
+          24
+        ],
+        "task_order": [
+          "circle",
+          "square",
+          "line",
+          "follow"
+        ],
+        "task_shape": [
+          4
+        ],
+        "hidden_shape": [
+          64
+        ],
+        "sensor_angles_deg": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+        "sensor_min": 0.015,
+        "sensor_max": 0.8,
+        "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+        "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+        "max_wheel_speed_m_s": 0.1,
+        "acceleration_m_s2": 0.3,
+        "control_dt_s": 0.1,
+        "previous_action": "previous saturated requested command, not measured velocity",
+        "reset": "Zero each robot GRU and local geometry only at episode/controller reset; preserve both across switches/occlusion",
+        "switch": "same actor and hidden; new task before next control action; world preserved",
+        "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
+        "sensor_model": {
+          "version": "bari-horizontal-cone-v1",
+          "horizontal_fov_deg": 60.0,
+          "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+          "mount_radius_m": 0.045,
+          "height_m": 0.078,
+          "noise_stage": "configured scalar noise/dropout after cone aggregation",
+          "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+          "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"
+        },
+        "raw_sensor_observation_contract": {
+          "version": "bari-ir-gru-v1",
+          "dtype": "float32",
+          "batch_size_on_robot": 1,
+          "local_order": [
+            "range_0",
+            "range_60",
+            "range_120",
+            "range_180",
+            "range_240",
+            "range_300",
+            "previous_left_command",
+            "previous_right_command",
+            "is_leader"
+          ],
+          "local_shape": [
+            9
+          ],
+          "task_order": [
+            "circle",
+            "square",
+            "line",
+            "follow"
+          ],
+          "task_shape": [
+            4
+          ],
+          "hidden_shape": [
+            64
+          ],
+          "sensor_angles_deg": [
+            0,
+            60,
+            120,
+            180,
+            240,
+            300
+          ],
+          "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+          "sensor_min": 0.015,
+          "sensor_max": 0.8,
+          "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+          "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+          "max_wheel_speed_m_s": 0.1,
+          "acceleration_m_s2": 0.3,
+          "control_dt_s": 0.1,
+          "previous_action": "previous saturated requested command, not measured velocity",
+          "reset": "zero hidden, previous command and sensor queue at episode/controller reset only",
+          "switch": "same actor and hidden; new task before next control action; world preserved",
+          "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
+          "sensor_model": {
+            "version": "bari-horizontal-cone-v1",
+            "horizontal_fov_deg": 60.0,
+            "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+            "mount_radius_m": 0.045,
+            "height_m": 0.078,
+            "noise_stage": "configured scalar noise/dropout after cone aggregation",
+            "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+            "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"
+          }
+        },
+        "geometry_version": "bari-local-geometry-v1",
+        "table_manifest_sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8",
+        "information": "Derived solely from local anonymous six-range/own-request history; no true poses, identities, classes, counts, visibility or evaluator assignment",
+        "body_slots": "Up to6 local body-shaped hypotheses sorted by current bearing, zero padded; not persistent neighbor identities or a hardware validity mask"
+      },
+      "geometry": {
+        "version": "bari-local-geometry-v1",
+        "feature_order": [
+          "estimated_arena_center_x_body_over_radius",
+          "estimated_arena_center_y_body_over_radius",
+          "local_posterior_confidence",
+          "inferred_body_slot_0_x_over_arena_radius",
+          "inferred_body_slot_0_y_over_arena_radius",
+          "inferred_body_slot_1_x_over_arena_radius",
+          "inferred_body_slot_1_y_over_arena_radius",
+          "inferred_body_slot_2_x_over_arena_radius",
+          "inferred_body_slot_2_y_over_arena_radius",
+          "inferred_body_slot_3_x_over_arena_radius",
+          "inferred_body_slot_3_y_over_arena_radius",
+          "inferred_body_slot_4_x_over_arena_radius",
+          "inferred_body_slot_4_y_over_arena_radius",
+          "inferred_body_slot_5_x_over_arena_radius",
+          "inferred_body_slot_5_y_over_arena_radius"
+        ],
+        "settings": {
+          "arena_radius": 1.0,
+          "body_radius": 0.069,
+          "max_wheel_speed": 0.1,
+          "max_wheel_acceleration": 0.3,
+          "wheel_separation": 0.082,
+          "physics_dt": 0.01,
+          "control_dt": 0.1,
+          "sensor_latency": 0.1,
+          "sensor_period": 0.1,
+          "sensor_min": 0.015,
+          "sensor_max": 0.8,
+          "sensor_mount_radius": 0.045,
+          "sensor_angles_deg": [
+            0,
+            60,
+            120,
+            180,
+            240,
+            300
+          ],
+          "sensor_fov_deg": 60.0
+        },
+        "table_manifest_sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8",
+        "table_numeric_bytes": 853260,
+        "state_bytes_per_robot_host_ABI": 168440,
+        "shared_scratch_bytes": 35100,
+        "body_slots": "At most6 inferred body-shaped hypotheses sorted by current body bearing; zero padding, no identities or true classes/counts. Slots are not tracked identities or a hardware validity mask.",
+        "inputs": "Six normalized anonymous nearest-distance scalars and own preceding saturated requested commands only; own role passes separately to actor, task never enters this preprocessor.",
+        "history": "Existing independent local wall posterior and nominal own-command frame history; one scan per control. Body candidates are current-scan hypotheses with only ego-delay compensation, not predicted hidden/occluded bodies.",
+        "reset": "Individual episode/controller reset masks only; preserve state through task switches and occlusion.",
+        "scratch": "Fully overwritten before reads; no temporal state, reused sequentially across streams and excluded from serialization.",
+        "limitations": "Known radius1m/fixed hypotheticalFOV60 calibration and body-size prior; hypotheses can be wrong or empty, walls/obstacles can resemble bodies, and contacts cause nominal-motion drift. Tables are intended read-only constants; actual target flash placement, full peak SRAM and latency are pending."
+      },
+      "initial_actor": {
+        "path": "runs/train-local-geometry-11/initial_actor.pt",
+        "sha256": "dbe6f0d1f18a4bd88a3042d3cf4ea94e0c53dada56c60875ae61affda3a30731"
+      },
+      "initial_shared_parameter_blocks_exact_to_old_seed11": true,
+      "private_sources": [
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local_wall_belief.py",
+          "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local_wall_belief.hpp",
+          "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local_wall_belief_bridge.cpp",
+          "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local_geometry.py",
+          "sha256": "1d790b6bb4066dc1a1dbb12d955d9eb205c87161158b240567087a80cdcb92bd"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local_geometry_actor.py",
+          "sha256": "3abdf26c4740ff6524e523377b91a432c2e3e09409bbb03c3877079153ae6a3f"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local_geometry_bridge.cpp",
+          "sha256": "6c406cf620f16e7cfa12ba970a9179f825b6e3794c2f4b12412aaaacfa758163"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local-geometry-v1.dylib",
+          "sha256": "7284540812d9dd886556e5fe095672a26373640ffee3e2d03724d2fb3f8297a6"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local_belief_actor.py",
+          "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local-geometry-table-v1/manifest.json",
+          "sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local-geometry-table-v1/table.hpp",
+          "sha256": "f06a37aa4043848b44ea1ece24ace00b55b7490867d348771004c3abca3ef33a"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/local-geometry-table-v1/table.npz",
+          "sha256": "2d4d48f2c0dc0f52de00902e3d426cc3a44fa6b25ddfeaf8c3e81610b70b5588"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/prepare-local-geometry-training.py",
+          "sha256": "f38b89e0015ee8d6fb10668ab294ea4f801f8f874d0007fc7f235550f8a69692"
+        },
+        {
+          "path": "runs/train-local-geometry-11/experimental-source/train-local-geometry.py",
+          "sha256": "b1243e46c198f67529debf5386727e5ce58b73920c04648a7873dc08ce58aa8f"
+        }
+      ],
+      "seed": 11,
+      "epochs": 40,
+      "episodes": 256,
+      "batch_episodes": 8,
+      "BPTT": 64,
+      "learning_rate": 0.001,
+      "gradient_clip": 0.5,
+      "expected_optimizer_steps": 6400,
+      "constraint": "Raw previous-command encoder columns6:8, gradients and Adam moments remain zero. Center9:12 and new body12:24 columns start at zero and train normally.",
+      "change": "Add twelve body-shaped hypothesis coordinates from the same raw local histories, alongside the identical existing center features. No new data, teacher labels, body IDs/classes, real counts/visibility, velocity targets or action overrides. H64, loss and6400-step budget retained.",
+      "controls": "Original parameter blocks copied exactly, all twelve new body-input columns zero. Initial sequence output parity verified independently. Same full256 teacher/current-student episodes, labels, old center fields, batch8, BPTT64, Adam0.001, clip0.5, seed11 permutations,40 epochs and6400 updates as H64 baseline. No filtering or teacher execution in validation.",
+      "resources": "853260B lookup constants and35100B shared scratch;168440B parent observer state per robot host ABI, plus actor/hidden/I-O/firmware. Target flash placement, full peak SRAM and inference latency remain unverified.",
+      "development_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "larger_gate": {
+        "path": "runs/local-circle-student1-larger-gate.json",
+        "sha256": "f11cfe8bfafb1ef1cad4fded928bc08d2985fdfb1295149501fff29f9003b739"
+      },
+      "larger_seeds": [
+        2120849351,
+        1384627394,
+        1532761059,
+        1376502237,
+        979700136,
+        2122707756,
+        1970561045,
+        24550309,
+        1480293845,
+        578337630,
+        2827126,
+        739355049,
+        373745314,
+        1127354831,
+        25487437,
+        20413573,
+        1950449760,
+        102547314,
+        752152778,
+        1665508353
+      ],
+      "selection": "Exact final40 only. Require5/5 successes AND final holds with zero total safety attempts before the fixed20-case development gate; require>=18/20 successes/holds and zero total safety there. No extension, automatic RL or default promotion.",
+      "scope": "Imitation only, zeroRLupdates; private24-field local-geometry actor, hypotheticalFOV60 and central-square starts. Not full-goal, final-heldout, multi-training-seed, successful learned-RL or device acceptance."
+    },
+    "checkpoint": {
+      "path": "runs/train-local-geometry-11/checkpoint.pt",
+      "sha256": "504d34e4f0f6cabf28e0ead1f8a96fc7bb8608baaedd098748338f922a285a9a"
+    },
+    "training_log": {
+      "path": "runs/train-local-geometry-11/imitation.jsonl",
+      "sha256": "e12c50916bce48dc896e8b8dcca2e9bd75f8265e720cdec521ba4a6a8eec13d5"
+    },
+    "imitation_epochs": 40,
+    "RL_updates": 0,
+    "optimizer_steps": 6400,
+    "epoch_orders_sha256": "c426cbd4bd5af3f1944d5a04ed90b215b58256d7c645459d7eef6d6dde9ded08",
+    "development": {
+      "episodes": 5,
+      "successes": 2,
+      "final_holding": 2,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.05923055399180623,
+      "rows": [
+        {
+          "seed": 2001,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.013567237910723664,
+          "max_error_m": 0.01659081630145651,
+          "success": true,
+          "acquisition_s": 4.799999999999999,
+          "holding_goal": true,
+          "hold_s": 25.200000000000088,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.0305977774075581,
+          "peak_max_error_m": 0.2054727238437021,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 1.9995113681881223,
+          "min_visible_directed_pairs": 20,
+          "mean_visible_directed_pairs": 20.0,
+          "peak_blocked_robot_beam_pairs": 0,
+          "occlusion_events": []
+        },
+        {
+          "seed": 2003,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.08406590775669728,
+          "max_error_m": 0.15445323275467476,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.15606650526388346,
+          "peak_max_error_m": 0.24939911109469956,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 2.163518459616277,
+          "min_visible_directed_pairs": 16,
+          "mean_visible_directed_pairs": 18.02,
+          "peak_blocked_robot_beam_pairs": 4,
+          "occlusion_events": [
+            {
+              "onset_s": 3.2,
+              "end_s": 15.4,
+              "duration_s": 12.2,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 15.700000000000001,
+              "end_s": 16.0,
+              "duration_s": 0.29999999999999893,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 16.2,
+              "end_s": 16.4,
+              "duration_s": 0.1999999999999993,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 16.8,
+              "end_s": 18.1,
+              "duration_s": 1.3000000000000007,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 23.2,
+              "end_s": 23.400000000000002,
+              "duration_s": 0.20000000000000284,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 26.6,
+              "end_s": 26.8,
+              "duration_s": 0.1999999999999993,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 27.3,
+              "end_s": 27.900000000000002,
+              "duration_s": 0.6000000000000014,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 28.0,
+              "end_s": 28.3,
+              "duration_s": 0.3000000000000007,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 28.7,
+              "end_s": 29.2,
+              "duration_s": 0.5,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 29.5,
+              "end_s": 30.0,
+              "duration_s": 0.5,
+              "visibility_returned": true
+            }
+          ]
+        },
+        {
+          "seed": 2011,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.018950515015793413,
+          "max_error_m": 0.03317266505177674,
+          "success": true,
+          "acquisition_s": 17.400000000000002,
+          "holding_goal": true,
+          "hold_s": 12.599999999999971,
+          "tracking_interruptions": 1,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.05025157096294857,
+          "peak_max_error_m": 0.21875641404782245,
+          "reacquisition_s": [
+            5.6
+          ],
+          "unrecovered_s": null,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 1.9088429769789268,
+          "min_visible_directed_pairs": 16,
+          "mean_visible_directed_pairs": 19.726666666666667,
+          "peak_blocked_robot_beam_pairs": 3,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 2.6,
+              "duration_s": 2.5,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 3.6,
+              "end_s": 3.9,
+              "duration_s": 0.2999999999999998,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 4.3,
+              "end_s": 4.4,
+              "duration_s": 0.10000000000000053,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 4.6000000000000005,
+              "end_s": 4.8,
+              "duration_s": 0.1999999999999993,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 4.9,
+              "end_s": 5.0,
+              "duration_s": 0.09999999999999964,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 5.3,
+              "end_s": 5.4,
+              "duration_s": 0.10000000000000053,
+              "visibility_returned": true
+            }
+          ]
+        },
+        {
+          "seed": 2017,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.03262197259031546,
+          "max_error_m": 0.04712791256177742,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 2,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.07356524668821333,
+          "peak_max_error_m": 0.23122664077333668,
+          "reacquisition_s": [
+            1.8999999999999986
+          ],
+          "unrecovered_s": 8.0,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 2.0637072660198568,
+          "min_visible_directed_pairs": 14,
+          "mean_visible_directed_pairs": 18.933333333333334,
+          "peak_blocked_robot_beam_pairs": 6,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 4.2,
+              "duration_s": 4.1000000000000005,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 4.5,
+              "end_s": 6.5,
+              "duration_s": 2.0,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 6.6000000000000005,
+              "end_s": 6.7,
+              "duration_s": 0.09999999999999964,
+              "visibility_returned": true
+            }
+          ]
+        },
+        {
+          "seed": 2027,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.026491882792863873,
+          "max_error_m": 0.04480814328934574,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 1,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.07509956468841819,
+          "peak_max_error_m": 0.27997315046005455,
+          "reacquisition_s": [],
+          "unrecovered_s": 13.600000000000001,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 2.100026207057656,
+          "min_visible_directed_pairs": 18,
+          "mean_visible_directed_pairs": 19.64,
+          "peak_blocked_robot_beam_pairs": 4,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 3.9,
+              "duration_s": 3.8,
+              "visibility_returned": true
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2001/report.json",
+          "sha256": "ead81fb7a672c1d6cad5695983401d4cc6e27138b72a80deb6807f8179ac4cbd"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2001/actual-actor-inputs.npz",
+          "sha256": "076c740baffdc45db7ecdc87b2d764440429cb4dfa7e6c26320e42af25aaac3e"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2001/circle-2001.npz",
+          "sha256": "9d36fdcf4dd9188d109cc418b921577ef5c18440d7916a2febad9064c861029b"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2003/report.json",
+          "sha256": "628b3bf94f77216f301e1fa71af3905591965b004e774cf3b29f6756d9221ea0"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2003/actual-actor-inputs.npz",
+          "sha256": "c03e0159d24d1663999ccd54e5cb5ee1153ccfd11b33a54da4cbabe071010102"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2003/circle-2003.npz",
+          "sha256": "0d2e2b1a17cfa35d7f6b08d5b61301d78991c5498615749151aad6ac7729ec5f"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2011/report.json",
+          "sha256": "3df1d60cbc5224b2495f8fa46c170762a21a5afba0debc758a0c4b7448be9a8d"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2011/actual-actor-inputs.npz",
+          "sha256": "fc163c2aec23dcaf9e86a295be7371f0e8b89c29c7fa2e54dafcdb907553aca7"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2011/circle-2011.npz",
+          "sha256": "c37cb521c2f62935e66077c9344304da4b284f15bb20d77ee76ad8cd955e8ea5"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2017/report.json",
+          "sha256": "04b8a92799dfdbe61b51ed208e312a7117b6a60ba880dbbc6b2dc6c646bf887b"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2017/actual-actor-inputs.npz",
+          "sha256": "aa890f98f6d9605b5ab8ab747ec594f7650abf091e56fe1174abfe1e3fd66013"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2017/circle-2017.npz",
+          "sha256": "5c9d1c5d3e7539ca3d49b3fa6c4486581c54e3373a97fb1d24873ccc7ae8a449"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2027/report.json",
+          "sha256": "52d938c1a344ba414f5196bb54f6ebd9637a40919f21741ddb3a6ee562b6a335"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2027/actual-actor-inputs.npz",
+          "sha256": "028c9955fc7c82e21040e54bc2ddd48bd139c0bc653191c25ea3b070e653cc02"
+        },
+        {
+          "path": "runs/train-local-geometry-11/evaluation-development/2027/circle-2027.npz",
+          "sha256": "a906309c4dbe1026210c5452abdd40a1299294f25ca23b9d90a5cb33089a0358"
+        }
+      ]
+    },
+    "larger": null,
+    "qualified_for_separately_planned_next_stage_only": false,
+    "default_promoted": false,
+    "full_goal_complete": false,
+    "decision": "Fixed40-epoch local-geometry feature study complete. No budget extension, automatic RL or default promotion."
+  },
+  "verification": {
+    "version": "bari-local-geometry-verification-v3",
+    "operator_cases": 1500,
+    "operator_candidate_ids_and_features_exact": true,
+    "operator_host_seconds": 3.0112400419966434,
+    "parent_center_features_and_binary_history_exact300": true,
+    "full_sequence_reference_operator_exact": true,
+    "stream_permutation_and_individual_resets_exact": true,
+    "serialized_continuation_and_poisoned_scratch_exact": true,
+    "initial_actor_shared_parameters_exact": true,
+    "initial_action_max_error": 0.0,
+    "initial_hidden_max_error": 0.0,
+    "new_geometry_encoder_columns_receive_gradient": true,
+    "raw_command_constraint_and_checkpoint_reload_verified": true,
+    "incompatible_loaders_reject": true,
+    "incompatible_loader_errors": [
+      {
+        "loader": "local_belief_actor.load_actor",
+        "error_type": "ValueError",
+        "message": "Explicit local-belief actor checkpoint required"
+      },
+      {
+        "loader": "bari.policy.load_checkpoint",
+        "error_type": "KeyError",
+        "message": "'contract_version'"
+      }
+    ],
+    "all12_unfinished_directed_switch_contexts_and_repeated_switch_resume": true,
+    "independent_geometry_hidden_physical_rng_continuation_exact": true,
+    "prior_verification_attempt": {
+      "script": {
+        "path": "runs/verify-local-geometry.py",
+        "sha256": "c02349fbecd51dbf3440da02f0a475e608a31eefdb7a76026e169e23a321608c"
+      },
+      "stderr": {
+        "path": "runs/verify-local-geometry.stderr",
+        "sha256": "7a69dfc320cb5a757c6627931bac7f1840602f5c2b4dee2802531dfe2f3a6b90"
+      },
+      "operator_golden": {
+        "path": "runs/local-geometry-verification-v1/operator-golden.npz",
+        "sha256": "88b63134b11ca680bea5633d3ce3d16e203d319679b7f74c3250336846cb9666"
+      },
+      "correction": "Checker handles each individual reset warmup, not only global step0. C++ operator/actor modules unchanged."
+    },
+    "second_verification_attempt": {
+      "script": {
+        "path": "runs/verify-local-geometry-v2.py",
+        "sha256": "2d0e938ef10ea1c9e9657892e0b2c37b5ecffee1a83cdf40cf1e2e94a449087b"
+      },
+      "stderr": {
+        "path": "runs/verify-local-geometry-v2.stderr",
+        "sha256": "a557d1afcef7161c2d20122f8d94c6d6c85eada813f6965772c821183ea3c5de"
+      },
+      "checkpoint": {
+        "path": "runs/local-geometry-verification-v2/verification-only.pt",
+        "sha256": "c78c66e4e0b43d0a16c378d64d2fad5d1d0c225b4e9b8586a122d7190edd47c8"
+      },
+      "correction": "Native loader rejects the private format with KeyError(contract_version), while private parent loader raises ValueError. Checker records either rejection without modifying frozen native loader or actor format."
+    },
+    "specification": {
+      "version": "bari-local-geometry-v1",
+      "feature_order": [
+        "estimated_arena_center_x_body_over_radius",
+        "estimated_arena_center_y_body_over_radius",
+        "local_posterior_confidence",
+        "inferred_body_slot_0_x_over_arena_radius",
+        "inferred_body_slot_0_y_over_arena_radius",
+        "inferred_body_slot_1_x_over_arena_radius",
+        "inferred_body_slot_1_y_over_arena_radius",
+        "inferred_body_slot_2_x_over_arena_radius",
+        "inferred_body_slot_2_y_over_arena_radius",
+        "inferred_body_slot_3_x_over_arena_radius",
+        "inferred_body_slot_3_y_over_arena_radius",
+        "inferred_body_slot_4_x_over_arena_radius",
+        "inferred_body_slot_4_y_over_arena_radius",
+        "inferred_body_slot_5_x_over_arena_radius",
+        "inferred_body_slot_5_y_over_arena_radius"
+      ],
+      "settings": {
+        "arena_radius": 1.0,
+        "body_radius": 0.069,
+        "max_wheel_speed": 0.1,
+        "max_wheel_acceleration": 0.3,
+        "wheel_separation": 0.082,
+        "physics_dt": 0.01,
+        "control_dt": 0.1,
+        "sensor_latency": 0.1,
+        "sensor_period": 0.1,
+        "sensor_min": 0.015,
+        "sensor_max": 0.8,
+        "sensor_mount_radius": 0.045,
+        "sensor_angles_deg": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "sensor_fov_deg": 60.0
+      },
+      "table_manifest_sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8",
+      "table_numeric_bytes": 853260,
+      "state_bytes_per_robot_host_ABI": 168440,
+      "shared_scratch_bytes": 35100,
+      "body_slots": "At most6 inferred body-shaped hypotheses sorted by current body bearing; zero padding, no identities or true classes/counts. Slots are not tracked identities or a hardware validity mask.",
+      "inputs": "Six normalized anonymous nearest-distance scalars and own preceding saturated requested commands only; own role passes separately to actor, task never enters this preprocessor.",
+      "history": "Existing independent local wall posterior and nominal own-command frame history; one scan per control. Body candidates are current-scan hypotheses with only ego-delay compensation, not predicted hidden/occluded bodies.",
+      "reset": "Individual episode/controller reset masks only; preserve state through task switches and occlusion.",
+      "scratch": "Fully overwritten before reads; no temporal state, reused sequentially across streams and excluded from serialization.",
+      "limitations": "Known radius1m/fixed hypotheticalFOV60 calibration and body-size prior; hypotheses can be wrong or empty, walls/obstacles can resemble bodies, and contacts cause nominal-motion drift. Tables are intended read-only constants; actual target flash placement, full peak SRAM and latency are pending."
+    },
+    "default_promoted": false,
+    "full_goal_complete": false,
+    "scope": "Implementation/host-numeric proof only, including arbitrary four-task contexts. No behavioral convergence, controlled-occlusion, fresh-heldout or device resource acceptance. All five controller outputs here are learned; no scripted leader is used in the switch-contract fixture.",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-geometry-v3.py",
+        "sha256": "371eb39608698831c8c5d8a75fc232c8dd8a86f72bd386175ce0d365c738675e"
+      },
+      {
+        "path": "runs/local_geometry.py",
+        "sha256": "1d790b6bb4066dc1a1dbb12d955d9eb205c87161158b240567087a80cdcb92bd"
+      },
+      {
+        "path": "runs/local_geometry_actor.py",
+        "sha256": "3abdf26c4740ff6524e523377b91a432c2e3e09409bbb03c3877079153ae6a3f"
+      },
+      {
+        "path": "runs/local-geometry-build-v1.json",
+        "sha256": "a4ff21c8bdfb3ddb5f9ea1b0c6c98654dc336489c5d4e4c7786636919c0e151a"
+      },
+      {
+        "path": "runs/local-geometry-table-v1/manifest.json",
+        "sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8"
+      },
+      {
+        "path": "runs/local-geometry-verification-v3/operator-golden.npz",
+        "sha256": "88b63134b11ca680bea5633d3ce3d16e203d319679b7f74c3250336846cb9666"
+      },
+      {
+        "path": "runs/local-geometry-verification-v3/sequence-golden.npz",
+        "sha256": "73623ed490e072c23407c17d21061a4151c4f04b61a9a8b2e090de42a1383371"
+      },
+      {
+        "path": "runs/local-geometry-verification-v3/verification-only.pt",
+        "sha256": "c78c66e4e0b43d0a16c378d64d2fad5d1d0c225b4e9b8586a122d7190edd47c8"
+      }
+    ]
+  },
+  "nominal_frame_verification": {
+    "version": "bari-local-geometry-frame-verification-v1",
+    "controls": 200,
+    "streams": 5,
+    "parent_state_bytes_host_ABI": 168440,
+    "max_frame_error_vs_independent_FP64": 1.0843208753108513e-07,
+    "individual_reset_warmup_checked": true,
+    "scope": "Frame math independently reconstructed from serialized nominal command-model state only. Does not establish true odometry, pose accuracy after contact, behavioral or target acceptance.",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-geometry-frames.py",
+        "sha256": "f1a3be63c10c15f86ba3163bdcfdcecfb4afd65a40bcf81bfcaad8acaea28892"
+      },
+      {
+        "path": "runs/local_geometry.py",
+        "sha256": "1d790b6bb4066dc1a1dbb12d955d9eb205c87161158b240567087a80cdcb92bd"
+      },
+      {
+        "path": "runs/local_geometry_bridge.cpp",
+        "sha256": "6c406cf620f16e7cfa12ba970a9179f825b6e3794c2f4b12412aaaacfa758163"
+      }
+    ]
+  },
+  "feature_derivation": {
+    "version": "bari-local-geometry-feature-data-v1",
+    "protocol": {
+      "version": "bari-local-geometry-feature-derivation-v1",
+      "planned_utc": "2026-11-03T20:46:58.477010+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+      },
+      "script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/derive-local-geometry-features.py",
+        "sha256": "2f54923e0df4cfbd7747c8f0e91d820f94a55454a3b6d45d3f862f661e34e870"
+      },
+      "datasets": [
+        {
+          "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+          "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5"
+        },
+        {
+          "path": "runs/teacher-local-belief-student1/demonstrations.npz",
+          "sha256": "2b6dc8a23d375e8fc9fa4fa0d4bac24ed6bebd460872c24eb71e6f7bc8bd3c32"
+        }
+      ],
+      "parent_aggregate": {
+        "path": "runs/local-belief-current-aggregate-v1/result.json",
+        "sha256": "0524a6695044e1b81c266bfc47e93f3db6931d82aebc2e4539f88559c21a084f"
+      },
+      "parent_center_features": {
+        "path": "runs/local-belief-current-aggregate-v1/features.npz",
+        "sha256": "770793a4365a56931bbf6a2a526a122c4d5ab077f95be6c074cf50e1bb2fcdbf"
+      },
+      "verification": {
+        "path": "reports/local-geometry-verification.json",
+        "sha256": "da1461e5b6a76e6556fe3c95609b565c5359e9d850c63c871d1102ff8c0966eb"
+      },
+      "frame_verification": {
+        "path": "reports/local-geometry-frame-verification.json",
+        "sha256": "29b93b85357fa7fee5d1ec132388c0412ef433f5d019f5391aaded8c3afe64fd"
+      },
+      "specification": {
+        "version": "bari-local-geometry-v1",
+        "feature_order": [
+          "estimated_arena_center_x_body_over_radius",
+          "estimated_arena_center_y_body_over_radius",
+          "local_posterior_confidence",
+          "inferred_body_slot_0_x_over_arena_radius",
+          "inferred_body_slot_0_y_over_arena_radius",
+          "inferred_body_slot_1_x_over_arena_radius",
+          "inferred_body_slot_1_y_over_arena_radius",
+          "inferred_body_slot_2_x_over_arena_radius",
+          "inferred_body_slot_2_y_over_arena_radius",
+          "inferred_body_slot_3_x_over_arena_radius",
+          "inferred_body_slot_3_y_over_arena_radius",
+          "inferred_body_slot_4_x_over_arena_radius",
+          "inferred_body_slot_4_y_over_arena_radius",
+          "inferred_body_slot_5_x_over_arena_radius",
+          "inferred_body_slot_5_y_over_arena_radius"
+        ],
+        "settings": {
+          "arena_radius": 1.0,
+          "body_radius": 0.069,
+          "max_wheel_speed": 0.1,
+          "max_wheel_acceleration": 0.3,
+          "wheel_separation": 0.082,
+          "physics_dt": 0.01,
+          "control_dt": 0.1,
+          "sensor_latency": 0.1,
+          "sensor_period": 0.1,
+          "sensor_min": 0.015,
+          "sensor_max": 0.8,
+          "sensor_mount_radius": 0.045,
+          "sensor_angles_deg": [
+            0,
+            60,
+            120,
+            180,
+            240,
+            300
+          ],
+          "sensor_fov_deg": 60.0
+        },
+        "table_manifest_sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8",
+        "table_numeric_bytes": 853260,
+        "state_bytes_per_robot_host_ABI": 168440,
+        "shared_scratch_bytes": 35100,
+        "body_slots": "At most6 inferred body-shaped hypotheses sorted by current body bearing; zero padding, no identities or true classes/counts. Slots are not tracked identities or a hardware validity mask.",
+        "inputs": "Six normalized anonymous nearest-distance scalars and own preceding saturated requested commands only; own role passes separately to actor, task never enters this preprocessor.",
+        "history": "Existing independent local wall posterior and nominal own-command frame history; one scan per control. Body candidates are current-scan hypotheses with only ego-delay compensation, not predicted hidden/occluded bodies.",
+        "reset": "Individual episode/controller reset masks only; preserve state through task switches and occlusion.",
+        "scratch": "Fully overwritten before reads; no temporal state, reused sequentially across streams and excluded from serialization.",
+        "limitations": "Known radius1m/fixed hypotheticalFOV60 calibration and body-size prior; hypotheses can be wrong or empty, walls/obstacles can resemble bodies, and contacts cause nominal-motion drift. Tables are intended read-only constants; actual target flash placement, full peak SRAM and latency are pending."
+      },
+      "episodes": 256,
+      "controls_per_episode": 300,
+      "derivation_inputs": "Raw six scalar ranges, own previous saturated requests and reset masks only. Tasks, labels, poses, teacher geometry, true visibility/counts/IDs and outcomes are not passed into preprocessor.",
+      "execution": "Four disjoint64-episode workers; each owns its own observer states/scratch. Episode order/arrays preserved; reset masks apply to all five streams at each real episode boundary. Tables are shared immutable constants.",
+      "selection": "Keep every episode/control/hypothesis including failures and empty/wrong estimates; no quality masks, label changes or outcome filtering. Derivation alone does not authorize policy adoption."
+    },
+    "workers": [
+      {
+        "begin": 0,
+        "episodes": 64,
+        "all_original_center_features_exact": true
+      },
+      {
+        "begin": 64,
+        "episodes": 64,
+        "all_original_center_features_exact": true
+      },
+      {
+        "begin": 128,
+        "episodes": 64,
+        "all_original_center_features_exact": true
+      },
+      {
+        "begin": 192,
+        "episodes": 64,
+        "all_original_center_features_exact": true
+      }
+    ],
+    "episodes": 256,
+    "joint_controls": 76800,
+    "robot_controls": 384000,
+    "feature_shape": [
+      256,
+      300,
+      5,
+      15
+    ],
+    "all_center_features_match_parent_exactly": true,
+    "all_episodes_retained": true,
+    "host_derivation_seconds": 32.65739150000445,
+    "training_updates": 0,
+    "mean_nonzero_inferred_slots_per_robot_control": 2.4880625,
+    "scope": "All actual local histories transformed without simulation or new labels. Inferred slot occupancy is not actual neighbor count or measured visibility; this is not behavioral/device acceptance.",
+    "artifacts": [
+      {
+        "path": "runs/local-geometry-feature-data-v1/protocol.json",
+        "sha256": "a10f4937ebaa2c07ffe01e599fcecb4e8c8f6a66b38e0fe3e12ae54aea84fb0c"
+      },
+      {
+        "path": "runs/local-geometry-feature-data-v1/features.npz",
+        "sha256": "73a1546bc98b391f5ae82f8d0432720dd88538c42fd34d5b5d3e98da2e3f9be0"
+      },
+      {
+        "path": "runs/local_geometry.py",
+        "sha256": "1d790b6bb4066dc1a1dbb12d955d9eb205c87161158b240567087a80cdcb92bd"
+      },
+      {
+        "path": "runs/local-geometry-build-v1.json",
+        "sha256": "a4ff21c8bdfb3ddb5f9ea1b0c6c98654dc336489c5d4e4c7786636919c0e151a"
+      },
+      {
+        "path": "runs/local-geometry-table-v1/manifest.json",
+        "sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8"
+      }
+    ]
+  },
+  "all_initial_original_parameter_blocks_exact": true,
+  "all40_epoch_permutations_match_exactly": true,
+  "training_fit": {
+    "center_only_H64": {
+      "teacher": {
+        "episodes": 128,
+        "training_data_wheel_mse": 0.11553259193897247,
+        "zero_command_mse": 0.1727360039949417,
+        "high_turn_sample_fraction": 0.42915625,
+        "high_turn_mse": 0.2240467518568039,
+        "other_mse": 0.03395244479179382,
+        "scope": "Training-data fit with final frozen weights, not held-out prediction or task success"
+      },
+      "current-student": {
+        "episodes": 128,
+        "training_data_wheel_mse": 0.21717800199985504,
+        "zero_command_mse": 0.3385658860206604,
+        "high_turn_sample_fraction": 0.8215885416666666,
+        "high_turn_mse": 0.25009846687316895,
+        "other_mse": 0.06557854264974594,
+        "scope": "Training-data fit with final frozen weights, not held-out prediction or task success"
+      }
+    },
+    "local_geometry_H64": {
+      "teacher": {
+        "episodes": 128,
+        "training_data_wheel_mse": 0.10133016109466553,
+        "high_turn_mse": 0.1956273764371872,
+        "other_mse": 0.03043818473815918,
+        "scope": "Final-weight fit on training cohorts only; not held-out prediction or task acceptance"
+      },
+      "current-student": {
+        "episodes": 128,
+        "training_data_wheel_mse": 0.20503664016723633,
+        "high_turn_mse": 0.23586945235729218,
+        "other_mse": 0.06305085122585297,
+        "scope": "Final-weight fit on training cohorts only; not held-out prediction or task acceptance"
+      }
+    }
+  },
+  "actual_execution_replay": [
+    {
+      "stage": "development",
+      "seed": 2001,
+      "all300_geometry_inputs_exact": true,
+      "all5_learned_commands_exact": true,
+      "no_teacher_or_action_override": true
+    },
+    {
+      "stage": "development",
+      "seed": 2003,
+      "all300_geometry_inputs_exact": true,
+      "all5_learned_commands_exact": true,
+      "no_teacher_or_action_override": true
+    },
+    {
+      "stage": "development",
+      "seed": 2011,
+      "all300_geometry_inputs_exact": true,
+      "all5_learned_commands_exact": true,
+      "no_teacher_or_action_override": true
+    },
+    {
+      "stage": "development",
+      "seed": 2017,
+      "all300_geometry_inputs_exact": true,
+      "all5_learned_commands_exact": true,
+      "no_teacher_or_action_override": true
+    },
+    {
+      "stage": "development",
+      "seed": 2027,
+      "all300_geometry_inputs_exact": true,
+      "all5_learned_commands_exact": true,
+      "no_teacher_or_action_override": true
+    }
+  ],
+  "actor_unchanged_by_verification": true,
+  "actor_parameters_FP32_bytes_including_log_std": 107792,
+  "hidden_FP32_bytes_per_robot": 256,
+  "table_numeric_bytes": 853260,
+  "parent_observer_host_ABI_bytes_per_robot": 168440,
+  "shared_inference_scratch_bytes": 35100,
+  "resources": "Separate partial counts, not total SRAM or device flash placement. Required firmware, stacks/heaps, activations, I/O, assets and deadline/headroom still require actual no-PSRAM ESP32-S3 measurements.",
+  "qualified_for_separately_planned_next_stage_only": false,
+  "decision": "The frozen imitation development gate fails. No automatic larger evaluation, RL, budget extension or default promotion.",
+  "production_source_changed": false,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "artifacts": [
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2001/actual-actor-inputs.npz",
+      "sha256": "076c740baffdc45db7ecdc87b2d764440429cb4dfa7e6c26320e42af25aaac3e"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2001/circle-2001.npz",
+      "sha256": "9d36fdcf4dd9188d109cc418b921577ef5c18440d7916a2febad9064c861029b"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2001/report.json",
+      "sha256": "ead81fb7a672c1d6cad5695983401d4cc6e27138b72a80deb6807f8179ac4cbd"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2003/actual-actor-inputs.npz",
+      "sha256": "c03e0159d24d1663999ccd54e5cb5ee1153ccfd11b33a54da4cbabe071010102"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2003/circle-2003.npz",
+      "sha256": "0d2e2b1a17cfa35d7f6b08d5b61301d78991c5498615749151aad6ac7729ec5f"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2003/report.json",
+      "sha256": "628b3bf94f77216f301e1fa71af3905591965b004e774cf3b29f6756d9221ea0"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2011/actual-actor-inputs.npz",
+      "sha256": "fc163c2aec23dcaf9e86a295be7371f0e8b89c29c7fa2e54dafcdb907553aca7"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2011/circle-2011.npz",
+      "sha256": "c37cb521c2f62935e66077c9344304da4b284f15bb20d77ee76ad8cd955e8ea5"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2011/report.json",
+      "sha256": "3df1d60cbc5224b2495f8fa46c170762a21a5afba0debc758a0c4b7448be9a8d"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2017/actual-actor-inputs.npz",
+      "sha256": "aa890f98f6d9605b5ab8ab747ec594f7650abf091e56fe1174abfe1e3fd66013"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2017/circle-2017.npz",
+      "sha256": "5c9d1c5d3e7539ca3d49b3fa6c4486581c54e3373a97fb1d24873ccc7ae8a449"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2017/report.json",
+      "sha256": "04b8a92799dfdbe61b51ed208e312a7117b6a60ba880dbbc6b2dc6c646bf887b"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2027/actual-actor-inputs.npz",
+      "sha256": "028c9955fc7c82e21040e54bc2ddd48bd139c0bc653191c25ea3b070e653cc02"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2027/circle-2027.npz",
+      "sha256": "a906309c4dbe1026210c5452abdd40a1299294f25ca23b9d90a5cb33089a0358"
+    },
+    {
+      "path": "runs/train-local-geometry-11/evaluation-development/2027/report.json",
+      "sha256": "52d938c1a344ba414f5196bb54f6ebd9637a40919f21741ddb3a6ee562b6a335"
+    },
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-local-geometry-report.py",
+      "sha256": "1e58ba2c0c12a55f8ed756fac70d5626b43285e88e98e12d9925965f801e5418"
+    },
+    {
+      "path": "runs/train-local-geometry-11/result.json",
+      "sha256": "01f4a3fa1abbcce92605fc06a3f077044ca2187ae84bb5b54c730337e3461176"
+    },
+    {
+      "path": "runs/train-local-geometry-11/protocol.json",
+      "sha256": "a5d5fba9c5cb8c5cffcdb73b659b68f3968b6fda4efdf8b5316bad7c35d79990"
+    },
+    {
+      "path": "runs/train-local-geometry-11/imitation.jsonl",
+      "sha256": "e12c50916bce48dc896e8b8dcca2e9bd75f8265e720cdec521ba4a6a8eec13d5"
+    },
+    {
+      "path": "runs/train-local-geometry-11/initial_actor.pt",
+      "sha256": "dbe6f0d1f18a4bd88a3042d3cf4ea94e0c53dada56c60875ae61affda3a30731"
+    },
+    {
+      "path": "runs/train-local-geometry-11/checkpoint.pt",
+      "sha256": "504d34e4f0f6cabf28e0ead1f8a96fc7bb8608baaedd098748338f922a285a9a"
+    },
+    {
+      "path": "runs/train-local-belief-current-student-11/result.json",
+      "sha256": "84d248783c75d78f781336b9d6e5882a8503075c1acfad1c0e6ab5119cd8a20e"
+    },
+    {
+      "path": "reports/local-geometry-verification.json",
+      "sha256": "da1461e5b6a76e6556fe3c95609b565c5359e9d850c63c871d1102ff8c0966eb"
+    },
+    {
+      "path": "reports/local-geometry-frame-verification.json",
+      "sha256": "29b93b85357fa7fee5d1ec132388c0412ef433f5d019f5391aaded8c3afe64fd"
+    },
+    {
+      "path": "runs/local-geometry-feature-data-v1/result.json",
+      "sha256": "50782f06dc2a23bd5b68cca885b642554ac6458900669cc88ce117f6c4dfcdb4"
+    },
+    {
+      "path": "runs/prepare-local-geometry-training.py",
+      "sha256": "f38b89e0015ee8d6fb10668ab294ea4f801f8f874d0007fc7f235550f8a69692"
+    },
+    {
+      "path": "runs/derive-local-geometry-features.py",
+      "sha256": "2f54923e0df4cfbd7747c8f0e91d820f94a55454a3b6d45d3f862f661e34e870"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local-geometry-table-v1/manifest.json",
+      "sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local-geometry-table-v1/table.hpp",
+      "sha256": "f06a37aa4043848b44ea1ece24ace00b55b7490867d348771004c3abca3ef33a"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local-geometry-table-v1/table.npz",
+      "sha256": "2d4d48f2c0dc0f52de00902e3d426cc3a44fa6b25ddfeaf8c3e81610b70b5588"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local-geometry-v1.dylib",
+      "sha256": "7284540812d9dd886556e5fe095672a26373640ffee3e2d03724d2fb3f8297a6"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local_belief_actor.py",
+      "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local_geometry.py",
+      "sha256": "1d790b6bb4066dc1a1dbb12d955d9eb205c87161158b240567087a80cdcb92bd"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local_geometry_actor.py",
+      "sha256": "3abdf26c4740ff6524e523377b91a432c2e3e09409bbb03c3877079153ae6a3f"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local_geometry_bridge.cpp",
+      "sha256": "6c406cf620f16e7cfa12ba970a9179f825b6e3794c2f4b12412aaaacfa758163"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local_wall_belief.hpp",
+      "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local_wall_belief.py",
+      "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/local_wall_belief_bridge.cpp",
+      "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/prepare-local-geometry-training.py",
+      "sha256": "f38b89e0015ee8d6fb10668ab294ea4f801f8f874d0007fc7f235550f8a69692"
+    },
+    {
+      "path": "runs/train-local-geometry-11/experimental-source/train-local-geometry.py",
+      "sha256": "b1243e46c198f67529debf5386727e5ce58b73920c04648a7873dc08ce58aa8f"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/train-local-geometry-11/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    }
+  ]
+}

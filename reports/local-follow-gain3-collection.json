@@ -1,0 +1,197 @@
+{
+  "protocol": {
+    "version": "bari-local-follow-gain3-collection-v1",
+    "planned_utc": "2026-11-03T14:03:22.489998+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "episodes": 256,
+    "banks": [
+      {
+        "path": "runs/teacher-follow-local-consistent/demonstrations.npz",
+        "sha256": "3df198577fe410e137a6f6851d9492612d1f28dcf1f7aceaaad6beafd0ae61e8",
+        "dataset_seed": 13,
+        "source_plan": {
+          "version": "bari-training-plan-v2",
+          "isolated_episode_probability": 1,
+          "switch_min_seconds": 3.0,
+          "switch_max_seconds": 15.0,
+          "curriculum_updates": 0,
+          "curriculum_start_probability": 0.8,
+          "position_jitter_start_m": 0.015,
+          "position_jitter_end_m": 0.16,
+          "reserved_seeds": [
+            2001,
+            2003,
+            2011,
+            2017,
+            2027,
+            10001,
+            10007,
+            10009,
+            10037,
+            10039
+          ],
+          "tasks": [
+            "follow"
+          ]
+        }
+      },
+      {
+        "path": "runs/teacher-follow-local-perturbed/demonstrations.npz",
+        "sha256": "44ef553082267807255911554ccfa1f2165ee58f6ffeab6577190f26a7071bda",
+        "dataset_seed": 17,
+        "source_plan": {
+          "version": "bari-training-plan-v2",
+          "isolated_episode_probability": 1.0,
+          "switch_min_seconds": 3.0,
+          "switch_max_seconds": 15.0,
+          "curriculum_updates": 1000000000,
+          "curriculum_start_probability": 1.0,
+          "position_jitter_start_m": 0.015,
+          "position_jitter_end_m": 0.015,
+          "reserved_seeds": [
+            2001,
+            2003,
+            2011,
+            2017,
+            2027,
+            10001,
+            10007,
+            10009,
+            10037,
+            10039
+          ],
+          "tasks": [
+            "follow"
+          ]
+        }
+      }
+    ],
+    "sampling": "Replay all 256 exact initial snapshots in bank order, without filtering, new RNG sampling, or validation seeds. Same local inference and steering as gain2; only translational distance feedback 2->3.",
+    "teacher": "local-range-consistent-disk-hypothesis-v3",
+    "speed_gain": 3.0,
+    "turn_gain": 1.2,
+    "feed_speed_m_s": 0.0,
+    "reason": "Gain2 perturbed teacher scores125/128 without contacts/walls; three fail continuous hold (final2.3/2.5/2.8s). Increase spacing response prospectively, keep every numeric gate and full timeout. All data use gain3 to avoid conflicting teacher modes.",
+    "information_boundary": "Local9 fields, fixed calibration and private observation-derived state only. No poses/IDs/ranks/classes/true bearings/evaluator targets enter followers. Mission leader separate, excluded from imitation loss.",
+    "training_gate": "256/256 official successes AND256/256 final holding, zero total contacts/walls. Otherwise no new learner.",
+    "training_if_qualified": {
+      "actor": "fresh ordinary GRU H64",
+      "seed": 11,
+      "epochs": 40,
+      "BPTT": 64,
+      "batch_episodes": 8,
+      "scope": "256 episodes, twice the first128-episode sample/optimizer budget. Data perturbations and teacher gain both changed; do not attribute any improvement to one alone.",
+      "validation": "Final epoch40: five chain validation seeds2001/2003/2011/2017/2027 and eight frozen near-chain diagnostic states from runs/local-follow-warm-distribution/initial_states.json. Require all13 official successes and all13 final holding before any new RL stage. No assistance or automatic extension."
+    }
+  },
+  "summary": {
+    "episodes": 256,
+    "successes": 256,
+    "final_holding": 256,
+    "contacts": 0,
+    "walls": 0,
+    "minimum_final_hold_s": 7.699999999999989,
+    "initial_snapshot_replay_exact": true,
+    "dataset_loader_pass": true
+  },
+  "qualified_for_imitation": true,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/collect-local-follow-gain3.py",
+      "sha256": "63b3ee1ce965d95c8a592b598c0e523898b5becb8d4fc7522c702de5781b611b"
+    },
+    {
+      "path": "runs/local_range_consistent_follow.py",
+      "sha256": "fa4a2d98157f88a90531761f1d389eaeeaa0ef26afa7cfd3228c99d1c2f7b252"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/protocol.json",
+      "sha256": "62308a2486d54cee6e8087485ca1c3e70fdad9efa530098e04df363435e6126d"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/demonstrations.npz",
+      "sha256": "d64ec3929e189cd5f14635c6bd336d494f33dcfbb81ad4fe31dca722634eb70e"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/manifest.json",
+      "sha256": "0c8ad9e89f33dd1325a94f25dd816b0e2eb60fa807e7720424cab20c90be691b"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/teacher-follow-local-gain3/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "protocol": {
+    "version": "bari-local-circle-field-probe-v1",
+    "planned_utc": "2026-11-03T15:05:09.726086+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "development_seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "arms": [
+      "oracle-center-and-neighbors",
+      "oracle-center-local-bodies",
+      "fully-local"
+    ],
+    "gains": {
+      "radial_s_inverse": 1.0,
+      "tangential_riesz": 0.004,
+      "avoid_speed_m_s": 0.07,
+      "avoid_distance_m": 0.19,
+      "speed_cap_m_s": 0.07,
+      "angular_gain": 3.0,
+      "angular_cap_rad_s": 1.5,
+      "stop_vector_m_s": 0.003,
+      "unlocalized_exploration_m_s": 0.02
+    },
+    "inference": {
+      "range_tolerance_m": 0.006,
+      "wall_radius_grid_m": 0.005,
+      "body_distance_grid_m": 0.004,
+      "bearing_grid_deg": 2.0,
+      "wall_radial_prior": 0.0001,
+      "max_body_surface_range_m": 0.5,
+      "tangential_nearest_hypotheses": 2
+    },
+    "timing": "All three arms use geometry of the delivered sensor sample time, including oracle arms. Initial configured latency wait; no instantaneous sensor or pose correction.",
+    "information_boundary": "Fully-local class receives only9 local actor fields and calibration. Centers/disks are local hypotheses, not measured object types/IDs/bearings/counts. True poses appear only in explicitly privileged diagnostic arms and observer errors. No actor is trained by this probe.",
+    "learning_gate": "Require fully-local4/4 official full episodes with zero cumulative contacts/walls before considering a separate data protocol. Otherwise no new learner. Original numeric formation gates/full timeout unchanged.",
+    "scope": "Unlearned circle-only feasibility, hypotheticalFOV60, not task/GRU-RL or hardware acceptance."
+  },
+  "cases": [
+    {
+      "arm": "oracle-center-and-neighbors",
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.004254002828863827,
+        "max_error_m": 0.004900847098506547,
+        "success": true,
+        "acquisition_s": 4.1,
+        "holding_goal": true,
+        "hold_s": 25.900000000000098,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.026861787310019446,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 1.3076945053667766
+      },
+      "recording": "runs/local-circle-field-probe/oracle-center-and-neighbors-seed-3001.npz",
+      "wall_center_mean_error_m": 0.0324646523641953,
+      "wall_center_confident_mean_error_m": 0.03139199769906643,
+      "wall_center_confident_fraction": 0.9966555183946488,
+      "wall_center_confident_max_error_m": 1.1504350184530534
+    },
+    {
+      "arm": "oracle-center-and-neighbors",
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.003923448679277172,
+        "max_error_m": 0.004566886551063551,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03688678423418631,
+        "peak_max_error_m": 0.23475945343800583,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 2,
+        "wall_violations": 0,
+        "control_cost": 2.3935566931171746
+      },
+      "recording": "runs/local-circle-field-probe/oracle-center-and-neighbors-seed-3007.npz",
+      "wall_center_mean_error_m": 0.05523115992054511,
+      "wall_center_confident_mean_error_m": 0.053573368070199606,
+      "wall_center_confident_fraction": 0.9926421404682274,
+      "wall_center_confident_max_error_m": 1.246630931207305
+    },
+    {
+      "arm": "oracle-center-and-neighbors",
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.003984209872758702,
+        "max_error_m": 0.004146543351245976,
+        "success": true,
+        "acquisition_s": 5.999999999999998,
+        "holding_goal": true,
+        "hold_s": 24.00000000000007,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03447677449464728,
+        "peak_max_error_m": 0.25935075630900145,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 2.002878106465867
+      },
+      "recording": "runs/local-circle-field-probe/oracle-center-and-neighbors-seed-3011.npz",
+      "wall_center_mean_error_m": 0.05609577861340548,
+      "wall_center_confident_mean_error_m": 0.05393036704305607,
+      "wall_center_confident_fraction": 0.9926421404682274,
+      "wall_center_confident_max_error_m": 1.0825671810223623
+    },
+    {
+      "arm": "oracle-center-and-neighbors",
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.004679276789829347,
+        "max_error_m": 0.006076142960119542,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.029549836704060955,
+        "peak_max_error_m": 0.17774322053554734,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 7,
+        "wall_violations": 0,
+        "control_cost": 1.898448983126768
+      },
+      "recording": "runs/local-circle-field-probe/oracle-center-and-neighbors-seed-3019.npz",
+      "wall_center_mean_error_m": 0.04572340643451812,
+      "wall_center_confident_mean_error_m": 0.04366633736483207,
+      "wall_center_confident_fraction": 0.9819397993311036,
+      "wall_center_confident_max_error_m": 1.035771536475779
+    },
+    {
+      "arm": "oracle-center-local-bodies",
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.007271621890720266,
+        "max_error_m": 0.009519619631818297,
+        "success": true,
+        "acquisition_s": 4.299999999999999,
+        "holding_goal": true,
+        "hold_s": 25.700000000000095,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03208908702424911,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.502561629784536
+      },
+      "recording": "runs/local-circle-field-probe/oracle-center-local-bodies-seed-3001.npz",
+      "wall_center_mean_error_m": 0.11649151495554383,
+      "wall_center_confident_mean_error_m": 0.11570423966673352,
+      "wall_center_confident_fraction": 0.9966555183946488,
+      "wall_center_confident_max_error_m": 1.135633440141115
+    },
+    {
+      "arm": "oracle-center-local-bodies",
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.007433070118985026,
+        "max_error_m": 0.012474992032563696,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.04079116422945406,
+        "peak_max_error_m": 0.24279004463323195,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 2,
+        "wall_violations": 0,
+        "control_cost": 11.181076121592449
+      },
+      "recording": "runs/local-circle-field-probe/oracle-center-local-bodies-seed-3007.npz",
+      "wall_center_mean_error_m": 0.13735944123243837,
+      "wall_center_confident_mean_error_m": 0.1347154038453318,
+      "wall_center_confident_fraction": 0.9872909698996656,
+      "wall_center_confident_max_error_m": 1.2474714732271157
+    },
+    {
+      "arm": "oracle-center-local-bodies",
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.005500711745708842,
+        "max_error_m": 0.007611886535605016,
+        "success": true,
+        "acquisition_s": 6.699999999999999,
+        "holding_goal": true,
+        "hold_s": 23.30000000000006,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0403979996000712,
+        "peak_max_error_m": 0.26557061965777684,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.98810857152738
+      },
+      "recording": "runs/local-circle-field-probe/oracle-center-local-bodies-seed-3011.npz",
+      "wall_center_mean_error_m": 0.11878200439918371,
+      "wall_center_confident_mean_error_m": 0.1174422196831495,
+      "wall_center_confident_fraction": 0.988628762541806,
+      "wall_center_confident_max_error_m": 1.1065629558437369
+    },
+    {
+      "arm": "oracle-center-local-bodies",
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.010144908452136083,
+        "max_error_m": 0.013685494274270913,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0460807667451609,
+        "peak_max_error_m": 0.18388305684933803,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 30,
+        "wall_violations": 0,
+        "control_cost": 10.983144678239357
+      },
+      "recording": "runs/local-circle-field-probe/oracle-center-local-bodies-seed-3019.npz",
+      "wall_center_mean_error_m": 0.13324791119145937,
+      "wall_center_confident_mean_error_m": 0.1327571320875245,
+      "wall_center_confident_fraction": 0.974581939799331,
+      "wall_center_confident_max_error_m": 1.036762343224279
+    },
+    {
+      "arm": "fully-local",
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.00983199634084981,
+        "max_error_m": 0.01330662440347728,
+        "success": true,
+        "acquisition_s": 3.9999999999999987,
+        "holding_goal": true,
+        "hold_s": 26.0000000000001,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0318789546045126,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 14.815159079702008
+      },
+      "recording": "runs/local-circle-field-probe/fully-local-seed-3001.npz",
+      "wall_center_mean_error_m": 0.08554714451057818,
+      "wall_center_confident_mean_error_m": 0.08402370288365264,
+      "wall_center_confident_fraction": 0.9966555183946488,
+      "wall_center_confident_max_error_m": 1.105172233391367
+    },
+    {
+      "arm": "fully-local",
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.010733281775683301,
+        "max_error_m": 0.014548526565623504,
+        "success": true,
+        "acquisition_s": 25.8,
+        "holding_goal": true,
+        "hold_s": 4.200000000000001,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.12218887310560128,
+        "peak_max_error_m": 0.23954569770813092,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 12.758075139881944
+      },
+      "recording": "runs/local-circle-field-probe/fully-local-seed-3007.npz",
+      "wall_center_mean_error_m": 0.15930234847863828,
+      "wall_center_confident_mean_error_m": 0.06921249512512788,
+      "wall_center_confident_fraction": 0.8588628762541806,
+      "wall_center_confident_max_error_m": 1.2118163195490044
+    },
+    {
+      "arm": "fully-local",
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.08016163221538886,
+        "max_error_m": 0.157814791608438,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.13750692273359377,
+        "peak_max_error_m": 0.23401783409158872,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.345484247281338
+      },
+      "recording": "runs/local-circle-field-probe/fully-local-seed-3011.npz",
+      "wall_center_mean_error_m": 0.19124755579242617,
+      "wall_center_confident_mean_error_m": 0.09336032326699943,
+      "wall_center_confident_fraction": 0.8668896321070234,
+      "wall_center_confident_max_error_m": 1.0217044659150665
+    },
+    {
+      "arm": "fully-local",
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.011719566530583009,
+        "max_error_m": 0.013958718448455164,
+        "success": true,
+        "acquisition_s": 9.399999999999999,
+        "holding_goal": true,
+        "hold_s": 20.600000000000023,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03994008564139089,
+        "peak_max_error_m": 0.16989538665496343,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 14.58744217241556
+      },
+      "recording": "runs/local-circle-field-probe/fully-local-seed-3019.npz",
+      "wall_center_mean_error_m": 0.10144374385325236,
+      "wall_center_confident_mean_error_m": 0.0712968120124994,
+      "wall_center_confident_fraction": 0.9210702341137124,
+      "wall_center_confident_max_error_m": 1.0318540563581968
+    }
+  ],
+  "summary": [
+    {
+      "arm": "oracle-center-and-neighbors",
+      "episodes": 4,
+      "successes": 2,
+      "final_holding": 2,
+      "contacts": 9,
+      "walls": 0,
+      "mean_final_max_error_m": 0.004922604990233904,
+      "mean_confident_wall_error_m": 0.045640517544288536
+    },
+    {
+      "arm": "oracle-center-local-bodies",
+      "episodes": 4,
+      "successes": 2,
+      "final_holding": 2,
+      "contacts": 32,
+      "walls": 0,
+      "mean_final_max_error_m": 0.01082299811856448,
+      "mean_confident_wall_error_m": 0.12515474882068484
+    },
+    {
+      "arm": "fully-local",
+      "episodes": 4,
+      "successes": 3,
+      "final_holding": 3,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.04990716525649849,
+      "mean_confident_wall_error_m": 0.07947333332206985
+    }
+  ],
+  "qualified_for_data_only": false,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-circle-field.py",
+      "sha256": "f5d51bcfc056217560f2ac6fda87addd54a33b5d32d1f739352b6b47722dd327"
+    },
+    {
+      "path": "runs/local_circle_field.py",
+      "sha256": "2305f199910113412dd99a7d428d18b2ec8de5f4a1422ee0bd43de3c177453f9"
+    },
+    {
+      "path": "runs/local-circle-field-probe/protocol.json",
+      "sha256": "0a8d19b19dec382447f4bb3e31bc7b033830db29b8f335b212c011a31e11b068"
+    },
+    {
+      "path": "runs/local-circle-field-probe/fully-local-seed-3001.npz",
+      "sha256": "027eb835325acbcbc4133899b2c17ae90e79a0f03b1bc27fe267f484d61a14fe"
+    },
+    {
+      "path": "runs/local-circle-field-probe/fully-local-seed-3007.npz",
+      "sha256": "6040c7899c999212f9a196f040ada5173598f17d53ee1865058b34cec3a8306d"
+    },
+    {
+      "path": "runs/local-circle-field-probe/fully-local-seed-3011.npz",
+      "sha256": "a7c32d585f915c96a07dc0802b630bac9864e854d8e3848a1c17b11db42ff007"
+    },
+    {
+      "path": "runs/local-circle-field-probe/fully-local-seed-3019.npz",
+      "sha256": "ab25cc8fb6666a76b9a9effd3e5ec891c327f7ef39b638cbac935f66eaff5884"
+    },
+    {
+      "path": "runs/local-circle-field-probe/oracle-center-and-neighbors-seed-3001.npz",
+      "sha256": "0f056d6a25257c7534c6d84b5f4feab01198fac7846f617bb23bea31de8ea371"
+    },
+    {
+      "path": "runs/local-circle-field-probe/oracle-center-and-neighbors-seed-3007.npz",
+      "sha256": "1557ef459330842dbcb43cd5305e8e8c74d411c7de705519f66ae7d0ecde163a"
+    },
+    {
+      "path": "runs/local-circle-field-probe/oracle-center-and-neighbors-seed-3011.npz",
+      "sha256": "f318aaedb0c5f4a40f5c12cbc8f1775164907f25d6fe3dbd294dcba788e3567d"
+    },
+    {
+      "path": "runs/local-circle-field-probe/oracle-center-and-neighbors-seed-3019.npz",
+      "sha256": "23afe22f3f8a8031c096272dcabc827bc05df5784d725b49a5b27507e8adbd59"
+    },
+    {
+      "path": "runs/local-circle-field-probe/oracle-center-local-bodies-seed-3001.npz",
+      "sha256": "7aae22475b0653a0c20f63409c4caa7c57a78e965ee53c757c6a41454e9a3fd1"
+    },
+    {
+      "path": "runs/local-circle-field-probe/oracle-center-local-bodies-seed-3007.npz",
+      "sha256": "cfb62c145cfb1c6d952a25f48add003ac10532441e29e3c102ba1b46b6dfaf07"
+    },
+    {
+      "path": "runs/local-circle-field-probe/oracle-center-local-bodies-seed-3011.npz",
+      "sha256": "c6bb9a04acd9e9d6d39b41f34d989719d9ab5f91db23b63e2aa053cfc803f616"
+    },
+    {
+      "path": "runs/local-circle-field-probe/oracle-center-local-bodies-seed-3019.npz",
+      "sha256": "5434d7deb28a0a8a9315f6ac240f4d77fc6a69fb24e239334bd6841e35b0fe04"
+    }
+  ]
+}

@@ -1,0 +1,2230 @@
+{
+  "protocol": {
+    "version": "bari-follow-feedback-diagnostic-v1",
+    "planned_utc": "2026-11-03T11:29:36.941181+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "84858259b64fbd84b19d7d67ff449381c33ca5e57539709a6104500ef4fd36ba"
+    },
+    "episodes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "profiles": [
+      "teacher-forced",
+      "closed-loop"
+    ],
+    "scope": "First eight training demonstrations; seen-start diagnosis, not independent validation or RL evidence. Teacher forcing executes oracle commands. Closed loop executes the ordinary learned followers and permitted scripted leader. No interventions, hidden resets, changes to gates, or additional actor inputs.",
+    "arms": {
+      "h32": {
+        "checkpoint": "runs/follow-imitation-actor-terminal-11/checkpoint.pt",
+        "checkpoint_sha256": "7990c0e21fd72c3707d3f2dfc9395467eee79c8e50f11c8886ff2c68b71fae42",
+        "dataset": "runs/teacher-follow-only/demonstrations.npz",
+        "dataset_sha256": "ac806d966655161f0212c2baeeef35f4e95a000b0218f492374c341034c81883"
+      },
+      "h64": {
+        "checkpoint": "runs/follow-h64-actor-terminal-11/checkpoint.pt",
+        "checkpoint_sha256": "c5020c7c2c1facfb3128d4597808f5ab697956086298bf25329c54bedb129f4c",
+        "dataset": "runs/teacher-follow-h64/demonstrations.npz",
+        "dataset_sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9"
+      }
+    }
+  },
+  "cases": [
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "training_episode_index": 0,
+      "world_seed": 1924045406,
+      "wheel_mse": 0.001965969609908738,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.01536195029107983
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.00977208114717593
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00020391821935552632
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.00017546111603504764
+        }
+      ],
+      "final": {
+        "max_error_m": 0.053804649944585434,
+        "rms_error_m": 0.047031319448761565,
+        "path_error_m": 0.019958634581077602,
+        "spacing_error_m": 0.0505497339228719,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4660454273358292,
+        "leader_step_travel_m": 0.005033788326439642,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.099999999999998,
+        "holding_goal": true,
+        "hold_s": 22.900000000000055,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.05930245222483609,
+        "peak_max_error_m": 0.08363396325959736,
+        "reacquisition_s": [
+          1.7999999999999998
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.768254131978148
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-teacher-forced-0.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "training_episode_index": 0,
+      "world_seed": 1924045406,
+      "wheel_mse": 0.8933667841736023,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006151622531964281
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.6565415938757521
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 1.017100295880705
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.9541592023884788
+        }
+      ],
+      "final": {
+        "max_error_m": 0.5494322451179606,
+        "rms_error_m": 0.3862680488105858,
+        "path_error_m": 0.22404222947571686,
+        "spacing_error_m": 0.9148149094174897,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.7551683472704509,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5282854960974286,
+        "peak_max_error_m": 0.8769900990419623,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 534,
+        "wall_violations": 0,
+        "control_cost": 9.177581580913657
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-closed-loop-0.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "training_episode_index": 1,
+      "world_seed": 1715750153,
+      "wheel_mse": 0.001485710956279403,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006706267518117893
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.004799666656501118
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.0007337263252825758
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.0007498881458923421
+        }
+      ],
+      "final": {
+        "max_error_m": 0.05380007754528099,
+        "rms_error_m": 0.04702920459953456,
+        "path_error_m": 0.01994459323141268,
+        "spacing_error_m": 0.050550065280851625,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.464051554689649,
+        "leader_step_travel_m": 0.005033804573963387,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.499999999999998,
+        "holding_goal": true,
+        "hold_s": 22.50000000000005,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.061535558205237824,
+        "peak_max_error_m": 0.09051074774577873,
+        "reacquisition_s": [
+          2.2
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.000434488069617
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-teacher-forced-1.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "training_episode_index": 1,
+      "world_seed": 1715750153,
+      "wheel_mse": 0.8889194187217849,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006251268487489166
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.6744193897604933
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 1.01983806648052
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.943223170086074
+        }
+      ],
+      "final": {
+        "max_error_m": 0.6204980257504434,
+        "rms_error_m": 0.40032103380816525,
+        "path_error_m": 0.2093914081961454,
+        "spacing_error_m": 0.9155144238035379,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.864999521481291,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.547313329817942,
+        "peak_max_error_m": 0.8994442939359284,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 495,
+        "wall_violations": 0,
+        "control_cost": 9.298660522877112
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-closed-loop-1.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "training_episode_index": 2,
+      "world_seed": 1824415292,
+      "wheel_mse": 0.0014582515040139866,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.0066891914444741195
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.0048217967662402186
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.0007200434240461468
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.0007085474745376932
+        }
+      ],
+      "final": {
+        "max_error_m": 0.053797829133512706,
+        "rms_error_m": 0.04702812720334861,
+        "path_error_m": 0.01993723224639444,
+        "spacing_error_m": 0.050550286019281604,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.465446233948056,
+        "leader_step_travel_m": 0.005033812869211122,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.599999999999998,
+        "holding_goal": true,
+        "hold_s": 22.40000000000005,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.06159777480247726,
+        "peak_max_error_m": 0.09098375849337903,
+        "reacquisition_s": [
+          2.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.993167632242146
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-teacher-forced-2.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "training_episode_index": 2,
+      "world_seed": 1824415292,
+      "wheel_mse": 0.9106841823824828,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006224515587378167
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.6612648538638715
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 1.0032600862318193
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.9826470554636263
+        }
+      ],
+      "final": {
+        "max_error_m": 0.6620729767078984,
+        "rms_error_m": 0.4434345268212874,
+        "path_error_m": 0.38838542170096113,
+        "spacing_error_m": 1.02,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9463036278253132,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5498827991223414,
+        "peak_max_error_m": 0.909447737517763,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 452,
+        "wall_violations": 0,
+        "control_cost": 9.205277011129754
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-closed-loop-2.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "training_episode_index": 3,
+      "world_seed": 1476750804,
+      "wheel_mse": 0.0021168260487769066,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.015453443971424874
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.010337285649139726
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00023406396280162853
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.0002765937540657653
+        }
+      ],
+      "final": {
+        "max_error_m": 0.0538037021658089,
+        "rms_error_m": 0.04703091199029586,
+        "path_error_m": 0.019956079262740997,
+        "spacing_error_m": 0.050549751877490584,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.464365401637656,
+        "leader_step_travel_m": 0.005033791444503186,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.399999999999999,
+        "holding_goal": true,
+        "hold_s": 22.60000000000005,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.060444573148837485,
+        "peak_max_error_m": 0.08790252096933193,
+        "reacquisition_s": [
+          2.0
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.835861502395048
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-teacher-forced-3.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "training_episode_index": 3,
+      "world_seed": 1476750804,
+      "wheel_mse": 0.8862950240948179,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006198898014544525
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.6691992548619377
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 1.045307985800249
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.9339657438190497
+        }
+      ],
+      "final": {
+        "max_error_m": 0.5994920816173427,
+        "rms_error_m": 0.3893794611232033,
+        "path_error_m": 0.16443070703446996,
+        "spacing_error_m": 0.9069259378435817,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.8714621036359722,
+        "leader_step_travel_m": 0.005407631239551617,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5601987443573087,
+        "peak_max_error_m": 0.926586627094527,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 500,
+        "wall_violations": 0,
+        "control_cost": 9.302297703660335
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-closed-loop-3.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "training_episode_index": 4,
+      "world_seed": 677459532,
+      "wheel_mse": 0.0013274478508407525,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.0067608170160716255
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.007258457438204391
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00019028603357288136
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.00015386792942344852
+        }
+      ],
+      "final": {
+        "max_error_m": 0.05380047202700093,
+        "rms_error_m": 0.04702932225943406,
+        "path_error_m": 0.01994506764565741,
+        "spacing_error_m": 0.050550140313090935,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4683520428900465,
+        "leader_step_travel_m": 0.00503380365243049,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 6.999999999999998,
+        "holding_goal": true,
+        "hold_s": 23.000000000000057,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.05930538179315028,
+        "peak_max_error_m": 0.08397235191703593,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.787427441783226
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-teacher-forced-4.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "training_episode_index": 4,
+      "world_seed": 677459532,
+      "wheel_mse": 0.9089027794994253,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006125639870675341
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.6673115464115748
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 1.0213738240122354
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.9742421219702306
+        }
+      ],
+      "final": {
+        "max_error_m": 0.5542558723590396,
+        "rms_error_m": 0.36765399287361394,
+        "path_error_m": 0.20181679058911373,
+        "spacing_error_m": 0.8578147207432038,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.7294325864778506,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5566866747577315,
+        "peak_max_error_m": 0.9247743835588016,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 502,
+        "wall_violations": 0,
+        "control_cost": 9.088119856840953
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-closed-loop-4.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "training_episode_index": 5,
+      "world_seed": 769120583,
+      "wheel_mse": 0.0013065286807076556,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006774354107915466
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.007056607815820468
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00018436531559251818
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.000163662423603487
+        }
+      ],
+      "final": {
+        "max_error_m": 0.053802283487080875,
+        "rms_error_m": 0.04703017895241077,
+        "path_error_m": 0.019950853979529132,
+        "spacing_error_m": 0.05054997982130019,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4678640076048892,
+        "leader_step_travel_m": 0.005033797071845761,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 6.999999999999998,
+        "holding_goal": true,
+        "hold_s": 23.000000000000057,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.05904173730185484,
+        "peak_max_error_m": 0.08293772553285522,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.75920480259182
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-teacher-forced-5.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "training_episode_index": 5,
+      "world_seed": 769120583,
+      "wheel_mse": 0.7904654662139724,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006211222972501827
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.6520474744410636
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.9637697492995589
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.814035705959231
+        }
+      ],
+      "final": {
+        "max_error_m": 0.5885959980794959,
+        "rms_error_m": 0.3402903161399729,
+        "path_error_m": 0.3047003332260954,
+        "spacing_error_m": 0.4923248735556046,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.8748994676050201,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.46784330587628686,
+        "peak_max_error_m": 0.6275653129639,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 619,
+        "wall_violations": 0,
+        "control_cost": 9.024434087046373
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-closed-loop-5.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "training_episode_index": 6,
+      "world_seed": 1476600024,
+      "wheel_mse": 0.0011391195128824135,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.00670580358691768
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.0047822118503777905
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00028204675799933267
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.0003464350304023453
+        }
+      ],
+      "final": {
+        "max_error_m": 0.053796849186912625,
+        "rms_error_m": 0.04702764029973435,
+        "path_error_m": 0.01993381695871735,
+        "spacing_error_m": 0.05055040811492409,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.46729425410608,
+        "leader_step_travel_m": 0.005033816611267302,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.499999999999998,
+        "holding_goal": true,
+        "hold_s": 22.50000000000005,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.06121788828048704,
+        "peak_max_error_m": 0.09001530383947785,
+        "reacquisition_s": [
+          2.2
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.948027399048454
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-teacher-forced-6.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "training_episode_index": 6,
+      "world_seed": 1476600024,
+      "wheel_mse": 0.9033426809975814,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.006164572622460708
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.6556197168452471
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.9985465755322864
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.973945205613128
+        }
+      ],
+      "final": {
+        "max_error_m": 0.6584821790491905,
+        "rms_error_m": 0.47513375630710575,
+        "path_error_m": 0.3228117951734072,
+        "spacing_error_m": 1.02,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9942292957734912,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5274522666790036,
+        "peak_max_error_m": 0.8423950961939513,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 462,
+        "wall_violations": 0,
+        "control_cost": 9.109066654512016
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-closed-loop-6.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "training_episode_index": 7,
+      "world_seed": 142815708,
+      "wheel_mse": 0.0020069644808835743,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.015390893389939073
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.010079166062670699
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00020609586909655094
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.00017354487202012956
+        }
+      ],
+      "final": {
+        "max_error_m": 0.05380516287294492,
+        "rms_error_m": 0.047031579804331994,
+        "path_error_m": 0.01996046675984163,
+        "spacing_error_m": 0.05054965806210823,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4649244644074169,
+        "leader_step_travel_m": 0.005033786328268747,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.199999999999999,
+        "holding_goal": true,
+        "hold_s": 22.800000000000054,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.05970936667178028,
+        "peak_max_error_m": 0.08512683469002816,
+        "reacquisition_s": [
+          1.8999999999999995
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.780439495840591
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-teacher-forced-7.npz"
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "training_episode_index": 7,
+      "world_seed": 142815708,
+      "wheel_mse": 0.890590040339242,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.0062176643380619625
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.650163362059301
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 1.0161510841739965
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.9515037338366007
+        }
+      ],
+      "final": {
+        "max_error_m": 0.5880910379310942,
+        "rms_error_m": 0.40637459265570663,
+        "path_error_m": 0.18565703653228383,
+        "spacing_error_m": 1.0050078545690622,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9459813146151873,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5470557501936305,
+        "peak_max_error_m": 0.8979348597255773,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 467,
+        "wall_violations": 0,
+        "control_cost": 9.21303413920356
+      },
+      "recording": "runs/follow-feedback-diagnostic/h32-closed-loop-7.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "training_episode_index": 0,
+      "world_seed": 1924045406,
+      "wheel_mse": 0.0015033024135108833,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.015886666563747036
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.006253188229931829
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00016126283553747765
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.00016966693720823773
+        }
+      ],
+      "final": {
+        "max_error_m": 0.053804649944585434,
+        "rms_error_m": 0.047031319448761565,
+        "path_error_m": 0.019958634581077602,
+        "spacing_error_m": 0.0505497339228719,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4660454273358292,
+        "leader_step_travel_m": 0.005033788326439642,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.099999999999998,
+        "holding_goal": true,
+        "hold_s": 22.900000000000055,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.05930245222483609,
+        "peak_max_error_m": 0.08363396325959736,
+        "reacquisition_s": [
+          1.7999999999999998
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.768254131978148
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-teacher-forced-0.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "training_episode_index": 0,
+      "world_seed": 1924045406,
+      "wheel_mse": 0.48017087135998365,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.08849061685516962
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.4817678873306104
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.375850917950804
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.5255154692433939
+        }
+      ],
+      "final": {
+        "max_error_m": 0.4714203886274472,
+        "rms_error_m": 0.32261706643686505,
+        "path_error_m": 0.35356328871014564,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4660454294064345,
+        "leader_step_travel_m": 0.005033788317218555,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3532286054115845,
+        "peak_max_error_m": 0.5265386325476104,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 585,
+        "wall_violations": 0,
+        "control_cost": 10.534677676590084
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-closed-loop-0.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "training_episode_index": 1,
+      "world_seed": 1715750153,
+      "wheel_mse": 0.0012869743683678804,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.005533267601525538
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.003824630658535164
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.0006442293731165398
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.0007278146974893761
+        }
+      ],
+      "final": {
+        "max_error_m": 0.05380007754528099,
+        "rms_error_m": 0.04702920459953456,
+        "path_error_m": 0.01994459323141268,
+        "spacing_error_m": 0.050550065280851625,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.464051554689649,
+        "leader_step_travel_m": 0.005033804573963387,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.499999999999998,
+        "holding_goal": true,
+        "hold_s": 22.50000000000005,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.061535558205237824,
+        "peak_max_error_m": 0.09051074774577873,
+        "reacquisition_s": [
+          2.2
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.000434488069617
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-teacher-forced-1.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "training_episode_index": 1,
+      "world_seed": 1715750153,
+      "wheel_mse": 0.5012290356615893,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.09183251244936155
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.4544783101933705
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.36585196347626764
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.5648932749621747
+        }
+      ],
+      "final": {
+        "max_error_m": 0.749911211149341,
+        "rms_error_m": 0.47260073686802473,
+        "path_error_m": 0.40651332769112364,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4640515575585256,
+        "leader_step_travel_m": 0.0050338047124861,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3803212521563744,
+        "peak_max_error_m": 0.7575809685157668,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 413,
+        "wall_violations": 0,
+        "control_cost": 10.795364368756076
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-closed-loop-1.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "training_episode_index": 2,
+      "world_seed": 1824415292,
+      "wheel_mse": 0.0012226267212433767,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.005518660801739081
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.003808702431191912
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.0006328293129916391
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.0006380592272918186
+        }
+      ],
+      "final": {
+        "max_error_m": 0.053797829133512706,
+        "rms_error_m": 0.04702812720334861,
+        "path_error_m": 0.01993723224639444,
+        "spacing_error_m": 0.050550286019281604,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.465446233948056,
+        "leader_step_travel_m": 0.005033812869211122,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.599999999999998,
+        "holding_goal": true,
+        "hold_s": 22.40000000000005,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.06159777480247726,
+        "peak_max_error_m": 0.09098375849337903,
+        "reacquisition_s": [
+          2.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.993167632242146
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-teacher-forced-2.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "training_episode_index": 2,
+      "world_seed": 1824415292,
+      "wheel_mse": 0.48615219681841076,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.09108389703885433
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.4701236675700873
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.4022840233662497
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.5300783610200935
+        }
+      ],
+      "final": {
+        "max_error_m": 0.5166870334987387,
+        "rms_error_m": 0.3507462729262207,
+        "path_error_m": 0.38685317329822533,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4654462322138888,
+        "leader_step_travel_m": 0.005033812910171561,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.37839937344315805,
+        "peak_max_error_m": 0.5663553501949464,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 564,
+        "wall_violations": 0,
+        "control_cost": 10.695991485904411
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-closed-loop-2.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "training_episode_index": 3,
+      "world_seed": 1476750804,
+      "wheel_mse": 0.0016961042468279005,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.016089961913177693
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.007332963922098848
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00020537124500492594
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.00022172267891196518
+        }
+      ],
+      "final": {
+        "max_error_m": 0.0538037021658089,
+        "rms_error_m": 0.04703091199029586,
+        "path_error_m": 0.019956079262740997,
+        "spacing_error_m": 0.050549751877490584,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.464365401637656,
+        "leader_step_travel_m": 0.005033791444503186,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.399999999999999,
+        "holding_goal": true,
+        "hold_s": 22.60000000000005,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.060444573148837485,
+        "peak_max_error_m": 0.08790252096933193,
+        "reacquisition_s": [
+          2.0
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.835861502395048
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-teacher-forced-3.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "training_episode_index": 3,
+      "world_seed": 1476750804,
+      "wheel_mse": 0.5672563371696262,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.09007188046086809
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.472112225028015
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.39335369572599893
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.6536200427942931
+        }
+      ],
+      "final": {
+        "max_error_m": 0.6633053349026622,
+        "rms_error_m": 0.42611914406153234,
+        "path_error_m": 0.4390058846864203,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4643654060361457,
+        "leader_step_travel_m": 0.005033791596209968,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.35682577889626776,
+        "peak_max_error_m": 0.6633053349026622,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 370,
+        "wall_violations": 0,
+        "control_cost": 11.140877544969467
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-closed-loop-3.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "training_episode_index": 4,
+      "world_seed": 677459532,
+      "wheel_mse": 0.0012573590102383523,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.005742436711767954
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.007092120630555596
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00014888468126437684
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.00014327138334191758
+        }
+      ],
+      "final": {
+        "max_error_m": 0.05380047202700093,
+        "rms_error_m": 0.04702932225943406,
+        "path_error_m": 0.01994506764565741,
+        "spacing_error_m": 0.050550140313090935,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4683520428900465,
+        "leader_step_travel_m": 0.00503380365243049,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 6.999999999999998,
+        "holding_goal": true,
+        "hold_s": 23.000000000000057,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.05930538179315028,
+        "peak_max_error_m": 0.08397235191703593,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.787427441783226
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-teacher-forced-4.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "training_episode_index": 4,
+      "world_seed": 677459532,
+      "wheel_mse": 0.4760988490873661,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.08868750840586596
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.4785426358346171
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.34674234338759957
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.5273197851969325
+        }
+      ],
+      "final": {
+        "max_error_m": 0.4975447988936965,
+        "rms_error_m": 0.3404077686133375,
+        "path_error_m": 0.41322827127807554,
+        "spacing_error_m": 0.32513794641927507,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4683520440401872,
+        "leader_step_travel_m": 0.005033803818168728,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.36696035884684997,
+        "peak_max_error_m": 0.5571568328870313,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 616,
+        "wall_violations": 0,
+        "control_cost": 10.560855081353848
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-closed-loop-4.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "training_episode_index": 5,
+      "world_seed": 769120583,
+      "wheel_mse": 0.0012221514371637638,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.0057816059520072825
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.006815140558848255
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.0001474595013976873
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.00014425387102620847
+        }
+      ],
+      "final": {
+        "max_error_m": 0.053802283487080875,
+        "rms_error_m": 0.04703017895241077,
+        "path_error_m": 0.019950853979529132,
+        "spacing_error_m": 0.05054997982130019,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4678640076048892,
+        "leader_step_travel_m": 0.005033797071845761,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 6.999999999999998,
+        "holding_goal": true,
+        "hold_s": 23.000000000000057,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.05904173730185484,
+        "peak_max_error_m": 0.08293772553285522,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.75920480259182
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-teacher-forced-5.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "training_episode_index": 5,
+      "world_seed": 769120583,
+      "wheel_mse": 0.41720924444652535,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.08927929122938487
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.4762094660663746
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.20810549278199808
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.47408163569954426
+        }
+      ],
+      "final": {
+        "max_error_m": 0.6097555239134762,
+        "rms_error_m": 0.45084871926740216,
+        "path_error_m": 0.4658158756934725,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4678640061435144,
+        "leader_step_travel_m": 0.005033797111046684,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.39569611601737054,
+        "peak_max_error_m": 0.6581127826069245,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 568,
+        "wall_violations": 0,
+        "control_cost": 10.78901805784204
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-closed-loop-5.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "training_episode_index": 6,
+      "world_seed": 1476600024,
+      "wheel_mse": 0.000954184432831827,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.005604588217801631
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.0037607807717029277
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.0002488905563810376
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.0003366684449218142
+        }
+      ],
+      "final": {
+        "max_error_m": 0.053796849186912625,
+        "rms_error_m": 0.04702764029973435,
+        "path_error_m": 0.01993381695871735,
+        "spacing_error_m": 0.05055040811492409,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.46729425410608,
+        "leader_step_travel_m": 0.005033816611267302,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.499999999999998,
+        "holding_goal": true,
+        "hold_s": 22.50000000000005,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.06121788828048704,
+        "peak_max_error_m": 0.09001530383947785,
+        "reacquisition_s": [
+          2.2
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.948027399048454
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-teacher-forced-6.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "training_episode_index": 6,
+      "world_seed": 1476600024,
+      "wheel_mse": 0.5110994896485288,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.08985666195492986
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.4743675104421664
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.371259976725039
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.5744679051053538
+        }
+      ],
+      "final": {
+        "max_error_m": 0.5075983577143194,
+        "rms_error_m": 0.3528848701285989,
+        "path_error_m": 0.3759260418819902,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4672942543016436,
+        "leader_step_travel_m": 0.0050338166363734045,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.36191540134572603,
+        "peak_max_error_m": 0.5430510924302779,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 592,
+        "wall_violations": 0,
+        "control_cost": 10.653931345295081
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-closed-loop-6.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "training_episode_index": 7,
+      "world_seed": 142815708,
+      "wheel_mse": 0.0015892869485821734,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.015966869797559118
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.006941541641132068
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.00017598464650146948
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.0001532824431435235
+        }
+      ],
+      "final": {
+        "max_error_m": 0.05380516287294492,
+        "rms_error_m": 0.047031579804331994,
+        "path_error_m": 0.01996046675984163,
+        "spacing_error_m": 0.05054965806210823,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4649244644074169,
+        "leader_step_travel_m": 0.005033786328268747,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 7.199999999999999,
+        "holding_goal": true,
+        "hold_s": 22.800000000000054,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.05970936667178028,
+        "peak_max_error_m": 0.08512683469002816,
+        "reacquisition_s": [
+          1.8999999999999995
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.780439495840591
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-teacher-forced-7.npz"
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "training_episode_index": 7,
+      "world_seed": 142815708,
+      "wheel_mse": 0.5363487506866725,
+      "phase_errors": [
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "wheel_mse": 0.08933025276037361
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "wheel_mse": 0.4739819793386163
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "wheel_mse": 0.41614640956443866
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 30.0,
+          "wheel_mse": 0.6012236151331573
+        }
+      ],
+      "final": {
+        "max_error_m": 0.5930944212131508,
+        "rms_error_m": 0.3990084578957666,
+        "path_error_m": 0.43139634018437417,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4649244641370724,
+        "leader_step_travel_m": 0.005033786379548039,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3551672815533863,
+        "peak_max_error_m": 0.5930944212131508,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 463,
+        "wall_violations": 0,
+        "control_cost": 10.990547382303355
+      },
+      "recording": "runs/follow-feedback-diagnostic/h64-closed-loop-7.npz"
+    }
+  ],
+  "summary": [
+    {
+      "arm": "h32",
+      "profile": "teacher-forced",
+      "episodes": 8,
+      "successes": 8,
+      "mean_wheel_mse": 0.0016008523305366788,
+      "mean_final_error_m": 0.053801378295390924
+    },
+    {
+      "arm": "h32",
+      "profile": "closed-loop",
+      "episodes": 8,
+      "successes": 0,
+      "mean_wheel_mse": 0.8840707970528636,
+      "mean_final_error_m": 0.6026150520765581
+    },
+    {
+      "arm": "h64",
+      "profile": "teacher-forced",
+      "episodes": 8,
+      "successes": 8,
+      "mean_wheel_mse": 0.0013414986973457697,
+      "mean_final_error_m": 0.053801378295390924
+    },
+    {
+      "arm": "h64",
+      "profile": "closed-loop",
+      "episodes": 8,
+      "successes": 0,
+      "mean_wheel_mse": 0.49694559685983786,
+      "mean_final_error_m": 0.576164633739104
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-follow-feedback.py",
+      "sha256": "6dee916730f9e4df22e8b1e342769a4fb14d44457198bd3b0031fa6c930ca8d0"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/protocol.json",
+      "sha256": "3ba40697ae522883e8d78584b6261779b647e28f1ad37eef98f44b58459ac77e"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-closed-loop-0.npz",
+      "sha256": "4421c9c92f7dc80b4ddc8e0b62b10ea8bfc5b03821b0bf468aa8af36307e463c"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-closed-loop-1.npz",
+      "sha256": "72ea42cefbeeef813217971c4142b2b479edd5cf6c7f86a1f0c815a242375c29"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-closed-loop-2.npz",
+      "sha256": "1a58581dbd6cecf81a776a6a431cf50cf2026a0c3eee3fcb03df2facbfe7dc80"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-closed-loop-3.npz",
+      "sha256": "5c10778eab0add4e19c5e5e0fa4acd7e1a88a29a856d90974daf4ac5f5e796d0"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-closed-loop-4.npz",
+      "sha256": "6f0be51c911d792fdc628850fe0590ceda10a83d784226e2e66e6c986b94b6c9"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-closed-loop-5.npz",
+      "sha256": "142a310b8d79935ec01f5b810109b848ac0a15cc85aa7bcb6a69b3190a5f22ca"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-closed-loop-6.npz",
+      "sha256": "6926d02ba1b8c2197f87f4dca7de8d3b4dfc1e51228744a1fc58bb6733e916ac"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-closed-loop-7.npz",
+      "sha256": "534ae2a63f127a441cc0acc2edea3f857133e70a11b8d048787f81135a52b511"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-teacher-forced-0.npz",
+      "sha256": "a64aa397b331ce23ed38d3846b6b84e889c84f2ce2ef7f7e1f4d40045da56df1"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-teacher-forced-1.npz",
+      "sha256": "856816221632019869f1f15f1c89350787c09e0803095b64724d0bd908040253"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-teacher-forced-2.npz",
+      "sha256": "0740627a6a6df6ed14cef0a60815a485fe6fc87872a4ee465446eae9db7caff6"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-teacher-forced-3.npz",
+      "sha256": "f88dea4df41ce41a05052175b8e5b710a74e6ce879286975332d5eaf6d001cd7"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-teacher-forced-4.npz",
+      "sha256": "efbdfcace5cec18657787d574d68d585f9f9256ca0cd756e7207872ee50befe4"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-teacher-forced-5.npz",
+      "sha256": "8b22ba444d90e5e0eed38024623885040381ecb74e274bf8cca4fbba198c5921"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-teacher-forced-6.npz",
+      "sha256": "b5e7a08b34d769f59cdb82773275a0b7ace527d3cac03bdc12ebd5b2d7e0efaf"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h32-teacher-forced-7.npz",
+      "sha256": "664dfde4bf0c4955aae6260cfb98a933ecdb686cc3d4cb0234e1c1ec65c0cdf8"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-closed-loop-0.npz",
+      "sha256": "87ea32b901c3cbe5f503ca752d9ca22e2079f47a188f26f53b4c9f7bcd2942ba"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-closed-loop-1.npz",
+      "sha256": "dedb164e0d9384046277c35143e90b62e4f19b2f41f83c745fb68336be28acd5"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-closed-loop-2.npz",
+      "sha256": "e38cc54ec770f3aeb9258257754ab3d89feaec5391b6e897aa6296917c294a91"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-closed-loop-3.npz",
+      "sha256": "04d40067c3acf7f815daea6962e33c2102aadf03ef212099c8d4f1e1f42a7f73"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-closed-loop-4.npz",
+      "sha256": "9ae68ee1d4fa46d9f34c3b62223ade92c7177773dc116609f29c661e361a3619"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-closed-loop-5.npz",
+      "sha256": "2b77986e34eca9862fe961738207910454d1a7dc0ae551a917c23082f0965d70"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-closed-loop-6.npz",
+      "sha256": "f6b8ada7e9a3e7e503ff65f94b0940c6e3a54822ed7fb2599bd260889090a081"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-closed-loop-7.npz",
+      "sha256": "3f15795e7b1e76fd5f8b99f2ff84b9eacfe2af2c15c7e61b25caf81fc0fb2d41"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-teacher-forced-0.npz",
+      "sha256": "58f8712ae497aeb345dcf9f60be67f4184d040a629fea9a048cc658822bda699"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-teacher-forced-1.npz",
+      "sha256": "025e4584c9452b693a3c7beeafea3f804b4da7535d6b42214893ce8ef48780b7"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-teacher-forced-2.npz",
+      "sha256": "234e7eae384f6f96d75d7fff74f602c35c5787ad81bbff41671f87ea17c8e9dd"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-teacher-forced-3.npz",
+      "sha256": "db648be7250145c97c4cb810da3b3038873564e87f198c00ae4cf70dcb824c0c"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-teacher-forced-4.npz",
+      "sha256": "a2e96293ad7641d5a3529e2ff0416f1a1758df39ee743ca5c6fa4b42a134b02d"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-teacher-forced-5.npz",
+      "sha256": "c3af6d621986896298bd490f718b5550cc625900d9c2ecac982e660dfbc3e04e"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-teacher-forced-6.npz",
+      "sha256": "37430a63972f78bbdf8bfa3480365b5281e430c264f43981edcb4536d80b0325"
+    },
+    {
+      "path": "runs/follow-feedback-diagnostic/h64-teacher-forced-7.npz",
+      "sha256": "f6ccc4aa8f85a040eb83b4b9190b0b34e627b02d2906fb2efca14b9c41bcca64"
+    }
+  ]
+}

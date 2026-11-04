@@ -1,0 +1,71 @@
+{
+  "version": "bari-local-steering-verification-v1",
+  "decoder_cases": 10000,
+  "decoder_max_cpp_torch_error": 1.7881393432617188e-07,
+  "forward_reverse_rotation_stop_and_saturation_verified": true,
+  "physical_wheel_conversion_no_lateral_motion": true,
+  "initial_encoder_gru_blocks_exact_to_geometry_baseline": true,
+  "initial_wheel_outputs_matched": false,
+  "finite_recurrent_update_and_checkpoint_reload": true,
+  "incompatible_readers_reject": true,
+  "all12_unfinished_switch_contexts": true,
+  "repeated_switch_world_hidden_geometry_rng_resume_exact": true,
+  "decoder": {
+    "version": "bari-steering-decoder-v1",
+    "latent_shape": [
+      3
+    ],
+    "wheel_shape": [
+      2
+    ],
+    "latent_order": [
+      "steering_x_over_0.07m_s",
+      "steering_y_over_0.07m_s",
+      "twice_drive_scale_minus1"
+    ],
+    "vector_scale_m_s": 0.07,
+    "stop_vector_norm_m_s": 0.002,
+    "heading_gain_s_inverse": 3.0,
+    "yaw_limit_rad_s": 1.5,
+    "mapping": "Fold steering direction to the nearer forward/reverse heading using x sign; forward component sets signed speed and learned drive scale multiplies it. Convert(v,omega) through configured wheel separation/rim-speed and independently saturate each wheel.",
+    "physical_action": "Only two wheel requests; vector y is a steering intent, never lateral translation or a pose/target command.",
+    "information": "Decoder receives only three learned bounded outputs and calibration; no observation, teacher, environment, collision flag or formation rule."
+  },
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "scope": "Host arithmetic/drive/recurrent contract checks only. No behavioral convergence, PPO run or target memory/latency acceptance.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-steering.py",
+      "sha256": "14c7848f0eb998d202b1a8dfc0180fee8e12406c7f7900db3fd27f9e439a1728"
+    },
+    {
+      "path": "runs/local_steering_actor.py",
+      "sha256": "4496b13bcfa3af6345b7ef80c96b7574b42cdbd302c8b7917f4df31f4fd206d5"
+    },
+    {
+      "path": "runs/local_steering_decoder.py",
+      "sha256": "fac1769d29ec760c39191089e82e6423634e1b9e45c1876aabc47600707957a2"
+    },
+    {
+      "path": "runs/local_steering_decoder.hpp",
+      "sha256": "8a526cbf3564cbe99a54ad687f9b1a237c0c4ba226635efed225ba59cd7194ca"
+    },
+    {
+      "path": "runs/local_steering_decoder_bridge.cpp",
+      "sha256": "045cc5e6e791621ef39fd948249e4549e851017521d58bc49e23d796deb88876"
+    },
+    {
+      "path": "runs/local-steering-decoder-v1.dylib",
+      "sha256": "241e3332bd7dd1eda0d290b2e2348b27cbb8424a2ee330bde373a91b3e126371"
+    },
+    {
+      "path": "runs/local-steering-verification-v1/decoder-golden.npz",
+      "sha256": "a1b7397d8f1eb6cd51f352d4d8d857b258c048b0a73dec0788d6fc0f8e0e2d95"
+    },
+    {
+      "path": "runs/local-steering-verification-v1/verification-only.pt",
+      "sha256": "7feab6ed0d9ac36e034f924b3d56ff4c3086b80bc76675a97b571c54351089b8"
+    }
+  ]
+}

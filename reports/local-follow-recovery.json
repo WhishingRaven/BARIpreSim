@@ -1,0 +1,1230 @@
+{
+  "protocol": {
+    "version": "bari-local-follow-recovery-v1",
+    "planned_utc": "2026-11-03T14:15:01.611410+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+    },
+    "student": {
+      "path": "runs/train-local-follow-no-command-k3-11/checkpoint.pt",
+      "sha256": "6b41bef3fd6d3fe6a6595a9ad7eff15d6c13689848a7a3457c01dc6378fd7c2a"
+    },
+    "initial_states": {
+      "path": "runs/local-follow-warm-distribution/initial_states.json",
+      "sha256": "35ebb1b688bc424a1267533c9a066ff0fb05fed3f72ce73d08f9d8bc0fa8d0cc"
+    },
+    "takeover_s": [
+      0.0,
+      2.0,
+      5.0
+    ],
+    "teacher_speed_gain": 3.0,
+    "teacher_turn_gain": 1.2,
+    "history": "Advance teacher on the same local observations from episode start even while its labels are not executed. At handoff change controller only; preserve physical world/time, sensor queue, task evaluator and cumulative safety counters. No global inputs to either follower controller.",
+    "collection_gate": "If all8 two-second takeovers have official success and final holding with zero post-handoff safety attempts, allow a new student-only DAgger collection. No learner is trained or promoted by this diagnostic.",
+    "scope": "Takeover is data-quality diagnosis only, never deployment wrapper, learned task-switching success or GRU policy acceptance.",
+    "script": {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-follow-recovery.py",
+      "sha256": "26af7974b2862a2a64d1f8863dd792281e7a4a25cf94488c596242d9a47e0a8f"
+    },
+    "teacher_module": {
+      "path": "runs/local_range_consistent_follow.py",
+      "sha256": "fa4a2d98157f88a90531761f1d389eaeeaa0ef26afa7cfd3228c99d1c2f7b252"
+    }
+  },
+  "cases": [
+    {
+      "handoff_s": 0.0,
+      "world_index": 0,
+      "seed": 276102408,
+      "final": {
+        "max_error_m": 0.10436072342004225,
+        "rms_error_m": 0.061564872537664905,
+        "path_error_m": 0.022703311316435937,
+        "spacing_error_m": 0.033234401649667206,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.465430549546882,
+        "leader_step_travel_m": 0.005033808731942205,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.1,
+        "holding_goal": true,
+        "hold_s": 7.899999999999988,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.187205883022234,
+        "peak_max_error_m": 0.3682970797702977,
+        "reacquisition_s": [
+          19.8
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.021076398119861
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-0s-world-0.npz"
+    },
+    {
+      "handoff_s": 0.0,
+      "world_index": 1,
+      "seed": 44703333,
+      "final": {
+        "max_error_m": 0.10379652641373203,
+        "rms_error_m": 0.06097924588961041,
+        "path_error_m": 0.023728004304372878,
+        "spacing_error_m": 0.033467708614383,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4639589718067652,
+        "leader_step_travel_m": 0.005033797558614872,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.0,
+        "holding_goal": true,
+        "hold_s": 7.999999999999988,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.17856786825588666,
+        "peak_max_error_m": 0.3449321761261845,
+        "reacquisition_s": [
+          19.700000000000003
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.0791431639435
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-0s-world-1.npz"
+    },
+    {
+      "handoff_s": 0.0,
+      "world_index": 2,
+      "seed": 1633002371,
+      "final": {
+        "max_error_m": 0.1052642392805311,
+        "rms_error_m": 0.0624347948417739,
+        "path_error_m": 0.02457057965849252,
+        "spacing_error_m": 0.031476641505753605,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4659511033737627,
+        "leader_step_travel_m": 0.005033798348905772,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.900000000000002,
+        "holding_goal": true,
+        "hold_s": 8.099999999999987,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.17676852032686316,
+        "peak_max_error_m": 0.344298734523296,
+        "reacquisition_s": [
+          19.6
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.064177221603587
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-0s-world-2.npz"
+    },
+    {
+      "handoff_s": 0.0,
+      "world_index": 3,
+      "seed": 395280002,
+      "final": {
+        "max_error_m": 0.10045454842154918,
+        "rms_error_m": 0.059824587487780356,
+        "path_error_m": 0.02260482941102233,
+        "spacing_error_m": 0.03126547457246845,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666226785859855,
+        "leader_step_travel_m": 0.005033803896345717,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.900000000000002,
+        "holding_goal": true,
+        "hold_s": 8.099999999999987,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.17701868169890717,
+        "peak_max_error_m": 0.34335701617175496,
+        "reacquisition_s": [
+          19.6
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.080624831067474
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-0s-world-3.npz"
+    },
+    {
+      "handoff_s": 0.0,
+      "world_index": 4,
+      "seed": 289270423,
+      "final": {
+        "max_error_m": 0.1020897589642876,
+        "rms_error_m": 0.060777870216866835,
+        "path_error_m": 0.022960280070555547,
+        "spacing_error_m": 0.031146319312041065,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4642279222743637,
+        "leader_step_travel_m": 0.00503379900130101,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.7,
+        "holding_goal": true,
+        "hold_s": 8.299999999999986,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.17322672550578352,
+        "peak_max_error_m": 0.34446105180730824,
+        "reacquisition_s": [
+          19.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.153995440587371
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-0s-world-4.npz"
+    },
+    {
+      "handoff_s": 0.0,
+      "world_index": 5,
+      "seed": 963550806,
+      "final": {
+        "max_error_m": 0.10120874021705109,
+        "rms_error_m": 0.06019818642907381,
+        "path_error_m": 0.021720405928769004,
+        "spacing_error_m": 0.03246366668671499,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4696603054962811,
+        "leader_step_travel_m": 0.005033819558364952,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 20.8,
+        "holding_goal": true,
+        "hold_s": 9.199999999999983,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.16437451206786877,
+        "peak_max_error_m": 0.30989106897580876,
+        "reacquisition_s": [
+          18.500000000000004
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.331654771176201
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-0s-world-5.npz"
+    },
+    {
+      "handoff_s": 0.0,
+      "world_index": 6,
+      "seed": 123428096,
+      "final": {
+        "max_error_m": 0.10491398904641243,
+        "rms_error_m": 0.0611018953358341,
+        "path_error_m": 0.02307943732412913,
+        "spacing_error_m": 0.034200035957740044,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.46674922669681,
+        "leader_step_travel_m": 0.0050338107509102755,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.3,
+        "holding_goal": true,
+        "hold_s": 8.699999999999985,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.17344758934182453,
+        "peak_max_error_m": 0.33674750068767034,
+        "reacquisition_s": [
+          19.000000000000004
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.188218682753703
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-0s-world-6.npz"
+    },
+    {
+      "handoff_s": 0.0,
+      "world_index": 7,
+      "seed": 1864253760,
+      "final": {
+        "max_error_m": 0.10313615220223979,
+        "rms_error_m": 0.06036583614269834,
+        "path_error_m": 0.021599941902783276,
+        "spacing_error_m": 0.0336522991778149,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4640950299704474,
+        "leader_step_travel_m": 0.005033822453522029,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.7,
+        "holding_goal": true,
+        "hold_s": 8.299999999999986,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.18321933960635078,
+        "peak_max_error_m": 0.35737360526272705,
+        "reacquisition_s": [
+          19.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.110220782747796
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-0s-world-7.npz"
+    },
+    {
+      "handoff_s": 2.0,
+      "world_index": 0,
+      "seed": 276102408,
+      "final": {
+        "max_error_m": 0.10061343923974132,
+        "rms_error_m": 0.05929057891610624,
+        "path_error_m": 0.022279425742714305,
+        "spacing_error_m": 0.03100444400166738,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4654305503505223,
+        "leader_step_travel_m": 0.0050338087319421465,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.2,
+        "holding_goal": true,
+        "hold_s": 7.799999999999988,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.18732835204958392,
+        "peak_max_error_m": 0.3683085039191903,
+        "reacquisition_s": [
+          20.0
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.032479413201362
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-2s-world-0.npz"
+    },
+    {
+      "handoff_s": 2.0,
+      "world_index": 1,
+      "seed": 44703333,
+      "final": {
+        "max_error_m": 0.10380730619125748,
+        "rms_error_m": 0.06042188626159482,
+        "path_error_m": 0.023823180620711995,
+        "spacing_error_m": 0.03491296783370315,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.463958973080044,
+        "leader_step_travel_m": 0.005033797558614749,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.0,
+        "holding_goal": true,
+        "hold_s": 7.999999999999988,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.1786155270299026,
+        "peak_max_error_m": 0.3437016784480153,
+        "reacquisition_s": [
+          19.700000000000003
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.05074374747692
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-2s-world-1.npz"
+    },
+    {
+      "handoff_s": 2.0,
+      "world_index": 2,
+      "seed": 1633002371,
+      "final": {
+        "max_error_m": 0.10424451021209998,
+        "rms_error_m": 0.06170951901357143,
+        "path_error_m": 0.024288146512275146,
+        "spacing_error_m": 0.033281652315399285,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.465951104590821,
+        "leader_step_travel_m": 0.005033798348905387,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.8,
+        "holding_goal": true,
+        "hold_s": 8.199999999999987,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.17576098523382264,
+        "peak_max_error_m": 0.3403926744681015,
+        "reacquisition_s": [
+          19.500000000000004
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.0778417139057375
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-2s-world-2.npz"
+    },
+    {
+      "handoff_s": 2.0,
+      "world_index": 3,
+      "seed": 395280002,
+      "final": {
+        "max_error_m": 0.10278934497247935,
+        "rms_error_m": 0.06164841503806578,
+        "path_error_m": 0.022204276215607804,
+        "spacing_error_m": 0.02957551672494621,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.466622679397836,
+        "leader_step_travel_m": 0.005033803896345592,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.900000000000002,
+        "holding_goal": true,
+        "hold_s": 8.099999999999987,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.17567360018999859,
+        "peak_max_error_m": 0.34069980246148784,
+        "reacquisition_s": [
+          19.6
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.095869482315675
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-2s-world-3.npz"
+    },
+    {
+      "handoff_s": 2.0,
+      "world_index": 4,
+      "seed": 289270423,
+      "final": {
+        "max_error_m": 0.10048641171138409,
+        "rms_error_m": 0.05992832490256732,
+        "path_error_m": 0.02218981313683566,
+        "spacing_error_m": 0.03145936255905127,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4642279233621636,
+        "leader_step_travel_m": 0.005033799001300913,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.7,
+        "holding_goal": true,
+        "hold_s": 8.299999999999986,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.17326871646993408,
+        "peak_max_error_m": 0.34362504559047446,
+        "reacquisition_s": [
+          19.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.1382355797776755
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-2s-world-4.npz"
+    },
+    {
+      "handoff_s": 2.0,
+      "world_index": 5,
+      "seed": 963550806,
+      "final": {
+        "max_error_m": 0.10160467202526999,
+        "rms_error_m": 0.060246288886842116,
+        "path_error_m": 0.024010747256784756,
+        "spacing_error_m": 0.031750831014368514,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4696603062143545,
+        "leader_step_travel_m": 0.005033819558364779,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 20.6,
+        "holding_goal": true,
+        "hold_s": 9.399999999999983,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.1627544409894265,
+        "peak_max_error_m": 0.30669006898901124,
+        "reacquisition_s": [
+          18.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.323870756974663
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-2s-world-5.npz"
+    },
+    {
+      "handoff_s": 2.0,
+      "world_index": 6,
+      "seed": 123428096,
+      "final": {
+        "max_error_m": 0.10427740639180104,
+        "rms_error_m": 0.0607026924321268,
+        "path_error_m": 0.023910294124635485,
+        "spacing_error_m": 0.034267747021741096,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.466749227512476,
+        "leader_step_travel_m": 0.005033810750910082,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.400000000000002,
+        "holding_goal": true,
+        "hold_s": 8.599999999999985,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.17356070745019386,
+        "peak_max_error_m": 0.33428740015256875,
+        "reacquisition_s": [
+          19.1
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.181783469838885
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-2s-world-6.npz"
+    },
+    {
+      "handoff_s": 2.0,
+      "world_index": 7,
+      "seed": 1864253760,
+      "final": {
+        "max_error_m": 0.10486373145911333,
+        "rms_error_m": 0.06099554500803682,
+        "path_error_m": 0.02190898854681923,
+        "spacing_error_m": 0.03421875157453172,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.464095031448877,
+        "leader_step_travel_m": 0.005033822453521641,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.7,
+        "holding_goal": true,
+        "hold_s": 8.299999999999986,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.18291940028461728,
+        "peak_max_error_m": 0.35759735581900665,
+        "reacquisition_s": [
+          19.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.089042626110728
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-2s-world-7.npz"
+    },
+    {
+      "handoff_s": 5.0,
+      "world_index": 0,
+      "seed": 276102408,
+      "final": {
+        "max_error_m": 0.10227163699872716,
+        "rms_error_m": 0.059957252062524474,
+        "path_error_m": 0.01929283976136287,
+        "spacing_error_m": 0.03262825616427803,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4654305500373115,
+        "leader_step_travel_m": 0.005033808731943255,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.7,
+        "holding_goal": true,
+        "hold_s": 8.299999999999986,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.17885863967004711,
+        "peak_max_error_m": 0.3501954023310246,
+        "reacquisition_s": [
+          19.5
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.14479039446883
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-5s-world-0.npz"
+    },
+    {
+      "handoff_s": 5.0,
+      "world_index": 1,
+      "seed": 44703333,
+      "final": {
+        "max_error_m": 0.10380778334705391,
+        "rms_error_m": 0.06085492885084535,
+        "path_error_m": 0.02322603236364987,
+        "spacing_error_m": 0.03464258599797701,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4639589729756612,
+        "leader_step_travel_m": 0.005033797558614253,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.6,
+        "holding_goal": true,
+        "hold_s": 8.399999999999986,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.1722550850660153,
+        "peak_max_error_m": 0.33024214408210223,
+        "reacquisition_s": [
+          19.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.144370157887732
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-5s-world-1.npz"
+    },
+    {
+      "handoff_s": 5.0,
+      "world_index": 2,
+      "seed": 1633002371,
+      "final": {
+        "max_error_m": 0.10210025671941671,
+        "rms_error_m": 0.061563096203444134,
+        "path_error_m": 0.022645122744296607,
+        "spacing_error_m": 0.029247127754152752,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.465951103840943,
+        "leader_step_travel_m": 0.005033798348905626,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.400000000000002,
+        "holding_goal": true,
+        "hold_s": 8.599999999999985,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.16832742450243662,
+        "peak_max_error_m": 0.32580604011897374,
+        "reacquisition_s": [
+          19.1
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.193222969634107
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-5s-world-2.npz"
+    },
+    {
+      "handoff_s": 5.0,
+      "world_index": 3,
+      "seed": 395280002,
+      "final": {
+        "max_error_m": 0.10160543092368679,
+        "rms_error_m": 0.061099981716535204,
+        "path_error_m": 0.021038652947605544,
+        "spacing_error_m": 0.02887861505350156,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.466622680434432,
+        "leader_step_travel_m": 0.0050338038963447995,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.3,
+        "holding_goal": true,
+        "hold_s": 8.699999999999985,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.16878193010160694,
+        "peak_max_error_m": 0.3280744376970287,
+        "reacquisition_s": [
+          19.000000000000004
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.185198304627812
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-5s-world-3.npz"
+    },
+    {
+      "handoff_s": 5.0,
+      "world_index": 4,
+      "seed": 289270423,
+      "final": {
+        "max_error_m": 0.10211528736540584,
+        "rms_error_m": 0.061049874974798406,
+        "path_error_m": 0.02242876144452655,
+        "spacing_error_m": 0.03154552973569272,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4642279242664435,
+        "leader_step_travel_m": 0.005033799001300727,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.400000000000002,
+        "holding_goal": true,
+        "hold_s": 8.599999999999985,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.16825550034984543,
+        "peak_max_error_m": 0.3329449398322813,
+        "reacquisition_s": [
+          19.1
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.168389086006349
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-5s-world-4.npz"
+    },
+    {
+      "handoff_s": 5.0,
+      "world_index": 5,
+      "seed": 963550806,
+      "final": {
+        "max_error_m": 0.10090375678858686,
+        "rms_error_m": 0.060398663990366926,
+        "path_error_m": 0.022544224048164918,
+        "spacing_error_m": 0.03000035074596999,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.469660306737509,
+        "leader_step_travel_m": 0.005033819558364623,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 20.3,
+        "holding_goal": true,
+        "hold_s": 9.699999999999982,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.15677311404855163,
+        "peak_max_error_m": 0.2904797313831203,
+        "reacquisition_s": [
+          18.000000000000004
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.385307343150068
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-5s-world-5.npz"
+    },
+    {
+      "handoff_s": 5.0,
+      "world_index": 6,
+      "seed": 123428096,
+      "final": {
+        "max_error_m": 0.10447937721688393,
+        "rms_error_m": 0.06099219263406765,
+        "path_error_m": 0.02154415238255077,
+        "spacing_error_m": 0.03330085933731311,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4667492265416007,
+        "leader_step_travel_m": 0.005033810750910584,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 20.7,
+        "holding_goal": true,
+        "hold_s": 9.299999999999983,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.16437293939759803,
+        "peak_max_error_m": 0.3158530830229376,
+        "reacquisition_s": [
+          18.400000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.307359947570462
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-5s-world-6.npz"
+    },
+    {
+      "handoff_s": 5.0,
+      "world_index": 7,
+      "seed": 1864253760,
+      "final": {
+        "max_error_m": 0.10128004349370104,
+        "rms_error_m": 0.06006565813013906,
+        "path_error_m": 0.0185149758308233,
+        "spacing_error_m": 0.030635232381568317,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4640950316384984,
+        "leader_step_travel_m": 0.005033822453521903,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 20.900000000000002,
+        "holding_goal": true,
+        "hold_s": 9.099999999999984,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.1715923183637593,
+        "peak_max_error_m": 0.3349424206967472,
+        "reacquisition_s": [
+          18.5
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.294450879629761
+      },
+      "contacts_at_handoff": 0,
+      "walls_at_handoff": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0,
+      "recording": "runs/local-follow-recovery/handoff-5s-world-7.npz"
+    }
+  ],
+  "summary": [
+    {
+      "handoff_s": 0.0,
+      "episodes": 8,
+      "successes": 8,
+      "final_holding": 8,
+      "contacts": 0,
+      "walls": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0
+    },
+    {
+      "handoff_s": 2.0,
+      "episodes": 8,
+      "successes": 8,
+      "final_holding": 8,
+      "contacts": 0,
+      "walls": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0
+    },
+    {
+      "handoff_s": 5.0,
+      "episodes": 8,
+      "successes": 8,
+      "final_holding": 8,
+      "contacts": 0,
+      "walls": 0,
+      "post_handoff_contacts": 0,
+      "post_handoff_walls": 0
+    }
+  ],
+  "qualified_for_student_state_collection": true,
+  "artifacts": [
+    {
+      "path": "runs/local-follow-recovery/protocol.json",
+      "sha256": "8694627a27f119dbbb5a4cda9f263ba0c4208028499311e37a151453dcd32754"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-0s-world-0.npz",
+      "sha256": "606163a49558947b9ef34364d32efbd5c725df24694e6a122d0272a6e30d271a"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-0s-world-1.npz",
+      "sha256": "79a06fcac8319bd33375aa4a4811ab6b5c0382a5d3c12e72d07f18a2e434a149"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-0s-world-2.npz",
+      "sha256": "986ed198d4fd8ccb0348ea471c9c6a381d629ce987e9fda83c1bd3773220e2aa"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-0s-world-3.npz",
+      "sha256": "b2784aeac7ced2e725132501e1ee94363f247d6feb4c7bb3674da9c9331ad292"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-0s-world-4.npz",
+      "sha256": "24e7ddb101d0a159ab9797757763c854d82bde4fefb4bdef5c0c2f1443b42119"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-0s-world-5.npz",
+      "sha256": "8d5510844f4252a97d48f8761c2b44cf3fc663e7f690dc2776a29cd956113198"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-0s-world-6.npz",
+      "sha256": "2f9f6f6279155e170faa609e4e43ce746a1ac30d71944ac9e75b228864ba2812"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-0s-world-7.npz",
+      "sha256": "40d7cd5b45d561a3d587fa9fb141dfd43ed3c1d2bc496a0b1015b00f7df1ea37"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-2s-world-0.npz",
+      "sha256": "5920e029a7412e118713354577b9febcb330b903c4dbbdbb3a59e835c690f096"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-2s-world-1.npz",
+      "sha256": "f376f139a3a632e7cd7b7c9c41ad440c1fbdc6c7269e49c505ff1c5e6328f7e7"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-2s-world-2.npz",
+      "sha256": "4e782534ea3d6e357409895395745e2469de7aa380ee8d97fc4aebe5040f1e3a"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-2s-world-3.npz",
+      "sha256": "a0c98b2a3bb0ba6b31089dd45bc92df3d4ece7cf7c28501baf5b019b2a782ef8"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-2s-world-4.npz",
+      "sha256": "581db41b4af6539262a7dff2b5799362242668e33471e28da29430c4dfc2de65"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-2s-world-5.npz",
+      "sha256": "29dbbb5193f35961bada569ab7a0ad1ff7cb576f678e52fd8aa6465f2174b9cd"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-2s-world-6.npz",
+      "sha256": "17dd498686f084046973512a736402b36a9ce2b2a349b8cc6e9d1fc4f0fe8d36"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-2s-world-7.npz",
+      "sha256": "8f9bf8720c3f38b27b28ff43e509e5c570030353c1323c73065b69274d69328f"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-5s-world-0.npz",
+      "sha256": "6a3e8ac510217676c897eff1c2b2945e2f7cce9bb83befca1f7145a5db3b1faf"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-5s-world-1.npz",
+      "sha256": "df3fc5d0f9dac15b447727776acfb0497b7767e4f01d38be78c500327bd6924e"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-5s-world-2.npz",
+      "sha256": "d947cfdca50c0a0d8ac7d62ffebfd7d3edbbf24615e9a0599e9cb8e3e5836c5a"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-5s-world-3.npz",
+      "sha256": "782bc27ae5bd6faac5fa78f86842abbc15b26d774b546288d6ae211d3101eb5d"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-5s-world-4.npz",
+      "sha256": "2c04930a2245508a2a3bec891a6795a9c26422c944d4bde671e7b8e79c0212ce"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-5s-world-5.npz",
+      "sha256": "be2b6bb86641a3dd236189c82d7937942c6d65a3389fcb27e84e32eec518f4d6"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-5s-world-6.npz",
+      "sha256": "5418a7b24dc8b13844214bf20d143af72ca013719482f1ab802bcced5c727edc"
+    },
+    {
+      "path": "runs/local-follow-recovery/handoff-5s-world-7.npz",
+      "sha256": "d329151367631c30a5574469fc20324778d2464029cd6f4324ed11b5e577ca2f"
+    }
+  ]
+}

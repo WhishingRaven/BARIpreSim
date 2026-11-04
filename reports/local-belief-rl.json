@@ -1,0 +1,3138 @@
+{
+  "version": "bari-local-belief-PPO-study-v1",
+  "completed_utc": "2026-11-03T19:54:55.591091+00:00",
+  "protocol": {
+    "version": "bari-local-belief-reward-repair-pilot-v1",
+    "planned_utc": "2026-11-03T19:35:20.969284+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "preparation_script": {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-local-belief-rl-pilot.py",
+      "sha256": "3e014a8930232bde1c7739613e265e153b35ed10e3ca763c13c84c582fbeb365"
+    },
+    "verification": {
+      "path": "reports/local-belief-rl-verification.json",
+      "sha256": "b0944bac93262423d7c4006eeb71917cdfa287743ec6f33fde3124dd474759df"
+    },
+    "parent": {
+      "path": "runs/train-local-belief-current-student-11/checkpoint.pt",
+      "sha256": "70aa22e6e9709ed3a4d941ee25e436c1ca9921fc382c93f1c631671855167b80"
+    },
+    "parent_evidence": {
+      "path": "reports/local-belief-current-student.json",
+      "sha256": "e8e6ee5de2747d2d6c43bda2f4cce1e32f867079b302abdabb9bc1a966581e33"
+    },
+    "initializer_qualified": false,
+    "initializer_status": "Imitation gate failed3/5 success,2/5 final holds,213 contacts. Its mean weights are an explicitly unvalidated research initializer, not a passed gate or default policy.",
+    "hypothesis": "Wheel imitation still has large high-turn errors and unsafe drift. Test whether genuine formation/safety reward optimization corrects closed-loop acquisition/maintenance with the same local information boundary.",
+    "separation": "Separately planned reward-only experiment; not an automatic continuation of the failed imitation gate. No teacher labels, auxiliary imitation loss or scripted formation commands enter PPO.",
+    "arms": {
+      "low": {
+        "learning_rate": 3e-05,
+        "initial": {
+          "path": "runs/local-belief-rl-pilot-v1/initial-low.pt",
+          "sha256": "75b5ada02dddea00cbd2d07a0b6c62909c32f20302406a66bfe2321a62843202"
+        },
+        "config": {
+          "path": "runs/local-belief-rl-pilot-v1/config-low.json",
+          "sha256": "f130a67649db9f47a4b0361eadf977f505dbbc084d419bf9b952d891117aa38a"
+        }
+      },
+      "high": {
+        "learning_rate": 0.0003,
+        "initial": {
+          "path": "runs/local-belief-rl-pilot-v1/initial-high.pt",
+          "sha256": "05637fff085c7733853817e7b012c4a5af39b69f509e37ade103d60b5f174b48"
+        },
+        "config": {
+          "path": "runs/local-belief-rl-pilot-v1/config-high.json",
+          "sha256": "262aaa79962be68431653cc9d5aaec1417755b714f92995263b3d6ba203b808c"
+        }
+      }
+    },
+    "plan": {
+      "path": "runs/local-belief-rl-pilot-v1/training_plan.json",
+      "sha256": "21da12dbb23f75f3c2ec7dbcdaa51eb83e56513a80fc16b4985da709f148b558"
+    },
+    "training_seed": 23,
+    "worlds": 8,
+    "updates": 200,
+    "optimizer_steps_per_arm": 600,
+    "actual_joint_controls_per_arm": 204800,
+    "robot_samples_per_arm": 1024000,
+    "rollout_steps_per_world": 128,
+    "BPTT": 64,
+    "initial_log_std": -3.0,
+    "observations": [
+      0,
+      50,
+      200
+    ],
+    "development_seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027,
+      1594776450,
+      589246224,
+      1979129855,
+      1391038837,
+      1899936300,
+      995963224,
+      113285700,
+      1761495214,
+      1685651270,
+      1727563011
+    ],
+    "reserved_seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027,
+      3001,
+      3007,
+      3011,
+      3019,
+      10001,
+      10007,
+      10009,
+      10037,
+      10039,
+      2827126,
+      7844550,
+      10602868,
+      11179715,
+      12497452,
+      19015109,
+      20413573,
+      24550309,
+      25487437,
+      25530070,
+      35679009,
+      36950831,
+      43114121,
+      43987919,
+      46473349,
+      48308421,
+      57141025,
+      69929493,
+      77488299,
+      77915536,
+      78793891,
+      98002488,
+      102547314,
+      113147155,
+      113285700,
+      125590161,
+      128211403,
+      133695257,
+      138366874,
+      139993595,
+      140050403,
+      141288581,
+      141534937,
+      148161846,
+      163734115,
+      164181808,
+      175091321,
+      179620049,
+      187044299,
+      189565693,
+      207464862,
+      220839492,
+      221513649,
+      222615921,
+      225593738,
+      232618011,
+      234911073,
+      235416628,
+      235818503,
+      237135687,
+      239404390,
+      251134855,
+      256809428,
+      263239012,
+      270520118,
+      272110484,
+      273650618,
+      277609783,
+      279013654,
+      301783175,
+      313093398,
+      314509613,
+      322745741,
+      329096013,
+      329846908,
+      331923284,
+      335448813,
+      338325528,
+      339557547,
+      342600247,
+      343658820,
+      344204264,
+      345392929,
+      351483264,
+      372386662,
+      373745314,
+      378929717,
+      382578971,
+      392954959,
+      394452274,
+      399964466,
+      399995351,
+      401714813,
+      405024032,
+      410349006,
+      413721013,
+      417234529,
+      436254178,
+      440159641,
+      445932429,
+      469044074,
+      469140988,
+      472185483,
+      472989622,
+      489431430,
+      495802360,
+      502229842,
+      504907621,
+      508380582,
+      509473755,
+      522122259,
+      525435469,
+      532887974,
+      537484503,
+      540139156,
+      542718027,
+      544112619,
+      545861647,
+      549887984,
+      553545438,
+      560713229,
+      561676341,
+      562080495,
+      569614998,
+      578337630,
+      580997905,
+      589246224,
+      589614995,
+      594313176,
+      596017465,
+      602047054,
+      606894743,
+      613742598,
+      618157338,
+      622946141,
+      624984765,
+      631028093,
+      633497764,
+      650149548,
+      650980382,
+      651613329,
+      658898753,
+      664183827,
+      664626556,
+      669272030,
+      682828266,
+      684966139,
+      691716605,
+      695018572,
+      702890644,
+      704069165,
+      709227516,
+      715327860,
+      717035210,
+      721234481,
+      725472360,
+      727644583,
+      733468377,
+      739355049,
+      743971704,
+      748215689,
+      751152922,
+      752152778,
+      753152859,
+      755750887,
+      766754127,
+      778894749,
+      781898725,
+      783718696,
+      783822680,
+      796478090,
+      810118721,
+      810523912,
+      815768364,
+      817544212,
+      823018321,
+      824089645,
+      830442762,
+      830748353,
+      844551625,
+      856889361,
+      867636897,
+      878297063,
+      880800714,
+      880937101,
+      889760326,
+      896344174,
+      902693778,
+      905956396,
+      915432740,
+      917185294,
+      921532039,
+      921891633,
+      929841224,
+      934809621,
+      959942161,
+      966573100,
+      979700136,
+      980872572,
+      982309904,
+      995963224,
+      996423186,
+      1004094468,
+      1012291045,
+      1026382013,
+      1045623974,
+      1051674972,
+      1052128628,
+      1057063138,
+      1074919601,
+      1081995877,
+      1084071891,
+      1086865265,
+      1087525231,
+      1091893610,
+      1092825308,
+      1098242968,
+      1117790247,
+      1127354831,
+      1130878069,
+      1132001614,
+      1137828305,
+      1170541645,
+      1174280309,
+      1177796639,
+      1178395111,
+      1185160403,
+      1185375262,
+      1196506791,
+      1196592153,
+      1204933709,
+      1215490494,
+      1216852287,
+      1237008653,
+      1239545633,
+      1252413365,
+      1253358039,
+      1261623248,
+      1262177412,
+      1275994714,
+      1293858701,
+      1298575918,
+      1319379415,
+      1329764056,
+      1332399874,
+      1335319078,
+      1340875985,
+      1347918571,
+      1354327205,
+      1356812800,
+      1358390113,
+      1358887106,
+      1359432818,
+      1361814243,
+      1365849472,
+      1373624027,
+      1376502237,
+      1378280556,
+      1378651641,
+      1378652672,
+      1380123348,
+      1381740007,
+      1384627394,
+      1391038837,
+      1408597727,
+      1411876225,
+      1420922758,
+      1424560048,
+      1426227163,
+      1435263856,
+      1438459159,
+      1448909733,
+      1465403755,
+      1480293845,
+      1482178786,
+      1500255199,
+      1501817641,
+      1504793927,
+      1509255044,
+      1512157121,
+      1513785544,
+      1516165654,
+      1517022567,
+      1520447899,
+      1520472979,
+      1522881604,
+      1522941715,
+      1524300360,
+      1525330517,
+      1525723209,
+      1526484007,
+      1532761059,
+      1538435753,
+      1539042244,
+      1550097101,
+      1551689387,
+      1556328904,
+      1561658341,
+      1569899436,
+      1572462477,
+      1572998859,
+      1594082790,
+      1594776450,
+      1595016675,
+      1602093686,
+      1602739328,
+      1621922797,
+      1628583528,
+      1634553171,
+      1642549434,
+      1642871848,
+      1646283511,
+      1649121607,
+      1649268740,
+      1665508353,
+      1668766329,
+      1671052458,
+      1673742079,
+      1681885112,
+      1682864514,
+      1684094698,
+      1685651270,
+      1689037666,
+      1692185733,
+      1694273976,
+      1695638450,
+      1706259776,
+      1716369120,
+      1724791805,
+      1725759485,
+      1726897552,
+      1727563011,
+      1727768594,
+      1735417454,
+      1735822488,
+      1758054352,
+      1761495214,
+      1771415649,
+      1773963588,
+      1775943391,
+      1779443878,
+      1779849302,
+      1784058725,
+      1784777989,
+      1786857254,
+      1787205679,
+      1795454904,
+      1798443499,
+      1806544839,
+      1807836304,
+      1808537689,
+      1819935037,
+      1822376516,
+      1823368393,
+      1827564084,
+      1828019672,
+      1832339509,
+      1845969589,
+      1849173001,
+      1850432251,
+      1860676901,
+      1862458093,
+      1867621744,
+      1874592139,
+      1878447584,
+      1886228515,
+      1889587674,
+      1894021544,
+      1894810040,
+      1899936300,
+      1903086044,
+      1907778686,
+      1911310793,
+      1916584003,
+      1916681940,
+      1924203886,
+      1924555443,
+      1926318723,
+      1935319987,
+      1941393888,
+      1950449760,
+      1954480559,
+      1956734237,
+      1958541779,
+      1967086171,
+      1970561045,
+      1979129855,
+      1979543414,
+      1980205894,
+      1984372015,
+      1990041244,
+      1992583878,
+      2002464994,
+      2006668493,
+      2006861825,
+      2019939602,
+      2020310425,
+      2030702249,
+      2031354773,
+      2031355132,
+      2034260860,
+      2036851082,
+      2049023891,
+      2051894133,
+      2052465219,
+      2054117715,
+      2065756245,
+      2072790619,
+      2085783200,
+      2087406834,
+      2088751460,
+      2094412827,
+      2095252408,
+      2099246547,
+      2105635371,
+      2105853675,
+      2114843451,
+      2118262672,
+      2120849351,
+      2122707756,
+      2126394440,
+      2126765035,
+      2132145936,
+      2135230509
+    ],
+    "initialization_proof": {
+      "actor_critic_world_hidden_observer_sampling_and_torch_rng_exact": true,
+      "first1024_joint_control_rollout_all_arrays_exact": true,
+      "initial_world_comparison_exclusions": [
+        "config_sha256, whose difference is the declared learning rate"
+      ],
+      "note": "Optimizers are empty; their configured learning rates intentionally differ. Numeric/physical/observer state and sampled first rollout match. Verification rollouts are scratch only and do not advance either saved initial checkpoint."
+    },
+    "selection": "Only exact200 candidates. Same15 reused development worlds and original numerical thresholds. Require>=14/15 official successes AND final holds with zero total safety attempts. Intermediate50 diagnostic only. No budget extension/default promotion.",
+    "scope": "Isolated-circle GRU-PPO research, BCseed11 then RLseed23. HypotheticalFOV60, radius1m central-square starts, no final-heldout/multiple-independent-training-seed/four-task/occlusion/device acceptance.",
+    "execution_artifacts": [
+      {
+        "path": "runs/local_belief_rl.py",
+        "sha256": "f165d82af1d9a11b5d067f5bab470575e341afa9bd7fbbb3dfad1295997cd064"
+      },
+      {
+        "path": "runs/local_belief_actor.py",
+        "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+      },
+      {
+        "path": "runs/local_wall_belief.py",
+        "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+      },
+      {
+        "path": "runs/local_wall_belief.hpp",
+        "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+      },
+      {
+        "path": "runs/local_wall_belief_bridge.cpp",
+        "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+      },
+      {
+        "path": "runs/local-wall-belief-v1.dylib",
+        "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+      },
+      {
+        "path": "runs/run-local-belief-rl-pilot.py",
+        "sha256": "dee693d2bc7bb592520ca144d341836f0e810415006bdb416fff7f8f66b6a2d1"
+      }
+    ]
+  },
+  "verification": {
+    "version": "bari-local-belief-PPO-verification-v1",
+    "directed_switch_pairs": [
+      [
+        "circle",
+        "square"
+      ],
+      [
+        "circle",
+        "line"
+      ],
+      [
+        "circle",
+        "follow"
+      ],
+      [
+        "square",
+        "circle"
+      ],
+      [
+        "square",
+        "line"
+      ],
+      [
+        "square",
+        "follow"
+      ],
+      [
+        "line",
+        "circle"
+      ],
+      [
+        "line",
+        "square"
+      ],
+      [
+        "line",
+        "follow"
+      ],
+      [
+        "follow",
+        "circle"
+      ],
+      [
+        "follow",
+        "square"
+      ],
+      [
+        "follow",
+        "line"
+      ]
+    ],
+    "ordinary_controller_input_action_hidden_physics_parity": true,
+    "observer_cache_reads_idempotent": true,
+    "finite_recurrent_PPO_update": true,
+    "GRU_and_head_parameters_updated": true,
+    "update_preserves_live_world_and_observer": true,
+    "episode_hidden_and_observer_resets": true,
+    "two_world_timeout_resume_all_rollouts_stats_state_rng_exact": true,
+    "fields_excluded": [],
+    "state_and_rollout_leaves_compared": 13272,
+    "native_resume_rejected": true,
+    "imitation_not_treated_as_exact_resume": true,
+    "corrupt_cache_rejected": true,
+    "critic_input_size": 438,
+    "actor_local_shape": [
+      12
+    ],
+    "verification_only_updates": [
+      1,
+      2
+    ],
+    "behavior_candidates": 0,
+    "stats": {
+      "loss": 0.01079692505300045,
+      "policy_loss": -0.03281392157077789,
+      "value_loss": 0.026832394922773044,
+      "actor_gradient_norm": 35.881048838297524,
+      "critic_gradient_norm": 2.5094542503356934,
+      "post_update_approximate_kl": 0.010461574420332909,
+      "post_update_clip_fraction": 0.15000000596046448,
+      "optimizer_steps": 3,
+      "unnormalized_value_mse": 0.0002570979413576424,
+      "value_normalization_mean": -0.04773771688342095,
+      "value_normalization_std": 0.1,
+      "independent_worlds": 2,
+      "joint_steps_per_update": 4
+    },
+    "scope": "Implementation correctness and exact resume only, not behavioral convergence, controlled occlusion or device acceptance",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-belief-rl.py",
+        "sha256": "1d7030d112aae8f92ef6fa37dea81c81cb4e0b6c308601b1f3677aac83eca9a5"
+      },
+      {
+        "path": "runs/local_belief_rl.py",
+        "sha256": "f165d82af1d9a11b5d067f5bab470575e341afa9bd7fbbb3dfad1295997cd064"
+      },
+      {
+        "path": "runs/local-belief-rollout-source-proof.json",
+        "sha256": "2635d9abd1f32461c55d05fd3461b446b8c18717ad89985dc00afdbc805f7deb"
+      },
+      {
+        "path": "runs/local-belief-rl-verification-v1/protocol.json",
+        "sha256": "337e7e3e7fbd3afd28b4c26a4b883d724bbc567451330fcab1d5afea37581624"
+      },
+      {
+        "path": "runs/local-belief-rl-verification-v1/verification-only-update1.pt",
+        "sha256": "1bfc6e2e3b1d6312d1e4985d3542fad8736d9b07fc422dd617113f240f424b11"
+      },
+      {
+        "path": "runs/local-belief-rl-verification-v1/verification-only-invalid-cache.pt",
+        "sha256": "a5170dbe65f2f7647ae4321ecc5c69b86f9994e3ac80f65c6441ef3b068afbf6"
+      },
+      {
+        "path": "runs/local-belief-rl-verification-v1/expected-next-rollout.npz",
+        "sha256": "d27f78a06c4fa06ea5b84b8a7c9730aad71aa295b22ec89169be1026974bd2c7"
+      },
+      {
+        "path": "runs/local-belief-rl-verification-v1/actual-next-rollout.npz",
+        "sha256": "d27f78a06c4fa06ea5b84b8a7c9730aad71aa295b22ec89169be1026974bd2c7"
+      }
+    ]
+  },
+  "initial_trajectory_proof": {
+    "version": "bari-local-belief-initial-trajectory-parity-v1",
+    "cases": [
+      {
+        "seed": 2001,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": true,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 2003,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": true,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 2011,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": true,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 2017,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": true,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 2027,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": true,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 1594776450,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 589246224,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 1979129855,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 1391038837,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 1899936300,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 995963224,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 113285700,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 1761495214,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 1685651270,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      },
+      {
+        "seed": 1727563011,
+        "all_physical_sensor_action_metric_arrays_exact_between_arms": true,
+        "parent_recording_compared": false,
+        "numeric_fields": [
+          "time",
+          "poses",
+          "wheels",
+          "commands",
+          "observation",
+          "task",
+          "collisions",
+          "wall_violations",
+          "error",
+          "success",
+          "visible",
+          "hold",
+          "contacts",
+          "blocked_robot_beams",
+          "targets"
+        ]
+      }
+    ],
+    "arm_cases_exact": 15,
+    "existing_parent_cases_exact": 5,
+    "configuration_differences": [
+      "learning_rate"
+    ],
+    "excluded_recording_fields": [
+      "metadata: model/training/config provenance"
+    ],
+    "scope": "Initial deterministic behavior only; not a trained-policy success claim",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-belief-rl-initial-trajectories.py",
+        "sha256": "0729c660e80b8c9271ebdf2043c8d3fe4166ed571e330bd5c2a0b0dbbe6ed5be"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2001.npz",
+        "sha256": "60f5c522456bf721ac83f9301b68df72d8ee0082b09db9aa7f7cc489a981516c"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2001.npz",
+        "sha256": "48f2683d7b86d7235e4f4ca5fc782353fac1f6ddae3bfdeb25103dd221a03482"
+      },
+      {
+        "path": "runs/train-local-belief-current-student-11/evaluation-development/2001/circle-2001.npz",
+        "sha256": "5e9a18234e1c7d9c1107ce0bdd418ec4d21364efe94ddbafb658e85a4df50ce7"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2003.npz",
+        "sha256": "f24b0e8cf30860476a70e08e71b5ddefd68a0879469c8820964ca5953ddd325e"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2003.npz",
+        "sha256": "02186a304a87b829d696471bc35e826ef14aaf6b31dc9444fb78eac216c9680d"
+      },
+      {
+        "path": "runs/train-local-belief-current-student-11/evaluation-development/2003/circle-2003.npz",
+        "sha256": "0e43bdc5539dda7aeabe45d085a0af41468f2357d0a253fa627b47218402b87f"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2011.npz",
+        "sha256": "555cbcd1cc5d3dfb289b97b3ab1f8413dbc5e574c35826e09d869b28b7644430"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2011.npz",
+        "sha256": "eca393b35a04e04ca70bb20567793ca65bfb7bfb36e99a1dde912782c3a86853"
+      },
+      {
+        "path": "runs/train-local-belief-current-student-11/evaluation-development/2011/circle-2011.npz",
+        "sha256": "a742ea5a6b9a12b4723108d7a5cf97b155404e7d4299367a97f8597756f70247"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2017.npz",
+        "sha256": "2730bf9440fa040ab178f443c7965940bcbd029a2adce0c75768f51635a7aab5"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2017.npz",
+        "sha256": "adafeee27330bec5542d46fc507576009d531428214f8745f571dbb0f38a5a5e"
+      },
+      {
+        "path": "runs/train-local-belief-current-student-11/evaluation-development/2017/circle-2017.npz",
+        "sha256": "1950ae6f046abe20323e90824f88b8968f1b74eee4a2ce1ea1ed3a099101fcd3"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2027.npz",
+        "sha256": "a341bd10362726da681171ee83ce7d22a466ffaf31ebb6dca7d53c9c28cc3c3a"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2027.npz",
+        "sha256": "68cafafdfc35f1c88d6988857b2c86cb0554dacffef5d1f634877def51ad7cec"
+      },
+      {
+        "path": "runs/train-local-belief-current-student-11/evaluation-development/2027/circle-2027.npz",
+        "sha256": "41eff96ff524cbb293e41fcaf7b5680f68f401c27c8a6cdeba47788de156c2c2"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1594776450.npz",
+        "sha256": "f8677ade85ddd0069d04e4abaefbbe5860892de12e3a7e0078b03e3117856b45"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1594776450.npz",
+        "sha256": "ca9de758e67bbdf7cfcf1970ded2eab3b4f159b7b2b9653c6305c8cb2eb0fe14"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-589246224.npz",
+        "sha256": "c0e2a56bc61b46d7b42f711f8b0ea911fa8731c8a8eaffef4eb44ad424a3a883"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-589246224.npz",
+        "sha256": "1c9f16477e5aa79038b28de3c6cd628db4f519251d718d8e888428a478b67b25"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1979129855.npz",
+        "sha256": "ef0396a66dcaa2ad1e66034583b8615262aa7a748fb6cbed44d0d15f1ef2f17a"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1979129855.npz",
+        "sha256": "ecd87169502ca639aeedaee7455ba4f21aa54dc11e68856434ca2021f54bb50d"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1391038837.npz",
+        "sha256": "e3ae258cf564da7ca24dac7bc07a03c1dd7f8429baad01b74d4b7b735aa9e8c2"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1391038837.npz",
+        "sha256": "a9e295995613427c4e9914044f14df831c76c8f835a3c2fc1cfb184d754c2fcc"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1899936300.npz",
+        "sha256": "4c6337ec97160af67e5a8a403d1b184bc76b6920daaaf30e419792868016c908"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1899936300.npz",
+        "sha256": "ad1fae7f2509e119c8bd71252cc02a4320d47e00130935e50342db7ffc3a4254"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-995963224.npz",
+        "sha256": "31b18b3c521ad1b4d0a9a2033098f75572cbb77434134c063e4a495cab578038"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-995963224.npz",
+        "sha256": "9c553217847ad5b1cbf570fa5babf71a3b747c641dfd57466a4c46bccec76624"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-113285700.npz",
+        "sha256": "770adea2e8ed102b7910e85819be97a13efdb6e36deebaa76a9b4c73b54d40d7"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-113285700.npz",
+        "sha256": "17c8e70ad128acc2ab746a13c34f2bfefc9d10cf8ca0c4d1df0fe6d18c6ec4e9"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1761495214.npz",
+        "sha256": "8818b0c9ac358f49563f04afa5c85808a5759d06cbbbb75dbea5f911edcd323e"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1761495214.npz",
+        "sha256": "24093cca50dfdf727af07167c4c42dc89e85a1d48fae157876a8e6d708965a7f"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1685651270.npz",
+        "sha256": "2ed4d4af6abe6aabdbaf100c8a6462d666e13e870d8e2d4af24ff44dedbaea95"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1685651270.npz",
+        "sha256": "3b89e839cfbb23b7ec0bfc247492d90fd0ed1ad0d5f466a17bcbdb6ef468ed50"
+      },
+      {
+        "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1727563011.npz",
+        "sha256": "5ee66749b306b6d19942cf7ff3bb8bae945609705ed30a0676f2787e8a5e5abd"
+      },
+      {
+        "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1727563011.npz",
+        "sha256": "ef76254a99b1f20131064c2d86418348c80c1b7d8784014a2caeaa781d240e50"
+      }
+    ]
+  },
+  "results": {
+    "low": {
+      "protocol": {
+        "version": "bari-local-belief-reward-repair-pilot-v1",
+        "planned_utc": "2026-11-03T19:35:20.969284+00:00",
+        "source": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "preparation_script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-local-belief-rl-pilot.py",
+          "sha256": "3e014a8930232bde1c7739613e265e153b35ed10e3ca763c13c84c582fbeb365"
+        },
+        "verification": {
+          "path": "reports/local-belief-rl-verification.json",
+          "sha256": "b0944bac93262423d7c4006eeb71917cdfa287743ec6f33fde3124dd474759df"
+        },
+        "parent": {
+          "path": "runs/train-local-belief-current-student-11/checkpoint.pt",
+          "sha256": "70aa22e6e9709ed3a4d941ee25e436c1ca9921fc382c93f1c631671855167b80"
+        },
+        "parent_evidence": {
+          "path": "reports/local-belief-current-student.json",
+          "sha256": "e8e6ee5de2747d2d6c43bda2f4cce1e32f867079b302abdabb9bc1a966581e33"
+        },
+        "initializer_qualified": false,
+        "initializer_status": "Imitation gate failed3/5 success,2/5 final holds,213 contacts. Its mean weights are an explicitly unvalidated research initializer, not a passed gate or default policy.",
+        "hypothesis": "Wheel imitation still has large high-turn errors and unsafe drift. Test whether genuine formation/safety reward optimization corrects closed-loop acquisition/maintenance with the same local information boundary.",
+        "separation": "Separately planned reward-only experiment; not an automatic continuation of the failed imitation gate. No teacher labels, auxiliary imitation loss or scripted formation commands enter PPO.",
+        "arms": {
+          "low": {
+            "learning_rate": 3e-05,
+            "initial": {
+              "path": "runs/local-belief-rl-pilot-v1/initial-low.pt",
+              "sha256": "75b5ada02dddea00cbd2d07a0b6c62909c32f20302406a66bfe2321a62843202"
+            },
+            "config": {
+              "path": "runs/local-belief-rl-pilot-v1/config-low.json",
+              "sha256": "f130a67649db9f47a4b0361eadf977f505dbbc084d419bf9b952d891117aa38a"
+            }
+          },
+          "high": {
+            "learning_rate": 0.0003,
+            "initial": {
+              "path": "runs/local-belief-rl-pilot-v1/initial-high.pt",
+              "sha256": "05637fff085c7733853817e7b012c4a5af39b69f509e37ade103d60b5f174b48"
+            },
+            "config": {
+              "path": "runs/local-belief-rl-pilot-v1/config-high.json",
+              "sha256": "262aaa79962be68431653cc9d5aaec1417755b714f92995263b3d6ba203b808c"
+            }
+          }
+        },
+        "plan": {
+          "path": "runs/local-belief-rl-pilot-v1/training_plan.json",
+          "sha256": "21da12dbb23f75f3c2ec7dbcdaa51eb83e56513a80fc16b4985da709f148b558"
+        },
+        "training_seed": 23,
+        "worlds": 8,
+        "updates": 200,
+        "optimizer_steps_per_arm": 600,
+        "actual_joint_controls_per_arm": 204800,
+        "robot_samples_per_arm": 1024000,
+        "rollout_steps_per_world": 128,
+        "BPTT": 64,
+        "initial_log_std": -3.0,
+        "observations": [
+          0,
+          50,
+          200
+        ],
+        "development_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          1594776450,
+          589246224,
+          1979129855,
+          1391038837,
+          1899936300,
+          995963224,
+          113285700,
+          1761495214,
+          1685651270,
+          1727563011
+        ],
+        "reserved_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          3001,
+          3007,
+          3011,
+          3019,
+          10001,
+          10007,
+          10009,
+          10037,
+          10039,
+          2827126,
+          7844550,
+          10602868,
+          11179715,
+          12497452,
+          19015109,
+          20413573,
+          24550309,
+          25487437,
+          25530070,
+          35679009,
+          36950831,
+          43114121,
+          43987919,
+          46473349,
+          48308421,
+          57141025,
+          69929493,
+          77488299,
+          77915536,
+          78793891,
+          98002488,
+          102547314,
+          113147155,
+          113285700,
+          125590161,
+          128211403,
+          133695257,
+          138366874,
+          139993595,
+          140050403,
+          141288581,
+          141534937,
+          148161846,
+          163734115,
+          164181808,
+          175091321,
+          179620049,
+          187044299,
+          189565693,
+          207464862,
+          220839492,
+          221513649,
+          222615921,
+          225593738,
+          232618011,
+          234911073,
+          235416628,
+          235818503,
+          237135687,
+          239404390,
+          251134855,
+          256809428,
+          263239012,
+          270520118,
+          272110484,
+          273650618,
+          277609783,
+          279013654,
+          301783175,
+          313093398,
+          314509613,
+          322745741,
+          329096013,
+          329846908,
+          331923284,
+          335448813,
+          338325528,
+          339557547,
+          342600247,
+          343658820,
+          344204264,
+          345392929,
+          351483264,
+          372386662,
+          373745314,
+          378929717,
+          382578971,
+          392954959,
+          394452274,
+          399964466,
+          399995351,
+          401714813,
+          405024032,
+          410349006,
+          413721013,
+          417234529,
+          436254178,
+          440159641,
+          445932429,
+          469044074,
+          469140988,
+          472185483,
+          472989622,
+          489431430,
+          495802360,
+          502229842,
+          504907621,
+          508380582,
+          509473755,
+          522122259,
+          525435469,
+          532887974,
+          537484503,
+          540139156,
+          542718027,
+          544112619,
+          545861647,
+          549887984,
+          553545438,
+          560713229,
+          561676341,
+          562080495,
+          569614998,
+          578337630,
+          580997905,
+          589246224,
+          589614995,
+          594313176,
+          596017465,
+          602047054,
+          606894743,
+          613742598,
+          618157338,
+          622946141,
+          624984765,
+          631028093,
+          633497764,
+          650149548,
+          650980382,
+          651613329,
+          658898753,
+          664183827,
+          664626556,
+          669272030,
+          682828266,
+          684966139,
+          691716605,
+          695018572,
+          702890644,
+          704069165,
+          709227516,
+          715327860,
+          717035210,
+          721234481,
+          725472360,
+          727644583,
+          733468377,
+          739355049,
+          743971704,
+          748215689,
+          751152922,
+          752152778,
+          753152859,
+          755750887,
+          766754127,
+          778894749,
+          781898725,
+          783718696,
+          783822680,
+          796478090,
+          810118721,
+          810523912,
+          815768364,
+          817544212,
+          823018321,
+          824089645,
+          830442762,
+          830748353,
+          844551625,
+          856889361,
+          867636897,
+          878297063,
+          880800714,
+          880937101,
+          889760326,
+          896344174,
+          902693778,
+          905956396,
+          915432740,
+          917185294,
+          921532039,
+          921891633,
+          929841224,
+          934809621,
+          959942161,
+          966573100,
+          979700136,
+          980872572,
+          982309904,
+          995963224,
+          996423186,
+          1004094468,
+          1012291045,
+          1026382013,
+          1045623974,
+          1051674972,
+          1052128628,
+          1057063138,
+          1074919601,
+          1081995877,
+          1084071891,
+          1086865265,
+          1087525231,
+          1091893610,
+          1092825308,
+          1098242968,
+          1117790247,
+          1127354831,
+          1130878069,
+          1132001614,
+          1137828305,
+          1170541645,
+          1174280309,
+          1177796639,
+          1178395111,
+          1185160403,
+          1185375262,
+          1196506791,
+          1196592153,
+          1204933709,
+          1215490494,
+          1216852287,
+          1237008653,
+          1239545633,
+          1252413365,
+          1253358039,
+          1261623248,
+          1262177412,
+          1275994714,
+          1293858701,
+          1298575918,
+          1319379415,
+          1329764056,
+          1332399874,
+          1335319078,
+          1340875985,
+          1347918571,
+          1354327205,
+          1356812800,
+          1358390113,
+          1358887106,
+          1359432818,
+          1361814243,
+          1365849472,
+          1373624027,
+          1376502237,
+          1378280556,
+          1378651641,
+          1378652672,
+          1380123348,
+          1381740007,
+          1384627394,
+          1391038837,
+          1408597727,
+          1411876225,
+          1420922758,
+          1424560048,
+          1426227163,
+          1435263856,
+          1438459159,
+          1448909733,
+          1465403755,
+          1480293845,
+          1482178786,
+          1500255199,
+          1501817641,
+          1504793927,
+          1509255044,
+          1512157121,
+          1513785544,
+          1516165654,
+          1517022567,
+          1520447899,
+          1520472979,
+          1522881604,
+          1522941715,
+          1524300360,
+          1525330517,
+          1525723209,
+          1526484007,
+          1532761059,
+          1538435753,
+          1539042244,
+          1550097101,
+          1551689387,
+          1556328904,
+          1561658341,
+          1569899436,
+          1572462477,
+          1572998859,
+          1594082790,
+          1594776450,
+          1595016675,
+          1602093686,
+          1602739328,
+          1621922797,
+          1628583528,
+          1634553171,
+          1642549434,
+          1642871848,
+          1646283511,
+          1649121607,
+          1649268740,
+          1665508353,
+          1668766329,
+          1671052458,
+          1673742079,
+          1681885112,
+          1682864514,
+          1684094698,
+          1685651270,
+          1689037666,
+          1692185733,
+          1694273976,
+          1695638450,
+          1706259776,
+          1716369120,
+          1724791805,
+          1725759485,
+          1726897552,
+          1727563011,
+          1727768594,
+          1735417454,
+          1735822488,
+          1758054352,
+          1761495214,
+          1771415649,
+          1773963588,
+          1775943391,
+          1779443878,
+          1779849302,
+          1784058725,
+          1784777989,
+          1786857254,
+          1787205679,
+          1795454904,
+          1798443499,
+          1806544839,
+          1807836304,
+          1808537689,
+          1819935037,
+          1822376516,
+          1823368393,
+          1827564084,
+          1828019672,
+          1832339509,
+          1845969589,
+          1849173001,
+          1850432251,
+          1860676901,
+          1862458093,
+          1867621744,
+          1874592139,
+          1878447584,
+          1886228515,
+          1889587674,
+          1894021544,
+          1894810040,
+          1899936300,
+          1903086044,
+          1907778686,
+          1911310793,
+          1916584003,
+          1916681940,
+          1924203886,
+          1924555443,
+          1926318723,
+          1935319987,
+          1941393888,
+          1950449760,
+          1954480559,
+          1956734237,
+          1958541779,
+          1967086171,
+          1970561045,
+          1979129855,
+          1979543414,
+          1980205894,
+          1984372015,
+          1990041244,
+          1992583878,
+          2002464994,
+          2006668493,
+          2006861825,
+          2019939602,
+          2020310425,
+          2030702249,
+          2031354773,
+          2031355132,
+          2034260860,
+          2036851082,
+          2049023891,
+          2051894133,
+          2052465219,
+          2054117715,
+          2065756245,
+          2072790619,
+          2085783200,
+          2087406834,
+          2088751460,
+          2094412827,
+          2095252408,
+          2099246547,
+          2105635371,
+          2105853675,
+          2114843451,
+          2118262672,
+          2120849351,
+          2122707756,
+          2126394440,
+          2126765035,
+          2132145936,
+          2135230509
+        ],
+        "initialization_proof": {
+          "actor_critic_world_hidden_observer_sampling_and_torch_rng_exact": true,
+          "first1024_joint_control_rollout_all_arrays_exact": true,
+          "initial_world_comparison_exclusions": [
+            "config_sha256, whose difference is the declared learning rate"
+          ],
+          "note": "Optimizers are empty; their configured learning rates intentionally differ. Numeric/physical/observer state and sampled first rollout match. Verification rollouts are scratch only and do not advance either saved initial checkpoint."
+        },
+        "selection": "Only exact200 candidates. Same15 reused development worlds and original numerical thresholds. Require>=14/15 official successes AND final holds with zero total safety attempts. Intermediate50 diagnostic only. No budget extension/default promotion.",
+        "scope": "Isolated-circle GRU-PPO research, BCseed11 then RLseed23. HypotheticalFOV60, radius1m central-square starts, no final-heldout/multiple-independent-training-seed/four-task/occlusion/device acceptance.",
+        "execution_artifacts": [
+          {
+            "path": "runs/local_belief_rl.py",
+            "sha256": "f165d82af1d9a11b5d067f5bab470575e341afa9bd7fbbb3dfad1295997cd064"
+          },
+          {
+            "path": "runs/local_belief_actor.py",
+            "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+          },
+          {
+            "path": "runs/local_wall_belief.py",
+            "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+          },
+          {
+            "path": "runs/local_wall_belief.hpp",
+            "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+          },
+          {
+            "path": "runs/local_wall_belief_bridge.cpp",
+            "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+          },
+          {
+            "path": "runs/local-wall-belief-v1.dylib",
+            "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+          },
+          {
+            "path": "runs/run-local-belief-rl-pilot.py",
+            "sha256": "dee693d2bc7bb592520ca144d341836f0e810415006bdb416fff7f8f66b6a2d1"
+          }
+        ]
+      },
+      "arm": "low",
+      "algorithm": "bari-local-belief-mappo-v1",
+      "updates": 200,
+      "optimizer_steps": 600,
+      "actual_joint_controls": 204800,
+      "actual_robot_control_samples": 1024000,
+      "observations": [
+        {
+          "update": 0,
+          "checkpoint": {
+            "path": "runs/local-belief-rl-low-23/initial-checkpoint.pt",
+            "sha256": "dd4439b4535c74f8db24b646fdd3ff8ebe3f05f869cdc9fe8fadfd946563dce9"
+          },
+          "report": {
+            "path": "runs/local-belief-rl-low-23/evaluation-0000/report.json",
+            "sha256": "7ccb4665caa4af781cf8338743aa732d8f04bcc1dddc18b08e1b908de777ca7e"
+          },
+          "episodes": 15,
+          "successes": 6,
+          "final_holding": 5,
+          "contacts": 427,
+          "walls": 0,
+          "mean_final_max_error_m": 0.11689087730773956,
+          "all_training_state_rng_preserved_exactly": true
+        },
+        {
+          "update": 50,
+          "checkpoint": {
+            "path": "runs/local-belief-rl-low-23/checkpoint-0050.pt",
+            "sha256": "c663a86d27662e2049ca6550b3ea3ed6c5f90002c0ec6c2bde32b1c5cd5ca4fc"
+          },
+          "report": {
+            "path": "runs/local-belief-rl-low-23/evaluation-0050/report.json",
+            "sha256": "8b350b4edd9397d673fe1e080614b7a14ebf22c2d63ba2953ee10ab8978cec74"
+          },
+          "episodes": 15,
+          "successes": 7,
+          "final_holding": 4,
+          "contacts": 328,
+          "walls": 0,
+          "mean_final_max_error_m": 0.10442318696128608,
+          "all_training_state_rng_preserved_exactly": true
+        },
+        {
+          "update": 200,
+          "checkpoint": {
+            "path": "runs/local-belief-rl-low-23/checkpoint-0200.pt",
+            "sha256": "f7b653a998e1682563586cb6f11ea45047ba60021591a418807aa34a7fb71e7a"
+          },
+          "report": {
+            "path": "runs/local-belief-rl-low-23/evaluation-0200/report.json",
+            "sha256": "89655c1902fdb1ae1be5174f1c347c76313ef288c09428ef15cd05b3be7c648b"
+          },
+          "episodes": 15,
+          "successes": 8,
+          "final_holding": 8,
+          "contacts": 354,
+          "walls": 0,
+          "mean_final_max_error_m": 0.08353151334528833,
+          "all_training_state_rng_preserved_exactly": true
+        }
+      ],
+      "training_log": {
+        "path": "runs/local-belief-rl-low-23/training.jsonl",
+        "sha256": "a72683e48f3a09cb59e4b5faabda977b05a88595cf4cb40fa98473509d817eb9"
+      },
+      "raw_command_columns_and_moments_zero": true,
+      "qualified_for_separately_planned_next_stage_only": false,
+      "default_promoted": false,
+      "full_goal_complete": false,
+      "decision": "Fixed200 genuine recurrent PPO stage complete. Initializer remains explicitly unvalidated; no budget extension, automatic broader evaluation or default promotion.",
+      "actor_max_parameter_changes": {
+        "log_std": 0.004502058029174805,
+        "encoder.weight": 0.0032819714397192,
+        "encoder.bias": 0.002118222415447235,
+        "gru.weight_ih": 0.004741579294204712,
+        "gru.weight_hh": 0.005153149366378784,
+        "gru.bias_ih": 0.0029966533184051514,
+        "gru.bias_hh": 0.0029965639114379883,
+        "head.weight": 0.002869904041290283,
+        "head.bias": 0.0013941340148448944
+      },
+      "saved_log_std": [
+        -2.995497941970825,
+        -2.9959702491760254
+      ],
+      "saved_action_std": [
+        0.05001171678304672,
+        0.04998810216784477
+      ]
+    },
+    "high": {
+      "protocol": {
+        "version": "bari-local-belief-reward-repair-pilot-v1",
+        "planned_utc": "2026-11-03T19:35:20.969284+00:00",
+        "source": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "preparation_script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-local-belief-rl-pilot.py",
+          "sha256": "3e014a8930232bde1c7739613e265e153b35ed10e3ca763c13c84c582fbeb365"
+        },
+        "verification": {
+          "path": "reports/local-belief-rl-verification.json",
+          "sha256": "b0944bac93262423d7c4006eeb71917cdfa287743ec6f33fde3124dd474759df"
+        },
+        "parent": {
+          "path": "runs/train-local-belief-current-student-11/checkpoint.pt",
+          "sha256": "70aa22e6e9709ed3a4d941ee25e436c1ca9921fc382c93f1c631671855167b80"
+        },
+        "parent_evidence": {
+          "path": "reports/local-belief-current-student.json",
+          "sha256": "e8e6ee5de2747d2d6c43bda2f4cce1e32f867079b302abdabb9bc1a966581e33"
+        },
+        "initializer_qualified": false,
+        "initializer_status": "Imitation gate failed3/5 success,2/5 final holds,213 contacts. Its mean weights are an explicitly unvalidated research initializer, not a passed gate or default policy.",
+        "hypothesis": "Wheel imitation still has large high-turn errors and unsafe drift. Test whether genuine formation/safety reward optimization corrects closed-loop acquisition/maintenance with the same local information boundary.",
+        "separation": "Separately planned reward-only experiment; not an automatic continuation of the failed imitation gate. No teacher labels, auxiliary imitation loss or scripted formation commands enter PPO.",
+        "arms": {
+          "low": {
+            "learning_rate": 3e-05,
+            "initial": {
+              "path": "runs/local-belief-rl-pilot-v1/initial-low.pt",
+              "sha256": "75b5ada02dddea00cbd2d07a0b6c62909c32f20302406a66bfe2321a62843202"
+            },
+            "config": {
+              "path": "runs/local-belief-rl-pilot-v1/config-low.json",
+              "sha256": "f130a67649db9f47a4b0361eadf977f505dbbc084d419bf9b952d891117aa38a"
+            }
+          },
+          "high": {
+            "learning_rate": 0.0003,
+            "initial": {
+              "path": "runs/local-belief-rl-pilot-v1/initial-high.pt",
+              "sha256": "05637fff085c7733853817e7b012c4a5af39b69f509e37ade103d60b5f174b48"
+            },
+            "config": {
+              "path": "runs/local-belief-rl-pilot-v1/config-high.json",
+              "sha256": "262aaa79962be68431653cc9d5aaec1417755b714f92995263b3d6ba203b808c"
+            }
+          }
+        },
+        "plan": {
+          "path": "runs/local-belief-rl-pilot-v1/training_plan.json",
+          "sha256": "21da12dbb23f75f3c2ec7dbcdaa51eb83e56513a80fc16b4985da709f148b558"
+        },
+        "training_seed": 23,
+        "worlds": 8,
+        "updates": 200,
+        "optimizer_steps_per_arm": 600,
+        "actual_joint_controls_per_arm": 204800,
+        "robot_samples_per_arm": 1024000,
+        "rollout_steps_per_world": 128,
+        "BPTT": 64,
+        "initial_log_std": -3.0,
+        "observations": [
+          0,
+          50,
+          200
+        ],
+        "development_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          1594776450,
+          589246224,
+          1979129855,
+          1391038837,
+          1899936300,
+          995963224,
+          113285700,
+          1761495214,
+          1685651270,
+          1727563011
+        ],
+        "reserved_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          3001,
+          3007,
+          3011,
+          3019,
+          10001,
+          10007,
+          10009,
+          10037,
+          10039,
+          2827126,
+          7844550,
+          10602868,
+          11179715,
+          12497452,
+          19015109,
+          20413573,
+          24550309,
+          25487437,
+          25530070,
+          35679009,
+          36950831,
+          43114121,
+          43987919,
+          46473349,
+          48308421,
+          57141025,
+          69929493,
+          77488299,
+          77915536,
+          78793891,
+          98002488,
+          102547314,
+          113147155,
+          113285700,
+          125590161,
+          128211403,
+          133695257,
+          138366874,
+          139993595,
+          140050403,
+          141288581,
+          141534937,
+          148161846,
+          163734115,
+          164181808,
+          175091321,
+          179620049,
+          187044299,
+          189565693,
+          207464862,
+          220839492,
+          221513649,
+          222615921,
+          225593738,
+          232618011,
+          234911073,
+          235416628,
+          235818503,
+          237135687,
+          239404390,
+          251134855,
+          256809428,
+          263239012,
+          270520118,
+          272110484,
+          273650618,
+          277609783,
+          279013654,
+          301783175,
+          313093398,
+          314509613,
+          322745741,
+          329096013,
+          329846908,
+          331923284,
+          335448813,
+          338325528,
+          339557547,
+          342600247,
+          343658820,
+          344204264,
+          345392929,
+          351483264,
+          372386662,
+          373745314,
+          378929717,
+          382578971,
+          392954959,
+          394452274,
+          399964466,
+          399995351,
+          401714813,
+          405024032,
+          410349006,
+          413721013,
+          417234529,
+          436254178,
+          440159641,
+          445932429,
+          469044074,
+          469140988,
+          472185483,
+          472989622,
+          489431430,
+          495802360,
+          502229842,
+          504907621,
+          508380582,
+          509473755,
+          522122259,
+          525435469,
+          532887974,
+          537484503,
+          540139156,
+          542718027,
+          544112619,
+          545861647,
+          549887984,
+          553545438,
+          560713229,
+          561676341,
+          562080495,
+          569614998,
+          578337630,
+          580997905,
+          589246224,
+          589614995,
+          594313176,
+          596017465,
+          602047054,
+          606894743,
+          613742598,
+          618157338,
+          622946141,
+          624984765,
+          631028093,
+          633497764,
+          650149548,
+          650980382,
+          651613329,
+          658898753,
+          664183827,
+          664626556,
+          669272030,
+          682828266,
+          684966139,
+          691716605,
+          695018572,
+          702890644,
+          704069165,
+          709227516,
+          715327860,
+          717035210,
+          721234481,
+          725472360,
+          727644583,
+          733468377,
+          739355049,
+          743971704,
+          748215689,
+          751152922,
+          752152778,
+          753152859,
+          755750887,
+          766754127,
+          778894749,
+          781898725,
+          783718696,
+          783822680,
+          796478090,
+          810118721,
+          810523912,
+          815768364,
+          817544212,
+          823018321,
+          824089645,
+          830442762,
+          830748353,
+          844551625,
+          856889361,
+          867636897,
+          878297063,
+          880800714,
+          880937101,
+          889760326,
+          896344174,
+          902693778,
+          905956396,
+          915432740,
+          917185294,
+          921532039,
+          921891633,
+          929841224,
+          934809621,
+          959942161,
+          966573100,
+          979700136,
+          980872572,
+          982309904,
+          995963224,
+          996423186,
+          1004094468,
+          1012291045,
+          1026382013,
+          1045623974,
+          1051674972,
+          1052128628,
+          1057063138,
+          1074919601,
+          1081995877,
+          1084071891,
+          1086865265,
+          1087525231,
+          1091893610,
+          1092825308,
+          1098242968,
+          1117790247,
+          1127354831,
+          1130878069,
+          1132001614,
+          1137828305,
+          1170541645,
+          1174280309,
+          1177796639,
+          1178395111,
+          1185160403,
+          1185375262,
+          1196506791,
+          1196592153,
+          1204933709,
+          1215490494,
+          1216852287,
+          1237008653,
+          1239545633,
+          1252413365,
+          1253358039,
+          1261623248,
+          1262177412,
+          1275994714,
+          1293858701,
+          1298575918,
+          1319379415,
+          1329764056,
+          1332399874,
+          1335319078,
+          1340875985,
+          1347918571,
+          1354327205,
+          1356812800,
+          1358390113,
+          1358887106,
+          1359432818,
+          1361814243,
+          1365849472,
+          1373624027,
+          1376502237,
+          1378280556,
+          1378651641,
+          1378652672,
+          1380123348,
+          1381740007,
+          1384627394,
+          1391038837,
+          1408597727,
+          1411876225,
+          1420922758,
+          1424560048,
+          1426227163,
+          1435263856,
+          1438459159,
+          1448909733,
+          1465403755,
+          1480293845,
+          1482178786,
+          1500255199,
+          1501817641,
+          1504793927,
+          1509255044,
+          1512157121,
+          1513785544,
+          1516165654,
+          1517022567,
+          1520447899,
+          1520472979,
+          1522881604,
+          1522941715,
+          1524300360,
+          1525330517,
+          1525723209,
+          1526484007,
+          1532761059,
+          1538435753,
+          1539042244,
+          1550097101,
+          1551689387,
+          1556328904,
+          1561658341,
+          1569899436,
+          1572462477,
+          1572998859,
+          1594082790,
+          1594776450,
+          1595016675,
+          1602093686,
+          1602739328,
+          1621922797,
+          1628583528,
+          1634553171,
+          1642549434,
+          1642871848,
+          1646283511,
+          1649121607,
+          1649268740,
+          1665508353,
+          1668766329,
+          1671052458,
+          1673742079,
+          1681885112,
+          1682864514,
+          1684094698,
+          1685651270,
+          1689037666,
+          1692185733,
+          1694273976,
+          1695638450,
+          1706259776,
+          1716369120,
+          1724791805,
+          1725759485,
+          1726897552,
+          1727563011,
+          1727768594,
+          1735417454,
+          1735822488,
+          1758054352,
+          1761495214,
+          1771415649,
+          1773963588,
+          1775943391,
+          1779443878,
+          1779849302,
+          1784058725,
+          1784777989,
+          1786857254,
+          1787205679,
+          1795454904,
+          1798443499,
+          1806544839,
+          1807836304,
+          1808537689,
+          1819935037,
+          1822376516,
+          1823368393,
+          1827564084,
+          1828019672,
+          1832339509,
+          1845969589,
+          1849173001,
+          1850432251,
+          1860676901,
+          1862458093,
+          1867621744,
+          1874592139,
+          1878447584,
+          1886228515,
+          1889587674,
+          1894021544,
+          1894810040,
+          1899936300,
+          1903086044,
+          1907778686,
+          1911310793,
+          1916584003,
+          1916681940,
+          1924203886,
+          1924555443,
+          1926318723,
+          1935319987,
+          1941393888,
+          1950449760,
+          1954480559,
+          1956734237,
+          1958541779,
+          1967086171,
+          1970561045,
+          1979129855,
+          1979543414,
+          1980205894,
+          1984372015,
+          1990041244,
+          1992583878,
+          2002464994,
+          2006668493,
+          2006861825,
+          2019939602,
+          2020310425,
+          2030702249,
+          2031354773,
+          2031355132,
+          2034260860,
+          2036851082,
+          2049023891,
+          2051894133,
+          2052465219,
+          2054117715,
+          2065756245,
+          2072790619,
+          2085783200,
+          2087406834,
+          2088751460,
+          2094412827,
+          2095252408,
+          2099246547,
+          2105635371,
+          2105853675,
+          2114843451,
+          2118262672,
+          2120849351,
+          2122707756,
+          2126394440,
+          2126765035,
+          2132145936,
+          2135230509
+        ],
+        "initialization_proof": {
+          "actor_critic_world_hidden_observer_sampling_and_torch_rng_exact": true,
+          "first1024_joint_control_rollout_all_arrays_exact": true,
+          "initial_world_comparison_exclusions": [
+            "config_sha256, whose difference is the declared learning rate"
+          ],
+          "note": "Optimizers are empty; their configured learning rates intentionally differ. Numeric/physical/observer state and sampled first rollout match. Verification rollouts are scratch only and do not advance either saved initial checkpoint."
+        },
+        "selection": "Only exact200 candidates. Same15 reused development worlds and original numerical thresholds. Require>=14/15 official successes AND final holds with zero total safety attempts. Intermediate50 diagnostic only. No budget extension/default promotion.",
+        "scope": "Isolated-circle GRU-PPO research, BCseed11 then RLseed23. HypotheticalFOV60, radius1m central-square starts, no final-heldout/multiple-independent-training-seed/four-task/occlusion/device acceptance.",
+        "execution_artifacts": [
+          {
+            "path": "runs/local_belief_rl.py",
+            "sha256": "f165d82af1d9a11b5d067f5bab470575e341afa9bd7fbbb3dfad1295997cd064"
+          },
+          {
+            "path": "runs/local_belief_actor.py",
+            "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+          },
+          {
+            "path": "runs/local_wall_belief.py",
+            "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+          },
+          {
+            "path": "runs/local_wall_belief.hpp",
+            "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+          },
+          {
+            "path": "runs/local_wall_belief_bridge.cpp",
+            "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+          },
+          {
+            "path": "runs/local-wall-belief-v1.dylib",
+            "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+          },
+          {
+            "path": "runs/run-local-belief-rl-pilot.py",
+            "sha256": "dee693d2bc7bb592520ca144d341836f0e810415006bdb416fff7f8f66b6a2d1"
+          }
+        ]
+      },
+      "arm": "high",
+      "algorithm": "bari-local-belief-mappo-v1",
+      "updates": 200,
+      "optimizer_steps": 600,
+      "actual_joint_controls": 204800,
+      "actual_robot_control_samples": 1024000,
+      "observations": [
+        {
+          "update": 0,
+          "checkpoint": {
+            "path": "runs/local-belief-rl-high-23/initial-checkpoint.pt",
+            "sha256": "bee8a098a3d43e1e770aae4a6707a7097504cbe2eae2e0d453df3b1400005dba"
+          },
+          "report": {
+            "path": "runs/local-belief-rl-high-23/evaluation-0000/report.json",
+            "sha256": "fafe61483b7080b9058b0904cb42b7e66e2b9cd688c44a746570a86e3cec4fbe"
+          },
+          "episodes": 15,
+          "successes": 6,
+          "final_holding": 5,
+          "contacts": 427,
+          "walls": 0,
+          "mean_final_max_error_m": 0.11689087730773956,
+          "all_training_state_rng_preserved_exactly": true
+        },
+        {
+          "update": 50,
+          "checkpoint": {
+            "path": "runs/local-belief-rl-high-23/checkpoint-0050.pt",
+            "sha256": "2834ad15bc8dd2a1d6d8e18765cdd7e314b371d4176b8059742af947fb72ee22"
+          },
+          "report": {
+            "path": "runs/local-belief-rl-high-23/evaluation-0050/report.json",
+            "sha256": "5402b2e31332ca9040db45a1df396b7e67d202daf699dbb10b0671066018fb12"
+          },
+          "episodes": 15,
+          "successes": 6,
+          "final_holding": 5,
+          "contacts": 240,
+          "walls": 0,
+          "mean_final_max_error_m": 0.09521928144947137,
+          "all_training_state_rng_preserved_exactly": true
+        },
+        {
+          "update": 200,
+          "checkpoint": {
+            "path": "runs/local-belief-rl-high-23/checkpoint-0200.pt",
+            "sha256": "59a2e837457d56a3cd6664916f7649f50ee5932ea6b9ce51b16c9f2e66eb42b0"
+          },
+          "report": {
+            "path": "runs/local-belief-rl-high-23/evaluation-0200/report.json",
+            "sha256": "ea2f7bdc431de4a516dab4074a080961fd6a56171470ab4fb87dc618b9fac14e"
+          },
+          "episodes": 15,
+          "successes": 3,
+          "final_holding": 3,
+          "contacts": 426,
+          "walls": 0,
+          "mean_final_max_error_m": 0.10034002405682876,
+          "all_training_state_rng_preserved_exactly": true
+        }
+      ],
+      "training_log": {
+        "path": "runs/local-belief-rl-high-23/training.jsonl",
+        "sha256": "8be0165ac0acfd0f608bc5fa9239daa443de7a7d8875ca9430d22c976d451502"
+      },
+      "raw_command_columns_and_moments_zero": true,
+      "qualified_for_separately_planned_next_stage_only": false,
+      "default_promoted": false,
+      "full_goal_complete": false,
+      "decision": "Fixed200 genuine recurrent PPO stage complete. Initializer remains explicitly unvalidated; no budget extension, automatic broader evaluation or default promotion.",
+      "actor_max_parameter_changes": {
+        "log_std": 0.07037615776062012,
+        "encoder.weight": 0.01721489429473877,
+        "encoder.bias": 0.009419046342372894,
+        "gru.weight_ih": 0.03619983792304993,
+        "gru.weight_hh": 0.03596201539039612,
+        "gru.bias_ih": 0.021496474742889404,
+        "gru.bias_hh": 0.021496545523405075,
+        "head.weight": 0.015712060034275055,
+        "head.bias": 0.004624120891094208
+      },
+      "saved_log_std": [
+        -2.936934471130371,
+        -2.92962384223938
+      ],
+      "saved_action_std": [
+        0.05302803963422775,
+        0.05341712757945061
+      ]
+    }
+  },
+  "actual_terminal_resume": {
+    "low": {
+      "version": "bari-local-belief-terminal-resume-v1",
+      "arm": "low",
+      "parent": {
+        "path": "runs/local-belief-rl-low-23/checkpoint-0200.pt",
+        "sha256": "f7b653a998e1682563586cb6f11ea45047ba60021591a418807aa34a7fb71e7a"
+      },
+      "worlds": 8,
+      "candidate_updates": 200,
+      "verification_only_updates": [
+        201,
+        202
+      ],
+      "episode_boundaries_crossed": 8,
+      "all_rollout_stats_actor_critic_optimizer_world_hidden_observer_rng_exact": true,
+      "state_and_rollout_leaves_compared": 6168,
+      "fields_excluded": [],
+      "scope": "Actual eight-world serialization/continuation proof across resets; no verification state is a behavior candidate",
+      "artifacts": [
+        {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-belief-rl-terminal-resume.py",
+          "sha256": "bfba12579ea905c04bf23026a8150a0f100eec1a6e9bded9d343209e0c599bcc"
+        },
+        {
+          "path": "runs/local-belief-rl-terminal-resume-low/verification-only-201.pt",
+          "sha256": "ca27501e235cb22a15dd8e7dda4b47f52db6b43127aa6689047b2b51a9c8bd75"
+        },
+        {
+          "path": "runs/local-belief-rl-terminal-resume-low/expected-rollout.npz",
+          "sha256": "ded4486cee08b24ba4392f9ed3615b1139d997b89270fe6f726ea1ee042f5c55"
+        },
+        {
+          "path": "runs/local-belief-rl-terminal-resume-low/actual-rollout.npz",
+          "sha256": "ded4486cee08b24ba4392f9ed3615b1139d997b89270fe6f726ea1ee042f5c55"
+        }
+      ]
+    },
+    "high": {
+      "version": "bari-local-belief-terminal-resume-v1",
+      "arm": "high",
+      "parent": {
+        "path": "runs/local-belief-rl-high-23/checkpoint-0200.pt",
+        "sha256": "59a2e837457d56a3cd6664916f7649f50ee5932ea6b9ce51b16c9f2e66eb42b0"
+      },
+      "worlds": 8,
+      "candidate_updates": 200,
+      "verification_only_updates": [
+        201,
+        202
+      ],
+      "episode_boundaries_crossed": 8,
+      "all_rollout_stats_actor_critic_optimizer_world_hidden_observer_rng_exact": true,
+      "state_and_rollout_leaves_compared": 6168,
+      "fields_excluded": [],
+      "scope": "Actual eight-world serialization/continuation proof across resets; no verification state is a behavior candidate",
+      "artifacts": [
+        {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-belief-rl-terminal-resume.py",
+          "sha256": "bfba12579ea905c04bf23026a8150a0f100eec1a6e9bded9d343209e0c599bcc"
+        },
+        {
+          "path": "runs/local-belief-rl-terminal-resume-high/verification-only-201.pt",
+          "sha256": "5e5e4b1e2ff6531d2509d6f2c022a576f2101e19b4542a0ac4786aca17e70ece"
+        },
+        {
+          "path": "runs/local-belief-rl-terminal-resume-high/expected-rollout.npz",
+          "sha256": "de624fc0ddaf160b552d492bfb61640e2ca1ee8c3a41bc57c11406b3de77797e"
+        },
+        {
+          "path": "runs/local-belief-rl-terminal-resume-high/actual-rollout.npz",
+          "sha256": "de624fc0ddaf160b552d492bfb61640e2ca1ee8c3a41bc57c11406b3de77797e"
+        }
+      ]
+    }
+  },
+  "paired_starting_ending_world_seeds_and_timeouts_exact_all200": true,
+  "production_source_changed": false,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "qualified_arms": [],
+  "decision": "Neither exact200 arm passes the frozen14/15 success/hold and zero-safety gate. No extension or default promotion; retain all failures and the explicitly unvalidated initializer.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-local-belief-rl-report.py",
+      "sha256": "a81dccc1dba1bae43e582f8e434fd7fabe014efb831263869f76ebcc9b2cba56"
+    },
+    {
+      "path": "runs/local-belief-rl-pilot-v1/protocol.json",
+      "sha256": "53886b33820f2e47ab1073fa28a4244b7d776ce8eefadc3258aff6a974f5e78a"
+    },
+    {
+      "path": "reports/local-belief-rl-verification.json",
+      "sha256": "b0944bac93262423d7c4006eeb71917cdfa287743ec6f33fde3124dd474759df"
+    },
+    {
+      "path": "runs/local-belief-rl-initial-parity-v1/proof.json",
+      "sha256": "848b867dae71fde8991a9c4f9c38f521817c85f3030255a3f341a4014bb81b23"
+    },
+    {
+      "path": "runs/local-belief-rollout-source-proof.json",
+      "sha256": "2635d9abd1f32461c55d05fd3461b446b8c18717ad89985dc00afdbc805f7deb"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/result.json",
+      "sha256": "4f29a7df395cd741964484f454d5b7bc03b83164fdf6a4f670698fc49aa07786"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/training.jsonl",
+      "sha256": "a72683e48f3a09cb59e4b5faabda977b05a88595cf4cb40fa98473509d817eb9"
+    },
+    {
+      "path": "runs/local-belief-rl-terminal-resume-low/proof.json",
+      "sha256": "0945085c0e3bccb1d7fd3e0fb3d1bbe341f0bbab8554ebee39566ac14d4e5ec3"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-113285700.npz",
+      "sha256": "770adea2e8ed102b7910e85819be97a13efdb6e36deebaa76a9b4c73b54d40d7"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1391038837.npz",
+      "sha256": "e3ae258cf564da7ca24dac7bc07a03c1dd7f8429baad01b74d4b7b735aa9e8c2"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1594776450.npz",
+      "sha256": "f8677ade85ddd0069d04e4abaefbbe5860892de12e3a7e0078b03e3117856b45"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1685651270.npz",
+      "sha256": "2ed4d4af6abe6aabdbaf100c8a6462d666e13e870d8e2d4af24ff44dedbaea95"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1727563011.npz",
+      "sha256": "5ee66749b306b6d19942cf7ff3bb8bae945609705ed30a0676f2787e8a5e5abd"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1761495214.npz",
+      "sha256": "8818b0c9ac358f49563f04afa5c85808a5759d06cbbbb75dbea5f911edcd323e"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1899936300.npz",
+      "sha256": "4c6337ec97160af67e5a8a403d1b184bc76b6920daaaf30e419792868016c908"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1979129855.npz",
+      "sha256": "ef0396a66dcaa2ad1e66034583b8615262aa7a748fb6cbed44d0d15f1ef2f17a"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2001.npz",
+      "sha256": "60f5c522456bf721ac83f9301b68df72d8ee0082b09db9aa7f7cc489a981516c"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2003.npz",
+      "sha256": "f24b0e8cf30860476a70e08e71b5ddefd68a0879469c8820964ca5953ddd325e"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2011.npz",
+      "sha256": "555cbcd1cc5d3dfb289b97b3ab1f8413dbc5e574c35826e09d869b28b7644430"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2017.npz",
+      "sha256": "2730bf9440fa040ab178f443c7965940bcbd029a2adce0c75768f51635a7aab5"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2027.npz",
+      "sha256": "a341bd10362726da681171ee83ce7d22a466ffaf31ebb6dca7d53c9c28cc3c3a"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-589246224.npz",
+      "sha256": "c0e2a56bc61b46d7b42f711f8b0ea911fa8731c8a8eaffef4eb44ad424a3a883"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-995963224.npz",
+      "sha256": "31b18b3c521ad1b4d0a9a2033098f75572cbb77434134c063e4a495cab578038"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-113285700.npz",
+      "sha256": "d4486b7486c4aa210745f09cabb1cde349179ca244756dfe979f083e261f3502"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-1391038837.npz",
+      "sha256": "a26d3935a8463004d3e24f8b34fda94fcc7e8a1aaca49aaaccf25ed09b54506b"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-1594776450.npz",
+      "sha256": "c67e8b6f24d98a8a3c5720f6dcb5b53f313eb7a42dbaf7ad53ebf72876b27545"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-1685651270.npz",
+      "sha256": "fb89f25fe45a15e87eaa3017f1237a3efbe012e772f05a8911b009f27cd316da"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-1727563011.npz",
+      "sha256": "1440548b630d42327d20898c973b8051935b2cf79427520e71ebf3f31050a316"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-1761495214.npz",
+      "sha256": "e68308157a1d4f929cfe03bd8cc356e2ce4d08ed32197123f0e0703316f92582"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-1899936300.npz",
+      "sha256": "a827cce85f8439038874cb5e80cd92bf00d4af4797d0d2c67d71e6937f2d2b6a"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-1979129855.npz",
+      "sha256": "f1aad8ceeb175f078bbc3ab57e3a3d9aae5716f9a8a4b0ece9a0aab4163a736e"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-2001.npz",
+      "sha256": "2681abf49c44fe86e542a033f0602065d3c1c3610ba621784955849d8dcaf854"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-2003.npz",
+      "sha256": "128a09463df11a7e31e9994493729e3813d0263766fc5b5a3481106f4e1d8527"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-2011.npz",
+      "sha256": "da1dacf99e78e838b68944962afcd4d2811150a662c529f86d2ba3b6a4b4c59d"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-2017.npz",
+      "sha256": "84f5e27ed34884af942f5fad6a3047c774cd4f5c4542d2857b3b1603ce7097c0"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-2027.npz",
+      "sha256": "7f043893cc1688e8a613831d6bfd2a659c385f7762edbc221749d509c9f42d29"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-589246224.npz",
+      "sha256": "fdff62fbc282fbb41959ef66be95fa7c1926a95d982511c3e16a28e7d5a9baff"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0050/circle-995963224.npz",
+      "sha256": "83540a3a6000fb8e8aff78b1d253a3934d3211aff098f74fad6c7b55755ab7e2"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-113285700.npz",
+      "sha256": "22aeb9da687b09bb89cfb49eaadf7c7a447c26ef757451a1de927bdb64bacc3c"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1391038837.npz",
+      "sha256": "b2bbd097b93149b94e7c1718761d19d2de42c71fe28abae977500d0df99c282e"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1594776450.npz",
+      "sha256": "b66e783cf9a8bd98b96f830da8832d05960f68e0da0be4892d13b9f44943e484"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1685651270.npz",
+      "sha256": "a02e63e98093020c0f1be8a9b4c6115cf3fb02325342d5f03bc05785c87a59ab"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1727563011.npz",
+      "sha256": "f4cf5cc1f7598a4bd6cfe17adeaa40a1432cd772fab2f03ee13b599e68c08205"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1761495214.npz",
+      "sha256": "e005dc4085251b6671038550dee6766fd244a29ba04adfeb74f89f7e3a8443ff"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1899936300.npz",
+      "sha256": "97f2dd63b90cd194155755d6d8c74b79f26428fca0d1ffdff1e58ce0c8598c3b"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1979129855.npz",
+      "sha256": "c3974cb75158bde5a2d2b68e573d8abc5056a8ae2c5fb810e010471ebfe2e559"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2001.npz",
+      "sha256": "4143f0f3ed9d4f66c080731e89419e6f5fe47ab13eb9e7cbe5857b8e254b4bf0"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2003.npz",
+      "sha256": "6491005c694d880ad623d867abe1f0034abf1b72795c0e0c6af65fe8786d92e4"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2011.npz",
+      "sha256": "ed1f6f09fe70266a3a17b3fe77ebb97b0abdf9f4a0e646ed5bec60782679af64"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2017.npz",
+      "sha256": "e82eda35f7076d12790cfbab7362aa06dbba93a74de1fc3917c36a83c57697a0"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2027.npz",
+      "sha256": "72fca81abcca22e4486370e1c55cb051e46a76fb8e88c8e5c216736f0bb56db1"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-589246224.npz",
+      "sha256": "c0db22a093563c6cd24eeeb8dcfc982f78080b3838f6b5337d6c7428af9a913f"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-995963224.npz",
+      "sha256": "f8d0b5144d1fe0b6d38383e31c56b28cd99e9306420a500171c52d676697736c"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/result.json",
+      "sha256": "d7b8b7af21d66936d39f1d833433ed945be91165f9260d334e45f38e04277394"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/training.jsonl",
+      "sha256": "8be0165ac0acfd0f608bc5fa9239daa443de7a7d8875ca9430d22c976d451502"
+    },
+    {
+      "path": "runs/local-belief-rl-terminal-resume-high/proof.json",
+      "sha256": "cccf94e5a7c6f2c18139f94c3d760b6774673f0d7af64686174c4a63f36a3301"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-113285700.npz",
+      "sha256": "17c8e70ad128acc2ab746a13c34f2bfefc9d10cf8ca0c4d1df0fe6d18c6ec4e9"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1391038837.npz",
+      "sha256": "a9e295995613427c4e9914044f14df831c76c8f835a3c2fc1cfb184d754c2fcc"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1594776450.npz",
+      "sha256": "ca9de758e67bbdf7cfcf1970ded2eab3b4f159b7b2b9653c6305c8cb2eb0fe14"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1685651270.npz",
+      "sha256": "3b89e839cfbb23b7ec0bfc247492d90fd0ed1ad0d5f466a17bcbdb6ef468ed50"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1727563011.npz",
+      "sha256": "ef76254a99b1f20131064c2d86418348c80c1b7d8784014a2caeaa781d240e50"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1761495214.npz",
+      "sha256": "24093cca50dfdf727af07167c4c42dc89e85a1d48fae157876a8e6d708965a7f"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1899936300.npz",
+      "sha256": "ad1fae7f2509e119c8bd71252cc02a4320d47e00130935e50342db7ffc3a4254"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-1979129855.npz",
+      "sha256": "ecd87169502ca639aeedaee7455ba4f21aa54dc11e68856434ca2021f54bb50d"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2001.npz",
+      "sha256": "48f2683d7b86d7235e4f4ca5fc782353fac1f6ddae3bfdeb25103dd221a03482"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2003.npz",
+      "sha256": "02186a304a87b829d696471bc35e826ef14aaf6b31dc9444fb78eac216c9680d"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2011.npz",
+      "sha256": "eca393b35a04e04ca70bb20567793ca65bfb7bfb36e99a1dde912782c3a86853"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2017.npz",
+      "sha256": "adafeee27330bec5542d46fc507576009d531428214f8745f571dbb0f38a5a5e"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-2027.npz",
+      "sha256": "68cafafdfc35f1c88d6988857b2c86cb0554dacffef5d1f634877def51ad7cec"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-589246224.npz",
+      "sha256": "1c9f16477e5aa79038b28de3c6cd628db4f519251d718d8e888428a478b67b25"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0000/circle-995963224.npz",
+      "sha256": "9c553217847ad5b1cbf570fa5babf71a3b747c641dfd57466a4c46bccec76624"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-113285700.npz",
+      "sha256": "aba68be817b039b3ce29c46deee30636313b04ad0efc9ff32fb3582daa9d30b6"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-1391038837.npz",
+      "sha256": "b95a3fba89575bcca2a22b56b1c7ebec419c77d72b241f55214ae99c44c44622"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-1594776450.npz",
+      "sha256": "f0f20fe005bc3d54879386d07ceb3f299eef28101a14f5f0f6daca599138ae08"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-1685651270.npz",
+      "sha256": "364db570097c544c55b4874c3ff87a43a733397d06a6850e650266dac2e5502c"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-1727563011.npz",
+      "sha256": "4d075ed2f136f6c77120f6b5a648a1fc631a6e24a6ed2fc42c6df8faaec4fe79"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-1761495214.npz",
+      "sha256": "8777aac20768b0d3ba84cf48cda8f52c8f815082b5bb1cd79b1d144666e8fc0b"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-1899936300.npz",
+      "sha256": "4e822abb954bd9dcc6d5fef1ec3f710bccc76c368baafc79bba7aa7d229d9e49"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-1979129855.npz",
+      "sha256": "33e091e4ad05b443b6c5880e10533acad0cac5720ea3079cce7f26c4cd00772b"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-2001.npz",
+      "sha256": "2cb8c032b67dde0c29baaaaa9a0c89b936bdbba6668c8732c6e19aec26943f8b"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-2003.npz",
+      "sha256": "561fa49e7bf216aec2853872a0db6c5f74c0d45dc384fc6f47d09026e720d3da"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-2011.npz",
+      "sha256": "0627dda69e6d4b74fb4e1301d224fd7851d429e6b31fbe7919b32018885b45c7"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-2017.npz",
+      "sha256": "bc3c04cc01277dc0f50edddd78f3ddc681d516f41ad79e29ab778a41052986f5"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-2027.npz",
+      "sha256": "383b07d1d29eccdae470c6241b6ce4ae923e3292bd7c12beea7a9255f2323d01"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-589246224.npz",
+      "sha256": "a9b6b6dc1eaa1cada758d24d81c066d1d865a75e00e86f14b8b4c16c37aa5e28"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0050/circle-995963224.npz",
+      "sha256": "e6f717f7629b3f0be6f1a0d040c404cab93ed0dd480debac6b8362812607a6ad"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-113285700.npz",
+      "sha256": "db0d87aeb105a09acef7fd3c5b9dbccffa180a0c2b57aa9b062cefc62c4c6d12"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-1391038837.npz",
+      "sha256": "00d644d148391369981bd58010870c647dabc3c91f96eb1715cb16116e90df3d"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-1594776450.npz",
+      "sha256": "36369bcb123c017092f57f6aa08a467847e0127e511a52a8f96942df4805cf74"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-1685651270.npz",
+      "sha256": "5ccc1073ed6350e5b1de7d578cc3b7fb70c0967c20aadbdf9c4595ec280b9146"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-1727563011.npz",
+      "sha256": "7035cf6e50e8dc51c237b52e7c68052052874a6b62f3d4a18d7b778d44d4e081"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-1761495214.npz",
+      "sha256": "6b5c7081ab7a7c6d0da1e276f654ce14f3486a450f4b13c6c751b6a88cbe7fbe"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-1899936300.npz",
+      "sha256": "37656d5c547bbbcfbbd5fd0b0336fe5e2cbe67ad146c25550b8083f21fbcc8b8"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-1979129855.npz",
+      "sha256": "f6e37c9680cd5eed2a75a705db5f4878a400db7d0fc2744b4c1641544b473818"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-2001.npz",
+      "sha256": "734a7b892ce1da93a28c582cb9eaa68df253920773fedfeb543b69ab86c40138"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-2003.npz",
+      "sha256": "77111a9b18d985b8522678012ae578cbcfb4e00513abfdeb2bef2d5d5a415e80"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-2011.npz",
+      "sha256": "e22507c5a552a94d13f197bd44aac73dc49089f86bb12cb19a075a3269871265"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-2017.npz",
+      "sha256": "53dc6abf7a6de87519ea31996e40a089e0fe8432344b69f4eb720070db24605e"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-2027.npz",
+      "sha256": "e85e2344e30cf08df5837077d69163c304eed1705c0269ee2b5190c79c82ceee"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-589246224.npz",
+      "sha256": "1e85e83e7ee677ad901d606af03346c6a0f72ab33885ee7dae8dddb12b00ad40"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/evaluation-0200/circle-995963224.npz",
+      "sha256": "813e348ad39cedbcc21341a6d433a7e8419a63379f10fc9e8b4df42a8325d04a"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/local-belief-rl-high-23/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/local_belief_rl.py",
+      "sha256": "f165d82af1d9a11b5d067f5bab470575e341afa9bd7fbbb3dfad1295997cd064"
+    },
+    {
+      "path": "runs/prepare-local-belief-rl-module.py",
+      "sha256": "a15904d4c00aa1c02f67f38b6e9155361b00617bb4777848403bc8a0e4879e24"
+    },
+    {
+      "path": "runs/verify-local-belief-rl.py",
+      "sha256": "1d7030d112aae8f92ef6fa37dea81c81cb4e0b6c308601b1f3677aac83eca9a5"
+    },
+    {
+      "path": "runs/prepare-local-belief-rl-pilot.py",
+      "sha256": "3e014a8930232bde1c7739613e265e153b35ed10e3ca763c13c84c582fbeb365"
+    },
+    {
+      "path": "runs/run-local-belief-rl-pilot.py",
+      "sha256": "dee693d2bc7bb592520ca144d341836f0e810415006bdb416fff7f8f66b6a2d1"
+    },
+    {
+      "path": "runs/verify-local-belief-rl-initial-trajectories.py",
+      "sha256": "0729c660e80b8c9271ebdf2043c8d3fe4166ed571e330bd5c2a0b0dbbe6ed5be"
+    },
+    {
+      "path": "runs/verify-local-belief-rl-terminal-resume.py",
+      "sha256": "bfba12579ea905c04bf23026a8150a0f100eec1a6e9bded9d343209e0c599bcc"
+    }
+  ]
+}

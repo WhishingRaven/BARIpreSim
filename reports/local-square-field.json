@@ -1,0 +1,488 @@
+{
+  "protocol": {
+    "version": "bari-local-square-field-probe-v1",
+    "planned_utc": "2026-11-03T20:09:08.164514+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "teacher_version": "local-square-role-ring-v1",
+    "development_seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027
+    ],
+    "larger_seeds": [
+      699746730,
+      947396588,
+      42032562,
+      2127349747,
+      25694697,
+      579260204,
+      942757825,
+      443028831,
+      661446613,
+      1395342943,
+      599446967,
+      202538306,
+      1362798069,
+      188944437,
+      780309098,
+      1705089267,
+      1619859460,
+      418962923,
+      1525466569,
+      195523468
+    ],
+    "maintenance_angles_rad": [
+      0.0,
+      0.37,
+      1.1,
+      2.2
+    ],
+    "geometry": "Four anonymous outer robots at radius square_side/sqrt(2); own mission leader-role robot uses center rule. Evaluator remains translation/rotation/permutation invariant and includes all five.",
+    "information_boundary": "Only current local9, retained own command/range history and provisional calibration. No true pose/wheels, hit class, object ID/count, evaluator target assignment or errors enter teacher actions.",
+    "unknown_center": "Own center role uses inferred anonymous body centroid if >=3 local body-shaped hypotheses; otherwise explore body-forward. This is not a true neighbor count or guaranteed complete centroid.",
+    "motion_and_safety": "Provisional own-command differential-drive integration; local inferred-normal velocity projection and speed limits, no physical safety guarantee or ground-truth mask.",
+    "selection": "Require5/5 random official successes AND final holds, zero total safety attempts, and4/4 exact-square maintenance holds with zero safety before fixed20 random cases. Then require>=18/20 success/holds with zero safety. No training, default promotion or automatic data collection; retain all failures without extensions.",
+    "sources": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-square-field.py",
+        "sha256": "0dae1c7b8f9bcd8c0f4c9f27ecca66004379b28e79ed46e9b40024defeccbce8"
+      },
+      {
+        "path": "runs/local_square_field.py",
+        "sha256": "3a7e0f134a8d8f8287fffeb453f23388b4568cfb72c54322e599c6723860d625"
+      },
+      {
+        "path": "runs/local_circle_cooperative.py",
+        "sha256": "14fa30084b3bbf6c5aea7fe171547497b8b906a94e6424a4f95223c8c647ae9d"
+      },
+      {
+        "path": "runs/local_circle_history.py",
+        "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+      },
+      {
+        "path": "runs/local_circle_guarded.py",
+        "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+      }
+    ],
+    "scope": "Host-only unlearned square feasibility. Hypothetical FOV60 and unmeasured geometry/timing. Not GRU-RL, four-task, occlusion, final-heldout or deployment acceptance."
+  },
+  "cases": [
+    {
+      "seed": 9101,
+      "condition": "maintenance-0",
+      "final": {
+        "rms_error_m": 0.009642793163620374,
+        "max_error_m": 0.011707486205958724,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 20.50000000000002,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.016620617970046506,
+        "peak_max_error_m": 0.03865483825284674,
+        "reacquisition_s": [
+          0.6999999999999993
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.4402774435600705
+      },
+      "recording": "runs/local-square-field-v1/maintenance-0-9101.npz",
+      "local_inputs": "runs/local-square-field-v1/maintenance-0-9101-local-inputs.npz",
+      "center_ready_fraction": 0.7893333333333333
+    },
+    {
+      "seed": 9102,
+      "condition": "maintenance-1",
+      "final": {
+        "rms_error_m": 0.01023265362364298,
+        "max_error_m": 0.015346402994907379,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.017561829117060068,
+        "peak_max_error_m": 0.03325237643484952,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.377006812561602
+      },
+      "recording": "runs/local-square-field-v1/maintenance-1-9102.npz",
+      "local_inputs": "runs/local-square-field-v1/maintenance-1-9102-local-inputs.npz",
+      "center_ready_fraction": 0.7866666666666666
+    },
+    {
+      "seed": 9103,
+      "condition": "maintenance-2",
+      "final": {
+        "rms_error_m": 0.017519101617376354,
+        "max_error_m": 0.023937520692434346,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.017980109008440066,
+        "peak_max_error_m": 0.030855796356406583,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.219968036930868
+      },
+      "recording": "runs/local-square-field-v1/maintenance-2-9103.npz",
+      "local_inputs": "runs/local-square-field-v1/maintenance-2-9103-local-inputs.npz",
+      "center_ready_fraction": 0.7906666666666666
+    },
+    {
+      "seed": 9104,
+      "condition": "maintenance-3",
+      "final": {
+        "rms_error_m": 0.02104373426321822,
+        "max_error_m": 0.02801247794406206,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 7.29999999999999,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.021652313316027804,
+        "peak_max_error_m": 0.03620545559104068,
+        "reacquisition_s": [
+          0.2999999999999998,
+          0.10000000000000142
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.45066068259382
+      },
+      "recording": "runs/local-square-field-v1/maintenance-3-9104.npz",
+      "local_inputs": "runs/local-square-field-v1/maintenance-3-9104-local-inputs.npz",
+      "center_ready_fraction": 0.7893333333333333
+    },
+    {
+      "seed": 2001,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.03619675722641961,
+        "max_error_m": 0.048467873014237633,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.08897343678763246,
+        "peak_max_error_m": 0.32076900438672895,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.574250359503581
+      },
+      "recording": "runs/local-square-field-v1/development-2001.npz",
+      "local_inputs": "runs/local-square-field-v1/development-2001-local-inputs.npz",
+      "center_ready_fraction": 0.9893333333333333
+    },
+    {
+      "seed": 2003,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.02681529426161235,
+        "max_error_m": 0.03535067726528703,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07584312293143974,
+        "peak_max_error_m": 0.2361489981881016,
+        "reacquisition_s": [],
+        "unrecovered_s": 14.4,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.945904828224906
+      },
+      "recording": "runs/local-square-field-v1/development-2003.npz",
+      "local_inputs": "runs/local-square-field-v1/development-2003-local-inputs.npz",
+      "center_ready_fraction": 0.9246666666666666
+    },
+    {
+      "seed": 2011,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.0030433559598932666,
+        "max_error_m": 0.004680834227190855,
+        "success": true,
+        "acquisition_s": 4.199999999999999,
+        "holding_goal": true,
+        "hold_s": 25.800000000000097,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.02208389329523162,
+        "peak_max_error_m": 0.19705089610242668,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 2.794941277434687
+      },
+      "recording": "runs/local-square-field-v1/development-2011.npz",
+      "local_inputs": "runs/local-square-field-v1/development-2011-local-inputs.npz",
+      "center_ready_fraction": 0.9886666666666667
+    },
+    {
+      "seed": 2017,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.05238886157011566,
+        "max_error_m": 0.0757082420307772,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.132468034518146,
+        "peak_max_error_m": 0.2127599473439526,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.727341260704359
+      },
+      "recording": "runs/local-square-field-v1/development-2017.npz",
+      "local_inputs": "runs/local-square-field-v1/development-2017-local-inputs.npz",
+      "center_ready_fraction": 0.8046666666666666
+    },
+    {
+      "seed": 2027,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.01206666675766841,
+        "max_error_m": 0.018403813088120613,
+        "success": true,
+        "acquisition_s": 22.5,
+        "holding_goal": true,
+        "hold_s": 7.499999999999989,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07793319890435793,
+        "peak_max_error_m": 0.2821593192829332,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.745275298107506
+      },
+      "recording": "runs/local-square-field-v1/development-2027.npz",
+      "local_inputs": "runs/local-square-field-v1/development-2027-local-inputs.npz",
+      "center_ready_fraction": 0.8986666666666666
+    }
+  ],
+  "summary": {
+    "maintenance": {
+      "episodes": 4,
+      "successes": 4,
+      "final_holds": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.019750971959340627
+    },
+    "development": {
+      "episodes": 5,
+      "successes": 2,
+      "final_holds": 2,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.036522287925122666
+    },
+    "larger": {
+      "episodes": 0,
+      "successes": 0,
+      "final_holds": 0,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": null
+    }
+  },
+  "permutation_replay": {
+    "all300_commands_exact": true,
+    "permutation_including_center_role": [
+      3,
+      1,
+      4,
+      0,
+      2
+    ],
+    "no_robot_index_assignment_in_teacher": true
+  },
+  "selected_for_separately_planned_data_only": false,
+  "GRU_or_RL_training_updates": 0,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "artifacts": [
+    {
+      "path": "runs/local-square-field-v1/protocol.json",
+      "sha256": "0b60cfbddca126a387f8532ed0d5d7f2dba6168ccffff00d630675e21ea7d11e"
+    },
+    {
+      "path": "runs/local-square-field-v1/maintenance-0-9101.npz",
+      "sha256": "24fa38c84cb2f932abbc589c5ef8434458a62a873ccaeaffb0f7685904b4cfdd"
+    },
+    {
+      "path": "runs/local-square-field-v1/maintenance-0-9101-local-inputs.npz",
+      "sha256": "f7b5d58c2f8b048404b4b38f61ce307b858b8eeb47d600f1954deb03b221973b"
+    },
+    {
+      "path": "runs/local-square-field-v1/maintenance-1-9102.npz",
+      "sha256": "536181912832069b762f0a88cc10193a787054144d2b533915b43d31b78428e8"
+    },
+    {
+      "path": "runs/local-square-field-v1/maintenance-1-9102-local-inputs.npz",
+      "sha256": "0cebcf5e756cc41fde68c0c46a547a68e0b9f2b9c83423d8cb494b7280ef41f0"
+    },
+    {
+      "path": "runs/local-square-field-v1/maintenance-2-9103.npz",
+      "sha256": "5d73bf28add1cd81443a6d2d1db054487573200de1d01e33cd85841d986ca839"
+    },
+    {
+      "path": "runs/local-square-field-v1/maintenance-2-9103-local-inputs.npz",
+      "sha256": "390c5ebddfbbf30482e8411d8e12a629987b5eb1b7ba10b71480849eb4c55098"
+    },
+    {
+      "path": "runs/local-square-field-v1/maintenance-3-9104.npz",
+      "sha256": "8868af757eccdc6d8484cf3b9015dbc787864c417f911558dcbab217ded50781"
+    },
+    {
+      "path": "runs/local-square-field-v1/maintenance-3-9104-local-inputs.npz",
+      "sha256": "8996216c2b0e0edc7a8f9dafb18c0f12942754f1138b3f958687aa45077d1011"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2001.npz",
+      "sha256": "17517efaa00eb6e7d932ab3ea1b6c69392fdedae7ab2534d850b727be29ae9f6"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2001-local-inputs.npz",
+      "sha256": "8996f09d3945a6ebbcb281136664a5b349111ebd7f98b9bff575173fd680853f"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2003.npz",
+      "sha256": "50dc9cbd4b4ca901fb0dcf575298f960c460bde018c780142feae9a5783f0a9b"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2003-local-inputs.npz",
+      "sha256": "a9edb78d4dc26a736865c0df8b0f052ecea3170caeed9d53b416f7f9549ae6f6"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2011.npz",
+      "sha256": "a7301c35db75b7b00ccf4421469be801f9706005944df23ef53ca0f6dbaa3c10"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2011-local-inputs.npz",
+      "sha256": "30eb8d71002ca3ddc1f730b1c4e97b420045db0dff1fe684afc7a057045b5769"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2017.npz",
+      "sha256": "174476fdca30ac8ce5ffd3bcd5651cd53712835ffc8ef97ee6994e51ed6be500"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2017-local-inputs.npz",
+      "sha256": "b95f618f16b91b5fe26b1261b92b611c641dea52b1ceae75bb653b47979f52f2"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2027.npz",
+      "sha256": "f24c926fc1dc9b58d66aa89500881ebc8c04b084fa8032bd1d89ac67c65d9114"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2027-local-inputs.npz",
+      "sha256": "6e30fadbcbda39d6cca4dac7d88a1f7e562d7db0205809195a746418f4df6a0c"
+    }
+  ]
+}

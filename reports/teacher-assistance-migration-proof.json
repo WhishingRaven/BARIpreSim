@@ -1,0 +1,1020 @@
+{
+  "version": "bari-teacher-assistance-migration-proof-v1",
+  "default_collection": {
+    "teacher": {
+      "arrays_bit_exact": [
+        "observations",
+        "tasks",
+        "expert_commands",
+        "executed_commands",
+        "actor_weights",
+        "reset_masks"
+      ],
+      "metadata_exact_except_source_revision": true,
+      "episodes": 4,
+      "steps_per_episode": 6,
+      "old_source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "84858259b64fbd84b19d7d67ff449381c33ca5e57539709a6104500ef4fd36ba"
+      },
+      "new_source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      }
+    },
+    "student": {
+      "arrays_bit_exact": [
+        "observations",
+        "tasks",
+        "expert_commands",
+        "executed_commands",
+        "actor_weights",
+        "reset_masks"
+      ],
+      "metadata_exact_except_source_revision": true,
+      "episodes": 4,
+      "steps_per_episode": 6,
+      "old_source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "84858259b64fbd84b19d7d67ff449381c33ca5e57539709a6104500ef4fd36ba"
+      },
+      "new_source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      }
+    },
+    "scan-student": {
+      "arrays_bit_exact": [
+        "observations",
+        "tasks",
+        "expert_commands",
+        "executed_commands",
+        "actor_weights",
+        "reset_masks"
+      ],
+      "metadata_exact_except_source_revision": true,
+      "episodes": 4,
+      "steps_per_episode": 6,
+      "old_source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "84858259b64fbd84b19d7d67ff449381c33ca5e57539709a6104500ef4fd36ba"
+      },
+      "new_source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      }
+    }
+  },
+  "default_imitation": {
+    "shared_dataset": "runs/assistance-migration-old/teacher/demonstrations.npz",
+    "epochs": 2,
+    "seed": 11,
+    "payload_leaves_exact_except_source_provenance": 190,
+    "scope": "actor, critic, optimizer, RNG, normalization, contracts and training metadata"
+  },
+  "verification": "145 passed in 32.95s",
+  "artifacts": [
+    {
+      "path": "runs/collect-assistance-migration.py",
+      "sha256": "6a29da1601eb40ed9c6fd7454cab7418a0424591a0b436554f1ec499e7b8062e"
+    },
+    {
+      "path": "runs/assistance-migration-student.pt",
+      "sha256": "f81528a5f22f3d58c943ec28c31dd316954e2a2dc25ecc8ea51a43e0acd3f778"
+    },
+    {
+      "path": "reports/verification-teacher-assistance.txt",
+      "sha256": "2b43addc6e94ca95458de5ad4336687f754969ffdc3f6a8242e128c0a91753e8"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/AGENTS.md",
+      "sha256": "17cd618bb129dc5098910ff5bc17a069dcaf03d682d07716c352860830c88f79"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/bari/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/config.json",
+      "sha256": "ffe9c2afa6c6deb5733164c21b5631438c8144ff94d4febeb8fc12ae927811fd"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/contract.json",
+      "sha256": "fb97b14d91eb553d916ddd430cc7833844f39976512a407b18fe13e0712b8cce"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/follow-teacher-h64.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/follow-teacher.json",
+      "sha256": "3cfb813c391182c47e44e00346b4a2a734d95e317cca6f5e64ba2bc96c1fcc25"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/isolated-circle-correction-stage.json",
+      "sha256": "634b6a811559e597271627d890882e81d83618b63869295b4479a04795616581"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/isolated-circle-stage.json",
+      "sha256": "148db0eb23b4c0f5c7d71a34fb50cecfa24a1a2ae0e3c321c558e2252d3cd305"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/isolated-follow-stage.json",
+      "sha256": "5135e4f6be2cd0788e115c32490a8c938ba1d3440823e2b1beb2ec3b9b2842aa"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/memory-64.json",
+      "sha256": "94170f5161b9a3f174ddd525dbdad8a82b061130046ece6a3bc5830e4d1bad16"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/multiworld-curriculum.json",
+      "sha256": "be92b9810fe37ee103ffbd3ea54b234537b25adb598966ee7c232626e27da966"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/occlusion-probes.json",
+      "sha256": "f3da2381a1202b638ccd70aa7705e3a1ebdf1c5070ad03e686cd770c72520be8"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/retention-stage.json",
+      "sha256": "dc2a4217ac0f9b09c0fe3d8c6b605fb8be54e1d288915fcd92b4e41997511c14"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/scan-circle-teacher.json",
+      "sha256": "17ef71428147b741dc4b0891239a6833609ffa53b95583a6653c022ccc6e419c"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/training-curriculum.json",
+      "sha256": "6d1d834d82a192277feb382879a8906e598027a21d2b2d3ffa5a4c560f30142d"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/configs/validation-seeds.json",
+      "sha256": "03313cb8e3bca8e78a95dba1943df8c878e10dbea1ba884425c5bef408c045bc"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/hardware/README.md",
+      "sha256": "9aa754d9e85c45aac63b281ed46f889a333ec6487f0bb8afb73f1f68ef28bcc3"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/hardware/arena.template.json",
+      "sha256": "a2bcc80bf558c2e98823735423a706e60c039b82a58806a946df0fe2e2f1ae12"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/hardware/arena_template.py",
+      "sha256": "5f7f1475422414343952834121f82a0ed98d92ff646817e6a499a125f6de6a94"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/hardware/board.template.json",
+      "sha256": "03a66139d5756039d655680fe6fd0115d0042bd1f28a4ac2b37ea3c482ac7ebd"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/hardware/sensor-reference.md",
+      "sha256": "9b022cfcd65981ae7c333b802255b15770e9b7cb278a044829912691a7df2790"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/pyproject.toml",
+      "sha256": "2d135b4ee89cc7fcd2e820e5085811b0f2b84e4c7df68fb0f10b675792e3bebf"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/runtime.json",
+      "sha256": "fb23333eebf9f8199e5ffb68793a24da8fbaa71d430c9c193c331e0159176265"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_anonymous_follow.py",
+      "sha256": "f4d7dcca2413cc6f03e5a6fc1cdccbcc798374e1962f11e050a5865607014311"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_arena_template.py",
+      "sha256": "38bc739c01052ed94edf7fa978ef951ed40f395c8d0e4d861424591a827611f3"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_autoregressive.py",
+      "sha256": "d6a620489463b2b15c65e243655554e5811a8cb54610396f33e31946cafef9a2"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_baseline.py",
+      "sha256": "e7963469075e7acbf7805c70520328e2bb0d521e12724c723e1455e1c96f7537"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_critic_boundary.py",
+      "sha256": "196e97928ddaf33b6a66e4ba37da432e1ea13dedaf116b6c9e604de294a9cf3b"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_curriculum.py",
+      "sha256": "3051f46044efe0827a3eb8f088cac1d933c60419bdc41a4f99bf73ddcd63e839"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_demo_lifecycle.py",
+      "sha256": "f38490129999b69fc16b2e2db92234e9f4e5043bb7de1631170d3eefc6f2061c"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_environment.py",
+      "sha256": "55873c3da13b3cd1f50380910a70166d313e3b3d0af8283a3aaa0a4c3e763bb8"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_export_render.py",
+      "sha256": "adf5475727591a0762848cb1359fab3b3e0863aa3495399257818463e6ac4b04"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_imitation.py",
+      "sha256": "1cf0bbba9964037532d2b4c42a1f89b5ea600d44edc8e71c3ba774bbe35ba262"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_learning.py",
+      "sha256": "27ab13a2b31bc3163d8d8ceaea6505528990befd826d486a4f4dc9eab97f20db"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_metrics.py",
+      "sha256": "f41991adb950adf6fb6a151805f3c473a7e4943907eb0bfb3320d8251eac848d"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_multiworld.py",
+      "sha256": "7f179947c163e0cbef1f646bd79a2422e3a4a1800f856d5e25ba8ec3e91c5cbd"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_occlusion_protocol.py",
+      "sha256": "7faef4c3221f74e7479e7596e859b06b36baee1a8927ccb0c52e3d0dad626bcc"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_periodic_critic.py",
+      "sha256": "db9b06e01847587987cc7363ea075d0ef528aee0fb1b15d932182c922082937d"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_replay.py",
+      "sha256": "1fb42512536a0c9f48a7f8af05875f7eff678519184e330ec813e0fda3d60f69"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_scan_teacher.py",
+      "sha256": "27ac08b65f61017128244afdafaf1cb14f0a0ae900a5f84f0034346d11478175"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_task_curriculum.py",
+      "sha256": "1c28dcf627c6489505399081b8e29663a834b6bd8f26011c9976e837cbfe71ec"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_teacher_assistance.py",
+      "sha256": "4985e4ce7ca9a646a8497e5e0b73238fe228683290274396e81bfa02ef5b58ad"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_transition_reports.py",
+      "sha256": "c58511422e71bc6dc97ce8b4a06536d6039664b8333878418c9e1419b6dc82de"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/tests/test_value_normalization.py",
+      "sha256": "60ec8265454c8e12acee9b3f60fe31f312043f2ae297a49768f94bb6d5cd3d70"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/checkpoint.pt",
+      "sha256": "9a3caa563bb3818f47fedda9f45dd6081f7528b2e90d58b3c14f2092019813fb"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/config.json",
+      "sha256": "45fce892bafeb2fc8efd64755b1504e590352aa02ec81774d4b6733eab7520ce"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/imitation.jsonl",
+      "sha256": "e369f6f0c1a222895320e53035f143bd1892021383e900ff2e823fb481d1efe5"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/imitation_plan.json",
+      "sha256": "1f656c3571146e1b4376aac1eeeb479dd5116debef82f1822c813b4065e0eb2e"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/cli.py",
+      "sha256": "6dcacbec69c25e006c02cbebf7101b649a78ca453be4902c533128e4f9bcfd82"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/imitation.py",
+      "sha256": "c5558c2cc05a41d9280750e0fdfcd4bbaf105f886b22ffaae67ad333f59cfe14"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/assistance-migration-old/imitation/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/config.json",
+      "sha256": "45fce892bafeb2fc8efd64755b1504e590352aa02ec81774d4b6733eab7520ce"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/demonstrations.npz",
+      "sha256": "44133d1a1549747adf3459e2c40e39e7c1115ea031293d7e66542531adce6162"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/manifest.json",
+      "sha256": "15efc2ac1184ca5f442ae5b114d7f45f38c394ba08263d4b7bb94918c779bc8e"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/cli.py",
+      "sha256": "6dcacbec69c25e006c02cbebf7101b649a78ca453be4902c533128e4f9bcfd82"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/imitation.py",
+      "sha256": "c5558c2cc05a41d9280750e0fdfcd4bbaf105f886b22ffaae67ad333f59cfe14"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/assistance-migration-old/scan-student/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/config.json",
+      "sha256": "45fce892bafeb2fc8efd64755b1504e590352aa02ec81774d4b6733eab7520ce"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/demonstrations.npz",
+      "sha256": "14f2cbb85b358be1bd16041e29fc1207d1945d82eb4e970393e5bef486651341"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/manifest.json",
+      "sha256": "e912fe1fde4540640b794ec8522b82b727e22896f1b70e516b1cbcfefac02e22"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/cli.py",
+      "sha256": "6dcacbec69c25e006c02cbebf7101b649a78ca453be4902c533128e4f9bcfd82"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/imitation.py",
+      "sha256": "c5558c2cc05a41d9280750e0fdfcd4bbaf105f886b22ffaae67ad333f59cfe14"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/assistance-migration-old/student/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/config.json",
+      "sha256": "45fce892bafeb2fc8efd64755b1504e590352aa02ec81774d4b6733eab7520ce"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/demonstrations.npz",
+      "sha256": "273ce14518d5fa2e594823431d27a4b1390924bf3468dabe4e4bd47b9e61fca1"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/manifest.json",
+      "sha256": "0f0a3b159d181901b5881de918dbdffd896f37f494b80cdd9325528225a484c0"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/cli.py",
+      "sha256": "6dcacbec69c25e006c02cbebf7101b649a78ca453be4902c533128e4f9bcfd82"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/imitation.py",
+      "sha256": "c5558c2cc05a41d9280750e0fdfcd4bbaf105f886b22ffaae67ad333f59cfe14"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/assistance-migration-old/teacher/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/checkpoint.pt",
+      "sha256": "c081cea5023870b5c2184f5d42af83d4667e23d55c82d62b317ddd2559e16e62"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/config.json",
+      "sha256": "45fce892bafeb2fc8efd64755b1504e590352aa02ec81774d4b6733eab7520ce"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/imitation.jsonl",
+      "sha256": "e369f6f0c1a222895320e53035f143bd1892021383e900ff2e823fb481d1efe5"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/imitation_plan.json",
+      "sha256": "a824d1204aec8e79ed49f5e93f77e28ab2bd2afeee00a84bf8dc705ff4e0cbc8"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/assistance-migration-new/imitation/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/config.json",
+      "sha256": "45fce892bafeb2fc8efd64755b1504e590352aa02ec81774d4b6733eab7520ce"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/demonstrations.npz",
+      "sha256": "4f4502bbbdfce9a0477db129565570f722c3b7910216bb0e6948dc17ecc23bc5"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/manifest.json",
+      "sha256": "c7e6ff52d79491d5ed43eee9dfe0545871077e3148da08c02cd03d28d1629a8e"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/assistance-migration-new/scan-student/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/config.json",
+      "sha256": "45fce892bafeb2fc8efd64755b1504e590352aa02ec81774d4b6733eab7520ce"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/demonstrations.npz",
+      "sha256": "f7fac80f44363d622e36fd33c1f37c3a535bc616a741c259d921ea354dce0e30"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/manifest.json",
+      "sha256": "6bb88fa8a898395846463ec61527bd68c167e61a01444b824e03559a91aeefdb"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/assistance-migration-new/student/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/config.json",
+      "sha256": "45fce892bafeb2fc8efd64755b1504e590352aa02ec81774d4b6733eab7520ce"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/demonstrations.npz",
+      "sha256": "6be2929ac7ffcc4ec484c6cdee03ae45bc09c0da9db2e1cedb92d691aa21aad8"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/manifest.json",
+      "sha256": "912b233832c494115dacfd2ebad21e2cd2c675ffdd408103b2541aefb3f96590"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/assistance-migration-new/teacher/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    }
+  ]
+}

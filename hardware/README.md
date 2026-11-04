@@ -36,6 +36,11 @@ latency, wall/robot IR response, odometry availability, and motor/sensor API own
 Do not add odometry or a validity mask before hardware support is confirmed. Update
 the versioned contract and rerun training, evaluation, and export after material changes.
 
+The [VL53L7CX reference](sensor-reference.md) distinguishes manufacturer nominal
+FoV/zone output from the current six-ray abstraction, including the floor/zone
+selection that must be resolved with mounted sensor captures. It does not change
+the current simulation or deployment contract.
+
 For the target build, measure linked flash and weight placement, peak internal RAM
 and PSRAM, task stacks, heap high-water use, I/O buffers, preprocessing/history,
 activations, hidden state, compiler scratch/spills, and all other firmware. Measure
@@ -44,6 +49,27 @@ sensor traffic. Record p50/p99/worst case, missed deadlines, test duration, and 
 headroom against the agreed budget. The host report intentionally leaves these
 fields unmeasured. Quantization is not implemented; any future quantization needs
 new sequence parity and behavioral/occlusion/switching evaluation.
+
+The [constrained-following actor study](../reports/no-command-following.md) exports
+an H64 actor after genuine PPO, with 96-step host action/hidden parity. Its FP32
+weights occupy 103,944 bytes and its hidden state 256 bytes per robot; these are
+partial components, not peak RAM or linked flash. It passes a near-chain development
+gate but fails random-pose following, and does not replace the final validated
+four-task actor. Target-board peak memory, latency and complete firmware remain
+unmeasured. The [current H64 cross-build](../reports/follow-rl50-esp32s3-build.md)
+now verifies all eight weight arrays in flash-mapped rodata, a 348,944-byte
+application image, 16,384-byte linked IRAM and 71,259-byte linked D/IRAM. The
+15,360-byte latency-sample array is benchmark instrumentation included in that
+static allocation. Effective PSRAM is disabled. This still leaves dynamic peak
+RAM, device parity/latency and the complete firmware unmeasured; the historical
+H32 build remains separate.
+
+A separate [local-belief prototype](../reports/local-belief-circle.md) has a new
+12-field actor input and a 168,440-byte observer state per robot on the host ABI.
+That state is computed from local ranges and own requests, not measured odometry.
+It is not part of the current 9-field H64 export/build. Any eventual adoption must
+include this posterior, stack/scratch, GRU, sensor history and complete firmware
+in target peak-RAM and latency measurements; the existing build does not cover it.
 
 The [ESP32-S3 benchmark project](../firmware/README.md) provides PSRAM rejection,
 golden-sequence parity, internal heap/stack watermarks, and inference timing. It

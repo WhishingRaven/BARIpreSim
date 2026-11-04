@@ -1,0 +1,1142 @@
+{
+  "protocol": {
+    "version": "bari-local-square-scan-probe-v2",
+    "planned_utc": "2026-11-03T20:16:22.375100+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "teacher_version": "local-square-local-scan-v2",
+    "development_seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027
+    ],
+    "larger_seeds": [
+      699746730,
+      947396588,
+      42032562,
+      2127349747,
+      25694697,
+      579260204,
+      942757825,
+      443028831,
+      661446613,
+      1395342943,
+      599446967,
+      202538306,
+      1362798069,
+      188944437,
+      780309098,
+      1705089267,
+      1619859460,
+      418962923,
+      1525466569,
+      195523468
+    ],
+    "maintenance_angles_rad": [
+      0.0,
+      0.37,
+      1.1,
+      2.2
+    ],
+    "geometry": "Four anonymous outer robots at radius square_side/sqrt(2); own mission leader-role robot uses center rule. Evaluator remains translation/rotation/permutation invariant and includes all five.",
+    "information_boundary": "Only current local9, retained own command/range history and provisional calibration. No true pose/wheels, hit class, object ID/count, evaluator target assignment or errors enter teacher actions.",
+    "unknown_center": "Own center role uses inferred anonymous body centroid if >=3 local body-shaped hypotheses; otherwise explore body-forward. This is not a true neighbor count or guaranteed complete centroid.",
+    "motion_and_safety": "Provisional own-command differential-drive integration; local inferred-normal velocity projection and speed limits, no physical safety guarantee or ground-truth mask.",
+    "selection": "Require5/5 random official successes AND final holds, zero total safety attempts, and4/4 exact-square maintenance holds with zero safety before fixed20 random cases. Then require>=18/20 success/holds with zero safety. No training, default promotion or automatic data collection; retain all failures without extensions.",
+    "sources": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-square-scan.py",
+        "sha256": "b9003be30071f3cd6965312e85b187dc93ba3a26175abe7aede3738f1726ff22"
+      },
+      {
+        "path": "runs/local_square_scan.py",
+        "sha256": "1346ed4b8dee03dba9f1c695a451b3d98ea3a39f724b1475d23967463b980a6a"
+      },
+      {
+        "path": "runs/local_square_field.py",
+        "sha256": "3a7e0f134a8d8f8287fffeb453f23388b4568cfb72c54322e599c6723860d625"
+      },
+      {
+        "path": "runs/local_circle_cooperative.py",
+        "sha256": "14fa30084b3bbf6c5aea7fe171547497b8b906a94e6424a4f95223c8c647ae9d"
+      },
+      {
+        "path": "runs/local_circle_history.py",
+        "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+      },
+      {
+        "path": "runs/local_circle_guarded.py",
+        "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+      }
+    ],
+    "preparation_script": {
+      "path": "runs/prepare-local-square-scan-probe.py",
+      "sha256": "7f8bea6f576ea2f0a3ca3cd7176eba194325de84583dc336dd8849d2ca75c9d1"
+    },
+    "baseline": {
+      "path": "reports/local-square-field.json",
+      "sha256": "44c4457f404a716c807adc8eac4a1ec583be4d1ad0b2354f038f716031906514"
+    },
+    "mechanism_diagnostic": {
+      "path": "reports/local-square-angular-diagnostic.json",
+      "sha256": "da9592409064c112e870f6f2410546aec8d216d7e71501032dfeee780f40b4f9"
+    },
+    "change": "Own outer role, local center ready and radius within40mm of proposed ring, but zero inferred outer candidates: request ordinary in-place[-0.25,+0.25] wheels. No actual visibility or ground-truth mask; all v1 geometry/history and gates unchanged.",
+    "scope": "Host-only unlearned square feasibility. Hypothetical FOV60 and unmeasured geometry/timing. Not GRU-RL, four-task, occlusion, final-heldout or deployment acceptance."
+  },
+  "cases": [
+    {
+      "seed": 9101,
+      "condition": "maintenance-0",
+      "final": {
+        "rms_error_m": 0.021446977207971882,
+        "max_error_m": 0.030164508572253588,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.02054994201352268,
+        "peak_max_error_m": 0.034404823294221475,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.82615197116005
+      },
+      "recording": "runs/local-square-scan-v2/maintenance-0-9101.npz",
+      "local_inputs": "runs/local-square-scan-v2/maintenance-0-9101-local-inputs.npz",
+      "center_ready_fraction": 0.7893333333333333
+    },
+    {
+      "seed": 9102,
+      "condition": "maintenance-1",
+      "final": {
+        "rms_error_m": 0.014614815366465478,
+        "max_error_m": 0.020454477882772156,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.01825194553588593,
+        "peak_max_error_m": 0.0328600366993531,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.744387120300145
+      },
+      "recording": "runs/local-square-scan-v2/maintenance-1-9102.npz",
+      "local_inputs": "runs/local-square-scan-v2/maintenance-1-9102-local-inputs.npz",
+      "center_ready_fraction": 0.7866666666666666
+    },
+    {
+      "seed": 9103,
+      "condition": "maintenance-2",
+      "final": {
+        "rms_error_m": 0.01565912536902509,
+        "max_error_m": 0.02503967462153899,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.021614515923602095,
+        "peak_max_error_m": 0.0331637503516325,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 11.067567433443683
+      },
+      "recording": "runs/local-square-scan-v2/maintenance-2-9103.npz",
+      "local_inputs": "runs/local-square-scan-v2/maintenance-2-9103-local-inputs.npz",
+      "center_ready_fraction": 0.7906666666666666
+    },
+    {
+      "seed": 9104,
+      "condition": "maintenance-3",
+      "final": {
+        "rms_error_m": 0.010779956076345203,
+        "max_error_m": 0.015227448390799972,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.01548759058504351,
+        "peak_max_error_m": 0.03231867331537351,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.118388287507829
+      },
+      "recording": "runs/local-square-scan-v2/maintenance-3-9104.npz",
+      "local_inputs": "runs/local-square-scan-v2/maintenance-3-9104-local-inputs.npz",
+      "center_ready_fraction": 0.7893333333333333
+    },
+    {
+      "seed": 2001,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.006387899015235528,
+        "max_error_m": 0.009155823554779733,
+        "success": true,
+        "acquisition_s": 8.299999999999999,
+        "holding_goal": true,
+        "hold_s": 21.70000000000004,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.04724683432870221,
+        "peak_max_error_m": 0.32076900438672895,
+        "reacquisition_s": [
+          0.20000000000000107
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.27834066130307
+      },
+      "recording": "runs/local-square-scan-v2/development-2001.npz",
+      "local_inputs": "runs/local-square-scan-v2/development-2001-local-inputs.npz",
+      "center_ready_fraction": 0.9893333333333333
+    },
+    {
+      "seed": 2003,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.006686679110295965,
+        "max_error_m": 0.01140619975141882,
+        "success": true,
+        "acquisition_s": 16.3,
+        "holding_goal": true,
+        "hold_s": 13.699999999999967,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06444948337679691,
+        "peak_max_error_m": 0.2361489981881016,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.716734165578357
+      },
+      "recording": "runs/local-square-scan-v2/development-2003.npz",
+      "local_inputs": "runs/local-square-scan-v2/development-2003-local-inputs.npz",
+      "center_ready_fraction": 0.936
+    },
+    {
+      "seed": 2011,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.006224573278465599,
+        "max_error_m": 0.008863026959354793,
+        "success": true,
+        "acquisition_s": 4.199999999999999,
+        "holding_goal": true,
+        "hold_s": 25.800000000000097,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.023939507213700164,
+        "peak_max_error_m": 0.19705089610242668,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.5559349362864445
+      },
+      "recording": "runs/local-square-scan-v2/development-2011.npz",
+      "local_inputs": "runs/local-square-scan-v2/development-2011-local-inputs.npz",
+      "center_ready_fraction": 0.9886666666666667
+    },
+    {
+      "seed": 2017,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.0058707009770355085,
+        "max_error_m": 0.009004870206213024,
+        "success": true,
+        "acquisition_s": 23.0,
+        "holding_goal": true,
+        "hold_s": 6.999999999999991,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.10883148826925951,
+        "peak_max_error_m": 0.2127599473439526,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.42468961266141
+      },
+      "recording": "runs/local-square-scan-v2/development-2017.npz",
+      "local_inputs": "runs/local-square-scan-v2/development-2017-local-inputs.npz",
+      "center_ready_fraction": 0.804
+    },
+    {
+      "seed": 2027,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.004981509801049057,
+        "max_error_m": 0.007369919517204136,
+        "success": true,
+        "acquisition_s": 12.599999999999998,
+        "holding_goal": true,
+        "hold_s": 17.399999999999977,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06566030697877749,
+        "peak_max_error_m": 0.2821593192829332,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.656161749562444
+      },
+      "recording": "runs/local-square-scan-v2/development-2027.npz",
+      "local_inputs": "runs/local-square-scan-v2/development-2027-local-inputs.npz",
+      "center_ready_fraction": 0.9006666666666666
+    },
+    {
+      "seed": 699746730,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.006273648584800907,
+        "max_error_m": 0.009472314744237674,
+        "success": true,
+        "acquisition_s": 11.099999999999998,
+        "holding_goal": true,
+        "hold_s": 18.9,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07434993484642015,
+        "peak_max_error_m": 0.33722680371210056,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.781793228244343
+      },
+      "recording": "runs/local-square-scan-v2/larger-699746730.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-699746730-local-inputs.npz",
+      "center_ready_fraction": 0.964
+    },
+    {
+      "seed": 947396588,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.006995832387547286,
+        "max_error_m": 0.009010478841114646,
+        "success": true,
+        "acquisition_s": 24.900000000000002,
+        "holding_goal": true,
+        "hold_s": 5.099999999999998,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.09744260472606867,
+        "peak_max_error_m": 0.286006625800399,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.515199373692989
+      },
+      "recording": "runs/local-square-scan-v2/larger-947396588.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-947396588-local-inputs.npz",
+      "center_ready_fraction": 0.882
+    },
+    {
+      "seed": 42032562,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.007080256275575879,
+        "max_error_m": 0.010246650996308738,
+        "success": true,
+        "acquisition_s": 8.499999999999998,
+        "holding_goal": true,
+        "hold_s": 21.500000000000036,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.05909284674234105,
+        "peak_max_error_m": 0.3280890364222256,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.623370306802727
+      },
+      "recording": "runs/local-square-scan-v2/larger-42032562.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-42032562-local-inputs.npz",
+      "center_ready_fraction": 0.9486666666666667
+    },
+    {
+      "seed": 2127349747,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.0051612937845422644,
+        "max_error_m": 0.007047371083156809,
+        "success": true,
+        "acquisition_s": 5.999999999999998,
+        "holding_goal": true,
+        "hold_s": 24.00000000000007,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.033078452124167726,
+        "peak_max_error_m": 0.25139059611061804,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.367026357129464
+      },
+      "recording": "runs/local-square-scan-v2/larger-2127349747.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-2127349747-local-inputs.npz",
+      "center_ready_fraction": 0.9693333333333334
+    },
+    {
+      "seed": 25694697,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.006574876910915014,
+        "max_error_m": 0.008670374790799573,
+        "success": true,
+        "acquisition_s": 15.1,
+        "holding_goal": true,
+        "hold_s": 14.899999999999963,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06323178146303264,
+        "peak_max_error_m": 0.2878452382070959,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.878536701620065
+      },
+      "recording": "runs/local-square-scan-v2/larger-25694697.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-25694697-local-inputs.npz",
+      "center_ready_fraction": 0.9726666666666667
+    },
+    {
+      "seed": 579260204,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.004167319888787728,
+        "max_error_m": 0.00643064285998103,
+        "success": true,
+        "acquisition_s": 11.499999999999998,
+        "holding_goal": true,
+        "hold_s": 18.499999999999993,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0735582151025851,
+        "peak_max_error_m": 0.3271443686253995,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.010846731601017
+      },
+      "recording": "runs/local-square-scan-v2/larger-579260204.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-579260204-local-inputs.npz",
+      "center_ready_fraction": 0.9113333333333333
+    },
+    {
+      "seed": 942757825,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.005285685169918643,
+        "max_error_m": 0.00617045815731455,
+        "success": true,
+        "acquisition_s": 8.499999999999998,
+        "holding_goal": true,
+        "hold_s": 21.500000000000036,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.049208585079163245,
+        "peak_max_error_m": 0.26062642458942004,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.543081636898817
+      },
+      "recording": "runs/local-square-scan-v2/larger-942757825.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-942757825-local-inputs.npz",
+      "center_ready_fraction": 0.99
+    },
+    {
+      "seed": 443028831,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.0236206302709568,
+        "max_error_m": 0.03304922269082618,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 2.400000000000001,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06401202724275733,
+        "peak_max_error_m": 0.21574461375261345,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 12.251270408786642
+      },
+      "recording": "runs/local-square-scan-v2/larger-443028831.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-443028831-local-inputs.npz",
+      "center_ready_fraction": 0.7906666666666666
+    },
+    {
+      "seed": 661446613,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.007580834435155458,
+        "max_error_m": 0.009586673702108806,
+        "success": true,
+        "acquisition_s": 8.899999999999999,
+        "holding_goal": true,
+        "hold_s": 21.10000000000003,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.057969368541203964,
+        "peak_max_error_m": 0.2736401913327288,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.723129316962229
+      },
+      "recording": "runs/local-square-scan-v2/larger-661446613.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-661446613-local-inputs.npz",
+      "center_ready_fraction": 0.962
+    },
+    {
+      "seed": 1395342943,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.00534884971013273,
+        "max_error_m": 0.009106527393025818,
+        "success": true,
+        "acquisition_s": 17.7,
+        "holding_goal": true,
+        "hold_s": 12.299999999999972,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07897891011234315,
+        "peak_max_error_m": 0.2569646983505181,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.273872295781651
+      },
+      "recording": "runs/local-square-scan-v2/larger-1395342943.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-1395342943-local-inputs.npz",
+      "center_ready_fraction": 0.9673333333333334
+    },
+    {
+      "seed": 599446967,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.10005034372206421,
+        "max_error_m": 0.12893764133717084,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.11964944309391794,
+        "peak_max_error_m": 0.2847998588038709,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.208575844680805
+      },
+      "recording": "runs/local-square-scan-v2/larger-599446967.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-599446967-local-inputs.npz",
+      "center_ready_fraction": 0.744
+    },
+    {
+      "seed": 202538306,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.0052567706528584834,
+        "max_error_m": 0.008310653919820946,
+        "success": true,
+        "acquisition_s": 11.299999999999999,
+        "holding_goal": true,
+        "hold_s": 18.699999999999996,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07151507040599579,
+        "peak_max_error_m": 0.32892955357683956,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.596860128844181
+      },
+      "recording": "runs/local-square-scan-v2/larger-202538306.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-202538306-local-inputs.npz",
+      "center_ready_fraction": 0.9413333333333334
+    },
+    {
+      "seed": 1362798069,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.006157130041547392,
+        "max_error_m": 0.008873689076823168,
+        "success": true,
+        "acquisition_s": 7.699999999999999,
+        "holding_goal": true,
+        "hold_s": 22.300000000000047,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.05296766660231862,
+        "peak_max_error_m": 0.255735788265383,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.340705759991674
+      },
+      "recording": "runs/local-square-scan-v2/larger-1362798069.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-1362798069-local-inputs.npz",
+      "center_ready_fraction": 0.982
+    },
+    {
+      "seed": 188944437,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.10307744538150192,
+        "max_error_m": 0.15027976060371986,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1576134173298381,
+        "peak_max_error_m": 0.1936255767221274,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.592757867401003
+      },
+      "recording": "runs/local-square-scan-v2/larger-188944437.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-188944437-local-inputs.npz",
+      "center_ready_fraction": 0.792
+    },
+    {
+      "seed": 780309098,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.005234569170272704,
+        "max_error_m": 0.006505357898118552,
+        "success": true,
+        "acquisition_s": 11.599999999999998,
+        "holding_goal": true,
+        "hold_s": 18.39999999999999,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0697116940134119,
+        "peak_max_error_m": 0.316857530139762,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.802631636119515
+      },
+      "recording": "runs/local-square-scan-v2/larger-780309098.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-780309098-local-inputs.npz",
+      "center_ready_fraction": 0.954
+    },
+    {
+      "seed": 1705089267,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.11093061287962223,
+        "max_error_m": 0.17761033619332384,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.14415201340661576,
+        "peak_max_error_m": 0.22472860383305746,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.337536561586088
+      },
+      "recording": "runs/local-square-scan-v2/larger-1705089267.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-1705089267-local-inputs.npz",
+      "center_ready_fraction": 0.7893333333333333
+    },
+    {
+      "seed": 1619859460,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.10825926376930613,
+        "max_error_m": 0.1497665666755885,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.16091198985974264,
+        "peak_max_error_m": 0.3492348111547235,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.00414611163328
+      },
+      "recording": "runs/local-square-scan-v2/larger-1619859460.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-1619859460-local-inputs.npz",
+      "center_ready_fraction": 0.786
+    },
+    {
+      "seed": 418962923,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.0044627305562885255,
+        "max_error_m": 0.005317726874605368,
+        "success": true,
+        "acquisition_s": 21.2,
+        "holding_goal": true,
+        "hold_s": 8.799999999999985,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06734375005704465,
+        "peak_max_error_m": 0.16431815170881164,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.515144977234777
+      },
+      "recording": "runs/local-square-scan-v2/larger-418962923.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-418962923-local-inputs.npz",
+      "center_ready_fraction": 0.9433333333333334
+    },
+    {
+      "seed": 1525466569,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.08831275399751594,
+        "max_error_m": 0.1516367522409702,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.14871725582479733,
+        "peak_max_error_m": 0.21985755251745276,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.317746335597908
+      },
+      "recording": "runs/local-square-scan-v2/larger-1525466569.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-1525466569-local-inputs.npz",
+      "center_ready_fraction": 0.7906666666666666
+    },
+    {
+      "seed": 195523468,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.03294638793777978,
+        "max_error_m": 0.046964841650921366,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07497248407258164,
+        "peak_max_error_m": 0.3456533759027475,
+        "reacquisition_s": [],
+        "unrecovered_s": 15.4,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 13.141460790601618
+      },
+      "recording": "runs/local-square-scan-v2/larger-195523468.npz",
+      "local_inputs": "runs/local-square-scan-v2/larger-195523468-local-inputs.npz",
+      "center_ready_fraction": 0.7866666666666666
+    }
+  ],
+  "summary": {
+    "maintenance": {
+      "episodes": 4,
+      "successes": 4,
+      "final_holds": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.022721527366841174
+    },
+    "development": {
+      "episodes": 5,
+      "successes": 5,
+      "final_holds": 5,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.0091599679977941
+    },
+    "larger": {
+      "episodes": 20,
+      "successes": 13,
+      "final_holds": 13,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.047149702086496825
+    }
+  },
+  "permutation_replay": {
+    "all300_commands_exact": true,
+    "permutation_including_center_role": [
+      3,
+      1,
+      4,
+      0,
+      2
+    ],
+    "no_robot_index_assignment_in_teacher": true
+  },
+  "selected_for_separately_planned_data_only": false,
+  "GRU_or_RL_training_updates": 0,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "artifacts": [
+    {
+      "path": "runs/local-square-scan-v2/protocol.json",
+      "sha256": "2328d90a411758431d7c918bbf3aa6f3fa0933d62cd2a351df255e153c26cf38"
+    },
+    {
+      "path": "runs/local-square-scan-v2/maintenance-0-9101.npz",
+      "sha256": "79339a9ce18705042a482c26b54cd952e273a6f9e6cea2b974434cf1e9ab3fb6"
+    },
+    {
+      "path": "runs/local-square-scan-v2/maintenance-0-9101-local-inputs.npz",
+      "sha256": "2e52623cdea46997f016ff0b830159def3113803eb811b9444063db0156b8bd9"
+    },
+    {
+      "path": "runs/local-square-scan-v2/maintenance-1-9102.npz",
+      "sha256": "6377cf41e92e3332157ae76732edc858b595c70cd921a137820e93bc0078f06f"
+    },
+    {
+      "path": "runs/local-square-scan-v2/maintenance-1-9102-local-inputs.npz",
+      "sha256": "101fe947118a6d8de12213a26874d5886d17bc5136a7f8bbcb2c75c4430ac57e"
+    },
+    {
+      "path": "runs/local-square-scan-v2/maintenance-2-9103.npz",
+      "sha256": "35c8cad564f8234f4fd9e51abec345d60d99a67f058800c114ebdc0ff53a3d27"
+    },
+    {
+      "path": "runs/local-square-scan-v2/maintenance-2-9103-local-inputs.npz",
+      "sha256": "1942faba05e8488bf42a718b6cb76ddca8caa8f9c0d30026aa4d4ebc4bf863b4"
+    },
+    {
+      "path": "runs/local-square-scan-v2/maintenance-3-9104.npz",
+      "sha256": "2c473e30753a53b37fc339042087003ed511dde1151469179953df48598c7b1e"
+    },
+    {
+      "path": "runs/local-square-scan-v2/maintenance-3-9104-local-inputs.npz",
+      "sha256": "66e7b4e0ac5cfd2a559dbe5f69a08dc6e815847f81ad7a900b63b4e1b643ef6d"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2001.npz",
+      "sha256": "33d6fa54f4bd8e40d1123780715a7d7c7d95e7ef344dd8e743c22bb7611fa3a3"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2001-local-inputs.npz",
+      "sha256": "5e10688c0964630bedc26f04350ad131937729857a20b10e4e5c750aa3569f14"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2003.npz",
+      "sha256": "3df23838ff818a6409df8e390c087e358c87795a2bc5f46b5606752752222f22"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2003-local-inputs.npz",
+      "sha256": "1494103139ba2659f2ad1254953b6861e221649c390d9e496ff5ae8b989d3443"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2011.npz",
+      "sha256": "d6ae8312b92dec7ef1d06b928a9127b118670b8936fbd730df0a0c0e86c5fd34"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2011-local-inputs.npz",
+      "sha256": "4bd15671cdc198040ca26c39d43d68cace256583fade382904e81e4dd0beda83"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2017.npz",
+      "sha256": "045151feb1eb89546c1c0465e37bd7d5e9db2bec63c7388a19cb35e949cce8f7"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2017-local-inputs.npz",
+      "sha256": "9cb2ffa68ca402d93c0656e61e4b3f29ac23a132ce2f7a0eea6b98397dd473ca"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2027.npz",
+      "sha256": "0e23c19a90972423be843858ecdf0b33a5cff592dbae6bd07ebedb71f8d5dfda"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2027-local-inputs.npz",
+      "sha256": "cdefa1c9c6fa19da993519c83b83d52705e7e99685c13c000fb8f0dd17341d57"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-699746730.npz",
+      "sha256": "0f7b4093c6808f6f7fda31cf13fe6101fd4ccf78748f62892ef962a56c9dcb2f"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-699746730-local-inputs.npz",
+      "sha256": "93865810444c6ca9e6a23de45aed64a7cdc9aba23b578e6571e87ddfa1f42ab8"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-947396588.npz",
+      "sha256": "2040c4ac6b2336248d6bbf0b04f6324f675024bc5eea899637af550155a536c3"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-947396588-local-inputs.npz",
+      "sha256": "4d94a53db061deba15e90d95cd5175b4084b658e8bea1ca1a2e0a04b60569c40"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-42032562.npz",
+      "sha256": "7d81eb5f55eae3780f1084e1b78bcd80fae8dd15b020ee057b1a425823c5f52f"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-42032562-local-inputs.npz",
+      "sha256": "1a6b542cde6004bb22fe26d393d937bd94925edfaa1169cef8abbb3a6e3b2c7d"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-2127349747.npz",
+      "sha256": "22d3e226da2eab54b55e59200b533f3305b416632688a820d2c8978c58574ebe"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-2127349747-local-inputs.npz",
+      "sha256": "4c1bc9e05198b0a0668483814cf8e6c4cafaa9ba6e428803e9adf1003df9e9af"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-25694697.npz",
+      "sha256": "7a26b700e34c5f967dac8cfc71aa8adcdb3fcecf88726e48abc7d59031ed8907"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-25694697-local-inputs.npz",
+      "sha256": "f22a0ad42339ee80e6955d63271488020b008a85b4f109f49adcbd57a8a3b0ce"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-579260204.npz",
+      "sha256": "393dd4b6909c4be5ba9e676cc0ba1f961ef57124af34f9ff62a2782d8aafe200"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-579260204-local-inputs.npz",
+      "sha256": "6d5004fc226f95820520c5dc23fe68a5a5a186e947f224038aa770c567c153cf"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-942757825.npz",
+      "sha256": "10f8b7e89c70aebf8c4a43f72c3f4e5b76a0e6d7748b1f64ee3b760f56694781"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-942757825-local-inputs.npz",
+      "sha256": "40dae3ca697213a4484c12bb593fd1fc87f4b0235852f876d48c9ce956312b19"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-443028831.npz",
+      "sha256": "1feef3710b455d8821aae03374f923cec8b4edeaa0b5025adb45a164a496227a"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-443028831-local-inputs.npz",
+      "sha256": "d931c3348b43e832e277e78db537676cb17cfb631e2e937a1b12616a2ee37cf5"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-661446613.npz",
+      "sha256": "c4405c76e3bf6c7721d47c6760a1955a870c1865d017c0a2f4d304420fa3256e"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-661446613-local-inputs.npz",
+      "sha256": "d3a4072233c7ce832ecf513a9507049ee9f9311e1bff642330a6098654d8ebf1"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1395342943.npz",
+      "sha256": "af5c18ffa85fde9191876804612bb5f14de6b40fe7a7a5f4da4e581b9f37f7d1"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1395342943-local-inputs.npz",
+      "sha256": "cdd0013dabfd08626038bd9f7f0178b84b5c5f7cf1d71c91c1154f97114c8d69"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-599446967.npz",
+      "sha256": "faf2744e39e3cb470cc3a516466d9c8265ae813197fbacc5d4e485b2d5d3d3ed"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-599446967-local-inputs.npz",
+      "sha256": "c029a156a735f4c06fdef7237ad34e9b883d44f887cbb28838ba9723c6d3d9df"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-202538306.npz",
+      "sha256": "67e1c7347991faedd9e77d477d01fb951e007089e2b3d554c4f593648e7ac352"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-202538306-local-inputs.npz",
+      "sha256": "c90c27535d86e2cd97b704bce41a20eb54f8bbaadbc1a181d95ebbc7eb9eea5b"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1362798069.npz",
+      "sha256": "bc4a05ebdbcf95933ca793dcf6590349c5eb2914a9f97ba54a1c627e5066899e"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1362798069-local-inputs.npz",
+      "sha256": "ca5f94f7c5ea497f5ab7af942d88457cca5b5628f8f98faa95fa2a2565ab930f"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-188944437.npz",
+      "sha256": "0d2db322a07ecc757a29636a37d05e62ad5d62e94e284783ea3e4d4c7ecc0c22"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-188944437-local-inputs.npz",
+      "sha256": "6662db74e6315c2362526aabe9f264032a5b51e6bdb012be732a6719f47f1ecb"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-780309098.npz",
+      "sha256": "7f4c2a5f40772867641d6003ef6a1e3a2e7789f64b627400b77e893bc0ee72fe"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-780309098-local-inputs.npz",
+      "sha256": "b6b62b33dadd838317474bd171d9684dc4a358181bb4e9641647cedd9709a7fc"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1705089267.npz",
+      "sha256": "1e30172660040663f3c78588021a1cf6aefd7186b3c46792aeaf2ea12ccaa908"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1705089267-local-inputs.npz",
+      "sha256": "7b02d94d2dd6bb8bbe26b7c595e012a28c02b0318b38121e0a2f2478193f7f23"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1619859460.npz",
+      "sha256": "c5a0e9658864af5eeec6eacd663a1b016ccf4eec5d3d1614f8c65c3e5c0966b5"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1619859460-local-inputs.npz",
+      "sha256": "c0e5376b507c5d8201caf1f82bf91974779866e580a8388ef7df3d271c65ea2a"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-418962923.npz",
+      "sha256": "f1018dd7c6188410a6e9931f7f1b38e3352542b4d724751fb26eedaae209f5c2"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-418962923-local-inputs.npz",
+      "sha256": "1d2b6524add1107c2741a0ef2dccb1adb7244c1e331f7f1d1967b6f10ad17ee8"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1525466569.npz",
+      "sha256": "df4697a6eca28c4f0b0ae3f3d32b74b68a7a5fe6651dc4c3458eefc0c3317c66"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-1525466569-local-inputs.npz",
+      "sha256": "05bf3b2d8ab4aff9539527319e3285d4718d3751b2a4e065783a28bcc017bd91"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-195523468.npz",
+      "sha256": "ac64ab9e8e326200086e51cd1ab95fec6b9f84c55e24798fd649a7b6f143cbcf"
+    },
+    {
+      "path": "runs/local-square-scan-v2/larger-195523468-local-inputs.npz",
+      "sha256": "efb1222cfd964dbace6cebff83ec7df68193eba821852683d1b8ebc7fc303c0d"
+    }
+  ]
+}

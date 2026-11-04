@@ -1,0 +1,143 @@
+{
+  "protocol": {
+    "version": "bari-critic-yaw-boundary-probe-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "16a77633c6f486250069b8483dd64e81dc17cedf3b34581d380e7dd335f01b60"
+    },
+    "actors": [
+      "v10",
+      "v11"
+    ],
+    "stage": "interim",
+    "near_boundary_rad": 0.05,
+    "heading_epsilon_rad": 1e-06,
+    "max_cases": 256,
+    "scope": "Frozen critic representation diagnostic, not a policy/critic update or convergence claim. Compare nearly identical physical headings on opposite sides of the +/-pi branch cut."
+  },
+  "results": [
+    {
+      "version": "v10",
+      "checkpoint": "runs/radius1m-v10-interim-11/checkpoint.pt",
+      "checkpoint_sha256": "1e0c348e940cbb93a6a927e416d7665aa99e7229eb66862e006c7d299d58e9ec",
+      "critic_input_size": 258,
+      "rollout_joint_steps": 1024,
+      "observed_yaw_wraps": 55,
+      "near_boundary_cases": 72,
+      "mean_own_value_wrap_jump": 0.38842645287513733,
+      "max_own_value_wrap_jump": 2.5951404571533203,
+      "mean_own_value_nearby_jump": 1.7219119285982742e-07,
+      "mean_absolute_step_reward": 0.12282999604940414,
+      "median_absolute_step_reward": 0.03694942966103554,
+      "max_physical_range_difference_m": 2.3203392570669834e-06,
+      "max_one_step_xy_difference_m": 3.159356665172197e-09
+    },
+    {
+      "version": "v11",
+      "checkpoint": "runs/radius1m-v11-interim-11/checkpoint.pt",
+      "checkpoint_sha256": "2d1acbaaade1524ad011cc9f52a8c2064f24de42055f2e58e7e6eac4407f38ee",
+      "critic_input_size": 258,
+      "rollout_joint_steps": 1024,
+      "observed_yaw_wraps": 68,
+      "near_boundary_cases": 98,
+      "mean_own_value_wrap_jump": 0.7284374833106995,
+      "max_own_value_wrap_jump": 3.0863819122314453,
+      "mean_own_value_nearby_jump": 3.843891249744047e-07,
+      "mean_absolute_step_reward": 0.12348918616771698,
+      "median_absolute_step_reward": 0.045409321784973145,
+      "max_physical_range_difference_m": 4.38343660391638e-06,
+      "max_one_step_xy_difference_m": 3.159356665172197e-09
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "runs/critic-yaw-boundary-probe/diagnostic.py",
+      "sha256": "004b4a1fe9d665e49541a4c27c7cffeaaf3ed652ab2e6b21e2fb9fbb92f0a27c"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/protocol.json",
+      "sha256": "8fb558102364c3dce35fbc057dedbf70b4a76bb3f64cb6a0989511c1b1b14b1a"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/baseline.py",
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/cli.py",
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/curriculum.py",
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/imitation.py",
+      "sha256": "e533a7e764ac4ec604d52b3a620afe3d86c9679d3484b73e40e6a71e864fcbfe"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/policy.py",
+      "sha256": "c6aec4a76aa22de0ae97dc0bf0bd7369a9d7db6ceac6fa035ae6930f2345ecd0"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/source/train.py",
+      "sha256": "d34198ab3f7f7aba22bed09cdd879528e98b46c6054ba03295ffd21d7f91eb65"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/v10-cases.npz",
+      "sha256": "a842fa17efc9f850176a1748f101f644054e16c852019b16b3575d3dc923de49"
+    },
+    {
+      "path": "runs/critic-yaw-boundary-probe/v11-cases.npz",
+      "sha256": "9c7cfdfa8196661e974567d06234f08d1606e736648ff45e21cad599089cd963"
+    }
+  ]
+}

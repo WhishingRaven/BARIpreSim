@@ -55,6 +55,29 @@ class ScriptedController:
         return commands
 
 
+class ScanThenController(ScriptedController):
+    """Privileged teacher: gather local history before reactive target labels.
+
+    This controller is a data source, never a wrapper around a deployed actor.
+    Task changes restart the prefix through the existing segment clock.
+    """
+    version = "scripted-privileged-v1-scan-then-reactive"
+
+    def __init__(self, scan_seconds):
+        if not np.isfinite(scan_seconds) or scan_seconds <= 0:
+            raise ValueError("Scan duration must be finite and positive")
+        self.scan_seconds = float(scan_seconds)
+
+    def actions(self, env):
+        env.begin_control()
+        if env.time-env.tracker.start_time+1e-9 >= self.scan_seconds:
+            return super().actions(env)
+        commands = np.tile([-.4, .4], (5, 1))
+        if env.task == "follow":
+            commands[0] = leader_command(env)
+        return commands
+
+
 class PlannedController(ScriptedController):
     """Experimental privileged planner; safer contacts can still mean deadlock."""
     version = "scripted-privileged-v5-braking-turns"

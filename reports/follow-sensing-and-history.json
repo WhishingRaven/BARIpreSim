@@ -1,0 +1,1060 @@
+{
+  "version": "bari-follow-sensing-and-history-report-v1",
+  "observed_utc": "2026-11-03T12:31:38.577928+00:00",
+  "status": "active goal; no accepted learned policy",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+  },
+  "verification": "Core source/tests unchanged from frozen 145-test package. Exact teacher observations/labels/final states replayed; hypothetical zero-width geometry and delivered hit identities independently agree.",
+  "delivered_observation_coverage": {
+    "protocol": {
+      "version": "bari-follow-delivered-beam-coverage-v1",
+      "planned_utc": "2026-11-03T12:21:52.964115+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      },
+      "dataset": {
+        "path": "runs/teacher-follow-h64/demonstrations.npz",
+        "sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9"
+      },
+      "training_episode_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "control_period_s": 0.1,
+      "sensor_latency_s": 0.1,
+      "sensor_period_s": 0.1,
+      "alignment": "For this equal-period/equal-latency configuration, delivered IDs/LOS at control k are the observer geometry at k-1. Step zero has no delivered sample and is reported separately.",
+      "predecessor": "Observer-only predecessor in the latched anonymous physical order; never an actor input",
+      "reported_hit": "A delivered nearest-hit object equals the predecessor and its actual noisy range lies within configured min/max. Beams are deduplicated per robot; this is not a neighbor count.",
+      "scope": "Eight successful privileged teacher episodes, exact observation/label/world replay. Describes zero-FOV baseline sensing only; not learned behavior, occlusion robustness, physical VL53L7CX aggregation or a proof of task impossibility. Extra hit IDs, predecessor identity, LOS and geometry are evaluator diagnostics only."
+    },
+    "cases": [
+      {
+        "training_episode_index": 0,
+        "robot_id_evaluator_only": 1,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 97,
+        "predecessor_unreported_with_clear_center_los_steps": 202,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 18.5,
+        "recording": "runs/follow-observation-coverage/episode-0.npz"
+      },
+      {
+        "training_episode_index": 0,
+        "robot_id_evaluator_only": 2,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 292,
+        "predecessor_unreported_with_clear_center_los_steps": 7,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.6000000000000001,
+        "recording": "runs/follow-observation-coverage/episode-0.npz"
+      },
+      {
+        "training_episode_index": 0,
+        "robot_id_evaluator_only": 3,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 289,
+        "predecessor_unreported_with_clear_center_los_steps": 10,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.9,
+        "recording": "runs/follow-observation-coverage/episode-0.npz"
+      },
+      {
+        "training_episode_index": 0,
+        "robot_id_evaluator_only": 4,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 286,
+        "predecessor_unreported_with_clear_center_los_steps": 13,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 7,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.5,
+        "recording": "runs/follow-observation-coverage/episode-0.npz"
+      },
+      {
+        "training_episode_index": 1,
+        "robot_id_evaluator_only": 1,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 98,
+        "predecessor_unreported_with_clear_center_los_steps": 201,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 2,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 18.0,
+        "recording": "runs/follow-observation-coverage/episode-1.npz"
+      },
+      {
+        "training_episode_index": 1,
+        "robot_id_evaluator_only": 2,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 282,
+        "predecessor_unreported_with_clear_center_los_steps": 17,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.7000000000000001,
+        "recording": "runs/follow-observation-coverage/episode-1.npz"
+      },
+      {
+        "training_episode_index": 1,
+        "robot_id_evaluator_only": 3,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 286,
+        "predecessor_unreported_with_clear_center_los_steps": 13,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 1.1,
+        "recording": "runs/follow-observation-coverage/episode-1.npz"
+      },
+      {
+        "training_episode_index": 1,
+        "robot_id_evaluator_only": 4,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 284,
+        "predecessor_unreported_with_clear_center_los_steps": 15,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 10,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.5,
+        "recording": "runs/follow-observation-coverage/episode-1.npz"
+      },
+      {
+        "training_episode_index": 2,
+        "robot_id_evaluator_only": 1,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 99,
+        "predecessor_unreported_with_clear_center_los_steps": 200,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 2,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 18.0,
+        "recording": "runs/follow-observation-coverage/episode-2.npz"
+      },
+      {
+        "training_episode_index": 2,
+        "robot_id_evaluator_only": 2,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 282,
+        "predecessor_unreported_with_clear_center_los_steps": 17,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.7000000000000001,
+        "recording": "runs/follow-observation-coverage/episode-2.npz"
+      },
+      {
+        "training_episode_index": 2,
+        "robot_id_evaluator_only": 3,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 285,
+        "predecessor_unreported_with_clear_center_los_steps": 14,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 1.0,
+        "recording": "runs/follow-observation-coverage/episode-2.npz"
+      },
+      {
+        "training_episode_index": 2,
+        "robot_id_evaluator_only": 4,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 283,
+        "predecessor_unreported_with_clear_center_los_steps": 16,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 10,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.5,
+        "recording": "runs/follow-observation-coverage/episode-2.npz"
+      },
+      {
+        "training_episode_index": 3,
+        "robot_id_evaluator_only": 1,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 96,
+        "predecessor_unreported_with_clear_center_los_steps": 203,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 18.400000000000002,
+        "recording": "runs/follow-observation-coverage/episode-3.npz"
+      },
+      {
+        "training_episode_index": 3,
+        "robot_id_evaluator_only": 2,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 291,
+        "predecessor_unreported_with_clear_center_los_steps": 8,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.6000000000000001,
+        "recording": "runs/follow-observation-coverage/episode-3.npz"
+      },
+      {
+        "training_episode_index": 3,
+        "robot_id_evaluator_only": 3,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 290,
+        "predecessor_unreported_with_clear_center_los_steps": 9,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.9,
+        "recording": "runs/follow-observation-coverage/episode-3.npz"
+      },
+      {
+        "training_episode_index": 3,
+        "robot_id_evaluator_only": 4,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 287,
+        "predecessor_unreported_with_clear_center_los_steps": 12,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 8,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.4,
+        "recording": "runs/follow-observation-coverage/episode-3.npz"
+      },
+      {
+        "training_episode_index": 4,
+        "robot_id_evaluator_only": 1,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 100,
+        "predecessor_unreported_with_clear_center_los_steps": 199,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 18.3,
+        "recording": "runs/follow-observation-coverage/episode-4.npz"
+      },
+      {
+        "training_episode_index": 4,
+        "robot_id_evaluator_only": 2,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 292,
+        "predecessor_unreported_with_clear_center_los_steps": 7,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.6000000000000001,
+        "recording": "runs/follow-observation-coverage/episode-4.npz"
+      },
+      {
+        "training_episode_index": 4,
+        "robot_id_evaluator_only": 3,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 289,
+        "predecessor_unreported_with_clear_center_los_steps": 10,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.9,
+        "recording": "runs/follow-observation-coverage/episode-4.npz"
+      },
+      {
+        "training_episode_index": 4,
+        "robot_id_evaluator_only": 4,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 286,
+        "predecessor_unreported_with_clear_center_los_steps": 13,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 8,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.4,
+        "recording": "runs/follow-observation-coverage/episode-4.npz"
+      },
+      {
+        "training_episode_index": 5,
+        "robot_id_evaluator_only": 1,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 101,
+        "predecessor_unreported_with_clear_center_los_steps": 198,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 18.400000000000002,
+        "recording": "runs/follow-observation-coverage/episode-5.npz"
+      },
+      {
+        "training_episode_index": 5,
+        "robot_id_evaluator_only": 2,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 292,
+        "predecessor_unreported_with_clear_center_los_steps": 7,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.6000000000000001,
+        "recording": "runs/follow-observation-coverage/episode-5.npz"
+      },
+      {
+        "training_episode_index": 5,
+        "robot_id_evaluator_only": 3,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 289,
+        "predecessor_unreported_with_clear_center_los_steps": 10,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.9,
+        "recording": "runs/follow-observation-coverage/episode-5.npz"
+      },
+      {
+        "training_episode_index": 5,
+        "robot_id_evaluator_only": 4,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 286,
+        "predecessor_unreported_with_clear_center_los_steps": 13,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 8,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.4,
+        "recording": "runs/follow-observation-coverage/episode-5.npz"
+      },
+      {
+        "training_episode_index": 6,
+        "robot_id_evaluator_only": 1,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 98,
+        "predecessor_unreported_with_clear_center_los_steps": 201,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 18.1,
+        "recording": "runs/follow-observation-coverage/episode-6.npz"
+      },
+      {
+        "training_episode_index": 6,
+        "robot_id_evaluator_only": 2,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 286,
+        "predecessor_unreported_with_clear_center_los_steps": 13,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.6000000000000001,
+        "recording": "runs/follow-observation-coverage/episode-6.npz"
+      },
+      {
+        "training_episode_index": 6,
+        "robot_id_evaluator_only": 3,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 287,
+        "predecessor_unreported_with_clear_center_los_steps": 12,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.9,
+        "recording": "runs/follow-observation-coverage/episode-6.npz"
+      },
+      {
+        "training_episode_index": 6,
+        "robot_id_evaluator_only": 4,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 284,
+        "predecessor_unreported_with_clear_center_los_steps": 15,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 10,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.5,
+        "recording": "runs/follow-observation-coverage/episode-6.npz"
+      },
+      {
+        "training_episode_index": 7,
+        "robot_id_evaluator_only": 1,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 96,
+        "predecessor_unreported_with_clear_center_los_steps": 203,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 18.5,
+        "recording": "runs/follow-observation-coverage/episode-7.npz"
+      },
+      {
+        "training_episode_index": 7,
+        "robot_id_evaluator_only": 2,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 293,
+        "predecessor_unreported_with_clear_center_los_steps": 6,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.5,
+        "recording": "runs/follow-observation-coverage/episode-7.npz"
+      },
+      {
+        "training_episode_index": 7,
+        "robot_id_evaluator_only": 3,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 289,
+        "predecessor_unreported_with_clear_center_los_steps": 10,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 0,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.9,
+        "recording": "runs/follow-observation-coverage/episode-7.npz"
+      },
+      {
+        "training_episode_index": 7,
+        "robot_id_evaluator_only": 4,
+        "steps_after_first_delivery": 299,
+        "predecessor_reported_steps": 287,
+        "predecessor_unreported_with_clear_center_los_steps": 12,
+        "predecessor_unreported_without_center_los_steps": 0,
+        "no_robot_reported_steps": 7,
+        "all_six_readings_max_steps": 0,
+        "longest_predecessor_unreported_s": 0.5,
+        "recording": "runs/follow-observation-coverage/episode-7.npz"
+      }
+    ],
+    "summary": {
+      "successful_privileged_episodes": 8,
+      "contacts": 0,
+      "wall_attempts": 0,
+      "follower_histories": 32,
+      "post_delivery_follower_steps": 9568,
+      "initial_pending_sample_steps_excluded": 32,
+      "predecessor_reported_fraction": 0.8028846153846154,
+      "unreported_with_clear_center_los_steps": 1886,
+      "unreported_without_center_los_steps": 0,
+      "no_robot_reported_fraction": 0.007525083612040134,
+      "all_six_max_fraction": 0.0,
+      "max_predecessor_unreported_duration_s": 18.5
+    },
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-follow-observation-coverage.py",
+        "sha256": "e033043fb65c2a5a207a40602a4cb1039f6e79ae77c67302d5c13838d0b179f2"
+      },
+      {
+        "path": "runs/follow-observation-coverage/protocol.json",
+        "sha256": "d9f37bfbb1b9d8a5d3480e0080cb3e0ec9e4bb1f7d1855f6653a424f814edeb6"
+      },
+      {
+        "path": "runs/follow-observation-coverage/episode-0.npz",
+        "sha256": "370a06cf160021046ed3d8272e53f5a721319add37d1b2a2a144a7c59d296525"
+      },
+      {
+        "path": "runs/follow-observation-coverage/episode-1.npz",
+        "sha256": "d0568575516f02cf31ead53bc438b588a1a197a9633aba6546054596a5181e9b"
+      },
+      {
+        "path": "runs/follow-observation-coverage/episode-2.npz",
+        "sha256": "f436e1c15d7cb537d8d6976802b7b5371d603a4237da0745233689b27de98578"
+      },
+      {
+        "path": "runs/follow-observation-coverage/episode-3.npz",
+        "sha256": "b3d85c83126507b1d6b94b78b06cf6e571cd219bf1776f90c613a20d577d9326"
+      },
+      {
+        "path": "runs/follow-observation-coverage/episode-4.npz",
+        "sha256": "3d1b2c66c38343f0213fd132e3c189bb0797c47e704d09649b442d4e571b88f2"
+      },
+      {
+        "path": "runs/follow-observation-coverage/episode-5.npz",
+        "sha256": "82c69ed880481c5e3b46dc68c93aa670e2895bdc1c0ae640814d943207eb8ebc"
+      },
+      {
+        "path": "runs/follow-observation-coverage/episode-6.npz",
+        "sha256": "9d788ed867343a9127695658050b720617ef8fc7bf87a128a36b9ddbc4163075"
+      },
+      {
+        "path": "runs/follow-observation-coverage/episode-7.npz",
+        "sha256": "0017e548f6ab0a34d4a8d6ade307757208631b6cb5a331366a9060e93722cbb9"
+      }
+    ]
+  },
+  "hypothetical_horizontal_angular_sampling": {
+    "protocol": {
+      "version": "bari-follow-hypothetical-angular-sampling-v1",
+      "planned_utc": "2026-11-03T12:27:18.160294+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      },
+      "dataset": {
+        "path": "runs/teacher-follow-h64/demonstrations.npz",
+        "sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9"
+      },
+      "training_episode_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "profiles": [
+        {
+          "horizontal_width_deg": 0.0,
+          "rays_per_sensor": 1
+        },
+        {
+          "horizontal_width_deg": 15.0,
+          "rays_per_sensor": 61
+        },
+        {
+          "horizontal_width_deg": 15.0,
+          "rays_per_sensor": 121
+        },
+        {
+          "horizontal_width_deg": 30.0,
+          "rays_per_sensor": 61
+        },
+        {
+          "horizontal_width_deg": 30.0,
+          "rays_per_sensor": 121
+        },
+        {
+          "horizontal_width_deg": 60.0,
+          "rays_per_sensor": 61
+        },
+        {
+          "horizontal_width_deg": 60.0,
+          "rays_per_sensor": 121
+        }
+      ],
+      "aggregation": "Minimum nearest-surface distance over uniformly sampled horizontal rays from each fixed mounted sensor origin; every ray includes robot/wall nearest-hit occlusion. Self is excluded.",
+      "classification": "Unreported predecessor: no sampled intersection; all intersecting rays occluded by nearer surfaces; or visible on a subray but suppressed by minimum aggregation over that module.",
+      "scope": "Read-only hypothetical geometry on exactly replayed zero-FOV teacher trajectories. No physics, actor observation, training data or public sensing config is changed. Profiles are not measured VL53L7CX zone behavior: actual zones, vertical FoV/floor returns, statuses, noise and aggregation are unresolved. No task-success or deployability claim."
+    },
+    "summary": [
+      {
+        "horizontal_width_deg": 0.0,
+        "rays_per_sensor": 1,
+        "follower_steps": 9568,
+        "predecessor_reported_fraction": 0.8028846153846154,
+        "unreported_angular_miss_steps": 1886,
+        "unreported_per_ray_occlusion_steps": 0,
+        "unreported_module_minimum_suppression_steps": 0,
+        "max_unreported_duration_s": 18.5
+      },
+      {
+        "horizontal_width_deg": 15.0,
+        "rays_per_sensor": 61,
+        "follower_steps": 9568,
+        "predecessor_reported_fraction": 0.986517558528428,
+        "unreported_angular_miss_steps": 129,
+        "unreported_per_ray_occlusion_steps": 0,
+        "unreported_module_minimum_suppression_steps": 0,
+        "max_unreported_duration_s": 1.2000000000000002
+      },
+      {
+        "horizontal_width_deg": 15.0,
+        "rays_per_sensor": 121,
+        "follower_steps": 9568,
+        "predecessor_reported_fraction": 0.986517558528428,
+        "unreported_angular_miss_steps": 129,
+        "unreported_per_ray_occlusion_steps": 0,
+        "unreported_module_minimum_suppression_steps": 0,
+        "max_unreported_duration_s": 1.2000000000000002
+      },
+      {
+        "horizontal_width_deg": 30.0,
+        "rays_per_sensor": 61,
+        "follower_steps": 9568,
+        "predecessor_reported_fraction": 0.9997909698996655,
+        "unreported_angular_miss_steps": 2,
+        "unreported_per_ray_occlusion_steps": 0,
+        "unreported_module_minimum_suppression_steps": 0,
+        "max_unreported_duration_s": 0.1
+      },
+      {
+        "horizontal_width_deg": 30.0,
+        "rays_per_sensor": 121,
+        "follower_steps": 9568,
+        "predecessor_reported_fraction": 0.9997909698996655,
+        "unreported_angular_miss_steps": 2,
+        "unreported_per_ray_occlusion_steps": 0,
+        "unreported_module_minimum_suppression_steps": 0,
+        "max_unreported_duration_s": 0.1
+      },
+      {
+        "horizontal_width_deg": 60.0,
+        "rays_per_sensor": 61,
+        "follower_steps": 9568,
+        "predecessor_reported_fraction": 1.0,
+        "unreported_angular_miss_steps": 0,
+        "unreported_per_ray_occlusion_steps": 0,
+        "unreported_module_minimum_suppression_steps": 0,
+        "max_unreported_duration_s": 0.0
+      },
+      {
+        "horizontal_width_deg": 60.0,
+        "rays_per_sensor": 121,
+        "follower_steps": 9568,
+        "predecessor_reported_fraction": 1.0,
+        "unreported_angular_miss_steps": 0,
+        "unreported_per_ray_occlusion_steps": 0,
+        "unreported_module_minimum_suppression_steps": 0,
+        "max_unreported_duration_s": 0.0
+      }
+    ],
+    "zero_width_environment_and_delivered_coverage_exact": true,
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-follow-angular-sampling.py",
+        "sha256": "bff6ebe9479f663091e95ed7c7e0c75c060b8d12a8c4e71c4cb2b4bcc0614b50"
+      },
+      {
+        "path": "runs/follow-angular-sampling/protocol.json",
+        "sha256": "db8a795c075710f54b686f08c2eb0b0922cc1fcffba1d7ab362bbbfd034621a6"
+      },
+      {
+        "path": "runs/follow-angular-sampling/episode-0.npz",
+        "sha256": "1e7d2a6df263b7642279cbc98721d9f27d864def9f8e5840a037de500ae8a644"
+      },
+      {
+        "path": "runs/follow-angular-sampling/episode-1.npz",
+        "sha256": "0c14851cb1a01c55f9472ef99ac3a2b15a79cf518068312915fb66bba792f613"
+      },
+      {
+        "path": "runs/follow-angular-sampling/episode-2.npz",
+        "sha256": "131e7d87d696718ee2f5262f6dcf470140a0b6f2fe553ad363975dac720fdfe7"
+      },
+      {
+        "path": "runs/follow-angular-sampling/episode-3.npz",
+        "sha256": "ba3064322f09c7c6a3d2f91922a0882978bb3b5888d81ff445fb060880795a09"
+      },
+      {
+        "path": "runs/follow-angular-sampling/episode-4.npz",
+        "sha256": "ccee71fa868e3b940619e7cffe222f0d03f0b20a16f31bac4962f00bf1c3f331"
+      },
+      {
+        "path": "runs/follow-angular-sampling/episode-5.npz",
+        "sha256": "61a7e32b94aac0dc5e6ae5fc789ddefb87565de2c9ea7b24b93e92b89c976525"
+      },
+      {
+        "path": "runs/follow-angular-sampling/episode-6.npz",
+        "sha256": "934ef720653841292c145d13372febd1e63e35793436371fcd2ca8d8c82a4c45"
+      },
+      {
+        "path": "runs/follow-angular-sampling/episode-7.npz",
+        "sha256": "f82d8afba4903bf36c8db5d9386ce6db3fa1a0e16d5d73af223342722e4c68d3"
+      }
+    ]
+  },
+  "zero_command_encoder_imitation": {
+    "protocol": {
+      "version": "bari-follow-zero-command-encoder-probe-v1",
+      "planned_utc": "2026-11-03T12:19:17.259298+00:00",
+      "source_revision": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      },
+      "experiment_script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-follow-sensor-only.py",
+        "sha256": "30a66e5ed4c802f58570975fea47e501332a11ce4b65bdee677f778bccff86e5"
+      },
+      "dataset": "runs/teacher-follow-h64/demonstrations.npz",
+      "dataset_sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9",
+      "config_sha256": "55a3b4bc391607758b457957b48755ac99de755a3fbc61dc0106822777957c98",
+      "datasets": [
+        {
+          "path": "runs/teacher-follow-h64/demonstrations.npz",
+          "sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9",
+          "episodes": 128,
+          "execution": "teacher-closed-loop",
+          "teacher": "scripted-privileged-v1-reactive",
+          "student": null,
+          "follow_ordering": "anonymous-formed-v1"
+        }
+      ],
+      "seed": 11,
+      "epochs": 40,
+      "batch_episodes": 8,
+      "bptt_steps": 64,
+      "learning_rate": 0.001,
+      "gradient_clip": 0.5,
+      "constraint": "encoder.weight[:,6:8] initialized to zero and gradients zeroed before clipping/Adam; weights remain exactly zero",
+      "initialization": "All other initial tensors bit exact to independent H64 actor seed11",
+      "inference": "Unmodified ordinary Actor and preprocessing: local nine fields plus four-way context; the two command fields are ignored by saved zero weights. No runtime mask, phase, global feature or teacher.",
+      "baseline": {
+        "path": "runs/follow-h64-actor-terminal-11/checkpoint.pt",
+        "sha256": "c5020c7c2c1facfb3128d4597808f5ab697956086298bf25329c54bedb129f4c"
+      },
+      "hypothesis": "Previous-command copying nearly matches low teacher-forced loss. Train recurrent local sensing without that direct shortcut; test actual closed-loop control rather than assuming internal command contraction proves stability.",
+      "validation_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "evaluation": "Final epoch40 only: five moving visible-chain cases with unchanged gates and no intervention. Full isolated/switching suite only if all five pass; otherwise stop this bounded pilot without extension or promotion.",
+      "scope": "Imitation-only, zero RL updates. Role/task context and GRU history remain; successful all-four-task GRU-RL, transitions, occlusion, multi-seed and hardware acceptance remain required."
+    },
+    "checkpoint": "runs/train-follow-sensor-only-11/checkpoint.pt",
+    "checkpoint_sha256": "fdad4ef55c0ea6a0e26720f8d3c717538bfb3fb7b0bb98d4da17ddad2ad6b552",
+    "saved_command_encoder_weights_exact_zero": true,
+    "chain_report": "runs/validation-follow-sensor-only-11-chain/report.json",
+    "chain_successes": 0,
+    "chain_episodes": 5,
+    "chain_summary": {
+      "follow": {
+        "episodes": 5,
+        "success_rate": 0.0,
+        "mean_final_max_error_m": 0.06217742850017686,
+        "required_success_rate": 0.9,
+        "passes_assumed_gate": false
+      }
+    },
+    "chain_collisions": 4345,
+    "chain_wall_attempts": 0,
+    "chain_mean_leader_travel_m": 0.07669910573168189,
+    "full_report": null,
+    "decision": "chain failed; bounded pilot ended without extension or promotion"
+  },
+  "conclusions": [
+    "Removing the direct previous-command encoder path does not establish successful following.",
+    "The zero-FOV predecessor misses on these successful teacher traces are angular misses, not nearest-ray occlusions or module-minimum suppression.",
+    "Hypothetical wider horizontal sampling increases predecessor coverage on fixed traces, but supplies no trained-policy or physical sensor acceptance.",
+    "Public zero-FOV sensing, actor defaults, normalization and numerical gates are unchanged."
+  ],
+  "hardware_unknown": "VL53L7CX zone aggregation and vertical/floor response remain unresolved; user clarification requested. No hypothetical angular profile is selected as the deployed readout.",
+  "remaining": [
+    "Successful four-task GRU-RL on randomized starts",
+    "12 directed plus unfinished/repeated switches",
+    "Controlled seen/unseen occlusion and memory comparison",
+    "Multiple training seeds and final held-out acceptance",
+    "Successful 3D recording/export parity",
+    "ESP32-S3 peak internal SRAM/latency without PSRAM",
+    "Physical calibration and measured radius-1m arena"
+  ],
+  "artifacts": [
+    {
+      "path": "reports/follow-observation-coverage.json",
+      "sha256": "3f49638c90f5a0fba219aca90ae80ee3863b9e097101c8d4628b165fedccf667"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-0.npz",
+      "sha256": "370a06cf160021046ed3d8272e53f5a721319add37d1b2a2a144a7c59d296525"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-1.npz",
+      "sha256": "d0568575516f02cf31ead53bc438b588a1a197a9633aba6546054596a5181e9b"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-2.npz",
+      "sha256": "f436e1c15d7cb537d8d6976802b7b5371d603a4237da0745233689b27de98578"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-3.npz",
+      "sha256": "b3d85c83126507b1d6b94b78b06cf6e571cd219bf1776f90c613a20d577d9326"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-4.npz",
+      "sha256": "3d1b2c66c38343f0213fd132e3c189bb0797c47e704d09649b442d4e571b88f2"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-5.npz",
+      "sha256": "82c69ed880481c5e3b46dc68c93aa670e2895bdc1c0ae640814d943207eb8ebc"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-6.npz",
+      "sha256": "9d788ed867343a9127695658050b720617ef8fc7bf87a128a36b9ddbc4163075"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-7.npz",
+      "sha256": "0017e548f6ab0a34d4a8d6ade307757208631b6cb5a331366a9060e93722cbb9"
+    },
+    {
+      "path": "runs/follow-observation-coverage/protocol.json",
+      "sha256": "d9f37bfbb1b9d8a5d3480e0080cb3e0ec9e4bb1f7d1855f6653a424f814edeb6"
+    },
+    {
+      "path": "runs/follow-observation-coverage/report.json",
+      "sha256": "3f49638c90f5a0fba219aca90ae80ee3863b9e097101c8d4628b165fedccf667"
+    },
+    {
+      "path": "runs/probe-follow-observation-coverage.py",
+      "sha256": "e033043fb65c2a5a207a40602a4cb1039f6e79ae77c67302d5c13838d0b179f2"
+    },
+    {
+      "path": "reports/follow-angular-sampling.json",
+      "sha256": "9ae5caa5a11ea6c03216996067070b357d4f600b8d01e289a9235806e1130309"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-0.npz",
+      "sha256": "1e7d2a6df263b7642279cbc98721d9f27d864def9f8e5840a037de500ae8a644"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-1.npz",
+      "sha256": "0c14851cb1a01c55f9472ef99ac3a2b15a79cf518068312915fb66bba792f613"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-2.npz",
+      "sha256": "131e7d87d696718ee2f5262f6dcf470140a0b6f2fe553ad363975dac720fdfe7"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-3.npz",
+      "sha256": "ba3064322f09c7c6a3d2f91922a0882978bb3b5888d81ff445fb060880795a09"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-4.npz",
+      "sha256": "ccee71fa868e3b940619e7cffe222f0d03f0b20a16f31bac4962f00bf1c3f331"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-5.npz",
+      "sha256": "61a7e32b94aac0dc5e6ae5fc789ddefb87565de2c9ea7b24b93e92b89c976525"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-6.npz",
+      "sha256": "934ef720653841292c145d13372febd1e63e35793436371fcd2ca8d8c82a4c45"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-7.npz",
+      "sha256": "f82d8afba4903bf36c8db5d9386ce6db3fa1a0e16d5d73af223342722e4c68d3"
+    },
+    {
+      "path": "runs/follow-angular-sampling/protocol.json",
+      "sha256": "db8a795c075710f54b686f08c2eb0b0922cc1fcffba1d7ab362bbbfd034621a6"
+    },
+    {
+      "path": "runs/follow-angular-sampling/report.json",
+      "sha256": "9ae5caa5a11ea6c03216996067070b357d4f600b8d01e289a9235806e1130309"
+    },
+    {
+      "path": "runs/probe-follow-angular-sampling.py",
+      "sha256": "bff6ebe9479f663091e95ed7c7e0c75c060b8d12a8c4e71c4cb2b4bcc0614b50"
+    },
+    {
+      "path": "runs/train-follow-sensor-only.py",
+      "sha256": "30a66e5ed4c802f58570975fea47e501332a11ce4b65bdee677f778bccff86e5"
+    },
+    {
+      "path": "runs/follow-sensor-only-protocol.json",
+      "sha256": "da1e40ac1d200a930da4c9b907ab56692956d2ba58dbd5627dc0798e23ac3379"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/checkpoint.pt",
+      "sha256": "fdad4ef55c0ea6a0e26720f8d3c717538bfb3fb7b0bb98d4da17ddad2ad6b552"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/config.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/imitation.jsonl",
+      "sha256": "8924283022a2a6b519e6594aac723c536f70414a6778819f1311bc1dffa55f5b"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/protocol.json",
+      "sha256": "da1e40ac1d200a930da4c9b907ab56692956d2ba58dbd5627dc0798e23ac3379"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/train-follow-sensor-only-11/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/evaluation_contract.json",
+      "sha256": "1da6513ec38060c92fbab6aab0a28544bbe0a73d64e7370bd93194f1951884ba"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/follow-2001.npz",
+      "sha256": "cab0a4dd3dc6ae22229807c91dcdb64a3b23540e4b4ab94cb2412d094ebb921f"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/follow-2003.npz",
+      "sha256": "14e562dd2d90ec6d94bce826a321acaa2cd6562d8633a8f49775cecd55a2ee24"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/follow-2011.npz",
+      "sha256": "9f942286e6a8949c4cad204a0b2b0074d9d19c06be30f9424ef391cdf7594c88"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/follow-2017.npz",
+      "sha256": "9a82a42931a08c889f215e9d8813ff45e1992f49d51d57b6253e5149a778882e"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/follow-2027.npz",
+      "sha256": "ec9d01d6b84a8983881816b548761cdbab165cb203b975629d0d08dc07987807"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/frozen_config.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/report.json",
+      "sha256": "2fc14d99c1eb43a4d0e08c73b76ac94110af49b9f748d5d7804a906952eea7f6"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-follow-sensor-only-11-chain/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/follow-sensor-only-results.json",
+      "sha256": "168da4fde929704ab0b86c60cc36f315f9c5139e1c3af20c298d0f5817dcfada"
+    },
+    {
+      "path": "runs/update-follow-sensing-report.py",
+      "sha256": "5e5cfd49c1a25e7af4f7fe38a5328018cbc8f7071329db63324d9d510c351def"
+    },
+    {
+      "path": "reports/verification-teacher-assistance.txt",
+      "sha256": "2b43addc6e94ca95458de5ad4336687f754969ffdc3f6a8242e128c0a91753e8"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/runtime.json",
+      "sha256": "fb23333eebf9f8199e5ffb68793a24da8fbaa71d430c9c193c331e0159176265"
+    }
+  ]
+}

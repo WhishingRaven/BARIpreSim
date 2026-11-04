@@ -1,5 +1,6 @@
 """Ground-truth evaluation and success gates. Never used as actor observations."""
 import numpy as np
+from .config import observation_contract, CONE_OCCLUSION_BASIS
 from .geometry import match_formation, targets
 
 EVALUATION_VERSION = "bari-evaluation-v5-anonymous-order"
@@ -8,7 +9,7 @@ LEGACY_ORDER = "fixed-id-v0"
 
 
 def evaluation_contract(config):
-    return {
+    contract = {
         "version": EVALUATION_VERSION, "distance_unit": "m", "time_unit": "s",
         "formation_error": "maximum point error after minimum-RMS fit over all 120 permutations, translation, and proper planar rotation; no rescaling",
         "following_path_error": "maximum distance of all five centers to the recent leader polyline, limited to the last 4*(follow_spacing+following_spacing_tolerance) meters and clipped exactly at that arc cutoff",
@@ -28,6 +29,10 @@ def evaluation_contract(config):
         "required_success_rate": config.required_success_rate,
         "status": "provisional simulation assumptions, frozen before evaluation"
     }
+    if config.sensor_fov_deg:
+        contract.update(sensor_model=observation_contract(config)["sensor_model"],
+                        occlusion_observer_basis=CONE_OCCLUSION_BASIS)
+    return contract
 
 
 class TaskTracker:

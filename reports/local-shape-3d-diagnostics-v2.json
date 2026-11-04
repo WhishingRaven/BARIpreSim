@@ -1,0 +1,112 @@
+{
+  "version": "bari-local-shape-3d-diagnostics-v2",
+  "cases": [
+    {
+      "case": "square-scan",
+      "seed": 2003,
+      "frames": 61,
+      "stride_controls": 5,
+      "fps": 6,
+      "control_records": 300,
+      "final_error_m": 0.01140619975141882,
+      "final_hold_s": 13.699999999999967,
+      "contacts": 0,
+      "walls": 0,
+      "all_draw_calls_preserve_complete_environment_state_and_rng": true,
+      "source_recording_hash_unchanged": true,
+      "movie": {
+        "path": "output/gif/local-square-scan-unlearned-v2.gif",
+        "sha256": "3c4739fa7a9fe4d0d8fce8dac07131c1403e55eb471e4e5a2d5069e9b4ae307c"
+      },
+      "screenshots": [
+        {
+          "path": "output/qa/local-square-scan-unlearned-v2-initial.png",
+          "sha256": "efa86c0a932751c852970e59579e2d9a6a7fab43831cef8a520c2ccc6f3c52a5"
+        },
+        {
+          "path": "output/qa/local-square-scan-unlearned-v2-final.png",
+          "sha256": "5fd1c253ca54aa256fddfb980683fd3c1dcf8a3a4a790b54f3fa282ed3c1cd61"
+        }
+      ]
+    },
+    {
+      "case": "line-gain",
+      "seed": 3011,
+      "frames": 61,
+      "stride_controls": 5,
+      "fps": 6,
+      "control_records": 300,
+      "final_error_m": 0.003820747417776313,
+      "final_hold_s": 17.399999999999977,
+      "contacts": 0,
+      "walls": 0,
+      "all_draw_calls_preserve_complete_environment_state_and_rng": true,
+      "source_recording_hash_unchanged": true,
+      "movie": {
+        "path": "output/gif/local-line-gain-unlearned-v2.gif",
+        "sha256": "4e73994a9323e6fb9211516c96a6dae107770187b8bd714f104e71c972e4790e"
+      },
+      "screenshots": [
+        {
+          "path": "output/qa/local-line-gain-unlearned-v2-initial.png",
+          "sha256": "2f070cb0231872ce11e718d144c8126a85bbe1c492ab400663d4ecc018b73f4c"
+        },
+        {
+          "path": "output/qa/local-line-gain-unlearned-v2-final.png",
+          "sha256": "c5d5fd75e55ca42be409fd426ffb53e5317c219901d7ae7e8c01aa75482d6cea"
+        }
+      ]
+    }
+  ],
+  "supersedes_visual_artifacts": {
+    "path": "reports/local-shape-3d-diagnostics.json",
+    "sha256": "c0be198773a9b20c2afd4a8a87d8acfe8c752c5820432761521833953e14ea8b"
+  },
+  "scope": "Offline replay of two unlearned host-teacher development successes only. No policy inference, new physics/control steps or sensor RNG draws. Models/proportions and FOV60 remain provisional. Not learned four-task/transition/occlusion/device acceptance or native-control verification.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/render-local-shape-diagnostics-v2.py",
+      "sha256": "c64327e3af80a15fc7f78293dcce5dc14ab166e72faa0ce37aa15302432b3af0"
+    },
+    {
+      "path": "bari/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "bari/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2003.npz",
+      "sha256": "3df23838ff818a6409df8e390c087e358c87795a2bc5f46b5606752752222f22"
+    },
+    {
+      "path": "output/gif/local-square-scan-unlearned-v2.gif",
+      "sha256": "3c4739fa7a9fe4d0d8fce8dac07131c1403e55eb471e4e5a2d5069e9b4ae307c"
+    },
+    {
+      "path": "output/qa/local-square-scan-unlearned-v2-initial.png",
+      "sha256": "efa86c0a932751c852970e59579e2d9a6a7fab43831cef8a520c2ccc6f3c52a5"
+    },
+    {
+      "path": "output/qa/local-square-scan-unlearned-v2-final.png",
+      "sha256": "5fd1c253ca54aa256fddfb980683fd3c1dcf8a3a4a790b54f3fa282ed3c1cd61"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3011.npz",
+      "sha256": "99c99e14d31d499e31ce339568062f9751e476c0e95f4e7eaae9e6efdf6b9ee7"
+    },
+    {
+      "path": "output/gif/local-line-gain-unlearned-v2.gif",
+      "sha256": "4e73994a9323e6fb9211516c96a6dae107770187b8bd714f104e71c972e4790e"
+    },
+    {
+      "path": "output/qa/local-line-gain-unlearned-v2-initial.png",
+      "sha256": "2f070cb0231872ce11e718d144c8126a85bbe1c492ab400663d4ecc018b73f4c"
+    },
+    {
+      "path": "output/qa/local-line-gain-unlearned-v2-final.png",
+      "sha256": "c5d5fd75e55ca42be409fd426ffb53e5317c219901d7ae7e8c01aa75482d6cea"
+    }
+  ]
+}

@@ -53,6 +53,35 @@ def ray_disks(origins, directions, centers, radii):
     return np.where((discriminant >= -1e-12) & (far >= 0), np.maximum(near, 0), np.inf)
 
 
+def cone_disks(origins, angles, half_angle, centers, radii):
+    """Exact minimum disk-surface ranges over closed horizontal angular sectors.
+
+    The closest admissible ray points at a disk center or the nearest sector edge.
+    Returned directions are observer-only witnesses, not measured actor bearings.
+    """
+    offset = centers[None, None, :, :]-origins[:, :, None, :]
+    bearing = np.arctan2(offset[..., 1], offset[..., 0])
+    chosen = angles[..., None]+np.clip(wrap(bearing-angles[..., None]), -half_angle, half_angle)
+    directions = np.stack((np.cos(chosen), np.sin(chosen)), axis=-1)
+    projection = np.sum(offset*directions, axis=-1)
+    discriminant = radii[None, None, :]**2-(np.sum(offset**2, axis=-1)-projection**2)
+    root = np.sqrt(np.maximum(discriminant, 0))
+    near, far = projection-root, projection+root
+    ranges = np.where((discriminant >= -1e-12) & (far >= 0), np.maximum(near, 0), np.inf)
+    return ranges, directions
+
+
+def cone_wall(origins, angles, half_angle, radius):
+    """Nearest circular boundary from interior origins within each sector."""
+    radial = np.arctan2(origins[..., 1], origins[..., 0])
+    relative = np.where(np.sum(origins**2, axis=-1) > 0, wrap(radial-angles), 0.)
+    chosen = angles+np.clip(relative, -half_angle, half_angle)
+    directions = np.stack((np.cos(chosen), np.sin(chosen)), axis=-1)
+    dot = np.sum(origins*directions, axis=-1)
+    ranges = -dot+np.sqrt(np.maximum(dot**2+radius**2-np.sum(origins**2, axis=-1), 0))
+    return ranges, directions
+
+
 def normalize_ranges(readings, config):
     clean = np.nan_to_num(readings, nan=config.sensor_max, posinf=config.sensor_max, neginf=config.sensor_max)
     return ((np.clip(clean, config.sensor_min, config.sensor_max)-config.sensor_min)

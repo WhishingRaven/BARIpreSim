@@ -1,0 +1,67 @@
+{
+  "protocol": {
+    "version": "bari-scan-prefix-diagnostic-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "84858259b64fbd84b19d7d67ff449381c33ca5e57539709a6104500ef4fd36ba"
+    },
+    "checkpoint": "runs/scan-imitation-scan-terminal-11/checkpoint.pt",
+    "checkpoint_sha256": "ba32d9b4c0ddae5b008fd47f3ad8b9f824cf53410389b829311904593b1ee34e",
+    "seed": 2001,
+    "steps": 12,
+    "reference": [
+      -0.4,
+      0.4
+    ],
+    "scope": "One fixed validation start. Teacher-forced execution is a diagnostic reference, not learned control. Closed-loop uses only actor commands. No learning or acceptance claim."
+  },
+  "cases": [
+    {
+      "profile": "teacher-forced",
+      "mean_absolute_command_error": 0.024230845272541053,
+      "robot1_mean_absolute_command_error": 0.02160427148143451,
+      "first_command_robot1": [
+        -0.3984610140323639,
+        0.40296223759651184
+      ],
+      "last_command_robot1": [
+        -0.34750914573669434,
+        0.3755419850349426
+      ],
+      "max_xy_displacement_m": 0.0,
+      "contacts": 0,
+      "wall_attempts": 0
+    },
+    {
+      "profile": "closed-loop",
+      "mean_absolute_command_error": 0.11474281329933242,
+      "robot1_mean_absolute_command_error": 0.10773206719507773,
+      "first_command_robot1": [
+        -0.3984610140323639,
+        0.40296223759651184
+      ],
+      "last_command_robot1": [
+        -0.10214220732450485,
+        0.7580559253692627
+      ],
+      "max_xy_displacement_m": 0.013146338288081065,
+      "contacts": 0,
+      "wall_attempts": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-scan-prefix.py",
+      "sha256": "506a50690525b2791835a2f0d5bb03cbec48fe29ef41d85f86f7d82661292d9d"
+    },
+    {
+      "path": "runs/scan-prefix-diagnostic/closed-loop.npz",
+      "sha256": "ae520a3d743f57cba871c3136ead72bd0194d856a17e5e75ee16c63ad9e84f5f"
+    },
+    {
+      "path": "runs/scan-prefix-diagnostic/teacher-forced.npz",
+      "sha256": "230f3fab398ec0f41517e5a5774bcfa9b48cfefbf51db8e1ca879a0a0566fe26"
+    }
+  ]
+}

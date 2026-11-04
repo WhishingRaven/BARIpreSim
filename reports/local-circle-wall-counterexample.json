@@ -1,0 +1,66 @@
+{
+  "version": "bari-circle-wall-hypothesis-counterexample-v1",
+  "scope": "Observer-only model query at recorded post-step30s readings, comparing against true29.9s sample pose. No true pose enters controller; this unexecuted next-action query illustrates the estimator failure and is not a new behavioral episode.",
+  "robot_index_observer_only": 1,
+  "local_observation": [
+    0.21976111829280853,
+    0.15200138092041016,
+    0.12489574402570724,
+    1.0,
+    0.12576161324977875,
+    0.21959525346755981,
+    0.04426366090774536,
+    -1.0,
+    0.0
+  ],
+  "measured_ranges_m": [
+    0.18751248717308044,
+    0.13432107865810394,
+    0.1130431592464447,
+    0.800000011920929,
+    0.11372286826372147,
+    0.1873822808265686
+  ],
+  "estimated_center_body_frame_m": [
+    -0.67116968793294,
+    0.38749999999999996
+  ],
+  "matched_wall_returns": 2,
+  "true_center_body_frame_m": [
+    0.059694939900121036,
+    -0.0036803705979741156
+  ],
+  "true_radius_m": 0.059808285190410655,
+  "inferred_radius_m": 0.775,
+  "center_error_m": 0.828966336203544,
+  "true_wall_ranges_clipped_m": [
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.8
+  ],
+  "estimated_wall_ranges_clipped_m": [
+    0.18571794081291182,
+    0.33459891665138464,
+    0.8,
+    0.8,
+    0.33459891665138497,
+    0.18571794081291182
+  ],
+  "artifacts": [
+    {
+      "path": "runs/local-circle-field-probe/fully-local-seed-3011.npz",
+      "sha256": "a7c32d585f915c96a07dc0802b630bac9864e854d8e3848a1c17b11db42ff007"
+    },
+    {
+      "path": "runs/local_circle_field.py",
+      "sha256": "2305f199910113412dd99a7d428d18b2ec8de5f4a1422ee0bd43de3c177453f9"
+    },
+    {
+      "path": "configs/hypothetical-follow-fov60-h64.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    }
+  ]
+}

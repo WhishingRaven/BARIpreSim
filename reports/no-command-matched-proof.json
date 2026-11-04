@@ -1,0 +1,76 @@
+{
+  "version": "bari-no-command-matched-proof-v1",
+  "scope": "Matched ablation inside each dataset arm, not a blanket claim that command removal improves every policy. No behavioral acceptance inferred from numeric independence alone.",
+  "arms": [
+    {
+      "arm": "k2",
+      "matched_fields": [
+        "dataset_sha256",
+        "configuration",
+        "seed",
+        "epochs",
+        "batch_episodes",
+        "BPTT",
+        "learning_rate",
+        "gradient_clip",
+        "Adam_step_count"
+      ],
+      "Adam_step_counts": [
+        3200
+      ],
+      "saved_command_columns_zero": true,
+      "forty_arbitrary_input_hidden_cases_command_independent_exact": true,
+      "initialization_proof": "Training script asserts every initial tensor matches independent ordinary seed11 Actor, except zeroed command columns.",
+      "baseline": {
+        "path": "runs/local-follow-imitation-terminal-11/checkpoint.pt",
+        "sha256": "febdd39bd191eda5c1fbd8e9826196782712349eeb4cd7c0d9ed86a361750786"
+      },
+      "candidate": {
+        "path": "runs/train-local-follow-no-command-k2-11/checkpoint.pt",
+        "sha256": "42d7e1f9c6a75d86a824ecb6eb384ca6ad16afcb4f7a8584be2670eff4b45b75"
+      },
+      "result": {
+        "path": "runs/local-follow-no-command-k2-results.json",
+        "sha256": "d7f81fedddf4e396158e3598f2aa2270b7b849a02d15e3f54ccc755a10f16176"
+      }
+    },
+    {
+      "arm": "k3",
+      "matched_fields": [
+        "dataset_sha256",
+        "configuration",
+        "seed",
+        "epochs",
+        "batch_episodes",
+        "BPTT",
+        "learning_rate",
+        "gradient_clip",
+        "Adam_step_count"
+      ],
+      "Adam_step_counts": [
+        6400
+      ],
+      "saved_command_columns_zero": true,
+      "forty_arbitrary_input_hidden_cases_command_independent_exact": true,
+      "initialization_proof": "Training script asserts every initial tensor matches independent ordinary seed11 Actor, except zeroed command columns.",
+      "baseline": {
+        "path": "runs/local-follow-gain3-imitation-terminal-11/checkpoint.pt",
+        "sha256": "6732cc7ffb124b907ae1719f11b0b72825bf134b34c49b5267fbea6c7d4c993b"
+      },
+      "candidate": {
+        "path": "runs/train-local-follow-no-command-k3-11/checkpoint.pt",
+        "sha256": "6b41bef3fd6d3fe6a6595a9ad7eff15d6c13689848a7a3457c01dc6378fd7c2a"
+      },
+      "result": {
+        "path": "runs/local-follow-no-command-k3-results.json",
+        "sha256": "b2206d75f470699029756b14242dd16f97886ff86dde1d5f37c366e042fc00c9"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "runs/train-local-follow-no-command.py",
+      "sha256": "e672e477f7eec0fa2245b20e23b3e7abe2cd2559ea896fa5bf5f5df759a3b5ce"
+    }
+  ]
+}

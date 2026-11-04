@@ -1,0 +1,23 @@
+{
+  "version": "bari-local-geometry-frame-verification-v1",
+  "controls": 200,
+  "streams": 5,
+  "parent_state_bytes_host_ABI": 168440,
+  "max_frame_error_vs_independent_FP64": 1.0843208753108513e-07,
+  "individual_reset_warmup_checked": true,
+  "scope": "Frame math independently reconstructed from serialized nominal command-model state only. Does not establish true odometry, pose accuracy after contact, behavioral or target acceptance.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-geometry-frames.py",
+      "sha256": "f1a3be63c10c15f86ba3163bdcfdcecfb4afd65a40bcf81bfcaad8acaea28892"
+    },
+    {
+      "path": "runs/local_geometry.py",
+      "sha256": "1d790b6bb4066dc1a1dbb12d955d9eb205c87161158b240567087a80cdcb92bd"
+    },
+    {
+      "path": "runs/local_geometry_bridge.cpp",
+      "sha256": "6c406cf620f16e7cfa12ba970a9179f825b6e3794c2f4b12412aaaacfa758163"
+    }
+  ]
+}

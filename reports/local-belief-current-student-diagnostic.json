@@ -1,0 +1,88 @@
+{
+  "version": "bari-local-belief-current-student-diagnostic-v1",
+  "checkpoint": {
+    "path": "runs/train-local-belief-current-student-11/checkpoint.pt",
+    "sha256": "70aa22e6e9709ed3a4d941ee25e436c1ca9921fc382c93f1c631671855167b80"
+  },
+  "fixed_budget_verified": true,
+  "new_epoch_orders_match_source_reconstruction": true,
+  "old_epoch_order_digest_recorded": true,
+  "actor_unchanged": true,
+  "training_fit": {
+    "teacher": {
+      "episodes": 128,
+      "training_data_wheel_mse": 0.11553259193897247,
+      "zero_command_mse": 0.1727360039949417,
+      "high_turn_sample_fraction": 0.42915625,
+      "high_turn_mse": 0.2240467518568039,
+      "other_mse": 0.03395244479179382,
+      "scope": "Training-data fit with final frozen weights, not held-out prediction or task success"
+    },
+    "current-student": {
+      "episodes": 128,
+      "training_data_wheel_mse": 0.21717800199985504,
+      "zero_command_mse": 0.3385658860206604,
+      "high_turn_sample_fraction": 0.8215885416666666,
+      "high_turn_mse": 0.25009846687316895,
+      "other_mse": 0.06557854264974594,
+      "scope": "Training-data fit with final frozen weights, not held-out prediction or task success"
+    }
+  },
+  "actual_execution_replay": [
+    {
+      "stage": "development",
+      "seed": 2001,
+      "all300_belief_inputs_exact": true,
+      "all_five_actor_commands_exact": true,
+      "no_formation_action_override": true
+    },
+    {
+      "stage": "development",
+      "seed": 2003,
+      "all300_belief_inputs_exact": true,
+      "all_five_actor_commands_exact": true,
+      "no_formation_action_override": true
+    },
+    {
+      "stage": "development",
+      "seed": 2011,
+      "all300_belief_inputs_exact": true,
+      "all_five_actor_commands_exact": true,
+      "no_formation_action_override": true
+    },
+    {
+      "stage": "development",
+      "seed": 2017,
+      "all300_belief_inputs_exact": true,
+      "all_five_actor_commands_exact": true,
+      "no_formation_action_override": true
+    },
+    {
+      "stage": "development",
+      "seed": 2027,
+      "all300_belief_inputs_exact": true,
+      "all_five_actor_commands_exact": true,
+      "no_formation_action_override": true
+    }
+  ],
+  "new_actor_training_or_updates": 0,
+  "scope": "Read-only fit and execution provenance; cannot promote the failed candidate or establish its failure cause",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/diagnose-local-belief-current-student.py",
+      "sha256": "ae185ea0f25cb161968af32dcf2bf3e7d1c1cf54c969924abf3eaff4fbf2714b"
+    },
+    {
+      "path": "runs/train-local-belief-current-student-11/result.json",
+      "sha256": "84d248783c75d78f781336b9d6e5882a8503075c1acfad1c0e6ab5119cd8a20e"
+    },
+    {
+      "path": "runs/train-local-belief-current-student-11/imitation.jsonl",
+      "sha256": "d5f3206cfc074a09eafd8644a719874f8464f548b031a35397fac037695c24ba"
+    },
+    {
+      "path": "runs/train-local-belief-circle.py",
+      "sha256": "c5f3276c31c6e858c920094a03f12154ad4881be3a65e738dce5ea54ceb98113"
+    }
+  ]
+}

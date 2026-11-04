@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 import numpy as np
 import torch
-from .baseline import ScriptedController
+from .baseline import ScriptedController, ScanThenController
 from .config import Config, TASKS, observation_contract
 from .curriculum import TrainingPlan
 from .env import Environment
@@ -19,6 +19,7 @@ from .policy import Actor, Critic, RecurrentController, load_checkpoint, revisio
 LEGACY_DATASET_VERSION = "bari-teacher-local-v1"
 STUDENT_DATASET_VERSION = "bari-teacher-local-v2"
 DATASET_VERSION = "bari-teacher-local-v3"
+ASSISTED_DATASET_VERSION = "bari-teacher-local-v4"
 IMITATION_VERSION = "bari-imitation-v3"
 
 
@@ -29,9 +30,17 @@ def snapshot_source(output):
         (source/path.name).write_bytes(path.read_bytes())
 
 
-def collect_teacher(config, seed, episodes, output, plan=None, student_checkpoint=None, follow_ordering=ANONYMOUS_ORDER):
+def collect_teacher(config, seed, episodes, output, plan=None, student_checkpoint=None, follow_ordering=ANONYMOUS_ORDER,
+                    scan_seconds=0., teacher_probability=0.):
     if episodes < 1:
         raise ValueError("At least one teacher episode required")
+    if (not np.isfinite(scan_seconds) or not 0 <= scan_seconds < config.timeout_seconds
+            or abs(scan_seconds/config.control_dt-round(scan_seconds/config.control_dt)) > 1e-8):
+        raise ValueError("Teacher scan must be a nonnegative control-period multiple shorter than the episode")
+    if not np.isfinite(teacher_probability) or not 0 <= teacher_probability <= 1:
+        raise ValueError("Teacher intervention probability must be in [0,1]")
+    if teacher_probability and not student_checkpoint:
+        raise ValueError("Teacher intervention requires a student checkpoint")
     student, student_metadata = None, None
     if student_checkpoint:
         actor, saved, payload = load_checkpoint(student_checkpoint)
@@ -40,7 +49,7 @@ def collect_teacher(config, seed, episodes, output, plan=None, student_checkpoin
         student = RecurrentController(actor)
         student_metadata = {"path": str(student_checkpoint), "sha256": payload["file_sha256"],
                             "evidence": payload["evidence"], "training_version": payload.get("training_version"),
-                            "action_selection": "deterministic mean", "teacher_intervention_probability": 0.,
+                            "action_selection": "deterministic mean", "teacher_intervention_probability": float(teacher_probability),
                             "follow_leader": "scripted mission infrastructure; excluded from actor training"}
     output = Path(output)
     if (output/"demonstrations.npz").exists():
@@ -50,10 +59,15 @@ def collect_teacher(config, seed, episodes, output, plan=None, student_checkpoin
     snapshot_source(output)
     plan = (plan or TrainingPlan(curriculum_updates=0)).validate(config)
     rng = np.random.default_rng(seed)
-    data = {key: [] for key in ("observations", "tasks", "expert_commands", "executed_commands", "actor_weights", "reset_masks")}
+    # Separate selection RNG: assistance must not consume world/layout/switch RNG.
+    assistance_rng = np.random.default_rng(np.random.SeedSequence([seed, 0xBA71])) if teacher_probability else None
+    fields = ("observations", "tasks", "expert_commands", "executed_commands", "actor_weights", "reset_masks")
+    data = {key: [] for key in fields}
+    if teacher_probability:
+        data.update(teacher_execution=[], student_commands=[])
     episode_metadata = []
     for episode in range(episodes):
-        task = TASKS[episode % len(TASKS)]
+        task = plan.task_choices[episode % len(plan.task_choices)]
         world_seed = int(rng.integers(0, 2**31))
         while world_seed in plan.reserved_seeds:
             world_seed = int(rng.integers(0, 2**31))
@@ -67,7 +81,7 @@ def collect_teacher(config, seed, episodes, output, plan=None, student_checkpoin
             env.reset(world_seed, task, poses=poses)
         initial = env.poses.copy()
         initial_state = env.state_dict()
-        teacher = ScriptedController()
+        teacher = ScanThenController(scan_seconds) if scan_seconds else ScriptedController()
         teacher.reset()
         if student is not None:
             student.reset()
@@ -76,21 +90,26 @@ def collect_teacher(config, seed, episodes, output, plan=None, student_checkpoin
         rows = {key: [] for key in data}
         while env.time+1e-9 < config.timeout_seconds:
             if switching and remaining <= 0:
-                env.request_task(str(rng.choice([name for name in TASKS if name != env.task])))
+                env.request_task(str(rng.choice([name for name in plan.task_choices if name != env.task])))
                 remaining = plan.switch_steps(rng, config)
             env.begin_control()
             observation, tasks = env.observation().copy(), env.task_context().copy()
-            # Run the student before computing privileged labels. Labels cannot
-            # influence its action or GRU state. The allowed scripted follow
-            # leader remains mission infrastructure in RecurrentController.
+            # Infer before computing labels/selection: neither enters this actor
+            # call. Selected execution feeds actual command history on the next
+            # step. The scripted follow leader remains mission infrastructure.
             commands = student.actions(env) if student is not None else None
             labels = teacher.actions(env)
             commands = labels if commands is None else commands
             weights = np.ones(5, dtype=np.float32)
             if env.task == "follow":
                 weights[0] = 0
+            if teacher_probability:
+                selected = (weights > 0) & (assistance_rng.random() < teacher_probability)
+                rows["student_commands"].append(commands.copy())
+                rows["teacher_execution"].append(selected)
+                commands = np.where(selected[:, None], labels, commands)
             mask = np.ones(5, dtype=np.float32) if rows["observations"] else np.zeros(5, dtype=np.float32)
-            for key, value in zip(rows, (observation, tasks, labels, commands, weights, mask)):
+            for key, value in zip(fields, (observation, tasks, labels, commands, weights, mask)):
                 rows[key].append(value)
             env.step(commands)
             remaining -= 1
@@ -101,17 +120,31 @@ def collect_teacher(config, seed, episodes, output, plan=None, student_checkpoin
                                  "switching": switching,
                                  "switches": env.switches, "segments": env.tracker.segments,
                                  "final": env.tracker.summary()})
-    metadata = {"version": DATASET_VERSION, "teacher": ScriptedController.version,
+    metadata = {"version": ASSISTED_DATASET_VERSION if teacher_probability else DATASET_VERSION, "teacher": teacher.version,
                 "follow_ordering": follow_ordering,
                 "evidence": "privileged teacher labels; not learned-policy evidence",
-                "execution": "student-closed-loop" if student is not None else "teacher-closed-loop",
+                "execution": "teacher-assisted-closed-loop" if teacher_probability else ("student-closed-loop" if student is not None else "teacher-closed-loop"),
                 "student": student_metadata,
                 "dataset_seed": seed, "config": config.to_dict(), "config_sha256": config.digest(),
                 "contract": observation_contract(config), "source_revision": revision(),
                 "reserved_seeds": plan.reserved_seeds, "plan": plan.to_dict(), "episodes": episode_metadata,
                 "initial_pose_sampling": "random formations; rotated/translated ordered follow chain; no near-target curriculum",
                 "information_boundary": "Actor receives local observations and task context only; expert wheel commands are training labels. Metadata/global diagnostics never enter its encoder."}
-    arrays = {key: np.asarray(value, dtype=np.float32) for key, value in data.items()}
+    if teacher_probability:
+        metadata["teacher_assistance"] = {
+            "version": "bari-teacher-assistance-v1", "probability": float(teacher_probability),
+            "selection": "one Bernoulli draw per control step, shared by all learned robots",
+            "rng": {"bit_generator": "PCG64", "seed_sequence_entropy": [seed, 0xBA71]},
+            "following_leader": "scripted mission infrastructure; excluded from intervention mask and imitation",
+            "history": "student advances every step before labels/selection; actual commands feed history; episode-only resets",
+            "deployment": "data collection only; no assistance flag or teacher in actor inference"}
+    if scan_seconds:
+        metadata["teacher_protocol"] = {"version": "bari-teacher-scan-v1", "scan_seconds": float(scan_seconds),
+                                        "scan_wheel_commands": [-.4, .4], "phase": "since each applied task segment",
+                                        "following_leader": "normal scripted mission path during follower scan",
+                                        "student_intervention": "recorded teacher selection; scan may execute on assisted steps" if teacher_probability else "none; scan commands are labels when a student drives",
+                                        "deployment": "learned actor alone; no scan wrapper or phase input"}
+    arrays = {key: np.asarray(value, dtype=bool if key == "teacher_execution" else np.float32) for key, value in data.items()}
     path = output/"demonstrations.npz"
     np.savez_compressed(path, **arrays, metadata=json.dumps(metadata))
     (output/"manifest.json").write_text(json.dumps({"dataset_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
@@ -122,10 +155,11 @@ def collect_teacher(config, seed, episodes, output, plan=None, student_checkpoin
 
 def load_demonstrations(path):
     raw = Path(path).read_bytes()
+    assisted = None
     with np.load(io.BytesIO(raw), allow_pickle=False) as archive:
         metadata = json.loads(str(archive["metadata"]))
         data = {key: archive[key].copy() for key in ("observations", "tasks", "expert_commands", "actor_weights", "reset_masks")}
-        if metadata["version"] in (STUDENT_DATASET_VERSION, DATASET_VERSION):
+        if metadata["version"] in (STUDENT_DATASET_VERSION, DATASET_VERSION, ASSISTED_DATASET_VERSION):
             if "executed_commands" not in archive:
                 raise ValueError("Version-2 datasets must record actual executed commands")
             data["executed_commands"] = archive["executed_commands"].copy()
@@ -133,9 +167,13 @@ def load_demonstrations(path):
             # Version 1 exclusively executed its teacher labels. Preserve those
             # immutable archives while presenting a common aggregation schema.
             data["executed_commands"] = data["expert_commands"].copy()
-    if metadata["version"] not in (LEGACY_DATASET_VERSION, STUDENT_DATASET_VERSION, DATASET_VERSION):
+        if metadata["version"] == ASSISTED_DATASET_VERSION:
+            if not all(key in archive for key in ("teacher_execution", "student_commands")):
+                raise ValueError("Assisted datasets must record selection and student commands")
+            assisted = {key: archive[key].copy() for key in ("teacher_execution", "student_commands")}
+    if metadata["version"] not in (LEGACY_DATASET_VERSION, STUDENT_DATASET_VERSION, DATASET_VERSION, ASSISTED_DATASET_VERSION):
         raise ValueError("Unsupported teacher dataset")
-    if metadata["version"] == DATASET_VERSION:
+    if metadata["version"] in (DATASET_VERSION, ASSISTED_DATASET_VERSION):
         if metadata.get("follow_ordering") not in (ANONYMOUS_ORDER, LEGACY_ORDER) or any(
                 row.get("initial_state", {}).get("follow_ordering") != metadata["follow_ordering"] for row in metadata["episodes"]):
             raise ValueError("Teacher dataset following-order contract mismatch")
@@ -161,8 +199,9 @@ def load_demonstrations(path):
         raise ValueError("Teacher task context must be a shared four-way one-hot mission input")
     if len(metadata["episodes"]) != obs.shape[0]:
         raise ValueError("Teacher episode metadata count mismatch")
-    if metadata["version"] in (STUDENT_DATASET_VERSION, DATASET_VERSION):
-        if metadata.get("execution") not in ("teacher-closed-loop", "student-closed-loop"):
+    if metadata["version"] in (STUDENT_DATASET_VERSION, DATASET_VERSION, ASSISTED_DATASET_VERSION):
+        executions = ("teacher-assisted-closed-loop",) if assisted is not None else ("teacher-closed-loop", "student-closed-loop")
+        if metadata.get("execution") not in executions:
             raise ValueError("Version-2 datasets must identify the executed controller")
         if any(row.get("initial_state", {}).get("config_sha256") != config.digest() for row in metadata["episodes"]):
             raise ValueError("Version-2 datasets must retain exact initial environment snapshots")
@@ -174,6 +213,28 @@ def load_demonstrations(path):
     expected = np.ones(prefix, dtype=np.float32); expected[..., 0] = 1-data["tasks"][..., 0, 3]
     if not np.array_equal(data["actor_weights"], expected):
         raise ValueError("Scripted following leader must be excluded from imitation")
+    if assisted is not None:
+        assistance = metadata.get("teacher_assistance", {})
+        probability = assistance.get("probability")
+        student = metadata.get("student") or {}
+        if (not isinstance(probability, (int, float)) or not np.isfinite(probability) or not 0 < probability <= 1
+                or student.get("teacher_intervention_probability") != probability
+                or assistance.get("version") != "bari-teacher-assistance-v1"):
+            raise ValueError("Assisted dataset probability/provenance mismatch")
+        selected, predictions = assisted["teacher_execution"], assisted["student_commands"]
+        if selected.dtype != np.bool_ or selected.shape != prefix:
+            raise ValueError("Invalid teacher execution mask")
+        coherent = expected.astype(bool) & selected.any(axis=-1)[..., None]
+        if not np.array_equal(selected, coherent):
+            raise ValueError("Teacher selection must cover the learned group and exclude its scripted leader")
+        if probability == 1 and not np.array_equal(selected, expected.astype(bool)):
+            raise ValueError("Probability-one assistance must execute for every learned robot")
+        if (predictions.dtype != np.float32 or predictions.shape != (*prefix, 2)
+                or not np.isfinite(predictions).all() or np.any(np.abs(predictions) > 1)):
+            raise ValueError("Invalid recorded student commands")
+        executed = np.where(selected[..., None], data["expert_commands"], predictions)
+        if not np.array_equal(data["executed_commands"], executed):
+            raise ValueError("Recorded execution does not match teacher/student selection")
     mask = np.ones(prefix, dtype=np.float32); mask[:, 0] = 0
     if not np.array_equal(data["reset_masks"], mask):
         raise ValueError("Teacher hidden resets belong only at episode starts")

@@ -1,0 +1,405 @@
+{
+  "protocol": {
+    "version": "bari-local-circle-barrier-probe-v1",
+    "planned_utc": "2026-11-03T15:28:16.082498+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "development_seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "scan_seconds": [
+      0.0,
+      2.0
+    ],
+    "scan_requested_wheels": [
+      -0.3,
+      0.3
+    ],
+    "posterior": {
+      "negative_range_hinge_tolerance_m": 0.006,
+      "negative_violation_weight": 100.0,
+      "positive_long_return_match_weight": 0.001,
+      "long_return_min_m": 0.45,
+      "plausible_loss_margin": 0.003,
+      "ready_spread_m": 0.04,
+      "minimum_accumulated_matches": 6
+    },
+    "motion": "Integrate only own previous requested commands through provisional wheel speed/acceleration and differential-drive model. No true pose, measured velocity/odometry, actual wheel state or contact flag enters controller. Sensor-delay alignment uses configured timing.",
+    "information_boundary": "Controller receives local9 only and calibration; fits static arena hypotheses over actual local readings/history. Robot-shaped returns remain hypotheses, not true identities/classes/counts. No learning or deployment wrapper.",
+    "velocity_constraints": {
+      "formation_vector_cap_m_s": 0.07,
+      "near_detour_activation_m": 0.25,
+      "detour_gain_m_s": 0.02,
+      "closing_margin_m": 0.04,
+      "closing_gain_s_inverse": 2.0,
+      "projection": "Nearest feasible2D velocity from local inferred body normals, then scalar unicycle speed limits over nominal own heading range. Zero velocity always feasible. Not formal safety under sensing/motion-model error."
+    },
+    "reason": "History no-scan has4 small final formation errors but one case has2 contact attempts. Replay finds an uncapped formation vector0.08596m/s against avoidance0.07437m/s at first contact. Bound field before avoidance; shape closing speeds using only local hypotheses and preserve wheel acceleration physics.",
+    "selection": "Prefer no-scan if4/4 official successes and zero cumulative contact/wall attempts; otherwise consider2s scan under same gate. No learner unless selected, no numeric gate/timeout changes. Data collection requires separate protocol.",
+    "scope": "Host-only circle-reference feasibility, hypotheticalFOV60 and unmeasured command model, not GRU-RL or hardware acceptance."
+  },
+  "cases": [
+    {
+      "scan_s": 0.0,
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.008408740349199154,
+        "max_error_m": 0.010134402349088295,
+        "success": true,
+        "acquisition_s": 4.499999999999998,
+        "holding_goal": true,
+        "hold_s": 25.500000000000092,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03449352488176092,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 11.853516856203365
+      },
+      "recording": "runs/local-circle-barrier-probe/scan-0-seed-3001.npz",
+      "mean_center_error_m": 0.005500749459948435,
+      "ready_mean_center_error_m": 0.0040151215737824,
+      "ready_max_center_error_m": 0.017875287269057388,
+      "ready_fraction": 0.9833333333333333
+    },
+    {
+      "scan_s": 0.0,
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.11286861557080456,
+        "max_error_m": 0.20047683748083545,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.18531170746062367,
+        "peak_max_error_m": 0.2293029700008688,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.736076946483835
+      },
+      "recording": "runs/local-circle-barrier-probe/scan-0-seed-3007.npz",
+      "mean_center_error_m": 0.011266612170303182,
+      "ready_mean_center_error_m": 0.0027797181999690912,
+      "ready_max_center_error_m": 0.004850921714046604,
+      "ready_fraction": 0.7673333333333333
+    },
+    {
+      "scan_s": 0.0,
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.005867227136569017,
+        "max_error_m": 0.008874142352009657,
+        "success": true,
+        "acquisition_s": 11.2,
+        "holding_goal": true,
+        "hold_s": 18.799999999999997,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06485296500288627,
+        "peak_max_error_m": 0.2339228551281232,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.556172187165041
+      },
+      "recording": "runs/local-circle-barrier-probe/scan-0-seed-3011.npz",
+      "mean_center_error_m": 0.014876102838918501,
+      "ready_mean_center_error_m": 0.004662182354306426,
+      "ready_max_center_error_m": 0.01088190985003729,
+      "ready_fraction": 0.9173333333333333
+    },
+    {
+      "scan_s": 0.0,
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.09652677295077101,
+        "max_error_m": 0.17832910934389803,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1939165423752274,
+        "peak_max_error_m": 0.2323687554064568,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.372476470053988
+      },
+      "recording": "runs/local-circle-barrier-probe/scan-0-seed-3019.npz",
+      "mean_center_error_m": 0.027808809481847937,
+      "ready_mean_center_error_m": 0.004627761071484171,
+      "ready_max_center_error_m": 0.009334591384816198,
+      "ready_fraction": 0.7666666666666667
+    },
+    {
+      "scan_s": 2.0,
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.006660016135934723,
+        "max_error_m": 0.008234752924891172,
+        "success": true,
+        "acquisition_s": 6.599999999999998,
+        "holding_goal": true,
+        "hold_s": 23.400000000000063,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.05072373027945681,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 11.073540240216188
+      },
+      "recording": "runs/local-circle-barrier-probe/scan-2-seed-3001.npz",
+      "mean_center_error_m": 0.005778550208020827,
+      "ready_mean_center_error_m": 0.004000900997195257,
+      "ready_max_center_error_m": 0.006154189981737979,
+      "ready_fraction": 0.9653333333333334
+    },
+    {
+      "scan_s": 2.0,
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.0064453735267805574,
+        "max_error_m": 0.008506049767135235,
+        "success": true,
+        "acquisition_s": 12.7,
+        "holding_goal": true,
+        "hold_s": 17.299999999999976,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07441857905375743,
+        "peak_max_error_m": 0.24662414641551306,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.426468745402246
+      },
+      "recording": "runs/local-circle-barrier-probe/scan-2-seed-3007.npz",
+      "mean_center_error_m": 0.01430529925287621,
+      "ready_mean_center_error_m": 0.0026073639232302615,
+      "ready_max_center_error_m": 0.010838258397879915,
+      "ready_fraction": 0.91
+    },
+    {
+      "scan_s": 2.0,
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.10397769121969054,
+        "max_error_m": 0.19531580941974708,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1874367117937471,
+        "peak_max_error_m": 0.2339228551281232,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.530462743608917
+      },
+      "recording": "runs/local-circle-barrier-probe/scan-2-seed-3011.npz",
+      "mean_center_error_m": 0.014256536353310402,
+      "ready_mean_center_error_m": 0.004871239136362163,
+      "ready_max_center_error_m": 0.010881906828865551,
+      "ready_fraction": 0.7906666666666666
+    },
+    {
+      "scan_s": 2.0,
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.11055158411755317,
+        "max_error_m": 0.20444283772764243,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.17985100099742893,
+        "peak_max_error_m": 0.21862648341119698,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.975042840769121
+      },
+      "recording": "runs/local-circle-barrier-probe/scan-2-seed-3019.npz",
+      "mean_center_error_m": 0.03106539988391811,
+      "ready_mean_center_error_m": 0.00446793849918026,
+      "ready_max_center_error_m": 0.007210366662470402,
+      "ready_fraction": 0.756
+    }
+  ],
+  "summary": [
+    {
+      "scan_s": 0.0,
+      "episodes": 4,
+      "successes": 2,
+      "final_holding": 2,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.09945362288145786,
+      "ready_mean_center_error_m": 0.004021195799885522
+    },
+    {
+      "scan_s": 2.0,
+      "episodes": 4,
+      "successes": 2,
+      "final_holding": 2,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.10412486245985397,
+      "ready_mean_center_error_m": 0.003986860638991985
+    }
+  ],
+  "selected_for_data_only": null,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-circle-barrier.py",
+      "sha256": "0590cf4735e010e43d7d64f2fb4b1e12539dc72cf073f13d6ebaee32d58c30e5"
+    },
+    {
+      "path": "runs/local_circle_barrier.py",
+      "sha256": "0e0961acda64894dfeb3cb3d1b54e028570e41f3e16dfc491d09d3dd0b42099e"
+    },
+    {
+      "path": "runs/local_circle_history.py",
+      "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+    },
+    {
+      "path": "runs/local_circle_guarded.py",
+      "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/protocol.json",
+      "sha256": "fd9a8f96a5c462aaa0c65764ba3bd331a5da8f50e44da5452c255d055b174a86"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/scan-0-seed-3001.npz",
+      "sha256": "5badfb95575dcac5a3cc72c5783cc9a04dc2e8b89db8521564f92a9ccf81cfec"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/scan-0-seed-3007.npz",
+      "sha256": "8aaa000ef0bf79590418d8a2c50db655caf810bdf0d1314042293ff13868c464"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/scan-0-seed-3011.npz",
+      "sha256": "3a17ab900f9721acde2f4442a9c6dd75b988404aa2b4dbe07a9b143b2d28e0f5"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/scan-0-seed-3019.npz",
+      "sha256": "261832ca15b4b1e604b2f52152b9c81bf096a4f3bb97c4ae2b2e0f8ec40bc8f4"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/scan-2-seed-3001.npz",
+      "sha256": "4cc839841ce3e8f7f8e0ee1353b1f4602d11c60fb1e6f29c2e8bca94c02238d7"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/scan-2-seed-3007.npz",
+      "sha256": "b74045d2efdd007d1c56fee8736471e9926165d3ff75502a1564c6796cd7b9a3"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/scan-2-seed-3011.npz",
+      "sha256": "0cacdd9038371a37a7ea17683697ed2d1c4b4ee37eba44be1cc53ba182333aeb"
+    },
+    {
+      "path": "runs/local-circle-barrier-probe/scan-2-seed-3019.npz",
+      "sha256": "9313c4ecb8acc0c7b1b1848ca4dbb9a5b68e4d0d884d1bed75e0e3dffd9f3753"
+    }
+  ]
+}

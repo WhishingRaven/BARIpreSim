@@ -1,0 +1,311 @@
+{
+  "version": "bari-local-steering-full-pipeline-host-export-v1",
+  "checkpoint": {
+    "path": "runs/local-steering-verification-v1/verification-only.pt",
+    "sha256": "7feab6ed0d9ac36e034f924b3d56ff4c3086b80bc76675a97b571c54351089b8"
+  },
+  "checkpoint_scope": "Verification-only one-update actor, not a behavior candidate or validated deployment actor",
+  "contract": {
+    "version": "bari-local-steering-actor-v1",
+    "dtype": "float32",
+    "batch_size_on_robot": 1,
+    "local_order": [
+      "range_0",
+      "range_60",
+      "range_120",
+      "range_180",
+      "range_240",
+      "range_300",
+      "previous_left_command",
+      "previous_right_command",
+      "is_leader",
+      "estimated_arena_center_x_body_over_radius",
+      "estimated_arena_center_y_body_over_radius",
+      "local_posterior_confidence",
+      "inferred_body_slot_0_x_over_arena_radius",
+      "inferred_body_slot_0_y_over_arena_radius",
+      "inferred_body_slot_1_x_over_arena_radius",
+      "inferred_body_slot_1_y_over_arena_radius",
+      "inferred_body_slot_2_x_over_arena_radius",
+      "inferred_body_slot_2_y_over_arena_radius",
+      "inferred_body_slot_3_x_over_arena_radius",
+      "inferred_body_slot_3_y_over_arena_radius",
+      "inferred_body_slot_4_x_over_arena_radius",
+      "inferred_body_slot_4_y_over_arena_radius",
+      "inferred_body_slot_5_x_over_arena_radius",
+      "inferred_body_slot_5_y_over_arena_radius"
+    ],
+    "local_shape": [
+      24
+    ],
+    "task_order": [
+      "circle",
+      "square",
+      "line",
+      "follow"
+    ],
+    "task_shape": [
+      4
+    ],
+    "hidden_shape": [
+      64
+    ],
+    "sensor_angles_deg": [
+      0,
+      60,
+      120,
+      180,
+      240,
+      300
+    ],
+    "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+    "sensor_min": 0.015,
+    "sensor_max": 0.8,
+    "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+    "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+    "max_wheel_speed_m_s": 0.1,
+    "acceleration_m_s2": 0.3,
+    "control_dt_s": 0.1,
+    "previous_action": "previous saturated requested command, not measured velocity",
+    "reset": "Zero each robot GRU and local geometry only at episode/controller reset; preserve both across switches/occlusion",
+    "switch": "same actor and hidden; new task before next control action; world preserved",
+    "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
+    "sensor_model": {
+      "version": "bari-horizontal-cone-v1",
+      "horizontal_fov_deg": 60.0,
+      "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+      "mount_radius_m": 0.045,
+      "height_m": 0.078,
+      "noise_stage": "configured scalar noise/dropout after cone aggregation",
+      "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+      "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"
+    },
+    "raw_sensor_observation_contract": {
+      "version": "bari-ir-gru-v1",
+      "dtype": "float32",
+      "batch_size_on_robot": 1,
+      "local_order": [
+        "range_0",
+        "range_60",
+        "range_120",
+        "range_180",
+        "range_240",
+        "range_300",
+        "previous_left_command",
+        "previous_right_command",
+        "is_leader"
+      ],
+      "local_shape": [
+        9
+      ],
+      "task_order": [
+        "circle",
+        "square",
+        "line",
+        "follow"
+      ],
+      "task_shape": [
+        4
+      ],
+      "hidden_shape": [
+        64
+      ],
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+      "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+      "max_wheel_speed_m_s": 0.1,
+      "acceleration_m_s2": 0.3,
+      "control_dt_s": 0.1,
+      "previous_action": "previous saturated requested command, not measured velocity",
+      "reset": "zero hidden, previous command and sensor queue at episode/controller reset only",
+      "switch": "same actor and hidden; new task before next control action; world preserved",
+      "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
+      "sensor_model": {
+        "version": "bari-horizontal-cone-v1",
+        "horizontal_fov_deg": 60.0,
+        "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+        "mount_radius_m": 0.045,
+        "height_m": 0.078,
+        "noise_stage": "configured scalar noise/dropout after cone aggregation",
+        "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+        "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"
+      }
+    },
+    "geometry_version": "bari-local-geometry-v1",
+    "table_manifest_sha256": "49bb32e3a207cfc2f33fce9245e51f5eb1034a58b23a67e58d5f47feb69787b8",
+    "information": "Derived solely from local anonymous six-range/own-request history; no true poses, identities, classes, counts, visibility or evaluator assignment",
+    "body_slots": "Up to6 local body-shaped hypotheses sorted by current bearing, zero padded; not persistent neighbor identities or a hardware validity mask",
+    "latent_action_shape": [
+      3
+    ],
+    "action_shape": [
+      2
+    ],
+    "action_decoding": {
+      "version": "bari-steering-decoder-v1",
+      "latent_shape": [
+        3
+      ],
+      "wheel_shape": [
+        2
+      ],
+      "latent_order": [
+        "steering_x_over_0.07m_s",
+        "steering_y_over_0.07m_s",
+        "twice_drive_scale_minus1"
+      ],
+      "vector_scale_m_s": 0.07,
+      "stop_vector_norm_m_s": 0.002,
+      "heading_gain_s_inverse": 3.0,
+      "yaw_limit_rad_s": 1.5,
+      "mapping": "Fold steering direction to the nearer forward/reverse heading using x sign; forward component sets signed speed and learned drive scale multiplies it. Convert(v,omega) through configured wheel separation/rim-speed and independently saturate each wheel.",
+      "physical_action": "Only two wheel requests; vector y is a steering intent, never lateral translation or a pose/target command.",
+      "information": "Decoder receives only three learned bounded outputs and calibration; no observation, teacher, environment, collision flag or formation rule."
+    },
+    "policy_density": "Any future PPO log probability belongs to the3-dimensional tanh latent distribution, before deterministic wheel decoding. Store actual latents and actual decoded wheels separately; no wheel-space density/Jacobian claim.",
+    "initialization": "Encoder/GRU parameters match the fresh geometry actor. First two numerical head rows are copied with new meaning; third starts at zero. Initial wheel function is intentionally different and is not a matched-output control."
+  },
+  "actor_spec": {
+    "version": "bari-local-steering-actor-v1",
+    "local_shape": [
+      24
+    ],
+    "task_shape": [
+      4
+    ],
+    "hidden_shape": [
+      64
+    ],
+    "geometry_version": "bari-local-geometry-v1",
+    "action_correlation": 0.0,
+    "zero_encoder_columns": [
+      6,
+      7
+    ],
+    "latent_action_shape": [
+      3
+    ],
+    "wheel_output_shape": [
+      2
+    ],
+    "decoder": {
+      "version": "bari-steering-decoder-v1",
+      "latent_shape": [
+        3
+      ],
+      "wheel_shape": [
+        2
+      ],
+      "latent_order": [
+        "steering_x_over_0.07m_s",
+        "steering_y_over_0.07m_s",
+        "twice_drive_scale_minus1"
+      ],
+      "vector_scale_m_s": 0.07,
+      "stop_vector_norm_m_s": 0.002,
+      "heading_gain_s_inverse": 3.0,
+      "yaw_limit_rad_s": 1.5,
+      "mapping": "Fold steering direction to the nearer forward/reverse heading using x sign; forward component sets signed speed and learned drive scale multiplies it. Convert(v,omega) through configured wheel separation/rim-speed and independently saturate each wheel.",
+      "physical_action": "Only two wheel requests; vector y is a steering intent, never lateral translation or a pose/target command.",
+      "information": "Decoder receives only three learned bounded outputs and calibration; no observation, teacher, environment, collision flag or formation rule."
+    }
+  },
+  "steps": 96,
+  "max_full_local_latent_wheel_hidden_error": 1.0132789611816406e-06,
+  "atol": 2e-05,
+  "rtol": 2e-05,
+  "max_local_feature_error": 0.0,
+  "exported_actor_weight_bytes": 108044,
+  "lookup_numeric_bytes": 853260,
+  "observer_state_host_ABI_bytes": 168440,
+  "hidden_bytes": 256,
+  "caller_shared_scratch_bytes": 35100,
+  "compiler_command": [
+    "/usr/bin/c++",
+    "-std=c++17",
+    "-O3",
+    "-ffp-contract=off",
+    "runs/export-local-steering-operator-probe-v1/parity.cpp",
+    "runs/export-local-steering-operator-probe-v1/local_wall_belief_bridge.cpp",
+    "runs/export-local-steering-operator-probe-v1/local_geometry_bridge.cpp",
+    "-o",
+    "runs/export-local-steering-operator-probe-v1/parity"
+  ],
+  "excluded": "Compiler stack/spills, firmware/runtime, I-O, heaps and actual target flash/RAM placement; partial counts do not establish peak RAM or deadline compliance.",
+  "scope": "Actor-only FP32 C++ pipeline with real preprocessing/geometry/GRU/decoder over identical sensor/previous-command/task/reset sequences. Critic, optimizer, teacher and log_std are excluded. Host-only operator feasibility; no target/device/behavior acceptance.",
+  "device_run": false,
+  "peak_ram_bytes": null,
+  "device_latency_ms": null,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/export-local-steering-operator-probe.py",
+      "sha256": "61127a2706f5fb03f184a7156637b64263f54dc7ee357f1c00213af63b9f495a"
+    },
+    {
+      "path": "runs/export-constrained-follow-rl50/actor.hpp",
+      "sha256": "a97738992370ba97d50ebab826953f59fd12f549d5db7cd1b01e757497d06804"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/actor.hpp",
+      "sha256": "893b9fde761f5b6ee46fa903c922eadd4a500b1fb28fbbdb06c3f19fbff3a564"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/golden_actual.f32",
+      "sha256": "5aad5b16e84376550ba5895e852e3ea09bf8332858033ca888df22142504b54a"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/golden_expected.f32",
+      "sha256": "28a6f38c730f3198db4a971b5d50459fa5fd3230d776255a1c64c1919a94ae5b"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/golden_fixture.hpp",
+      "sha256": "2f8979d26dd6507b48e8be702dc9a2b1a45a4d6815d609471326af2f876a3bcf"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/golden_inputs.f32",
+      "sha256": "8fdf263744673f674495968982756f7d5c16027a1da0319a6782bcce71a5ce64"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/local-geometry-table-v1/table.hpp",
+      "sha256": "f06a37aa4043848b44ea1ece24ace00b55b7490867d348771004c3abca3ef33a"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/local_geometry_bridge.cpp",
+      "sha256": "6c406cf620f16e7cfa12ba970a9179f825b6e3794c2f4b12412aaaacfa758163"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/local_steering_decoder.hpp",
+      "sha256": "8a526cbf3564cbe99a54ad687f9b1a237c0c4ba226635efed225ba59cd7194ca"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/local_wall_belief.hpp",
+      "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/local_wall_belief_bridge.cpp",
+      "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/parity",
+      "sha256": "cfffb15144450c95f2ae1eb420e7dd0a3b7694ec1088158d98f09759767c4d3b"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/parity.cpp",
+      "sha256": "04a0c1561368cd02efc625457cb83b088e54f8d8d1cce580e20deed4b5d1f1de"
+    },
+    {
+      "path": "runs/export-local-steering-operator-probe-v1/pipeline.hpp",
+      "sha256": "c987a4b964111b07232a58dbfe97e6cd13f17efb63eafdb294b0b361f76b5337"
+    }
+  ]
+}

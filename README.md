@@ -9,6 +9,8 @@ three-deck 3D observer view, and actor-only FP32 C++ export with host parity che
 checkpoints demonstrate software execution only. The full acceptance requirements
 remain in [AGENTS.md](AGENTS.md). See [implementation status](docs/status.md),
 [contracts and assumptions](docs/contracts.md), and [hardware work](hardware/README.md).
+The Korean [completion plan](docs/completion-plan.md) separates implemented work,
+remaining goal requirements and the physical MVP after receiving robots.
 
 ## Install and test
 
@@ -417,3 +419,211 @@ formed order, per the user decision. [Migration and current experiments](reports
 record version-5 evaluation and version-10/11 training. Dataset version 3 records
 explicit ordering semantics and rejects cross-semantic aggregation. Legacy
 training snapshots and datasets keep their historical fixed-ID interpretation.
+
+The completed anonymous pilots each failed all 20 isolated and 60 directed-switch
+episodes. [Memory and critic diagnostics](reports/memory-and-periodic-critic.md)
+separate the GRU-reset comparison from an experimental periodic critic. To run
+the latter explicitly, use `--training-version bari-mappo-periodic-critic-v12`.
+It replaces each training-only raw yaw with sin/cos, preserving actor I/O and
+export. Its 1,000-update pilot also scored 0/20 isolated and 0/60 directed episodes.
+Version 10 remains the default; none of these experiments is an accepted policy.
+
+An opt-in constrained variant, `bari-mappo-periodic-no-command-v13`, keeps previous-
+command encoder columns and their Adam moments zero during actual PPO. It preserves
+the ordinary actor/export graph and version-12 critic. Actor initialization must
+already satisfy the constraint; exact resume validates it in every world. The
+[following study](reports/no-command-following.md) records the matched ablation,
+student-state aggregation, real PPO validation, compatibility and host export.
+For a fresh reproduction using the saved initialization artifact:
+
+```sh
+python -m bari train --config configs/hypothetical-follow-no-command-rl-h64.json --plan configs/isolated-follow-stage.json --training-version bari-mappo-periodic-no-command-v13 --actor-initialization runs/no-command-rl-initialization.pt --seed 23 --worlds 8 --updates 50 --output runs/constrained-follow-reproduction
+```
+
+The simulation period and 60-degree sensing are still assumptions. Current software
+verification passes 180 tests. The constrained actor passes the 21-case near-chain
+development gate, but random-pose following remains 0/5; full goal acceptance is open.
+
+[Retention and isolated-task stages](reports/retention-and-task-curriculum.md)
+record a learning-health check, failed near-start pilots and explicit task plans.
+Plan version 2 adds a `tasks` subset; selecting one task requires isolated episodes.
+`configs/isolated-circle-stage.json` and `configs/isolated-follow-stage.json` are
+diagnostic easy-start stages. Original version-1 plans retain hashes and exact
+resume. Easy-start success does not establish random-start acquisition or the
+complete four-task goal.
+
+The isolated circle pilot retained all 15 near-goal formation cases through rapid
+near-in-place rotation, but matched zero commands on larger offsets. A separate 50 mm correction stage uses
+`configs/isolated-circle-correction-stage.json` and explicit actor initialization;
+its progress is recorded in the same report. No learned checkpoint has passed
+randomized four-task acceptance.
+
+[Action-noise diagnosis](reports/exploration-noise.md) compares stopping and spinning
+under matched noise and records a paired initial-standard-deviation experiment.
+The completed warm correction stage has one successful initially-invalid near-circle
+case, while randomized tasks and directed switches still fail. These stages do not
+replace full four-task, occlusion, deployment or hardware acceptance.
+
+[Active-scan teacher collection](reports/active-scan-training.md) adds the explicit
+`collect-teacher --teacher-scan-seconds` option. It changes training labels/data
+collection only; learned evaluation has no scan wrapper or phase input. Default
+collection remains bit exact. Paired imitation and student-state aggregation are
+recorded separately from the still-unmet GRU-RL acceptance gates.
+
+Student-state collection also supports the training-only
+`--teacher-intervention-probability` option with `--student-checkpoint`. Version-4
+datasets record teacher selection, student requests and actual execution separately;
+GRU history follows actual commands throughout. The [migration proof](reports/teacher-assistance-migration-proof.json)
+preserves all default collection arrays and the default imitation update exactly.
+That feature's verification: **145 passed in 32.95 s**. Assisted collection successes do
+not establish learned control; all behavioral and hardware acceptance remains open.
+
+The [command-history study](reports/command-history-learning.md) diagnoses internal
+feedback sensitivity and records failed AR imitation/readout-search follow-ups.
+Serialization and low training loss remain separate from behavioral acceptance.
+
+The [sensing/history study](reports/follow-sensing-and-history.md) records a failed
+command-shortcut ablation and exact delayed-hit coverage diagnostics. Hypothetical
+wider horizontal sampling is analyzed separately from the unchanged center-ray
+baseline and the still-unconfirmed physical VL53L7CX zone aggregation.
+
+Optional `sensor_fov_deg` now supports exact horizontal cone minima, with explicit
+assumption metadata, nearest-surface occlusion and scalar range-arc overlays.
+Zero preserves the center-ray baseline. Hypothetical 15/60-degree follow configs
+are separate from the unconfirmed hardware readout. After aligning missing-value
+display with actor normalization, that snapshot passed **169 tests in 23.69 s**;
+learned behavior and ESP32 measurements remain incomplete.
+The [cone-sensing report](reports/cone-sensing.md) includes exact baseline
+continuation, failed 15/60-degree imitation and the completed 200-update RL pilot.
+
+The [local-information following study](reports/local-follow-learning.md) adds a
+successful local-range teacher reference, independent GRU validation and paired
+perturbed-start/exploration diagnostics. The first clone scores 2/5 official chain
+successes but 0/5 final holds; its subsequent PPO pilot fails. A stronger local
+teacher passes all 256 original/perturbed starts without safety attempts. These
+remain hypothetical-sensing stages. Its fresh GRU clone subsequently scores 0/5
+fixed-chain and 0/8 perturbed-start cases; no further RL is launched from it.
+No full learned or hardware acceptance follows.
+
+The subsequent [constrained-following report](reports/no-command-following.md)
+records the first successful near-chain GRU-RL development stage: all 21 fixed,
+perturbed and stochastic cases succeed and hold without safety attempts after
+50 actual PPO updates. Random-pose following remains 0/5. Full verification is
+now 180 tests; the current actor also has exact resume and host C++ parity evidence.
+Four-task, switching/occlusion, multi-seed/final-heldout and physical acceptance
+remain pending.
+
+The [local circle stage](reports/local-circle-learning.md) establishes a local-history
+teacher: 118/128 random-start successes and final holds, without safety attempts.
+Matched ordinary/zero-command GRU64 imitation both score 0/5; the latter has no
+safety attempts but misses the formation tolerance. That fixed imitation protocol
+ended without PPO or default promotion. The [native-window attempt](reports/native-window-attempt.json)
+confirms the actual initial 3D/HUD view; full native-control verification remains
+open after unresponsive native input/save-panel interactions.
+
+The [circle student-state study](reports/local-circle-student-learning.md) adds
+128 unassisted student episodes, exact replay and local-label diagnostics, matched
+fresh ordinary/zero-command learners and a training-only local-center auxiliary
+head. All three new candidates still score 0/5; no PPO or default promotion follows.
+The report preserves the auxiliary observer's metadata-serialization failure and
+exact trajectory recovery without restarting training. Production Python/tests
+remain identical to the 180-test source.
+
+A separate [reward-only circle repair](reports/circle-rl-repair.md) explicitly
+studies an unvalidated initializer. After 200 genuine PPO updates in eight random
+worlds, high learning rate passes 1/15 circle development cases and low passes 0/15.
+Neither meets acceptance. The [3D diagnostic](output/gif/circle-rl200-oneof15-diagnostic.gif)
+labels the single successful case as 1of15; all failures, paired controls and exact
+resume proofs remain recorded. No default or full-goal promotion follows.
+
+The [short-return gradient study](reports/finite-return-gradient.md) tests a
+training-only simulator finite-difference update with the same local GRU inference
+graph. Both final candidates have 0/15 final holds; no replacement is promoted.
+Math/branch/sequence checks, explicit algorithm resume and actual/counterfactual
+budgets are recorded. A training-state diagnostic finds large command/hidden
+changes from individual updates, motivating a separate stability investigation.
+
+The subsequent [bounded-update study](reports/finite-return-trust.md) finishes its
+fixed 80 attempts with 1/15 official successes, 0/15 final holds and 382 contact
+attempts. Observed command/hidden changes satisfy the prescribed limits, but
+closed-loop acquisition and maintenance still fail. No further training or
+default promotion follows this stage. All four-task and hardware gates remain open.
+
+The [command-history feature study](reports/command-model-history.md) verifies a
+local, command-derived nominal motion integrator, including independent resets,
+switch continuity and exact teacher replay. Adding its six features fails the
+prospective linear-information screen (135.2 to 137.8 mm mean center error), so
+no new actor is trained. These values are unmeasured estimates with contact drift;
+neither the deployed input contract nor the default actor changes.
+
+The [current H64 actor target build](reports/follow-rl50-esp32s3-build.md) succeeds
+for ESP32-S3 with PSRAM disabled. Its eight weight arrays total 103,944 bytes in
+flash-mapped rodata; the application image is 348,944 bytes, with 16,384 bytes
+linked IRAM and 71,259 bytes linked D/IRAM. These static benchmark figures are
+separate from pending device peak RAM, inference latency and full-firmware use.
+
+The [explicit local-belief GRU study](reports/local-belief-circle.md) adds a private
+12-field actor contract: the original local fields plus a center hypothesis and
+confidence computed solely from local range/command history. Its C++ observer
+uses 168,440 B of host state per robot. A fixed 40-epoch imitation trial holds 1/5
+random circle cases but incurs 511 contact attempts, so no larger gate or RL is
+run. Every case's actual inputs and all five GRU commands replay exactly. This
+prototype does not change the default contract or establish deployment compliance.
+
+A separate [complete-teacher-cohort ablation](reports/local-belief-clean.md) starts
+from the same initial actor and keeps the 6,400-step budget. Teacher-only training
+records 2/5 official successes but only 1/5 final holds, with 74 contact attempts
+and 48.4 mm mean final max error. It still fails the unchanged gate. Resetting only
+GRU hidden state while preserving observer memory scores 0/5, with 188.6 mm error;
+this scoped diagnostic establishes neither controlled-occlusion robustness nor a
+general memory benefit. No larger gate, RL, extension or promotion follows.
+
+The [current-student aggregation study](reports/local-belief-current-student.md)
+collects 128 unassisted worlds and exactly replays all 38,400 controls, including
+the student's actual belief features. A fresh 40-epoch aggregate records 3/5
+official successes but only 2/5 final holds and 213 contact attempts. It fails the
+unchanged gate, including a 35.163 mm maintenance failure against the 35 mm limit.
+No larger gate, RL or promotion follows. Local estimates retain contact-related
+drift and rare large confident errors; diagnostics never become training inputs.
+
+A separately planned [local-belief reward-only PPO study](reports/local-belief-rl.md)
+uses that explicitly unvalidated initializer and runs two fixed 200-update arms.
+The low/high learning rates finish with 8/15 and 3/15 official successes and final
+holds, respectively, with 354 and 426 contact attempts. Neither passes the frozen
+14/15 and zero-safety gate. Exact eight-world resume proofs include observer state
+and episode resets; no extension or default promotion follows. This private
+12-field actor still requires its own export and full device memory/latency proof.
+
+The [H128 capacity study](reports/local-belief-width128.md) keeps the same complete
+data, initial H64 function and 6,400-step budget, widening only the hidden size.
+It finishes with 3/5 official successes/final holds and 17 contact attempts,
+failing the unchanged gate. All five actual input/command trajectories replay
+exactly. Preceding paired PPO diagnostics also reject confidence-only input
+gating (final holds fall from 8/15 to 5/15). The H128 actor's 406,032 B of FP32
+parameters and 512 B hidden state are partial size counts, not SRAM compliance.
+
+The [local square/line reference study](reports/local-shape-fields.md) adds
+unlearned local-history teachers, separate from the GRU actors. Active sensing
+improves square's first gate to 5/5, but its fixed larger cohort holds 13/20;
+stronger local line alignment passes 4/4 then holds 14/20. All have zero contact/
+wall attempts, but neither passes the 18/20 gate, so no dataset collection or
+learner follows. The study proves a scalar-cone sensing blind spot, corrects a
+line detour active at the exact goal, and retains labeled 3D diagnostic clips.
+
+The [local-geometry GRU study](reports/local-geometry.md) adds a private 24-field
+input with locally inferred anonymous body hypotheses. C++ and NumPy agree exactly
+on 1,500 operator cases; history, individual resets, serialized continuation and
+all 12 switch contexts pass. All 256 frozen episodes retain identical center
+features. The same 40-epoch/6,400-step H64 imitation trial holds 2/5 cases with
+zero contact/wall attempts and 59.2 mm mean final max error, failing its gate.
+The 853,260 B lookup asset, 35,100 B scratch and 168,440 B observer state are
+separate partial counts; target flash placement, full SRAM and latency are pending.
+
+The subsequent [steering representation preparation](reports/local-steering.md)
+verifies a private three-field GRU output decoded to ordinary wheel requests.
+Its [full-pipeline ESP32-S3 operator build](reports/local-steering-esp32s3-build.md)
+places 108,044 B of actor weights and 853,260 B of lookup constants in flash.
+The benchmark image is 1,220,480 B, with static IRAM 16,384 B and D/IRAM 262,923 B.
+This uses a verification-only actor; behavioral training remains unstarted.
+Device peak RAM, latency, complete firmware fit and final-policy acceptance remain
+pending. These results do not supersede the separate near-chain RL actor.

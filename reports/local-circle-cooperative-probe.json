@@ -1,0 +1,423 @@
+{
+  "protocol": {
+    "version": "bari-local-circle-cooperative-probe-v1",
+    "planned_utc": "2026-11-03T15:35:50.234519+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "development_seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "scan_seconds": [
+      0.0
+    ],
+    "interior_boost_m_s": [
+      0.0,
+      0.05
+    ],
+    "scan_requested_wheels": [
+      -0.3,
+      0.3
+    ],
+    "posterior": {
+      "negative_range_hinge_tolerance_m": 0.006,
+      "negative_violation_weight": 100.0,
+      "positive_long_return_match_weight": 0.001,
+      "long_return_min_m": 0.45,
+      "plausible_loss_margin": 0.003,
+      "ready_spread_m": 0.04,
+      "minimum_accumulated_matches": 6
+    },
+    "motion": "Integrate only own previous requested commands through provisional wheel speed/acceleration and differential-drive model. No true pose, measured velocity/odometry, actual wheel state or contact flag enters controller. Sensor-delay alignment uses configured timing.",
+    "information_boundary": "Controller receives local9 only and calibration; fits static arena hypotheses over actual local readings/history. Robot-shaped returns remain hypotheses, not true identities/classes/counts. No learning or deployment wrapper.",
+    "velocity_constraints": {
+      "formation_vector_cap_m_s": 0.07,
+      "near_detour_activation_m": 0.25,
+      "detour_gain_m_s": 0.02,
+      "closing_margin_m": 0.04,
+      "closing_gain_s_inverse": 2.0,
+      "projection": "Nearest feasible2D velocity from local inferred body normals, then scalar unicycle speed limits over nominal own heading range. Zero velocity always feasible. Not formal safety under sensing/motion-model error."
+    },
+    "reason": "Hard-closing reference has zero contacts but2/4 successes. Both failed episodes leave one body at radius0.045/0.066m inside four bodies near0.24m. Interior hypotheses displace an angular neighbor and the inflated separation can impede escape. Ignore inferred interior objects for angular spacing and optionally open the ring locally. No true pose/count/identity supplied to control.",
+    "interior_hypothesis_radius_m": 0.16,
+    "release_activation_distance_m": 0.4,
+    "selection": "No scan. First try excluding estimated interior objects from the two angular neighbors; then add0.05m/s interior repulsion. Prefer first arm with4/4 official successes AND final holds and zero cumulative contact/wall attempts. No learner unless selected, no numeric gate/timeout changes. Data collection requires separate protocol.",
+    "scope": "Host-only circle-reference feasibility, hypotheticalFOV60 and unmeasured command model, not GRU-RL or hardware acceptance."
+  },
+  "cases": [
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.0,
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.014365956321476395,
+        "max_error_m": 0.017587842052070552,
+        "success": true,
+        "acquisition_s": 4.699999999999999,
+        "holding_goal": true,
+        "hold_s": 25.30000000000009,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.041101910810481555,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.439745010401547
+      },
+      "recording": "runs/local-circle-cooperative-probe/boost-0-seed-3001.npz",
+      "mean_center_error_m": 0.0055737417162893725,
+      "ready_mean_center_error_m": 0.004089350987010474,
+      "ready_max_center_error_m": 0.017875287269057388,
+      "ready_fraction": 0.9833333333333333
+    },
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.0,
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.022304908473143224,
+        "max_error_m": 0.032938976096076746,
+        "success": true,
+        "acquisition_s": 13.899999999999997,
+        "holding_goal": true,
+        "hold_s": 16.09999999999996,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.08199319654281001,
+        "peak_max_error_m": 0.2102301684445583,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.161941480257722
+      },
+      "recording": "runs/local-circle-cooperative-probe/boost-0-seed-3007.npz",
+      "mean_center_error_m": 0.008517331560156726,
+      "ready_mean_center_error_m": 0.002643213552793603,
+      "ready_max_center_error_m": 0.005832288893350358,
+      "ready_fraction": 0.88
+    },
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.0,
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.010588105914423433,
+        "max_error_m": 0.013300964991817696,
+        "success": true,
+        "acquisition_s": 11.999999999999998,
+        "holding_goal": true,
+        "hold_s": 17.999999999999986,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07097556052831248,
+        "peak_max_error_m": 0.2339228551281232,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.370034014532088
+      },
+      "recording": "runs/local-circle-cooperative-probe/boost-0-seed-3011.npz",
+      "mean_center_error_m": 0.01441213664845111,
+      "ready_mean_center_error_m": 0.004682118409073843,
+      "ready_max_center_error_m": 0.01088190985003729,
+      "ready_fraction": 0.9173333333333333
+    },
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.0,
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.09407737849482732,
+        "max_error_m": 0.16487404641380987,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.18635148378049435,
+        "peak_max_error_m": 0.23467050885425503,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.232480903043299
+      },
+      "recording": "runs/local-circle-cooperative-probe/boost-0-seed-3019.npz",
+      "mean_center_error_m": 0.02539491045556276,
+      "ready_mean_center_error_m": 0.0045914484182388885,
+      "ready_max_center_error_m": 0.00933459096771221,
+      "ready_fraction": 0.7666666666666667
+    },
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.05,
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.01060876456605562,
+        "max_error_m": 0.013753875367991,
+        "success": true,
+        "acquisition_s": 4.799999999999999,
+        "holding_goal": true,
+        "hold_s": 25.200000000000088,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03740394121542063,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 11.09130649063454
+      },
+      "recording": "runs/local-circle-cooperative-probe/boost-0.05-seed-3001.npz",
+      "mean_center_error_m": 0.005597232188154632,
+      "ready_mean_center_error_m": 0.00411323960246667,
+      "ready_max_center_error_m": 0.017875287269057388,
+      "ready_fraction": 0.9833333333333333
+    },
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.05,
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.005136702377280338,
+        "max_error_m": 0.00750320063694243,
+        "success": true,
+        "acquisition_s": 14.6,
+        "holding_goal": true,
+        "hold_s": 15.399999999999961,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.08408294283222209,
+        "peak_max_error_m": 0.21201644584755858,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 11.236877023629495
+      },
+      "recording": "runs/local-circle-cooperative-probe/boost-0.05-seed-3007.npz",
+      "mean_center_error_m": 0.008596091785361965,
+      "ready_mean_center_error_m": 0.002609980639718553,
+      "ready_max_center_error_m": 0.005832285766652621,
+      "ready_fraction": 0.874
+    },
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.05,
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.014780626358358645,
+        "max_error_m": 0.017248633676186582,
+        "success": true,
+        "acquisition_s": 11.099999999999998,
+        "holding_goal": true,
+        "hold_s": 18.9,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06477629604387697,
+        "peak_max_error_m": 0.2339228551281232,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.856545859396032
+      },
+      "recording": "runs/local-circle-cooperative-probe/boost-0.05-seed-3011.npz",
+      "mean_center_error_m": 0.014193900781399,
+      "ready_mean_center_error_m": 0.004533326105891217,
+      "ready_max_center_error_m": 0.01088190985003729,
+      "ready_fraction": 0.9226666666666666
+    },
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.05,
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.01356150959884327,
+        "max_error_m": 0.015576844700802821,
+        "success": true,
+        "acquisition_s": 25.7,
+        "holding_goal": true,
+        "hold_s": 4.300000000000001,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.13974784963572526,
+        "peak_max_error_m": 0.2357274145597698,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.868587088962382
+      },
+      "recording": "runs/local-circle-cooperative-probe/boost-0.05-seed-3019.npz",
+      "mean_center_error_m": 0.02275906104321707,
+      "ready_mean_center_error_m": 0.0044871799387699645,
+      "ready_max_center_error_m": 0.009542326697579465,
+      "ready_fraction": 0.804
+    }
+  ],
+  "summary": [
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.0,
+      "episodes": 4,
+      "successes": 3,
+      "final_holding": 3,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.05717545738844372,
+      "ready_mean_center_error_m": 0.004001532841779202
+    },
+    {
+      "scan_s": 0.0,
+      "interior_boost_m_s": 0.05,
+      "episodes": 4,
+      "successes": 4,
+      "final_holding": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.013520638595480708,
+      "ready_mean_center_error_m": 0.003935931571711601
+    }
+  ],
+  "selected_for_data_only": {
+    "scan_s": 0.0,
+    "interior_boost_m_s": 0.05
+  },
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-circle-cooperative.py",
+      "sha256": "58cde591f02a9014e8bea582fe5dcd5b07849e028aaf629b9de482092eb59432"
+    },
+    {
+      "path": "runs/local_circle_cooperative.py",
+      "sha256": "14fa30084b3bbf6c5aea7fe171547497b8b906a94e6424a4f95223c8c647ae9d"
+    },
+    {
+      "path": "runs/local_circle_history.py",
+      "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+    },
+    {
+      "path": "runs/local_circle_guarded.py",
+      "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/protocol.json",
+      "sha256": "d9d46041d072ae9a11c3cc67c9d82e4cea911ab0459df2c14c7a82f0205aa81d"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/boost-0-seed-3001.npz",
+      "sha256": "5e3b4aa820833d2b5e8e505884f720b49e08652a516292f7fdf0c77f43148617"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/boost-0-seed-3007.npz",
+      "sha256": "71abe1a520106ee0fd606522069f9a01a0a0cb4f11ad6b378c0d2cb345e68e8d"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/boost-0-seed-3011.npz",
+      "sha256": "312725909c3a6a2019f3d0303872fa1248f70cd3597df61a6cb41c1440603dda"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/boost-0-seed-3019.npz",
+      "sha256": "6e4d9ee405a022636b66410599057b98fb6d30abad834993efafe01a5754a138"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/boost-0.05-seed-3001.npz",
+      "sha256": "318fed44de4336c993e1f92acdbf90cf5985403cbd3548939e245130a4e4a9a9"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/boost-0.05-seed-3007.npz",
+      "sha256": "5ffdb12a09f8131c811027cfb3ffe571311158d600271f10294636a77f5c0faf"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/boost-0.05-seed-3011.npz",
+      "sha256": "2fd1f9a0591be4a9fd856e2b894c27b42021d031ac57b9cd6a2c9440ecbb3331"
+    },
+    {
+      "path": "runs/local-circle-cooperative-probe/boost-0.05-seed-3019.npz",
+      "sha256": "5ad4c23b00105a25b770ba173721ad4d3f53690eb1c64d77f63661d477fdd0a0"
+    }
+  ]
+}

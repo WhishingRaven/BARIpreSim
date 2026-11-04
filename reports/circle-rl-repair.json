@@ -1,0 +1,2502 @@
+{
+  "version": "bari-circle-rl-repair-result-v1",
+  "completed_utc": "2026-11-03T16:55:49.125018+00:00",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "protocol": {
+    "version": "bari-circle-ppo-repair-v1",
+    "planned_utc": "2026-11-03T16:42:02.355784+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "script": {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-circle-rl-repair.py",
+      "sha256": "a5a19ebc60ced5ab23ab91e4fccd777ba4ff63e74e2ab1151c0b4c51ea76c958"
+    },
+    "runner": {
+      "path": "runs/run-circle-rl-repair.py",
+      "sha256": "1b421980f6b38b024b678e13006a7928dcd9de031e580e26f9ad76a014803f98"
+    },
+    "parent": {
+      "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+      "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+    },
+    "parent_result": {
+      "path": "runs/local-circle-no-command-results.json",
+      "sha256": "01e83bd65217f8c15e8cea107a5b02227144cc6c7f22f38ed5fcea95e672b485"
+    },
+    "arms": {
+      "low": {
+        "learning_rate": 3e-05,
+        "config": {
+          "path": "runs/circle-rl-repair-v1/config-low.json",
+          "sha256": "f130a67649db9f47a4b0361eadf977f505dbbc084d419bf9b952d891117aa38a"
+        },
+        "config_sha256": "83bd46eb93cd794b3e5b1f35b1c4ded35571a755b61e9700ef6c11c6c0eb2fbd",
+        "initialization": {
+          "path": "runs/circle-rl-repair-v1/actor-initialization-low.pt",
+          "sha256": "752209cc47d24a8a0c2ebcbabb4cc94eaf52f20f1f07062ffc8adbe9154b7b76"
+        },
+        "fresh_trainer": {
+          "path": "runs/circle-rl-repair-v1/fresh-trainer-low.pt",
+          "sha256": "fa8e407e42a14e8abf033f4c4bd9a8e28fed7d14562a0e91de9810b40031e978"
+        }
+      },
+      "high": {
+        "learning_rate": 0.0003,
+        "config": {
+          "path": "runs/circle-rl-repair-v1/config-high.json",
+          "sha256": "262aaa79962be68431653cc9d5aaec1417755b714f92995263b3d6ba203b808c"
+        },
+        "config_sha256": "b0f8b3a196ef4eff5762bea58d9f590de06393ca96984861aec8b6003ba81a48",
+        "initialization": {
+          "path": "runs/circle-rl-repair-v1/actor-initialization-high.pt",
+          "sha256": "96933302b4571bb623cbe03b5d2664f511e0376f8f2dac8e6a9d8e88a952552d"
+        },
+        "fresh_trainer": {
+          "path": "runs/circle-rl-repair-v1/fresh-trainer-high.pt",
+          "sha256": "3d9dc29b2ea5690018131a15a32bb7c414b3d9a5dfdad7a7558b471767711790"
+        }
+      }
+    },
+    "training_plan": {
+      "path": "runs/circle-rl-repair-v1/training_plan.json",
+      "sha256": "479fd3bae0c4062cedde7846eb356b3282904a420e85cefc952cbab4ab7182c9"
+    },
+    "plan": {
+      "version": "bari-training-plan-v2",
+      "isolated_episode_probability": 1.0,
+      "switch_min_seconds": 3.0,
+      "switch_max_seconds": 15.0,
+      "curriculum_updates": 0,
+      "curriculum_start_probability": 0.8,
+      "position_jitter_start_m": 0.015,
+      "position_jitter_end_m": 0.16,
+      "reserved_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027,
+        3001,
+        3007,
+        3011,
+        3019,
+        10001,
+        10007,
+        10009,
+        10037,
+        10039,
+        2827126,
+        10602868,
+        11179715,
+        20413573,
+        24550309,
+        25487437,
+        25530070,
+        35679009,
+        36950831,
+        43114121,
+        57141025,
+        69929493,
+        77488299,
+        77915536,
+        78793891,
+        98002488,
+        102547314,
+        113147155,
+        113285700,
+        125590161,
+        138366874,
+        139993595,
+        141534937,
+        148161846,
+        175091321,
+        179620049,
+        187044299,
+        225593738,
+        232618011,
+        235416628,
+        237135687,
+        239404390,
+        256809428,
+        270520118,
+        272110484,
+        273650618,
+        277609783,
+        279013654,
+        313093398,
+        314509613,
+        322745741,
+        329846908,
+        331923284,
+        335448813,
+        338325528,
+        339557547,
+        342600247,
+        343658820,
+        345392929,
+        351483264,
+        372386662,
+        373745314,
+        378929717,
+        382578971,
+        392954959,
+        394452274,
+        399964466,
+        401714813,
+        413721013,
+        417234529,
+        436254178,
+        445932429,
+        469044074,
+        469140988,
+        472185483,
+        489431430,
+        495802360,
+        504907621,
+        525435469,
+        537484503,
+        540139156,
+        542718027,
+        544112619,
+        545861647,
+        549887984,
+        553545438,
+        560713229,
+        562080495,
+        569614998,
+        578337630,
+        589246224,
+        589614995,
+        594313176,
+        596017465,
+        602047054,
+        606894743,
+        618157338,
+        622946141,
+        624984765,
+        631028093,
+        650149548,
+        650980382,
+        664183827,
+        664626556,
+        669272030,
+        682828266,
+        684966139,
+        691716605,
+        704069165,
+        709227516,
+        715327860,
+        717035210,
+        721234481,
+        725472360,
+        727644583,
+        739355049,
+        748215689,
+        751152922,
+        752152778,
+        755750887,
+        766754127,
+        778894749,
+        781898725,
+        783822680,
+        796478090,
+        815768364,
+        817544212,
+        824089645,
+        830442762,
+        844551625,
+        856889361,
+        867636897,
+        880800714,
+        880937101,
+        889760326,
+        905956396,
+        917185294,
+        921532039,
+        921891633,
+        929841224,
+        966573100,
+        979700136,
+        982309904,
+        995963224,
+        996423186,
+        1004094468,
+        1026382013,
+        1051674972,
+        1052128628,
+        1074919601,
+        1081995877,
+        1084071891,
+        1087525231,
+        1098242968,
+        1127354831,
+        1170541645,
+        1174280309,
+        1177796639,
+        1185160403,
+        1196506791,
+        1196592153,
+        1204933709,
+        1215490494,
+        1216852287,
+        1239545633,
+        1252413365,
+        1253358039,
+        1275994714,
+        1293858701,
+        1298575918,
+        1329764056,
+        1335319078,
+        1347918571,
+        1354327205,
+        1358887106,
+        1361814243,
+        1373624027,
+        1376502237,
+        1380123348,
+        1384627394,
+        1391038837,
+        1411876225,
+        1420922758,
+        1426227163,
+        1435263856,
+        1438459159,
+        1448909733,
+        1465403755,
+        1480293845,
+        1500255199,
+        1501817641,
+        1504793927,
+        1509255044,
+        1512157121,
+        1513785544,
+        1516165654,
+        1520447899,
+        1520472979,
+        1522941715,
+        1524300360,
+        1525723209,
+        1526484007,
+        1532761059,
+        1538435753,
+        1551689387,
+        1556328904,
+        1561658341,
+        1569899436,
+        1572462477,
+        1572998859,
+        1594082790,
+        1594776450,
+        1595016675,
+        1621922797,
+        1628583528,
+        1642549434,
+        1642871848,
+        1646283511,
+        1649121607,
+        1649268740,
+        1665508353,
+        1671052458,
+        1673742079,
+        1682864514,
+        1685651270,
+        1689037666,
+        1692185733,
+        1695638450,
+        1706259776,
+        1716369120,
+        1727563011,
+        1727768594,
+        1735417454,
+        1735822488,
+        1758054352,
+        1761495214,
+        1775943391,
+        1779443878,
+        1779849302,
+        1784058725,
+        1786857254,
+        1787205679,
+        1795454904,
+        1798443499,
+        1806544839,
+        1807836304,
+        1808537689,
+        1819935037,
+        1822376516,
+        1823368393,
+        1827564084,
+        1828019672,
+        1849173001,
+        1850432251,
+        1860676901,
+        1862458093,
+        1867621744,
+        1886228515,
+        1889587674,
+        1894810040,
+        1899936300,
+        1903086044,
+        1907778686,
+        1911310793,
+        1916584003,
+        1924203886,
+        1924555443,
+        1926318723,
+        1935319987,
+        1950449760,
+        1954480559,
+        1956734237,
+        1970561045,
+        1979129855,
+        1980205894,
+        1984372015,
+        1990041244,
+        1992583878,
+        2002464994,
+        2006668493,
+        2031355132,
+        2036851082,
+        2049023891,
+        2065756245,
+        2072790619,
+        2087406834,
+        2094412827,
+        2095252408,
+        2105853675,
+        2114843451,
+        2118262672,
+        2120849351,
+        2122707756,
+        2126394440,
+        2132145936,
+        2135230509
+      ],
+      "tasks": [
+        "circle"
+      ]
+    },
+    "training_seed": 23,
+    "training_version": "bari-mappo-periodic-no-command-v13",
+    "worlds": 8,
+    "updates": 200,
+    "ppo_epochs": 3,
+    "BPTT": 64,
+    "joint_controls_per_arm": 204800,
+    "optimizer_steps_per_arm": 600,
+    "validation_updates": [
+      0,
+      50,
+      200
+    ],
+    "development_seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027,
+      1594776450,
+      589246224,
+      1979129855,
+      1391038837,
+      1899936300,
+      995963224,
+      113285700,
+      1761495214,
+      1685651270,
+      1727563011
+    ],
+    "new_development_seeds": [
+      1594776450,
+      589246224,
+      1979129855,
+      1391038837,
+      1899936300,
+      995963224,
+      113285700,
+      1761495214,
+      1685651270,
+      1727563011
+    ],
+    "initialization_proof": {
+      "all_mean_weights_exact_to_parent": true,
+      "std_only_changed_to_exp_minus3": true,
+      "fresh_critic_optimizer_world_hidden_sampling_torch_rng_preserved": true,
+      "paired_critic_torch_sampling_rng_exact": true,
+      "paired_world_states_exact_except_learning_rate_config_digest": true
+    },
+    "research_question": "Can reward-only recurrent PPO improve an approximately forming local-range policy that failed imitation acceptance? This is an independent exploratory repair experiment, not admission/promotion through the preceding failed imitation pipeline.",
+    "why_now": "Added student-state data and training-only local-state prediction still fail. Initial zero-command actor is the least-error0/5 candidate and has zero safety attempts on the5 development cases; broader student sampling is unsafe. On-policy reward learning is a distinct test, not another imitation extension.",
+    "eligibility_change": "Earlier imitation readiness gates failed and remain recorded as failures. They are not used to claim this initializer qualified. This new experiment explicitly permits an unvalidated initializer to study repair. Final error/hold/safety/rate requirements are unchanged.",
+    "training": "All5 robots learned; isolated circle/random episodes, no near-goal curriculum or switches in this stage. No teacher, imitation/auxiliary loss, global actor feature or runtime wrapper. Ordinary local9/task4/privateGRU64, constrained command columns remain zero. Existing rewards/physics/sensors and periodic training-only critic unchanged.",
+    "evaluation": "At actual0/50/200, evaluate all15 fixed development worlds deterministically, no teacher. First50 and later150 updates use one uninterrupted trainer; evaluation must preserve actor/critic/optimizer/all-world/RNG states. Intermediate50 diagnostic only. Choose only exact200 candidates: require>=14/15 official successes AND final holds, zero total contact/wall attempts. Prefer low learning_rate if both pass. No extension or default promotion.",
+    "scope": "One imitation seed11 and one actual RLseed23, circle-only, hypothetical planarFOV60 and provisional central-square initial sampler. Not full-four-task, switching, controlled occlusion/memory, multiple independent training seeds, final-heldout,3D-success or ESP32/physical acceptance."
+  },
+  "arms": {
+    "low": {
+      "result": {
+        "protocol": {
+          "version": "bari-circle-ppo-repair-v1",
+          "planned_utc": "2026-11-03T16:42:02.355784+00:00",
+          "source": {
+            "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+            "dirty": true,
+            "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+          },
+          "script": {
+            "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-circle-rl-repair.py",
+            "sha256": "a5a19ebc60ced5ab23ab91e4fccd777ba4ff63e74e2ab1151c0b4c51ea76c958"
+          },
+          "runner": {
+            "path": "runs/run-circle-rl-repair.py",
+            "sha256": "1b421980f6b38b024b678e13006a7928dcd9de031e580e26f9ad76a014803f98"
+          },
+          "parent": {
+            "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+            "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+          },
+          "parent_result": {
+            "path": "runs/local-circle-no-command-results.json",
+            "sha256": "01e83bd65217f8c15e8cea107a5b02227144cc6c7f22f38ed5fcea95e672b485"
+          },
+          "arms": {
+            "low": {
+              "learning_rate": 3e-05,
+              "config": {
+                "path": "runs/circle-rl-repair-v1/config-low.json",
+                "sha256": "f130a67649db9f47a4b0361eadf977f505dbbc084d419bf9b952d891117aa38a"
+              },
+              "config_sha256": "83bd46eb93cd794b3e5b1f35b1c4ded35571a755b61e9700ef6c11c6c0eb2fbd",
+              "initialization": {
+                "path": "runs/circle-rl-repair-v1/actor-initialization-low.pt",
+                "sha256": "752209cc47d24a8a0c2ebcbabb4cc94eaf52f20f1f07062ffc8adbe9154b7b76"
+              },
+              "fresh_trainer": {
+                "path": "runs/circle-rl-repair-v1/fresh-trainer-low.pt",
+                "sha256": "fa8e407e42a14e8abf033f4c4bd9a8e28fed7d14562a0e91de9810b40031e978"
+              }
+            },
+            "high": {
+              "learning_rate": 0.0003,
+              "config": {
+                "path": "runs/circle-rl-repair-v1/config-high.json",
+                "sha256": "262aaa79962be68431653cc9d5aaec1417755b714f92995263b3d6ba203b808c"
+              },
+              "config_sha256": "b0f8b3a196ef4eff5762bea58d9f590de06393ca96984861aec8b6003ba81a48",
+              "initialization": {
+                "path": "runs/circle-rl-repair-v1/actor-initialization-high.pt",
+                "sha256": "96933302b4571bb623cbe03b5d2664f511e0376f8f2dac8e6a9d8e88a952552d"
+              },
+              "fresh_trainer": {
+                "path": "runs/circle-rl-repair-v1/fresh-trainer-high.pt",
+                "sha256": "3d9dc29b2ea5690018131a15a32bb7c414b3d9a5dfdad7a7558b471767711790"
+              }
+            }
+          },
+          "training_plan": {
+            "path": "runs/circle-rl-repair-v1/training_plan.json",
+            "sha256": "479fd3bae0c4062cedde7846eb356b3282904a420e85cefc952cbab4ab7182c9"
+          },
+          "plan": {
+            "version": "bari-training-plan-v2",
+            "isolated_episode_probability": 1.0,
+            "switch_min_seconds": 3.0,
+            "switch_max_seconds": 15.0,
+            "curriculum_updates": 0,
+            "curriculum_start_probability": 0.8,
+            "position_jitter_start_m": 0.015,
+            "position_jitter_end_m": 0.16,
+            "reserved_seeds": [
+              2001,
+              2003,
+              2011,
+              2017,
+              2027,
+              3001,
+              3007,
+              3011,
+              3019,
+              10001,
+              10007,
+              10009,
+              10037,
+              10039,
+              2827126,
+              10602868,
+              11179715,
+              20413573,
+              24550309,
+              25487437,
+              25530070,
+              35679009,
+              36950831,
+              43114121,
+              57141025,
+              69929493,
+              77488299,
+              77915536,
+              78793891,
+              98002488,
+              102547314,
+              113147155,
+              113285700,
+              125590161,
+              138366874,
+              139993595,
+              141534937,
+              148161846,
+              175091321,
+              179620049,
+              187044299,
+              225593738,
+              232618011,
+              235416628,
+              237135687,
+              239404390,
+              256809428,
+              270520118,
+              272110484,
+              273650618,
+              277609783,
+              279013654,
+              313093398,
+              314509613,
+              322745741,
+              329846908,
+              331923284,
+              335448813,
+              338325528,
+              339557547,
+              342600247,
+              343658820,
+              345392929,
+              351483264,
+              372386662,
+              373745314,
+              378929717,
+              382578971,
+              392954959,
+              394452274,
+              399964466,
+              401714813,
+              413721013,
+              417234529,
+              436254178,
+              445932429,
+              469044074,
+              469140988,
+              472185483,
+              489431430,
+              495802360,
+              504907621,
+              525435469,
+              537484503,
+              540139156,
+              542718027,
+              544112619,
+              545861647,
+              549887984,
+              553545438,
+              560713229,
+              562080495,
+              569614998,
+              578337630,
+              589246224,
+              589614995,
+              594313176,
+              596017465,
+              602047054,
+              606894743,
+              618157338,
+              622946141,
+              624984765,
+              631028093,
+              650149548,
+              650980382,
+              664183827,
+              664626556,
+              669272030,
+              682828266,
+              684966139,
+              691716605,
+              704069165,
+              709227516,
+              715327860,
+              717035210,
+              721234481,
+              725472360,
+              727644583,
+              739355049,
+              748215689,
+              751152922,
+              752152778,
+              755750887,
+              766754127,
+              778894749,
+              781898725,
+              783822680,
+              796478090,
+              815768364,
+              817544212,
+              824089645,
+              830442762,
+              844551625,
+              856889361,
+              867636897,
+              880800714,
+              880937101,
+              889760326,
+              905956396,
+              917185294,
+              921532039,
+              921891633,
+              929841224,
+              966573100,
+              979700136,
+              982309904,
+              995963224,
+              996423186,
+              1004094468,
+              1026382013,
+              1051674972,
+              1052128628,
+              1074919601,
+              1081995877,
+              1084071891,
+              1087525231,
+              1098242968,
+              1127354831,
+              1170541645,
+              1174280309,
+              1177796639,
+              1185160403,
+              1196506791,
+              1196592153,
+              1204933709,
+              1215490494,
+              1216852287,
+              1239545633,
+              1252413365,
+              1253358039,
+              1275994714,
+              1293858701,
+              1298575918,
+              1329764056,
+              1335319078,
+              1347918571,
+              1354327205,
+              1358887106,
+              1361814243,
+              1373624027,
+              1376502237,
+              1380123348,
+              1384627394,
+              1391038837,
+              1411876225,
+              1420922758,
+              1426227163,
+              1435263856,
+              1438459159,
+              1448909733,
+              1465403755,
+              1480293845,
+              1500255199,
+              1501817641,
+              1504793927,
+              1509255044,
+              1512157121,
+              1513785544,
+              1516165654,
+              1520447899,
+              1520472979,
+              1522941715,
+              1524300360,
+              1525723209,
+              1526484007,
+              1532761059,
+              1538435753,
+              1551689387,
+              1556328904,
+              1561658341,
+              1569899436,
+              1572462477,
+              1572998859,
+              1594082790,
+              1594776450,
+              1595016675,
+              1621922797,
+              1628583528,
+              1642549434,
+              1642871848,
+              1646283511,
+              1649121607,
+              1649268740,
+              1665508353,
+              1671052458,
+              1673742079,
+              1682864514,
+              1685651270,
+              1689037666,
+              1692185733,
+              1695638450,
+              1706259776,
+              1716369120,
+              1727563011,
+              1727768594,
+              1735417454,
+              1735822488,
+              1758054352,
+              1761495214,
+              1775943391,
+              1779443878,
+              1779849302,
+              1784058725,
+              1786857254,
+              1787205679,
+              1795454904,
+              1798443499,
+              1806544839,
+              1807836304,
+              1808537689,
+              1819935037,
+              1822376516,
+              1823368393,
+              1827564084,
+              1828019672,
+              1849173001,
+              1850432251,
+              1860676901,
+              1862458093,
+              1867621744,
+              1886228515,
+              1889587674,
+              1894810040,
+              1899936300,
+              1903086044,
+              1907778686,
+              1911310793,
+              1916584003,
+              1924203886,
+              1924555443,
+              1926318723,
+              1935319987,
+              1950449760,
+              1954480559,
+              1956734237,
+              1970561045,
+              1979129855,
+              1980205894,
+              1984372015,
+              1990041244,
+              1992583878,
+              2002464994,
+              2006668493,
+              2031355132,
+              2036851082,
+              2049023891,
+              2065756245,
+              2072790619,
+              2087406834,
+              2094412827,
+              2095252408,
+              2105853675,
+              2114843451,
+              2118262672,
+              2120849351,
+              2122707756,
+              2126394440,
+              2132145936,
+              2135230509
+            ],
+            "tasks": [
+              "circle"
+            ]
+          },
+          "training_seed": 23,
+          "training_version": "bari-mappo-periodic-no-command-v13",
+          "worlds": 8,
+          "updates": 200,
+          "ppo_epochs": 3,
+          "BPTT": 64,
+          "joint_controls_per_arm": 204800,
+          "optimizer_steps_per_arm": 600,
+          "validation_updates": [
+            0,
+            50,
+            200
+          ],
+          "development_seeds": [
+            2001,
+            2003,
+            2011,
+            2017,
+            2027,
+            1594776450,
+            589246224,
+            1979129855,
+            1391038837,
+            1899936300,
+            995963224,
+            113285700,
+            1761495214,
+            1685651270,
+            1727563011
+          ],
+          "new_development_seeds": [
+            1594776450,
+            589246224,
+            1979129855,
+            1391038837,
+            1899936300,
+            995963224,
+            113285700,
+            1761495214,
+            1685651270,
+            1727563011
+          ],
+          "initialization_proof": {
+            "all_mean_weights_exact_to_parent": true,
+            "std_only_changed_to_exp_minus3": true,
+            "fresh_critic_optimizer_world_hidden_sampling_torch_rng_preserved": true,
+            "paired_critic_torch_sampling_rng_exact": true,
+            "paired_world_states_exact_except_learning_rate_config_digest": true
+          },
+          "research_question": "Can reward-only recurrent PPO improve an approximately forming local-range policy that failed imitation acceptance? This is an independent exploratory repair experiment, not admission/promotion through the preceding failed imitation pipeline.",
+          "why_now": "Added student-state data and training-only local-state prediction still fail. Initial zero-command actor is the least-error0/5 candidate and has zero safety attempts on the5 development cases; broader student sampling is unsafe. On-policy reward learning is a distinct test, not another imitation extension.",
+          "eligibility_change": "Earlier imitation readiness gates failed and remain recorded as failures. They are not used to claim this initializer qualified. This new experiment explicitly permits an unvalidated initializer to study repair. Final error/hold/safety/rate requirements are unchanged.",
+          "training": "All5 robots learned; isolated circle/random episodes, no near-goal curriculum or switches in this stage. No teacher, imitation/auxiliary loss, global actor feature or runtime wrapper. Ordinary local9/task4/privateGRU64, constrained command columns remain zero. Existing rewards/physics/sensors and periodic training-only critic unchanged.",
+          "evaluation": "At actual0/50/200, evaluate all15 fixed development worlds deterministically, no teacher. First50 and later150 updates use one uninterrupted trainer; evaluation must preserve actor/critic/optimizer/all-world/RNG states. Intermediate50 diagnostic only. Choose only exact200 candidates: require>=14/15 official successes AND final holds, zero total contact/wall attempts. Prefer low learning_rate if both pass. No extension or default promotion.",
+          "scope": "One imitation seed11 and one actual RLseed23, circle-only, hypothetical planarFOV60 and provisional central-square initial sampler. Not full-four-task, switching, controlled occlusion/memory, multiple independent training seeds, final-heldout,3D-success or ESP32/physical acceptance."
+        },
+        "arm": "low",
+        "observations": [
+          {
+            "update": 0,
+            "report": {
+              "path": "runs/circle-rl-repair-low-23/evaluation-0000/report.json",
+              "sha256": "bec80f8a487e9908d306cf0b82254fdec56349e3f2b3a1f48bf80f97ce865a8b"
+            },
+            "checkpoint": {
+              "path": "runs/circle-rl-repair-low-23/initial-checkpoint.pt",
+              "sha256": "55aa3e01ffded9c1b1b42b6fe15c570412f70632b6630cb0883e31364d9a1910"
+            },
+            "episodes": 15,
+            "successes": 0,
+            "final_holding": 0,
+            "contacts": 320,
+            "walls": 0,
+            "mean_final_max_error_m": 0.11914081557084301,
+            "evaluation_all_training_state_rng_exact": true
+          },
+          {
+            "update": 50,
+            "report": {
+              "path": "runs/circle-rl-repair-low-23/evaluation-0050/report.json",
+              "sha256": "5094f4dbbaa39ba2d2be997d1ece47d3d26a6b05e8778a8f3683025966e11e72"
+            },
+            "checkpoint": {
+              "path": "runs/circle-rl-repair-low-23/training-first50/checkpoint.pt",
+              "sha256": "055d8e8b49c180138d24a5f64b9807a8477bdddb9c12a66a9d347855aabeb24b"
+            },
+            "episodes": 15,
+            "successes": 0,
+            "final_holding": 0,
+            "contacts": 825,
+            "walls": 0,
+            "mean_final_max_error_m": 0.1161585218352315,
+            "evaluation_all_training_state_rng_exact": true
+          },
+          {
+            "update": 200,
+            "report": {
+              "path": "runs/circle-rl-repair-low-23/evaluation-0200/report.json",
+              "sha256": "7643c8b01bf5bbc0f93b429fc7a237d7d4d4b401b77fd952fd07b205818b707d"
+            },
+            "checkpoint": {
+              "path": "runs/circle-rl-repair-low-23/training-final200/checkpoint.pt",
+              "sha256": "5714a2d2aeb39f10dda1043be04b578fb8863a2c0539a42c8d56f0ea858d4fb0"
+            },
+            "episodes": 15,
+            "successes": 0,
+            "final_holding": 0,
+            "contacts": 276,
+            "walls": 0,
+            "mean_final_max_error_m": 0.11397848922007925,
+            "evaluation_all_training_state_rng_exact": true
+          }
+        ],
+        "updates": 200,
+        "optimizer_steps": 600,
+        "qualified_for_separately_planned_next_stage_only": false,
+        "current_std": [
+          -2.997938394546509,
+          -2.9955780506134033
+        ],
+        "zero_command_columns_exact": true,
+        "artifacts": [
+          {
+            "path": "runs/circle-rl-repair-low-23/training-first50/training.jsonl",
+            "sha256": "8ff3fdd0b080bfcd82a6cda57dd1a9174318947c5304a5e2243eb5ebcba47f08"
+          },
+          {
+            "path": "runs/circle-rl-repair-low-23/training-final200/training.jsonl",
+            "sha256": "9136654f30afeb7149f93e37e37aca127301f0b88dcae7d56315175b7e1462c1"
+          }
+        ],
+        "default_promoted": false,
+        "decision": "Fixed200 reward-only updates complete; no extension or default promotion. Full goal remains open."
+      },
+      "actor_max_parameter_changes": {
+        "log_std": 0.00442194938659668,
+        "encoder.weight": 0.0033729299902915955,
+        "encoder.bias": 0.002365194261074066,
+        "gru.weight_ih": 0.0041509270668029785,
+        "gru.weight_hh": 0.004620429128408432,
+        "gru.bias_ih": 0.00286228209733963,
+        "gru.bias_hh": 0.002862304449081421,
+        "head.weight": 0.0031302273273468018,
+        "head.bias": 0.000425487756729126
+      },
+      "saved_log_std": [
+        -2.997938394546509,
+        -2.9955780506134033
+      ],
+      "saved_action_std": [
+        0.04988981410861015,
+        0.050007712095975876
+      ],
+      "runner_field_note": "Raw result.current_std contains log_std; the explicit fields here are derived from the saved actor.",
+      "zero_command_weights_and_Adam_moments_exact": true,
+      "resume": {
+        "version": "bari-circle-rl-repair-resume-v1",
+        "arm": "low",
+        "parent": {
+          "path": "runs/circle-rl-repair-low-23/training-final200/checkpoint.pt",
+          "sha256": "5714a2d2aeb39f10dda1043be04b578fb8863a2c0539a42c8d56f0ea858d4fb0"
+        },
+        "verification_only_updates": [
+          201,
+          202
+        ],
+        "behavioral_training_updates": 200,
+        "worlds": 8,
+        "episode_boundary_crossed": true,
+        "all_rollout_arrays_exact": true,
+        "exact_state_leaves": 4610,
+        "provenance_only_differences": [
+          {
+            "field": "trainer.parent_checkpoint",
+            "uninterrupted": {
+              "sha256": "5714a2d2aeb39f10dda1043be04b578fb8863a2c0539a42c8d56f0ea858d4fb0",
+              "path": "runs/circle-rl-repair-low-23/training-final200/checkpoint.pt",
+              "revision": {
+                "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+                "dirty": true,
+                "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+              }
+            },
+            "resumed": {
+              "sha256": "db9609c37326a5d7c3b054dcb540b4e1534fb18c82d81bd378a02e3e28c64751",
+              "path": "runs/circle-rl-repair-resume-low/verification-only-201.pt",
+              "revision": {
+                "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+                "dirty": true,
+                "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+              }
+            },
+            "reason": "Expected resume-file path/hash provenance changes from terminal200 to verification201; not numerical state."
+          }
+        ],
+        "numerical_training_physical_fields_excluded": [],
+        "parent_checkpoint_unchanged": true,
+        "saved_command_columns_zero": true,
+        "scope": "Serialization/continuation proof only; verification201/202 states are never behavior candidates or exported models.",
+        "artifacts": [
+          {
+            "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-circle-rl-repair-resume.py",
+            "sha256": "88cd3a8f985ecb0289d6f567285eb03c7f72b0766ae041968dc6cbe1879e9eb2"
+          },
+          {
+            "path": "runs/circle-rl-repair-resume-low/verification-only-201.pt",
+            "sha256": "db9609c37326a5d7c3b054dcb540b4e1534fb18c82d81bd378a02e3e28c64751"
+          },
+          {
+            "path": "runs/circle-rl-repair-resume-low/expected-rollout.npz",
+            "sha256": "48195331cc21ec742a5a7b035cd6162a4baeab7759983d48641aeae89b7c7808"
+          },
+          {
+            "path": "runs/circle-rl-repair-resume-low/actual-rollout.npz",
+            "sha256": "48195331cc21ec742a5a7b035cd6162a4baeab7759983d48641aeae89b7c7808"
+          }
+        ]
+      }
+    },
+    "high": {
+      "result": {
+        "protocol": {
+          "version": "bari-circle-ppo-repair-v1",
+          "planned_utc": "2026-11-03T16:42:02.355784+00:00",
+          "source": {
+            "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+            "dirty": true,
+            "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+          },
+          "script": {
+            "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-circle-rl-repair.py",
+            "sha256": "a5a19ebc60ced5ab23ab91e4fccd777ba4ff63e74e2ab1151c0b4c51ea76c958"
+          },
+          "runner": {
+            "path": "runs/run-circle-rl-repair.py",
+            "sha256": "1b421980f6b38b024b678e13006a7928dcd9de031e580e26f9ad76a014803f98"
+          },
+          "parent": {
+            "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+            "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+          },
+          "parent_result": {
+            "path": "runs/local-circle-no-command-results.json",
+            "sha256": "01e83bd65217f8c15e8cea107a5b02227144cc6c7f22f38ed5fcea95e672b485"
+          },
+          "arms": {
+            "low": {
+              "learning_rate": 3e-05,
+              "config": {
+                "path": "runs/circle-rl-repair-v1/config-low.json",
+                "sha256": "f130a67649db9f47a4b0361eadf977f505dbbc084d419bf9b952d891117aa38a"
+              },
+              "config_sha256": "83bd46eb93cd794b3e5b1f35b1c4ded35571a755b61e9700ef6c11c6c0eb2fbd",
+              "initialization": {
+                "path": "runs/circle-rl-repair-v1/actor-initialization-low.pt",
+                "sha256": "752209cc47d24a8a0c2ebcbabb4cc94eaf52f20f1f07062ffc8adbe9154b7b76"
+              },
+              "fresh_trainer": {
+                "path": "runs/circle-rl-repair-v1/fresh-trainer-low.pt",
+                "sha256": "fa8e407e42a14e8abf033f4c4bd9a8e28fed7d14562a0e91de9810b40031e978"
+              }
+            },
+            "high": {
+              "learning_rate": 0.0003,
+              "config": {
+                "path": "runs/circle-rl-repair-v1/config-high.json",
+                "sha256": "262aaa79962be68431653cc9d5aaec1417755b714f92995263b3d6ba203b808c"
+              },
+              "config_sha256": "b0f8b3a196ef4eff5762bea58d9f590de06393ca96984861aec8b6003ba81a48",
+              "initialization": {
+                "path": "runs/circle-rl-repair-v1/actor-initialization-high.pt",
+                "sha256": "96933302b4571bb623cbe03b5d2664f511e0376f8f2dac8e6a9d8e88a952552d"
+              },
+              "fresh_trainer": {
+                "path": "runs/circle-rl-repair-v1/fresh-trainer-high.pt",
+                "sha256": "3d9dc29b2ea5690018131a15a32bb7c414b3d9a5dfdad7a7558b471767711790"
+              }
+            }
+          },
+          "training_plan": {
+            "path": "runs/circle-rl-repair-v1/training_plan.json",
+            "sha256": "479fd3bae0c4062cedde7846eb356b3282904a420e85cefc952cbab4ab7182c9"
+          },
+          "plan": {
+            "version": "bari-training-plan-v2",
+            "isolated_episode_probability": 1.0,
+            "switch_min_seconds": 3.0,
+            "switch_max_seconds": 15.0,
+            "curriculum_updates": 0,
+            "curriculum_start_probability": 0.8,
+            "position_jitter_start_m": 0.015,
+            "position_jitter_end_m": 0.16,
+            "reserved_seeds": [
+              2001,
+              2003,
+              2011,
+              2017,
+              2027,
+              3001,
+              3007,
+              3011,
+              3019,
+              10001,
+              10007,
+              10009,
+              10037,
+              10039,
+              2827126,
+              10602868,
+              11179715,
+              20413573,
+              24550309,
+              25487437,
+              25530070,
+              35679009,
+              36950831,
+              43114121,
+              57141025,
+              69929493,
+              77488299,
+              77915536,
+              78793891,
+              98002488,
+              102547314,
+              113147155,
+              113285700,
+              125590161,
+              138366874,
+              139993595,
+              141534937,
+              148161846,
+              175091321,
+              179620049,
+              187044299,
+              225593738,
+              232618011,
+              235416628,
+              237135687,
+              239404390,
+              256809428,
+              270520118,
+              272110484,
+              273650618,
+              277609783,
+              279013654,
+              313093398,
+              314509613,
+              322745741,
+              329846908,
+              331923284,
+              335448813,
+              338325528,
+              339557547,
+              342600247,
+              343658820,
+              345392929,
+              351483264,
+              372386662,
+              373745314,
+              378929717,
+              382578971,
+              392954959,
+              394452274,
+              399964466,
+              401714813,
+              413721013,
+              417234529,
+              436254178,
+              445932429,
+              469044074,
+              469140988,
+              472185483,
+              489431430,
+              495802360,
+              504907621,
+              525435469,
+              537484503,
+              540139156,
+              542718027,
+              544112619,
+              545861647,
+              549887984,
+              553545438,
+              560713229,
+              562080495,
+              569614998,
+              578337630,
+              589246224,
+              589614995,
+              594313176,
+              596017465,
+              602047054,
+              606894743,
+              618157338,
+              622946141,
+              624984765,
+              631028093,
+              650149548,
+              650980382,
+              664183827,
+              664626556,
+              669272030,
+              682828266,
+              684966139,
+              691716605,
+              704069165,
+              709227516,
+              715327860,
+              717035210,
+              721234481,
+              725472360,
+              727644583,
+              739355049,
+              748215689,
+              751152922,
+              752152778,
+              755750887,
+              766754127,
+              778894749,
+              781898725,
+              783822680,
+              796478090,
+              815768364,
+              817544212,
+              824089645,
+              830442762,
+              844551625,
+              856889361,
+              867636897,
+              880800714,
+              880937101,
+              889760326,
+              905956396,
+              917185294,
+              921532039,
+              921891633,
+              929841224,
+              966573100,
+              979700136,
+              982309904,
+              995963224,
+              996423186,
+              1004094468,
+              1026382013,
+              1051674972,
+              1052128628,
+              1074919601,
+              1081995877,
+              1084071891,
+              1087525231,
+              1098242968,
+              1127354831,
+              1170541645,
+              1174280309,
+              1177796639,
+              1185160403,
+              1196506791,
+              1196592153,
+              1204933709,
+              1215490494,
+              1216852287,
+              1239545633,
+              1252413365,
+              1253358039,
+              1275994714,
+              1293858701,
+              1298575918,
+              1329764056,
+              1335319078,
+              1347918571,
+              1354327205,
+              1358887106,
+              1361814243,
+              1373624027,
+              1376502237,
+              1380123348,
+              1384627394,
+              1391038837,
+              1411876225,
+              1420922758,
+              1426227163,
+              1435263856,
+              1438459159,
+              1448909733,
+              1465403755,
+              1480293845,
+              1500255199,
+              1501817641,
+              1504793927,
+              1509255044,
+              1512157121,
+              1513785544,
+              1516165654,
+              1520447899,
+              1520472979,
+              1522941715,
+              1524300360,
+              1525723209,
+              1526484007,
+              1532761059,
+              1538435753,
+              1551689387,
+              1556328904,
+              1561658341,
+              1569899436,
+              1572462477,
+              1572998859,
+              1594082790,
+              1594776450,
+              1595016675,
+              1621922797,
+              1628583528,
+              1642549434,
+              1642871848,
+              1646283511,
+              1649121607,
+              1649268740,
+              1665508353,
+              1671052458,
+              1673742079,
+              1682864514,
+              1685651270,
+              1689037666,
+              1692185733,
+              1695638450,
+              1706259776,
+              1716369120,
+              1727563011,
+              1727768594,
+              1735417454,
+              1735822488,
+              1758054352,
+              1761495214,
+              1775943391,
+              1779443878,
+              1779849302,
+              1784058725,
+              1786857254,
+              1787205679,
+              1795454904,
+              1798443499,
+              1806544839,
+              1807836304,
+              1808537689,
+              1819935037,
+              1822376516,
+              1823368393,
+              1827564084,
+              1828019672,
+              1849173001,
+              1850432251,
+              1860676901,
+              1862458093,
+              1867621744,
+              1886228515,
+              1889587674,
+              1894810040,
+              1899936300,
+              1903086044,
+              1907778686,
+              1911310793,
+              1916584003,
+              1924203886,
+              1924555443,
+              1926318723,
+              1935319987,
+              1950449760,
+              1954480559,
+              1956734237,
+              1970561045,
+              1979129855,
+              1980205894,
+              1984372015,
+              1990041244,
+              1992583878,
+              2002464994,
+              2006668493,
+              2031355132,
+              2036851082,
+              2049023891,
+              2065756245,
+              2072790619,
+              2087406834,
+              2094412827,
+              2095252408,
+              2105853675,
+              2114843451,
+              2118262672,
+              2120849351,
+              2122707756,
+              2126394440,
+              2132145936,
+              2135230509
+            ],
+            "tasks": [
+              "circle"
+            ]
+          },
+          "training_seed": 23,
+          "training_version": "bari-mappo-periodic-no-command-v13",
+          "worlds": 8,
+          "updates": 200,
+          "ppo_epochs": 3,
+          "BPTT": 64,
+          "joint_controls_per_arm": 204800,
+          "optimizer_steps_per_arm": 600,
+          "validation_updates": [
+            0,
+            50,
+            200
+          ],
+          "development_seeds": [
+            2001,
+            2003,
+            2011,
+            2017,
+            2027,
+            1594776450,
+            589246224,
+            1979129855,
+            1391038837,
+            1899936300,
+            995963224,
+            113285700,
+            1761495214,
+            1685651270,
+            1727563011
+          ],
+          "new_development_seeds": [
+            1594776450,
+            589246224,
+            1979129855,
+            1391038837,
+            1899936300,
+            995963224,
+            113285700,
+            1761495214,
+            1685651270,
+            1727563011
+          ],
+          "initialization_proof": {
+            "all_mean_weights_exact_to_parent": true,
+            "std_only_changed_to_exp_minus3": true,
+            "fresh_critic_optimizer_world_hidden_sampling_torch_rng_preserved": true,
+            "paired_critic_torch_sampling_rng_exact": true,
+            "paired_world_states_exact_except_learning_rate_config_digest": true
+          },
+          "research_question": "Can reward-only recurrent PPO improve an approximately forming local-range policy that failed imitation acceptance? This is an independent exploratory repair experiment, not admission/promotion through the preceding failed imitation pipeline.",
+          "why_now": "Added student-state data and training-only local-state prediction still fail. Initial zero-command actor is the least-error0/5 candidate and has zero safety attempts on the5 development cases; broader student sampling is unsafe. On-policy reward learning is a distinct test, not another imitation extension.",
+          "eligibility_change": "Earlier imitation readiness gates failed and remain recorded as failures. They are not used to claim this initializer qualified. This new experiment explicitly permits an unvalidated initializer to study repair. Final error/hold/safety/rate requirements are unchanged.",
+          "training": "All5 robots learned; isolated circle/random episodes, no near-goal curriculum or switches in this stage. No teacher, imitation/auxiliary loss, global actor feature or runtime wrapper. Ordinary local9/task4/privateGRU64, constrained command columns remain zero. Existing rewards/physics/sensors and periodic training-only critic unchanged.",
+          "evaluation": "At actual0/50/200, evaluate all15 fixed development worlds deterministically, no teacher. First50 and later150 updates use one uninterrupted trainer; evaluation must preserve actor/critic/optimizer/all-world/RNG states. Intermediate50 diagnostic only. Choose only exact200 candidates: require>=14/15 official successes AND final holds, zero total contact/wall attempts. Prefer low learning_rate if both pass. No extension or default promotion.",
+          "scope": "One imitation seed11 and one actual RLseed23, circle-only, hypothetical planarFOV60 and provisional central-square initial sampler. Not full-four-task, switching, controlled occlusion/memory, multiple independent training seeds, final-heldout,3D-success or ESP32/physical acceptance."
+        },
+        "arm": "high",
+        "observations": [
+          {
+            "update": 0,
+            "report": {
+              "path": "runs/circle-rl-repair-high-23/evaluation-0000/report.json",
+              "sha256": "31fdb7de4b2d548acb4dd9fa096b95fa476ec1560207ebf71568c80e1810dc4a"
+            },
+            "checkpoint": {
+              "path": "runs/circle-rl-repair-high-23/initial-checkpoint.pt",
+              "sha256": "7bc36d197b3c9d11a016eed7221db09127dd08a035b8aafa49f65832fc072499"
+            },
+            "episodes": 15,
+            "successes": 0,
+            "final_holding": 0,
+            "contacts": 320,
+            "walls": 0,
+            "mean_final_max_error_m": 0.11914081557084301,
+            "evaluation_all_training_state_rng_exact": true
+          },
+          {
+            "update": 50,
+            "report": {
+              "path": "runs/circle-rl-repair-high-23/evaluation-0050/report.json",
+              "sha256": "8d2da56ccd2db61e7ccfad979e0d5609538c257f046396e39b3219a804adcaa0"
+            },
+            "checkpoint": {
+              "path": "runs/circle-rl-repair-high-23/training-first50/checkpoint.pt",
+              "sha256": "10c2a58aedda54ce832ee939903fd744f642d67da5ac55e528d4c4236bc47668"
+            },
+            "episodes": 15,
+            "successes": 0,
+            "final_holding": 0,
+            "contacts": 212,
+            "walls": 0,
+            "mean_final_max_error_m": 0.0996130548895256,
+            "evaluation_all_training_state_rng_exact": true
+          },
+          {
+            "update": 200,
+            "report": {
+              "path": "runs/circle-rl-repair-high-23/evaluation-0200/report.json",
+              "sha256": "05f39d37526fc01eda45aa6a6d00e2d941887ac664eb399957620a1899627014"
+            },
+            "checkpoint": {
+              "path": "runs/circle-rl-repair-high-23/training-final200/checkpoint.pt",
+              "sha256": "b3a558673f1492aea0379b010a4bce45d84203673019ac8bbdb85bd58fdbb9c6"
+            },
+            "episodes": 15,
+            "successes": 1,
+            "final_holding": 1,
+            "contacts": 83,
+            "walls": 0,
+            "mean_final_max_error_m": 0.10828825301127223,
+            "evaluation_all_training_state_rng_exact": true
+          }
+        ],
+        "updates": 200,
+        "optimizer_steps": 600,
+        "qualified_for_separately_planned_next_stage_only": false,
+        "current_std": [
+          -2.922985076904297,
+          -2.915440559387207
+        ],
+        "zero_command_columns_exact": true,
+        "artifacts": [
+          {
+            "path": "runs/circle-rl-repair-high-23/training-first50/training.jsonl",
+            "sha256": "2892782ec1d6df5eeb35b1a2e45179b044935aa4806c132cd71cb507dbe510a9"
+          },
+          {
+            "path": "runs/circle-rl-repair-high-23/training-final200/training.jsonl",
+            "sha256": "f700a4a26f88dbd3b094d170d2456bac47043fe7b9aa923d298d9906903f9a82"
+          }
+        ],
+        "default_promoted": false,
+        "decision": "Fixed200 reward-only updates complete; no extension or default promotion. Full goal remains open."
+      },
+      "actor_max_parameter_changes": {
+        "log_std": 0.08455944061279297,
+        "encoder.weight": 0.01636350154876709,
+        "encoder.bias": 0.012698441743850708,
+        "gru.weight_ih": 0.03627139329910278,
+        "gru.weight_hh": 0.037977296859025955,
+        "gru.bias_ih": 0.03382917121052742,
+        "gru.bias_hh": 0.0338292270898819,
+        "head.weight": 0.013233155012130737,
+        "head.bias": 0.00508514791727066
+      },
+      "saved_log_std": [
+        -2.922985076904297,
+        -2.915440559387207
+      ],
+      "saved_action_std": [
+        0.053772930055856705,
+        0.05418015643954277
+      ],
+      "runner_field_note": "Raw result.current_std contains log_std; the explicit fields here are derived from the saved actor.",
+      "zero_command_weights_and_Adam_moments_exact": true,
+      "resume": {
+        "version": "bari-circle-rl-repair-resume-v1",
+        "arm": "high",
+        "parent": {
+          "path": "runs/circle-rl-repair-high-23/training-final200/checkpoint.pt",
+          "sha256": "b3a558673f1492aea0379b010a4bce45d84203673019ac8bbdb85bd58fdbb9c6"
+        },
+        "verification_only_updates": [
+          201,
+          202
+        ],
+        "behavioral_training_updates": 200,
+        "worlds": 8,
+        "episode_boundary_crossed": true,
+        "all_rollout_arrays_exact": true,
+        "exact_state_leaves": 4610,
+        "provenance_only_differences": [
+          {
+            "field": "trainer.parent_checkpoint",
+            "uninterrupted": {
+              "sha256": "b3a558673f1492aea0379b010a4bce45d84203673019ac8bbdb85bd58fdbb9c6",
+              "path": "runs/circle-rl-repair-high-23/training-final200/checkpoint.pt",
+              "revision": {
+                "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+                "dirty": true,
+                "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+              }
+            },
+            "resumed": {
+              "sha256": "02281cdb8e02ae6f36e09e1281d5c1e4dd8cf0143383b39fa4e248f3ce8873a5",
+              "path": "runs/circle-rl-repair-resume-high/verification-only-201.pt",
+              "revision": {
+                "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+                "dirty": true,
+                "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+              }
+            },
+            "reason": "Expected resume-file path/hash provenance changes from terminal200 to verification201; not numerical state."
+          }
+        ],
+        "numerical_training_physical_fields_excluded": [],
+        "parent_checkpoint_unchanged": true,
+        "saved_command_columns_zero": true,
+        "scope": "Serialization/continuation proof only; verification201/202 states are never behavior candidates or exported models.",
+        "artifacts": [
+          {
+            "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-circle-rl-repair-resume.py",
+            "sha256": "88cd3a8f985ecb0289d6f567285eb03c7f72b0766ae041968dc6cbe1879e9eb2"
+          },
+          {
+            "path": "runs/circle-rl-repair-resume-high/verification-only-201.pt",
+            "sha256": "02281cdb8e02ae6f36e09e1281d5c1e4dd8cf0143383b39fa4e248f3ce8873a5"
+          },
+          {
+            "path": "runs/circle-rl-repair-resume-high/expected-rollout.npz",
+            "sha256": "dbfa99ec1610afbb66aa25db96917b0561dc52d0c330b93b88f7aeae3c1145b6"
+          },
+          {
+            "path": "runs/circle-rl-repair-resume-high/actual-rollout.npz",
+            "sha256": "dbfa99ec1610afbb66aa25db96917b0561dc52d0c330b93b88f7aeae3c1145b6"
+          }
+        ]
+      }
+    }
+  },
+  "baseline_trajectory_pairs": [
+    {
+      "seed": 2001,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 2003,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 2011,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 2017,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 2027,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 1594776450,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 589246224,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 1979129855,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 1391038837,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 1899936300,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 995963224,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 113285700,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 1761495214,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 1685651270,
+      "all_arrays_exact": true
+    },
+    {
+      "seed": 1727563011,
+      "all_arrays_exact": true
+    }
+  ],
+  "baseline_metadata_differences": [
+    "model",
+    "config.learning_rate",
+    "config_sha256"
+  ],
+  "success_episode_integrity": {
+    "seed": 1761495214,
+    "source": {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-1761495214.npz",
+      "sha256": "fe1c555d958678cd7325f1d900c64d502f120e7c1adf18cc65b654f1d1abafb9"
+    },
+    "initial_max_error_m": 0.25910962520447856,
+    "final_all_five_point_errors_m": [
+      0.031712864544804126,
+      0.027022468589006487,
+      0.018373032082882046,
+      0.03245776592632257,
+      0.01401193186668289
+    ],
+    "final_max_error_m": 0.03245776592632257,
+    "final_continuous_hold_s": 14.999999999999963,
+    "first_success_recorded_s": 18.0,
+    "contacts": 0,
+    "walls": 0,
+    "all_five_scored": true,
+    "no_switches_or_resets": true,
+    "all_position_steps_respect_speed_bound": true
+  },
+  "reward_direction_diagnostic": {
+    "actual_failed_states": 15,
+    "finite_directions": 150,
+    "reward_vs_own_point_progress_correlation": 0.9993450267082429,
+    "reward_vs_all_five_max_progress_correlation": 0.6806639092577639,
+    "active_own_point_directions": 148,
+    "active_reward_sign_matches_own_point_progress": 141,
+    "joint_reward_improves_cases": 15,
+    "joint_max_error_improves_cases": 15,
+    "joint_counterfactual_safety_attempts": 0
+  },
+  "movie_qa": {
+    "gif": {
+      "path": "output/gif/circle-rl200-oneof15-diagnostic.gif",
+      "sha256": "b024f8671c353564ef561c172e0f9c477de161270e2d6bf3d13668c75feb5b7d"
+    },
+    "frames": 101,
+    "playback_seconds": 10.1,
+    "source_simulation_seconds": 30.0,
+    "physics_control_steps": 300,
+    "stride": 3,
+    "fps": 10,
+    "frame_paths": [
+      "output/qa/circle-rl200-frame-0.png",
+      "output/qa/circle-rl200-frame-50.png",
+      "output/qa/circle-rl200-frame-100.png"
+    ],
+    "scope": "One circle success outof15; no multi-behavior or native-control verification.",
+    "visual_inspection": "Initial/middle/final GIF frames and high-resolution final image inspected: five three-deck/two-wheel robots, wall, headings/roles, targets, sensor arcs and explicit1of15/FOV60/phase HUD. Isolated diagnostic only."
+  },
+  "artifacts": [
+    {
+      "path": "runs/circle-rl-repair-v1/protocol.json",
+      "sha256": "2003cb16174d1872d6fb543e365d0507e62f5d91eded454ec381fec89d0a8259"
+    },
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-circle-rl-repair-report.py",
+      "sha256": "e809b7c3d550da1609c5a60b82e7124ba5bebec1218286a34bc7075997ddd8e3"
+    },
+    {
+      "path": "runs/prepare-circle-rl-repair.py",
+      "sha256": "a5a19ebc60ced5ab23ab91e4fccd777ba4ff63e74e2ab1151c0b4c51ea76c958"
+    },
+    {
+      "path": "runs/run-circle-rl-repair.py",
+      "sha256": "1b421980f6b38b024b678e13006a7928dcd9de031e580e26f9ad76a014803f98"
+    },
+    {
+      "path": "reports/circle-reward-directions.json",
+      "sha256": "05cb42c8df07fbdffd46a7d6c0fac84b956e3f6388a4dd8cbb4592a26c9e8c9e"
+    },
+    {
+      "path": "runs/probe-circle-reward-directions.py",
+      "sha256": "cb8372076208f742a1a88575f146a101ce6b7b9782f8e7572bd4a59892e31192"
+    },
+    {
+      "path": "runs/verify-circle-rl-repair-resume.py",
+      "sha256": "88cd3a8f985ecb0289d6f567285eb03c7f72b0766ae041968dc6cbe1879e9eb2"
+    },
+    {
+      "path": "runs/circle-rl200-presentation-proof.json",
+      "sha256": "ae3fe04e032141e0405f3668ba0f166b6f9bffc4f1a7808351784ec7017e8a86"
+    },
+    {
+      "path": "runs/circle-rl200-movie-qa.json",
+      "sha256": "149d5882e6aa3b2fce4ff887c07a30854877db79f3dfbe464bbb1ffa95f0f468"
+    },
+    {
+      "path": "output/gif/circle-rl200-oneof15-diagnostic.gif",
+      "sha256": "b024f8671c353564ef561c172e0f9c477de161270e2d6bf3d13668c75feb5b7d"
+    },
+    {
+      "path": "output/qa/circle-rl200-oneof15-final.png",
+      "sha256": "b60a5a7dfb43fd39e66ad8bf255a8c1064061aab1f76d784ad6d3ff57ad07e88"
+    },
+    {
+      "path": "output/qa/circle-rl200-frame-0.png",
+      "sha256": "515f05b07857672418a4384c1362d07a27bfbd4b68fdbf6e7e8bbf27120898c7"
+    },
+    {
+      "path": "output/qa/circle-rl200-frame-50.png",
+      "sha256": "0abef289d45be31a8768fd51cc1209e32a3fc9b227d0330a09dbf79e7146b56b"
+    },
+    {
+      "path": "output/qa/circle-rl200-frame-100.png",
+      "sha256": "fb558b50c914c84fee23676bbadafad589979f36902f3f6854fea8bb9cbf0ab2"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/result.json",
+      "sha256": "f2094da15aabf3045b77073d8e06b723c8c017f3ed114338e51124069ce2165f"
+    },
+    {
+      "path": "runs/circle-rl-repair-resume-low/proof.json",
+      "sha256": "78ac7a4a15734b40856054423d781898f97e2197d0d3d412301d7f4e33417e68"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/revision.json",
+      "sha256": "8417cf5d90a8905950670cebdfc2b06b12744947fc3b3cda184b223ab1bcb530"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/revision.json",
+      "sha256": "8417cf5d90a8905950670cebdfc2b06b12744947fc3b3cda184b223ab1bcb530"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-first50/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/training-final200/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-113285700.npz",
+      "sha256": "c1104e5f64339fbaf5c87c3811f905597f3e64e35ca88fa5d191769ec238c642"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-1391038837.npz",
+      "sha256": "063bc45349f954a9caf5f951dfa7c52406d3c00e1d8c0a352648b27a96f8ff1b"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-1594776450.npz",
+      "sha256": "d67157f3e52256b94409eca262fbb0520f5bba9faa820b918b594b6465f2a647"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-1685651270.npz",
+      "sha256": "aecdb589f560288f045020611c1c4e3eff2136b75f1ef9ddbce9164e07c1486e"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-1727563011.npz",
+      "sha256": "825c80393dac767f52a2f29daeb3f2e2207b07dc6c21c68148c9d28583c76205"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-1761495214.npz",
+      "sha256": "675247b22d9e5e2071ee78a4f70baf22251628dd6fc8a02b632c27f96569b314"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-1899936300.npz",
+      "sha256": "2cf5a1f3bf88aa38a194bb8c97005357175ad11b5f0e0f0ae6f710dc90376e94"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-1979129855.npz",
+      "sha256": "64574a27ffb4ab5adea1ec2405982da4cadaaf720a526579cfdad3fe0d67c2af"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-2001.npz",
+      "sha256": "5097253a0633d941b3bcefc70070e3a627a8ebc2f8ad94ed04946b6616ef7b49"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-2003.npz",
+      "sha256": "bbb0eb53d4efe7211fccf1f04ec8acee0bbd438184a460e6f668112edd07456f"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-2011.npz",
+      "sha256": "c710af3e8c65831bdccd4083a7f4eab91d1a5b96ab1ea898b3457edf8df4ce39"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-2017.npz",
+      "sha256": "1a0d73568bc5495f976c139b3d733e03a3f4a4e891279d8abb103510c6f22ae7"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-2027.npz",
+      "sha256": "2ff65724ac97a4a51fc96292be9a7379332a72882615f5255d782e7806230c83"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-589246224.npz",
+      "sha256": "501a49e5432711ce91ecbf9ace91b894feed945dcba4e3fa1518673b01aa3bd3"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0000/circle-995963224.npz",
+      "sha256": "200e8bfba1bcef6634088fe2b15427573fb2fb355e46ac3a540a5cdf4a72c09d"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-113285700.npz",
+      "sha256": "2dd39a39f258fc578c24253e826784bbb8b4f0d8b6ba0576876d1932e83c84be"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-1391038837.npz",
+      "sha256": "1b469e0b836c3b810c9c33f16fa8b504028f03713e51cb398aa2bf6a0d93d0e7"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-1594776450.npz",
+      "sha256": "0214c6303c76c80ff27248f9927bf8a13997d2c3eaa1d4a1c1b1d84e50809a7f"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-1685651270.npz",
+      "sha256": "b86367a1c59bd095b5c2513e104f00983f86d63b899ca588eeb7ec6ebf9d2562"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-1727563011.npz",
+      "sha256": "45b89a4f80c125959ed104b8185b1e17216751544d6d2e1dab98ecccde78e5e5"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-1761495214.npz",
+      "sha256": "4fbe90735a13b15c568861d3e4fdbc40b0c7bdbaffc283b9d58cbeaf1d82912b"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-1899936300.npz",
+      "sha256": "be039faaf033c33af15d0c78e7498bdd8ef62d92feacc9f3edf1fdf0d93e28bc"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-1979129855.npz",
+      "sha256": "7290350d0932ec511ff3f077eb4afcd86df56d5eec595258eb27f9d956a03398"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-2001.npz",
+      "sha256": "fea68b6a41348479d99b4f8652fd7df579e5c494d903763450a45dcb78b0cc4b"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-2003.npz",
+      "sha256": "ad51f82a304d6207c627cfd4aedb15c7effbaf662951fe2609be1df7c6348809"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-2011.npz",
+      "sha256": "e48362e1f2d2ba2764206e323912ed25406d7ca6075991792fbd89a446b11e2b"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-2017.npz",
+      "sha256": "56d82a87b7c67fc8ce078b0bf41c4c3237fc849a0c1e000585177693c55d6e59"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-2027.npz",
+      "sha256": "5a90ccf1c0e621c65981a6664faf39357a355f24a776a219f9c43e46be913996"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-589246224.npz",
+      "sha256": "9018f594549e3d02ec7e9050f97e669f7392e9e05ef75deeb5679394bfd81f45"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0050/circle-995963224.npz",
+      "sha256": "f37d426ad9f51d79323a3982f1432ce7ca03fb004d3e2dd7f9272603d7c4c835"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-113285700.npz",
+      "sha256": "db8105828a538825bbc616a168d17fe5c5cff46a02244d0c50328e635875944c"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-1391038837.npz",
+      "sha256": "b115b1d059047c5fd8d1226e1d68800f5c216244a9fb630c87968f13c2ee8180"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-1594776450.npz",
+      "sha256": "d6b37e7ae752dc5c0d658fe41446230fed21addd25b2cbb5c34b2fc971ad5ee6"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-1685651270.npz",
+      "sha256": "aceaeca59a2ffaedda467803605d3fdb70869e1661f6299520ecf5b6af339fc2"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-1727563011.npz",
+      "sha256": "19f6cfee42b8430f7ca3af31f252eb86f5367bcfab56af50cd596124cb646d64"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-1761495214.npz",
+      "sha256": "8839a2ee9564fbe1509b0dba9b5c1d659154fa07b0ff3d0e0ce67a038691a7a6"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-1899936300.npz",
+      "sha256": "a43ba0d580582def2778283f9fedca581eac892059b2498889e1c297a657632e"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-1979129855.npz",
+      "sha256": "1148ff72b00195a0b9d1e233082bb34df698c3d73830e1c04f42b0e96c3847aa"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-2001.npz",
+      "sha256": "a67277f3c9045d0a9cfe4d366679049425ee8af2f512aeb14b59bf12a31c0ae8"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-2003.npz",
+      "sha256": "314328880b3a5d62b01ecefa4211d9aaa86c4a3d66b3f03aff08de7afaf2feee"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-2011.npz",
+      "sha256": "f4cbf61db208e8dd4024214024f6d11ef747b76db9ae6998f59c6d79448de72f"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-2017.npz",
+      "sha256": "f14df243b1644549e971e3254a75ccaa40e7ccbfe4c50c07155cda6bd92614d0"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-2027.npz",
+      "sha256": "2dc898a38dfb6415042799fe1a7e16eca273f025817886a6eaccaf642e845c35"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-589246224.npz",
+      "sha256": "8c1938c3243ff87b827da6dad5c64479c1dc881d9bcb0b9d611652dba33da395"
+    },
+    {
+      "path": "runs/circle-rl-repair-low-23/evaluation-0200/circle-995963224.npz",
+      "sha256": "2169f82f3c6d3bdc2a50813d75aadfc6d9db50ab25c6834988691602727f4af2"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/result.json",
+      "sha256": "c8466ca243a89f5b6181e5d2c558d052efa3ad3bd4645e6eb25ba93673c4243b"
+    },
+    {
+      "path": "runs/circle-rl-repair-resume-high/proof.json",
+      "sha256": "b8edd56d28d1e6f258865f78bc738e6f0b2b3e852969daa135906d0e78f2854d"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/revision.json",
+      "sha256": "8417cf5d90a8905950670cebdfc2b06b12744947fc3b3cda184b223ab1bcb530"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/revision.json",
+      "sha256": "8417cf5d90a8905950670cebdfc2b06b12744947fc3b3cda184b223ab1bcb530"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-first50/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/training-final200/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-113285700.npz",
+      "sha256": "2e20215ea0d2673e0d09b7c843667b77e5a6f4545c35f226efd0d2fd509e5023"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-1391038837.npz",
+      "sha256": "706ef1440db87b98c3893d1a5a9adc07b45d138875c92593469a32c50d8d18ad"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-1594776450.npz",
+      "sha256": "5697a1be4476de83f2ef692de619e77479a9765ca32394a326d6fd9a0ecb4680"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-1685651270.npz",
+      "sha256": "5120e472de00ac34155afe1b482e0ddd3f3577112b4cc9141fe7e76c1ac4179b"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-1727563011.npz",
+      "sha256": "8d987e7f639231944f6b8e61ac7a455c9394a7517a0e1cf5120d213af084b1da"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-1761495214.npz",
+      "sha256": "edfa4b18968e2c3082c78ed2f0efa918868a91928d69829aa8ede1afcf63f752"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-1899936300.npz",
+      "sha256": "70e8c9a812bf8baa8fb7450e8225e32719fb8badf3e112f6f7fedcfb729e06c9"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-1979129855.npz",
+      "sha256": "ffa3e9590b657b12164c3d9e0653d50815305f30554d4669dac94a47f74594ad"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-2001.npz",
+      "sha256": "f77d327741388414592dfa7b9e715506ead83e97138fed0d8d41dcc2177bde0d"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-2003.npz",
+      "sha256": "80ec267920cc0929098fc4988fad7637b7c4860b29784f79261f3d12ba500305"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-2011.npz",
+      "sha256": "f4001ee379334b7de3ab1b9f2764e8309b3e8d6c3a8708e3fe33237c7d1914e5"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-2017.npz",
+      "sha256": "5b68073823d18300364b0dbe91347cda560c769974d8f71e18d2826f3fd4e6fc"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-2027.npz",
+      "sha256": "9e87252153502b42704fab22b8c3d9f9fb4a14a27b0627bdc8c39a3ec76b288c"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-589246224.npz",
+      "sha256": "37baed6ec67b28b2cd708ea4395ac25c788c217ddc1aeb0afcadf8e362031c0c"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0000/circle-995963224.npz",
+      "sha256": "ffb840b73efae78136e196a23994647e7d390016f819a5c47fe2e9e21a815c6d"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-113285700.npz",
+      "sha256": "4477f74fa7ad6e53f65bfa6fb2bb687dd9f0a4273c9124802cb5a5c585e7efd9"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-1391038837.npz",
+      "sha256": "710314f8d2dfa79ea4dadeb486095211335d8dc1a77bf3756e7d2d7381c26818"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-1594776450.npz",
+      "sha256": "2f38fdb9f287f4e2189411b4a933b0400a8ea5fb155c71d59b171157cf5c3aa7"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-1685651270.npz",
+      "sha256": "4b91bf13cd449fa158f62c4a8fef0282999d90faeeac89760062aee38fe9b68d"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-1727563011.npz",
+      "sha256": "8ce341b76ab8dfe61a331f4e8025b6612edffb49f3b0558e3d6adb9dae0b100a"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-1761495214.npz",
+      "sha256": "0a693e31b3cd9fde4786c944d5d2dea073c92006c150751ae61932ac71b9f0ac"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-1899936300.npz",
+      "sha256": "5cc8912863bd9b4e5e98674ae13bc033f571dddcdb0a70453a73670ebf0ec4c0"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-1979129855.npz",
+      "sha256": "a8a65eef10d4430a0a1f3b24905ceddca99d58a938e3418d6de2e2caeb820443"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-2001.npz",
+      "sha256": "1faeebab754c768e43b3ff66e20fd162f119e2fe43ca2a5410649850f5a3cf02"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-2003.npz",
+      "sha256": "faafa99fc1c29862d76db1879ca2249cac80208e2af079b43a247c3395113dbc"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-2011.npz",
+      "sha256": "49f140da717724f1ce2b02fa73b64c0a323accf9cdaa7c064143e50341a474bb"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-2017.npz",
+      "sha256": "752e704e53a85d923927f6e04a43173b97e51fb9cae6f6010366588f06338ade"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-2027.npz",
+      "sha256": "a6e23f4a73e428ab1fb8bd5f31675fad33d60a2fb0a80158bed802bea8522d57"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-589246224.npz",
+      "sha256": "563e81b987915dd9f25925a2d617dbe75b0761c0b678750b946d9bb4d0d7e4b7"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0050/circle-995963224.npz",
+      "sha256": "b860a93cced7e46f84318d0ecc48c603307657b497d95ef799e7b8d334a4fed8"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-113285700.npz",
+      "sha256": "0d836c3c0185686651cddf28893cb101645fc2e8a332d2881db23bccb3aaed21"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-1391038837.npz",
+      "sha256": "d405b4dc265640ec421adec5420d493b30c02e013a753bc697ee6dc33c40557a"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-1594776450.npz",
+      "sha256": "869211d62d71c79193a86a5507bcf68a916c2b53fa805471cd4d690355adbae8"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-1685651270.npz",
+      "sha256": "1f3a83b610ce60bc3012eb54f0297c04ac2173079ca3e0995d43d1b9ccadc615"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-1727563011.npz",
+      "sha256": "1821472389a1e66295d4f2247d790752f4f3763bb1d07eb8778278df56082870"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-1761495214.npz",
+      "sha256": "fe1c555d958678cd7325f1d900c64d502f120e7c1adf18cc65b654f1d1abafb9"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-1899936300.npz",
+      "sha256": "6f702ff8b38fb116a3433c987452a23fc06a9a9ecd3a7f05024ebf9465744b9d"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-1979129855.npz",
+      "sha256": "348a2a810dff718d936fb1bee89909791671eec2f1de2f99ce8212c9ba226651"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-2001.npz",
+      "sha256": "7bb380bc30ef65dff9d0831de3da95e6148d7cc3ca4ebaa2e55eb216cc97f864"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-2003.npz",
+      "sha256": "bdfbfee21f4267b97c5cb86ac313b43a6922a51fc072a1c8a9d2ab371525c284"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-2011.npz",
+      "sha256": "c0586e17e41bd98f03878028d041bcc6c2df6876cd259329d80639a167dd12b7"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-2017.npz",
+      "sha256": "1a447fbd4470ede5926fe3576c10b3e14efad7f48f44f32106661acb5462ff36"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-2027.npz",
+      "sha256": "a83456584896b659e0f1f06fd999520dcfd87b394d1e5541d1f998831923d6eb"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-589246224.npz",
+      "sha256": "6f4eee3f8e207d65e65105e9ab2301a772eac78318a0229f6b741e123bced448"
+    },
+    {
+      "path": "runs/circle-rl-repair-high-23/evaluation-0200/circle-995963224.npz",
+      "sha256": "a0ebd38738379ce2ecd13e63f94d8c148c11f85abbb33c02b206c61cb272594c"
+    }
+  ],
+  "production_source_changed": false,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "decision": "Neither exact200 arm reaches14/15 success/final holds with zero safety attempts. Retain one genuine circle acquisition diagnostic and all failures; no extension or default promotion."
+}

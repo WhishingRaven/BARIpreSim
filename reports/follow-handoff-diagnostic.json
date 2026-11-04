@@ -1,0 +1,1545 @@
+{
+  "protocol": {
+    "version": "bari-follow-oracle-handoff-v1",
+    "planned_utc": "2026-11-03T11:37:36.515908+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "84858259b64fbd84b19d7d67ff449381c33ca5e57539709a6104500ef4fd36ba"
+    },
+    "checkpoint": "runs/follow-h64-actor-terminal-11/checkpoint.pt",
+    "checkpoint_sha256": "c5020c7c2c1facfb3128d4597808f5ab697956086298bf25329c54bedb129f4c",
+    "dataset": "runs/teacher-follow-h64/demonstrations.npz",
+    "dataset_sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9",
+    "training_episode_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "oracle_prefix_seconds": [
+      0.0,
+      5.0,
+      10.0,
+      20.0
+    ],
+    "scope": "Seen-start diagnostic with privileged execution before each handoff. Not learned-policy acceptance. Actor receives real local histories and keeps its hidden state throughout; no intervention after handoff; no learning, sensor changes, or gate changes."
+  },
+  "cases": [
+    {
+      "training_episode_index": 0,
+      "oracle_prefix_s": 0.0,
+      "learned_duration_s": 30.0,
+      "final": {
+        "max_error_m": 0.4714203886274472,
+        "rms_error_m": 0.32261706643686505,
+        "path_error_m": 0.35356328871014564,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4660454294064345,
+        "leader_step_travel_m": 0.005033788317218555,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3532286054115845,
+        "peak_max_error_m": 0.5265386325476104,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 585,
+        "wall_violations": 0,
+        "control_cost": 10.534677676590084
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 585,
+      "recording": "runs/follow-handoff-diagnostic/episode-0-prefix-0.npz"
+    },
+    {
+      "training_episode_index": 0,
+      "oracle_prefix_s": 5.0,
+      "learned_duration_s": 25.0,
+      "final": {
+        "max_error_m": 0.37028406522897006,
+        "rms_error_m": 0.26059059599424234,
+        "path_error_m": 0.19675852306114547,
+        "spacing_error_m": 0.48362744741575214,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.466045429272672,
+        "leader_step_travel_m": 0.005033788317218522,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 3,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.17332718818206744,
+        "peak_max_error_m": 0.37028406522897006,
+        "reacquisition_s": [
+          1.5999999999999996,
+          1.0
+        ],
+        "unrecovered_s": 17.9,
+        "collisions": 228,
+        "wall_violations": 0,
+        "control_cost": 10.209954371291877
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 228,
+      "recording": "runs/follow-handoff-diagnostic/episode-0-prefix-5.npz"
+    },
+    {
+      "training_episode_index": 0,
+      "oracle_prefix_s": 10.0,
+      "learned_duration_s": 20.0,
+      "final": {
+        "max_error_m": 0.6701958897554061,
+        "rms_error_m": 0.5300773739477512,
+        "path_error_m": 0.3961594373589175,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4660454290900182,
+        "leader_step_travel_m": 0.005033788317218445,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.099999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.2735493997354241,
+        "peak_max_error_m": 0.6887270369525905,
+        "reacquisition_s": [
+          1.7999999999999998
+        ],
+        "unrecovered_s": 16.7,
+        "collisions": 18,
+        "wall_violations": 0,
+        "control_cost": 10.350256874520605
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 18,
+      "recording": "runs/follow-handoff-diagnostic/episode-0-prefix-10.npz"
+    },
+    {
+      "training_episode_index": 0,
+      "oracle_prefix_s": 20.0,
+      "learned_duration_s": 10.0,
+      "final": {
+        "max_error_m": 0.2595202676717502,
+        "rms_error_m": 0.1572770952810568,
+        "path_error_m": 0.173598298560891,
+        "spacing_error_m": 0.16577053464463334,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.466045427887708,
+        "leader_step_travel_m": 0.0050337883172185275,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.099999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.08916026777868033,
+        "peak_max_error_m": 0.2595202676717502,
+        "reacquisition_s": [
+          1.7999999999999998
+        ],
+        "unrecovered_s": 7.699999999999999,
+        "collisions": 25,
+        "wall_violations": 0,
+        "control_cost": 9.365874133106542
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 25,
+      "recording": "runs/follow-handoff-diagnostic/episode-0-prefix-20.npz"
+    },
+    {
+      "training_episode_index": 1,
+      "oracle_prefix_s": 0.0,
+      "learned_duration_s": 30.0,
+      "final": {
+        "max_error_m": 0.749911211149341,
+        "rms_error_m": 0.47260073686802473,
+        "path_error_m": 0.40651332769112364,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4640515575585256,
+        "leader_step_travel_m": 0.0050338047124861,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3803212521563744,
+        "peak_max_error_m": 0.7575809685157668,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 413,
+        "wall_violations": 0,
+        "control_cost": 10.795364368756076
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 413,
+      "recording": "runs/follow-handoff-diagnostic/episode-1-prefix-0.npz"
+    },
+    {
+      "training_episode_index": 1,
+      "oracle_prefix_s": 5.0,
+      "learned_duration_s": 25.0,
+      "final": {
+        "max_error_m": 0.6596831857002133,
+        "rms_error_m": 0.4399701440920164,
+        "path_error_m": 0.29930297407197387,
+        "spacing_error_m": 0.8807993887567012,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.2027944460690727,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 3,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.36521469405180734,
+        "peak_max_error_m": 0.8266669785533661,
+        "reacquisition_s": [
+          1.5999999999999996,
+          2.1000000000000014
+        ],
+        "unrecovered_s": 19.0,
+        "collisions": 248,
+        "wall_violations": 0,
+        "control_cost": 10.708759134061522
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 248,
+      "recording": "runs/follow-handoff-diagnostic/episode-1-prefix-5.npz"
+    },
+    {
+      "training_episode_index": 1,
+      "oracle_prefix_s": 10.0,
+      "learned_duration_s": 20.0,
+      "final": {
+        "max_error_m": 0.3680367818598247,
+        "rms_error_m": 0.2965399739610509,
+        "path_error_m": 0.24432825947143824,
+        "spacing_error_m": 0.3903939963599351,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4575394482274528,
+        "leader_step_travel_m": 0.005033601410559612,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.499999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 3,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.1283769945479451,
+        "peak_max_error_m": 0.3680367818598247,
+        "reacquisition_s": [
+          2.2,
+          0.20000000000000107
+        ],
+        "unrecovered_s": 13.399999999999999,
+        "collisions": 180,
+        "wall_violations": 0,
+        "control_cost": 9.758841888037571
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 180,
+      "recording": "runs/follow-handoff-diagnostic/episode-1-prefix-10.npz"
+    },
+    {
+      "training_episode_index": 1,
+      "oracle_prefix_s": 20.0,
+      "learned_duration_s": 10.0,
+      "final": {
+        "max_error_m": 0.2552852402862702,
+        "rms_error_m": 0.15411866424420556,
+        "path_error_m": 0.15306903063101912,
+        "spacing_error_m": 0.14790745265415853,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4640515554811473,
+        "leader_step_travel_m": 0.005033804712486092,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.499999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.09064252796125148,
+        "peak_max_error_m": 0.2552852402862702,
+        "reacquisition_s": [
+          2.2
+        ],
+        "unrecovered_s": 7.699999999999999,
+        "collisions": 22,
+        "wall_violations": 0,
+        "control_cost": 9.562116370758284
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 22,
+      "recording": "runs/follow-handoff-diagnostic/episode-1-prefix-20.npz"
+    },
+    {
+      "training_episode_index": 2,
+      "oracle_prefix_s": 0.0,
+      "learned_duration_s": 30.0,
+      "final": {
+        "max_error_m": 0.5166870334987387,
+        "rms_error_m": 0.3507462729262207,
+        "path_error_m": 0.38685317329822533,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4654462322138888,
+        "leader_step_travel_m": 0.005033812910171561,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.37839937344315805,
+        "peak_max_error_m": 0.5663553501949464,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 564,
+        "wall_violations": 0,
+        "control_cost": 10.695991485904411
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 564,
+      "recording": "runs/follow-handoff-diagnostic/episode-2-prefix-0.npz"
+    },
+    {
+      "training_episode_index": 2,
+      "oracle_prefix_s": 5.0,
+      "learned_duration_s": 25.0,
+      "final": {
+        "max_error_m": 0.7512535814691986,
+        "rms_error_m": 0.47924682642091126,
+        "path_error_m": 0.4364126824968347,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4654462319116497,
+        "leader_step_travel_m": 0.00503381291017155,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 4,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.2848042664872596,
+        "peak_max_error_m": 0.7512535814691986,
+        "reacquisition_s": [
+          1.5999999999999996,
+          2.1000000000000014,
+          0.20000000000000107
+        ],
+        "unrecovered_s": 18.2,
+        "collisions": 253,
+        "wall_violations": 0,
+        "control_cost": 11.115987021095819
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 253,
+      "recording": "runs/follow-handoff-diagnostic/episode-2-prefix-5.npz"
+    },
+    {
+      "training_episode_index": 2,
+      "oracle_prefix_s": 10.0,
+      "learned_duration_s": 20.0,
+      "final": {
+        "max_error_m": 0.1780372201146737,
+        "rms_error_m": 0.12025540896901486,
+        "path_error_m": 0.1472429587134025,
+        "spacing_error_m": 0.11892631174983773,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.3803829271491992,
+        "leader_step_travel_m": 0.005033040392416785,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.599999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.10441869836904907,
+        "peak_max_error_m": 0.2154467260362196,
+        "reacquisition_s": [
+          2.3
+        ],
+        "unrecovered_s": 13.399999999999999,
+        "collisions": 113,
+        "wall_violations": 0,
+        "control_cost": 9.537579018649241
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 113,
+      "recording": "runs/follow-handoff-diagnostic/episode-2-prefix-10.npz"
+    },
+    {
+      "training_episode_index": 2,
+      "oracle_prefix_s": 20.0,
+      "learned_duration_s": 10.0,
+      "final": {
+        "max_error_m": 0.2203546965839437,
+        "rms_error_m": 0.14053492643946947,
+        "path_error_m": 0.10918093288284257,
+        "spacing_error_m": 0.10641749952896365,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4654462345061188,
+        "leader_step_travel_m": 0.005033812910171551,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.599999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.08795423818316667,
+        "peak_max_error_m": 0.2203546965839437,
+        "reacquisition_s": [
+          2.3
+        ],
+        "unrecovered_s": 7.699999999999999,
+        "collisions": 16,
+        "wall_violations": 0,
+        "control_cost": 9.554502393070766
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 16,
+      "recording": "runs/follow-handoff-diagnostic/episode-2-prefix-20.npz"
+    },
+    {
+      "training_episode_index": 3,
+      "oracle_prefix_s": 0.0,
+      "learned_duration_s": 30.0,
+      "final": {
+        "max_error_m": 0.6633053349026622,
+        "rms_error_m": 0.42611914406153234,
+        "path_error_m": 0.4390058846864203,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4643654060361457,
+        "leader_step_travel_m": 0.005033791596209968,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.35682577889626776,
+        "peak_max_error_m": 0.6633053349026622,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 370,
+        "wall_violations": 0,
+        "control_cost": 11.140877544969467
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 370,
+      "recording": "runs/follow-handoff-diagnostic/episode-3-prefix-0.npz"
+    },
+    {
+      "training_episode_index": 3,
+      "oracle_prefix_s": 5.0,
+      "learned_duration_s": 25.0,
+      "final": {
+        "max_error_m": 0.7896693084598332,
+        "rms_error_m": 0.4882016924578251,
+        "path_error_m": 0.5486437134563344,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4643654052727595,
+        "leader_step_travel_m": 0.005033791596210004,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.30026961071150327,
+        "peak_max_error_m": 0.7896693084598332,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": 19.799999999999997,
+        "collisions": 206,
+        "wall_violations": 0,
+        "control_cost": 10.52571791456909
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 206,
+      "recording": "runs/follow-handoff-diagnostic/episode-3-prefix-5.npz"
+    },
+    {
+      "training_episode_index": 3,
+      "oracle_prefix_s": 10.0,
+      "learned_duration_s": 20.0,
+      "final": {
+        "max_error_m": 0.7419879182129631,
+        "rms_error_m": 0.4574017678105158,
+        "path_error_m": 0.35014351118957504,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4643654057229587,
+        "leader_step_travel_m": 0.005033791596210003,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.399999999999999,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.2499177818820444,
+        "peak_max_error_m": 0.7419879182129631,
+        "reacquisition_s": [
+          2.0
+        ],
+        "unrecovered_s": 16.6,
+        "collisions": 273,
+        "wall_violations": 0,
+        "control_cost": 9.903065982070233
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 273,
+      "recording": "runs/follow-handoff-diagnostic/episode-3-prefix-10.npz"
+    },
+    {
+      "training_episode_index": 3,
+      "oracle_prefix_s": 20.0,
+      "learned_duration_s": 10.0,
+      "final": {
+        "max_error_m": 0.2577327877402958,
+        "rms_error_m": 0.1599788199142303,
+        "path_error_m": 0.15497488925602912,
+        "spacing_error_m": 0.19258539890621265,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4643654027621498,
+        "leader_step_travel_m": 0.00503379159621,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.399999999999999,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.08893312336730956,
+        "peak_max_error_m": 0.2577327877402958,
+        "reacquisition_s": [
+          2.0
+        ],
+        "unrecovered_s": 7.699999999999999,
+        "collisions": 31,
+        "wall_violations": 0,
+        "control_cost": 9.419496425871314
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 31,
+      "recording": "runs/follow-handoff-diagnostic/episode-3-prefix-20.npz"
+    },
+    {
+      "training_episode_index": 4,
+      "oracle_prefix_s": 0.0,
+      "learned_duration_s": 30.0,
+      "final": {
+        "max_error_m": 0.4975447988936965,
+        "rms_error_m": 0.3404077686133375,
+        "path_error_m": 0.41322827127807554,
+        "spacing_error_m": 0.32513794641927507,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4683520440401872,
+        "leader_step_travel_m": 0.005033803818168728,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.36696035884684997,
+        "peak_max_error_m": 0.5571568328870313,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 616,
+        "wall_violations": 0,
+        "control_cost": 10.560855081353848
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 616,
+      "recording": "runs/follow-handoff-diagnostic/episode-4-prefix-0.npz"
+    },
+    {
+      "training_episode_index": 4,
+      "oracle_prefix_s": 5.0,
+      "learned_duration_s": 25.0,
+      "final": {
+        "max_error_m": 0.6262683890434542,
+        "rms_error_m": 0.44690800981273604,
+        "path_error_m": 0.43010715696266366,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.468352043925933,
+        "leader_step_travel_m": 0.0050338038181687245,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 4,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.30632317909024986,
+        "peak_max_error_m": 0.6286964942448436,
+        "reacquisition_s": [
+          1.5999999999999996,
+          1.9000000000000004,
+          0.29999999999999893
+        ],
+        "unrecovered_s": 18.1,
+        "collisions": 407,
+        "wall_violations": 0,
+        "control_cost": 10.356643213857337
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 407,
+      "recording": "runs/follow-handoff-diagnostic/episode-4-prefix-5.npz"
+    },
+    {
+      "training_episode_index": 4,
+      "oracle_prefix_s": 10.0,
+      "learned_duration_s": 20.0,
+      "final": {
+        "max_error_m": 0.6436206109503583,
+        "rms_error_m": 0.43499552540581504,
+        "path_error_m": 0.43919078091872793,
+        "spacing_error_m": 0.994376480942896,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4683520427265362,
+        "leader_step_travel_m": 0.0050338038181687115,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 6.999999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.2858275980773191,
+        "peak_max_error_m": 0.6436963433334228,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": 16.799999999999997,
+        "collisions": 261,
+        "wall_violations": 0,
+        "control_cost": 9.916604676914258
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 261,
+      "recording": "runs/follow-handoff-diagnostic/episode-4-prefix-10.npz"
+    },
+    {
+      "training_episode_index": 4,
+      "oracle_prefix_s": 20.0,
+      "learned_duration_s": 10.0,
+      "final": {
+        "max_error_m": 0.18188021009662192,
+        "rms_error_m": 0.12175324926454402,
+        "path_error_m": 0.10953162742444782,
+        "spacing_error_m": 0.11787090255743884,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4683520408264448,
+        "leader_step_travel_m": 0.005033803818168719,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 6.999999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.08180947608566833,
+        "peak_max_error_m": 0.18188021009662192,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": 7.699999999999999,
+        "collisions": 26,
+        "wall_violations": 0,
+        "control_cost": 9.328070074432285
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 26,
+      "recording": "runs/follow-handoff-diagnostic/episode-4-prefix-20.npz"
+    },
+    {
+      "training_episode_index": 5,
+      "oracle_prefix_s": 0.0,
+      "learned_duration_s": 30.0,
+      "final": {
+        "max_error_m": 0.6097555239134762,
+        "rms_error_m": 0.45084871926740216,
+        "path_error_m": 0.4658158756934725,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4678640061435144,
+        "leader_step_travel_m": 0.005033797111046684,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.39569611601737054,
+        "peak_max_error_m": 0.6581127826069245,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.9,
+        "collisions": 568,
+        "wall_violations": 0,
+        "control_cost": 10.78901805784204
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 568,
+      "recording": "runs/follow-handoff-diagnostic/episode-5-prefix-0.npz"
+    },
+    {
+      "training_episode_index": 5,
+      "oracle_prefix_s": 5.0,
+      "learned_duration_s": 25.0,
+      "final": {
+        "max_error_m": 0.5674728385231427,
+        "rms_error_m": 0.3796676039419534,
+        "path_error_m": 0.3981253991335709,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.467864005313112,
+        "leader_step_travel_m": 0.0050337971110466844,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 4,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.264396769391207,
+        "peak_max_error_m": 0.5674728385231427,
+        "reacquisition_s": [
+          1.5,
+          2.0999999999999996,
+          0.6000000000000014
+        ],
+        "unrecovered_s": 17.9,
+        "collisions": 289,
+        "wall_violations": 0,
+        "control_cost": 10.309771337090604
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 289,
+      "recording": "runs/follow-handoff-diagnostic/episode-5-prefix-5.npz"
+    },
+    {
+      "training_episode_index": 5,
+      "oracle_prefix_s": 10.0,
+      "learned_duration_s": 20.0,
+      "final": {
+        "max_error_m": 0.4100892204331703,
+        "rms_error_m": 0.3081556969343268,
+        "path_error_m": 0.2763360150179529,
+        "spacing_error_m": 0.45684454449218304,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4678640061425072,
+        "leader_step_travel_m": 0.005033797111046735,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 6.999999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20175960200118248,
+        "peak_max_error_m": 0.4100892204331703,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": 16.799999999999997,
+        "collisions": 196,
+        "wall_violations": 0,
+        "control_cost": 10.225709709301416
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 196,
+      "recording": "runs/follow-handoff-diagnostic/episode-5-prefix-10.npz"
+    },
+    {
+      "training_episode_index": 5,
+      "oracle_prefix_s": 20.0,
+      "learned_duration_s": 10.0,
+      "final": {
+        "max_error_m": 0.2568434094617716,
+        "rms_error_m": 0.1572176222128469,
+        "path_error_m": 0.15674738795180604,
+        "spacing_error_m": 0.15923118132662997,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4678640073865692,
+        "leader_step_travel_m": 0.005033797111046662,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 6.999999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.08803253777140585,
+        "peak_max_error_m": 0.2568434094617716,
+        "reacquisition_s": [
+          1.7000000000000002
+        ],
+        "unrecovered_s": 7.699999999999999,
+        "collisions": 25,
+        "wall_violations": 0,
+        "control_cost": 9.34573168296748
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 25,
+      "recording": "runs/follow-handoff-diagnostic/episode-5-prefix-20.npz"
+    },
+    {
+      "training_episode_index": 6,
+      "oracle_prefix_s": 0.0,
+      "learned_duration_s": 30.0,
+      "final": {
+        "max_error_m": 0.5075983577143194,
+        "rms_error_m": 0.3528848701285989,
+        "path_error_m": 0.3759260418819902,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4672942543016436,
+        "leader_step_travel_m": 0.0050338166363734045,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.36191540134572603,
+        "peak_max_error_m": 0.5430510924302779,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 592,
+        "wall_violations": 0,
+        "control_cost": 10.653931345295081
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 592,
+      "recording": "runs/follow-handoff-diagnostic/episode-6-prefix-0.npz"
+    },
+    {
+      "training_episode_index": 6,
+      "oracle_prefix_s": 5.0,
+      "learned_duration_s": 25.0,
+      "final": {
+        "max_error_m": 0.5949654254099815,
+        "rms_error_m": 0.37405349484457806,
+        "path_error_m": 0.41236499518032127,
+        "spacing_error_m": 0.8466097769960391,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4672942521358956,
+        "leader_step_travel_m": 0.005033816636373425,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 3,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.27582831418572024,
+        "peak_max_error_m": 0.5949654254099815,
+        "reacquisition_s": [
+          2.0,
+          2.1000000000000014
+        ],
+        "unrecovered_s": 17.5,
+        "collisions": 244,
+        "wall_violations": 0,
+        "control_cost": 10.344599838559196
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 244,
+      "recording": "runs/follow-handoff-diagnostic/episode-6-prefix-5.npz"
+    },
+    {
+      "training_episode_index": 6,
+      "oracle_prefix_s": 10.0,
+      "learned_duration_s": 20.0,
+      "final": {
+        "max_error_m": 0.6546764088241204,
+        "rms_error_m": 0.40746599788129345,
+        "path_error_m": 0.4603045841305788,
+        "spacing_error_m": 0.6614034089534023,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4672942535355977,
+        "leader_step_travel_m": 0.005033816636373431,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.499999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.2859597998072404,
+        "peak_max_error_m": 0.6546764088241204,
+        "reacquisition_s": [
+          2.2
+        ],
+        "unrecovered_s": 16.6,
+        "collisions": 196,
+        "wall_violations": 0,
+        "control_cost": 10.16805536428446
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 196,
+      "recording": "runs/follow-handoff-diagnostic/episode-6-prefix-10.npz"
+    },
+    {
+      "training_episode_index": 6,
+      "oracle_prefix_s": 20.0,
+      "learned_duration_s": 10.0,
+      "final": {
+        "max_error_m": 0.18338105912505082,
+        "rms_error_m": 0.12247608478481538,
+        "path_error_m": 0.10795311844398603,
+        "spacing_error_m": 0.12322483003844523,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4672942544022656,
+        "leader_step_travel_m": 0.005033816636373434,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.499999999999998,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.08490036011510727,
+        "peak_max_error_m": 0.18338105912505082,
+        "reacquisition_s": [
+          2.2
+        ],
+        "unrecovered_s": 7.699999999999999,
+        "collisions": 24,
+        "wall_violations": 0,
+        "control_cost": 9.503553575776383
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 24,
+      "recording": "runs/follow-handoff-diagnostic/episode-6-prefix-20.npz"
+    },
+    {
+      "training_episode_index": 7,
+      "oracle_prefix_s": 0.0,
+      "learned_duration_s": 30.0,
+      "final": {
+        "max_error_m": 0.5930944212131508,
+        "rms_error_m": 0.3990084578957666,
+        "path_error_m": 0.43139634018437417,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4649244641370724,
+        "leader_step_travel_m": 0.005033786379548039,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3551672815533863,
+        "peak_max_error_m": 0.5930944212131508,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.8,
+        "collisions": 463,
+        "wall_violations": 0,
+        "control_cost": 10.990547382303355
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 463,
+      "recording": "runs/follow-handoff-diagnostic/episode-7-prefix-0.npz"
+    },
+    {
+      "training_episode_index": 7,
+      "oracle_prefix_s": 5.0,
+      "learned_duration_s": 25.0,
+      "final": {
+        "max_error_m": 0.3192428917784252,
+        "rms_error_m": 0.22463066081455169,
+        "path_error_m": 0.19498649318692485,
+        "spacing_error_m": 0.6205669284748648,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4649244628998115,
+        "leader_step_travel_m": 0.005033786379548044,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 3,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.19550770837439624,
+        "peak_max_error_m": 0.33288794590640525,
+        "reacquisition_s": [
+          1.7999999999999998,
+          0.3000000000000007
+        ],
+        "unrecovered_s": 18.5,
+        "collisions": 116,
+        "wall_violations": 0,
+        "control_cost": 10.230974731557952
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 116,
+      "recording": "runs/follow-handoff-diagnostic/episode-7-prefix-5.npz"
+    },
+    {
+      "training_episode_index": 7,
+      "oracle_prefix_s": 10.0,
+      "learned_duration_s": 20.0,
+      "final": {
+        "max_error_m": 0.5064512185022126,
+        "rms_error_m": 0.356439945095348,
+        "path_error_m": 0.2438207273279856,
+        "spacing_error_m": 0.44857055257321277,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4649244638180847,
+        "leader_step_travel_m": 0.005033786379548026,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.199999999999999,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.19527677683320901,
+        "peak_max_error_m": 0.5064512185022126,
+        "reacquisition_s": [
+          1.8999999999999995
+        ],
+        "unrecovered_s": 16.9,
+        "collisions": 192,
+        "wall_violations": 0,
+        "control_cost": 10.06541810641969
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 192,
+      "recording": "runs/follow-handoff-diagnostic/episode-7-prefix-10.npz"
+    },
+    {
+      "training_episode_index": 7,
+      "oracle_prefix_s": 20.0,
+      "learned_duration_s": 10.0,
+      "final": {
+        "max_error_m": 0.19877910469760804,
+        "rms_error_m": 0.1180969689499825,
+        "path_error_m": 0.11015042906610677,
+        "spacing_error_m": 0.08985417170099477,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.464924464130093,
+        "leader_step_travel_m": 0.0050337863795480425,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": 7.199999999999999,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 2,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.0838195970719533,
+        "peak_max_error_m": 0.19877910469760804,
+        "reacquisition_s": [
+          1.8999999999999995
+        ],
+        "unrecovered_s": 7.699999999999999,
+        "collisions": 8,
+        "wall_violations": 0,
+        "control_cost": 9.314594627988944
+      },
+      "holding_goal_at_end": false,
+      "contacts_after_handoff": 8,
+      "recording": "runs/follow-handoff-diagnostic/episode-7-prefix-20.npz"
+    }
+  ],
+  "summary": [
+    {
+      "oracle_prefix_s": 0.0,
+      "episodes": 8,
+      "evaluator_successes": 0,
+      "holding_goal_at_end": 0,
+      "contacts_after_handoff": 4171,
+      "mean_final_error_m": 0.576164633739104
+    },
+    {
+      "oracle_prefix_s": 5.0,
+      "episodes": 8,
+      "evaluator_successes": 0,
+      "holding_goal_at_end": 0,
+      "contacts_after_handoff": 1991,
+      "mean_final_error_m": 0.5848549607016523
+    },
+    {
+      "oracle_prefix_s": 10.0,
+      "episodes": 8,
+      "evaluator_successes": 0,
+      "holding_goal_at_end": 0,
+      "contacts_after_handoff": 1429,
+      "mean_final_error_m": 0.5216369085815912
+    },
+    {
+      "oracle_prefix_s": 20.0,
+      "episodes": 8,
+      "evaluator_successes": 0,
+      "holding_goal_at_end": 0,
+      "contacts_after_handoff": 177,
+      "mean_final_error_m": 0.226722096957914
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-follow-handoff.py",
+      "sha256": "1efc331d00340ee1905339f8bf8eb657a19aa6840e1a617b86f82e43712245fd"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/protocol.json",
+      "sha256": "b334147cb3ce45116437af5edcc6e6f3aa413f3d3703661920be1e0004647f5d"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-0-prefix-0.npz",
+      "sha256": "50ab72ab70f41030ee8ce36f5bbc989ff452b78a099c0835eb6c62c791973350"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-0-prefix-10.npz",
+      "sha256": "102829065036adfe33d42eb628c135ba199c1453120c09a6efe99835bba7e129"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-0-prefix-20.npz",
+      "sha256": "fcfeb3740a1dbd8c10db5e9cb708f768095de3d71961b94f4a43aebe28afb5c4"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-0-prefix-5.npz",
+      "sha256": "5bfd9d4372edd45c7ad61066ebc173a61c91e2d3eb21bd2f4b3b5c46db56f2ad"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-1-prefix-0.npz",
+      "sha256": "e63bd7b33d765c60b4455419ee8d2d8aca2871c7750199d9e9a866b95d0772fa"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-1-prefix-10.npz",
+      "sha256": "ed768f7b67ba9301ecc78c96ac6c283e8a1c4b59306a82a710bb15d4fd250174"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-1-prefix-20.npz",
+      "sha256": "ab4d5f690f05f01d4a2922e8f7019701bb0d329910022ed8bfbd477878b68af0"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-1-prefix-5.npz",
+      "sha256": "8d35374fb3e0b390a0c94d16d1a5dfeab8e0ae42f7f42b0f307146555f419f87"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-2-prefix-0.npz",
+      "sha256": "0ded6a3dcb5e037e3dc952126db3705cff86b4fb60b5f1c694daacab99b82c3c"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-2-prefix-10.npz",
+      "sha256": "f3a1203c3d0b3ef73f59f2c925b13d632d5e563d39b2d4cb8510ff9c50bbc752"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-2-prefix-20.npz",
+      "sha256": "ff3a7d7a260580b09cbfd4ca6fe040ad3bb09db54ae9a8ff84239ab8461a5b6f"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-2-prefix-5.npz",
+      "sha256": "fcf5cc963a4fa9709a1bde5f81ee223e325084563200896d45629014d30423ab"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-3-prefix-0.npz",
+      "sha256": "d53f5d4a26e23c7b9f32b901b876e162a105b3bc944bae912d02cb1f17b4f7bb"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-3-prefix-10.npz",
+      "sha256": "4bfd10f7d2e7b5d97cadfbdfde619c6526638b8addf2e139387961d900122c7a"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-3-prefix-20.npz",
+      "sha256": "33ef3d7a27b686a0a7b744dee00580b0edccad4270b8815d4a4493e32c28e760"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-3-prefix-5.npz",
+      "sha256": "bf7d8e3244ad012938a17347a11edc2c9a99103ee4d2b98cdd7279aa3254116d"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-4-prefix-0.npz",
+      "sha256": "805b27cf2ee8223b2d0569b84311141ddf6a19e52798955037b970d9ff801bdb"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-4-prefix-10.npz",
+      "sha256": "08f3365aeee7cbab93b424c641be608441f29d7b28b231b5c13a8f588b0a3bea"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-4-prefix-20.npz",
+      "sha256": "79655d9d3ca89bfcd15c8145117cb79096df0df34aedf8df5a4e3022d03cecd4"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-4-prefix-5.npz",
+      "sha256": "bb9181a527ffc06f8c084a88521bdaa14f7a22d876e24bc2222b7c63a6ccb2aa"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-5-prefix-0.npz",
+      "sha256": "28dd590d067855e8534632e611c80ad05f97dfdb5d6b9a8c49efe6f2dd1d85a1"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-5-prefix-10.npz",
+      "sha256": "14b82e5d2f52a20b7f85e1c3b65284cfe1adf9ced3a64590ae226b5e4a6e2057"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-5-prefix-20.npz",
+      "sha256": "bd3a98330705f75d80642d6a4ced4cca25c4e578cee84c6783eb93efdb13c6eb"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-5-prefix-5.npz",
+      "sha256": "f1f21404dc77286e0878790c80515182e33a1b455418eaf3e4123929239eee8a"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-6-prefix-0.npz",
+      "sha256": "bc268dee86a54f2ebff4628633264abcb76b6a29695780892a52b856aaec236c"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-6-prefix-10.npz",
+      "sha256": "8e442ffcf007b7b065d8890f9aebe57208e8f7e2c2c84a6fd7c45e3d93696ae3"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-6-prefix-20.npz",
+      "sha256": "9ef8eb5a489ba36f01f52345ba4069ad2d032fb6813e9c6690b26c9a99a8e915"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-6-prefix-5.npz",
+      "sha256": "ebfa0b75407366aac2898885447202e9a25c4ba5be8b49a68b5ca2480dd1b8a9"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-7-prefix-0.npz",
+      "sha256": "a5407294f75b2b98dda029fa42fa9c7fb1e93993df6fa0f7749d132342ce5c12"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-7-prefix-10.npz",
+      "sha256": "25aac6a4aeefbc91529142dea805a5449c6a06d85f0b5b7b7f7e86503448777a"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-7-prefix-20.npz",
+      "sha256": "5ab5179bd02b322b14b2007fc30e61cb53aa6579c0be002b429508b764ddc6a0"
+    },
+    {
+      "path": "runs/follow-handoff-diagnostic/episode-7-prefix-5.npz",
+      "sha256": "c306ffe2ba4be561133333d80ee0f237bbfcaabda5bb2ed91b4d51827aaf7b11"
+    }
+  ]
+}

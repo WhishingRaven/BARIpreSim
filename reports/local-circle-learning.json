@@ -1,0 +1,301 @@
+{
+  "version": "bari-local-circle-learning-v1",
+  "completed_utc": "2026-11-03T15:57:24.815583+00:00",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "collection": {
+    "episodes": 128,
+    "unique_world_seeds": 128,
+    "successes": 118,
+    "final_holding": 118,
+    "required_each": 116,
+    "success_rate": 0.921875,
+    "final_hold_rate": 0.921875,
+    "contacts": 0,
+    "walls": 0,
+    "contact_episodes": 0,
+    "wall_episodes": 0,
+    "initially_within_formation_tolerance": 0,
+    "mean_final_max_error_m": 0.025439504580513566,
+    "minimum_initial_max_error_m": 0.08922814283784171,
+    "dataset_loader_pass": true,
+    "all_failed_episodes_retained": true,
+    "qualified_for_paired_imitation_only": true,
+    "learned_acceptance": false
+  },
+  "learners": [
+    {
+      "protocol": {
+        "version": "bari-local-circle-paired-imitation-v1",
+        "arm": "ordinary",
+        "planned_utc": "2026-11-03T15:55:25.347629+00:00",
+        "source_revision": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "experiment_script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-local-circle-paired.py",
+          "sha256": "c7e4c9eb5db65f3b46e313e667664b380235ac572ae47c90b6a87c2916a607e6"
+        },
+        "collection": {
+          "path": "reports/local-circle-collection.json",
+          "sha256": "3694da08bcc3efce0a3a8c67a785290ec41a20b1e9f3b846f96d153612af71f6"
+        },
+        "dataset": {
+          "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+          "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5",
+          "episodes": 128,
+          "teacher": "local-circle-interior-release-v5",
+          "execution": "teacher-closed-loop"
+        },
+        "initial_actor": {
+          "path": "runs/train-local-circle-ordinary-11/initial_actor.pt",
+          "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+        },
+        "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+        "seed": 11,
+        "epochs": 80,
+        "batch_episodes": 8,
+        "bptt_steps": 64,
+        "learning_rate": 0.001,
+        "gradient_clip": 0.5,
+        "expected_optimizer_steps": 6400,
+        "constraint": "Ordinary actor, all input encoder columns train.",
+        "matched_controls": "Same128 complete episodes, seed11 initial tensors except the two excluded columns, epoch permutations, batch8, BPTT64, Adam0.001, clip0.5 and80 epochs. No dropout or teacher intervention. All5 robots learned, including role0.",
+        "validation_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027
+        ],
+        "selection": "Final epoch80 only, circle/random, unchanged physical/numeric gates, deterministic mean and no teacher. Require5/5 official successes AND5/5 final holds to qualify for a separate later stage. No extension, default promotion or automatic RL.",
+        "scope": "Circle-only imitation, zeroRLupdates, hypothetical60-degree sensing. Not full-scope GRU-RL, fresh-heldout, multi-seed, switching/occlusion or device acceptance."
+      },
+      "checkpoint": {
+        "path": "runs/train-local-circle-ordinary-11/checkpoint.pt",
+        "sha256": "85639d24afdf52d42284c3f8f34cca0f83288df050f8fbdeb5cbef0b3c5de201"
+      },
+      "initial_actor": {
+        "path": "runs/train-local-circle-ordinary-11/initial_actor.pt",
+        "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+      },
+      "training_log": {
+        "path": "runs/train-local-circle-ordinary-11/imitation.jsonl",
+        "sha256": "240bb238f158797ae3d821e3e3d70d14f85f97a3e8ef58ff7659cbee7cf15e55"
+      },
+      "validation": {
+        "path": "runs/validation-local-circle-ordinary-11/report.json",
+        "sha256": "e587d6e6c4712b02f769d0d84367cf5d0f255af9dae864862911bb3f9f7de7e7"
+      },
+      "imitation_epochs": 80,
+      "RL_updates": 0,
+      "optimizer_steps": 6400,
+      "epoch_orders_sha256": "fac8c1d0a04d5da57baad355ac58a3198efbad10892e0aab9add119a5c087828",
+      "summary": {
+        "episodes": 5,
+        "successes": 0,
+        "final_holding": 0,
+        "contacts": 289,
+        "walls": 354,
+        "mean_final_max_error_m": 0.4228608918589284
+      },
+      "qualified_for_separate_next_stage_only": false,
+      "teacher_interventions": 0,
+      "default_profile_promoted": false,
+      "decision": "Fixed80-epoch stage complete; no automatic extension or RL. A passing arm is circle-only imitation evidence."
+    },
+    {
+      "protocol": {
+        "version": "bari-local-circle-paired-imitation-v1",
+        "arm": "no-command",
+        "planned_utc": "2026-11-03T15:55:25.347632+00:00",
+        "source_revision": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "experiment_script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-local-circle-paired.py",
+          "sha256": "c7e4c9eb5db65f3b46e313e667664b380235ac572ae47c90b6a87c2916a607e6"
+        },
+        "collection": {
+          "path": "reports/local-circle-collection.json",
+          "sha256": "3694da08bcc3efce0a3a8c67a785290ec41a20b1e9f3b846f96d153612af71f6"
+        },
+        "dataset": {
+          "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+          "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5",
+          "episodes": 128,
+          "teacher": "local-circle-interior-release-v5",
+          "execution": "teacher-closed-loop"
+        },
+        "initial_actor": {
+          "path": "runs/train-local-circle-no-command-11/initial_actor.pt",
+          "sha256": "761f457850eea78e4a506a42e5f1d1f05ba72f3a6945a1e3ef8c94b11b53c83a"
+        },
+        "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+        "seed": 11,
+        "epochs": 80,
+        "batch_episodes": 8,
+        "bptt_steps": 64,
+        "learning_rate": 0.001,
+        "gradient_clip": 0.5,
+        "expected_optimizer_steps": 6400,
+        "constraint": "Saved encoder columns6:8 and their gradients/Adam moments stay exactly zero.",
+        "matched_controls": "Same128 complete episodes, seed11 initial tensors except the two excluded columns, epoch permutations, batch8, BPTT64, Adam0.001, clip0.5 and80 epochs. No dropout or teacher intervention. All5 robots learned, including role0.",
+        "validation_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027
+        ],
+        "selection": "Final epoch80 only, circle/random, unchanged physical/numeric gates, deterministic mean and no teacher. Require5/5 official successes AND5/5 final holds to qualify for a separate later stage. No extension, default promotion or automatic RL.",
+        "scope": "Circle-only imitation, zeroRLupdates, hypothetical60-degree sensing. Not full-scope GRU-RL, fresh-heldout, multi-seed, switching/occlusion or device acceptance."
+      },
+      "checkpoint": {
+        "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+        "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+      },
+      "initial_actor": {
+        "path": "runs/train-local-circle-no-command-11/initial_actor.pt",
+        "sha256": "761f457850eea78e4a506a42e5f1d1f05ba72f3a6945a1e3ef8c94b11b53c83a"
+      },
+      "training_log": {
+        "path": "runs/train-local-circle-no-command-11/imitation.jsonl",
+        "sha256": "26fab1c82ed41374d6657e205a7f08e90e8fa96567473da2efe9202d475482ce"
+      },
+      "validation": {
+        "path": "runs/validation-local-circle-no-command-11/report.json",
+        "sha256": "acbf975e1a789d0744f465181054ecbcf4b1f18138f3dd91c582b2858af2600e"
+      },
+      "imitation_epochs": 80,
+      "RL_updates": 0,
+      "optimizer_steps": 6400,
+      "epoch_orders_sha256": "fac8c1d0a04d5da57baad355ac58a3198efbad10892e0aab9add119a5c087828",
+      "summary": {
+        "episodes": 5,
+        "successes": 0,
+        "final_holding": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.0792708794579032
+      },
+      "qualified_for_separate_next_stage_only": false,
+      "teacher_interventions": 0,
+      "default_profile_promoted": false,
+      "decision": "Fixed80-epoch stage complete; no automatic extension or RL. A passing arm is circle-only imitation evidence."
+    }
+  ],
+  "matched_proof": {
+    "all_other_initial_tensors_exact": true,
+    "only_initial_difference": "encoder.weight[:,6:8] zero in constrained arm",
+    "matched_seed_data_config_optimizer_budget_and_epoch_orders": true,
+    "optimizer_steps_each": 6400,
+    "constrained_saved_encoder_columns_exact_zero": true,
+    "epoch_orders_sha256": "fac8c1d0a04d5da57baad355ac58a3198efbad10892e0aab9add119a5c087828"
+  },
+  "software_verification": {
+    "tests": 180,
+    "source_unchanged_since_verified_snapshot": true,
+    "log": {
+      "path": "reports/verification-no-command-rl.txt",
+      "sha256": "9f2c0db4342354939a47d1c78e8ed7f27c054e01f332945aac596d95f06ce571"
+    },
+    "snapshot": "runs/no-command-verification-180"
+  },
+  "artifacts": [
+    {
+      "path": "reports/local-circle-field-probe.json",
+      "sha256": "2d3f4e444aaad45f6ab17f7429727bf2fc2626da71701599ac72e39450c903e7"
+    },
+    {
+      "path": "reports/local-circle-wall-counterexample.json",
+      "sha256": "1466b652ba036fe5f2ca0dc36a1a181484bad07dd69b5bde817442e39d082997"
+    },
+    {
+      "path": "reports/local-circle-guarded-probe.json",
+      "sha256": "a48f54d153cfde509de26f47a8d6ca302b5d1535d96e0decc7bbc6a16a1b772d"
+    },
+    {
+      "path": "reports/local-circle-history-probe.json",
+      "sha256": "94c41387554d818c40212b2b8c34aa9ec827b2533a6b94552d370b934cd868bb"
+    },
+    {
+      "path": "reports/local-circle-barrier-probe.json",
+      "sha256": "6d794a87b2e356478c453541f70842204bd8608361023329f24c4192126adde5"
+    },
+    {
+      "path": "reports/local-circle-cooperative-probe.json",
+      "sha256": "a36f38a019689034962259f9e718f6dd4c6eec0c2521aa09cffd4b4bcff6558c"
+    },
+    {
+      "path": "reports/local-line-field-probe.json",
+      "sha256": "26f676104125e4056a798be21e34302b22163d68bc12426245a7cdb7bce9505a"
+    },
+    {
+      "path": "reports/local-circle-collection.json",
+      "sha256": "3694da08bcc3efce0a3a8c67a785290ec41a20b1e9f3b846f96d153612af71f6"
+    },
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-local-circle-learning-report.py",
+      "sha256": "75a0071dcc9a4e33f81e23fd33620f594c3deb627c2efee2feb7e23c068d8245"
+    },
+    {
+      "path": "runs/merge-local-circle-shards.py",
+      "sha256": "73967b81b59c38d29c087a8b41af173b27475c908159dc8d3aa17e0c0f998852"
+    },
+    {
+      "path": "runs/train-local-circle-paired.py",
+      "sha256": "c7e4c9eb5db65f3b46e313e667664b380235ac572ae47c90b6a87c2916a607e6"
+    },
+    {
+      "path": "runs/local-circle-ordinary-results.json",
+      "sha256": "839e61af3588a62c1528d0bc50893e5bde1bd99c377b5220457288fe8cb11231"
+    },
+    {
+      "path": "runs/local-circle-no-command-results.json",
+      "sha256": "01e83bd65217f8c15e8cea107a5b02227144cc6c7f22f38ed5fcea95e672b485"
+    },
+    {
+      "path": "runs/train-local-circle-ordinary-11/checkpoint.pt",
+      "sha256": "85639d24afdf52d42284c3f8f34cca0f83288df050f8fbdeb5cbef0b3c5de201"
+    },
+    {
+      "path": "runs/train-local-circle-ordinary-11/initial_actor.pt",
+      "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+    },
+    {
+      "path": "runs/train-local-circle-ordinary-11/imitation.jsonl",
+      "sha256": "240bb238f158797ae3d821e3e3d70d14f85f97a3e8ef58ff7659cbee7cf15e55"
+    },
+    {
+      "path": "runs/validation-local-circle-ordinary-11/report.json",
+      "sha256": "e587d6e6c4712b02f769d0d84367cf5d0f255af9dae864862911bb3f9f7de7e7"
+    },
+    {
+      "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+      "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+    },
+    {
+      "path": "runs/train-local-circle-no-command-11/initial_actor.pt",
+      "sha256": "761f457850eea78e4a506a42e5f1d1f05ba72f3a6945a1e3ef8c94b11b53c83a"
+    },
+    {
+      "path": "runs/train-local-circle-no-command-11/imitation.jsonl",
+      "sha256": "26fab1c82ed41374d6657e205a7f08e90e8fa96567473da2efe9202d475482ce"
+    },
+    {
+      "path": "runs/validation-local-circle-no-command-11/report.json",
+      "sha256": "acbf975e1a789d0744f465181054ecbcf4b1f18138f3dd91c582b2858af2600e"
+    }
+  ],
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "scope": "Development-only circle teacher and fixed-budget imitation; hypothetical planarFOV60, unmeasured command-motion calibration. All5 learned and no scripted formation robot. Multi-task GRU-RL, switching/occlusion, fresh-heldout multi-seed and physical ESP32/robot/arena evidence remain pending."
+}

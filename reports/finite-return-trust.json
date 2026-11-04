@@ -1,0 +1,805 @@
+{
+  "version": "bari-finite-return-trust-result-v1",
+  "completed_utc": "2026-11-03T17:43:24.704827+00:00",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "protocol": {
+    "version": "bari-finite-return-trust-v2-pilot",
+    "planned_utc": "2026-11-03T17:35:49.242547+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "script": {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-finite-return-trust-pilot.py",
+      "sha256": "2fbba2ac5497567c46afe96bcf2f80de585f55087d99d60fd247bb5ff3849f51"
+    },
+    "runner": {
+      "path": "runs/run-finite-return-trust.py",
+      "sha256": "03f9336bbc9155fa8c542f3b93e67a6915665dfdb96ebc22e384944eccba531f"
+    },
+    "module": {
+      "path": "runs/finite_return_trust.py",
+      "sha256": "5a6a3483890da94edd476133d3bad865e36db6c33b6301bf2ff176d67af85cd5"
+    },
+    "base_module": {
+      "path": "runs/finite_return_gradient.py",
+      "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+    },
+    "verification": {
+      "path": "reports/finite-return-trust-verification.json",
+      "sha256": "23b25d79b51ede340ac6b2c43c0dd21a8015b18eeedf137edc8927c10ab8b811"
+    },
+    "diagnosis": {
+      "path": "reports/finite-return-gradient.json",
+      "sha256": "68e26b6be39fb09000fd4d38cffd0f83446ae4ebbc653506939d4a93b93ca620"
+    },
+    "parent": {
+      "path": "runs/circle-rl-repair-high-23/training-final200/checkpoint.pt",
+      "sha256": "b3a558673f1492aea0379b010a4bce45d84203673019ac8bbdb85bd58fdbb9c6"
+    },
+    "frozen_unbounded_control": {
+      "path": "runs/finite-return-pilot-h5-47/result.json",
+      "sha256": "c45579ea2d368f2cbd29137853029972bfed0b123501f0d2d38a8b547e34d29a"
+    },
+    "config": {
+      "path": "runs/finite-return-trust-pilot-v1/config.json",
+      "sha256": "b94634f4838b8997ac04cf3e793eeeb3dd74829eea43c0d61bd90896c86372f1"
+    },
+    "plan": {
+      "path": "runs/finite-return-trust-pilot-v1/training_plan.json",
+      "sha256": "479fd3bae0c4062cedde7846eb356b3282904a420e85cefc952cbab4ab7182c9"
+    },
+    "config_sha256": "a4b959e57e64f3c65699b88faeae354f1a7a8e0abe62a819223dd8742de85996",
+    "arms": {
+      "5": {
+        "horizon": 5,
+        "initial": {
+          "path": "runs/finite-return-trust-pilot-v1/initial-h5.pt",
+          "sha256": "9e65052cff4538d9879786e868ef444af543e86abe93f7f18271d74691fdb8fd"
+        }
+      }
+    },
+    "training_seed": 47,
+    "worlds": 4,
+    "updates": 80,
+    "optimizer_attempts": 80,
+    "actual_controls_per_arm": 5120,
+    "counterfactual_controls_expected": 508800,
+    "BPTT": 16,
+    "observations": [
+      0,
+      20,
+      80
+    ],
+    "development_seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027,
+      1594776450,
+      589246224,
+      1979129855,
+      1391038837,
+      1899936300,
+      995963224,
+      113285700,
+      1761495214,
+      1685651270,
+      1727563011
+    ],
+    "trust_settings": {
+      "command_limit": 0.02,
+      "hidden_limit": 0.03,
+      "fractions": [
+        1.0,
+        0.5,
+        0.25,
+        0.125,
+        0.0625,
+        0.03125,
+        0.015625,
+        0.0078125,
+        0.0
+      ],
+      "raw_surrogate_gain_tolerance": 1e-12,
+      "Adam_moments_advance_on_every_attempt": true,
+      "refresh_live_hidden": false,
+      "bound": "all recorded control actions and post-observation hidden states"
+    },
+    "initialization_proof": {
+      "actor_critic_optimizer_world_hidden_sampling_and_torch_rng_exact_to_unbounded_control": true
+    },
+    "change": "After each unchanged finite-return/Adam proposal, test fractions1 through1/128 then0. Choose largest with max command delta<=0.02 and max hidden delta<=0.03 over ALL recorded sequence states, plus nonnegative raw finite-gradient surrogate gain. Adam moments advance on every attempt, including rejection; weights may stay unchanged. Live hidden history is not refreshed or reset.",
+    "unchanged": "Same PPO200 unvalidated initializer,4-world seed47 sampler, horizon5,epsilon0.1, BPTT16, Adam0.001, existing reward/physics/actor inputs/normalization, critic/std unused, zero command columns,80-attempt actual/simulator budgets. No teacher or global actor inputs.",
+    "hypothesis": "Unbounded proposals can change commands/hidden strongly even while increasing short returns. Bound the training parameter step to test whether stability improves final maintenance. This observation does not establish causality or a physical safety guarantee.",
+    "selection": "Only exact80, same15 development worlds and original numeric gates. Require>=14/15 official successes AND final holds with zero total contact/wall attempts. Intermediate20 diagnostic only. No budget extension or default promotion.",
+    "scope": "Circle-only experimental finite-return actor optimization. Same BC11/PPO23 parent and fine-tuning seed47, not independent full training seeds. HypotheticalFOV60, central-square initial sampler and full four-task/switching/memory/physical requirements remain."
+  },
+  "result": {
+    "protocol": {
+      "version": "bari-finite-return-trust-v2-pilot",
+      "planned_utc": "2026-11-03T17:35:49.242547+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+      },
+      "script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-finite-return-trust-pilot.py",
+        "sha256": "2fbba2ac5497567c46afe96bcf2f80de585f55087d99d60fd247bb5ff3849f51"
+      },
+      "runner": {
+        "path": "runs/run-finite-return-trust.py",
+        "sha256": "03f9336bbc9155fa8c542f3b93e67a6915665dfdb96ebc22e384944eccba531f"
+      },
+      "module": {
+        "path": "runs/finite_return_trust.py",
+        "sha256": "5a6a3483890da94edd476133d3bad865e36db6c33b6301bf2ff176d67af85cd5"
+      },
+      "base_module": {
+        "path": "runs/finite_return_gradient.py",
+        "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+      },
+      "verification": {
+        "path": "reports/finite-return-trust-verification.json",
+        "sha256": "23b25d79b51ede340ac6b2c43c0dd21a8015b18eeedf137edc8927c10ab8b811"
+      },
+      "diagnosis": {
+        "path": "reports/finite-return-gradient.json",
+        "sha256": "68e26b6be39fb09000fd4d38cffd0f83446ae4ebbc653506939d4a93b93ca620"
+      },
+      "parent": {
+        "path": "runs/circle-rl-repair-high-23/training-final200/checkpoint.pt",
+        "sha256": "b3a558673f1492aea0379b010a4bce45d84203673019ac8bbdb85bd58fdbb9c6"
+      },
+      "frozen_unbounded_control": {
+        "path": "runs/finite-return-pilot-h5-47/result.json",
+        "sha256": "c45579ea2d368f2cbd29137853029972bfed0b123501f0d2d38a8b547e34d29a"
+      },
+      "config": {
+        "path": "runs/finite-return-trust-pilot-v1/config.json",
+        "sha256": "b94634f4838b8997ac04cf3e793eeeb3dd74829eea43c0d61bd90896c86372f1"
+      },
+      "plan": {
+        "path": "runs/finite-return-trust-pilot-v1/training_plan.json",
+        "sha256": "479fd3bae0c4062cedde7846eb356b3282904a420e85cefc952cbab4ab7182c9"
+      },
+      "config_sha256": "a4b959e57e64f3c65699b88faeae354f1a7a8e0abe62a819223dd8742de85996",
+      "arms": {
+        "5": {
+          "horizon": 5,
+          "initial": {
+            "path": "runs/finite-return-trust-pilot-v1/initial-h5.pt",
+            "sha256": "9e65052cff4538d9879786e868ef444af543e86abe93f7f18271d74691fdb8fd"
+          }
+        }
+      },
+      "training_seed": 47,
+      "worlds": 4,
+      "updates": 80,
+      "optimizer_attempts": 80,
+      "actual_controls_per_arm": 5120,
+      "counterfactual_controls_expected": 508800,
+      "BPTT": 16,
+      "observations": [
+        0,
+        20,
+        80
+      ],
+      "development_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027,
+        1594776450,
+        589246224,
+        1979129855,
+        1391038837,
+        1899936300,
+        995963224,
+        113285700,
+        1761495214,
+        1685651270,
+        1727563011
+      ],
+      "trust_settings": {
+        "command_limit": 0.02,
+        "hidden_limit": 0.03,
+        "fractions": [
+          1.0,
+          0.5,
+          0.25,
+          0.125,
+          0.0625,
+          0.03125,
+          0.015625,
+          0.0078125,
+          0.0
+        ],
+        "raw_surrogate_gain_tolerance": 1e-12,
+        "Adam_moments_advance_on_every_attempt": true,
+        "refresh_live_hidden": false,
+        "bound": "all recorded control actions and post-observation hidden states"
+      },
+      "initialization_proof": {
+        "actor_critic_optimizer_world_hidden_sampling_and_torch_rng_exact_to_unbounded_control": true
+      },
+      "change": "After each unchanged finite-return/Adam proposal, test fractions1 through1/128 then0. Choose largest with max command delta<=0.02 and max hidden delta<=0.03 over ALL recorded sequence states, plus nonnegative raw finite-gradient surrogate gain. Adam moments advance on every attempt, including rejection; weights may stay unchanged. Live hidden history is not refreshed or reset.",
+      "unchanged": "Same PPO200 unvalidated initializer,4-world seed47 sampler, horizon5,epsilon0.1, BPTT16, Adam0.001, existing reward/physics/actor inputs/normalization, critic/std unused, zero command columns,80-attempt actual/simulator budgets. No teacher or global actor inputs.",
+      "hypothesis": "Unbounded proposals can change commands/hidden strongly even while increasing short returns. Bound the training parameter step to test whether stability improves final maintenance. This observation does not establish causality or a physical safety guarantee.",
+      "selection": "Only exact80, same15 development worlds and original numeric gates. Require>=14/15 official successes AND final holds with zero total contact/wall attempts. Intermediate20 diagnostic only. No budget extension or default promotion.",
+      "scope": "Circle-only experimental finite-return actor optimization. Same BC11/PPO23 parent and fine-tuning seed47, not independent full training seeds. HypotheticalFOV60, central-square initial sampler and full four-task/switching/memory/physical requirements remain."
+    },
+    "horizon": 5,
+    "algorithm": "bari-finite-return-trust-v2",
+    "updates": 80,
+    "optimizer_steps": 80,
+    "actual_controls": 5120,
+    "counterfactual_controls": 508800,
+    "observations": [
+      {
+        "update": 0,
+        "checkpoint": {
+          "path": "runs/finite-return-trust-h5-47/initial-checkpoint.pt",
+          "sha256": "eea4c8edafbb2066b8390f8c780c217f015ba1cdd28a577469e1f3d52efe7267"
+        },
+        "report": {
+          "path": "runs/finite-return-trust-h5-47/evaluation-0000/report.json",
+          "sha256": "934bd8ab13ab6ca21c598028f30ea31bec695acf88f898d5d62fe30ac6f82a3e"
+        },
+        "episodes": 15,
+        "successes": 1,
+        "final_holding": 1,
+        "contacts": 83,
+        "walls": 0,
+        "mean_final_max_error_m": 0.10828825301127223,
+        "evaluation_all_training_state_rng_exact": true
+      },
+      {
+        "update": 20,
+        "checkpoint": {
+          "path": "runs/finite-return-trust-h5-47/checkpoint-0020.pt",
+          "sha256": "d4d9da7060cbe986c2f516fa35e2d39ff8f208962fc9cef9471485f95bb0051c"
+        },
+        "report": {
+          "path": "runs/finite-return-trust-h5-47/evaluation-0020/report.json",
+          "sha256": "cb42b3834e34a7469fe707898adbab094b21cc15ab2cf522d003e19b6491a546"
+        },
+        "episodes": 15,
+        "successes": 1,
+        "final_holding": 0,
+        "contacts": 459,
+        "walls": 0,
+        "mean_final_max_error_m": 0.10890477687759338,
+        "evaluation_all_training_state_rng_exact": true
+      },
+      {
+        "update": 80,
+        "checkpoint": {
+          "path": "runs/finite-return-trust-h5-47/checkpoint-0080.pt",
+          "sha256": "4342ade68a13f475f4a99053fcec4d4dbf72f1fa067880d08aea55735a54d7c1"
+        },
+        "report": {
+          "path": "runs/finite-return-trust-h5-47/evaluation-0080/report.json",
+          "sha256": "fb4cc44253698a12bd913f2c2a17889096e5360250d1e7f015e6a0e8c779ee81"
+        },
+        "episodes": 15,
+        "successes": 1,
+        "final_holding": 0,
+        "contacts": 382,
+        "walls": 0,
+        "mean_final_max_error_m": 0.08629495242675192,
+        "evaluation_all_training_state_rng_exact": true
+      }
+    ],
+    "accepted_parameter_updates": 79,
+    "rejected_parameter_updates": 1,
+    "critic_and_log_std_unchanged": true,
+    "zero_command_columns_and_moments": true,
+    "qualified_for_separately_planned_next_stage_only": false,
+    "default_promoted": false,
+    "training_log": {
+      "path": "runs/finite-return-trust-h5-47/training.jsonl",
+      "sha256": "edc32974b0c166a3cc2d4f670e762ccccb86b2172e16a19f2ca838e4fb820c77"
+    },
+    "decision": "Fixed80 bounded-update attempts complete. No extension or default promotion; full goal remains open."
+  },
+  "stability": {
+    "max_command_change": 0.01788599044084549,
+    "max_hidden_change": 0.029854118824005127,
+    "min_raw_surrogate_gain": 0.0,
+    "accepted_fraction_counts": {
+      "0.03125": 23,
+      "0.125": 19,
+      "0.0625": 35,
+      "0.015625": 2,
+      "0.0": 1
+    }
+  },
+  "actor_max_parameter_changes": {
+    "log_std": 0.0,
+    "encoder.weight": 0.0028771255165338516,
+    "encoder.bias": 0.0026558097451925278,
+    "gru.weight_ih": 0.0038847411051392555,
+    "gru.weight_hh": 0.0037658363580703735,
+    "gru.bias_ih": 0.003151930868625641,
+    "gru.bias_hh": 0.0031519830226898193,
+    "head.weight": 0.0024015307426452637,
+    "head.bias": 0.000727139413356781
+  },
+  "verification": {
+    "version": "bari-finite-return-trust-verification-v1",
+    "accepted_update_within_both_bounds": true,
+    "rejected_update_weights_exact_moments_advance": true,
+    "live_world_and_hidden_unchanged_by_update": true,
+    "unused_critic_std_unchanged": true,
+    "two_world_boundary_resume_all_state_rng_stats_exact": true,
+    "foreign_resume_rejected": true,
+    "changed_trust_semantics_rejected": true,
+    "stats": {
+      "update": 1,
+      "loss": -0.00790201872587204,
+      "actor_gradient_norm": 2.6826882362365723,
+      "raw_action_gradient_rms": 0.003411134472116828,
+      "gradient_component_clip_fraction": 0.0,
+      "mean_reward": -0.004518064204603434,
+      "mean_max_error_m": 0.03047332912683487,
+      "actual_controls": 4,
+      "counterfactual_controls": 280,
+      "counterfactual_controls_this_update": 280,
+      "horizon": 5,
+      "optimizer_steps": 1,
+      "algorithm": "bari-finite-return-trust-v2",
+      "accepted_step_fraction": 0.0625,
+      "max_observed_command_change": 0.013585949316620827,
+      "max_observed_hidden_change": 0.01565098762512207,
+      "raw_surrogate_gain": 2.14276496990351e-05,
+      "accepted_parameter_updates": 1,
+      "rejected_parameter_updates": 0
+    },
+    "verification_only_updates": [
+      1,
+      2
+    ],
+    "behavior_candidates": 0,
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-finite-return-trust.py",
+        "sha256": "e282f7205437880327565a80c7733be3df50b5cd18f6cfd850348de3733d6383"
+      },
+      {
+        "path": "runs/finite_return_trust.py",
+        "sha256": "5a6a3483890da94edd476133d3bad865e36db6c33b6301bf2ff176d67af85cd5"
+      },
+      {
+        "path": "runs/finite-return-trust-verification-v1/verification-only-update1.pt",
+        "sha256": "0902e5b3b1b44c5feb4edc64c13122263e816a2cd45938a5b55e54f1f4518c2e"
+      },
+      {
+        "path": "runs/finite-return-trust-verification-v1/invalid-fractions.pt",
+        "sha256": "7e7888d2ad7a3e6985f37ca8a4988c62050144d4df808d76510a2c022aa06ae8"
+      },
+      {
+        "path": "runs/finite-return-trust-verification-v1/expected-rollout.npz",
+        "sha256": "20c0e45a4384920ee947dcc3d44480a4d7f107386a06f37bcf3f1d4b6664734c"
+      },
+      {
+        "path": "runs/finite-return-trust-verification-v1/actual-rollout.npz",
+        "sha256": "20c0e45a4384920ee947dcc3d44480a4d7f107386a06f37bcf3f1d4b6664734c"
+      }
+    ]
+  },
+  "actual_terminal_resume": {
+    "version": "bari-finite-return-trust-terminal-resume-v1",
+    "horizon": 5,
+    "parent": {
+      "path": "runs/finite-return-trust-h5-47/checkpoint-0080.pt",
+      "sha256": "4342ade68a13f475f4a99053fcec4d4dbf72f1fa067880d08aea55735a54d7c1"
+    },
+    "worlds": 4,
+    "verification_only_updates": [
+      81,
+      82
+    ],
+    "candidate_updates": 80,
+    "all_rollout_arrays_exact": true,
+    "all_state_rng_exact": true,
+    "state_and_rollout_leaves_compared": 2651,
+    "fields_excluded": [],
+    "episode_boundary_crossed_here": false,
+    "scope": "Actual four-world continuation/serialization proof; initial separate verification covers an episode boundary. No verification state is a behavioral candidate.",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-finite-return-trust-terminal-resume.py",
+        "sha256": "3cc22eea89fd726281cd5d69e3a90255b243bdfa8b6870a9b1c3448ab4382486"
+      },
+      {
+        "path": "runs/finite-return-trust-terminal-resume-h5/verification-only-81.pt",
+        "sha256": "186778732571b625b091b7b6f12cd5a3b3188d48bd1055bfcaa5a04f915c76be"
+      },
+      {
+        "path": "runs/finite-return-trust-terminal-resume-h5/expected-rollout.npz",
+        "sha256": "76fe770c32dbdbf43b9cd0052f8ae091e851c6f75097c128d9b8acb4160a7f9b"
+      },
+      {
+        "path": "runs/finite-return-trust-terminal-resume-h5/actual-rollout.npz",
+        "sha256": "76fe770c32dbdbf43b9cd0052f8ae091e851c6f75097c128d9b8acb4160a7f9b"
+      }
+    ]
+  },
+  "initial_behavior_proof": [
+    {
+      "seed": 2001,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 2003,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 2011,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 2017,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 2027,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 1594776450,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 589246224,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 1979129855,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 1391038837,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 1899936300,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 995963224,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 113285700,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 1761495214,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 1685651270,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    },
+    {
+      "seed": 1727563011,
+      "all_trajectory_arrays_match_unbounded_control_and_parent": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-finite-return-trust-report.py",
+      "sha256": "7d4753bef8bdc61ca71c772484efa0356685f4b10061ba5ae08497ea65df6146"
+    },
+    {
+      "path": "runs/finite-return-trust-pilot-v1/protocol.json",
+      "sha256": "88e71a0a1229c1a425c93c41b6b749450ba8e479bcce34b229f6b4dc55b203da"
+    },
+    {
+      "path": "reports/finite-return-trust-verification.json",
+      "sha256": "23b25d79b51ede340ac6b2c43c0dd21a8015b18eeedf137edc8927c10ab8b811"
+    },
+    {
+      "path": "runs/finite-return-trust-terminal-resume-h5/proof.json",
+      "sha256": "ca9d8817fd2a20a8d2ce2139a5dbafb1c9a83b51c0711f95788c6552fa42cacc"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/result.json",
+      "sha256": "fc8da4365d8c1d99ad0ac82672b21f93d84cbeaf3bac57635b73910fbe262507"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/training.jsonl",
+      "sha256": "edc32974b0c166a3cc2d4f670e762ccccb86b2172e16a19f2ca838e4fb820c77"
+    },
+    {
+      "path": "runs/finite_return_gradient.py",
+      "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+    },
+    {
+      "path": "runs/finite_return_trust.py",
+      "sha256": "5a6a3483890da94edd476133d3bad865e36db6c33b6301bf2ff176d67af85cd5"
+    },
+    {
+      "path": "runs/verify-finite-return-trust.py",
+      "sha256": "e282f7205437880327565a80c7733be3df50b5cd18f6cfd850348de3733d6383"
+    },
+    {
+      "path": "runs/prepare-finite-return-trust-pilot.py",
+      "sha256": "2fbba2ac5497567c46afe96bcf2f80de585f55087d99d60fd247bb5ff3849f51"
+    },
+    {
+      "path": "runs/run-finite-return-trust.py",
+      "sha256": "03f9336bbc9155fa8c542f3b93e67a6915665dfdb96ebc22e384944eccba531f"
+    },
+    {
+      "path": "runs/verify-finite-return-trust-terminal-resume.py",
+      "sha256": "3cc22eea89fd726281cd5d69e3a90255b243bdfa8b6870a9b1c3448ab4382486"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-113285700.npz",
+      "sha256": "1c4a38de41ae2287cb16a542ed091260c629b7745c3dfd23069800f5c5cbe496"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-1391038837.npz",
+      "sha256": "75d1a07e58bfa340d6874babebcedc7f5cceb4f9928bdca06d94d25b096d6758"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-1594776450.npz",
+      "sha256": "ec53938b39d72138a6d608f482633970c455d3f9956e5662e054eedbfa854cdf"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-1685651270.npz",
+      "sha256": "dbba966d62c0bf46191ac9c969155f49d638cf34e68c2475e5178fac5a4c2e3f"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-1727563011.npz",
+      "sha256": "94baeb6347696ad09d24e63a06ccbc93919c8b6410241626aea86f9ada99790e"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-1761495214.npz",
+      "sha256": "7535a4969274ed011dba1888aad1c839ff22a679d3baa882fadb34bda3c1742d"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-1899936300.npz",
+      "sha256": "6163478026caa640e233d285c8b18812e36c655daa71002f137fe8b174a18cae"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-1979129855.npz",
+      "sha256": "eb7be494252c7de9220b7953c692d946f5dba8a5e108ef68025db54552ba2aa3"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-2001.npz",
+      "sha256": "081c0e09adb5bd2bf407b6a9cf67d90cb2150e1968d2b57a7aae98c3b4fc833d"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-2003.npz",
+      "sha256": "0dd84d4ea2096994988e71a51e06a0dc779ad5d41a0e8fe989e70ac30c61f254"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-2011.npz",
+      "sha256": "abfb49ea440f8c8a2d984155b060b206be641d2153ea841f28921a62a82160b3"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-2017.npz",
+      "sha256": "96fb094ed47581e8be04d1f022e49b92a6dd906364a2f65a17c9990be1db2b52"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-2027.npz",
+      "sha256": "ec5226beab5fc082e2d65b6405dc5eed707bd100db9fdfe0127cff32b2c01477"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-589246224.npz",
+      "sha256": "e67072ebbfe71dfa58cae648716e62714ec26491cec8b66ae1084de7f6969cba"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0000/circle-995963224.npz",
+      "sha256": "0d784a5a09b49b9e5d66aa22866a80157dcff340802fb2b64a4460f6cba05637"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-113285700.npz",
+      "sha256": "d8d057f7658f4028327be55a0a224f236f1210fd37db08de74f4b89023afea99"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-1391038837.npz",
+      "sha256": "0d1f98e005b85fa0ec2754d6c8fe5732f13610f6efbf639a815ce558fd42d0cd"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-1594776450.npz",
+      "sha256": "910c8436119feaf9f30910241d61283e25b7d3665200a95e7aaa5a22033fa525"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-1685651270.npz",
+      "sha256": "801fd4128ae43738468d345a5a99ac102d9f0f75d7a083e2c29a94d255141bb7"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-1727563011.npz",
+      "sha256": "6252672c816a280b68294623b687568427d7e1ee62d144bc872d6f3cbd4be0a4"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-1761495214.npz",
+      "sha256": "a2c217993da9162f9be09e483132df5841e533dc0356f8aadc17e1f637cc31cb"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-1899936300.npz",
+      "sha256": "0a0dd79dca432f2a45428ac4ec984a28c417fe3a7e297312883dca43a920eb23"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-1979129855.npz",
+      "sha256": "0722565f63880a868224b4197801b37f2bcc282229649ce367f788733d68c965"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-2001.npz",
+      "sha256": "30a469d9126d96c36ba6b90628da2fa590c8cc8705b875b78b0162c67d13077d"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-2003.npz",
+      "sha256": "559a2fefab39e19de42b7e346ef31567656a5ddd1de334da02b11315c079d610"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-2011.npz",
+      "sha256": "fe9716ceca56b8f9a41c3e93ffac3559054b01ada6c77907019d1329809b54f1"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-2017.npz",
+      "sha256": "6ae5398b6fc90b303762b60a49581eeed76502733274ac4dc0040a9ebafb6ec3"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-2027.npz",
+      "sha256": "44b5c77aae5dfcbbbcfbfec40b88afeb88fdcfe946e60c8fb9ae6e5b9633b12e"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-589246224.npz",
+      "sha256": "232cc1d026f9ce0a6f1c9807a89604bba5098a8482e6c76936cc46618c26fcde"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0020/circle-995963224.npz",
+      "sha256": "58cfb0b6142878d42e6b7c5f07cf7a31be72ac9b403c79d0c047f3a50e7661e8"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-113285700.npz",
+      "sha256": "5cc77378be936161865becc0a1a2a53d68b61952c02bea1c246f8ff0728efa57"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-1391038837.npz",
+      "sha256": "03ae7a1363ab435f10ad54e77b33cda3fdfb112d86dc3c68888fc85f58e50d0c"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-1594776450.npz",
+      "sha256": "04c71bcc3adf316f4126cde5e95740344128e3d2f2a907324effa94fe6757560"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-1685651270.npz",
+      "sha256": "d9df9280e10806f957cdde0e70dc2628697e241669dbcd31a01f3848a8eff1bc"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-1727563011.npz",
+      "sha256": "cf4b24b22f3d789068527be3f8dbf2f3e4d2303a265a056300b8a55fcbaddfdc"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-1761495214.npz",
+      "sha256": "ba821d120fc04b09c8634cf0861ab45104a5d2897aefa6d6531fca864d8afb00"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-1899936300.npz",
+      "sha256": "1fbc181e41ab27400bb07d1029fa5a26489bad38d35300f805f2440ae3c85f10"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-1979129855.npz",
+      "sha256": "7ab2005a65eb7dbe7dc44b20c28f8b92dbadac01f7193a97e175e08b77984f0b"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-2001.npz",
+      "sha256": "e0ed2ce1b9b05f634db2e41007783c44dc4e5bd3e4fad0f33e96ddf5d68fd4eb"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-2003.npz",
+      "sha256": "df495ba5171f6bedb4cb7f16a58340fe04a93d6007c2fefb99348d7279cd2765"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-2011.npz",
+      "sha256": "8a768f4fdc11da60c64cd2a1acdc73808557682ea824090882589c1103da7cae"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-2017.npz",
+      "sha256": "19f8d70b9d7aaf28e3688296008eef416bc9a5058e2399071edf1568b87eb1e6"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-2027.npz",
+      "sha256": "649e4732b7d949c1f43a7c91189c64d7f92466d01fa7b444cae4636733f5f0ca"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-589246224.npz",
+      "sha256": "c047fa2ce869e3c53eed8e60af67d2d1af5d55c8e8989e1cf60ba3fe9d119e14"
+    },
+    {
+      "path": "runs/finite-return-trust-h5-47/evaluation-0080/circle-995963224.npz",
+      "sha256": "d3a36bcafa4bca416d0a5c39196dcd0cd559f049ad02fa4fc837446d903d2875"
+    }
+  ],
+  "production_source_changed": false,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "decision": "Fixed80 stage fails its development gate despite bounded observed policy/hidden changes. No extension or default promotion; retain all failures."
+}

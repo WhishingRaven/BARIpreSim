@@ -1,0 +1,181 @@
+{
+  "protocol": {
+    "version": "bari-local-follow-dagger1-collection-v1",
+    "planned_utc": "2026-11-03T14:17:08.762643+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "dataset_seed": 31,
+    "episodes": 128,
+    "plan": {
+      "version": "bari-training-plan-v2",
+      "isolated_episode_probability": 1.0,
+      "switch_min_seconds": 3.0,
+      "switch_max_seconds": 15.0,
+      "curriculum_updates": 1000000000,
+      "curriculum_start_probability": 1.0,
+      "position_jitter_start_m": 0.015,
+      "position_jitter_end_m": 0.015,
+      "reserved_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027,
+        10001,
+        10007,
+        10009,
+        10037,
+        10039,
+        44703333,
+        123428096,
+        276102408,
+        289270423,
+        395280002,
+        963550806,
+        1633002371,
+        1864253760
+      ],
+      "tasks": [
+        "follow"
+      ]
+    },
+    "student": {
+      "path": "runs/train-local-follow-no-command-k3-11/checkpoint.pt",
+      "sha256": "6b41bef3fd6d3fe6a6595a9ad7eff15d6c13689848a7a3457c01dc6378fd7c2a",
+      "evidence": "imitation-only",
+      "training_version": "bari-local-follow-no-command-imitation-v1",
+      "action_selection": "deterministic mean",
+      "teacher_intervention_probability": 0.0
+    },
+    "recovery_evidence": {
+      "path": "reports/local-follow-recovery.json",
+      "sha256": "64356e38fe256a0e5b02ccdc5cdc3668caa0016e340de1525c1b6ca4b7a70aa5"
+    },
+    "execution": "Student alone drives followers for all128 full episodes. Local teacher sees the same observation/history and supplies labels only. Original scripted leader remains mission infrastructure. No teacher interventions, no state deletion/teleport/filtering.",
+    "initialization": "Actual existing Trainer reset sampler, all update0, positions +/-3.75mm and independent heading std0.05rad. Uniform chain rotation/translation. Reserve prior validation/held-out and all8 near-diagnostic world seeds.",
+    "teacher": {
+      "version": "local-range-consistent-disk-hypothesis-v3",
+      "speed_gain": 3.0,
+      "turn_gain": 1.2,
+      "feed_speed_m_s": 0.0
+    },
+    "information_boundary": "Only local9/task4/privateGRU feed student; teacher only local9/calibration/observation-derived history. Metadata/pose/order/class diagnostics never enter actor or teacher follower inputs.",
+    "training_after_collection": {
+      "datasets": [
+        "runs/teacher-follow-local-gain3/demonstrations.npz",
+        "runs/teacher-local-follow-dagger1/demonstrations.npz"
+      ],
+      "fresh_seed": 11,
+      "epochs": 40,
+      "constraint": "zero previous-command encoder columns throughout learning",
+      "note": "384 episodes,50percent more optimizer/sample budget than matched256-episode baseline; do not attribute differences solely to new data. Retain every student episode, including failures. Same final13-case and8-case exploration gates before any RL."
+    }
+  },
+  "summary": {
+    "episodes": 128,
+    "student_successes": 109,
+    "student_final_holding": 109,
+    "student_contacts": 3937,
+    "student_walls": 0,
+    "executed_teacher_interventions": 0,
+    "dataset_loader_pass": true
+  },
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/collect-local-follow-dagger1.py",
+      "sha256": "5890fe24f2a64fa63b77c1ceaf171971124fe498e6a561521008ed53144c4573"
+    },
+    {
+      "path": "runs/local_range_consistent_follow.py",
+      "sha256": "fa4a2d98157f88a90531761f1d389eaeeaa0ef26afa7cfd3228c99d1c2f7b252"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/protocol.json",
+      "sha256": "71c7f7c3d63e5f7593e6822da0d9bb1faab6648dee966924e69e387e965fb46d"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/demonstrations.npz",
+      "sha256": "42a7473e6e3fe50cafabd1dfb069228a3fc82b8e84626946cecfda82f8ded23f"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/manifest.json",
+      "sha256": "af14d7755f4a8cac6399d48c1c12b2209570c945bd762ef71a981b64ffe955e8"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/teacher-local-follow-dagger1/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    }
+  ]
+}

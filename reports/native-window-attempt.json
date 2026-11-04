@@ -1,0 +1,51 @@
+{
+  "version": "bari-native-window-attempt-v1",
+  "completed_utc": "2026-11-03T16:00:28.873238+00:00",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "checkpoint": {
+    "path": "runs/constrained-follow-rl-terminal-23/checkpoint.pt",
+    "sha256": "7d5059bb43b72df896279cea0c4a1affb26ac3fa2f71428813a34b19de0f536b"
+  },
+  "command": "MPLBACKEND=MacOSX OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m bari demo --checkpoint runs/constrained-follow-rl-terminal-23/checkpoint.pt --task follow --layout chain --seed 2001 --paused --record --output runs/native-rl50-controls",
+  "observed": {
+    "native_window": "Figure 1, Python, macOS Matplotlib MacOSX",
+    "initial_time_s": 0.0,
+    "mission": "follow",
+    "seed": 2001,
+    "arena_radius_m": 1.0,
+    "five_robot_meshes_and_headings": true,
+    "leader_follower_labels": true,
+    "HUD_model": "GRU-64/training-unvalidated",
+    "FOV_assumption_deg": 60,
+    "sensor_arcs_and_observer_information_label": true,
+    "task_radios_overlay_checkboxes_speed_camera_pause_restart_record_controls_visible": true
+  },
+  "interaction_results": {
+    "coordinate_input_attempts": "Computer Use server error noWindowsAvailable; camera/checkbox changes not verified.",
+    "accessibility_save_figure_button": "Opened the native Save the figure dialog.",
+    "save_dialog": "Output folder/name fields changed via accessibility, but Save remained disabled; subsequent Cancel/Escape requests timed out. No image file claimed.",
+    "causal_attribution": "Undiagnosed native backend/computer-use interaction; not attributed to simulator logic.",
+    "native_full_controls_verified": false
+  },
+  "cleanup": {
+    "owned_process_pid": 78162,
+    "signal": "SIGTERM after checking its exact demo command",
+    "process_exit_code": 143,
+    "physics_advance_or_recording_claimed": false
+  },
+  "remaining": "Repeat actual pause/restart/task/speed/camera/overlay/record/close verification with responsive native input. Existing headless event tests and saved 3D replay remain separate evidence.",
+  "artifacts": [
+    {
+      "path": "runs/native-rl50-controls.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/native-rl50-controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

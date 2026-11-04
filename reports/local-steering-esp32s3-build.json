@@ -1,0 +1,600 @@
+{
+  "version": "bari-local-steering-esp32s3-build-result-v1",
+  "protocol": {
+    "version": "bari-local-steering-firmware-probe-v2",
+    "script": {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-local-steering-firmware-v2.py",
+      "sha256": "7561c12e39255fd6e522403de3c4903629851aa383bc8b11a77e70b0e0788e1f"
+    },
+    "host_export": {
+      "path": "reports/local-steering-operator-export.json",
+      "sha256": "b8aa667d9655804556a302cd2d8350dc3920581981d09438abf94eaaa5419681"
+    },
+    "checkpoint": {
+      "path": "runs/local-steering-verification-v1/verification-only.pt",
+      "sha256": "7feab6ed0d9ac36e034f924b3d56ff4c3086b80bc76675a97b571c54351089b8"
+    },
+    "sdk_commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+    "target": "ESP32-S3",
+    "psram_permitted": false,
+    "internal_sram_bytes": 524288,
+    "assumptions": {
+      "flash_bytes": 2097152,
+      "factory_partition_bytes": 1572864,
+      "cpu_mhz": 240,
+      "control_period_us": 100000,
+      "main_stack_bytes": 8192
+    },
+    "instrumentation_bytes": 7680,
+    "scope": "Verification-only actor/full local-geometry pipeline cross-build and future board benchmark. Exact physical board/flash/control period unconfirmed. No flash/monitor/serial access, motor or sensor use. Static placement is not measured peak RAM/latency or final actor acceptance.",
+    "artifacts": [
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/CMakeLists.txt",
+        "sha256": "bd997bbd9bd2644adbba6eba17dd4d61d37d48faa65f659db504a804c718c870"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/host-adaptation-proof.json",
+        "sha256": "1a1ed08dd082e279adb27699f2e9c1efd565a1e02424bc4b3e97ce6ca4c21b07"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/host-adapted-geometry.dylib",
+        "sha256": "1c93eb3a6aa17bcc109a50d5537f613f4bdfb4815cde774fbdc12eb46c52ed98"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/host-golden-actual.f32",
+        "sha256": "5aad5b16e84376550ba5895e852e3ea09bf8332858033ca888df22142504b54a"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/host-parity",
+        "sha256": "23e8cebfb3fec9fa42dbf3f584377fa44f85c899f92c61ececdea3a22c2cc43d"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/CMakeLists.txt",
+        "sha256": "744d91e845d695974c5e04dcc63596d215af9039ba4939d894eedda381e30319"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/benchmark.cpp",
+        "sha256": "0f3932227cabb7b6a74378831f6bf5f2c59cdd37e5cf785fce92f82f9017b68e"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/actor.hpp",
+        "sha256": "893b9fde761f5b6ee46fa903c922eadd4a500b1fb28fbbdb06c3f19fbff3a564"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/golden_fixture.hpp",
+        "sha256": "2f8979d26dd6507b48e8be702dc9a2b1a45a4d6815d609471326af2f876a3bcf"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local-geometry-table-v1/table.hpp",
+        "sha256": "f06a37aa4043848b44ea1ece24ace00b55b7490867d348771004c3abca3ef33a"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_geometry_bridge.cpp",
+        "sha256": "ed9e6f338da52cf34606d68395d003b9b557fefaf0949c1476fcf3a559b170a3"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_steering_decoder.hpp",
+        "sha256": "8a526cbf3564cbe99a54ad687f9b1a237c0c4ba226635efed225ba59cd7194ca"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_wall_belief.hpp",
+        "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_wall_belief_bridge.cpp",
+        "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/pipeline.hpp",
+        "sha256": "c987a4b964111b07232a58dbfe97e6cd13f17efb63eafdb294b0b361f76b5337"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/partitions.csv",
+        "sha256": "458acb0881a0872b3b9ec40c7534e7cca67ac2653aab9f97876af963d99074a8"
+      },
+      {
+        "path": "runs/firmware-local-steering-operator-probe-v2/sdkconfig.defaults",
+        "sha256": "74dcb6f23d71ce27f506cbd18b137c99b6ccd0e0c4dee4a5d68d77c5ef227f59"
+      }
+    ],
+    "previous_protocol": {
+      "path": "runs/firmware-local-steering-operator-probe-v1/protocol.json",
+      "sha256": "6f2f8dd2898385fe56006827b1147a6763780f229f43aeb69e66d7ab4caaa38c"
+    },
+    "adaptation": {
+      "operator_cases": 1500,
+      "all_candidate_ids_and_features_bit_exact": true,
+      "full_pipeline_steps": 96,
+      "full_pipeline_max_error": 1.0132789611816406e-06,
+      "change": "Comparator and six selected points unchanged; only std::sort implementation replaced with bounded insertion sort. No warning suppression or model/table/config changes.",
+      "failed_build": {
+        "path": "runs/firmware-local-steering-operator-probe-v1/build-result.json",
+        "sha256": "68ecc772970afba7d41d5c6878e751ec8d98334a9858884507c3f0fdbef260fd"
+      },
+      "failed_log": {
+        "path": "runs/firmware-local-steering-operator-probe-v1/build.log",
+        "sha256": "fee8e89c03f29fc92b35f980007333f37f61b1f978e2a49dbeafb19022c1fda6"
+      },
+      "operator_golden": {
+        "path": "runs/local-geometry-verification-v3/operator-golden.npz",
+        "sha256": "88b63134b11ca680bea5633d3ce3d16e203d319679b7f74c3250336846cb9666"
+      },
+      "host_commands": [
+        [
+          "/usr/bin/c++",
+          "-std=c++17",
+          "-O3",
+          "-ffp-contract=off",
+          "-shared",
+          "-fPIC",
+          "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_wall_belief_bridge.cpp",
+          "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_geometry_bridge.cpp",
+          "-o",
+          "runs/firmware-local-steering-operator-probe-v2/host-adapted-geometry.dylib"
+        ],
+        [
+          "/usr/bin/c++",
+          "-std=c++17",
+          "-O3",
+          "-ffp-contract=off",
+          "-I",
+          "runs/firmware-local-steering-operator-probe-v2/main/export_data",
+          "runs/export-local-steering-operator-probe-v1/parity.cpp",
+          "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_wall_belief_bridge.cpp",
+          "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_geometry_bridge.cpp",
+          "-o",
+          "runs/firmware-local-steering-operator-probe-v2/host-parity"
+        ]
+      ],
+      "artifacts": [
+        {
+          "path": "runs/firmware-local-steering-operator-probe-v2/host-adapted-geometry.dylib",
+          "sha256": "1c93eb3a6aa17bcc109a50d5537f613f4bdfb4815cde774fbdc12eb46c52ed98"
+        },
+        {
+          "path": "runs/firmware-local-steering-operator-probe-v2/host-parity",
+          "sha256": "23e8cebfb3fec9fa42dbf3f584377fa44f85c899f92c61ececdea3a22c2cc43d"
+        },
+        {
+          "path": "runs/firmware-local-steering-operator-probe-v2/host-golden-actual.f32",
+          "sha256": "5aad5b16e84376550ba5895e852e3ea09bf8332858033ca888df22142504b54a"
+        }
+      ]
+    }
+  },
+  "build": {
+    "version": "bari-local-steering-firmware-build-v2",
+    "stages": [
+      {
+        "stage": "configure",
+        "command": [
+          "/private/tmp/bari-idf-tools/python_env/idf5.5_py3.9_env/bin/python",
+          "/private/tmp/bari-esp-idf-5.5.1/tools/idf.py",
+          "-C",
+          "/Users/whishingraven/Documents/Github/BARIpreSim/runs/firmware-local-steering-operator-probe-v2",
+          "-B",
+          "/Users/whishingraven/Documents/Github/BARIpreSim/runs/firmware-local-steering-operator-probe-v2/build",
+          "set-target",
+          "esp32s3"
+        ],
+        "exit_code": 0
+      },
+      {
+        "stage": "build",
+        "command": [
+          "/private/tmp/bari-idf-tools/python_env/idf5.5_py3.9_env/bin/python",
+          "/private/tmp/bari-esp-idf-5.5.1/tools/idf.py",
+          "-C",
+          "/Users/whishingraven/Documents/Github/BARIpreSim/runs/firmware-local-steering-operator-probe-v2",
+          "-B",
+          "/Users/whishingraven/Documents/Github/BARIpreSim/runs/firmware-local-steering-operator-probe-v2/build",
+          "build"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "tools": {
+      "xtensa-esp-elf-g++": {
+        "path": "/private/tmp/bari-idf-tools/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp-elf-g++",
+        "version": "xtensa-esp-elf-g++ (crosstool-NG esp-14.2.0_20241119) 14.2.0"
+      },
+      "cmake": {
+        "path": "/private/tmp/bari-idf-tools/tools/cmake/3.30.2/CMake.app/Contents/bin/cmake",
+        "version": "cmake version 3.30.2"
+      },
+      "ninja": {
+        "path": "/private/tmp/bari-idf-tools/tools/ninja/1.12.1/ninja",
+        "version": "1.12.1"
+      }
+    },
+    "sdk": "/private/tmp/bari-esp-idf-5.5.1",
+    "python": "/private/tmp/bari-idf-tools/python_env/idf5.5_py3.9_env/bin/python",
+    "device_run": false,
+    "status": "cross-compiled only"
+  },
+  "application_binary_bytes": 1220480,
+  "linked_sizes": {
+    "dram_data": 0,
+    "dram_bss": 0,
+    "dram_rodata": 0,
+    "dram_other": 0,
+    "used_dram": 0,
+    "dram_total": 0,
+    "used_dram_ratio": 0,
+    "dram_remain": 0,
+    "iram_vectors": 1028,
+    "iram_text": 15356,
+    "iram_other": 0,
+    "used_iram": 16384,
+    "iram_total": 16384,
+    "used_iram_ratio": 1.0,
+    "iram_remain": 0,
+    "diram_data": 10960,
+    "diram_bss": 213720,
+    "diram_text": 38243,
+    "diram_vectors": 0,
+    "diram_rodata": 0,
+    "diram_other": 0,
+    "diram_total": 341760,
+    "used_diram": 262923,
+    "used_diram_ratio": 0.7693205758426966,
+    "diram_remain": 78837,
+    "flash_code": 109148,
+    "flash_rodata": 1045336,
+    "flash_other": 256,
+    "used_flash_non_ram": 1154740,
+    "total_size": 1220327
+  },
+  "actor_flash_bytes": 108044,
+  "lookup_flash_bytes": 853260,
+  "weight_arrays": [
+    {
+      "name": "bari::encoder_weight",
+      "address": 1006940868,
+      "size_bytes": 7168,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c04b2c4"
+    },
+    {
+      "name": "bari::encoder_bias",
+      "address": 1006940612,
+      "size_bytes": 256,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c04b1c4"
+    },
+    {
+      "name": "bari::gru_weight_ih",
+      "address": 1006891460,
+      "size_bytes": 49152,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c03f1c4"
+    },
+    {
+      "name": "bari::gru_weight_hh",
+      "address": 1006842308,
+      "size_bytes": 49152,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c0331c4"
+    },
+    {
+      "name": "bari::gru_bias_ih",
+      "address": 1006841540,
+      "size_bytes": 768,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c032ec4"
+    },
+    {
+      "name": "bari::gru_bias_hh",
+      "address": 1006840772,
+      "size_bytes": 768,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c032bc4"
+    },
+    {
+      "name": "bari::head_weight",
+      "address": 1006840004,
+      "size_bytes": 768,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c0328c4"
+    },
+    {
+      "name": "bari::head_bias",
+      "address": 1006839992,
+      "size_bytes": 12,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c0328b8"
+    }
+  ],
+  "lookup_arrays": [
+    {
+      "name": "bari_geometry_table::predictions",
+      "address": 1006956688,
+      "size_bytes": 842400,
+      "nm_type": "V",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c04f090"
+    },
+    {
+      "name": "bari_geometry_table::radii",
+      "address": 1007800528,
+      "size_bytes": 780,
+      "nm_type": "V",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c11d0d0"
+    },
+    {
+      "name": "bari_geometry_table::cosine",
+      "address": 1007799808,
+      "size_bytes": 720,
+      "nm_type": "V",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c11ce00"
+    },
+    {
+      "name": "bari_geometry_table::sine",
+      "address": 1007799088,
+      "size_bytes": 720,
+      "nm_type": "V",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c11cb30"
+    },
+    {
+      "name": "bari_geometry_table::neutral_squared",
+      "address": 1006948048,
+      "size_bytes": 8640,
+      "nm_type": "V",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c04ced0"
+    }
+  ],
+  "static_buffers": {
+    "state": {
+      "name": "(anonymous namespace)::state",
+      "address": 1070198520,
+      "size_bytes": 168696,
+      "nm_type": "b",
+      "section": ".dram0.bss",
+      "address_hex": "0x3fc9eef8"
+    },
+    "scratch": {
+      "name": "(anonymous namespace)::scratch",
+      "address": 1070163420,
+      "size_bytes": 35100,
+      "nm_type": "b",
+      "section": ".dram0.bss",
+      "address_hex": "0x3fc965dc"
+    },
+    "inference_us": {
+      "name": "(anonymous namespace)::inference_us",
+      "address": 1070155740,
+      "size_bytes": 7680,
+      "nm_type": "b",
+      "section": ".dram0.bss",
+      "address_hex": "0x3fc947dc"
+    }
+  },
+  "golden_fixtures": [
+    {
+      "name": "bari_golden::inputs",
+      "address": 1006835768,
+      "size_bytes": 4224,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c031838"
+    },
+    {
+      "name": "bari_golden::expected",
+      "address": 1006800056,
+      "size_bytes": 35712,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c028cb8"
+    }
+  ],
+  "allocated_external_ram_sections": [],
+  "placement": "Symbol addresses plus containing ELF sections and linker aliases, not nm letter alone. Dummy NOLOAD ranges do not allocate PSRAM.",
+  "device_run": false,
+  "device_peak_ram_bytes": null,
+  "device_latency_ms": null,
+  "device_parity": null,
+  "complete_firmware_headroom_bytes": null,
+  "complete_firmware_deadline_compliance": null,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "scope": "Static cross-build of a verification-only24-input/3-latent actor and full local preprocessing/GRU/decoder. No target board, actual flash/control-period agreement, final trained actor or complete sensor/motor firmware acceptance.",
+  "artifacts": [
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/protocol.json",
+      "bytes": 7230,
+      "sha256": "fe309008f99ad00656845cb41d8935a3e1ae1caeaa7d9d4cb35a8e3a14efd40d"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/sdkconfig",
+      "bytes": 73007,
+      "sha256": "b385efe437dd7d1b918eef7098b885532335a4f7922ce1d43b7ab6e15f8fad80"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/sdkconfig.defaults",
+      "bytes": 356,
+      "sha256": "74dcb6f23d71ce27f506cbd18b137c99b6ccd0e0c4dee4a5d68d77c5ef227f59"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/partitions.csv",
+      "bytes": 137,
+      "sha256": "458acb0881a0872b3b9ec40c7534e7cca67ac2653aab9f97876af963d99074a8"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/configure.log",
+      "bytes": 10814,
+      "sha256": "10cb9871437a020803685fd2d28dfa463c4a4e4125d763f85a0afeffdb984553"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/build.log",
+      "bytes": 127270,
+      "sha256": "d85d36f29475947a7f5ebc5c11138772c1f2ed10aaa8b08f1022ba2b9de61374"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/build-result.json",
+      "bytes": 1784,
+      "sha256": "83e741b058b430c83cc8b445502a024c69946de9e834b4392650510758d3fe70"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/tool-environment.txt",
+      "bytes": 1049,
+      "sha256": "6f06acf9a168186d97eb8fdc80bcd4b395f94b51dfb6035b001bc5c6af8b3ea2"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/tool-environment-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/python-packages.txt",
+      "bytes": 1064,
+      "sha256": "f3c93c2f188023f7ca5ec5a6a0cc4e5bc84f85276adecffb9d6c0616a4b320e2"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/sdk-submodules.txt",
+      "bytes": 2147,
+      "sha256": "3d819503df99d4b793b7c9686e3c09e380a5123e2a9fd5f4d0de4cb0c5663cfc"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/link-size.json",
+      "bytes": 753,
+      "sha256": "453093c8758553f0b1a0f6507a4514b7d9facd63bde6bb4a40c868e5f5ee6d87"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/elf-sections.txt",
+      "bytes": 3574,
+      "sha256": "a1f5f221d9cd6b678f770dbc38890aba32152a22f8ed8cb3a2789cac8c943481"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/elf-symbols.txt",
+      "bytes": 144438,
+      "sha256": "b2da6d31ab3b1bb7989bb40ecbfed041c9680794080160430bb7ef97f17013a0"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/linked-memory.ld",
+      "bytes": 5166,
+      "sha256": "6b6c022134ae6002d8c22a76017b317fa6c9d523cd53eef63180777dc9570c5d"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/linked-sections.ld",
+      "bytes": 105188,
+      "sha256": "157a6c9aad515572c89c16c9f5a36c47ee0147e1f5a5679cec65831f23396584"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/host-adaptation-proof.json",
+      "bytes": 2425,
+      "sha256": "1a1ed08dd082e279adb27699f2e9c1efd565a1e02424bc4b3e97ce6ca4c21b07"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/build/bari_local_steering_benchmark.bin",
+      "bytes": 1220480,
+      "sha256": "eedceb857e6e85c860bb756bad3b9a7578f7145bc8b44e1143443bda3b40763b"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/build/bari_local_steering_benchmark.elf",
+      "bytes": 6087964,
+      "sha256": "ab459fe88b92c690400df49818a86dbc9ad697b31bc37949f830eedbccfcdb71"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/build/bari_local_steering_benchmark.map",
+      "bytes": 2992661,
+      "sha256": "ef713a02484cd1aa70efc8a491c7ded50cf29d5b5216185dc620477cdb616eab"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/build/bootloader/bootloader.bin",
+      "bytes": 21184,
+      "sha256": "dcc7c28ad136736cf8f0917da759bec01469fee800dd22641cbbbd4ed2aa78fa"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/build/partition_table/partition-table.bin",
+      "bytes": 3072,
+      "sha256": "a11982a2601a607baadac94c0f21fdb7fdbf910249ed5ba58af40be62c2ee98a"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/CMakeLists.txt",
+      "bytes": 332,
+      "sha256": "744d91e845d695974c5e04dcc63596d215af9039ba4939d894eedda381e30319"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/benchmark.cpp",
+      "bytes": 4579,
+      "sha256": "0f3932227cabb7b6a74378831f6bf5f2c59cdd37e5cf785fce92f82f9017b68e"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/actor.hpp",
+      "bytes": 475293,
+      "sha256": "893b9fde761f5b6ee46fa903c922eadd4a500b1fb28fbbdb06c3f19fbff3a564"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/golden_fixture.hpp",
+      "bytes": 173872,
+      "sha256": "2f8979d26dd6507b48e8be702dc9a2b1a45a4d6815d609471326af2f876a3bcf"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local-geometry-table-v1/table.hpp",
+      "bytes": 4773979,
+      "sha256": "f06a37aa4043848b44ea1ece24ace00b55b7490867d348771004c3abca3ef33a"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_geometry_bridge.cpp",
+      "bytes": 6028,
+      "sha256": "ed9e6f338da52cf34606d68395d003b9b557fefaf0949c1476fcf3a559b170a3"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_steering_decoder.hpp",
+      "bytes": 781,
+      "sha256": "8a526cbf3564cbe99a54ad687f9b1a237c0c4ba226635efed225ba59cd7194ca"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_wall_belief.hpp",
+      "bytes": 5897,
+      "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/local_wall_belief_bridge.cpp",
+      "bytes": 891,
+      "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+    },
+    {
+      "path": "runs/firmware-local-steering-operator-probe-v2/main/export_data/pipeline.hpp",
+      "bytes": 1651,
+      "sha256": "c987a4b964111b07232a58dbfe97e6cd13f17efb63eafdb294b0b361f76b5337"
+    },
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-local-steering-firmware-report.py",
+      "bytes": 10599,
+      "sha256": "7e4811dabe896967c7be88443ee1e21c509a02b918bb76a44cc39ceb50950098"
+    },
+    {
+      "path": "runs/prepare-local-steering-firmware.py",
+      "bytes": 8060,
+      "sha256": "5aa0846f17233171272f29fda06798aac5fa1537468ef288bbc2563ef27600c5"
+    },
+    {
+      "path": "runs/build-local-steering-firmware.py",
+      "bytes": 2958,
+      "sha256": "1b8fac1960f0af8ba5f816f98d2f8953260ed2ad08a4b6d0beff73db31dcf734"
+    },
+    {
+      "path": "runs/prepare-local-steering-firmware-v2.py",
+      "bytes": 5581,
+      "sha256": "7561c12e39255fd6e522403de3c4903629851aa383bc8b11a77e70b0e0788e1f"
+    },
+    {
+      "path": "runs/build-local-steering-firmware-v2.py",
+      "bytes": 2958,
+      "sha256": "7732e3492308b5cc087dfcc0f56dc85e3426bfe11c143f4d8914bea266974c2b"
+    }
+  ]
+}

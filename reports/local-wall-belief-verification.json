@@ -1,0 +1,106 @@
+{
+  "version": "bari-local-wall-belief-verification-v2",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "specification": {
+    "version": "bari-local-wall-belief-v1",
+    "settings": {
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "wheel_separation": 0.082,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_period": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_mount_radius": 0.045,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0
+    },
+    "feature_order": [
+      "estimated_arena_center_x_body_over_radius",
+      "estimated_arena_center_y_body_over_radius",
+      "local_posterior_confidence"
+    ],
+    "particles": 33660,
+    "state_bytes_per_robot_host_ABI": 168440,
+    "loss_dtype": "float32",
+    "evidence_dtype": "uint8 saturated at6",
+    "numeric_dtype": "float32",
+    "inputs": "six normalized nearest-distance readings and own preceding saturated requests only",
+    "confidence": "Computed local posterior concentration/evidence, not sensor validity, true visibility, a detected-object class or a simulator flag",
+    "reset": "Episode/controller reset only; individual stream masks. Task switches preserve state.",
+    "limitations": "Known circular arena and provisional command model; estimates can be wrong and drift after contact. Host ABI size excludes stack, output, actor and firmware; target RAM/latency not measured."
+  },
+  "geometry_cases": 10000,
+  "max_interior_wall_range_error_m": 3.270670636545958e-07,
+  "host_300_controls_five_robots_elapsed_s": 0.35508841599948937,
+  "exact_serialized_continuation": true,
+  "stream_permutation_exact": true,
+  "individual_reset_exact": true,
+  "initial_shared_actor_tensors_exact": true,
+  "new_encoder_columns_initially_zero": true,
+  "initial_actor_max_output_error": 1.1920928955078125e-07,
+  "initial_actor_output_atol": 2e-07,
+  "controller_world_hidden_belief_resume_exact": true,
+  "unfinished_task_switch_preserves_belief": true,
+  "private_checkpoint_roundtrip_exact": true,
+  "legacy_loader_rejects_new_input_contract": true,
+  "behavior_candidates": 0,
+  "scope": "Local-only prototype correctness and host costs, not learned success or on-device RAM/latency",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-wall-belief.py",
+      "sha256": "0f40732eb89c3cd456859733b1fc56e2ca2cd70d48fafa4e14de9ee4e721801b"
+    },
+    {
+      "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+      "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5"
+    },
+    {
+      "path": "runs/local-wall-belief-verification-v2/verification-only-initial.pt",
+      "sha256": "0994f81f14406f5282ddb301603b56e2c13c34d64b793d9415534959b9b338cf"
+    },
+    {
+      "path": "runs/local-wall-belief-verification-v2/first-teacher-features.npz",
+      "sha256": "9a6cd035343f2595de3ec34fccbc566833dfe6acaf3efa0417702491daca3de6"
+    },
+    {
+      "path": "runs/local_belief_actor.py",
+      "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+    },
+    {
+      "path": "runs/local_wall_belief.py",
+      "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+    },
+    {
+      "path": "runs/local_wall_belief.hpp",
+      "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+    },
+    {
+      "path": "runs/local_wall_belief_bridge.cpp",
+      "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+    },
+    {
+      "path": "runs/local-wall-belief-v1.dylib",
+      "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+    },
+    {
+      "path": "runs/local-wall-belief-build-v1.json",
+      "sha256": "1ca623a34471280f24c76540db5fd682ce1c730652fa0d86b3ce63616d171377"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "version": "bari-local-shape-field-fixtures-v1",
+  "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+  "historical_line_target_commands": [
+    [
+      0.615,
+      -0.615
+    ],
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ],
+    [
+      -0.615,
+      0.615
+    ]
+  ],
+  "repaired_line_target_commands": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "line_detour_at_target_spacing_m_s": 0.009782608695652173,
+  "exact_line_new_controller_zero": true,
+  "exact_square_zero_with_wall_hypotheses": true,
+  "exact_square_blind_center_local_centroid_zero": true,
+  "own_role_permutation_exact": true,
+  "full_episode_history_reset_matches_fresh": true,
+  "scope": "Pure local-geometry fixtures and reset proof only. Fixture geometry is test data, never supplied by simulation truth to deployed/collection control. Does not prove sensing robustness, acquisition or physical safety.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-shape-fields.py",
+      "sha256": "adf596371b9c2efab72946081a78084226fa3ac194ff0ff48010b159548e9758"
+    },
+    {
+      "path": "runs/local_line_history.py",
+      "sha256": "531105a21ceb84dcc70f04bbace60064e4584ebd0b61323add00e46b67e2c439"
+    },
+    {
+      "path": "runs/local_square_field.py",
+      "sha256": "3a7e0f134a8d8f8287fffeb453f23388b4568cfb72c54322e599c6723860d625"
+    },
+    {
+      "path": "runs/local_line_field.py",
+      "sha256": "112d23d24ccd57b1b2eaa159f0fe1ead1abf9b1893c6e21c478332b65d3644ec"
+    }
+  ]
+}

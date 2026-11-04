@@ -1,0 +1,251 @@
+{
+  "protocol": {
+    "version": "bari-energy-learning-health-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "67595eb3f608a496a99663edf59a38166208b69f862a9d9f7097eeeea60c22f1"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 0.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 32,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.0,
+      "reward_error": 0.0,
+      "reward_progress": 0.0,
+      "reward_collision": 0.0,
+      "reward_wall": 0.0,
+      "reward_energy": 1.0,
+      "reward_change": 0.0,
+      "reward_time": 0.0,
+      "obstacles": []
+    },
+    "config_sha256": "a62ef976f228c5b2462ec7bf002d30eb4c1db3b5f5b9841efbb91772f016d7fe",
+    "plan": {
+      "version": "bari-training-plan-v1",
+      "isolated_episode_probability": 1.0,
+      "switch_min_seconds": 3.0,
+      "switch_max_seconds": 15.0,
+      "curriculum_updates": 1000000000,
+      "curriculum_start_probability": 1.0,
+      "position_jitter_start_m": 0.015,
+      "position_jitter_end_m": 0.015,
+      "reserved_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027,
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ]
+    },
+    "seed": 11,
+    "worlds": 2,
+    "updates": 200,
+    "probe_seed": 99,
+    "fixed_inputs": "separate fresh two-world rollout; actor-local observations/task/reset masks only; input history is held fixed for offline amplitude comparison",
+    "initial": {
+      "fixed_input_mean_absolute_command": 0.07201798260211945,
+      "fixed_input_mean_square_command": 0.00794881023466587,
+      "latent_action_std": [
+        0.49658530950546265,
+        0.49658530950546265
+      ]
+    },
+    "scope": "Command-energy-only learning-health experiment. All formation/progress/contact/time costs and entropy weight are zero. Does not establish formation, following, safety or switching success.",
+    "decision": "Use cost/command reduction to separate a basic optimization failure from task-specific learning difficulty; do not promote this actor."
+  },
+  "initial": {
+    "fixed_input_mean_absolute_command": 0.07201798260211945,
+    "fixed_input_mean_square_command": 0.00794881023466587,
+    "latent_action_std": [
+      0.49658530950546265,
+      0.49658530950546265
+    ]
+  },
+  "final": {
+    "fixed_input_mean_absolute_command": 0.01810290291905403,
+    "fixed_input_mean_square_command": 0.0005110529018566012,
+    "latent_action_std": [
+      0.41358834505081177,
+      0.41398119926452637
+    ]
+  },
+  "first_20_mean_absolute_executed_command": 0.3590221002697945,
+  "last_20_mean_absolute_executed_command": 0.3081382691860199,
+  "scope_limit": "Fixed inputs are an offline probe. Executed-command means include the scripted following leader, which is excluded from actor policy gradients. The configuration disables collision costs; safety is not tested.",
+  "artifacts": [
+    {
+      "path": "runs/energy-learning-health/experiment.py",
+      "sha256": "468dfe01b9c05cd322504ca8ebce41c8d4bfaa5c64e7c0b948fd98ba31de86ac"
+    },
+    {
+      "path": "runs/energy-learning-health/fixed-local-inputs.npz",
+      "sha256": "6d0b22dc1bf99e40b3f4bbc817b069e302fb42ea42d0e08700a71726530bedc6"
+    },
+    {
+      "path": "runs/energy-learning-health/initial.pt",
+      "sha256": "95fb7a3b60417c1e548d3ad9f1ff34300b13a34c49852b3bba79ba7c13e29920"
+    },
+    {
+      "path": "runs/energy-learning-health/protocol.json",
+      "sha256": "4f94dadb353837b569a518ff4d10f63bbe6ede3836572c7987e050d473567e0e"
+    },
+    {
+      "path": "runs/energy-learning-health/training/checkpoint.pt",
+      "sha256": "9ae000c8d413eb15982034877cd9ef937c7df981f0c95253e5c8112c44be45f4"
+    },
+    {
+      "path": "runs/energy-learning-health/training/collector_spec.json",
+      "sha256": "e1573206170b42efb608fccca8a8b9cd7c4ce2fc21d9feb0a159ae31c097feef"
+    },
+    {
+      "path": "runs/energy-learning-health/training/config.json",
+      "sha256": "5ea9db039b5817aac8d72d70c49bf3d2c613557dea1b335e4e172b2545452a6b"
+    },
+    {
+      "path": "runs/energy-learning-health/training/revision.json",
+      "sha256": "15c9fcb4b780c159e01277cadeaccda8aa3389c7c0ed54e28db9b541f8e3e116"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/baseline.py",
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/cli.py",
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/curriculum.py",
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/imitation.py",
+      "sha256": "e533a7e764ac4ec604d52b3a620afe3d86c9679d3484b73e40e6a71e864fcbfe"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/energy-learning-health/training/source/train.py",
+      "sha256": "4b4ded3888956315f271c711094a305cd1d70c68c7215bea4cfaf2e0e38df90d"
+    },
+    {
+      "path": "runs/energy-learning-health/training/training.jsonl",
+      "sha256": "f380451cb20dafbef5087556a7a5e04663483c260eacb18d447ebc004cb039c6"
+    },
+    {
+      "path": "runs/energy-learning-health/training/training_plan.json",
+      "sha256": "dc2a4217ac0f9b09c0fe3d8c6b605fb8be54e1d288915fcd92b4e41997511c14"
+    }
+  ]
+}

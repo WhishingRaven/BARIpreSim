@@ -1,0 +1,1104 @@
+{
+  "protocol": {
+    "version": "bari-local-line-gain-probe-v3",
+    "planned_utc": "2026-11-03T20:22:05.053113+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "teacher_version": "local-line-history-alignment-v3",
+    "development_seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "larger_seeds": [
+      699746730,
+      947396588,
+      42032562,
+      2127349747,
+      25694697,
+      579260204,
+      942757825,
+      443028831,
+      661446613,
+      1395342943,
+      599446967,
+      202538306,
+      1362798069,
+      188944437,
+      780309098,
+      1705089267,
+      1619859460,
+      418962923,
+      1525466569,
+      195523468
+    ],
+    "maintenance_angles_rad": [
+      0.0,
+      0.37,
+      1.1,
+      2.2
+    ],
+    "geometry": "Five anonymous equally spaced line points at0.17m, using only local inferred-body PCA and nearest projected gaps; no role-specific target or global orientation. All-five invariant evaluator unchanged.",
+    "information_boundary": "Only current local9, retained own command/range history and provisional calibration. No true pose/wheels, hit class, object ID/count, evaluator target assignment or errors enter teacher actions.",
+    "repair": "Only perpendicular PCA-alignment gain1 to3. Same max translation0.04m/s, yaw limits, v2 local wall history,15mm inferred-normal closing clearance and158/165mm activations. Same30s timeout and all-five success thresholds; no budget extension or physical safety claim.",
+    "historical_baseline": {
+      "path": "reports/local-line-history.json",
+      "sha256": "2ae61673526ee0b07a36107ca0d67f62d2f00d1d84febb22150826701d53b7b9"
+    },
+    "preparation_script": {
+      "path": "runs/prepare-local-line-gain-probe.py",
+      "sha256": "76a3e54e39c1e24c8c35fa653b165ed3b7859bbea23e0a7ab74c57314f34a25d"
+    },
+    "motion_and_safety": "Provisional own-command differential-drive integration; local inferred-normal velocity projection and speed limits, no physical safety guarantee or ground-truth mask.",
+    "selection": "Require4/4 random official successes AND final holds, zero total safety attempts, and4/4 exact-line maintenance holds with zero safety before fixed20 random cases. Then require>=18/20 success/holds with zero safety. No training, default promotion or automatic data collection; retain all failures without extensions.",
+    "sources": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-line-gain.py",
+        "sha256": "44672fafcc2e4db9f53da83ea2407179ee5f319aedda456633b633cab9b1dff0"
+      },
+      {
+        "path": "runs/local_line_gain.py",
+        "sha256": "31328e4e5cbd681ae826e614a96676fabeb0f9bd874d78a88a065907a369e990"
+      },
+      {
+        "path": "runs/local_line_history.py",
+        "sha256": "531105a21ceb84dcc70f04bbace60064e4584ebd0b61323add00e46b67e2c439"
+      },
+      {
+        "path": "runs/local_circle_cooperative.py",
+        "sha256": "14fa30084b3bbf6c5aea7fe171547497b8b906a94e6424a4f95223c8c647ae9d"
+      },
+      {
+        "path": "runs/local_circle_history.py",
+        "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+      },
+      {
+        "path": "runs/local_circle_guarded.py",
+        "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+      }
+    ],
+    "scope": "Host-only unlearned line feasibility. Hypothetical FOV60 and unmeasured geometry/timing. Not GRU-RL, four-task, occlusion, final-heldout or deployment acceptance."
+  },
+  "cases": [
+    {
+      "seed": 9101,
+      "condition": "maintenance-0",
+      "final": {
+        "rms_error_m": 0.0032255076285724995,
+        "max_error_m": 0.003985389828593401,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0038336009142810714,
+        "peak_max_error_m": 0.009639633711707176,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 2.5002347809565273
+      },
+      "recording": "runs/local-line-gain-v3/maintenance-0-9101.npz",
+      "local_inputs": "runs/local-line-gain-v3/maintenance-0-9101-local-inputs.npz",
+      "center_ready_fraction": 0.39666666666666667
+    },
+    {
+      "seed": 9102,
+      "condition": "maintenance-1",
+      "final": {
+        "rms_error_m": 0.0006886467803295694,
+        "max_error_m": 0.0011707991627106383,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.001101725088681187,
+        "peak_max_error_m": 0.0025115501361908654,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 0.36957788474713743
+      },
+      "recording": "runs/local-line-gain-v3/maintenance-1-9102.npz",
+      "local_inputs": "runs/local-line-gain-v3/maintenance-1-9102-local-inputs.npz",
+      "center_ready_fraction": 0.3973333333333333
+    },
+    {
+      "seed": 9103,
+      "condition": "maintenance-2",
+      "final": {
+        "rms_error_m": 0.000958955639436278,
+        "max_error_m": 0.0012142397182877604,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0011146993165378513,
+        "peak_max_error_m": 0.0020058327516531446,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 0.4687150221229504
+      },
+      "recording": "runs/local-line-gain-v3/maintenance-2-9103.npz",
+      "local_inputs": "runs/local-line-gain-v3/maintenance-2-9103-local-inputs.npz",
+      "center_ready_fraction": 0.39666666666666667
+    },
+    {
+      "seed": 9104,
+      "condition": "maintenance-3",
+      "final": {
+        "rms_error_m": 0.0016765625443489012,
+        "max_error_m": 0.0023281600707883167,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0022934371791543612,
+        "peak_max_error_m": 0.004528341493405543,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 2.287597464903713
+      },
+      "recording": "runs/local-line-gain-v3/maintenance-3-9104.npz",
+      "local_inputs": "runs/local-line-gain-v3/maintenance-3-9104-local-inputs.npz",
+      "center_ready_fraction": 0.3973333333333333
+    },
+    {
+      "seed": 3001,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.004937836583994047,
+        "max_error_m": 0.006878601981240872,
+        "success": true,
+        "acquisition_s": 16.8,
+        "holding_goal": true,
+        "hold_s": 13.199999999999969,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06117714766358971,
+        "peak_max_error_m": 0.20539655961195127,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 13.334131473595276
+      },
+      "recording": "runs/local-line-gain-v3/development-3001.npz",
+      "local_inputs": "runs/local-line-gain-v3/development-3001-local-inputs.npz",
+      "center_ready_fraction": 0.7913333333333333
+    },
+    {
+      "seed": 3007,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.0027190471101762757,
+        "max_error_m": 0.004459393747740731,
+        "success": true,
+        "acquisition_s": 3.9999999999999987,
+        "holding_goal": true,
+        "hold_s": 26.0000000000001,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.018961766665570545,
+        "peak_max_error_m": 0.17197178708520375,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 4.657820653492405
+      },
+      "recording": "runs/local-line-gain-v3/development-3007.npz",
+      "local_inputs": "runs/local-line-gain-v3/development-3007-local-inputs.npz",
+      "center_ready_fraction": 0.9393333333333334
+    },
+    {
+      "seed": 3011,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.002970846271811427,
+        "max_error_m": 0.003820747417776313,
+        "success": true,
+        "acquisition_s": 12.599999999999998,
+        "holding_goal": true,
+        "hold_s": 17.399999999999977,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.04665855620538183,
+        "peak_max_error_m": 0.17332652256523334,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 8.616487463089229
+      },
+      "recording": "runs/local-line-gain-v3/development-3011.npz",
+      "local_inputs": "runs/local-line-gain-v3/development-3011-local-inputs.npz",
+      "center_ready_fraction": 0.79
+    },
+    {
+      "seed": 3019,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.0036828600071658188,
+        "max_error_m": 0.005190379224781753,
+        "success": true,
+        "acquisition_s": 18.7,
+        "holding_goal": true,
+        "hold_s": 11.299999999999976,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07067615936017486,
+        "peak_max_error_m": 0.1902711684628427,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 12.247344460762521
+      },
+      "recording": "runs/local-line-gain-v3/development-3019.npz",
+      "local_inputs": "runs/local-line-gain-v3/development-3019-local-inputs.npz",
+      "center_ready_fraction": 0.7546666666666667
+    },
+    {
+      "seed": 699746730,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.005124871545233017,
+        "max_error_m": 0.0063039079852349215,
+        "success": true,
+        "acquisition_s": 19.6,
+        "holding_goal": true,
+        "hold_s": 10.399999999999979,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.11071314550598703,
+        "peak_max_error_m": 0.37581705079917915,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 13.364756726016175
+      },
+      "recording": "runs/local-line-gain-v3/larger-699746730.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-699746730-local-inputs.npz",
+      "center_ready_fraction": 0.9853333333333333
+    },
+    {
+      "seed": 947396588,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.08017806517243817,
+        "max_error_m": 0.1378734652318649,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.15729930301472392,
+        "peak_max_error_m": 0.19453934976085596,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 16.731420299515325
+      },
+      "recording": "runs/local-line-gain-v3/larger-947396588.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-947396588-local-inputs.npz",
+      "center_ready_fraction": 0.8333333333333334
+    },
+    {
+      "seed": 42032562,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.0917408389317198,
+        "max_error_m": 0.12413349598742401,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.19022368951107582,
+        "peak_max_error_m": 0.34814142869984754,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 16.5722199763373
+      },
+      "recording": "runs/local-line-gain-v3/larger-42032562.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-42032562-local-inputs.npz",
+      "center_ready_fraction": 0.7893333333333333
+    },
+    {
+      "seed": 2127349747,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.0122563182535261,
+        "max_error_m": 0.018025572557319822,
+        "success": true,
+        "acquisition_s": 7.699999999999999,
+        "holding_goal": true,
+        "hold_s": 22.300000000000047,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.052332549874662945,
+        "peak_max_error_m": 0.31208098471282586,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.029720228028835
+      },
+      "recording": "runs/local-line-gain-v3/larger-2127349747.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-2127349747-local-inputs.npz",
+      "center_ready_fraction": 0.7933333333333333
+    },
+    {
+      "seed": 25694697,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.002385689824460766,
+        "max_error_m": 0.0031321657696240113,
+        "success": true,
+        "acquisition_s": 10.099999999999998,
+        "holding_goal": true,
+        "hold_s": 19.900000000000013,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0617787838954339,
+        "peak_max_error_m": 0.3298992028604293,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.504302806943861
+      },
+      "recording": "runs/local-line-gain-v3/larger-25694697.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-25694697-local-inputs.npz",
+      "center_ready_fraction": 0.978
+    },
+    {
+      "seed": 579260204,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.07466436277435738,
+        "max_error_m": 0.10423891871666789,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.20906368952214258,
+        "peak_max_error_m": 0.4783755681975826,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 16.244679743602006
+      },
+      "recording": "runs/local-line-gain-v3/larger-579260204.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-579260204-local-inputs.npz",
+      "center_ready_fraction": 0.798
+    },
+    {
+      "seed": 942757825,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.008011203714535989,
+        "max_error_m": 0.010205536008796902,
+        "success": true,
+        "acquisition_s": 6.399999999999999,
+        "holding_goal": true,
+        "hold_s": 23.600000000000065,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.034996948342992135,
+        "peak_max_error_m": 0.21884072378131533,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.210139645143243
+      },
+      "recording": "runs/local-line-gain-v3/larger-942757825.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-942757825-local-inputs.npz",
+      "center_ready_fraction": 0.7933333333333333
+    },
+    {
+      "seed": 443028831,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.08389451741316684,
+        "max_error_m": 0.1463647692931802,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1674143262606278,
+        "peak_max_error_m": 0.2528517102166198,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 16.7098612345784
+      },
+      "recording": "runs/local-line-gain-v3/larger-443028831.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-443028831-local-inputs.npz",
+      "center_ready_fraction": 0.976
+    },
+    {
+      "seed": 661446613,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.005291481837062006,
+        "max_error_m": 0.007586819050106219,
+        "success": true,
+        "acquisition_s": 8.399999999999999,
+        "holding_goal": true,
+        "hold_s": 21.600000000000037,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.04897129148523613,
+        "peak_max_error_m": 0.2514060278569469,
+        "reacquisition_s": [
+          0.7000000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.611508538640806
+      },
+      "recording": "runs/local-line-gain-v3/larger-661446613.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-661446613-local-inputs.npz",
+      "center_ready_fraction": 0.9513333333333334
+    },
+    {
+      "seed": 1395342943,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.00367713033713377,
+        "max_error_m": 0.0051600259394726155,
+        "success": true,
+        "acquisition_s": 15.999999999999998,
+        "holding_goal": true,
+        "hold_s": 13.999999999999966,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.08038510816718308,
+        "peak_max_error_m": 0.30217821330891687,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 11.387254664933403
+      },
+      "recording": "runs/local-line-gain-v3/larger-1395342943.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-1395342943-local-inputs.npz",
+      "center_ready_fraction": 0.9826666666666667
+    },
+    {
+      "seed": 599446967,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.08926634895299321,
+        "max_error_m": 0.1581368761898915,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1419742322832951,
+        "peak_max_error_m": 0.19452548106357156,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 14.998133727210952
+      },
+      "recording": "runs/local-line-gain-v3/larger-599446967.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-599446967-local-inputs.npz",
+      "center_ready_fraction": 0.596
+    },
+    {
+      "seed": 202538306,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.008957950681116855,
+        "max_error_m": 0.01189945844803699,
+        "success": true,
+        "acquisition_s": 7.699999999999999,
+        "holding_goal": true,
+        "hold_s": 22.300000000000047,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.04502472258338807,
+        "peak_max_error_m": 0.2435449195721308,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 4.8144537382174795
+      },
+      "recording": "runs/local-line-gain-v3/larger-202538306.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-202538306-local-inputs.npz",
+      "center_ready_fraction": 0.9846666666666667
+    },
+    {
+      "seed": 1362798069,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.007169388413608706,
+        "max_error_m": 0.009272513917848271,
+        "success": true,
+        "acquisition_s": 7.299999999999999,
+        "holding_goal": true,
+        "hold_s": 22.700000000000053,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.04459878415413362,
+        "peak_max_error_m": 0.2457400136647381,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.64995707653988
+      },
+      "recording": "runs/local-line-gain-v3/larger-1362798069.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-1362798069-local-inputs.npz",
+      "center_ready_fraction": 0.9873333333333333
+    },
+    {
+      "seed": 188944437,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.0031575287259653115,
+        "max_error_m": 0.003858501968383028,
+        "success": true,
+        "acquisition_s": 9.599999999999998,
+        "holding_goal": true,
+        "hold_s": 20.40000000000002,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.032837976626781853,
+        "peak_max_error_m": 0.17049830761264204,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.67997405095011
+      },
+      "recording": "runs/local-line-gain-v3/larger-188944437.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-188944437-local-inputs.npz",
+      "center_ready_fraction": 0.9793333333333333
+    },
+    {
+      "seed": 780309098,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.12564881299575822,
+        "max_error_m": 0.1629358599956982,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1918173387736137,
+        "peak_max_error_m": 0.35064524002058395,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 15.360703619384871
+      },
+      "recording": "runs/local-line-gain-v3/larger-780309098.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-780309098-local-inputs.npz",
+      "center_ready_fraction": 0.792
+    },
+    {
+      "seed": 1705089267,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.004303481463639649,
+        "max_error_m": 0.005476709332413623,
+        "success": true,
+        "acquisition_s": 24.5,
+        "holding_goal": true,
+        "hold_s": 5.4999999999999964,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.09390706058004375,
+        "peak_max_error_m": 0.22666216384581284,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 12.828002598948904
+      },
+      "recording": "runs/local-line-gain-v3/larger-1705089267.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-1705089267-local-inputs.npz",
+      "center_ready_fraction": 0.79
+    },
+    {
+      "seed": 1619859460,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.004706510058357043,
+        "max_error_m": 0.006743562545774467,
+        "success": true,
+        "acquisition_s": 5.699999999999999,
+        "holding_goal": true,
+        "hold_s": 24.300000000000075,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03306317847104936,
+        "peak_max_error_m": 0.21850659368302175,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 3.8069261887080637
+      },
+      "recording": "runs/local-line-gain-v3/larger-1619859460.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-1619859460-local-inputs.npz",
+      "center_ready_fraction": 0.7893333333333333
+    },
+    {
+      "seed": 418962923,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.004703516189831893,
+        "max_error_m": 0.006103672366487882,
+        "success": true,
+        "acquisition_s": 9.999999999999998,
+        "holding_goal": true,
+        "hold_s": 20.000000000000014,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03697567303530357,
+        "peak_max_error_m": 0.17755922421818235,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.28925405097763
+      },
+      "recording": "runs/local-line-gain-v3/larger-418962923.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-418962923-local-inputs.npz",
+      "center_ready_fraction": 0.7873333333333333
+    },
+    {
+      "seed": 1525466569,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.004579156907696571,
+        "max_error_m": 0.006098332936597694,
+        "success": true,
+        "acquisition_s": 5.099999999999998,
+        "holding_goal": true,
+        "hold_s": 24.900000000000084,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.022120740398839694,
+        "peak_max_error_m": 0.1493439173513774,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.566739632310212
+      },
+      "recording": "runs/local-line-gain-v3/larger-1525466569.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-1525466569-local-inputs.npz",
+      "center_ready_fraction": 0.7913333333333333
+    },
+    {
+      "seed": 195523468,
+      "condition": "larger",
+      "final": {
+        "rms_error_m": 0.006547323330704715,
+        "max_error_m": 0.010010713002117316,
+        "success": true,
+        "acquisition_s": 7.899999999999999,
+        "holding_goal": true,
+        "hold_s": 22.100000000000044,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.04205799830884812,
+        "peak_max_error_m": 0.21210171389070462,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.145291775437979
+      },
+      "recording": "runs/local-line-gain-v3/larger-195523468.npz",
+      "local_inputs": "runs/local-line-gain-v3/larger-195523468-local-inputs.npz",
+      "center_ready_fraction": 0.7906666666666666
+    }
+  ],
+  "summary": {
+    "maintenance": {
+      "episodes": 4,
+      "successes": 4,
+      "final_holds": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.002174647195095029
+    },
+    "development": {
+      "episodes": 4,
+      "successes": 4,
+      "final_holds": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.005087280592884918
+    },
+    "larger": {
+      "episodes": 20,
+      "successes": 14,
+      "final_holds": 14,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.04717804386214702
+    }
+  },
+  "permutation_replay": {
+    "all300_commands_exact": true,
+    "permutation_including_center_role": [
+      3,
+      1,
+      4,
+      0,
+      2
+    ],
+    "no_robot_index_assignment_in_teacher": true
+  },
+  "selected_for_separately_planned_data_only": false,
+  "GRU_or_RL_training_updates": 0,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "artifacts": [
+    {
+      "path": "runs/local-line-gain-v3/protocol.json",
+      "sha256": "f2290efa20b983ee3ef8f383f2861544e812c859d2606db42f6e3b35a252936d"
+    },
+    {
+      "path": "runs/local-line-gain-v3/maintenance-0-9101.npz",
+      "sha256": "79fef3faa10463c819b59ec513df20a18e14c84381dbada156e4e18eb94df928"
+    },
+    {
+      "path": "runs/local-line-gain-v3/maintenance-0-9101-local-inputs.npz",
+      "sha256": "95ab66e92188a7f0e27e37adf825d34bc1d0ab398a01a585228a12d7f6c67f7f"
+    },
+    {
+      "path": "runs/local-line-gain-v3/maintenance-1-9102.npz",
+      "sha256": "d59b75654ca86f9c52c1dd20c478e4604a4f48c246a0bf6f15aa4b7e3ea7528b"
+    },
+    {
+      "path": "runs/local-line-gain-v3/maintenance-1-9102-local-inputs.npz",
+      "sha256": "fb8debe5b9b8b7244950722d7317d41d1e5072f8d6246c983c705d5e1568ffe1"
+    },
+    {
+      "path": "runs/local-line-gain-v3/maintenance-2-9103.npz",
+      "sha256": "44f6bf1dae71e445ea80815f8a5538a9812970ff716f35658689e0193c4a76a8"
+    },
+    {
+      "path": "runs/local-line-gain-v3/maintenance-2-9103-local-inputs.npz",
+      "sha256": "eeb14cbf27d0917f367c1abbf3c03dec6fdf8576e0833fb5e42d615507753fed"
+    },
+    {
+      "path": "runs/local-line-gain-v3/maintenance-3-9104.npz",
+      "sha256": "bd7a28e3cbe11aab7670914c750d096be2240ba282b2cda8c94c5045c6426eb4"
+    },
+    {
+      "path": "runs/local-line-gain-v3/maintenance-3-9104-local-inputs.npz",
+      "sha256": "3e8e6e8fc7d2ee6672601ffd536c43649f2cb64eb8d8eedeb8d60b06c9387e4c"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3001.npz",
+      "sha256": "b31b409be4b0a1c190598b92bd96f95333a6f3dc334a4effa6fb8786de833f29"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3001-local-inputs.npz",
+      "sha256": "1af1eea8d0cd3696347662c22282d675385f4705639db5b349856efc6c0ada6f"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3007.npz",
+      "sha256": "f63a7b2bd09e08c919e8943100ff0010047eb451a311a52c95edd6c511b84be6"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3007-local-inputs.npz",
+      "sha256": "fca5b50aa9b2753b2e048bbede8a7067b229d07143970434464364f97d8ed46b"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3011.npz",
+      "sha256": "99c99e14d31d499e31ce339568062f9751e476c0e95f4e7eaae9e6efdf6b9ee7"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3011-local-inputs.npz",
+      "sha256": "8760a7c35871b7de97f39ce49b0816d2752a3c926474652f90457e47d93198f2"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3019.npz",
+      "sha256": "63b1c7305c5dcc61921599b3d23a485f2429dbf6f9fb92e789471b30211072a2"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3019-local-inputs.npz",
+      "sha256": "65b711e08546bdff9905e134e7c243978f997ef7ba82eaa6f2a755e267290fcb"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-699746730.npz",
+      "sha256": "7f3fdce128b8bd1b5ad8a05c5ec536e1bc200a99b7c1a25c424fb816454b3611"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-699746730-local-inputs.npz",
+      "sha256": "af266ca756577a2af44431472d1d2423be5b1c23e0d48caca9f62e1b2306e774"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-947396588.npz",
+      "sha256": "1ccf17540eb1a391cba71cff4cb869595a42c71845152ae397d063181e5f50ee"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-947396588-local-inputs.npz",
+      "sha256": "f40cfb5fe87468d081f29f2808161634771e1bc99ccb9676e362eb15ee4556dc"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-42032562.npz",
+      "sha256": "b4709a101dcef18a47491af455a13b27c9eb635e93732f1b1e4c8e2fd4fc6ef7"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-42032562-local-inputs.npz",
+      "sha256": "1038ccfe484dd3ba3ab67f02fe544e40fda397f7c944a690058fd281a66b579f"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-2127349747.npz",
+      "sha256": "3fef22935127ff7346d7cba5f9b6d79c6c21e6fbb47351e947549cfe37615f17"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-2127349747-local-inputs.npz",
+      "sha256": "c8ce29a77d0a89027d21f3ae087be70576465ca8e7d71959728e6bb225d3d3a7"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-25694697.npz",
+      "sha256": "e02db4361ae63e55c586939e17faa83fdb9972d119e62e791b857de9dd29d706"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-25694697-local-inputs.npz",
+      "sha256": "6ce5221869d86059a2c0e91ff49697a0bac0b278190905760808d9a70400d56d"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-579260204.npz",
+      "sha256": "5cd36b304fd631762c1000ea4f5d2154278e96023c259d48ba90040c61557e92"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-579260204-local-inputs.npz",
+      "sha256": "a521478d173e4769fe2ec79eabb7a4f41c0a0ba12f8714ad351f5ae13e80adaa"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-942757825.npz",
+      "sha256": "0a5413ec076d5eaff4682f3848479c93fb256365e3d25ee7c2182aec464b7088"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-942757825-local-inputs.npz",
+      "sha256": "8703b10113fb7eeea466ec186c0bdf9782f3394a36fae5bdb3dd4b5c6109430a"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-443028831.npz",
+      "sha256": "57eaa606fa53dc5f03ed13d2a8cd0c3739bfe813119d583a6ca0f038fd4e04f6"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-443028831-local-inputs.npz",
+      "sha256": "06c3a28d8306167df83367d93afe1e551cb93383c8d8a22333ff5bd53f6ff7c5"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-661446613.npz",
+      "sha256": "1e9d383a6498860a27618727aecddd1d4e507f980219a348628d9ad0d350e9fa"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-661446613-local-inputs.npz",
+      "sha256": "88fd0b0245340f27ba1c04795734032676b891ac481490310095f6c5953f6f4e"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1395342943.npz",
+      "sha256": "6438ed31de379a2aaa04848913f15faa27876ae9d99ffaeab19b8893dfaf3394"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1395342943-local-inputs.npz",
+      "sha256": "f92fa7a57e0825e85b1f637616720e8f30dbe3fb8c1cddf00f9889b8b26c6491"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-599446967.npz",
+      "sha256": "4b94e0e7456640018807e8e09eba2c664ce836d7db3d06c9863186fe9ac35e8c"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-599446967-local-inputs.npz",
+      "sha256": "cda94e971d8d6eb154db0d7e17f68df703274450e13afaa34842b84c504961ac"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-202538306.npz",
+      "sha256": "89638875dfa590ffc6a2f956667514a4a9c05d130bfc60f20a82d1c102f7d4a3"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-202538306-local-inputs.npz",
+      "sha256": "48e62acd64f127e2377b008afc4626e86394d31edb73c275c6d15c99411b3239"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1362798069.npz",
+      "sha256": "4f4b92a717ad2363f6adcfe887e32737f3042aa010e881460bb2d4ed31486d3e"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1362798069-local-inputs.npz",
+      "sha256": "93d31d5b70c4ad1d055b865b801d8a838c67ba41d8eb0c3e1136d0dfe84fef95"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-188944437.npz",
+      "sha256": "b35917b70b5c4ee19c565f8ca13ccdc2c6d9eed88abe979996e1d29bb0505704"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-188944437-local-inputs.npz",
+      "sha256": "949475b5e5c7b26a92ac42f33208337340a78a9bef924a6ab5c82b039ed157c2"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-780309098.npz",
+      "sha256": "9974c8f871684f23444901d612a2ce2381500657ac96f21df989a03a661322da"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-780309098-local-inputs.npz",
+      "sha256": "43d8d5d8569c4460cc2cb33ecededf800d4091592eb2c9ff1f1514aa55206141"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1705089267.npz",
+      "sha256": "308c6a31ac5fe7d3f8cbd43c6ac4e63bdfb99d771e056117883041ba6cce83a2"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1705089267-local-inputs.npz",
+      "sha256": "90bbb0c513abad0a0727a69ac4aedbe5a467710955fc6b27a0f93acca8a8b7e1"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1619859460.npz",
+      "sha256": "7727d97925382c55fb9a07232627b9ace75f76425998ee51123c11ecf5e2b4b9"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1619859460-local-inputs.npz",
+      "sha256": "85e7c2c450064487b9e737c4248450f6f3f44569c9b0c63decac00ec39541d57"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-418962923.npz",
+      "sha256": "4b524e9b103aa36f17f0e17be45dff8e004e462419b4e305de4d243493e4001d"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-418962923-local-inputs.npz",
+      "sha256": "e82d081a49d52cde841ad8de20ed7082f7b21abb60c4439dcd5e7e858f06e6ef"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1525466569.npz",
+      "sha256": "67e40b102e9d10b69c86cc71aaaefda0c430de81a959e179894650ed6c877d3b"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-1525466569-local-inputs.npz",
+      "sha256": "2246e98e5cf60528a4ac940310a733c833bbd237f606c26bcbdf9fa9d6b684cb"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-195523468.npz",
+      "sha256": "25ecc79c13f6b81f0f99a3a51f5d344f79e0ca67a62032c5a28f826599b29c58"
+    },
+    {
+      "path": "runs/local-line-gain-v3/larger-195523468-local-inputs.npz",
+      "sha256": "7354085be7e922e94efd6328ae719faa624d721f0e927ae40c6dd90c7adcf20f"
+    }
+  ]
+}

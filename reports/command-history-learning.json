@@ -1,0 +1,2350 @@
+{
+  "version": "bari-command-history-learning-report-v1",
+  "observed_utc": "2026-11-03T12:15:33.664053+00:00",
+  "status": "active goal; no accepted learned policy",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+  },
+  "verification": "Core Python source unchanged from frozen 145-test package; experiment scripts are separate and hashed.",
+  "actor_internal_sensitivity": {
+    "protocol": {
+      "version": "bari-command-feedback-gain-v1",
+      "planned_utc": "2026-11-03T11:59:05.384905+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      },
+      "dataset": {
+        "path": "runs/teacher-follow-h64/demonstrations.npz",
+        "sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9"
+      },
+      "models": {
+        "h64": {
+          "path": "runs/follow-h64-actor-terminal-11/checkpoint.pt",
+          "sha256": "c5020c7c2c1facfb3128d4597808f5ab697956086298bf25329c54bedb129f4c"
+        },
+        "student-aggregate": {
+          "path": "runs/follow-dagger1-actor-terminal-11/checkpoint.pt",
+          "sha256": "83fce7db8275a599eab3fd9d5eca072dac20f6b95f5b4492adef4a28d4667d6a"
+        },
+        "assisted-aggregate": {
+          "path": "runs/follow-assistance-assisted-terminal-11/checkpoint.pt",
+          "sha256": "3d507ded543a08d69efd2d04b021e074e8838e6becabd14b0891129927000bf8"
+        }
+      },
+      "episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "robots": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "start_steps": [
+        0,
+        10,
+        50,
+        100,
+        200
+      ],
+      "epsilon_requested_command": 0.0001,
+      "horizon_steps": 20,
+      "profiles": [
+        "teacher-command",
+        "self-command"
+      ],
+      "scope": "Counterfactual actor-only diagnostic. All six sensor readings, roles and task contexts stay fixed to recorded teacher streams. Warm hidden states use the true recorded histories. A single previous-command component is perturbed once, then histories either use recorded commands or each actor output. Double-precision copies reduce numerical noise. Gains do not measure physical closed-loop stability, safety, task success or a unique cause of failure."
+    },
+    "summary": [
+      {
+        "model": "h64",
+        "profile": "teacher-command",
+        "cases": 320,
+        "command_gains": [
+          {
+            "step": 1,
+            "mean": 1.2693872877329913,
+            "max": 1.7098272793501146,
+            "fraction_above_one": 0.81875
+          },
+          {
+            "step": 5,
+            "mean": 0.05179154571704188,
+            "max": 0.22047826109904137,
+            "fraction_above_one": 0.0
+          },
+          {
+            "step": 10,
+            "mean": 0.014568643794593217,
+            "max": 0.07264375253360907,
+            "fraction_above_one": 0.0
+          },
+          {
+            "step": 20,
+            "mean": 0.003431541986191293,
+            "max": 0.031734856782805736,
+            "fraction_above_one": 0.0
+          }
+        ]
+      },
+      {
+        "model": "h64",
+        "profile": "self-command",
+        "cases": 320,
+        "command_gains": [
+          {
+            "step": 1,
+            "mean": 1.2693872877329913,
+            "max": 1.7098272793501146,
+            "fraction_above_one": 0.81875
+          },
+          {
+            "step": 5,
+            "mean": 1.7385213286923282,
+            "max": 5.085679950932229,
+            "fraction_above_one": 0.709375
+          },
+          {
+            "step": 10,
+            "mean": 2.2859474292146356,
+            "max": 7.7103192399073714,
+            "fraction_above_one": 0.56875
+          },
+          {
+            "step": 20,
+            "mean": 2.6599568897934573,
+            "max": 14.374838688381528,
+            "fraction_above_one": 0.528125
+          }
+        ]
+      },
+      {
+        "model": "student-aggregate",
+        "profile": "teacher-command",
+        "cases": 320,
+        "command_gains": [
+          {
+            "step": 1,
+            "mean": 0.4583267341181799,
+            "max": 0.7049254236090655,
+            "fraction_above_one": 0.0
+          },
+          {
+            "step": 5,
+            "mean": 0.1387813573921081,
+            "max": 0.8304510331642105,
+            "fraction_above_one": 0.0
+          },
+          {
+            "step": 10,
+            "mean": 0.05212339462709063,
+            "max": 0.3043814400613853,
+            "fraction_above_one": 0.0
+          },
+          {
+            "step": 20,
+            "mean": 0.03211627390197027,
+            "max": 0.43264766960370604,
+            "fraction_above_one": 0.0
+          }
+        ]
+      },
+      {
+        "model": "student-aggregate",
+        "profile": "self-command",
+        "cases": 320,
+        "command_gains": [
+          {
+            "step": 1,
+            "mean": 0.4583267341181799,
+            "max": 0.7049254236090655,
+            "fraction_above_one": 0.0
+          },
+          {
+            "step": 5,
+            "mean": 0.4055722302077851,
+            "max": 2.555866003610514,
+            "fraction_above_one": 0.125
+          },
+          {
+            "step": 10,
+            "mean": 0.300493634238597,
+            "max": 1.488399034972572,
+            "fraction_above_one": 0.0875
+          },
+          {
+            "step": 20,
+            "mean": 0.38805990689514785,
+            "max": 4.8107920186182485,
+            "fraction_above_one": 0.134375
+          }
+        ]
+      },
+      {
+        "model": "assisted-aggregate",
+        "profile": "teacher-command",
+        "cases": 320,
+        "command_gains": [
+          {
+            "step": 1,
+            "mean": 0.5833067441224078,
+            "max": 1.0145643895381176,
+            "fraction_above_one": 0.025
+          },
+          {
+            "step": 5,
+            "mean": 0.07104072757374064,
+            "max": 0.2432533470062009,
+            "fraction_above_one": 0.0
+          },
+          {
+            "step": 10,
+            "mean": 0.027100714491037868,
+            "max": 0.1096461935284637,
+            "fraction_above_one": 0.0
+          },
+          {
+            "step": 20,
+            "mean": 0.012784571241009993,
+            "max": 0.14078514278681903,
+            "fraction_above_one": 0.0
+          }
+        ]
+      },
+      {
+        "model": "assisted-aggregate",
+        "profile": "self-command",
+        "cases": 320,
+        "command_gains": [
+          {
+            "step": 1,
+            "mean": 0.5833067441224078,
+            "max": 1.0145643895381176,
+            "fraction_above_one": 0.025
+          },
+          {
+            "step": 5,
+            "mean": 0.6935739007369078,
+            "max": 3.3880600769296096,
+            "fraction_above_one": 0.225
+          },
+          {
+            "step": 10,
+            "mean": 0.9559554646772067,
+            "max": 6.137061270280421,
+            "fraction_above_one": 0.18125
+          },
+          {
+            "step": 20,
+            "mean": 0.32720252678586903,
+            "max": 2.338239494975466,
+            "fraction_above_one": 0.1125
+          }
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-command-feedback-gain.py",
+        "sha256": "8bf0997d7b9a93e2dff459616a86c86e694ffc9b49f25cfcec70c82c58d10ef2"
+      },
+      {
+        "path": "runs/command-feedback-gain/protocol.json",
+        "sha256": "c8bb290a29f07f06d5ab7627b00e369db84b5b98d99e09f13e0ae14675609da0"
+      },
+      {
+        "path": "runs/command-feedback-gain/gains.npz",
+        "sha256": "10a3be0cfc47925ca959cce5e23a4487d067770416b7df7720244606aa6fba97"
+      }
+    ]
+  },
+  "autoregressive_imitation": {
+    "protocol": {
+      "version": "bari-follow-ar-imitation-probe-v1",
+      "planned_utc": "2026-11-03T12:00:46.514492+00:00",
+      "source_revision": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      },
+      "experiment_script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-follow-ar-imitation.py",
+        "sha256": "4b60a1462adf4617581070ab3787b5c4fe1ec1e3701b2d478b2d4a00f2e04e5f"
+      },
+      "dataset": "runs/teacher-follow-h64/demonstrations.npz",
+      "dataset_sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9",
+      "config_sha256": "55a3b4bc391607758b457957b48755ac99de755a3fbc61dc0106822777957c98",
+      "datasets": [
+        {
+          "path": "runs/teacher-follow-h64/demonstrations.npz",
+          "sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9",
+          "episodes": 128,
+          "execution": "teacher-closed-loop",
+          "teacher": "scripted-privileged-v1-reactive",
+          "student": null,
+          "follow_ordering": "anonymous-formed-v1"
+        }
+      ],
+      "seed": 11,
+      "epochs": 40,
+      "batch_episodes": 8,
+      "bptt_steps": 64,
+      "learning_rate": 0.001,
+      "gradient_clip": 0.5,
+      "actor_spec": {
+        "version": "bari-gru-ar1-v1",
+        "action_correlation": 0.9
+      },
+      "initial_parameters_sha256": "87a502762c312518483fca53e048e024049b57e1d8e3491c1ef89a412c7a5f61",
+      "initial_parameters_exact_to_independent_actor_seed11": true,
+      "baseline": {
+        "path": "runs/follow-h64-actor-terminal-11/checkpoint.pt",
+        "sha256": "c5020c7c2c1facfb3128d4597808f5ab697956086298bf25329c54bedb129f4c"
+      },
+      "hypothesis": "Existing conditional AR mean changes only actor dynamics, retaining the ordinary wheel-command MSE, data, initialization, ordered batches and optimizer budget. Internal fixed-sensor command amplification motivates the probe but does not establish physical stability.",
+      "validation_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "evaluation": "Final epoch40 only: five moving visible-chain cases without teacher intervention. Only if all five pass, run the full isolated/switching validation. A failed gate ends this pilot without budget extension or promotion.",
+      "scope": "Imitation-only with zero RL updates; full four-task GRU-RL, switching, occlusion, multiple seeds and ESP32-S3 no-PSRAM measurements remain required."
+    },
+    "checkpoint": "runs/train-follow-ar-imitation-11/checkpoint.pt",
+    "checkpoint_sha256": "3052fc5393fda64b3f97d334bdba0801670639f8bae12a6e16c2854e4eb374cb",
+    "chain_report": "runs/validation-follow-ar-imitation-11-chain/report.json",
+    "chain_successes": 0,
+    "chain_episodes": 5,
+    "chain_summary": {
+      "follow": {
+        "episodes": 5,
+        "success_rate": 0.0,
+        "mean_final_max_error_m": 0.8443796415418496,
+        "required_success_rate": 0.9,
+        "passes_assumed_gate": false
+      }
+    },
+    "chain_collisions": 3023,
+    "chain_wall_attempts": 277,
+    "chain_mean_leader_travel_m": 0.06380852814687935,
+    "full_report": null,
+    "decision": "chain failed; bounded pilot ended without extension or promotion"
+  },
+  "reward_driven_readout_search": {
+    "protocol": {
+      "version": "bari-follow-readout-cem-probe-v1",
+      "planned_utc": "2026-11-03T12:06:58.277503+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+      },
+      "experiment_script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/search-follow-readout.py",
+        "sha256": "0cc096da198d25fbef3f8d0a2f50119dd64d4a68ad83014ca9761e8263338fa6"
+      },
+      "initial_actor": {
+        "path": "runs/follow-h64-actor-terminal-11/checkpoint.pt",
+        "sha256": "c5020c7c2c1facfb3128d4597808f5ab697956086298bf25329c54bedb129f4c",
+        "evidence": "imitation-only"
+      },
+      "config": {
+        "robots": 5,
+        "arena_radius": 1.0,
+        "body_radius": 0.069,
+        "wheel_radius": 0.022,
+        "wheel_separation": 0.082,
+        "max_wheel_speed": 0.1,
+        "max_wheel_acceleration": 0.3,
+        "physics_dt": 0.01,
+        "control_dt": 0.1,
+        "sensor_period": 0.1,
+        "sensor_latency": 0.1,
+        "sensor_min": 0.015,
+        "sensor_max": 0.8,
+        "sensor_noise_std": 0.002,
+        "sensor_dropout": 0.0,
+        "sensor_mount_radius": 0.045,
+        "sensor_height": 0.078,
+        "sensor_angles_deg": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "sensor_fov_deg": 0.0,
+        "circle_radius": 0.24,
+        "square_side": 0.32,
+        "line_spacing": 0.17,
+        "follow_spacing": 0.16,
+        "formation_tolerance": 0.035,
+        "follow_path_tolerance": 0.055,
+        "follow_spacing_tolerance": 0.055,
+        "follow_min_leader_travel": 0.3,
+        "hold_seconds": 3.0,
+        "timeout_seconds": 30.0,
+        "max_collisions": 0,
+        "max_wall_violations": 0,
+        "required_success_rate": 0.9,
+        "evaluation_seeds": [
+          10001,
+          10007,
+          10009,
+          10037,
+          10039
+        ],
+        "training_seeds": [
+          11,
+          23,
+          47
+        ],
+        "hidden_size": 64,
+        "sequence_length": 16,
+        "rollout_steps": 128,
+        "ppo_epochs": 3,
+        "learning_rate": 0.0003,
+        "gamma": 0.99,
+        "gae_lambda": 0.95,
+        "clip_ratio": 0.2,
+        "entropy_weight": 0.005,
+        "reward_error": 2.0,
+        "reward_progress": 5.0,
+        "reward_collision": 2.0,
+        "reward_wall": 2.0,
+        "reward_energy": 0.01,
+        "reward_change": 0.02,
+        "reward_time": 0.01,
+        "obstacles": []
+      },
+      "config_sha256": "55a3b4bc391607758b457957b48755ac99de755a3fbc61dc0106822777957c98",
+      "search_seed": 73,
+      "training_world_seeds": [
+        3001,
+        3011,
+        3023,
+        3037
+      ],
+      "initial_training_snapshots": [
+        {
+          "follow_ordering": "anonymous-formed-v1",
+          "seed": 3001,
+          "task": "follow",
+          "tick": 0,
+          "switches": [],
+          "wheels": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "previous_commands": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 0.0,
+          "reward_vector": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "contact_robots": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "poses": [
+            [
+              -0.26166601931742495,
+              0.17289714021274316,
+              2.6244960568219415
+            ],
+            [
+              -0.12258471318909463,
+              0.09379979331894614,
+              2.6244960568219415
+            ],
+            [
+              0.01649659293923571,
+              0.014702446425149125,
+              2.6244960568219415
+            ],
+            [
+              0.15557789906756603,
+              -0.06439490046864788,
+              2.6244960568219415
+            ],
+            [
+              0.2946592051958964,
+              -0.14349224736244492,
+              2.6244960568219415
+            ]
+          ],
+          "sensor_queue": [
+            [
+              10,
+              [
+                [
+                  0.642933962959615,
+                  0.7723635794354822,
+                  1.0961746712028924,
+                  0.049952478950230896,
+                  1.0512586854489745,
+                  0.7441781150796765
+                ],
+                [
+                  0.04164086919870963,
+                  0.8849142015473308,
+                  1.0431187504091959,
+                  0.045918979347505294,
+                  1.0018745780312275,
+                  0.8527994591230771
+                ],
+                [
+                  0.04565158177545441,
+                  0.97614309891454,
+                  0.9651262584249797,
+                  0.049365682054766304,
+                  0.9310038182290193,
+                  0.9361642394229736
+                ],
+                [
+                  0.04733527521347403,
+                  1.0511031179452535,
+                  0.8775447837747672,
+                  0.05034167798168061,
+                  0.8437252130807056,
+                  1.009039886815909
+                ],
+                [
+                  0.0472871212499029,
+                  1.0955864067952357,
+                  0.7675799789167784,
+                  0.6263420330592957,
+                  0.7353695563214232,
+                  1.0577484300257944
+                ]
+              ]
+            ]
+          ],
+          "readings": [
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ]
+          ],
+          "config_sha256": "55a3b4bc391607758b457957b48755ac99de755a3fbc61dc0106822777957c98",
+          "rng_state": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 256961978320775509890112330665416982928,
+              "inc": 257728463480096675034125136739104960507
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "pending_switch_index": null,
+          "tracker": {
+            "segments": [],
+            "start_time": 0.0,
+            "hold": 0.0,
+            "acquisition": null,
+            "success": false,
+            "interruptions": 0,
+            "was_tracking": false,
+            "lost_at": null,
+            "reacquisitions": [],
+            "leader_travel": 0.0,
+            "order_preserved": true,
+            "error_sum": 0.0,
+            "max_seen_error": 0.0,
+            "measurements": 0,
+            "last_leader": [
+              -0.26166601931742495,
+              0.17289714021274316
+            ],
+            "formed_order": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "formed_at": 0.0,
+            "path": [
+              [
+                0.2946592051958964,
+                -0.14349224736244492
+              ],
+              [
+                0.15557789906756608,
+                -0.0643949004686479
+              ],
+              [
+                0.01649659293923572,
+                0.014702446425149118
+              ],
+              [
+                -0.12258471318909461,
+                0.09379979331894614
+              ],
+              [
+                -0.26166601931742495,
+                0.17289714021274316
+              ]
+            ],
+            "path_s": [
+              0.0,
+              0.15999999999999998,
+              0.31999999999999995,
+              0.48,
+              0.64
+            ],
+            "projection_rule": "recent-trail-continuous-ties-v1",
+            "projection_progress": [
+              0.64,
+              0.48,
+              0.31999999999999995,
+              0.15999999999999998,
+              0.0
+            ],
+            "latest": {
+              "max_error_m": 4.347204570675246e-17,
+              "rms_error_m": 2.0407899217551515e-17,
+              "path_error_m": 0.0,
+              "spacing_error_m": 2.7755575615628914e-17,
+              "chain_order_preserved": true,
+              "leader_travel_m": 0.0,
+              "leader_step_travel_m": 0.0,
+              "leader_moving": false,
+              "fitted_targets": [
+                [
+                  -0.26166601931742495,
+                  0.17289714021274316
+                ],
+                [
+                  -0.12258471318909461,
+                  0.09379979331894614
+                ],
+                [
+                  0.016496592939235673,
+                  0.014702446425149146
+                ],
+                [
+                  0.15557789906756603,
+                  -0.06439490046864788
+                ],
+                [
+                  0.2946592051958964,
+                  -0.14349224736244492
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "follow_ordering": "anonymous-formed-v1",
+          "seed": 3011,
+          "task": "follow",
+          "tick": 0,
+          "switches": [],
+          "wheels": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "previous_commands": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 0.0,
+          "reward_vector": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "contact_robots": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "poses": [
+            [
+              -0.17964009848677948,
+              0.24490244590060303,
+              2.180301342353261
+            ],
+            [
+              -0.08804623017932571,
+              0.11371340943613006,
+              2.180301342353261
+            ],
+            [
+              0.0035476381281280556,
+              -0.017475627028342912,
+              2.180301342353261
+            ],
+            [
+              0.09514150643558181,
+              -0.14866466349281585,
+              2.180301342353261
+            ],
+            [
+              0.1867353747430356,
+              -0.27985369995728887,
+              2.180301342353261
+            ]
+          ],
+          "sensor_queue": [
+            [
+              10,
+              [
+                [
+                  0.6531817155901662,
+                  0.7639128619340323,
+                  1.064049149294068,
+                  0.04402384285601013,
+                  1.075089425812278,
+                  0.7742051524311843
+                ],
+                [
+                  0.04671579427050927,
+                  0.8680901160513101,
+                  1.013511032568823,
+                  0.050305274063642644,
+                  1.0237032808009408,
+                  0.8784987280271032
+                ],
+                [
+                  0.04658145382882547,
+                  0.955899328330523,
+                  0.9433040661665171,
+                  0.04361552671814944,
+                  0.949687091543352,
+                  0.970010285429934
+                ],
+                [
+                  0.04682259213314535,
+                  1.02414084202249,
+                  0.8483262300577957,
+                  0.04365201361642605,
+                  0.8615195543812716,
+                  1.0376874589181377
+                ],
+                [
+                  0.04588719192892407,
+                  1.0715996332261701,
+                  0.7387693876626691,
+                  0.6203560234667582,
+                  0.7503938979632435,
+                  1.0903824771263204
+                ]
+              ]
+            ]
+          ],
+          "readings": [
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ]
+          ],
+          "config_sha256": "55a3b4bc391607758b457957b48755ac99de755a3fbc61dc0106822777957c98",
+          "rng_state": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 311270303274687825939680125364985888202,
+              "inc": 152085813176668490451468051476669423163
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "pending_switch_index": null,
+          "tracker": {
+            "segments": [],
+            "start_time": 0.0,
+            "hold": 0.0,
+            "acquisition": null,
+            "success": false,
+            "interruptions": 0,
+            "was_tracking": false,
+            "lost_at": null,
+            "reacquisitions": [],
+            "leader_travel": 0.0,
+            "order_preserved": true,
+            "error_sum": 0.0,
+            "max_seen_error": 0.0,
+            "measurements": 0,
+            "last_leader": [
+              -0.17964009848677948,
+              0.24490244590060303
+            ],
+            "formed_order": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "formed_at": 0.0,
+            "path": [
+              [
+                0.1867353747430356,
+                -0.2798536999572888
+              ],
+              [
+                0.09514150643558178,
+                -0.14866466349281585
+              ],
+              [
+                0.0035476381281280556,
+                -0.017475627028342905
+              ],
+              [
+                -0.08804623017932571,
+                0.11371340943613006
+              ],
+              [
+                -0.17964009848677948,
+                0.24490244590060303
+              ]
+            ],
+            "path_s": [
+              0.0,
+              0.16000000000000003,
+              0.31999999999999995,
+              0.48,
+              0.64
+            ],
+            "projection_rule": "recent-trail-continuous-ties-v1",
+            "projection_progress": [
+              0.64,
+              0.48,
+              0.31999999999999995,
+              0.16000000000000003,
+              0.0
+            ],
+            "latest": {
+              "max_error_m": 6.091479695098446e-17,
+              "rms_error_m": 3.889080193658685e-17,
+              "path_error_m": 5.551115123125783e-17,
+              "spacing_error_m": 8.326672684688674e-17,
+              "chain_order_preserved": true,
+              "leader_travel_m": 0.0,
+              "leader_step_travel_m": 0.0,
+              "leader_moving": false,
+              "fitted_targets": [
+                [
+                  -0.17964009848677948,
+                  0.24490244590060303
+                ],
+                [
+                  -0.08804623017932571,
+                  0.11371340943613006
+                ],
+                [
+                  0.003547638128128024,
+                  -0.01747562702834286
+                ],
+                [
+                  0.09514150643558178,
+                  -0.14866466349281585
+                ],
+                [
+                  0.1867353747430356,
+                  -0.2798536999572888
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "follow_ordering": "anonymous-formed-v1",
+          "seed": 3023,
+          "task": "follow",
+          "tick": 0,
+          "switches": [],
+          "wheels": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "previous_commands": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 0.0,
+          "reward_vector": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "contact_robots": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "poses": [
+            [
+              -0.31174384599206434,
+              -0.08322685732847468,
+              -2.928177852455787
+            ],
+            [
+              -0.15537370764539904,
+              -0.049339103885014515,
+              -2.928177852455787
+            ],
+            [
+              0.0009964307012662987,
+              -0.01545135044155434,
+              -2.928177852455787
+            ],
+            [
+              0.1573665690479316,
+              0.01843640300190583,
+              -2.928177852455787
+            ],
+            [
+              0.31373670739459697,
+              0.052324156445366005,
+              -2.928177852455787
+            ]
+          ],
+          "sensor_queue": [
+            [
+              10,
+              [
+                [
+                  0.6336318100274504,
+                  0.742858155029394,
+                  1.0625219299788582,
+                  0.04739331379289091,
+                  1.0895768556252952,
+                  0.7631617662650192
+                ],
+                [
+                  0.04608098068301961,
+                  0.8508542101418942,
+                  1.0133550328926937,
+                  0.04317587281313326,
+                  1.0404318144694733,
+                  0.8725850847423605
+                ],
+                [
+                  0.04555263249094267,
+                  0.9371671260853122,
+                  0.9447930673671214,
+                  0.047388525935600966,
+                  0.9661254632806204,
+                  0.9671269976744629
+                ],
+                [
+                  0.047766193230720344,
+                  1.0126235954558926,
+                  0.8541800128296065,
+                  0.047902835911505924,
+                  0.8801414613703381,
+                  1.0369711493729803
+                ],
+                [
+                  0.04501673376355134,
+                  1.0600611688319492,
+                  0.7452771371571315,
+                  0.6374244739751715,
+                  0.770998429328433,
+                  1.0912334791771066
+                ]
+              ]
+            ]
+          ],
+          "readings": [
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ]
+          ],
+          "config_sha256": "55a3b4bc391607758b457957b48755ac99de755a3fbc61dc0106822777957c98",
+          "rng_state": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 293608506896600682580021187511282886181,
+              "inc": 301123034430623749719127558453069040023
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "pending_switch_index": null,
+          "tracker": {
+            "segments": [],
+            "start_time": 0.0,
+            "hold": 0.0,
+            "acquisition": null,
+            "success": false,
+            "interruptions": 0,
+            "was_tracking": false,
+            "lost_at": null,
+            "reacquisitions": [],
+            "leader_travel": 0.0,
+            "order_preserved": true,
+            "error_sum": 0.0,
+            "max_seen_error": 0.0,
+            "measurements": 0,
+            "last_leader": [
+              -0.31174384599206434,
+              -0.08322685732847468
+            ],
+            "formed_order": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "formed_at": 0.0,
+            "path": [
+              [
+                0.31373670739459697,
+                0.052324156445366005
+              ],
+              [
+                0.15736656904793161,
+                0.01843640300190584
+              ],
+              [
+                0.0009964307012663154,
+                -0.015451350441554337
+              ],
+              [
+                -0.155373707645399,
+                -0.04933910388501451
+              ],
+              [
+                -0.31174384599206434,
+                -0.08322685732847468
+              ]
+            ],
+            "path_s": [
+              0.0,
+              0.16000000000000003,
+              0.32,
+              0.48,
+              0.64
+            ],
+            "projection_rule": "recent-trail-continuous-ties-v1",
+            "projection_progress": [
+              0.64,
+              0.48,
+              0.32,
+              0.16000000000000003,
+              0.0
+            ],
+            "latest": {
+              "max_error_m": 2.964296775167217e-17,
+              "rms_error_m": 1.9940125706146817e-17,
+              "path_error_m": 3.469446951953614e-18,
+              "spacing_error_m": 2.7755575615628914e-17,
+              "chain_order_preserved": true,
+              "leader_travel_m": 0.0,
+              "leader_step_travel_m": 0.0,
+              "leader_moving": false,
+              "fitted_targets": [
+                [
+                  -0.31174384599206434,
+                  -0.08322685732847468
+                ],
+                [
+                  -0.155373707645399,
+                  -0.04933910388501451
+                ],
+                [
+                  0.0009964307012663154,
+                  -0.015451350441554337
+                ],
+                [
+                  0.15736656904793161,
+                  0.01843640300190584
+                ],
+                [
+                  0.31373670739459697,
+                  0.052324156445366005
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "follow_ordering": "anonymous-formed-v1",
+          "seed": 3037,
+          "task": "follow",
+          "tick": 0,
+          "switches": [],
+          "wheels": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "previous_commands": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 0.0,
+          "reward_vector": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "contact_robots": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "poses": [
+            [
+              0.299372597593918,
+              -0.14300468388958876,
+              -0.4337852297790109
+            ],
+            [
+              0.15419159121616532,
+              -0.07575533157194239,
+              -0.4337852297790109
+            ],
+            [
+              0.009010584838412628,
+              -0.00850597925429601,
+              -0.4337852297790109
+            ],
+            [
+              -0.13617042153934003,
+              0.058743373063350354,
+              -0.4337852297790109
+            ],
+            [
+              -0.2813514279170928,
+              0.12599272538099676,
+              -0.4337852297790109
+            ]
+          ],
+          "sensor_queue": [
+            [
+              10,
+              [
+                [
+                  0.6213932569205559,
+                  0.7487817737508172,
+                  1.0797357294860777,
+                  0.04508920412493573,
+                  1.0756375023447216,
+                  0.7449074820903795
+                ],
+                [
+                  0.05120514064266488,
+                  0.861285168846439,
+                  1.0324088489248937,
+                  0.0439570584617863,
+                  1.025662195512485,
+                  0.8567148431363159
+                ],
+                [
+                  0.050577995472871,
+                  0.951555493798453,
+                  0.9679847161776943,
+                  0.04651088104257702,
+                  0.9568800791377302,
+                  0.9422062015916491
+                ],
+                [
+                  0.04408279973253176,
+                  1.02525939739885,
+                  0.876745992651446,
+                  0.04581334116879052,
+                  0.8723021229772865,
+                  1.0170724756367544
+                ],
+                [
+                  0.04561910066336695,
+                  1.0735047082941334,
+                  0.767503632551508,
+                  0.6501101702772782,
+                  0.7666973135066149,
+                  1.0680294834009918
+                ]
+              ]
+            ]
+          ],
+          "readings": [
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ],
+            [
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8
+            ]
+          ],
+          "config_sha256": "55a3b4bc391607758b457957b48755ac99de755a3fbc61dc0106822777957c98",
+          "rng_state": {
+            "bit_generator": "PCG64",
+            "state": {
+              "state": 132792889673428800791872649273782382485,
+              "inc": 725977798290394862039468964981872883
+            },
+            "has_uint32": 0,
+            "uinteger": 0
+          },
+          "pending_switch_index": null,
+          "tracker": {
+            "segments": [],
+            "start_time": 0.0,
+            "hold": 0.0,
+            "acquisition": null,
+            "success": false,
+            "interruptions": 0,
+            "was_tracking": false,
+            "lost_at": null,
+            "reacquisitions": [],
+            "leader_travel": 0.0,
+            "order_preserved": true,
+            "error_sum": 0.0,
+            "max_seen_error": 0.0,
+            "measurements": 0,
+            "last_leader": [
+              0.299372597593918,
+              -0.14300468388958876
+            ],
+            "formed_order": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "formed_at": 0.0,
+            "path": [
+              [
+                -0.2813514279170928,
+                0.12599272538099676
+              ],
+              [
+                -0.13617042153934006,
+                0.05874337306335034
+              ],
+              [
+                0.009010584838412605,
+                -0.008505979254295998
+              ],
+              [
+                0.1541915912161653,
+                -0.07575533157194238
+              ],
+              [
+                0.299372597593918,
+                -0.14300468388958876
+              ]
+            ],
+            "path_s": [
+              0.0,
+              0.16000000000000003,
+              0.31999999999999995,
+              0.48,
+              0.64
+            ],
+            "projection_rule": "recent-trail-continuous-ties-v1",
+            "projection_progress": [
+              0.64,
+              0.48,
+              0.31999999999999995,
+              0.16000000000000003,
+              0.0
+            ],
+            "latest": {
+              "max_error_m": 3.1031676915590914e-17,
+              "rms_error_m": 2.368389951639684e-17,
+              "path_error_m": 2.0816681711721685e-17,
+              "spacing_error_m": 8.326672684688674e-17,
+              "chain_order_preserved": true,
+              "leader_travel_m": 0.0,
+              "leader_step_travel_m": 0.0,
+              "leader_moving": false,
+              "fitted_targets": [
+                [
+                  0.299372597593918,
+                  -0.14300468388958876
+                ],
+                [
+                  0.1541915912161653,
+                  -0.07575533157194238
+                ],
+                [
+                  0.009010584838412656,
+                  -0.00850597925429602
+                ],
+                [
+                  -0.13617042153934006,
+                  0.05874337306335034
+                ],
+                [
+                  -0.2813514279170928,
+                  0.12599272538099676
+                ]
+              ]
+            }
+          }
+        }
+      ],
+      "parameters": [
+        "linear_pre_tanh_gain",
+        "turn_pre_tanh_gain",
+        "linear_pre_tanh_bias",
+        "turn_pre_tanh_bias"
+      ],
+      "lower_bounds": [
+        0.0,
+        0.0,
+        -1.0,
+        -1.0
+      ],
+      "upper_bounds": [
+        1.5,
+        1.5,
+        1.0,
+        1.0
+      ],
+      "initial_mean": [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "initial_std": [
+        0.4,
+        0.4,
+        0.3,
+        0.3
+      ],
+      "std_floor": 0.05,
+      "generations": 10,
+      "population": 12,
+      "elites": 3,
+      "moment_update_fraction": 0.5,
+      "candidate_zero": "incumbent every generation; first generation additionally contains the zero-readout reference",
+      "fitness": "mean undiscounted existing per-robot reward over four learned followers and four fixed training worlds; all 300 control steps, original contact/error/energy weights",
+      "folding": "mL,mR -> v=(mL+mR)/2, w=(mR-mL)/2; v_new=gv*v+bv, w_new=gw*w+bw; fold the linear transform into the existing head weight and bias before every rollout",
+      "information_boundary": "Every candidate is the ordinary Actor: local nine fields, task context and per-robot hidden state only. Global state/rewards select constant weights between episodes. Following leader remains permitted mission infrastructure. No action mask, target or safety wrapper.",
+      "validation_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "evaluation": "Final incumbent selected only by training returns. Five moving visible-chain validation cases; full isolated/switching suite only if all five pass. Fixed budget; no held-out seed selection or automatic extension.",
+      "scope": "Small reward-driven policy-search initialization probe, not recurrent PPO/MAPPO and not four-task acceptance. GRU encoder/recurrent weights stay frozen; full GRU-RL behavior/switching/occlusion/multi-seed/hardware requirements remain."
+    },
+    "parameters": [
+      0.07028646074149096,
+      0.16076733840929533,
+      0.05497034660923425,
+      0.0067521004986873644
+    ],
+    "best_training_fitness": -80.4182741571858,
+    "ordinary_controller_training_reference": [
+      {
+        "seed": 3001,
+        "return": -77.08902667276561,
+        "max_error_m": 0.568087405879468,
+        "rms_error_m": 0.395187367531215,
+        "path_error_m": 0.2518220879636576,
+        "spacing_error_m": 0.688688641741211,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9141421076072354,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.41959044466351214,
+        "peak_max_error_m": 0.5780366343647918,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 110,
+        "wall_violations": 0,
+        "control_cost": 1.769048952523606
+      },
+      {
+        "seed": 3011,
+        "return": -83.75987990607973,
+        "max_error_m": 0.5309710681481371,
+        "rms_error_m": 0.3768516282680094,
+        "path_error_m": 0.225227425043364,
+        "spacing_error_m": 0.7036793131097698,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.8369928847892791,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.4134683882886545,
+        "peak_max_error_m": 0.5772695716175106,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 125,
+        "wall_violations": 0,
+        "control_cost": 1.7807062555461204
+      },
+      {
+        "seed": 3023,
+        "return": -83.09960484469775,
+        "max_error_m": 0.5451042948703826,
+        "rms_error_m": 0.37722232361544805,
+        "path_error_m": 0.21746840425520145,
+        "spacing_error_m": 0.621634375006567,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.8429112388973757,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.40967084922150626,
+        "peak_max_error_m": 0.5774726591816209,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 124,
+        "wall_violations": 0,
+        "control_cost": 1.7872756200071969
+      },
+      {
+        "seed": 3037,
+        "return": -77.72458521113731,
+        "max_error_m": 0.5811936839977627,
+        "rms_error_m": 0.39255848208837474,
+        "path_error_m": 0.23479377404734175,
+        "spacing_error_m": 0.684719029805888,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9062160549770839,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.42222179425368295,
+        "peak_max_error_m": 0.5811936839977627,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 112,
+        "wall_violations": 0,
+        "control_cost": 1.7812393651864884
+      }
+    ],
+    "ordinary_controller_mean_return": -80.4182741586701,
+    "chain_successes": 0,
+    "chain_episodes": 5,
+    "chain_report": "runs/validation-follow-readout-search-73-chain/report.json",
+    "chain_summary": {
+      "follow": {
+        "episodes": 5,
+        "success_rate": 0.0,
+        "mean_final_max_error_m": 0.5583518271448661,
+        "required_success_rate": 0.9,
+        "passes_assumed_gate": false
+      }
+    },
+    "chain_collisions": 590,
+    "chain_wall_attempts": 0,
+    "chain_mean_leader_travel_m": 0.8760077437006037,
+    "checkpoint": "runs/search-follow-readout-73/checkpoint.pt",
+    "checkpoint_sha256": "06fbb280f8081958a3a50252b65f96744f52b6d4572277cb4555f985d88b5309",
+    "full_report": null,
+    "decision": "chain failed; fixed search budget ended without extension or promotion"
+  },
+  "saved_search_actor_proof": {
+    "version": "bari-readout-search-checkpoint-proof-v1",
+    "checkpoint": {
+      "path": "runs/search-follow-readout-73/checkpoint.pt",
+      "sha256": "06fbb280f8081958a3a50252b65f96744f52b6d4572277cb4555f985d88b5309"
+    },
+    "head_fold_bit_exact": true,
+    "all_non_head_actor_parameters_unchanged": true,
+    "normal_actor_specification": {
+      "version": "bari-gru-v1",
+      "action_correlation": 0.0
+    },
+    "completed_search_generations": 10,
+    "ppo_gradient_updates": 0,
+    "loaded_controller_reference_replay_exact": [
+      {
+        "seed": 3001,
+        "return": -77.08902667276561,
+        "collisions": 110,
+        "success": false
+      },
+      {
+        "seed": 3011,
+        "return": -83.75987990607973,
+        "collisions": 125,
+        "success": false
+      },
+      {
+        "seed": 3023,
+        "return": -83.09960484469775,
+        "collisions": 124,
+        "success": false
+      },
+      {
+        "seed": 3037,
+        "return": -77.72458521113731,
+        "collisions": 112,
+        "success": false
+      }
+    ],
+    "batch_vs_ordinary_mean_return_absolute_difference": 1.4842953532934189e-09,
+    "scope": "Serialization/folding/controller agreement only; every training reference and validation case still fails behavior acceptance.",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-readout-search-checkpoint.py",
+        "sha256": "eeeb9a67cae83af7887f49a0852e4bfd3e4aa173024b0437c5bad455548a6803"
+      },
+      {
+        "path": "runs/follow-readout-search-results.json",
+        "sha256": "562c1c3fb121bfb46e20c72374f317cd91b3f7d945446ddaf5e8b84551eb20fa"
+      }
+    ]
+  },
+  "conclusions": [
+    "Fixed-sensor internal amplification is present in the original clone but is not sufficient to explain all failed policies.",
+    "Matched AR imitation fails all five no-intervention moving-chain cases.",
+    "Four-parameter reward-driven readout search also fails training and validation gates despite some return improvement.",
+    "No actor or numerical acceptance gate was promoted or changed."
+  ],
+  "unresolved_sensing": "Physical VL53L7CX-to-six-scalar zone aggregation remains unspecified; current baseline uses six zero-FOV center rays. User clarification requested; no sensing model was changed.",
+  "remaining": [
+    "Converged four-task GRU-RL on randomized starts",
+    "All directed/unfinished/repeated switches",
+    "Controlled seen/unseen occlusion and memory comparison",
+    "Multiple training seeds and final held-out validation",
+    "Successful continuous 3D recording and actor export parity",
+    "ESP32-S3 internal SRAM/latency without PSRAM",
+    "Physical calibration and measured radius-1m arena"
+  ],
+  "artifacts": [
+    {
+      "path": "reports/command-feedback-gain.json",
+      "sha256": "0b8f67aa0f74d193ba5aeed150366497b4a0a7d0f69fc0bf5a64ad03ac37c9a9"
+    },
+    {
+      "path": "runs/command-feedback-gain/gains.npz",
+      "sha256": "10a3be0cfc47925ca959cce5e23a4487d067770416b7df7720244606aa6fba97"
+    },
+    {
+      "path": "runs/command-feedback-gain/protocol.json",
+      "sha256": "c8bb290a29f07f06d5ab7627b00e369db84b5b98d99e09f13e0ae14675609da0"
+    },
+    {
+      "path": "runs/command-feedback-gain/report.json",
+      "sha256": "0b8f67aa0f74d193ba5aeed150366497b4a0a7d0f69fc0bf5a64ad03ac37c9a9"
+    },
+    {
+      "path": "runs/probe-command-feedback-gain.py",
+      "sha256": "8bf0997d7b9a93e2dff459616a86c86e694ffc9b49f25cfcec70c82c58d10ef2"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation.py",
+      "sha256": "4b60a1462adf4617581070ab3787b5c4fe1ec1e3701b2d478b2d4a00f2e04e5f"
+    },
+    {
+      "path": "runs/follow-ar-imitation-protocol.json",
+      "sha256": "8cac06ebfab9cac2820fe1af9d23e2d6d48e4cdfd2c63b0863c535be0a7c78dc"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/checkpoint.pt",
+      "sha256": "3052fc5393fda64b3f97d334bdba0801670639f8bae12a6e16c2854e4eb374cb"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/config.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/imitation.jsonl",
+      "sha256": "bc8f4dc09e2e35378ea54d7a07be20b43046c7946a47a4f3fbbf454d344c55f8"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/protocol.json",
+      "sha256": "8cac06ebfab9cac2820fe1af9d23e2d6d48e4cdfd2c63b0863c535be0a7c78dc"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/train-follow-ar-imitation-11/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/evaluation_contract.json",
+      "sha256": "1da6513ec38060c92fbab6aab0a28544bbe0a73d64e7370bd93194f1951884ba"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/follow-2001.npz",
+      "sha256": "63a336d33c2b08f1af660306e71c4e49d3edb644d09e708f0fc06d1dde89924a"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/follow-2003.npz",
+      "sha256": "994bbd2b759b0eb0ba0127c6fef92180b7e21ae07b0b663d524e96e63cb3f391"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/follow-2011.npz",
+      "sha256": "ecfe98a71d0c958b2bb3bfd85ef8a43ed69a2fda72c412f0cf1a80caf75fd77f"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/follow-2017.npz",
+      "sha256": "ed7365bbaacb45fcf76e44d73a935487d2821c7dbaf8c31d2f7d991446b294f7"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/follow-2027.npz",
+      "sha256": "47fccfcaf8a5ac7a7f6bd53daf3064a3f84fe355029e1f02fa93a457d42cd2eb"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/frozen_config.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/report.json",
+      "sha256": "0aa0d6a35188697cfd978f2f0fceb92050585f40e82124fd2bf283c2840432ca"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-follow-ar-imitation-11-chain/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/follow-ar-imitation-results.json",
+      "sha256": "7fea6300dbf20e4cc116ab08cd4125788b2ecc8733942ef10caa4f2d39a70d5c"
+    },
+    {
+      "path": "runs/search-follow-readout.py",
+      "sha256": "0cc096da198d25fbef3f8d0a2f50119dd64d4a68ad83014ca9761e8263338fa6"
+    },
+    {
+      "path": "runs/follow-readout-search-protocol.json",
+      "sha256": "5177b5187a3d543e681053626e0ecfabfa152efeeb1db7e9cb2b86f7ece2be96"
+    },
+    {
+      "path": "runs/search-follow-readout-73/checkpoint.pt",
+      "sha256": "06fbb280f8081958a3a50252b65f96744f52b6d4572277cb4555f985d88b5309"
+    },
+    {
+      "path": "runs/search-follow-readout-73/config.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/search-follow-readout-73/protocol.json",
+      "sha256": "5177b5187a3d543e681053626e0ecfabfa152efeeb1db7e9cb2b86f7ece2be96"
+    },
+    {
+      "path": "runs/search-follow-readout-73/search.jsonl",
+      "sha256": "13a1428d352535e865ac817db4b35e7ed8d7f13a3b564b58ff70964cf8fec75a"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/search-follow-readout-73/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/evaluation_contract.json",
+      "sha256": "1da6513ec38060c92fbab6aab0a28544bbe0a73d64e7370bd93194f1951884ba"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/follow-2001.npz",
+      "sha256": "9c00117d9ec34b28714bcee72d7e6606ff65cc99eccad0f7665bc221604b2ffb"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/follow-2003.npz",
+      "sha256": "5b0aeef4fbd1a27687eebcb77f82927e803de13bf896fbc58de5e28c35036fd3"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/follow-2011.npz",
+      "sha256": "0edc5a128e5d32b5093a931890337a02d60dbe982ff43e6fb8d394defd79f3e9"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/follow-2017.npz",
+      "sha256": "09d5532f17e337b3630d2fd06f3dc9bc4aa5185d90a751befa44369489a67a78"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/follow-2027.npz",
+      "sha256": "47bbd13007ec0cd07905e836851c65e2619c02f5e568116956cbf4b946a5330a"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/frozen_config.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/report.json",
+      "sha256": "6e2d6a9c289e96d034c68a2175aa24aca361b84249546206d48bb30ec9467636"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-follow-readout-search-73-chain/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/follow-readout-search-results.json",
+      "sha256": "562c1c3fb121bfb46e20c72374f317cd91b3f7d945446ddaf5e8b84551eb20fa"
+    },
+    {
+      "path": "runs/verify-readout-search-checkpoint.py",
+      "sha256": "eeeb9a67cae83af7887f49a0852e4bfd3e4aa173024b0437c5bad455548a6803"
+    },
+    {
+      "path": "reports/follow-readout-checkpoint-proof.json",
+      "sha256": "814d2453e3b126fa9409d8d466f61e253feddb8e32b1973a3cf37e65f304591a"
+    },
+    {
+      "path": "runs/readout-search-restore-check.json",
+      "sha256": "c144877eb2256b81a166dc3491eecffc6a565ad6bea12b0668b0fef229149606"
+    },
+    {
+      "path": "runs/update-command-history-report.py",
+      "sha256": "ac3cffaaaa4ecb7aac7f5d1de78e715e6eafa54c35d248ce555c92fd29f4ee8a"
+    },
+    {
+      "path": "reports/verification-teacher-assistance.txt",
+      "sha256": "2b43addc6e94ca95458de5ad4336687f754969ffdc3f6a8242e128c0a91753e8"
+    },
+    {
+      "path": "runs/teacher-assistance-verification-145/runtime.json",
+      "sha256": "fb23333eebf9f8199e5ffb68793a24da8fbaa71d430c9c193c331e0159176265"
+    }
+  ]
+}

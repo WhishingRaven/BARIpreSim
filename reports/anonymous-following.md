@@ -75,13 +75,22 @@ This task-definition correction is not evidence of behavioral convergence.
 
 ## Current experiments and remaining scope
 
-New seed-11 version-10/11 pilots use identical initial weights and eight physical
+Completed seed-11 version-10/11 pilots used identical initial weights and eight physical
 world snapshots, radius 1 m, the same curriculum and unchanged numerical gates.
-Each targets 1,000 updates (1,024,000 joint timesteps), with frozen interim/terminal
+Each completed 1,000 updates (1,024,000 joint timesteps), with frozen interim/terminal
 validation on the five validation seeds and 85 recordings per actor. Their
 observer runs from a copy of the trainers' source so later edits cannot relabel
-the execution provenance. Final held-out seeds remain unused. Current job state,
+the execution provenance. Both terminal actors scored **0/20 isolated tasks and
+0/60 directed switches**. Per-step GRU-reset evaluation also scored 0/20 and
+0/60 for each actor; version 11 retains its previous-command autoregression in
+that ablation. These unvalidated actors do not establish a memory or occlusion
+benefit. Final held-out seeds remain unused. Completed job state,
 reference checks and artifact hashes are in [anonymous-following.json](anonymous-following.json).
+
+[Memory and periodic-critic diagnostics](memory-and-periodic-critic.md) document
+retained sensor history in the GRU, an artificial critic discontinuity at the yaw
+coordinate boundary, and the explicit version-12 experiment. Version 10 remains
+the default; the newer critic does not add any actor inputs or deployment memory.
 
 The full goal still needs successful learned four-task behavior, directed and
 repeated switching, controlled occlusion/memory comparisons, additional training

@@ -1,0 +1,149 @@
+{
+  "version": "bari-cone-recurrent-resume-proof-v1",
+  "parent_checkpoint": {
+    "path": "runs/cone-follow-rl-terminal-11/checkpoint.pt",
+    "sha256": "4fa846f77fb9f810070b04751cdb7ac31812c2ec3458952115216ba6ccc9d053"
+  },
+  "scope": "Verification-only continuation from the fixed terminal200 artifact. Saved after one test update, then compared the next rollout/update against exact restore. These post-terminal test states are never evaluated/promoted as policy candidates; original pilot budget remains200.",
+  "worlds": 8,
+  "fov_deg": 60,
+  "rollout_arrays_exact": [
+    "observations",
+    "tasks",
+    "states",
+    "hidden",
+    "reset_masks",
+    "raw_actions",
+    "commands",
+    "log_probs",
+    "values",
+    "next_values",
+    "rewards",
+    "terminated",
+    "truncated",
+    "actor_weights",
+    "switching_episode",
+    "curriculum_episode",
+    "task_error",
+    "training_hold",
+    "advantages",
+    "returns",
+    "world_boundaries"
+  ],
+  "matched_final_update": 202,
+  "state_leaves_exact": 3530,
+  "provenance_fields_ignored": [
+    "trainer.parent_checkpoint",
+    "trainer.world_states.0.parent_checkpoint",
+    "trainer.world_states.1.parent_checkpoint",
+    "trainer.world_states.2.parent_checkpoint",
+    "trainer.world_states.3.parent_checkpoint",
+    "trainer.world_states.4.parent_checkpoint",
+    "trainer.world_states.5.parent_checkpoint",
+    "trainer.world_states.6.parent_checkpoint",
+    "trainer.world_states.7.parent_checkpoint"
+  ],
+  "episode_reset_crossed": true,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-cone-rl-resume.py",
+      "sha256": "567ba3bd4eaf91be9701f5f3635b86b00706497b948a7eca7e2032b190c1cb0f"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/checkpoint.pt",
+      "sha256": "a1ed8a8fd31e567839941e33fa38ddcb38887648734c6d6427e272729c61fd21"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/collector_spec.json",
+      "sha256": "0170173cfe1c170cb7c55baf639592ef247cd8261d72b83bb4966702b7e0c04e"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/revision.json",
+      "sha256": "6eb32e316b254e3fc4f0019e118a8d059bfd1e879138aa338021fc89afa5e3f4"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/training.jsonl",
+      "sha256": "de120f5e96d17b437401dd36c0322216da2a5493ac65375292798bc7f2846c6b"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/training_plan.json",
+      "sha256": "5135e4f6be2cd0788e115c32490a8c938ba1d3440823e2b1beb2ec3b9b2842aa"
+    }
+  ]
+}

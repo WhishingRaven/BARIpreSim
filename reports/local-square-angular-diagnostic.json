@@ -1,0 +1,731 @@
+{
+  "version": "bari-local-square-angular-diagnostic-v1",
+  "cases": [
+    {
+      "seed": 2001,
+      "success": false,
+      "all_last50_geometry_commands_exact": true,
+      "true_outer_angular_gaps_deg_evaluator_only": [
+        123.47202031882804,
+        80.0335176124582,
+        72.1684599013876,
+        84.32600216732615
+      ],
+      "robots": [
+        {
+          "robot_index_evaluator_only": 0,
+          "inferred_body_points_body_m": [
+            [
+              0.029783043605454,
+              -0.2119173667106961
+            ],
+            [
+              0.02362343269848971,
+              0.22476194835322982
+            ],
+            [
+              -0.24200000000000008,
+              -2.45097787027663e-17
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            0,
+            1,
+            2
+          ],
+          "chosen_local_candidate_indices": [
+            0,
+            1
+          ],
+          "computed_tangential_speed_m_s": -0.007953398380708746,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.006321730320642397,
+            -0.0027383743997919864
+          ],
+          "last5s_true_displacement_m": 0.0003629798653361441,
+          "last5s_mean_absolute_requested_v_m_s": 7.259645247592425e-05
+        },
+        {
+          "robot_index_evaluator_only": 1,
+          "inferred_body_points_body_m": [
+            [
+              -0.03225434334477239,
+              0.21919475490465387
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.18989697807513883,
+            -0.12123352111004637
+          ],
+          "last5s_true_displacement_m": 0.005657237459479637,
+          "last5s_mean_absolute_requested_v_m_s": 0.0013306493552240446
+        },
+        {
+          "robot_index_evaluator_only": 2,
+          "inferred_body_points_body_m": [
+            [
+              0.015755407929440995,
+              -0.23347759872651788
+            ],
+            [
+              -0.30587331779599913,
+              0.0009080831744430341
+            ],
+            [
+              0.3341238629109787,
+              -0.000991571299540899
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            1,
+            2
+          ],
+          "chosen_local_candidate_indices": [
+            1,
+            2
+          ],
+          "computed_tangential_speed_m_s": 0.006919276289175879,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.15414865805128386,
+            0.1680979519662877
+          ],
+          "last5s_true_displacement_m": 0.024284348666927403,
+          "last5s_mean_absolute_requested_v_m_s": 0.005633008382435014
+        },
+        {
+          "robot_index_evaluator_only": 3,
+          "inferred_body_points_body_m": [
+            [
+              0.19330159620328635,
+              -0.14318433144610068
+            ],
+            [
+              -0.1106721351338788,
+              -0.22067448586087504
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            0
+          ],
+          "chosen_local_candidate_indices": [
+            0
+          ],
+          "computed_tangential_speed_m_s": -0.04887242107707653,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.11542304518979185,
+            0.20279287147744252
+          ],
+          "last5s_true_displacement_m": 0.02880603279472027,
+          "last5s_mean_absolute_requested_v_m_s": 0.03612348848831469
+        },
+        {
+          "robot_index_evaluator_only": 4,
+          "inferred_body_points_body_m": [
+            [
+              0.0077476882679552396,
+              0.22186476359823937
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.20766312575637944,
+            -0.09234084038386788
+          ],
+          "last5s_true_displacement_m": 0.021231455206873535,
+          "last5s_mean_absolute_requested_v_m_s": 0.004274433269527173
+        }
+      ]
+    },
+    {
+      "seed": 2003,
+      "success": false,
+      "all_last50_geometry_commands_exact": true,
+      "true_outer_angular_gaps_deg_evaluator_only": [
+        80.10826467497895,
+        83.38055862977485,
+        114.8280692419877,
+        81.68310745325849
+      ],
+      "robots": [
+        {
+          "robot_index_evaluator_only": 0,
+          "inferred_body_points_body_m": [
+            [
+              0.02236909113927788,
+              0.2128276856088106
+            ],
+            [
+              0.03089642841313456,
+              -0.2198395112606287
+            ],
+            [
+              -0.2500000000000001,
+              -1.1601462470771953e-17
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            0,
+            1,
+            2
+          ],
+          "chosen_local_candidate_indices": [
+            0,
+            1
+          ],
+          "computed_tangential_speed_m_s": 0.004507970212807548,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.0013561353560377115,
+            0.008943450435823192
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 1,
+          "inferred_body_points_body_m": [
+            [
+              -0.02320531884541911,
+              -0.22078386077175674
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.2239107840052631,
+            0.01831955182594295
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 2,
+          "inferred_body_points_body_m": [
+            [
+              0.008166482228385275,
+              -0.23385745352246848
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.21383622970407207,
+            -0.08289218045298108
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 3,
+          "inferred_body_points_body_m": [
+            [
+              -0.00830608021519524,
+              -0.23785501683054489
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.045155779346047795,
+            -0.22604928708436073
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 4,
+          "inferred_body_points_body_m": [
+            [
+              0.02978304360545402,
+              -0.21191736671069608
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.11183490100965632,
+            0.1976242185275356
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        }
+      ]
+    },
+    {
+      "seed": 2011,
+      "success": true,
+      "all_last50_geometry_commands_exact": true,
+      "true_outer_angular_gaps_deg_evaluator_only": [
+        89.01656209509461,
+        91.36528443636011,
+        90.1127413383033,
+        89.50541213024196
+      ],
+      "robots": [
+        {
+          "robot_index_evaluator_only": 0,
+          "inferred_body_points_body_m": [
+            [
+              0.04532474859827157,
+              -0.21323617695996971
+            ],
+            [
+              -0.1959371020932185,
+              0.09556491000001892
+            ],
+            [
+              0.2123705322976154,
+              0.07729655239160116
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            0,
+            1,
+            2
+          ],
+          "chosen_local_candidate_indices": [
+            0,
+            1
+          ],
+          "computed_tangential_speed_m_s": 0.045431901791713636,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.004132624242024466,
+            0.0011133626089272451
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 1,
+          "inferred_body_points_body_m": [
+            [
+              -0.11700000000000002,
+              0.20264994448555876
+            ],
+            [
+              -0.3220000000000002,
+              -2.8746680209633245e-17
+            ],
+            [
+              0.16100000000000012,
+              0.27886018001858937
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            1,
+            2
+          ],
+          "chosen_local_candidate_indices": [
+            1,
+            2
+          ],
+          "computed_tangential_speed_m_s": -0.0003004800141736439,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.1971427402679991,
+            0.11638627393393726
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 2,
+          "inferred_body_points_body_m": [
+            [
+              0.01548593717119582,
+              -0.22145921915768102
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.11568769668791326,
+            0.19508159008301426
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 3,
+          "inferred_body_points_body_m": [
+            [
+              -0.008166482228385235,
+              0.23385745352246853
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.11667560547756385,
+            -0.19379198684914606
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 4,
+          "inferred_body_points_body_m": [
+            [
+              -0.19953227827841516,
+              -0.09731839458717519
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.1923746524225949,
+            -0.12036857460613824
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        }
+      ]
+    },
+    {
+      "seed": 2017,
+      "success": false,
+      "all_last50_geometry_commands_exact": true,
+      "true_outer_angular_gaps_deg_evaluator_only": [
+        82.54127946732694,
+        139.098522740557,
+        67.01669377010371,
+        71.34350402201231
+      ],
+      "robots": [
+        {
+          "robot_index_evaluator_only": 0,
+          "inferred_body_points_body_m": [
+            [
+              -0.02236909113927788,
+              -0.21282768560881057
+            ],
+            [
+              -0.030896428413134534,
+              0.2198395112606287
+            ],
+            [
+              0.25400000000000017,
+              5.236549871222369e-18
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            0,
+            1,
+            2
+          ],
+          "chosen_local_candidate_indices": [
+            0,
+            1
+          ],
+          "computed_tangential_speed_m_s": 0.005602006521973264,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.004401340365861794,
+            0.005051159803225432
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 1,
+          "inferred_body_points_body_m": [
+            [
+              0.01576496306617231,
+              0.22544947535872034
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.19844475624030072,
+            -0.11685521975092622
+          ],
+          "last5s_true_displacement_m": 0.01687158688820832,
+          "last5s_mean_absolute_requested_v_m_s": 0.003392440769679289
+        },
+        {
+          "robot_index_evaluator_only": 2,
+          "inferred_body_points_body_m": [
+            [
+              -0.05079553064851235,
+              -0.2281115371494519
+            ],
+            [
+              0.30151068152119687,
+              -0.03676377063249193
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            1
+          ],
+          "chosen_local_candidate_indices": [
+            1
+          ],
+          "computed_tangential_speed_m_s": -0.04335248486676334,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.09091796813819289,
+            -0.2138446763423479
+          ],
+          "last5s_true_displacement_m": 0.02388810888703664,
+          "last5s_mean_absolute_requested_v_m_s": 0.03856325126928711
+        },
+        {
+          "robot_index_evaluator_only": 3,
+          "inferred_body_points_body_m": [
+            [
+              -0.1792543996898409,
+              0.15041230066665026
+            ],
+            [
+              0.18231857746231683,
+              0.15298345110539638
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            0,
+            1
+          ],
+          "chosen_local_candidate_indices": [
+            0,
+            1
+          ],
+          "computed_tangential_speed_m_s": -0.0022818790100642967,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.22552613699890423,
+            0.017261065990774083
+          ],
+          "last5s_true_displacement_m": 0.013241012427531998,
+          "last5s_mean_absolute_requested_v_m_s": 0.006045075584081029
+        },
+        {
+          "robot_index_evaluator_only": 4,
+          "inferred_body_points_body_m": [
+            [
+              -0.20485299133132814,
+              0.07456039124499582
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.07219122430216703,
+            0.21443018222021468
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        }
+      ]
+    },
+    {
+      "seed": 2027,
+      "success": true,
+      "all_last50_geometry_commands_exact": true,
+      "true_outer_angular_gaps_deg_evaluator_only": [
+        82.42948872372936,
+        100.24343457042671,
+        88.8307949183894,
+        88.49628178745449
+      ],
+      "robots": [
+        {
+          "robot_index_evaluator_only": 0,
+          "inferred_body_points_body_m": [
+            [
+              0.1639335108274614,
+              -0.13755654847291948
+            ],
+            [
+              -0.19549872793551665,
+              0.08704164161822134
+            ],
+            [
+              -0.115,
+              -0.19918584287042101
+            ],
+            [
+              0.11900000000000008,
+              0.20611404610069653
+            ]
+          ],
+          "inferred_outer_candidate_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "chosen_local_candidate_indices": [
+            1,
+            0
+          ],
+          "computed_tangential_speed_m_s": 0.0005489808283121498,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.0019706454383069806,
+            -0.007906798100830344
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 1,
+          "inferred_body_points_body_m": [
+            [
+              0.016323014856125313,
+              0.23342998776079896
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.10069598215096712,
+            0.20404426848651738
+          ],
+          "last5s_true_displacement_m": 0.001280970443427546,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 2,
+          "inferred_body_points_body_m": [
+            [
+              0.016043988961148805,
+              0.22943973155975966
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.20016368020786052,
+            0.10391272197065904
+          ],
+          "last5s_true_displacement_m": 0.0034974299594637405,
+          "last5s_mean_absolute_requested_v_m_s": 0.0011642765844847112
+        },
+        {
+          "robot_index_evaluator_only": 3,
+          "inferred_body_points_body_m": [
+            [
+              -0.015206911276219334,
+              0.21746896295664173
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            -0.10953385910464558,
+            -0.19809902466582918
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        },
+        {
+          "robot_index_evaluator_only": 4,
+          "inferred_body_points_body_m": [
+            [
+              0.023623432698489703,
+              0.22476194835322988
+            ]
+          ],
+          "inferred_outer_candidate_indices": [],
+          "chosen_local_candidate_indices": [],
+          "computed_tangential_speed_m_s": 0.0,
+          "local_center_ready": true,
+          "true_xy_evaluator_only": [
+            0.18263879974289823,
+            -0.1351939739060622
+          ],
+          "last5s_true_displacement_m": 0.0,
+          "last5s_mean_absolute_requested_v_m_s": 0.0
+        }
+      ]
+    }
+  ],
+  "scope": "Read-only last50 controls of five development episodes. Nominal-motion/delayed geometry reconstructed from local inputs and recorded local center estimates. True gaps/positions/displacements are evaluator-only and never enter actions, labels, masks or filtering.",
+  "training_updates": 0,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/diagnose-local-square-angular.py",
+      "sha256": "1468d380f19373a1f6da35b9e2969f83f62bebc7d04ee893949c9706c2e98d2f"
+    },
+    {
+      "path": "runs/local-square-field-v1/report.json",
+      "sha256": "44c4457f404a716c807adc8eac4a1ec583be4d1ad0b2354f038f716031906514"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2001.npz",
+      "sha256": "17517efaa00eb6e7d932ab3ea1b6c69392fdedae7ab2534d850b727be29ae9f6"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2001-local-inputs.npz",
+      "sha256": "8996f09d3945a6ebbcb281136664a5b349111ebd7f98b9bff575173fd680853f"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2003.npz",
+      "sha256": "50dc9cbd4b4ca901fb0dcf575298f960c460bde018c780142feae9a5783f0a9b"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2003-local-inputs.npz",
+      "sha256": "a9edb78d4dc26a736865c0df8b0f052ecea3170caeed9d53b416f7f9549ae6f6"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2011.npz",
+      "sha256": "a7301c35db75b7b00ccf4421469be801f9706005944df23ef53ca0f6dbaa3c10"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2011-local-inputs.npz",
+      "sha256": "30eb8d71002ca3ddc1f730b1c4e97b420045db0dff1fe684afc7a057045b5769"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2017.npz",
+      "sha256": "174476fdca30ac8ce5ffd3bcd5651cd53712835ffc8ef97ee6994e51ed6be500"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2017-local-inputs.npz",
+      "sha256": "b95f618f16b91b5fe26b1261b92b611c641dea52b1ceae75bb653b47979f52f2"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2027.npz",
+      "sha256": "f24c926fc1dc9b58d66aa89500881ebc8c04b084fa8032bd1d89ac67c65d9114"
+    },
+    {
+      "path": "runs/local-square-field-v1/development-2027-local-inputs.npz",
+      "sha256": "6e30fadbcbda39d6cca4dac7d88a1f7e562d7db0205809195a746418f4df6a0c"
+    }
+  ]
+}

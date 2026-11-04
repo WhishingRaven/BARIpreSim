@@ -1,0 +1,370 @@
+{
+  "protocol": {
+    "version": "bari-offline-recurrent-readout-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": false,
+      "python_source_sha256": "16a77633c6f486250069b8483dd64e81dc17cedf3b34581d380e7dd335f01b60"
+    },
+    "actors": [
+      "v10",
+      "v11"
+    ],
+    "stage": "interim",
+    "lags_control_steps": [
+      5,
+      10,
+      20
+    ],
+    "readout_train_seeds": [
+      2001,
+      2003,
+      2011
+    ],
+    "readout_test_seeds": [
+      2017,
+      2027
+    ],
+    "features": [
+      "current_local_and_task",
+      "current_local_and_task_plus_hidden"
+    ],
+    "ridge_penalty": 0.001,
+    "changed_range_threshold_normalized": 0.1,
+    "scope": "Offline representation diagnostic; readout fitting never updates an actor or critic. Ground-truth wheel state is a diagnostic target only. This is not a behavioral memory ablation."
+  },
+  "actors": [
+    {
+      "version": "v10",
+      "checkpoint": "runs/radius1m-v10-interim-11/checkpoint.pt",
+      "checkpoint_sha256": "1e0c348e940cbb93a6a927e416d7665aa99e7229eb66862e006c7d299d58e9ec",
+      "actual_training_updates": 250,
+      "source_recordings": "runs/validation-radius1m-v10-interim-11",
+      "actor_command_reconstruction_max_absolute_error": 0.0,
+      "readout_training_rows": 15960,
+      "readout_test_rows": 10640,
+      "mean_offline_action_change_from_per_step_hidden_reset": 0.2355923354625702,
+      "readouts": [
+        {
+          "features": "current_local_and_task",
+          "target": "wheels",
+          "test_components": 21280,
+          "mse": 2.250168757659735e-16,
+          "mean_predictor_mse": 0.007134249565376733,
+          "variance_explained_vs_training_mean": 0.9999999999999685
+        },
+        {
+          "features": "current_local_and_task",
+          "target": "ranges_lag5",
+          "test_components": 63840,
+          "mse": 0.0648452010572434,
+          "mean_predictor_mse": 0.06992213428020477,
+          "variance_explained_vs_training_mean": 0.07260839487663873,
+          "changed_components": 28619,
+          "changed_component_mse": 0.10125492153176795
+        },
+        {
+          "features": "current_local_and_task",
+          "target": "ranges_lag10",
+          "test_components": 63840,
+          "mse": 0.0345377790573644,
+          "mean_predictor_mse": 0.07001990079879761,
+          "variance_explained_vs_training_mean": 0.5067433707124392,
+          "changed_components": 36547,
+          "changed_component_mse": 0.04110249169460517
+        },
+        {
+          "features": "current_local_and_task",
+          "target": "ranges_lag20",
+          "test_components": 63840,
+          "mse": 0.05651740764955204,
+          "mean_predictor_mse": 0.07067393511533737,
+          "variance_explained_vs_training_mean": 0.2003076517579805,
+          "changed_components": 40082,
+          "changed_component_mse": 0.06997782792383511
+        },
+        {
+          "features": "current_local_and_task_plus_hidden",
+          "target": "wheels",
+          "test_components": 21280,
+          "mse": 3.382872998225334e-14,
+          "mean_predictor_mse": 0.007134249565376733,
+          "variance_explained_vs_training_mean": 0.9999999999952582
+        },
+        {
+          "features": "current_local_and_task_plus_hidden",
+          "target": "ranges_lag5",
+          "test_components": 63840,
+          "mse": 0.027244250364901364,
+          "mean_predictor_mse": 0.06992213428020477,
+          "variance_explained_vs_training_mean": 0.6103630081432787,
+          "changed_components": 28619,
+          "changed_component_mse": 0.03740506352785902
+        },
+        {
+          "features": "current_local_and_task_plus_hidden",
+          "target": "ranges_lag10",
+          "test_components": 63840,
+          "mse": 0.03105530182796958,
+          "mean_predictor_mse": 0.07001990079879761,
+          "variance_explained_vs_training_mean": 0.5564789074673917,
+          "changed_components": 36547,
+          "changed_component_mse": 0.03676091308884963
+        },
+        {
+          "features": "current_local_and_task_plus_hidden",
+          "target": "ranges_lag20",
+          "test_components": 63840,
+          "mse": 0.04584568555199537,
+          "mean_predictor_mse": 0.07067393511533737,
+          "variance_explained_vs_training_mean": 0.35130704926925305,
+          "changed_components": 40082,
+          "changed_component_mse": 0.05389375424209433
+        }
+      ]
+    },
+    {
+      "version": "v11",
+      "checkpoint": "runs/radius1m-v11-interim-11/checkpoint.pt",
+      "checkpoint_sha256": "2d1acbaaade1524ad011cc9f52a8c2064f24de42055f2e58e7e6eac4407f38ee",
+      "actual_training_updates": 251,
+      "source_recordings": "runs/validation-radius1m-v11-interim-11",
+      "actor_command_reconstruction_max_absolute_error": 0.0,
+      "readout_training_rows": 15960,
+      "readout_test_rows": 10640,
+      "mean_offline_action_change_from_per_step_hidden_reset": 0.031590141355991364,
+      "readouts": [
+        {
+          "features": "current_local_and_task",
+          "target": "wheels",
+          "test_components": 21280,
+          "mse": 1.7521093879616675e-15,
+          "mean_predictor_mse": 0.021331643356289096,
+          "variance_explained_vs_training_mean": 0.9999999999999178
+        },
+        {
+          "features": "current_local_and_task",
+          "target": "ranges_lag5",
+          "test_components": 63840,
+          "mse": 0.05365698982881178,
+          "mean_predictor_mse": 0.062188006937503815,
+          "variance_explained_vs_training_mean": 0.13718104737909864,
+          "changed_components": 27397,
+          "changed_component_mse": 0.08019868217398377
+        },
+        {
+          "features": "current_local_and_task",
+          "target": "ranges_lag10",
+          "test_components": 63840,
+          "mse": 0.046999966492487014,
+          "mean_predictor_mse": 0.06231047958135605,
+          "variance_explained_vs_training_mean": 0.2457133126068871,
+          "changed_components": 34721,
+          "changed_component_mse": 0.06032025638809364
+        },
+        {
+          "features": "current_local_and_task",
+          "target": "ranges_lag20",
+          "test_components": 63840,
+          "mse": 0.057710988730746184,
+          "mean_predictor_mse": 0.06298893690109253,
+          "variance_explained_vs_training_mean": 0.08379170015454251,
+          "changed_components": 40159,
+          "changed_component_mse": 0.07069330028741472
+        },
+        {
+          "features": "current_local_and_task_plus_hidden",
+          "target": "wheels",
+          "test_components": 21280,
+          "mse": 2.4050948011623334e-14,
+          "mean_predictor_mse": 0.021331643356289096,
+          "variance_explained_vs_training_mean": 0.9999999999988726
+        },
+        {
+          "features": "current_local_and_task_plus_hidden",
+          "target": "ranges_lag5",
+          "test_components": 63840,
+          "mse": 0.03533502366895523,
+          "mean_predictor_mse": 0.062188006937503815,
+          "variance_explained_vs_training_mean": 0.43180323364856465,
+          "changed_components": 27397,
+          "changed_component_mse": 0.050299917636672874
+        },
+        {
+          "features": "current_local_and_task_plus_hidden",
+          "target": "ranges_lag10",
+          "test_components": 63840,
+          "mse": 0.041860567810226526,
+          "mean_predictor_mse": 0.06231047958135605,
+          "variance_explained_vs_training_mean": 0.3281937970951998,
+          "changed_components": 34721,
+          "changed_component_mse": 0.0507150237073292
+        },
+        {
+          "features": "current_local_and_task_plus_hidden",
+          "target": "ranges_lag20",
+          "test_components": 63840,
+          "mse": 0.05243600220748224,
+          "mean_predictor_mse": 0.06298893690109253,
+          "variance_explained_vs_training_mean": 0.16753634810600848,
+          "changed_components": 40159,
+          "changed_component_mse": 0.061646545031039696
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "runs/recurrent-memory-probe/diagnostic.py",
+      "sha256": "16677b49d5f8efb82203ca40d42f59c48bf4ffe94fdd3171421ca593167f47f1"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/protocol.json",
+      "sha256": "74e4d28a1edb28b4a6c9f1d3e262cac56933950a4e24efa8cd06d9e6d6c1d142"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/baseline.py",
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/cli.py",
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/curriculum.py",
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/imitation.py",
+      "sha256": "e533a7e764ac4ec604d52b3a620afe3d86c9679d3484b73e40e6a71e864fcbfe"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/policy.py",
+      "sha256": "c6aec4a76aa22de0ae97dc0bf0bd7369a9d7db6ceac6fa035ae6930f2345ecd0"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/source/train.py",
+      "sha256": "d34198ab3f7f7aba22bed09cdd879528e98b46c6054ba03295ffd21d7f91eb65"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-current_local_and_task-ranges_lag10-readout.npz",
+      "sha256": "53826f0f555acbe5f9dc9385d5ca25d9a35ce7835ecf3da578b3124b6896c308"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-current_local_and_task-ranges_lag20-readout.npz",
+      "sha256": "720b2ae3ba772ed4e3f8aa8699c78fa512b55acdc1afa77fbea63646aedd2e8c"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-current_local_and_task-ranges_lag5-readout.npz",
+      "sha256": "a914a167e8f07b8c30b6fb27c545cf9061b4189ad37c18c66c0ef4197abfbf54"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-current_local_and_task-wheels-readout.npz",
+      "sha256": "310d79cd649d281a5306a6333617e831f36422548507324858142dc3ec81107b"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-current_local_and_task_plus_hidden-ranges_lag10-readout.npz",
+      "sha256": "6f94aa14edbe582ba489a966f59612991dc27fc323b6dbb0a46274f49c482f13"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-current_local_and_task_plus_hidden-ranges_lag20-readout.npz",
+      "sha256": "bedee168e434db20557e45a9808e20696da421c613c3040032aa9f607e792c4f"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-current_local_and_task_plus_hidden-ranges_lag5-readout.npz",
+      "sha256": "f679cda0e04bfcfe030e9b6ef6526a60937377b0ee74053717d542d40d3bfdfc"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-current_local_and_task_plus_hidden-wheels-readout.npz",
+      "sha256": "66d24ff03763f25064760a035d633063b1db190329201ea92692e135ec3e909c"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v10-readout-data.npz",
+      "sha256": "ae4958f0955748d3785836cdeaa19c57d142e9d38d812a618ad7e614b3296afe"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-current_local_and_task-ranges_lag10-readout.npz",
+      "sha256": "b97acebbacfa42bfdcf63b181f73d5feecd7d61922a7567f19af326fc030835e"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-current_local_and_task-ranges_lag20-readout.npz",
+      "sha256": "1522b76816b033238c9a16a4d65fa009fc7827418ec58200ee0f341e47626d86"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-current_local_and_task-ranges_lag5-readout.npz",
+      "sha256": "5235c30698185db850865cb7001712216d941b65ee8bd932d8d92b156388986e"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-current_local_and_task-wheels-readout.npz",
+      "sha256": "a56ae433f0941e05d1b938820dce1e970ae702cd0dd7cc857209c6c212d7e02d"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-current_local_and_task_plus_hidden-ranges_lag10-readout.npz",
+      "sha256": "8ed3630435a1ed08666aa692938d4c43860c1532a5d98ca723697e1dd2fc45c5"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-current_local_and_task_plus_hidden-ranges_lag20-readout.npz",
+      "sha256": "916741a21230f44c660a0f735bacfb01802a8b31a8a6b3d14c8204840821c7c6"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-current_local_and_task_plus_hidden-ranges_lag5-readout.npz",
+      "sha256": "a278831258f608e02d28137882c13796f6e6916062bf71d6e0abf6d79fb30d23"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-current_local_and_task_plus_hidden-wheels-readout.npz",
+      "sha256": "099397c079d7cfc9de49cfbbe7541d5005a55c3ed406bb4429abcbb046ea6035"
+    },
+    {
+      "path": "runs/recurrent-memory-probe/v11-readout-data.npz",
+      "sha256": "adf2ba8455df825a71d188f2acfd5e4f2fbf05cce000004d47513bff3b5be789"
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+{
+  "protocol": {
+    "version": "bari-local-follow-consistent-v3",
+    "planned_utc": "2026-11-03T13:49:16.985662+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "development_seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "validation_seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027
+    ],
+    "arms": [
+      {
+        "speed_gain": 2.0,
+        "turn_gain": 1.2,
+        "feed_speed_m_s": 0.0
+      }
+    ],
+    "selection": "Rank by most official successes, fewest cumulative contact/wall attempts, lowest mean final max point error, then arm order. Only 4/4 zero-contact development success triggers five-case validation. No learner, deployed wrapper or automatic budget extension.",
+    "reason": "Oracle pure pursuit passes 4/4; local fails. Delayed observer comparison shows spurious side estimates under a single return and inconsistent multi-object fitting. Change only local inference: 6mm nearest-hit consistency, maximize mutually consistent returns, neutral bearing for one return. Retain speed/turn gains from the factorization.",
+    "scope": "Unlearned local-controller feasibility only, hypothetical 60-degree planar sensing, not hardware or GRU/RL acceptance.",
+    "information_boundary": "Only the 9 local actor fields, fixed calibration and independent per-robot observation-derived state. Anonymous disk fit is a hypothesis, never a sensed identity/class/bearing. Original mission leader is applied separately; all followers remain local-only.",
+    "script_sha256": "21a9296ac2adfc4878389c96f15ee5591aea270bd5ee928ec784a4ee5064f35d",
+    "controller_sha256": "fa4a2d98157f88a90531761f1d389eaeeaa0ef26afa7cfd3228c99d1c2f7b252"
+  },
+  "development_cases": [
+    {
+      "arm": 0,
+      "seed": 3001,
+      "final": {
+        "max_error_m": 0.14181671591464967,
+        "rms_error_m": 0.08455554848695233,
+        "path_error_m": 0.02579146092842121,
+        "spacing_error_m": 0.04404412716275044,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.7,
+        "holding_goal": true,
+        "hold_s": 7.29999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.19951040698795117,
+        "peak_max_error_m": 0.36318786542099785,
+        "reacquisition_s": [
+          20.400000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.857187817106334
+      },
+      "recording": "runs/local-follow-consistent/arm-00-seed-3001.npz",
+      "mean_fit_squared_error_m2": 0.00985485909337356
+    },
+    {
+      "arm": 0,
+      "seed": 3007,
+      "final": {
+        "max_error_m": 0.1403742878353508,
+        "rms_error_m": 0.08362106573100539,
+        "path_error_m": 0.0246812799729177,
+        "spacing_error_m": 0.04238855217261431,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.7,
+        "holding_goal": true,
+        "hold_s": 7.29999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.199500193950913,
+        "peak_max_error_m": 0.36531501535193006,
+        "reacquisition_s": [
+          20.400000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.873105546429875
+      },
+      "recording": "runs/local-follow-consistent/arm-00-seed-3007.npz",
+      "mean_fit_squared_error_m2": 0.01031285293127553
+    },
+    {
+      "arm": 0,
+      "seed": 3011,
+      "final": {
+        "max_error_m": 0.14209379925752452,
+        "rms_error_m": 0.08459882105470887,
+        "path_error_m": 0.02486122190906435,
+        "spacing_error_m": 0.04273181669574769,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.8,
+        "holding_goal": true,
+        "hold_s": 7.19999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.1993300775815903,
+        "peak_max_error_m": 0.3597783168253315,
+        "reacquisition_s": [
+          20.500000000000004
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.866695881073145
+      },
+      "recording": "runs/local-follow-consistent/arm-00-seed-3011.npz",
+      "mean_fit_squared_error_m2": 0.009875169010778933
+    },
+    {
+      "arm": 0,
+      "seed": 3019,
+      "final": {
+        "max_error_m": 0.14113038938379152,
+        "rms_error_m": 0.08337669146576557,
+        "path_error_m": 0.02486631215005412,
+        "spacing_error_m": 0.044941572599145024,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.7,
+        "holding_goal": true,
+        "hold_s": 7.29999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.19950987861914715,
+        "peak_max_error_m": 0.36209800878711035,
+        "reacquisition_s": [
+          20.400000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.8859537673954385
+      },
+      "recording": "runs/local-follow-consistent/arm-00-seed-3019.npz",
+      "mean_fit_squared_error_m2": 0.009297118810703369
+    }
+  ],
+  "summary": [
+    {
+      "arm": 0,
+      "speed_gain": 2.0,
+      "turn_gain": 1.2,
+      "feed_speed_m_s": 0.0,
+      "episodes": 4,
+      "successes": 4,
+      "contacts": 0,
+      "wall_attempts": 0,
+      "mean_final_max_error_m": 0.14135379809782914,
+      "mean_path_error_m": 0.025050068740114347,
+      "mean_spacing_error_m": 0.043526517157564365
+    }
+  ],
+  "best_diagnostic_arm": {
+    "arm": 0,
+    "speed_gain": 2.0,
+    "turn_gain": 1.2,
+    "feed_speed_m_s": 0.0,
+    "episodes": 4,
+    "successes": 4,
+    "contacts": 0,
+    "wall_attempts": 0,
+    "mean_final_max_error_m": 0.14135379809782914,
+    "mean_path_error_m": 0.025050068740114347,
+    "mean_spacing_error_m": 0.043526517157564365
+  },
+  "validation": [
+    {
+      "seed": 2001,
+      "final": {
+        "max_error_m": 0.14208189026512014,
+        "rms_error_m": 0.08435350049600743,
+        "path_error_m": 0.02435503513112466,
+        "spacing_error_m": 0.04440934099629326,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.6,
+        "holding_goal": true,
+        "hold_s": 7.39999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.19908940058805216,
+        "peak_max_error_m": 0.36169806161524287,
+        "reacquisition_s": [
+          20.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.873439163201569
+      },
+      "recording": "runs/local-follow-consistent/validation-seed-2001.npz"
+    },
+    {
+      "seed": 2003,
+      "final": {
+        "max_error_m": 0.13957369195386637,
+        "rms_error_m": 0.08335966375615651,
+        "path_error_m": 0.024615998233071725,
+        "spacing_error_m": 0.041218699601501735,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.6,
+        "holding_goal": true,
+        "hold_s": 7.39999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.1983059018860426,
+        "peak_max_error_m": 0.36052510041127855,
+        "reacquisition_s": [
+          20.3
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.894985468123156
+      },
+      "recording": "runs/local-follow-consistent/validation-seed-2003.npz"
+    },
+    {
+      "seed": 2011,
+      "final": {
+        "max_error_m": 0.14160590845393317,
+        "rms_error_m": 0.0853027876183785,
+        "path_error_m": 0.02393867410100268,
+        "spacing_error_m": 0.040655854793730045,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.400000000000002,
+        "holding_goal": true,
+        "hold_s": 7.599999999999989,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.19573981142392807,
+        "peak_max_error_m": 0.3543552133649947,
+        "reacquisition_s": [
+          20.2
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.918416511313495
+      },
+      "recording": "runs/local-follow-consistent/validation-seed-2011.npz"
+    },
+    {
+      "seed": 2017,
+      "final": {
+        "max_error_m": 0.13966585429530454,
+        "rms_error_m": 0.08331466444935375,
+        "path_error_m": 0.02464551854654073,
+        "spacing_error_m": 0.0424252401849802,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.5,
+        "holding_goal": true,
+        "hold_s": 7.499999999999989,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.19804889391895836,
+        "peak_max_error_m": 0.36285790873451484,
+        "reacquisition_s": [
+          20.200000000000003
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.897292244116253
+      },
+      "recording": "runs/local-follow-consistent/validation-seed-2017.npz"
+    },
+    {
+      "seed": 2027,
+      "final": {
+        "max_error_m": 0.14051899844332896,
+        "rms_error_m": 0.08506273517911624,
+        "path_error_m": 0.02557410781570787,
+        "spacing_error_m": 0.03948877509458751,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.7,
+        "holding_goal": true,
+        "hold_s": 7.29999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.19925914175051482,
+        "peak_max_error_m": 0.3620650728189584,
+        "reacquisition_s": [
+          20.400000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.861026069491513
+      },
+      "recording": "runs/local-follow-consistent/validation-seed-2027.npz"
+    }
+  ],
+  "validation_successes": 5,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-follow-consistent.py",
+      "sha256": "21a9296ac2adfc4878389c96f15ee5591aea270bd5ee928ec784a4ee5064f35d"
+    },
+    {
+      "path": "runs/local_range_consistent_follow.py",
+      "sha256": "fa4a2d98157f88a90531761f1d389eaeeaa0ef26afa7cfd3228c99d1c2f7b252"
+    },
+    {
+      "path": "runs/local-follow-consistent/protocol.json",
+      "sha256": "3dcae994c525987e6a6f3e40e10b77d87bb8fd92b65e1c6083de69b2e434cec2"
+    },
+    {
+      "path": "runs/local-follow-consistent/arm-00-seed-3001.npz",
+      "sha256": "dd100a946ab81f278442cb40dc6bef92c2d3b01e8c7723476e2e85d6152a71b8"
+    },
+    {
+      "path": "runs/local-follow-consistent/arm-00-seed-3007.npz",
+      "sha256": "3654d532cf57beb225009aae0c82ab3acbbb2a25720c76c9095a6b2a10a3fe49"
+    },
+    {
+      "path": "runs/local-follow-consistent/arm-00-seed-3011.npz",
+      "sha256": "7b271fb372af897a8ed50fb90ee82f5fe1bd37a1d5692077618b53a5ce16e538"
+    },
+    {
+      "path": "runs/local-follow-consistent/arm-00-seed-3019.npz",
+      "sha256": "03f94c547b4aa34eef9c3f3039750f3145e6d9283cb3844ccc19c842a09837a3"
+    },
+    {
+      "path": "runs/local-follow-consistent/validation-seed-2001.npz",
+      "sha256": "12a4745762bac534c05ef90f79c6dee1a88446dfd68fc809f77aa1ef5997aa7f"
+    },
+    {
+      "path": "runs/local-follow-consistent/validation-seed-2003.npz",
+      "sha256": "71c01095e08c26a0d4f1d3af5d3bfa25be5f5af7a631b4bbc37aefef8c7e9eca"
+    },
+    {
+      "path": "runs/local-follow-consistent/validation-seed-2011.npz",
+      "sha256": "6612b1b228ec51b76e07e33244ff3412e02402d6649afc5507121a2629ef31c6"
+    },
+    {
+      "path": "runs/local-follow-consistent/validation-seed-2017.npz",
+      "sha256": "c7c03fc5f8e2df6cb3fbfd3470abc6669d21938796f170dab509d9a8a885db9f"
+    },
+    {
+      "path": "runs/local-follow-consistent/validation-seed-2027.npz",
+      "sha256": "2a39c7f845b17fb3e58f4f1d157d1cb165c4bbb19941729e3fe38ce02281ea6e"
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "version": "bari-local-circle-student-learning-v1",
+  "completed_utc": "2026-11-03T16:34:33.374329+00:00",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "recovery": [
+    {
+      "handoff_s": 0,
+      "episodes": 5,
+      "successes": 4,
+      "final_holding": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.021216041664192928
+    },
+    {
+      "handoff_s": 5,
+      "episodes": 5,
+      "successes": 5,
+      "final_holding": 5,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.015590950726899564
+    },
+    {
+      "handoff_s": 10,
+      "episodes": 5,
+      "successes": 5,
+      "final_holding": 5,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.016421098876361322
+    }
+  ],
+  "collection": {
+    "episodes": 128,
+    "unique_world_seeds": 128,
+    "successes": 3,
+    "final_holding": 0,
+    "contacts": 3841,
+    "walls": 18,
+    "mean_final_max_error_m": 0.12458512206441918,
+    "executed_teacher_interventions": 0,
+    "all_failed_episodes_retained": true,
+    "dataset_loader_pass": true,
+    "auxiliary_not_actor_input_or_planned_loss": true,
+    "qualified_for_fixed_fresh_imitation_only": true
+  },
+  "label_diagnostic": {
+    "episodes": 128,
+    "all_student_replays_exact": true,
+    "ready_steps_robots": 178166,
+    "ready_mean_center_error_m": 0.01390472422147672,
+    "ready_fraction_error_over_40mm": 0.05104228640705859,
+    "pre_any_contact_mean_ready_error_m": 0.003887972799348876,
+    "post_any_contact_mean_ready_error_m": 0.03576744143825903,
+    "mean_cross_robot_center_spread_m": 0.034860763060700246,
+    "fraction_multiready_steps_with_center_spread_over_40mm": 0.1551542869158387,
+    "episodes_with_ready_center_error_over_100mm": 28
+  },
+  "readout": {
+    "current-observation-with-commands": {
+      "features": 13,
+      "train_sample_robots": 138971,
+      "test_sample_robots": 39195,
+      "test_mean_vector_error_m": 0.13985057699941122,
+      "test_vector_rmse_m": 0.20035229428797377,
+      "test_p90_vector_error_m": 0.2780485580142165,
+      "test_mean_radius_abs_error_m": 0.09418129434843055
+    },
+    "current-observation-without-commands": {
+      "features": 11,
+      "train_sample_robots": 138971,
+      "test_sample_robots": 39195,
+      "test_mean_vector_error_m": 0.14449279365517945,
+      "test_vector_rmse_m": 0.20368276632177734,
+      "test_p90_vector_error_m": 0.2921834397203922,
+      "test_mean_radius_abs_error_m": 0.09643230776450322
+    },
+    "original-ordinary": {
+      "features": 64,
+      "train_sample_robots": 138971,
+      "test_sample_robots": 39195,
+      "test_mean_vector_error_m": 0.13042888615549372,
+      "test_vector_rmse_m": 0.1900342414078138,
+      "test_p90_vector_error_m": 0.27736424972304663,
+      "test_mean_radius_abs_error_m": 0.08509631217255477
+    },
+    "original-no-command": {
+      "features": 64,
+      "train_sample_robots": 138971,
+      "test_sample_robots": 39195,
+      "test_mean_vector_error_m": 0.13518252696439712,
+      "test_vector_rmse_m": 0.1902025456516592,
+      "test_p90_vector_error_m": 0.28066707532301866,
+      "test_mean_radius_abs_error_m": 0.09056675063578347
+    },
+    "student1-ordinary": {
+      "features": 64,
+      "train_sample_robots": 138971,
+      "test_sample_robots": 39195,
+      "test_mean_vector_error_m": 0.1295106554855909,
+      "test_vector_rmse_m": 0.18619026115129303,
+      "test_p90_vector_error_m": 0.26200119045700576,
+      "test_mean_radius_abs_error_m": 0.08417262545943818
+    },
+    "student1-no-command": {
+      "features": 64,
+      "train_sample_robots": 138971,
+      "test_sample_robots": 39195,
+      "test_mean_vector_error_m": 0.12282308392147775,
+      "test_vector_rmse_m": 0.17733862513232254,
+      "test_p90_vector_error_m": 0.24976806126162635,
+      "test_mean_radius_abs_error_m": 0.08278102941331152
+    }
+  },
+  "learners": {
+    "no-command": {
+      "protocol": {
+        "version": "bari-local-circle-student-imitation-v1",
+        "arm": "no-command",
+        "planned_utc": "2026-11-03T16:22:19.786143+00:00",
+        "source_revision": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "experiment_script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-local-circle-student1.py",
+          "sha256": "514289a9871c61eda38e97e60d88537b8ebca7e7bce318552823a91fb9d6a497"
+        },
+        "collection": {
+          "path": "reports/local-circle-student-collection.json",
+          "sha256": "0321af470186929bbcc092b517c64cf32ce27bcc3abb8d7aae1508daaafc0b9a"
+        },
+        "plan": {
+          "datasets": [
+            "runs/teacher-local-circle-v5/demonstrations.npz",
+            "runs/teacher-local-circle-student1/demonstrations.npz"
+          ],
+          "fresh_actor": "GRU64 with saved zero command encoder columns; all other seed11 initial tensors exact to original no-command stage",
+          "seed": 11,
+          "epochs": 40,
+          "batch_episodes": 8,
+          "BPTT": 64,
+          "Adam_learning_rate": 0.001,
+          "gradient_clip": 0.5,
+          "expected_optimizer_steps": 6400,
+          "budget_comparison": "256 episodes x40 epochs equals128 x80 baseline total samples and6400 optimizer steps. Fresh training, not extending old weights. Added student-state diversity replaces repeated exposure to the original dataset.",
+          "selection": "Only final epoch40, deterministic circle/random on seeds2001/2003/2011/2017/2027. Require5/5 official successes AND5/5 final holds before any larger gate or separately planned RL; otherwise stop without extension. Unchanged thresholds/timeout/safety. No teacher or runtime wrapper at evaluation.",
+          "scope": "Imitation-only student-state aggregation; no GRU-RL, multi-task, fresh-heldout, multi-training-seed or physical acceptance."
+        },
+        "seed": 11,
+        "datasets": [
+          {
+            "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+            "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5",
+            "episodes": 128,
+            "execution": "teacher-closed-loop"
+          },
+          {
+            "path": "runs/teacher-local-circle-student1/demonstrations.npz",
+            "sha256": "470d3df1c3f8a52113d20ed97bcf9db60e0c318e4179ea38125df4a426e101d7",
+            "episodes": 128,
+            "execution": "student-closed-loop"
+          }
+        ],
+        "initial_actor": {
+          "path": "runs/train-local-circle-student1-11/initial_actor.pt",
+          "sha256": "761f457850eea78e4a506a42e5f1d1f05ba72f3a6945a1e3ef8c94b11b53c83a"
+        },
+        "baseline_initial": {
+          "path": "runs/train-local-circle-no-command-11/initial_actor.pt",
+          "sha256": "761f457850eea78e4a506a42e5f1d1f05ba72f3a6945a1e3ef8c94b11b53c83a"
+        },
+        "baseline_result": {
+          "path": "runs/local-circle-no-command-results.json",
+          "sha256": "01e83bd65217f8c15e8cea107a5b02227144cc6c7f22f38ed5fcea95e672b485"
+        },
+        "initial_actor_all_tensors_exact": true,
+        "optimizer_steps": 6400,
+        "constraint": "Saved command columns6:8, their gradients and Adam moments exactly zero; no runtime input mask/wrapper or teacher.",
+        "paired_protocol": {
+          "path": "runs/local-circle-student1-paired-protocol.json",
+          "sha256": "caf06a9ea0267b789e5522cdb5057354dfc937e6575aa349cedc6abfa4d2d621"
+        },
+        "local_teacher_state_sidecar": "Diagnostic only, not loaded into this training loss or actor inputs.",
+        "larger_gate": {
+          "path": "runs/local-circle-student1-larger-gate.json",
+          "sha256": "f11cfe8bfafb1ef1cad4fded928bc08d2985fdfb1295149501fff29f9003b739"
+        },
+        "selection": "Only final epoch40. Require all5 development successes AND final holds before the predeclared20-world diagnostic. No extension or automatic PPO. Larger stage eligibility is >=18/20 successes AND final holds, with zero total safety attempts.",
+        "scope": "Circle-only imitation, zeroRLupdates, hypothetical60-degree sensing; not multi-task/memory/switching, final-heldout, multi-training-seed or physical acceptance."
+      },
+      "checkpoint": {
+        "path": "runs/train-local-circle-student1-11/checkpoint.pt",
+        "sha256": "3180b42ab68e8db30868f7200063bcaed025d52ce3fbd1bfbc12e7efa9889660"
+      },
+      "imitation_epochs": 40,
+      "RL_updates": 0,
+      "initial_actor": {
+        "path": "runs/train-local-circle-student1-11/initial_actor.pt",
+        "sha256": "761f457850eea78e4a506a42e5f1d1f05ba72f3a6945a1e3ef8c94b11b53c83a"
+      },
+      "training_log": {
+        "path": "runs/train-local-circle-student1-11/imitation.jsonl",
+        "sha256": "cf905d0a99e58356d8a3acdb4c904c65d6a3c78d5f2b5205fa101d4faf06c6db"
+      },
+      "optimizer_steps": 6400,
+      "development": {
+        "report": {
+          "path": "runs/validation-local-circle-student1-11-development/report.json",
+          "sha256": "8bc6187753a0146ed6ad983988a816d1fe995ef61c406f386c1a32fb8bb32db1"
+        },
+        "episodes": 5,
+        "successes": 0,
+        "final_holding": 0,
+        "contacts": 12,
+        "walls": 0,
+        "mean_final_max_error_m": 0.07951612352220719
+      },
+      "larger": null,
+      "qualified_for_separately_planned_next_stage_only": false,
+      "default_promoted": false,
+      "teacher_interventions": 0,
+      "decision": "Fresh fixed40-epoch stage complete. No budget extension or automatic PPO. Full goal remains open."
+    },
+    "ordinary": {
+      "protocol": {
+        "version": "bari-local-circle-student-imitation-v1",
+        "arm": "ordinary",
+        "planned_utc": "2026-11-03T16:22:19.786145+00:00",
+        "source_revision": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "experiment_script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-local-circle-student1.py",
+          "sha256": "514289a9871c61eda38e97e60d88537b8ebca7e7bce318552823a91fb9d6a497"
+        },
+        "collection": {
+          "path": "reports/local-circle-student-collection.json",
+          "sha256": "0321af470186929bbcc092b517c64cf32ce27bcc3abb8d7aae1508daaafc0b9a"
+        },
+        "plan": {
+          "datasets": [
+            "runs/teacher-local-circle-v5/demonstrations.npz",
+            "runs/teacher-local-circle-student1/demonstrations.npz"
+          ],
+          "fresh_actor": "Ordinary GRU64, all previous-command columns train; all seed11 initial tensors exact to ordinary baseline",
+          "seed": 11,
+          "epochs": 40,
+          "batch_episodes": 8,
+          "BPTT": 64,
+          "Adam_learning_rate": 0.001,
+          "gradient_clip": 0.5,
+          "expected_optimizer_steps": 6400,
+          "budget_comparison": "256 episodes x40 epochs equals128 x80 baseline total samples and6400 optimizer steps. Fresh training, not extending old weights. Added student-state diversity replaces repeated exposure to the original dataset.",
+          "selection": "Only final epoch40, deterministic circle/random on seeds2001/2003/2011/2017/2027. Require5/5 official successes AND5/5 final holds before any larger gate or separately planned RL; otherwise stop without extension. Unchanged thresholds/timeout/safety. No teacher or runtime wrapper at evaluation.",
+          "scope": "Imitation-only student-state aggregation; no GRU-RL, multi-task, fresh-heldout, multi-training-seed or physical acceptance."
+        },
+        "seed": 11,
+        "datasets": [
+          {
+            "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+            "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5",
+            "episodes": 128,
+            "execution": "teacher-closed-loop"
+          },
+          {
+            "path": "runs/teacher-local-circle-student1/demonstrations.npz",
+            "sha256": "470d3df1c3f8a52113d20ed97bcf9db60e0c318e4179ea38125df4a426e101d7",
+            "episodes": 128,
+            "execution": "student-closed-loop"
+          }
+        ],
+        "initial_actor": {
+          "path": "runs/train-local-circle-student1-ordinary-11/initial_actor.pt",
+          "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+        },
+        "baseline_initial": {
+          "path": "runs/train-local-circle-ordinary-11/initial_actor.pt",
+          "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+        },
+        "baseline_result": {
+          "path": "runs/local-circle-ordinary-results.json",
+          "sha256": "839e61af3588a62c1528d0bc50893e5bde1bd99c377b5220457288fe8cb11231"
+        },
+        "initial_actor_all_tensors_exact": true,
+        "optimizer_steps": 6400,
+        "constraint": "Ordinary actor, all previous-command columns train; no teacher or runtime wrapper.",
+        "paired_protocol": {
+          "path": "runs/local-circle-student1-paired-protocol.json",
+          "sha256": "caf06a9ea0267b789e5522cdb5057354dfc937e6575aa349cedc6abfa4d2d621"
+        },
+        "local_teacher_state_sidecar": "Diagnostic only, not loaded into this training loss or actor inputs.",
+        "larger_gate": {
+          "path": "runs/local-circle-student1-larger-gate.json",
+          "sha256": "f11cfe8bfafb1ef1cad4fded928bc08d2985fdfb1295149501fff29f9003b739"
+        },
+        "selection": "Only final epoch40. Require all5 development successes AND final holds before the predeclared20-world diagnostic. No extension or automatic PPO. Larger stage eligibility is >=18/20 successes AND final holds, with zero total safety attempts.",
+        "scope": "Circle-only imitation, zeroRLupdates, hypothetical60-degree sensing; not multi-task/memory/switching, final-heldout, multi-training-seed or physical acceptance."
+      },
+      "checkpoint": {
+        "path": "runs/train-local-circle-student1-ordinary-11/checkpoint.pt",
+        "sha256": "66e868d4ff3f193f727f552fbe55c5d9768f68e4cc5b8839ef38e868b10f4f79"
+      },
+      "imitation_epochs": 40,
+      "RL_updates": 0,
+      "initial_actor": {
+        "path": "runs/train-local-circle-student1-ordinary-11/initial_actor.pt",
+        "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+      },
+      "training_log": {
+        "path": "runs/train-local-circle-student1-ordinary-11/imitation.jsonl",
+        "sha256": "a18f17eed1b8ee72df6ff5791ae46f488400eb351e15ad0554a31cdf467fea9f"
+      },
+      "optimizer_steps": 6400,
+      "development": {
+        "report": {
+          "path": "runs/validation-local-circle-student1-ordinary-11-development/report.json",
+          "sha256": "4ab0179c684c87a5673d7bdf88112d238f3f5822318ea5ce64b9a8a953d088d5"
+        },
+        "episodes": 5,
+        "successes": 0,
+        "final_holding": 0,
+        "contacts": 10,
+        "walls": 0,
+        "mean_final_max_error_m": 0.4163906240877779
+      },
+      "larger": null,
+      "qualified_for_separately_planned_next_stage_only": false,
+      "default_promoted": false,
+      "teacher_interventions": 0,
+      "decision": "Fresh fixed40-epoch stage complete. No budget extension or automatic PPO. Full goal remains open."
+    },
+    "local-state-aux": {
+      "protocol": {
+        "version": "bari-local-circle-state-aux-imitation-v1",
+        "planned_utc": "2026-11-03T16:28:33.161442+00:00",
+        "source_revision": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-local-circle-state-aux.py",
+          "sha256": "b205dcdfb78b336553a2c05e3a021c7dc1856c43e1f7a3139098887f7dea863a"
+        },
+        "datasets": [
+          {
+            "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+            "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5",
+            "episodes": 128
+          },
+          {
+            "path": "runs/teacher-local-circle-student1/demonstrations.npz",
+            "sha256": "470d3df1c3f8a52113d20ed97bcf9db60e0c318e4179ea38125df4a426e101d7",
+            "episodes": 128
+          }
+        ],
+        "local_teacher_sidecar": {
+          "path": "runs/teacher-local-circle-student1/local-teacher-state.npz",
+          "sha256": "94a31f4fbeb44e3b93e32110715c7e7e007d30ec42302fbc2ae4313101b83b83"
+        },
+        "diagnostics": [
+          {
+            "path": "reports/local-circle-state-readout.json",
+            "sha256": "17bf356f03d7608a5038f91e2dd3262290ffb920731c171fa7ab5273eb308abb"
+          },
+          {
+            "path": "reports/local-circle-student-label-diagnostic.json",
+            "sha256": "91cf72941e87715f43032c2943fa95cd0dd538502b18edbc4e8a96b2b2f555d4"
+          }
+        ],
+        "baseline": {
+          "path": "runs/local-circle-student1-ordinary-results.json",
+          "sha256": "de0e73d19ddbdc372fc9c2c9fe44a20e94601dc0d73f2a3b61821e2802c3c2e5"
+        },
+        "baseline_initial": {
+          "path": "runs/train-local-circle-ordinary-11/initial_actor.pt",
+          "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+        },
+        "initial_actor": {
+          "path": "runs/train-local-circle-state-aux-11/initial_actor.pt",
+          "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+        },
+        "seed": 11,
+        "epochs": 40,
+        "batch_episodes": 8,
+        "BPTT": 64,
+        "Adam_learning_rate": 0.001,
+        "gradient_clip_actor": 0.5,
+        "gradient_clip_head": 0.5,
+        "optimizer_steps": 6400,
+        "loss": "Original all5 wheel MSE +4.0*center_xy_MSE/arena_radius^2, teacher-ready local-derived targets on128 student-state episodes only. Original128 episodes have zero auxiliary weight, not zero wheel weight. No true pose, identity, contact flag or global formation error target.",
+        "information_boundary": "Actor forward receives local9/task4/hidden only. Targets/readiness enter training loss only; head reads hidden64 and is excluded from actor.state_dict, loader and deployment. No new input, runtime mask, teacher wrapper or action transform.",
+        "selection": "Final40 only on original5 circle/random development seeds, unchanged gates. Require5/5 success AND final holds before the previously frozen20-world conditional gate; then >=18 successes/holds with zero total safety attempts to qualify for a separately planned next stage. No extension or automatic PPO.",
+        "limits": "One imitation seed, noisy local-teacher targets and hypothetical60-degree sensing. Readout split was held out for decoder fitting only; student1 actor weights had seen all128 episodes. No final-heldout or full-goal acceptance."
+      },
+      "checkpoint": {
+        "path": "runs/train-local-circle-state-aux-11/checkpoint.pt",
+        "sha256": "5ecea0ebae2975077eadfa0ed1f5639cd756022936cfb0cf4a8d73371320ea36"
+      },
+      "gradient_proof": {
+        "path": "runs/train-local-circle-state-aux-11/gradient-proof.json",
+        "sha256": "80b02c7ab7a7fbe5f2094dc11b87f540f92594be81070b025b59e483c348ce2b"
+      },
+      "training_log": {
+        "path": "runs/train-local-circle-state-aux-11/imitation.jsonl",
+        "sha256": "cc0b65d4555ae76c52c37e584eba449bfef117f62b25f6eb18ecc81162a05fb7"
+      },
+      "initial_actor": {
+        "path": "runs/train-local-circle-state-aux-11/initial_actor.pt",
+        "sha256": "14448bee91c05e55a0063964f7e5fdc89f34b6aba046b9a9523139e3b88c912d"
+      },
+      "observer_recovery": {
+        "path": "reports/local-circle-state-aux-observer-recovery.json",
+        "sha256": "6b678edc0f013b326d90530d2c2a1f0b3fb9dab2a4ad632d95c6b458f37bc70d"
+      },
+      "imitation_epochs": 40,
+      "RL_updates": 0,
+      "optimizer_steps": 6400,
+      "development": {
+        "report": {
+          "path": "runs/validation-local-circle-state-aux-11-development-recovered/report.json",
+          "sha256": "d70de3904593d76769d17de6970a42993fe3ce4a2f8cb42f1d713aa09a2799fa"
+        },
+        "episodes": 5,
+        "successes": 0,
+        "final_holding": 0,
+        "contacts": 77,
+        "walls": 0,
+        "mean_final_max_error_m": 0.22977935459365312
+      },
+      "larger": null,
+      "qualified_for_separately_planned_next_stage_only": false,
+      "default_promoted": false,
+      "decision": "Fixed40-epoch auxiliary stage complete; original inference graph. No extension or automatic PPO."
+    }
+  },
+  "matched_initialization_proof": {
+    "ordinary_and_auxiliary_all_initial_tensors_exact": true,
+    "ordinary_and_no_command_differ_only_in_encoder_columns6_8": true,
+    "saved_constrained_columns_exact_zero": true,
+    "all_three_fresh_actors_optimizer_steps": 6400
+  },
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-local-circle-student-report.py",
+      "sha256": "2d05b7aa27bade5ddfa44562e3da13d932903ebe1f4456e702cbc8875583099d"
+    },
+    {
+      "path": "reports/local-circle-student-recovery.json",
+      "sha256": "5df4874a5107be07000b18a307429ad556a94f98fa1843ae258ac9351f2c4ea3"
+    },
+    {
+      "path": "reports/local-circle-student-collection.json",
+      "sha256": "0321af470186929bbcc092b517c64cf32ce27bcc3abb8d7aae1508daaafc0b9a"
+    },
+    {
+      "path": "reports/local-circle-student-label-diagnostic.json",
+      "sha256": "91cf72941e87715f43032c2943fa95cd0dd538502b18edbc4e8a96b2b2f555d4"
+    },
+    {
+      "path": "reports/local-circle-state-readout.json",
+      "sha256": "17bf356f03d7608a5038f91e2dd3262290ffb920731c171fa7ab5273eb308abb"
+    },
+    {
+      "path": "reports/local-circle-state-aux-observer-recovery.json",
+      "sha256": "6b678edc0f013b326d90530d2c2a1f0b3fb9dab2a4ad632d95c6b458f37bc70d"
+    },
+    {
+      "path": "reports/native-window-retry.json",
+      "sha256": "4a02db5f5c1a9b738d81c681a1ecfa3007a69ba782988736e0ffe9deba3f911e"
+    },
+    {
+      "path": "runs/local-circle-student1-results.json",
+      "sha256": "dced0de55ccdb631ca9114f671268c86297465aeb43896f6e5bdc5502390d142"
+    },
+    {
+      "path": "runs/local-circle-student1-ordinary-results.json",
+      "sha256": "de0e73d19ddbdc372fc9c2c9fe44a20e94601dc0d73f2a3b61821e2802c3c2e5"
+    },
+    {
+      "path": "runs/local-circle-state-aux-results.json",
+      "sha256": "46b893c1c556246aabd4c0048670e5c37f1299bba729e4824d3717f746016633"
+    },
+    {
+      "path": "runs/probe-local-circle-student-recovery.py",
+      "sha256": "bd8a362c3b2ea5d662292fde7450d1a517ea8f462a42442c99728ac9d9e419c7"
+    },
+    {
+      "path": "runs/collect-local-circle-student-shard.py",
+      "sha256": "c1aaadd98dea9f65f81d2b6afe72319b94ed16e117caa0f0bfc06f7d80ed14b8"
+    },
+    {
+      "path": "runs/merge-local-circle-student-shards.py",
+      "sha256": "f9d113fa89178c1de03add33c46748761854f79725d7df1a129d818708f70cde"
+    },
+    {
+      "path": "runs/check-local-circle-student-labels.py",
+      "sha256": "b87fb76273b0f147363212e879a5e23a419b8db24d9f452ddebf1c290833ec15"
+    },
+    {
+      "path": "runs/train-local-circle-student1.py",
+      "sha256": "514289a9871c61eda38e97e60d88537b8ebca7e7bce318552823a91fb9d6a497"
+    },
+    {
+      "path": "runs/probe-local-circle-state-readout.py",
+      "sha256": "f10fd0bb373eb90c9be635cbbb28606f0da769408f2a7c19e6d78a49b83f8741"
+    },
+    {
+      "path": "runs/train-local-circle-state-aux.py",
+      "sha256": "b205dcdfb78b336553a2c05e3a021c7dc1856c43e1f7a3139098887f7dea863a"
+    },
+    {
+      "path": "runs/recover-local-circle-state-aux-evaluation.py",
+      "sha256": "1209de0c66a932d587f94474119b38f8d0bba4a33e2594c23bab322c4a95facf"
+    },
+    {
+      "path": "runs/plot-local-circle-student-recovery.py",
+      "sha256": "508048c63c9bd75e78747129fb2b4701a705ee78f88efebd33e32140d921164f"
+    },
+    {
+      "path": "runs/local-circle-student1-paired-protocol.json",
+      "sha256": "caf06a9ea0267b789e5522cdb5057354dfc937e6575aa349cedc6abfa4d2d621"
+    },
+    {
+      "path": "runs/local-circle-student1-larger-gate.json",
+      "sha256": "f11cfe8bfafb1ef1cad4fded928bc08d2985fdfb1295149501fff29f9003b739"
+    },
+    {
+      "path": "output/diagnostics/local-circle-student-recovery.png",
+      "sha256": "791a315f7271155c669a94b02536807daf99a747917b2017c308d247b350da38"
+    }
+  ],
+  "production_source_changed": false,
+  "full_goal_complete": false,
+  "default_promoted": false,
+  "decision": "All3 new final candidates fail5-case development gate;20-world gate remains unused, no further training extension/PPO/default promotion. Local-state representation and teacher robustness need further work."
+}

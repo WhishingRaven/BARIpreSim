@@ -1,0 +1,261 @@
+{
+  "protocol": {
+    "version": "bari-command-feedback-gain-v1",
+    "planned_utc": "2026-11-03T11:59:05.384905+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+    },
+    "dataset": {
+      "path": "runs/teacher-follow-h64/demonstrations.npz",
+      "sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9"
+    },
+    "models": {
+      "h64": {
+        "path": "runs/follow-h64-actor-terminal-11/checkpoint.pt",
+        "sha256": "c5020c7c2c1facfb3128d4597808f5ab697956086298bf25329c54bedb129f4c"
+      },
+      "student-aggregate": {
+        "path": "runs/follow-dagger1-actor-terminal-11/checkpoint.pt",
+        "sha256": "83fce7db8275a599eab3fd9d5eca072dac20f6b95f5b4492adef4a28d4667d6a"
+      },
+      "assisted-aggregate": {
+        "path": "runs/follow-assistance-assisted-terminal-11/checkpoint.pt",
+        "sha256": "3d507ded543a08d69efd2d04b021e074e8838e6becabd14b0891129927000bf8"
+      }
+    },
+    "episodes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "robots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "start_steps": [
+      0,
+      10,
+      50,
+      100,
+      200
+    ],
+    "epsilon_requested_command": 0.0001,
+    "horizon_steps": 20,
+    "profiles": [
+      "teacher-command",
+      "self-command"
+    ],
+    "scope": "Counterfactual actor-only diagnostic. All six sensor readings, roles and task contexts stay fixed to recorded teacher streams. Warm hidden states use the true recorded histories. A single previous-command component is perturbed once, then histories either use recorded commands or each actor output. Double-precision copies reduce numerical noise. Gains do not measure physical closed-loop stability, safety, task success or a unique cause of failure."
+  },
+  "summary": [
+    {
+      "model": "h64",
+      "profile": "teacher-command",
+      "cases": 320,
+      "command_gains": [
+        {
+          "step": 1,
+          "mean": 1.2693872877329913,
+          "max": 1.7098272793501146,
+          "fraction_above_one": 0.81875
+        },
+        {
+          "step": 5,
+          "mean": 0.05179154571704188,
+          "max": 0.22047826109904137,
+          "fraction_above_one": 0.0
+        },
+        {
+          "step": 10,
+          "mean": 0.014568643794593217,
+          "max": 0.07264375253360907,
+          "fraction_above_one": 0.0
+        },
+        {
+          "step": 20,
+          "mean": 0.003431541986191293,
+          "max": 0.031734856782805736,
+          "fraction_above_one": 0.0
+        }
+      ]
+    },
+    {
+      "model": "h64",
+      "profile": "self-command",
+      "cases": 320,
+      "command_gains": [
+        {
+          "step": 1,
+          "mean": 1.2693872877329913,
+          "max": 1.7098272793501146,
+          "fraction_above_one": 0.81875
+        },
+        {
+          "step": 5,
+          "mean": 1.7385213286923282,
+          "max": 5.085679950932229,
+          "fraction_above_one": 0.709375
+        },
+        {
+          "step": 10,
+          "mean": 2.2859474292146356,
+          "max": 7.7103192399073714,
+          "fraction_above_one": 0.56875
+        },
+        {
+          "step": 20,
+          "mean": 2.6599568897934573,
+          "max": 14.374838688381528,
+          "fraction_above_one": 0.528125
+        }
+      ]
+    },
+    {
+      "model": "student-aggregate",
+      "profile": "teacher-command",
+      "cases": 320,
+      "command_gains": [
+        {
+          "step": 1,
+          "mean": 0.4583267341181799,
+          "max": 0.7049254236090655,
+          "fraction_above_one": 0.0
+        },
+        {
+          "step": 5,
+          "mean": 0.1387813573921081,
+          "max": 0.8304510331642105,
+          "fraction_above_one": 0.0
+        },
+        {
+          "step": 10,
+          "mean": 0.05212339462709063,
+          "max": 0.3043814400613853,
+          "fraction_above_one": 0.0
+        },
+        {
+          "step": 20,
+          "mean": 0.03211627390197027,
+          "max": 0.43264766960370604,
+          "fraction_above_one": 0.0
+        }
+      ]
+    },
+    {
+      "model": "student-aggregate",
+      "profile": "self-command",
+      "cases": 320,
+      "command_gains": [
+        {
+          "step": 1,
+          "mean": 0.4583267341181799,
+          "max": 0.7049254236090655,
+          "fraction_above_one": 0.0
+        },
+        {
+          "step": 5,
+          "mean": 0.4055722302077851,
+          "max": 2.555866003610514,
+          "fraction_above_one": 0.125
+        },
+        {
+          "step": 10,
+          "mean": 0.300493634238597,
+          "max": 1.488399034972572,
+          "fraction_above_one": 0.0875
+        },
+        {
+          "step": 20,
+          "mean": 0.38805990689514785,
+          "max": 4.8107920186182485,
+          "fraction_above_one": 0.134375
+        }
+      ]
+    },
+    {
+      "model": "assisted-aggregate",
+      "profile": "teacher-command",
+      "cases": 320,
+      "command_gains": [
+        {
+          "step": 1,
+          "mean": 0.5833067441224078,
+          "max": 1.0145643895381176,
+          "fraction_above_one": 0.025
+        },
+        {
+          "step": 5,
+          "mean": 0.07104072757374064,
+          "max": 0.2432533470062009,
+          "fraction_above_one": 0.0
+        },
+        {
+          "step": 10,
+          "mean": 0.027100714491037868,
+          "max": 0.1096461935284637,
+          "fraction_above_one": 0.0
+        },
+        {
+          "step": 20,
+          "mean": 0.012784571241009993,
+          "max": 0.14078514278681903,
+          "fraction_above_one": 0.0
+        }
+      ]
+    },
+    {
+      "model": "assisted-aggregate",
+      "profile": "self-command",
+      "cases": 320,
+      "command_gains": [
+        {
+          "step": 1,
+          "mean": 0.5833067441224078,
+          "max": 1.0145643895381176,
+          "fraction_above_one": 0.025
+        },
+        {
+          "step": 5,
+          "mean": 0.6935739007369078,
+          "max": 3.3880600769296096,
+          "fraction_above_one": 0.225
+        },
+        {
+          "step": 10,
+          "mean": 0.9559554646772067,
+          "max": 6.137061270280421,
+          "fraction_above_one": 0.18125
+        },
+        {
+          "step": 20,
+          "mean": 0.32720252678586903,
+          "max": 2.338239494975466,
+          "fraction_above_one": 0.1125
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-command-feedback-gain.py",
+      "sha256": "8bf0997d7b9a93e2dff459616a86c86e694ffc9b49f25cfcec70c82c58d10ef2"
+    },
+    {
+      "path": "runs/command-feedback-gain/protocol.json",
+      "sha256": "c8bb290a29f07f06d5ab7627b00e369db84b5b98d99e09f13e0ae14675609da0"
+    },
+    {
+      "path": "runs/command-feedback-gain/gains.npz",
+      "sha256": "10a3be0cfc47925ca959cce5e23a4487d067770416b7df7720244606aa6fba97"
+    }
+  ]
+}

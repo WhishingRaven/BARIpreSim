@@ -1,0 +1,88 @@
+{
+  "version": "bari-local-circle-state-aux-observer-recovery-v1",
+  "checkpoint": {
+    "path": "runs/train-local-circle-state-aux-11/checkpoint.pt",
+    "sha256": "5ecea0ebae2975077eadfa0ed1f5639cd756022936cfb0cf4a8d73371320ea36"
+  },
+  "training_restarted_or_extended": false,
+  "completed_epochs": 40,
+  "optimizer_steps": 6400,
+  "cause": "Training-only auxiliary head tensor state was stored inside training_metadata, which evaluate serializes with JSON.",
+  "fix": "Observer-only recursive tensor-to-list conversion; all fields retained and head numbers exactly preserved. Actor/checkpoint/physics/success thresholds unchanged.",
+  "trajectory_parity": [
+    {
+      "seed": 2001,
+      "all_trajectory_arrays_and_recording_metadata_exact": true,
+      "original": {
+        "path": "runs/validation-local-circle-state-aux-11-development/circle-2001.npz",
+        "sha256": "6b740242c20a5f76f06cba4b0e3139f4025a0147511ca95008c1ecb146f2af3d"
+      },
+      "recovered": {
+        "path": "runs/validation-local-circle-state-aux-11-development-recovered/circle-2001.npz",
+        "sha256": "6b740242c20a5f76f06cba4b0e3139f4025a0147511ca95008c1ecb146f2af3d"
+      }
+    },
+    {
+      "seed": 2003,
+      "all_trajectory_arrays_and_recording_metadata_exact": true,
+      "original": {
+        "path": "runs/validation-local-circle-state-aux-11-development/circle-2003.npz",
+        "sha256": "ca1eab3a0c97cc20c6f3e6d42e073a16a0d5ff96afc42ae4d5e83e692c8b51af"
+      },
+      "recovered": {
+        "path": "runs/validation-local-circle-state-aux-11-development-recovered/circle-2003.npz",
+        "sha256": "ca1eab3a0c97cc20c6f3e6d42e073a16a0d5ff96afc42ae4d5e83e692c8b51af"
+      }
+    },
+    {
+      "seed": 2011,
+      "all_trajectory_arrays_and_recording_metadata_exact": true,
+      "original": {
+        "path": "runs/validation-local-circle-state-aux-11-development/circle-2011.npz",
+        "sha256": "bc491fb50c257469ddba1bb8f0f5556ac974ae158d88447dd1a4bffec7015081"
+      },
+      "recovered": {
+        "path": "runs/validation-local-circle-state-aux-11-development-recovered/circle-2011.npz",
+        "sha256": "bc491fb50c257469ddba1bb8f0f5556ac974ae158d88447dd1a4bffec7015081"
+      }
+    },
+    {
+      "seed": 2017,
+      "all_trajectory_arrays_and_recording_metadata_exact": true,
+      "original": {
+        "path": "runs/validation-local-circle-state-aux-11-development/circle-2017.npz",
+        "sha256": "4ff6ea53cd605048afdd387e5a92d309ec059cfc8c214638db26f1e6cfcd3e15"
+      },
+      "recovered": {
+        "path": "runs/validation-local-circle-state-aux-11-development-recovered/circle-2017.npz",
+        "sha256": "4ff6ea53cd605048afdd387e5a92d309ec059cfc8c214638db26f1e6cfcd3e15"
+      }
+    },
+    {
+      "seed": 2027,
+      "all_trajectory_arrays_and_recording_metadata_exact": true,
+      "original": {
+        "path": "runs/validation-local-circle-state-aux-11-development/circle-2027.npz",
+        "sha256": "b5079bf0909fea558e23db613cc6f247c5ba3a6fb717e837d74bd9a6e641900c"
+      },
+      "recovered": {
+        "path": "runs/validation-local-circle-state-aux-11-development-recovered/circle-2027.npz",
+        "sha256": "b5079bf0909fea558e23db613cc6f247c5ba3a6fb717e837d74bd9a6e641900c"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/recover-local-circle-state-aux-evaluation.py",
+      "sha256": "1209de0c66a932d587f94474119b38f8d0bba4a33e2594c23bab322c4a95facf"
+    },
+    {
+      "path": "runs/train-local-circle-state-aux.py",
+      "sha256": "b205dcdfb78b336553a2c05e3a021c7dc1856c43e1f7a3139098887f7dea863a"
+    },
+    {
+      "path": "runs/train-local-circle-state-aux.stderr",
+      "sha256": "7e6f559385c9b58c13e893578fceaf896e6df4a51f755d9ea6deb220994e47bd"
+    }
+  ]
+}

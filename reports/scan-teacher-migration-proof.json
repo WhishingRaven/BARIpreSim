@@ -1,0 +1,39 @@
+{
+  "status": "pass",
+  "old_source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "0acbe2b21578e667c2e3d44c9e95efad288333c9b076c14d84a3643d4fc02337"
+  },
+  "new_source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "84858259b64fbd84b19d7d67ff449381c33ca5e57539709a6104500ef4fd36ba"
+  },
+  "episodes": 4,
+  "steps_per_episode": 6,
+  "arrays_bit_equal": [
+    "observations",
+    "tasks",
+    "expert_commands",
+    "executed_commands",
+    "actor_weights",
+    "reset_masks"
+  ],
+  "metadata_equal_except_source_revision": true,
+  "scope": "Default collector, including selected-task switches and rotated follow starts, matches archived source; nonzero scan is opt-in.",
+  "artifacts": [
+    {
+      "path": "runs/scan-teacher-migration-old/demonstrations.npz",
+      "sha256": "a59d65e8cfb954ed9d578780a91178719d6f511c725d3d3ed93ee04536924f17"
+    },
+    {
+      "path": "runs/scan-teacher-migration-new/demonstrations.npz",
+      "sha256": "0218aa0dc906760d9225b27c6ec1a0e48867b5d6a7e2978b05d2d683cbb79260"
+    },
+    {
+      "path": "runs/collect-default-migration.py",
+      "sha256": "c8e1e02c9f8049104cf07fe755d5ccf04060e6fcff553372dd9761a3e2534ba6"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "status": "active; task semantics migrated; new learned acceptance remains unproven",
+  "status": "task semantics migrated; paired anonymous pilots completed without behavioral acceptance",
   "observed_utc": "2026-11-03T08:42:15.918433+00:00",
   "source": {
     "commit": "uncommitted",
@@ -22,34 +22,7 @@
   "trajectory_migration": "170 episodes bit exact for all physical and actor observation/action arrays; metrics alone change",
   "historical_fixed_id_terminal": "versions 8/9 both completed 1000 updates; each 0/20 isolated and 0/60 directed transitions",
   "historical_actors_under_anonymous_evaluation": "each still 0/20 isolated and 0/60 directed; no accepted checkpoint",
-  "live_trials": [
-    {
-      "path": "runs/train-radius1m-v10-11",
-      "version": "bari-mappo-anonymous-v10",
-      "latest_complete_update": 383,
-      "target_updates": 1000,
-      "processes": [
-        "25855 /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m bari train --config configs/config.json --training-version bari-mappo-anonymous-v10 --worlds 8 --plan configs/multiworld-curriculum.json --seed 11 --updates 1000 --output runs/train-radius1m-v10-11"
-      ],
-      "observed_utc": "2026-11-03T08:42:15.915137+00:00",
-      "source_sha256": "d2b42bd0f8a52e9bea7c26910958a112cdae61457765f12f3e493e113468865f",
-      "following_order": "anonymous-formed-v1",
-      "state": "live; no behavioral conclusion"
-    },
-    {
-      "path": "runs/train-radius1m-v11-11",
-      "version": "bari-mappo-anonymous-autoregressive-v11",
-      "latest_complete_update": 366,
-      "target_updates": 1000,
-      "processes": [
-        "25857 /opt/homebrew/Cellar/python@3.14/3.14.8_2/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m bari train --config configs/config.json --training-version bari-mappo-anonymous-autoregressive-v11 --worlds 8 --plan configs/multiworld-curriculum.json --seed 11 --updates 1000 --output runs/train-radius1m-v11-11"
-      ],
-      "observed_utc": "2026-11-03T08:42:15.916037+00:00",
-      "source_sha256": "d2b42bd0f8a52e9bea7c26910958a112cdae61457765f12f3e493e113468865f",
-      "following_order": "anonymous-formed-v1",
-      "state": "live; no behavioral conclusion"
-    }
-  ],
+  "live_trials": [],
   "completed_anonymous_pilot_evaluations": [
     {
       "version": "v10",
@@ -120,6 +93,82 @@
           "episodes": 5,
           "success_rate": 0.0,
           "mean_final_max_error_m": 0.5873117213277604,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "isolated_successes": 0,
+      "transition_successes": 0
+    },
+    {
+      "version": "v10",
+      "stage": "terminal",
+      "training_updates": 1000,
+      "report": "runs/validation-radius1m-v10-terminal-11/report.json",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.17496080876031753,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.23641687943447437,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.33194269172099883,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.5019448635470294,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        }
+      },
+      "isolated_successes": 0,
+      "transition_successes": 0
+    },
+    {
+      "version": "v11",
+      "stage": "terminal",
+      "training_updates": 1000,
+      "report": "runs/validation-radius1m-v11-terminal-11/report.json",
+      "summary": {
+        "circle": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.16785628293351698,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "square": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.25966079908300066,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "line": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.33035687048116785,
+          "required_success_rate": 0.9,
+          "passes_assumed_gate": false
+        },
+        "follow": {
+          "episodes": 5,
+          "success_rate": 0.0,
+          "mean_final_max_error_m": 0.4942373194360893,
           "required_success_rate": 0.9,
           "passes_assumed_gate": false
         }
@@ -1199,6 +1248,16 @@
       "sha256": "a205a852bb29788b0552824ac6748ba01596b4faf2ebd6cbc1f480b8f2c534a6"
     },
     {
+      "path": "runs/final-gru-reset-protocol.json",
+      "bytes": 651,
+      "sha256": "d06a40df9add06714083ea1fa774cddb03faf425b2035982eb72f3f8defbbde6"
+    },
+    {
+      "path": "runs/final-gru-reset-results.json",
+      "bytes": 1340,
+      "sha256": "54abdbf3445223b2596a11f8cd7133be0e64e31b41c2a13ed9788ff21efcb60b"
+    },
+    {
       "path": "runs/observe-radius1m-anonymous.py",
       "bytes": 3643,
       "sha256": "907e92c9bd9bcae5a31c3e919b8c48efb2c37b1ac6ae883d92e49c943a46e075"
@@ -1214,6 +1273,11 @@
       "sha256": "50c075f820bb59b4aa28560e960637fab6dc2db9f6322ea4228bd47561f943a1"
     },
     {
+      "path": "runs/radius1m-anonymous-results.json",
+      "bytes": 10599,
+      "sha256": "6b58a11497181ce41c0dfba0fa055514d2796f560ae9f96d288ac6aa2b07178f"
+    },
+    {
       "path": "runs/radius1m-v10-interim-11/capture.json",
       "bytes": 259,
       "sha256": "92a55e5103a219fac2ffeddfe6d64d2cf0f30e787e8a4641dba55c911c9261b7"
@@ -1224,6 +1288,16 @@
       "sha256": "1e0c348e940cbb93a6a927e416d7665aa99e7229eb66862e006c7d299d58e9ec"
     },
     {
+      "path": "runs/radius1m-v10-terminal-11/capture.json",
+      "bytes": 262,
+      "sha256": "53b3209e1b93cc07cd78bd1e4f0c073ee5086f18317e162ea98b7c5e65df31a3"
+    },
+    {
+      "path": "runs/radius1m-v10-terminal-11/checkpoint.pt",
+      "bytes": 412194,
+      "sha256": "5f237f7ca742e0f714844ec8219ec4297ab4c469cb071e9d162467642d3bf2b0"
+    },
+    {
       "path": "runs/radius1m-v11-interim-11/capture.json",
       "bytes": 259,
       "sha256": "4fc0456f1afbe902b8fe2066803de3e2d2a28c98eccac88c03694d707f40cf80"
@@ -1232,6 +1306,16 @@
       "path": "runs/radius1m-v11-interim-11/checkpoint.pt",
       "bytes": 400610,
       "sha256": "2d1acbaaade1524ad011cc9f52a8c2064f24de42055f2e58e7e6eac4407f38ee"
+    },
+    {
+      "path": "runs/radius1m-v11-terminal-11/capture.json",
+      "bytes": 262,
+      "sha256": "bc3f1f5320d43bbe8bb6489ac1ddec2948f0d15c0ed5ee5f1c1cc05949b2f76e"
+    },
+    {
+      "path": "runs/radius1m-v11-terminal-11/checkpoint.pt",
+      "bytes": 412898,
+      "sha256": "ba1eae3ef91c7134856ddd8aef5e5abc71174ca0fce839e314af194ef15b2402"
     },
     {
       "path": "runs/train-radius1m-v10-11/collector_spec.json",
@@ -1984,6 +2068,1066 @@
       "sha256": "afe6a2fb403a4f5cde80d694483c9170b54140f97ec70eb8aa2f13dcf6d6927f"
     },
     {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-2001.npz",
+      "bytes": 123710,
+      "sha256": "01375335ab3d05df0a935e73056bc39515f602deb0ec7f0d4034583f9ae954e3"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-2003.npz",
+      "bytes": 122026,
+      "sha256": "c2da9c319183a4ef2c80be17b58072e3a9411c4dc320b9e381614e8b2e607de3"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-2011.npz",
+      "bytes": 123222,
+      "sha256": "67315b4380bd9aea363af51213caa0e03b963d45b4bb1c1dbe2a55c5172a25a6"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-2017.npz",
+      "bytes": 122234,
+      "sha256": "34688b491df3a1161358d7d00da4ea8c6a3709fa032ad723bf38a1bdbc169e0d"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-2027.npz",
+      "bytes": 122148,
+      "sha256": "67126c8db741e97688e120b7f8d8b334418eeb03eb0686e45cdd0a650fc55079"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-follow-2001.npz",
+      "bytes": 108658,
+      "sha256": "1b71fda272111b536b4bff83ea3abf06e55b8455b5311d995210710d548404b5"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-follow-2003.npz",
+      "bytes": 121388,
+      "sha256": "7fd59c518bf99a57179304596ca15d4fbb9ba317d1692f84db9f462a88aa61b1"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-follow-2011.npz",
+      "bytes": 112661,
+      "sha256": "182e100152af943633dd50b50838ac614ee605742efc497e50d0a21d2a05005e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-follow-2017.npz",
+      "bytes": 121021,
+      "sha256": "8e8f718b786f3499164ff7d3017a53e033f8d1418a609125562fa395f8a3284b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-follow-2027.npz",
+      "bytes": 121868,
+      "sha256": "7b249c7c874316e2e08a2aa89e970bc7834c19fb06494415c11a636d07d7314b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-line-2001.npz",
+      "bytes": 123287,
+      "sha256": "cf8192c46d2668294632b8faa75bb78f459833f73a86a0b666f30eea4321a5da"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-line-2003.npz",
+      "bytes": 121855,
+      "sha256": "d64c5dbcaa143cf77d74cd661a91aefe683e4a895dd7c4cba15dd713b7659580"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-line-2011.npz",
+      "bytes": 123131,
+      "sha256": "4c14241d3274ab984c1cf91c27b92b01a0b0949cf54ae005e88d9c87f5bd2952"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-line-2017.npz",
+      "bytes": 121992,
+      "sha256": "073a5a8b9419c9b2c4357344cbfa5b6851ac30b003322748b6f03ef2ab5ccf11"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-line-2027.npz",
+      "bytes": 122184,
+      "sha256": "ae01816ca7d7a054ccff0fd19b5d2c6a89cbdc8ba56ea6f1f78ebef6c0059c68"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-square-2001.npz",
+      "bytes": 123646,
+      "sha256": "f091e7f73278f26c9c558e45d4b7cf6e0fbe1ad76f6bc41d979fea58f08bd3c2"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-square-2003.npz",
+      "bytes": 121914,
+      "sha256": "af658d78391ef5889f7be98f9070978e30db6a3bed16caa85e434bfbeaea6fc6"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-square-2011.npz",
+      "bytes": 123466,
+      "sha256": "568a860c85a572b62bcdc3f0d6b4f0ae82db7da94c37e99c51d218a3d85042f2"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-square-2017.npz",
+      "bytes": 122255,
+      "sha256": "71444e35cab37f944b82eb155dd391dea4b1457f060473d96491c42ba1e4c497"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/circle-square-2027.npz",
+      "bytes": 122342,
+      "sha256": "550e34a68ae27637f5f4a26017c9c429a7f72d5eb13a02c8e2df8d14887968e0"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/continuous-2001.npz",
+      "bytes": 125579,
+      "sha256": "bcdf3649909ef5f13a1a6d6000af532cb02b2225b844041f44def5f87926e42b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/continuous-2003.npz",
+      "bytes": 124157,
+      "sha256": "7cde66121b01d395196dad5aaaa35063bd02ce76a53575d43194d19e6a536071"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/continuous-2011.npz",
+      "bytes": 125134,
+      "sha256": "6c8fe638536aad59f376a76e502e3c89712076894e4faca66a5f1b6548a0aa31"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/continuous-2017.npz",
+      "bytes": 124105,
+      "sha256": "cc35ca342074e2323a99d4df5f08065f35ad895d75155f7ec5cb87db0540b297"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/continuous-2027.npz",
+      "bytes": 124335,
+      "sha256": "71869cd1d1e34c085731076b27f6426392e0986cf1387f54aecffd9612b30d4a"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/evaluation_contract.json",
+      "bytes": 2176,
+      "sha256": "1da6513ec38060c92fbab6aab0a28544bbe0a73d64e7370bd93194f1951884ba"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-2001.npz",
+      "bytes": 97978,
+      "sha256": "94a4d6c76f49b87ddf95e3af0912ff21f842e421f73c334de903a35055659c01"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-2003.npz",
+      "bytes": 119825,
+      "sha256": "03b4a481d35994bca1b393dc5eff04f2408118fd45e658896dce7d7c825c411d"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-2011.npz",
+      "bytes": 111146,
+      "sha256": "2e153ee37e161e537f2def4dd45453966ad938f6182d01c02f366375d1bd6d98"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-2017.npz",
+      "bytes": 119883,
+      "sha256": "aaa5001a7b782f460357e5f93406e921b8efbb497818c7cb8d8e7a2edc0271cc"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-2027.npz",
+      "bytes": 120721,
+      "sha256": "d469d07f8d741ad5f2a45cbbe6ca890842d9773554c4abbf7a14275e07eb574e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-circle-2001.npz",
+      "bytes": 123887,
+      "sha256": "9f16b067487162f492d878efb1cded50e5c4dbdf920fc43f3e62167b48f5a4ad"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-circle-2003.npz",
+      "bytes": 122345,
+      "sha256": "d5720ae9703580dcc2bf3910b2855af7ca82dcd10c23b169d5e26b37d0f0fe57"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-circle-2011.npz",
+      "bytes": 121777,
+      "sha256": "477ee365f71417073f1b482269ec0db6e0914946143bcd1025febbfc09a2d03d"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-circle-2017.npz",
+      "bytes": 123077,
+      "sha256": "29fa31a4c07f58e305aa01a0337647bd2b79ba62f6961192783b859a1522a878"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-circle-2027.npz",
+      "bytes": 122414,
+      "sha256": "603b027f4a39742e9d8964a75dc74982be08397c94c6cd999d769b762d5fdb4b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-line-2001.npz",
+      "bytes": 123194,
+      "sha256": "81363eff55865486c76247a648133a54702f51291e55c93a1bf65a33891a3a16"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-line-2003.npz",
+      "bytes": 122030,
+      "sha256": "5b6ca26c4018d12a06c8a01c0c73db7e4c633e2e36c66c268739e9c5035bb561"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-line-2011.npz",
+      "bytes": 121111,
+      "sha256": "be4d1225d767b5ae3c99b43c8979d79df1a9e36d0be3da965b063e46963672ed"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-line-2017.npz",
+      "bytes": 122686,
+      "sha256": "9e22a59596002efae7fc4bb3c91b1caf359b1413df9e36d62e06f103ec2cc681"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-line-2027.npz",
+      "bytes": 122195,
+      "sha256": "c6b02d6434580de1e99e8ca53c7bd2b52901fe051563f170415517130dee0d07"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-square-2001.npz",
+      "bytes": 123671,
+      "sha256": "b7253f962ecee3809773ff00b625be9eee43678aebcb38d7d1c0e9ef30ca546e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-square-2003.npz",
+      "bytes": 121948,
+      "sha256": "5d18ff9b53a2a73c565ee59e5366864cf31ebdfaa83e488b9862d96271ce74b9"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-square-2011.npz",
+      "bytes": 121460,
+      "sha256": "9a2e20575ba3bc603d15097eddf7625e9e2926c849be01e111fb12b3f2c24a2c"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-square-2017.npz",
+      "bytes": 122543,
+      "sha256": "497167a8592afad1699d6ac5c8331347666f02bff9c574f904bd950a4a4e9545"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/follow-square-2027.npz",
+      "bytes": 122213,
+      "sha256": "5c77e40111d1e701b45fc98ca7e8a57c3e9115617e6cac730bfaef446da171cd"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/frozen_config.json",
+      "bytes": 1426,
+      "sha256": "ffe9c2afa6c6deb5733164c21b5631438c8144ff94d4febeb8fc12ae927811fd"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-2001.npz",
+      "bytes": 122947,
+      "sha256": "fc800f4df8aa7582c6503fae0ebefed1263cf3f01277414d2222084eca02f763"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-2003.npz",
+      "bytes": 121331,
+      "sha256": "3c9dddd19e589aa715268862e2eac1467dc7a213e03370f521f371b40d9d70f5"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-2011.npz",
+      "bytes": 122909,
+      "sha256": "db50b2741dbaa9dd2600c93745ccf49c51ef629ec9f7899832018d0210033e13"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-2017.npz",
+      "bytes": 121990,
+      "sha256": "53cdde587532a3ebc53721f5374f7b77b5bb040c4c75034f16f0a54d549c6588"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-2027.npz",
+      "bytes": 121829,
+      "sha256": "2187fff6cef2a2e51e120891f8d98eefdd0354d4029ab0e795e5c5b8c4da08e6"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-circle-2001.npz",
+      "bytes": 123765,
+      "sha256": "c1ddfa2cbcd609d1203bb5fbba9921e5bcbace9650adc5b4273eec2c78d500bc"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-circle-2003.npz",
+      "bytes": 121905,
+      "sha256": "19fac57e8587dee4d04704fadaca7a0f50d8546d4c35c6c766156a59209566ce"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-circle-2011.npz",
+      "bytes": 123552,
+      "sha256": "8dab6948cb563f20b7fd77397c457d3f3599af7d3884c47e3bf20b93085b072d"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-circle-2017.npz",
+      "bytes": 122442,
+      "sha256": "58612a2c02679b2e90630a8718b7d95329fdfa5724369cc4c663fe1e4742d06b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-circle-2027.npz",
+      "bytes": 122424,
+      "sha256": "8a75fc7fb621a858785c743da6f5ee03f29130690f686a2eb9796592b5e75ed1"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-follow-2001.npz",
+      "bytes": 114010,
+      "sha256": "193a16ac55314137f91e176245d4cfe263971f08e9c36a8a68aee91a6da5bd2f"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-follow-2003.npz",
+      "bytes": 119910,
+      "sha256": "c4b91cc7ded9a204603c9c75aa8c205aaaab275557812ab3df8b19d397923a54"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-follow-2011.npz",
+      "bytes": 105078,
+      "sha256": "85d42c77733c302e7445efebb4677f98eb162bc83af5037dd211b9bb096fcddb"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-follow-2017.npz",
+      "bytes": 120214,
+      "sha256": "9f7267f6ea0204248c6e150bbe6df67ff8fce85c4e4a6e7d2bf273761168c706"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-follow-2027.npz",
+      "bytes": 121825,
+      "sha256": "e1ffec774c3e84f30dcb6ef35340e14d67a20047db2f35d14980e4daa0c8b5af"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-square-2001.npz",
+      "bytes": 123661,
+      "sha256": "2e085ddb44653f69d242eb7a78448409118baba30f10a3647e93e1e54cb49f5e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-square-2003.npz",
+      "bytes": 121533,
+      "sha256": "2fabe2e3b533a4e2fecbd590daed607b70fa6f04e7d3ee89568a78f386d285b1"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-square-2011.npz",
+      "bytes": 123418,
+      "sha256": "9a4b301b106f6fbedef58acedb770ef98178f978881cc18efe6aee619e79948a"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-square-2017.npz",
+      "bytes": 122074,
+      "sha256": "ab8f6b04ca58bb987d8e1c1632b6d9d9b8f3c5068cc22ea5bb050e0ef4995b6c"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/line-square-2027.npz",
+      "bytes": 122033,
+      "sha256": "45e868f03a693178633f266e65dfe12439ed69abd85cacb7a6516b680aa6340c"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/report.json",
+      "bytes": 570221,
+      "sha256": "82af3102f5645a17dc9bb159fd20e05eb061dfea68aefd8fe633a8d79203c022"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/__init__.py",
+      "bytes": 96,
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/__main__.py",
+      "bytes": 30,
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/baseline.py",
+      "bytes": 5937,
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/cli.py",
+      "bytes": 10173,
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/config.py",
+      "bytes": 7062,
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/curriculum.py",
+      "bytes": 3920,
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/env.py",
+      "bytes": 15449,
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/evaluate.py",
+      "bytes": 10538,
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/export.py",
+      "bytes": 9003,
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/geometry.py",
+      "bytes": 2662,
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/imitation.py",
+      "bytes": 15994,
+      "sha256": "e533a7e764ac4ec604d52b3a620afe3d86c9679d3484b73e40e6a71e864fcbfe"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/metrics.py",
+      "bytes": 11355,
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/multiworld.py",
+      "bytes": 7421,
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/occlusion.py",
+      "bytes": 5983,
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/policy.py",
+      "bytes": 11326,
+      "sha256": "c6aec4a76aa22de0ae97dc0bf0bd7369a9d7db6ceac6fa035ae6930f2345ecd0"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/render.py",
+      "bytes": 14680,
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/replay.py",
+      "bytes": 4480,
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/source/train.py",
+      "bytes": 23490,
+      "sha256": "3e85d7060a1bae9d197ef386ee0721a01a86277c146f73b1c78a16d6c8dfdf19"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-2001.npz",
+      "bytes": 123484,
+      "sha256": "464b53c5e9549872da7f33e104acc9b9c8e9a23463f3712b4e3d7d08080d4395"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-2003.npz",
+      "bytes": 121502,
+      "sha256": "21e15ff1bc5ff382d6e87582c1d14abc9f9c0fa4304d3ab555641b305cbd82b5"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-2011.npz",
+      "bytes": 123265,
+      "sha256": "fa27385df3f7141eb9e59c9f29c14cbbb776b44a0e9cc8b464fb4cf7fcb769b8"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-2017.npz",
+      "bytes": 121920,
+      "sha256": "806e7352238445594fc63651fff171e9317bfb24f55e861fc8b291aaf06f1d60"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-2027.npz",
+      "bytes": 122045,
+      "sha256": "b6226554cfb4b86a21b40ea1cdc2b692c997c812202c00e45f459d734bdefca7"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-circle-2001.npz",
+      "bytes": 123784,
+      "sha256": "f939cedfa3e1537e9aca0d0e2b5b6c418784c30730d453b228eb4d8f457a4cea"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-circle-2003.npz",
+      "bytes": 122175,
+      "sha256": "7ad5328309f6e3ac4e67b629e42ea69f8db58db659aa4b71ccf30437a190b133"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-circle-2011.npz",
+      "bytes": 123495,
+      "sha256": "3a1be0098b6e6c4020b9b397b4dbd5eb28b466bcb3ab52d6605aa9d59c824af0"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-circle-2017.npz",
+      "bytes": 122370,
+      "sha256": "b4ff5f3e60e73cda0ccad2d2adc9df033d24884a4d930dfd40202c6f79428b2d"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-circle-2027.npz",
+      "bytes": 122487,
+      "sha256": "f196481d97f0a4ed5ffd262039d05ffc921c0ed38915f83c10b9bec3ee57c038"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-follow-2001.npz",
+      "bytes": 111404,
+      "sha256": "85025ec015d9190233a3404c54fd7bbd1e9ce6ec06fda2155ce7243a51e1d8cb"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-follow-2003.npz",
+      "bytes": 120970,
+      "sha256": "23a097c5b1e05ecb375c2896a66f7b6b9f7fae1bf457872b3323a0452aa854df"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-follow-2011.npz",
+      "bytes": 113514,
+      "sha256": "537bb5f2ddfe9ab76409c99435d1af001ca40ea52ecaa2428a0678c8a428f673"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-follow-2017.npz",
+      "bytes": 120145,
+      "sha256": "42657627a7236cb0160464ee852eb7c4f261963d26a7109666c43b6beecde1bb"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-follow-2027.npz",
+      "bytes": 121916,
+      "sha256": "75b3bd69c3c205179e5165318ac2c70127ad747b783ac2095dc7d0e7e0b3a203"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-line-2001.npz",
+      "bytes": 123293,
+      "sha256": "0c9d6b17cb9817fadc764451abba94be93f20092724a59722ea1c5ed2f4edc5e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-line-2003.npz",
+      "bytes": 121760,
+      "sha256": "981c49fcde36bc188ce13048a7a635343a2a9b6ef5a36f595d874c5b8bbb4c0e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-line-2011.npz",
+      "bytes": 123076,
+      "sha256": "fe4f5f44f05fd83f968e000397c2937045a1a8fcd23c1b5f2424bf79bf78623c"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-line-2017.npz",
+      "bytes": 122072,
+      "sha256": "65e7582e85734a5af8deb52bd27fa3e1e69135985eea283dabb5f6f12b84fed4"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-11/square-line-2027.npz",
+      "bytes": 122209,
+      "sha256": "2b4c7efc0289cb8d05074f4a7bf4db2d516a3a076240b2b49d967c72ed1402ec"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-2001.npz",
+      "bytes": 123406,
+      "sha256": "1e9deb32810e12e068bdf5792e3abf2584711d6f30fc7f5fe7458c94492f623c"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-2003.npz",
+      "bytes": 121583,
+      "sha256": "452ef80d59b338408e3b824f26c2de4ea57155e76554ddbf673c636dbf6de97a"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-2011.npz",
+      "bytes": 122861,
+      "sha256": "bbd7d001aa1a9758ab4913489cb2fd6d03907ca7a3341be06cdd33c2921ae01b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-2017.npz",
+      "bytes": 120911,
+      "sha256": "efb5e9e51af6eba6ba9c0f3aa45c945ebc538b861dd6625d87d0251c640d66fb"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-2027.npz",
+      "bytes": 121852,
+      "sha256": "f6ed837d95382b8a4f5385ca4f2234d66141f1903e10255a54c39781340c6681"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-follow-2001.npz",
+      "bytes": 106575,
+      "sha256": "7ac3531f87bd13b199a4c1eb0b8a527814a87fc73083177055433cc94550c4b2"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-follow-2003.npz",
+      "bytes": 106997,
+      "sha256": "9bd7911134c6724610af40a2c2a0e6f02d66466b7fd2155ca827c87a0ed07dbc"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-follow-2011.npz",
+      "bytes": 113593,
+      "sha256": "c69a7353ab5030faa62aea3f0c0568f2f0ef8e8b02edc1de1bffe9a3f7c62035"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-follow-2017.npz",
+      "bytes": 97764,
+      "sha256": "d0463e5a8b5a2453ffcf086aeda7eab53622161612a32073d06b6b0bc5947a94"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-follow-2027.npz",
+      "bytes": 121383,
+      "sha256": "8685815262f7bc80718c3a07a9383741611913fd8f7d473580e132c5823d2352"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-line-2001.npz",
+      "bytes": 123341,
+      "sha256": "6d65b6c2dd1afc803bb04bee39e32dbef8abf87a84a716253cc3931f1ca5473d"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-line-2003.npz",
+      "bytes": 121401,
+      "sha256": "f971151e03dcd8967a67998f5262576debfe30397cb47e9a1a689a1819574400"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-line-2011.npz",
+      "bytes": 122687,
+      "sha256": "1dcb235e7d4d673d3fb0321815b576c679846318b0d0da3bde313154160e6e0b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-line-2017.npz",
+      "bytes": 121072,
+      "sha256": "37372f2dd540e1cfd5765aaa1f46d4166c5ea8638e199c9429b3b1e31aeac45f"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-line-2027.npz",
+      "bytes": 121746,
+      "sha256": "bee3401a47ca70cf68fd600fe269f6471ab5f27887dacbe6ce8e57342449e6c0"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-square-2001.npz",
+      "bytes": 123828,
+      "sha256": "cb2f164d4282340456de1d329d447aeeb2b69f3c462abe99e4dd9b7715054a41"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-square-2003.npz",
+      "bytes": 121729,
+      "sha256": "8c6a1428f78f201b15c3d70c8527d461af9f6c0d478873c34ed584c7483938f7"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-square-2011.npz",
+      "bytes": 123216,
+      "sha256": "c148356fd7124e2741408157c7e2f16f69c393e88f6875d6ad26c4e322813ac0"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-square-2017.npz",
+      "bytes": 121208,
+      "sha256": "b53c19a7c5180b22745568d4e37e0f7ae541a7aa44a1d83849a29b36fa8e7ca9"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/circle-square-2027.npz",
+      "bytes": 121805,
+      "sha256": "49fead79f0ccd08f5b56ec724ec279f9da081cdae3bbf6ba9d5915e582a813a9"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/continuous-2001.npz",
+      "bytes": 124138,
+      "sha256": "37fad34cdc75507a0310a43bcbe9da8640fdde8413c3182f9d3992f9056815ed"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/continuous-2003.npz",
+      "bytes": 123828,
+      "sha256": "ccd26f58c97d70eeec8ec03434568f09b302cb901a5ce13776ef6ee89991b167"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/continuous-2011.npz",
+      "bytes": 124695,
+      "sha256": "7281761aca6b44f4440f306e03535e204a00d956eebaacb3459f703670f511c9"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/continuous-2017.npz",
+      "bytes": 123149,
+      "sha256": "d0c30eb8ed49ddcb53267bd927040bf10aaa039b2e5732f29198ae1509ca2397"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/continuous-2027.npz",
+      "bytes": 124304,
+      "sha256": "9e8dabc4a0cd575be58e1f7ad2c1f157517d66d191d759cfefc5d365934c5b31"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/evaluation_contract.json",
+      "bytes": 2176,
+      "sha256": "1da6513ec38060c92fbab6aab0a28544bbe0a73d64e7370bd93194f1951884ba"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-2001.npz",
+      "bytes": 97839,
+      "sha256": "9d8a2a9aa444d881f6e94c312610843fbebfa0cc9e535faf57f186e0e83ea16a"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-2003.npz",
+      "bytes": 99185,
+      "sha256": "c7e2a42e11e9171851482a35cdb62b2dd1796598dbcf254defd986bf0b3fbc42"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-2011.npz",
+      "bytes": 109546,
+      "sha256": "9b63cad8028ad7e8b616f93f39fb390fc699ba83ac21e54571d96ead865f2063"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-2017.npz",
+      "bytes": 90181,
+      "sha256": "286b4b785c7c6e7d0b3118833bbc2a45b767bb6cbe4f4da56f3323717936382c"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-2027.npz",
+      "bytes": 120172,
+      "sha256": "b9a8bb3798a34a8d1a142b113541bf58fa75c25a30d8714ce23f6c36e8eb4ded"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-circle-2001.npz",
+      "bytes": 123672,
+      "sha256": "585284f7629cb435bbf28e6680667d4cf9c78800a13cd7554ca8b3aa8daacec9"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-circle-2003.npz",
+      "bytes": 121922,
+      "sha256": "7e9e44d23f9f10b06f6b1cfd2b31e7718eb989b3d2c389ed5004f116a6318450"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-circle-2011.npz",
+      "bytes": 121146,
+      "sha256": "a5df999253c24070ee0a21095d4a0fbec26f2558fd2c0e830714616e88d752ba"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-circle-2017.npz",
+      "bytes": 121527,
+      "sha256": "87b123271fe93cd4a8af83d0c68654823776a4223f43a40c02a56b0ac8df5c6f"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-circle-2027.npz",
+      "bytes": 121282,
+      "sha256": "c736ee2a43fa50551e6eb0a3baad810bfbfe5d83bb25fa4cf679f5caf084c485"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-line-2001.npz",
+      "bytes": 123380,
+      "sha256": "c4c5d01cc9b108eed162adf4d0da96f0ac6393446ea9bcf7f76cc23e4d102766"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-line-2003.npz",
+      "bytes": 121623,
+      "sha256": "827f1f92124958a9924517bb3ea127f7983c32a8b3a81cbb8a8ce6d5daef766f"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-line-2011.npz",
+      "bytes": 120811,
+      "sha256": "070c7ffae9fdfcbb643d4f49e613d8e8ecc8c44b6858b903d429f59b77b1e85d"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-line-2017.npz",
+      "bytes": 121442,
+      "sha256": "bc2fb17ff1cdedf41f6a8508b904f1c507e13752a6deb2051c810e94719fd3fe"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-line-2027.npz",
+      "bytes": 121326,
+      "sha256": "b30f22699205fb4b1c4f4a99cd3435ac5f61edf0d4d730da1f83cda3f4f09eab"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-square-2001.npz",
+      "bytes": 123797,
+      "sha256": "06a42e5d8fbeec00a2921c6b7ab2e8de7e672101c031d7f64af0fef4be0a71c3"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-square-2003.npz",
+      "bytes": 121842,
+      "sha256": "b3bb2a23e4718f78de230d37f6b99c7c659e7be81f80d3b365409dfd26159552"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-square-2011.npz",
+      "bytes": 121330,
+      "sha256": "1dc301367abc3bb2ab695122f2427550eba963062ac243cfe7544e14e09d8eba"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-square-2017.npz",
+      "bytes": 121603,
+      "sha256": "a9155c978c1af0095842b9fedb11ad02822e8462a73f3aa473f888a06370706e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/follow-square-2027.npz",
+      "bytes": 121484,
+      "sha256": "9ecb3e3e19a50f90a56729e5f32633748103177013deec703122e36bea4aa386"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/frozen_config.json",
+      "bytes": 1426,
+      "sha256": "ffe9c2afa6c6deb5733164c21b5631438c8144ff94d4febeb8fc12ae927811fd"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-2001.npz",
+      "bytes": 123018,
+      "sha256": "1a05618606a4d18a53e7d93149eb7613ac1c4ebb1d1496247a145af32c99e651"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-2003.npz",
+      "bytes": 121022,
+      "sha256": "de3b87a42db62291f37e4a85e062a0ad704ea5f875ce9ec5d25ed88f8804d1da"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-2011.npz",
+      "bytes": 122496,
+      "sha256": "a3cf1cfd7717e2eb530ce8542333115947cfc583ad222fcf837c996fecb100fa"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-2017.npz",
+      "bytes": 120690,
+      "sha256": "9c47d1a087b2d38d6e9b25f1fdf2e4ce75bcce114abc832d0222e0d5ae2e4987"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-2027.npz",
+      "bytes": 121500,
+      "sha256": "6bd44ee58ceacebbae14b4f03e057d4c35870a7f2915e0c910119a4535cd46b3"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-circle-2001.npz",
+      "bytes": 123551,
+      "sha256": "a9e7cca5eef41450f9b2057b7f55cce4b1489b38f337ab495b1bc2df811a8c9e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-circle-2003.npz",
+      "bytes": 121627,
+      "sha256": "a90ee2d9a07183e90820cc1d131e71bd47fb24c38273d0c0484d8ff92df68476"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-circle-2011.npz",
+      "bytes": 122979,
+      "sha256": "92f1c14a1da9d6e809ff7014ed458e6b397cf4611f1429559b2fd962b0d52771"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-circle-2017.npz",
+      "bytes": 121161,
+      "sha256": "4ae33a895408886876c705de73f3c028c5559da939982a2e0b4b71c87200f2ca"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-circle-2027.npz",
+      "bytes": 121979,
+      "sha256": "1904288fa3ded1097af71874534f1a3bce733f7c8a9bccd1bd1b7bf00180af13"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-follow-2001.npz",
+      "bytes": 107973,
+      "sha256": "22ee8460babf34a0b159e474e4593b22e9d3e5c1cadb1a1febc85342f9b34d85"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-follow-2003.npz",
+      "bytes": 107298,
+      "sha256": "6f9da2adec064e82a45aa79586f4c84aff8333216fd0623e002af7af5bdae4b6"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-follow-2011.npz",
+      "bytes": 105053,
+      "sha256": "5e5e1f7a0de45013a6442af0092eec575cba90ffa1a6c74def7fc85860b125b3"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-follow-2017.npz",
+      "bytes": 97087,
+      "sha256": "2355f7e163436d3cace961cbac652722bd0a5d30b1f6deb6f6610874d48e2fba"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-follow-2027.npz",
+      "bytes": 121299,
+      "sha256": "72947a82d7021ce5c1b46d2c0a05eccb2c8a2e243c7c01c5cb98f29c2b6dfc73"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-square-2001.npz",
+      "bytes": 123762,
+      "sha256": "a5c982829f3f15ffcd1c05f03c644ac8b6cb1f1b0b7e97d5857ccb90af6391e3"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-square-2003.npz",
+      "bytes": 121557,
+      "sha256": "4541f68654f085e41eeb84bd4e0ae62d3f3ac9da6787996a0c00eacde57ead10"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-square-2011.npz",
+      "bytes": 123147,
+      "sha256": "44f516fc56d0355a8cb8f6fe1b82331e97f714f7de0efb9d1f342f6f6aeabcc4"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-square-2017.npz",
+      "bytes": 121221,
+      "sha256": "6b8efc39f0cecef3f6082ad7504bad29aa9142e1495898a20e8eb9ebbd0cb2f2"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/line-square-2027.npz",
+      "bytes": 121843,
+      "sha256": "b1574771dcc922d1d42ad13ecc218c06d9f69ba94622d859f073687cc1e95481"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/report.json",
+      "bytes": 495720,
+      "sha256": "289b2b19fc9ffdac9c790ba158caf755b61bcf94b3f79cdd3c5004609314ac0f"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/__init__.py",
+      "bytes": 96,
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/__main__.py",
+      "bytes": 30,
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/baseline.py",
+      "bytes": 5937,
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/cli.py",
+      "bytes": 10173,
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/config.py",
+      "bytes": 7062,
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/curriculum.py",
+      "bytes": 3920,
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/env.py",
+      "bytes": 15449,
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/evaluate.py",
+      "bytes": 10538,
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/export.py",
+      "bytes": 9003,
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/geometry.py",
+      "bytes": 2662,
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/imitation.py",
+      "bytes": 15994,
+      "sha256": "e533a7e764ac4ec604d52b3a620afe3d86c9679d3484b73e40e6a71e864fcbfe"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/metrics.py",
+      "bytes": 11355,
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/multiworld.py",
+      "bytes": 7421,
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/occlusion.py",
+      "bytes": 5983,
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/policy.py",
+      "bytes": 11326,
+      "sha256": "c6aec4a76aa22de0ae97dc0bf0bd7369a9d7db6ceac6fa035ae6930f2345ecd0"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/render.py",
+      "bytes": 14680,
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/replay.py",
+      "bytes": 4480,
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/source/train.py",
+      "bytes": 23490,
+      "sha256": "3e85d7060a1bae9d197ef386ee0721a01a86277c146f73b1c78a16d6c8dfdf19"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-2001.npz",
+      "bytes": 123642,
+      "sha256": "a087b14533a295706564d58dd24f4c1bdd8be68d42ec15736c4410298bc25285"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-2003.npz",
+      "bytes": 121482,
+      "sha256": "4ed676a7421f015476feb53dd126d2769c9480a6fda7a27bcaa0be760a1a6cbf"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-2011.npz",
+      "bytes": 123004,
+      "sha256": "8666b34bd53dd0ea1a66cfc4faf510fafad43b35b79ddc1b727d057e39a9de3b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-2017.npz",
+      "bytes": 121047,
+      "sha256": "392473e8cd9807bd4a63f904d85d7b0db1db3c04011fce1fd2d5b0f63e56ea45"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-2027.npz",
+      "bytes": 121655,
+      "sha256": "ed71c5bde349f9790928a401128a9283a8a72694554235dde63acca64758b4ed"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-circle-2001.npz",
+      "bytes": 123668,
+      "sha256": "27246ae269f36b3212a0514b5e3d1b4f9965ccd26adcdbaaf780b2c7e37ad45b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-circle-2003.npz",
+      "bytes": 121769,
+      "sha256": "50a9b69e2c6bd08618d028e965962948e78ea62d88f0c64ab030cff52d5e2b3d"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-circle-2011.npz",
+      "bytes": 122896,
+      "sha256": "9d483f48f08bd10a806e9ccef2e2dc45e32140e1c3ff48d2fa18ae9c90ddca4e"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-circle-2017.npz",
+      "bytes": 121212,
+      "sha256": "93ecc9546a9971bfb77c976a877229c8b32686fb44612fba604a5f950b597f95"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-circle-2027.npz",
+      "bytes": 122106,
+      "sha256": "b535d92e2d32fe3ef65c15cb26b62ad573dccd123eedb27f5d4fc2770d3ed278"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-follow-2001.npz",
+      "bytes": 106644,
+      "sha256": "894167158f6ab725c078254eba06267e51e71a4d8875e7364f4cca55375ed3c1"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-follow-2003.npz",
+      "bytes": 121362,
+      "sha256": "8365d4e1cdb4f72fd36753666280d77ee1f000f560f604ed8b58b83b21b83431"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-follow-2011.npz",
+      "bytes": 105905,
+      "sha256": "925fd18dfc4249c1fa01c337352bf677b8fe104702c04cfc5fd73da717f05edc"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-follow-2017.npz",
+      "bytes": 97526,
+      "sha256": "4fee6c965608c07cc6a4f1129087e75e94667299f7d6e80d0eb2e553027a0c33"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-follow-2027.npz",
+      "bytes": 121516,
+      "sha256": "e3119b3d760733a0b980782b64079d564c137319310d0e68570ab1df8a2e5036"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-line-2001.npz",
+      "bytes": 123339,
+      "sha256": "69a12275ddad37a88ac634a879c562dc4b27ded690d312574d92ae859f0499d8"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-line-2003.npz",
+      "bytes": 121433,
+      "sha256": "d4aa878c920f5a1262a9d361cca591ccb3ac9ee5595b2dc8b3bc7601c425e749"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-line-2011.npz",
+      "bytes": 122764,
+      "sha256": "12a5e6ba7e4d94e1822fcc960b1e102064143d0445b57db7dbec04df466c6d6b"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-line-2017.npz",
+      "bytes": 120999,
+      "sha256": "9b2eaa64cf5b47c5a96799288957f5bfbffdd4f3c008dfa6f94ca46931ad6bc4"
+    },
+    {
+      "path": "runs/validation-radius1m-v10-terminal-hidden-reset-11/square-line-2027.npz",
+      "bytes": 121756,
+      "sha256": "a5872e6db6c344714e3f69291a58f5c4b99cdc0bad95b6d58952d9ab6d793467"
+    },
+    {
       "path": "runs/validation-radius1m-v11-interim-11/circle-2001.npz",
       "bytes": 123375,
       "sha256": "ff0cb4a718c198421d469e66cf2718174aba76bb59293875962f3dc3b9e86f50"
@@ -2512,6 +3656,1066 @@
       "path": "runs/validation-radius1m-v11-interim-11/square-line-2027.npz",
       "bytes": 121975,
       "sha256": "80aafe9ab446ea3b0229303b8cca3e266ba7a76993b1935d64fc14da33c60c94"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-2001.npz",
+      "bytes": 121994,
+      "sha256": "97f7b950d4fba7c50ad3f282f823965f4c184c6ad2a19da7cf68045b7cafdf4f"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-2003.npz",
+      "bytes": 120075,
+      "sha256": "c3d7fa881c4f2cfcf525cd7dafe9a46ffbb63c273380168ee5cb5122e3c68f76"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-2011.npz",
+      "bytes": 121686,
+      "sha256": "75edf6b2d7fc84490046c782e94b0cef8fd620eea243d55e2b70e0ada81c9ccf"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-2017.npz",
+      "bytes": 120558,
+      "sha256": "ec0fe71314e9df8fa9d90d282548e67013f6a717bbb78335bfa81cef601ff115"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-2027.npz",
+      "bytes": 121081,
+      "sha256": "a08330e9545b3a0424ea2377458aeabd92f351fd72d2c4d6c8a00c85d209e386"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-follow-2001.npz",
+      "bytes": 120685,
+      "sha256": "4cbc22b8ea96ff8d616b8b20b8930bdf42fff6677d9dbfc010c7c30e714d5332"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-follow-2003.npz",
+      "bytes": 119284,
+      "sha256": "9bb460347e2244adbb351972124342436a69c6a859a1e20c1a7c45691a564a38"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-follow-2011.npz",
+      "bytes": 111986,
+      "sha256": "cf5b81e47b3310b942962530e9c846664783257fee0e8d9e200161d014a0d3b8"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-follow-2017.npz",
+      "bytes": 119068,
+      "sha256": "9e82dfd34986f44d1c0edc55c02dd2c40b4e99a7ebad7384dd93f2929b1cc95f"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-follow-2027.npz",
+      "bytes": 120933,
+      "sha256": "46591fd14e79a0a9a409d649131ae2f3a45ac11e8b83d8402deb990f8c78583d"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-line-2001.npz",
+      "bytes": 122259,
+      "sha256": "a53dc1a224d21d7a902d1bc31956624674ce7e521481a5d4ecfa1152539d2829"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-line-2003.npz",
+      "bytes": 119877,
+      "sha256": "f1678514372ea01edf368764f8f92b4ac7e1f1aa8ec7fe4ea8e1a20c4a0ab2ba"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-line-2011.npz",
+      "bytes": 121621,
+      "sha256": "18cc936e6f607acaf53104afcee38804c3075cb69e3621d9916f66e13c419a42"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-line-2017.npz",
+      "bytes": 120418,
+      "sha256": "340512d73089a67d4dcfd202f8002326d668da89e8f19e3e23d3b5bd2b81a054"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-line-2027.npz",
+      "bytes": 121164,
+      "sha256": "fae8c0520142148be00103ab16777d80845a2c73d52ba88132ae0da8ff43d6ab"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-square-2001.npz",
+      "bytes": 122247,
+      "sha256": "1bf1ce6d5bd66075304a3d170b15ea1ca86dd40dd22bd85658106681692c2430"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-square-2003.npz",
+      "bytes": 120170,
+      "sha256": "0833be18ec8e72225a40f996631f1fa92210296443cf4d65c3cf4ae79a4780e9"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-square-2011.npz",
+      "bytes": 121816,
+      "sha256": "11fbfe39770903f346303addde72a44cfe9937a8ec084bfc658b0ac05970819e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-square-2017.npz",
+      "bytes": 120833,
+      "sha256": "adbc03b6563df4ca135ac2ec01403d9809cf5b027bdd9e4db0242855ecb9bf24"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/circle-square-2027.npz",
+      "bytes": 121379,
+      "sha256": "38da4b36f928f608a8a0781322a87e9e728e5e730419217c1c0d9bd173ae029b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/continuous-2001.npz",
+      "bytes": 123979,
+      "sha256": "518aac73dc0aadac1f0d239387e438f9c4f154bd2fe1408a1b64eff26dc2530e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/continuous-2003.npz",
+      "bytes": 122140,
+      "sha256": "17811c3230584ae1e398170cf7a04a597ceb7448df5cbf78b9ad299caf79d2cf"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/continuous-2011.npz",
+      "bytes": 123635,
+      "sha256": "4945ec6fb659029a6764d1703b2ef24423cdb22869c0b43f658da842b937e7e6"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/continuous-2017.npz",
+      "bytes": 122986,
+      "sha256": "fae5e028153db474d636a364e3b7a1ce43febd69877d3f1941fc14743262ecf7"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/continuous-2027.npz",
+      "bytes": 123278,
+      "sha256": "d11010319158f5ef6dc543a20cc667b24e58adfad69e56d7b59fb371dbcb5e4c"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/evaluation_contract.json",
+      "bytes": 2176,
+      "sha256": "1da6513ec38060c92fbab6aab0a28544bbe0a73d64e7370bd93194f1951884ba"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-2001.npz",
+      "bytes": 114129,
+      "sha256": "cfd8a028c13168c8ba42a4f017e3cbb25f6cdced0bcac7c6c1ed17a45140600e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-2003.npz",
+      "bytes": 119112,
+      "sha256": "a91262f73ea00c6a09b65e983be06de587aa0f55b6a9d18c4e1d3802704ce0ce"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-2011.npz",
+      "bytes": 112070,
+      "sha256": "b7d4c064d3acdca683ab877d769c2ec58100f72d394a2bcf40dcfac332b41be2"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-2017.npz",
+      "bytes": 113866,
+      "sha256": "536ffd68c9fa7f0f76d04760af35d094920ef4b02a9afde1118044eeb38afb83"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-2027.npz",
+      "bytes": 120426,
+      "sha256": "78b3c321916eafa2b39ca6418193931b9ad8028693c22c96e823a81ffb908529"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-circle-2001.npz",
+      "bytes": 122405,
+      "sha256": "ed2b06c5e2cde8ea06f71e1889219bab6b9a720b1ca95b62eadacd7b96fbe81e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-circle-2003.npz",
+      "bytes": 120522,
+      "sha256": "d081d18929a56850a9f306ed1bbfb7d89bdf5de09829e048583b6bc57236d5a0"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-circle-2011.npz",
+      "bytes": 119533,
+      "sha256": "615df0752c447172fcac5015bb67317aa739e5eeb6fb3c7ad12e8981df14d276"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-circle-2017.npz",
+      "bytes": 121772,
+      "sha256": "c4b3e2e0549c29c9f00f022f93ba0179d954dc6c44ef7781983283184b0da275"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-circle-2027.npz",
+      "bytes": 121558,
+      "sha256": "7c4797443655a04286368492cc76065bb433e2f68c6959109986bfd8005ec108"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-line-2001.npz",
+      "bytes": 122292,
+      "sha256": "f6e3196a367dfdf3488b319ecb60f7e5482657e0ebe3bc2362cb6473bff4aff1"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-line-2003.npz",
+      "bytes": 120215,
+      "sha256": "4a60dc8ab86408ec72ff8a228133a22f49cf61611208ea0b43bc0661d8982b8e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-line-2011.npz",
+      "bytes": 119345,
+      "sha256": "28ac0b0fd4cbb0a9786a840d4658d7233472fb6eb00089764bd2fdfc88841451"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-line-2017.npz",
+      "bytes": 121617,
+      "sha256": "3c898a44e7d2b92d3bf08db93c030cf3e363a45c38b26e5934082e6eda000d1b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-line-2027.npz",
+      "bytes": 121208,
+      "sha256": "eec7d7ae31f0e4b673f4d6ffe458c9a3ba9563bfb9e1e802b8331242756a5668"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-square-2001.npz",
+      "bytes": 122320,
+      "sha256": "5ce0ee91060d5077d3facb6d7836e933f79633104b602a1e765a7f1093aa2306"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-square-2003.npz",
+      "bytes": 120437,
+      "sha256": "94d026e5cedf023dc9528b7c84e539893f5a226036e0f25de63b3d2626fd81e6"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-square-2011.npz",
+      "bytes": 119471,
+      "sha256": "b7d15a1ffc3cf1d18bb6ee23ba12cce089f2aa4a1dab8008e940f5d2814eb3b1"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-square-2017.npz",
+      "bytes": 121884,
+      "sha256": "bcb36109abefd3541a976b549baa3d55083f8ef3a3ffb32dbb4193b7e4cc240e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/follow-square-2027.npz",
+      "bytes": 121550,
+      "sha256": "931642049dd87e8a44ec2d6aa4e5a7684c66aeacff7d516044546bb7f8421353"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/frozen_config.json",
+      "bytes": 1426,
+      "sha256": "ffe9c2afa6c6deb5733164c21b5631438c8144ff94d4febeb8fc12ae927811fd"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-2001.npz",
+      "bytes": 121965,
+      "sha256": "d2cba60a42a7759ccda5178e17a94371c1f666c3a8bbc89c9d149c9d1095ca6e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-2003.npz",
+      "bytes": 119481,
+      "sha256": "e6fab07c8a9e889eff874a03f81639f2f146853ba0f355371fd09baacfc677f4"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-2011.npz",
+      "bytes": 121310,
+      "sha256": "3d4068f5050b19accbd70d1837488e0fba72a8a85e25730ead6e7a00144bd8d7"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-2017.npz",
+      "bytes": 120499,
+      "sha256": "21680e4bdc5c9e5913c628ef0b429701d4d8bfd17ee57cf426452a293030212e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-2027.npz",
+      "bytes": 120900,
+      "sha256": "54b217af3437715fbbf5b39a30f9c2ff91ebfa31cc287f7428c5f6f10714db59"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-circle-2001.npz",
+      "bytes": 122148,
+      "sha256": "59a87224fdcc3d9c4d2189a3149388f62343f679dd17653ec438314cba3921b6"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-circle-2003.npz",
+      "bytes": 120133,
+      "sha256": "6fc2c2a056658d762efb662ab2394d17233cf00b904f14c1514cdf58a0176074"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-circle-2011.npz",
+      "bytes": 121755,
+      "sha256": "b1944c599df1d2265822b2dc4ce1b55d92987560b807cc180cf183d25ecbd37d"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-circle-2017.npz",
+      "bytes": 120972,
+      "sha256": "dc3deae4102fcf7ce28d6a9ea0389231a3978672051f30b9809196b585c45ec5"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-circle-2027.npz",
+      "bytes": 121432,
+      "sha256": "69dbf7d480ffdf1eeb7f4f5ea11e20cb5b35b1c0fce1eecafa6768b5615fc447"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-follow-2001.npz",
+      "bytes": 119818,
+      "sha256": "3f4b3099cefd99ee3ee5a24e34674069918fb0fe76c882f02747371df9bfd785"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-follow-2003.npz",
+      "bytes": 119495,
+      "sha256": "544545a68c6bab9d1f3f50c6527fd7d0dae537d09507c9dbaa59d8633081ebd3"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-follow-2011.npz",
+      "bytes": 115424,
+      "sha256": "e5b43d4a15347e4361b274efe4d96887bae41fb40c3569868d07de34d23ca121"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-follow-2017.npz",
+      "bytes": 119029,
+      "sha256": "3cdcbe5a30585b2c426170c856646e0406d8eab246a660f60ecf7996261ca141"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-follow-2027.npz",
+      "bytes": 120960,
+      "sha256": "d049213d6cb69ae7781411699e08b311468cfce0aafd37191e9b4e93111d633c"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-square-2001.npz",
+      "bytes": 122254,
+      "sha256": "f5df569d9edc155c3f9a3ae232830875bffb5625ea1794884e5123195e9d1797"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-square-2003.npz",
+      "bytes": 120216,
+      "sha256": "8b0f8e24586863ae02e51cd938367add835ce98b5973e53dab4311f64907f0f3"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-square-2011.npz",
+      "bytes": 121776,
+      "sha256": "84a325cd58c57c7e60726524da56016774f78199b2b7c272c94b73332e87c4ed"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-square-2017.npz",
+      "bytes": 121009,
+      "sha256": "7e7b2442c4fd24e9a617d8bea8776a2eb9b82bfe57f2ab29c817c8bd78e11645"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/line-square-2027.npz",
+      "bytes": 121289,
+      "sha256": "1390a1eaa07bc13256376a6ab87ec971abb286f31fc3e63972084f2f6bfa3112"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/report.json",
+      "bytes": 731090,
+      "sha256": "9a5590c5563cc5a623e6b5a53b52a6d57bde23cc432274a3ab17e073e22d33b7"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/__init__.py",
+      "bytes": 96,
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/__main__.py",
+      "bytes": 30,
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/baseline.py",
+      "bytes": 5937,
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/cli.py",
+      "bytes": 10173,
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/config.py",
+      "bytes": 7062,
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/curriculum.py",
+      "bytes": 3920,
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/env.py",
+      "bytes": 15449,
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/evaluate.py",
+      "bytes": 10538,
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/export.py",
+      "bytes": 9003,
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/geometry.py",
+      "bytes": 2662,
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/imitation.py",
+      "bytes": 15994,
+      "sha256": "e533a7e764ac4ec604d52b3a620afe3d86c9679d3484b73e40e6a71e864fcbfe"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/metrics.py",
+      "bytes": 11355,
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/multiworld.py",
+      "bytes": 7421,
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/occlusion.py",
+      "bytes": 5983,
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/policy.py",
+      "bytes": 11326,
+      "sha256": "c6aec4a76aa22de0ae97dc0bf0bd7369a9d7db6ceac6fa035ae6930f2345ecd0"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/render.py",
+      "bytes": 14680,
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/replay.py",
+      "bytes": 4480,
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/source/train.py",
+      "bytes": 23490,
+      "sha256": "3e85d7060a1bae9d197ef386ee0721a01a86277c146f73b1c78a16d6c8dfdf19"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-2001.npz",
+      "bytes": 122179,
+      "sha256": "97c79fbb73d585ed34e6d1598eeba920f5349fa951e2f202a04337d5ba364224"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-2003.npz",
+      "bytes": 120072,
+      "sha256": "072628c881e10018fa53fbf820ce6730dc2b3aad095c5a95bdb710039915450d"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-2011.npz",
+      "bytes": 121382,
+      "sha256": "fff3f7a9ee5c252e3b86afe1078a81699abf310fb4ba124d76e2fa6392a23fa4"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-2017.npz",
+      "bytes": 120702,
+      "sha256": "0dcc5e49bcc66d0b5f2ae5899279c99829041f87bb15a2fbdf14ea9f5df99aae"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-2027.npz",
+      "bytes": 121157,
+      "sha256": "d054e78e404fc92cdd03ef2d54d9a917eaed2991c3abff7bae5183eb471eff7a"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-circle-2001.npz",
+      "bytes": 122336,
+      "sha256": "4ca6fd805482e85af062138165854bf64cd06d80498a4c63c30818c0449916b4"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-circle-2003.npz",
+      "bytes": 120364,
+      "sha256": "e259b21b20d84eb9e330aa0327eb205cab26d3bbe646c69b7b3dfb7cd32d8d01"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-circle-2011.npz",
+      "bytes": 121618,
+      "sha256": "f2d4a823b29da4ae1136d9c4735b06974b12463d6d251e329b6a4d51595eec50"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-circle-2017.npz",
+      "bytes": 120983,
+      "sha256": "4d1c689a8a1e6334f5d9a2d4c20d90fbab76162ed9b49732de9af0dcac92a07a"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-circle-2027.npz",
+      "bytes": 121351,
+      "sha256": "491820e2c204568cf7483d4a252e343da514aee57eef0a8489bbd15b3722d688"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-follow-2001.npz",
+      "bytes": 119261,
+      "sha256": "5dda41966319ce07d10b58c67d522ce15a84f189afa8e3026be00c3aa3f5f283"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-follow-2003.npz",
+      "bytes": 119590,
+      "sha256": "6a7527088cedfef84b6507ce9f7a388570b9a247880aad7a89626bbbe34c78f6"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-follow-2011.npz",
+      "bytes": 115021,
+      "sha256": "a06769e355f715c4851b2897685573e041cffb804af6819b5479c620c2a92607"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-follow-2017.npz",
+      "bytes": 118901,
+      "sha256": "de3e56c2f0f18749dba265e15fa18dce370c31d7f5953dad557e983cfa72b30a"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-follow-2027.npz",
+      "bytes": 120854,
+      "sha256": "f35258fe0d456611ec5a2634889d467b29d83569031d56090bf38a9687e58c30"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-line-2001.npz",
+      "bytes": 122165,
+      "sha256": "7b7400eb3544ac2aaacf6e88f0d5ea5ba9a585433dd0a81e0250af467b68e955"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-line-2003.npz",
+      "bytes": 120071,
+      "sha256": "94df320cd92a72603c907395c625291f57517ff0c257790ccb8b08d662cc6c46"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-line-2011.npz",
+      "bytes": 121471,
+      "sha256": "c01dc9c85063295990f5078b756a9040298f927cd48585bb18b672a24a9f54fa"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-line-2017.npz",
+      "bytes": 120748,
+      "sha256": "61eeb705021d8049298f910237273a0bb3e8cc842a2b745feb3b39c53a2f34d8"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-11/square-line-2027.npz",
+      "bytes": 121132,
+      "sha256": "93fc7ed4c46e7d6ab695b54d17f2b269da9fbcf00c7d51d284ff188ea9196fae"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-2001.npz",
+      "bytes": 121633,
+      "sha256": "0adabdbd84897c6274449fd1385537a12e785d5d880c24f007f98148e30de7dd"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-2003.npz",
+      "bytes": 119694,
+      "sha256": "2a0bbe3e44097ad1f1e20a10603a4c403b0f8b5ed33503f94122a9e8323c7c41"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-2011.npz",
+      "bytes": 121285,
+      "sha256": "b759d605ec735cad85339f4fd1b1bb756c8b96f5bdfbeb167940c74be7425818"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-2017.npz",
+      "bytes": 119834,
+      "sha256": "39ca9c81d19e9ef79d7e9992d006235f18858ab31edf8e403b441376441a4414"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-2027.npz",
+      "bytes": 120500,
+      "sha256": "e7cd46ce65047e2d2a1035a05c9d069002fe882f7ae04193a5f8266e331292fb"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-follow-2001.npz",
+      "bytes": 116882,
+      "sha256": "51c3c0f3f20651d3ff2de68d8102b09af6bfbbe8a6b5f3ac6015a99dfe3db257"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-follow-2003.npz",
+      "bytes": 104541,
+      "sha256": "78d722540a119995f84514bff24ea2367ed04e0104376bacfed148f68fbee64b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-follow-2011.npz",
+      "bytes": 105428,
+      "sha256": "8d6f27e90dafc08690f9f096621e4acf26220f713ac47ffd416533b956c54745"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-follow-2017.npz",
+      "bytes": 98857,
+      "sha256": "d27149aa3ea9e605be37a9ed93da3b4679a0f5b365c7e6f6731b779150567d43"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-follow-2027.npz",
+      "bytes": 120662,
+      "sha256": "19131002655001437e4a67a5721ae5495ba4dd94a760ae34e593529e7311c0e1"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-line-2001.npz",
+      "bytes": 121842,
+      "sha256": "774d14de7960f93bc553423f47457145fbdefc2be79fc52f8d49dad87768c1a8"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-line-2003.npz",
+      "bytes": 119793,
+      "sha256": "a74be5f917de8bbca9dfa3422058a7bab53b93a9f3cc53ca21cf0e241a71a6d4"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-line-2011.npz",
+      "bytes": 121448,
+      "sha256": "a6c028f08446071f1073249f7993d2a245614c1a859a28d82215434e6e5ce933"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-line-2017.npz",
+      "bytes": 119919,
+      "sha256": "8306d1393950e4b5f0ae00e0c19f22dfc7b9cb5df8cef5c143d83320ecbe6216"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-line-2027.npz",
+      "bytes": 120533,
+      "sha256": "921c42e971b1fc2e66d5cdce68566736b3d3114bb081e5d463ad0316c2759112"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-square-2001.npz",
+      "bytes": 121988,
+      "sha256": "5abe5e76e1d52d451bea5c34070fe93a25db8fa14b4499f46e3d706e170367f5"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-square-2003.npz",
+      "bytes": 120017,
+      "sha256": "9fba7f9afd01e6a0137d9593d8ac07fdc4c55065c26dc798a1114b196b56c8df"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-square-2011.npz",
+      "bytes": 121812,
+      "sha256": "1b5c77cc9322dfc3a1fb4a0cd4522426d794618c66ecefeb24cdccaaf84da5e0"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-square-2017.npz",
+      "bytes": 120094,
+      "sha256": "2511f0250aec30b9d247a807121776daa194c8bd062b353c1b814de13410be11"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/circle-square-2027.npz",
+      "bytes": 120815,
+      "sha256": "a49fe9c99066a750f4834d80368b3c0ca6b1093884cd7e34f7ca048c66959ab6"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/continuous-2001.npz",
+      "bytes": 123581,
+      "sha256": "b452ba418b8157457ffc6e35b1def6ae8a9376c040b00e2bf0ed0f5f30b559ac"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/continuous-2003.npz",
+      "bytes": 122658,
+      "sha256": "43b6c226f61a5d44c73156fecaa02e964a37ab1b041e24dc8a59d082ea5e6d99"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/continuous-2011.npz",
+      "bytes": 123404,
+      "sha256": "75ff38d4190ed00e1245e9a716cfa065b5b6d76a42bc3c1643d516f1b9e731c8"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/continuous-2017.npz",
+      "bytes": 122929,
+      "sha256": "4070e54583098d5041af351b4c93ef82ed3f3eff1c8c8f02042301a45c493ae1"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/continuous-2027.npz",
+      "bytes": 122922,
+      "sha256": "2a0ed2cc6edaf6311ee84893ca47c0e570ab6f4c6df79133345fd2c5bd755d93"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/evaluation_contract.json",
+      "bytes": 2176,
+      "sha256": "1da6513ec38060c92fbab6aab0a28544bbe0a73d64e7370bd93194f1951884ba"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-2001.npz",
+      "bytes": 96886,
+      "sha256": "719e0714104b2e97c1e3f1c2e4d0653f8642b3cc5c940ffa68d6362f1fb387ea"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-2003.npz",
+      "bytes": 98061,
+      "sha256": "c7b77086207bbbb5c39b5857b792d2948175d4913d2f7d9b1852c5447cd01dfc"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-2011.npz",
+      "bytes": 107859,
+      "sha256": "22b037609a8f5b14efa064f229d945e97ddaf09f5907b2f8a930f3dc1b7a6902"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-2017.npz",
+      "bytes": 90085,
+      "sha256": "3f2bdc3ce871f018fd279e341b31b3256748c6d1ed03a181b6a5a5651b13ef1b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-2027.npz",
+      "bytes": 119370,
+      "sha256": "250c266192e3e52cd0b429c6f0522f59d0ba9e314da0a57c3b228ca6646e3e07"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-circle-2001.npz",
+      "bytes": 122033,
+      "sha256": "318731a66f4130820bb4b69d555fa2886a45b60c09b21e774ef1d2fcef1dfe54"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-circle-2003.npz",
+      "bytes": 120217,
+      "sha256": "bb11727e052d5b264e1472f31a39bd46ad146097bb704035d98d6ecd95a51244"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-circle-2011.npz",
+      "bytes": 119667,
+      "sha256": "2e255bad0639d42044cd652e622d95d4bf139e6021bb0e0bfc6629ffbac57fbc"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-circle-2017.npz",
+      "bytes": 120609,
+      "sha256": "d3791db88d18044c98c58eb261183fc450db9572153b73a643c4b96b84d64a65"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-circle-2027.npz",
+      "bytes": 120393,
+      "sha256": "6f4d4f5427dcfbafa81721157f8bfd8088083d355ee9207254be676486852344"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-line-2001.npz",
+      "bytes": 122026,
+      "sha256": "70b1950a2e3f27637711ab63ee9411c8073fb6fe45fb5d951c3c57676e3ac57f"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-line-2003.npz",
+      "bytes": 120219,
+      "sha256": "e2d8cf049b7cfb8a13db852afea5bd7d5db48e33cb3ce256139c3fa1bfeba06a"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-line-2011.npz",
+      "bytes": 119480,
+      "sha256": "0ad66c37b421990cf3955c697e4505ef18eb1ba82cf9554a14bd7a6edc86bb8b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-line-2017.npz",
+      "bytes": 120655,
+      "sha256": "15020af9ef52afff477913a624531c9a0659911d1dc9d1cdc3bcbe2f930427e5"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-line-2027.npz",
+      "bytes": 120382,
+      "sha256": "9c247132c61644781608da580a17bfa5dce23080c7c893f2d83883dbc7920b71"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-square-2001.npz",
+      "bytes": 122072,
+      "sha256": "61a128c3b9489f72b60ee9cdcdb49283b7dfd21f8476194ba133bce915945f8c"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-square-2003.npz",
+      "bytes": 120192,
+      "sha256": "cfd7551075c0b4c17e407332976099d634a914b25004c916b90f654af43b8310"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-square-2011.npz",
+      "bytes": 119628,
+      "sha256": "2eb856dd671b4920095df1363c5f41d2a662d30183aff355ff6203d621349b37"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-square-2017.npz",
+      "bytes": 120728,
+      "sha256": "572b2453f44e39dc4da1233e0d6ca963bae4278044bbdcb023068094dc048a86"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/follow-square-2027.npz",
+      "bytes": 120636,
+      "sha256": "ad4fb7950eede0138543ca10620f6bd0d41dda4ec3e49fb6c900d12faa74a947"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/frozen_config.json",
+      "bytes": 1426,
+      "sha256": "ffe9c2afa6c6deb5733164c21b5631438c8144ff94d4febeb8fc12ae927811fd"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-2001.npz",
+      "bytes": 121638,
+      "sha256": "8dd4da03eff0f4ac56e02f5343205251b03a7a6315f53698d392c89c2d55dbdd"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-2003.npz",
+      "bytes": 119446,
+      "sha256": "1ab9dfd2285f01f964982f36009cc3d1def0e250d6501157ee8ebafd18f3fbbc"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-2011.npz",
+      "bytes": 121309,
+      "sha256": "82d88dedfcff9a7afc2c3bbb749e6ea4c9f9430e0af63b486b6f3675a5340d97"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-2017.npz",
+      "bytes": 119655,
+      "sha256": "6bf1aaa1f9358c0b891d824719b94df4f481860e8f6652505e918accf74ea645"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-2027.npz",
+      "bytes": 120275,
+      "sha256": "6123d904f33da595e15e5db5d06f29a50d1db5d072158edfc1ee162f3e2486ea"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-circle-2001.npz",
+      "bytes": 121750,
+      "sha256": "929d741bf1a8618904cae988488cd421504dca0ccdb2f6f14161818ff56a2ec7"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-circle-2003.npz",
+      "bytes": 119833,
+      "sha256": "ef6b9c7d35b1dcc4faabea223dbc275282bf0460e4aae871bde931612fce9b25"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-circle-2011.npz",
+      "bytes": 121453,
+      "sha256": "548ec6641e7cd3d293e679f0df8cda1bca1679385ac1a36b8df1c68c83f71817"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-circle-2017.npz",
+      "bytes": 119974,
+      "sha256": "b81b54d660d542cfd089811c8b0853899f0b28b9283caaa1cdada9a207f02378"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-circle-2027.npz",
+      "bytes": 120725,
+      "sha256": "c37a34d04b64c9f6dbd1ed28b887295d46bc34839fc35e3de3778335c059d790"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-follow-2001.npz",
+      "bytes": 103100,
+      "sha256": "609cdd7fc3e52cf295276b470198e186c7fe4ef60e1e68d75cea2e7f601d04e6"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-follow-2003.npz",
+      "bytes": 104219,
+      "sha256": "b324c963da06fb4c748d58e5833821a9f70ae2fd0f49bae0d927a25670457094"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-follow-2011.npz",
+      "bytes": 105956,
+      "sha256": "136579d976414f0818ee85f9bd9e4fd5e9e9cee3ac30d51a9b7a49e284053432"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-follow-2017.npz",
+      "bytes": 98321,
+      "sha256": "f778c15b3fbc305e56ffba3cfd1afab867540e8713a15a80b3d6820905b02824"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-follow-2027.npz",
+      "bytes": 120645,
+      "sha256": "0950317f9a42534be996e0ccc65caaa6aceb6356a801dcb7900f51f8af9f7737"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-square-2001.npz",
+      "bytes": 121759,
+      "sha256": "7922744a1f1089890295911107e30abbad4262b08e54e940cf9a55d163bac693"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-square-2003.npz",
+      "bytes": 119837,
+      "sha256": "ee7b057cda53cceb4efdd3e80502f4ef59bd3d5a7c34b1fdb76636c219b9fb53"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-square-2011.npz",
+      "bytes": 121593,
+      "sha256": "5a8e08f8b2fa88f54abdacbe4754b6ad3aec0eaf3bb4a4291a1dfd2b57b7fde8"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-square-2017.npz",
+      "bytes": 120072,
+      "sha256": "7ffa392e3e640c86977f700ff853467110a776e1be10ea9cd9f1cbc9027fb36e"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/line-square-2027.npz",
+      "bytes": 120837,
+      "sha256": "6e4b550b595cf06b852372f504577011acf56dd5cdd1e279dc81c526114f67e9"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/report.json",
+      "bytes": 752506,
+      "sha256": "6233e3c8f4776d17fb5bf0f0b0d5f076dfae7b5e48c0cf7057627adf23302d56"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/__init__.py",
+      "bytes": 96,
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/__main__.py",
+      "bytes": 30,
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/baseline.py",
+      "bytes": 5937,
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/cli.py",
+      "bytes": 10173,
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/config.py",
+      "bytes": 7062,
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/curriculum.py",
+      "bytes": 3920,
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/env.py",
+      "bytes": 15449,
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/evaluate.py",
+      "bytes": 10538,
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/export.py",
+      "bytes": 9003,
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/geometry.py",
+      "bytes": 2662,
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/imitation.py",
+      "bytes": 15994,
+      "sha256": "e533a7e764ac4ec604d52b3a620afe3d86c9679d3484b73e40e6a71e864fcbfe"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/metrics.py",
+      "bytes": 11355,
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/multiworld.py",
+      "bytes": 7421,
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/occlusion.py",
+      "bytes": 5983,
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/policy.py",
+      "bytes": 11326,
+      "sha256": "c6aec4a76aa22de0ae97dc0bf0bd7369a9d7db6ceac6fa035ae6930f2345ecd0"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/render.py",
+      "bytes": 14680,
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/replay.py",
+      "bytes": 4480,
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/source/train.py",
+      "bytes": 23490,
+      "sha256": "3e85d7060a1bae9d197ef386ee0721a01a86277c146f73b1c78a16d6c8dfdf19"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-2001.npz",
+      "bytes": 121751,
+      "sha256": "c08797e065041790b82681cc2b2eadb91a76621232267abc80223145e6d06186"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-2003.npz",
+      "bytes": 119489,
+      "sha256": "f076cdeb19de2fa6ab0b464ebaea42f3f8d71f49cfbff6936411fd936691d960"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-2011.npz",
+      "bytes": 121279,
+      "sha256": "65e3cc19e114272edc8adfc17b5ed4245b09230c1040a50aac52378f94e8dbcc"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-2017.npz",
+      "bytes": 120133,
+      "sha256": "13fa5da332d9329725edc0496a31a7b58b2da2651431c8078d512f4f9ce5fb72"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-2027.npz",
+      "bytes": 120531,
+      "sha256": "fd3e231d251c8f34cecfd0ed6d463d155cbb5bee60cb2b04a110632b257be061"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-circle-2001.npz",
+      "bytes": 122060,
+      "sha256": "dc41c027599bdcc4d0a5d62947b4a48ea4e3520ba9bc49668be9b4860d63fadb"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-circle-2003.npz",
+      "bytes": 119916,
+      "sha256": "77754a516217b29347509c025ded550dee5d478aeb4fa7dba4a0769d754a063d"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-circle-2011.npz",
+      "bytes": 121652,
+      "sha256": "3c6a8be78c367f86692c3a6afad11cdc3c21dfc917844495163bade8b9fefdf8"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-circle-2017.npz",
+      "bytes": 120394,
+      "sha256": "783f288983cddca17220e37769b2eb66fcbb63c69cd0eb7ea0b265e94641cffb"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-circle-2027.npz",
+      "bytes": 120856,
+      "sha256": "353a18949e4c88a2d9365b97d35c5f6a7a49234982e609eec6eb49cb481b8dfe"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-follow-2001.npz",
+      "bytes": 102074,
+      "sha256": "9ce89f7234aa0c1f0a29f61a41cf602746cb7b15d81f5a91800f0abdd9611ddd"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-follow-2003.npz",
+      "bytes": 117562,
+      "sha256": "f181925a51f4a9b7468901437a6391ead88615c181170695c93b4aee7edd69be"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-follow-2011.npz",
+      "bytes": 105577,
+      "sha256": "df78644a6da317264cda31f8f185bc6fcc82fe900137d460921b3381940fb3ab"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-follow-2017.npz",
+      "bytes": 98571,
+      "sha256": "cdd76d97e23a39f3a9d48d5a9394398e09b5bfaf1a686ea3b3b730d7d25b797f"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-follow-2027.npz",
+      "bytes": 120705,
+      "sha256": "ad03437b3adbbfff04d8a2301daf7e3f3404140c0b38dac3efe7b137fe7a21f7"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-line-2001.npz",
+      "bytes": 121832,
+      "sha256": "d84c775e7c1fcaf5ead178c019e6689485f169db16dfdd90f64301f0df0d1d0f"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-line-2003.npz",
+      "bytes": 119782,
+      "sha256": "dd38dfb3824ad71537e8f694dbfbc929441cbc869a1389b83675cfd55e78c913"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-line-2011.npz",
+      "bytes": 121459,
+      "sha256": "bd08ae0c7413f0f902b88c5acf700fb7fa21648e30affd6a098566079810d021"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-line-2017.npz",
+      "bytes": 120296,
+      "sha256": "4186aa5c273536c7251256715bcf3e74a14955b32c1eea050d842a1ea9c5dbdc"
+    },
+    {
+      "path": "runs/validation-radius1m-v11-terminal-hidden-reset-11/square-line-2027.npz",
+      "bytes": 120550,
+      "sha256": "c50da18048960e2e02a41827092f18435a764d5752cf9ff1b97d41d616b0ae6b"
     },
     {
       "path": "runs/validation-radius1m-v8-anonymous-11/circle-2001.npz",
@@ -3573,5 +5777,23 @@
       "bytes": 121793,
       "sha256": "fb023b501f872c9ddc9731173d461ea38a15a52f7ce8f3e0d2d3e6a2339f1d77"
     }
-  ]
+  ],
+  "completed_trials": [
+    {
+      "path": "runs/train-radius1m-v10-11",
+      "version": "v10",
+      "completed_updates": 1000,
+      "state": "completed; unvalidated",
+      "terminal_checkpoint": "runs/radius1m-v10-terminal-11/checkpoint.pt"
+    },
+    {
+      "path": "runs/train-radius1m-v11-11",
+      "version": "v11",
+      "completed_updates": 1000,
+      "state": "completed; unvalidated",
+      "terminal_checkpoint": "runs/radius1m-v11-terminal-11/checkpoint.pt"
+    }
+  ],
+  "paired_gru_reset_diagnostic": "Both terminal actors: persistent and per-step GRU reset each 0/20 isolated and 0/60 directed. Previous-command autoregression remains for v11. No controlled occlusion or validated-actor conclusion.",
+  "completion_evidence_observed_utc": "2026-11-03T09:18:28.299612+00:00"
 }

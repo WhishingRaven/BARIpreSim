@@ -1,0 +1,180 @@
+{
+  "version": "bari-local-circle-student-recovery-result-v1",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "protocol": {
+    "version": "bari-local-circle-student-recovery-v1",
+    "planned_utc": "2026-11-03T16:03:57.534360+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "student": {
+      "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+      "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027
+    ],
+    "handoff_s": [
+      0,
+      5,
+      10
+    ],
+    "teacher": {
+      "version": "local-circle-interior-release-v5",
+      "scan_seconds": 0.0,
+      "interior_boost_m_s": 0.05
+    },
+    "artifacts": [
+      {
+        "path": "runs/probe-local-circle-student-recovery.py",
+        "sha256": "bd8a362c3b2ea5d662292fde7450d1a517ea8f462a42442c99728ac9d9e419c7"
+      },
+      {
+        "path": "runs/local_circle_cooperative.py",
+        "sha256": "14fa30084b3bbf6c5aea7fe171547497b8b906a94e6424a4f95223c8c647ae9d"
+      },
+      {
+        "path": "runs/local_circle_history.py",
+        "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+      },
+      {
+        "path": "runs/local_circle_guarded.py",
+        "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+      },
+      {
+        "path": "reports/local-circle-learning.json",
+        "sha256": "00303c7ce23805fbd8bd7adddbf2b34c74989594b73cf6b36e3601cbcc7aca93"
+      }
+    ],
+    "execution": "Student deterministic mean until handoff; teacher subsequently executes. Both states advance on every actual local observation/command from episode start; neither resets at handoff. World, sensor history, motion and cumulative safety statistics continue. Full30s timeout and numeric gates unchanged.",
+    "verification": "Student prefixes must exactly match existing failing validation recordings over poses/time/wheels/commands/observations/errors/safety. Ground-truth geometry is diagnostic only.",
+    "interpretation": "Teacher-recovery diagnostic, not learned success. Determine whether the same local teacher supplies coherent corrective behavior on student-visited states before planning unassisted student-state collection. No threshold change, automatic budget extension or PPO."
+  },
+  "summary": [
+    {
+      "handoff_s": 0,
+      "episodes": 5,
+      "successes": 4,
+      "final_holding": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.021216041664192928
+    },
+    {
+      "handoff_s": 5,
+      "episodes": 5,
+      "successes": 5,
+      "final_holding": 5,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.015590950726899564
+    },
+    {
+      "handoff_s": 10,
+      "episodes": 5,
+      "successes": 5,
+      "final_holding": 5,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.016421098876361322
+    }
+  ],
+  "all_student_prefixes_exact": true,
+  "qualified_for_unassisted_student_data_only": true,
+  "interpretation": "Both5s/10s student-prefix arms recover all5 and finish holding without contacts/walls. Teacher-only arm passes4/5, so no claim of universal recovery or acceptance. This supports testing student-state labels; handoff success is not learned control.",
+  "artifacts": [
+    {
+      "path": "runs/local-circle-student-recovery-v1/handoff-0/report.json",
+      "sha256": "346fa861db6fc8e8b3916647a77f45104cdf86254dad22139d53b6fa6f60ae65"
+    },
+    {
+      "path": "runs/local-circle-student-recovery-v1/handoff-5/report.json",
+      "sha256": "cadcd18d271f7418053f8d0379d1270c6f1896f6397683bdb52634ed79b68f73"
+    },
+    {
+      "path": "runs/local-circle-student-recovery-v1/handoff-10/report.json",
+      "sha256": "3810d3903471114e7cdf926ffc4fcbca212adef0b6eafd2195408ac0cb889317"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "version": "bari-command-model-history-verification-v1",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "specification": {
+    "version": "bari-command-model-history-v1",
+    "settings": {
+      "arena_radius": 1.0,
+      "control_dt": 0.1,
+      "physics_dt": 0.01,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "wheel_separation": 0.082
+    },
+    "feature_order": [
+      "nominal_x_over_arena_radius",
+      "nominal_y_over_arena_radius",
+      "nominal_sin_yaw",
+      "nominal_cos_yaw",
+      "nominal_left_speed_fraction",
+      "nominal_right_speed_fraction"
+    ],
+    "output_dtype": "float32",
+    "state_dtype": "float64",
+    "state_bytes_per_robot": 40,
+    "inputs": "previous saturated requested left/right commands; continuation/reset mask",
+    "reset": "Zero relative pose/wheels only at controller or episode reset, mask 0",
+    "switch": "Preserve state; task context is not a reset input",
+    "update": "Once before each control inference; integrate the previous interval iff mask 1",
+    "limitations": "Unmeasured nominal motor/geometry model; no collision/slip correction. Not physical odometry or a ground-truth pose."
+  },
+  "teacher_nominal_state_max_error": 0.0,
+  "teacher_wheel_sidecar_all_128_episodes_exact": true,
+  "unblocked_pose_max_error": 2.1760371282653068e-14,
+  "switches_preserve_history": true,
+  "unblocked_controls_checked": 200,
+  "exact_serialization_continuation": true,
+  "stream_permutation_exact": true,
+  "individual_reset_exact": true,
+  "zero_command_actor_action_and_hidden_invariant_to_commands": true,
+  "wall_contact_model_drift_m": 0.27330000000000015,
+  "scope": "Correct local nominal-history prototype and information diagnostic, not a deployed actor, measured odometry, behavioral success or RAM/latency acceptance.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-command-model-history.py",
+      "sha256": "0eb76354bf4f2ee95462d4fa030e12529fba26428e2a2e72115b41770ad7d4d7"
+    },
+    {
+      "path": "runs/command_model_history.py",
+      "sha256": "04d0a49c654fc44141487063a3933b3680d51c9a07ad0b530e447373498c96fd"
+    },
+    {
+      "path": "runs/teacher-local-circle-student1/demonstrations.npz",
+      "sha256": "470d3df1c3f8a52113d20ed97bcf9db60e0c318e4179ea38125df4a426e101d7"
+    },
+    {
+      "path": "runs/teacher-local-circle-student1/local-teacher-state.npz",
+      "sha256": "94a31f4fbeb44e3b93e32110715c7e7e007d30ec42302fbc2ae4313101b83b83"
+    },
+    {
+      "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+      "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+    },
+    {
+      "path": "runs/command-model-history-verification-v1/student1-features.npz",
+      "sha256": "66bb988a85a56a14d738ba2b5095c418067cd3a1fb01a2851e9689dead372870"
+    }
+  ]
+}

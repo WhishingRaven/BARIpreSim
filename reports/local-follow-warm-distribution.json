@@ -1,0 +1,2169 @@
+{
+  "protocol": {
+    "version": "bari-local-follow-warm-distribution-v1",
+    "planned_utc": "2026-11-03T13:57:08.153118+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "plan": {
+      "version": "bari-training-plan-v2",
+      "isolated_episode_probability": 1.0,
+      "switch_min_seconds": 3.0,
+      "switch_max_seconds": 15.0,
+      "curriculum_updates": 1000000000,
+      "curriculum_start_probability": 1.0,
+      "position_jitter_start_m": 0.015,
+      "position_jitter_end_m": 0.015,
+      "reserved_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027,
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "tasks": [
+        "follow"
+      ]
+    },
+    "worlds": 8,
+    "arms": [
+      {
+        "policy": "imitation",
+        "stochastic": false
+      },
+      {
+        "policy": "imitation",
+        "stochastic": true
+      },
+      {
+        "policy": "rl50",
+        "stochastic": false
+      },
+      {
+        "policy": "rl50",
+        "stochastic": true
+      },
+      {
+        "policy": "local-teacher",
+        "stochastic": false
+      }
+    ],
+    "initialization": "Exact eight first episode snapshots from original seed11 trainer constructor, frozen before evaluation. No validation/held-out seed used for rollout sampling.",
+    "noise": "Paired Torch seed 70000+world_index reset after model loading; normal pre-tanh samples use each saved trainable std. Same sensor RNG state across arms.",
+    "scope": "Diagnostic only, original unchanged numeric gates. Actor sees local9/task4 and own H, no poses/assignment/classes/IDs. Teacher arm also local-only; permitted scripted leader separate. No extra RL updates or learner selection.",
+    "artifacts": [
+      {
+        "path": "runs/local-follow-rl-initialization.pt",
+        "sha256": "4dbbf8804ce79158806c39887d9c46a1e82a04457fefb7447dc14204c7a9b309"
+      },
+      {
+        "path": "runs/local-follow-rl-interim-11/checkpoint.pt",
+        "sha256": "c80ad423231b8159299d22f9da67f2e28f01a260dd4a3a3691ca2cc3a2d2e2bb"
+      },
+      {
+        "path": "runs/local-follow-warm-distribution/initial_states.json",
+        "sha256": "35ebb1b688bc424a1267533c9a066ff0fb05fed3f72ce73d08f9d8bc0fa8d0cc"
+      },
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-follow-warm-distribution.py",
+        "sha256": "10c37486f615f6096e386c7014a4b0e6941c53452da12e1de7762b12ca4af526"
+      },
+      {
+        "path": "runs/local_range_consistent_follow.py",
+        "sha256": "fa4a2d98157f88a90531761f1d389eaeeaa0ef26afa7cfd3228c99d1c2f7b252"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "world_index": 0,
+      "seed": 276102408,
+      "final": {
+        "max_error_m": 0.2438751785416106,
+        "rms_error_m": 0.14968047788291686,
+        "path_error_m": 0.07478758977366115,
+        "spacing_error_m": 0.06888880670786715,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4654305509077172,
+        "leader_step_travel_m": 0.005033808587827067,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.2125917305822352,
+        "peak_max_error_m": 0.3565803659574903,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.67392223498708
+      },
+      "per_robot_return": [
+        -0.3794485453981906,
+        -4.09756142940023,
+        -7.557522841962054,
+        -11.106304176617414,
+        -14.229407559148967
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-0.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "world_index": 1,
+      "seed": 44703333,
+      "final": {
+        "max_error_m": 0.23881683523377237,
+        "rms_error_m": 0.1499678037452523,
+        "path_error_m": 0.06728104463772279,
+        "spacing_error_m": 0.06889271998324623,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4639589708881369,
+        "leader_step_travel_m": 0.00503379770718938,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.20701323289637322,
+        "peak_max_error_m": 0.34034620568760154,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.682155641064362
+      },
+      "per_robot_return": [
+        -0.3792559124995023,
+        -4.075412840160425,
+        -7.679440119303763,
+        -11.174871780676767,
+        -13.837393718305975
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-1.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "world_index": 2,
+      "seed": 1633002371,
+      "final": {
+        "max_error_m": 0.2281551705816157,
+        "rms_error_m": 0.14535087333901864,
+        "path_error_m": 0.0567208683019042,
+        "spacing_error_m": 0.06693981777926275,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4659511077454492,
+        "leader_step_travel_m": 0.005033798303435439,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.20900345835638037,
+        "peak_max_error_m": 0.3476535704478068,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.63492737556301
+      },
+      "per_robot_return": [
+        -0.3792358012869954,
+        -4.093510030535981,
+        -7.860282985726371,
+        -11.100716814864427,
+        -13.964498911984265
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-2.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "world_index": 3,
+      "seed": 395280002,
+      "final": {
+        "max_error_m": 0.2656391080161691,
+        "rms_error_m": 0.155912829923225,
+        "path_error_m": 0.07738768456166269,
+        "spacing_error_m": 0.06350879277690771,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666226766719215,
+        "leader_step_travel_m": 0.005033803818272104,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.22399736102747014,
+        "peak_max_error_m": 0.35628168145218386,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.702129597502257
+      },
+      "per_robot_return": [
+        -0.3793434767285362,
+        -3.8535805615611025,
+        -7.365186894312501,
+        -10.859148355666548,
+        -15.019626633264124
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-3.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "world_index": 4,
+      "seed": 289270423,
+      "final": {
+        "max_error_m": 0.678229107542078,
+        "rms_error_m": 0.41827238037584347,
+        "path_error_m": 0.4920071884716586,
+        "spacing_error_m": 0.24694633330528784,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.464227922083515,
+        "leader_step_travel_m": 0.005033798899681503,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3877647196243579,
+        "peak_max_error_m": 0.678229107542078,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.696856390215397
+      },
+      "per_robot_return": [
+        -0.3792783684330061,
+        -4.4917978952871636,
+        -8.181808419409208,
+        -26.48749505604792,
+        -24.435684653755743
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-4.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "world_index": 5,
+      "seed": 963550806,
+      "final": {
+        "max_error_m": 1.226789452257037,
+        "rms_error_m": 0.5846149847853808,
+        "path_error_m": 0.9348414962579482,
+        "spacing_error_m": 0.48689256453389407,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4696603077661665,
+        "leader_step_travel_m": 0.005033819468361217,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.6155888548206909,
+        "peak_max_error_m": 1.2278672294852846,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 0,
+        "wall_violations": 65,
+        "control_cost": 8.205565158821196
+      },
+      "per_robot_return": [
+        -0.3796079329913482,
+        -3.9492902822603355,
+        -172.4748969504144,
+        -15.065662720706314,
+        -19.322568849660456
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-5.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "world_index": 6,
+      "seed": 123428096,
+      "final": {
+        "max_error_m": 0.21745956993354154,
+        "rms_error_m": 0.13414302271476772,
+        "path_error_m": 0.05546375736350546,
+        "spacing_error_m": 0.06021394546894357,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.466749224094824,
+        "leader_step_travel_m": 0.005033810823465447,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.3,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 3,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.2047852436839178,
+        "peak_max_error_m": 0.34491946243337546,
+        "reacquisition_s": [
+          19.1,
+          0.1999999999999993
+        ],
+        "unrecovered_s": 4.099999999999998,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.634862238950963
+      },
+      "per_robot_return": [
+        -0.37946327147074044,
+        -3.553856998521951,
+        -6.85808175127022,
+        -10.445570883108303,
+        -13.632255122531205
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-6.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "world_index": 7,
+      "seed": 1864253760,
+      "final": {
+        "max_error_m": 0.3002037850067239,
+        "rms_error_m": 0.1792133368918373,
+        "path_error_m": 0.10538566759724115,
+        "spacing_error_m": 0.07277294083979027,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4640950322650779,
+        "leader_step_travel_m": 0.00503382244928138,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.23021949442680095,
+        "peak_max_error_m": 0.3561544389120033,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.809888251721765
+      },
+      "per_robot_return": [
+        -0.37976025661919266,
+        -4.611488671675033,
+        -8.431285171303898,
+        -11.77045751363039,
+        -15.432001606561244
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-7.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "world_index": 0,
+      "seed": 276102408,
+      "final": {
+        "max_error_m": 0.22169294016925753,
+        "rms_error_m": 0.1423281050012147,
+        "path_error_m": 0.06488672301773984,
+        "spacing_error_m": 0.07155735355609952,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4654305509077172,
+        "leader_step_travel_m": 0.005033808587827067,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.2077796593261445,
+        "peak_max_error_m": 0.3511832387279565,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.799432520911017
+      },
+      "per_robot_return": [
+        -0.3794485453981906,
+        -5.2372579417715315,
+        -8.144921977771446,
+        -10.563415762037039,
+        -13.802306920755655
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-0.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "world_index": 1,
+      "seed": 44703333,
+      "final": {
+        "max_error_m": 0.6872768563680458,
+        "rms_error_m": 0.3586264670692898,
+        "path_error_m": 0.6098402082634645,
+        "spacing_error_m": 0.39941158667027865,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.5011721984701766,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.447641185171539,
+        "peak_max_error_m": 0.6872768563680458,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.5,
+        "collisions": 470,
+        "wall_violations": 74,
+        "control_cost": 7.826313769137924
+      },
+      "per_robot_return": [
+        -736.3874958503293,
+        -560.0917141718601,
+        -178.28995924792252,
+        -217.32203502047923,
+        -401.06195110222325
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-1.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "world_index": 2,
+      "seed": 1633002371,
+      "final": {
+        "max_error_m": 1.2160608930453123,
+        "rms_error_m": 0.5757336761701021,
+        "path_error_m": 0.9995585831428745,
+        "spacing_error_m": 0.4708797166945483,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4659511077454492,
+        "leader_step_travel_m": 0.005033798303435439,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.6302636226351261,
+        "peak_max_error_m": 1.2279355862905317,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 17,
+        "wall_violations": 59,
+        "control_cost": 8.368086841577494
+      },
+      "per_robot_return": [
+        -0.3792358012869954,
+        -4.532011702191085,
+        -161.67800831398927,
+        -46.72147826050059,
+        -47.6990271769464
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-2.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "world_index": 3,
+      "seed": 395280002,
+      "final": {
+        "max_error_m": 0.66167865881519,
+        "rms_error_m": 0.38729729097618887,
+        "path_error_m": 0.4736594381992276,
+        "spacing_error_m": 0.23215664699884,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4666226766719215,
+        "leader_step_travel_m": 0.005033803818272104,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.38840849238777364,
+        "peak_max_error_m": 0.66167865881519,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 6,
+        "wall_violations": 0,
+        "control_cost": 7.924929311405142
+      },
+      "per_robot_return": [
+        -0.3793434767285362,
+        -4.583143860771088,
+        -8.80497803259641,
+        -37.560643590055406,
+        -36.212098989170045
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-3.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "world_index": 4,
+      "seed": 289270423,
+      "final": {
+        "max_error_m": 0.7565853635361157,
+        "rms_error_m": 0.4717355790316584,
+        "path_error_m": 0.5362629772729224,
+        "spacing_error_m": 0.24923262327097043,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.464227922083515,
+        "leader_step_travel_m": 0.005033798899681503,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.4130514027278443,
+        "peak_max_error_m": 0.7565853635361157,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.793872987643782
+      },
+      "per_robot_return": [
+        -0.3792783684330061,
+        -4.269302935892483,
+        -8.589049861184321,
+        -28.71139541087905,
+        -24.796381372609176
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-4.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "world_index": 5,
+      "seed": 963550806,
+      "final": {
+        "max_error_m": 1.0281950792384187,
+        "rms_error_m": 0.7590943130505848,
+        "path_error_m": 0.7243633879048028,
+        "spacing_error_m": 0.40049805855551346,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4696603077661665,
+        "leader_step_travel_m": 0.005033819468361217,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.6690071052731313,
+        "peak_max_error_m": 1.226540259691431,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 105,
+        "wall_violations": 75,
+        "control_cost": 7.591043502293911
+      },
+      "per_robot_return": [
+        -0.3796079329913482,
+        -5.615866246516816,
+        -363.2596053685993,
+        -249.46624664170668,
+        -72.41864452278242
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-5.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "world_index": 6,
+      "seed": 123428096,
+      "final": {
+        "max_error_m": 0.3823919093635468,
+        "rms_error_m": 0.2516814557109479,
+        "path_error_m": 0.13817512784953628,
+        "spacing_error_m": 0.5033160673810966,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.567392167711953,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.31034871062381847,
+        "peak_max_error_m": 0.3823919093635468,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 430,
+        "wall_violations": 0,
+        "control_cost": 7.81184948907929
+      },
+      "per_robot_return": [
+        -556.3871252227109,
+        -265.27389240811317,
+        -312.0836218628101,
+        -254.11841417232063,
+        -378.79377711052075
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-6.npz"
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "world_index": 7,
+      "seed": 1864253760,
+      "final": {
+        "max_error_m": 1.1746771233717426,
+        "rms_error_m": 0.5585904697263143,
+        "path_error_m": 0.9189027587462764,
+        "spacing_error_m": 0.5032610399048708,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4640950322650779,
+        "leader_step_travel_m": 0.00503382244928138,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.6786846572964177,
+        "peak_max_error_m": 1.2281538273084192,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.5,
+        "collisions": 0,
+        "wall_violations": 73,
+        "control_cost": 8.542622903662954
+      },
+      "per_robot_return": [
+        -0.37976025661919266,
+        -4.679549231950659,
+        -192.3214408303611,
+        -12.97375921253115,
+        -16.807668063789606
+      ],
+      "recording": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-7.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "world_index": 0,
+      "seed": 276102408,
+      "final": {
+        "max_error_m": 0.7256998496476121,
+        "rms_error_m": 0.5225437961135854,
+        "path_error_m": 0.6133573991910061,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4654305509077172,
+        "leader_step_travel_m": 0.005033808587827067,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.4524295994977035,
+        "peak_max_error_m": 0.7256998496476121,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.3,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.61264478280312
+      },
+      "per_robot_return": [
+        -0.3794485453981906,
+        -27.926377785624936,
+        -26.194891566876322,
+        -25.74162479164079,
+        -26.318461283575743
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-0.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "world_index": 1,
+      "seed": 44703333,
+      "final": {
+        "max_error_m": 0.6853122812676555,
+        "rms_error_m": 0.5049769904204947,
+        "path_error_m": 0.5284954840600565,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4639589708881369,
+        "leader_step_travel_m": 0.00503379770718938,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.493104317403896,
+        "peak_max_error_m": 0.7352977321225833,
+        "reacquisition_s": [],
+        "unrecovered_s": 26.8,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.446150941517827
+      },
+      "per_robot_return": [
+        -0.3792559124995023,
+        -25.284318858291954,
+        -27.56434429716319,
+        -27.959261777810752,
+        -28.254586754366755
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-1.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "world_index": 2,
+      "seed": 1633002371,
+      "final": {
+        "max_error_m": 0.671725383691098,
+        "rms_error_m": 0.4876431920225011,
+        "path_error_m": 0.5597517150334499,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4659511077454492,
+        "leader_step_travel_m": 0.005033798303435439,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.44628388862731516,
+        "peak_max_error_m": 0.671725383691098,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.2,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.592652478866011
+      },
+      "per_robot_return": [
+        -0.3792358012869954,
+        -24.734733159421012,
+        -25.80167250568047,
+        -25.481072192429565,
+        -26.254899574210867
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-2.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "world_index": 3,
+      "seed": 395280002,
+      "final": {
+        "max_error_m": 0.6387283970464005,
+        "rms_error_m": 0.4865192675611828,
+        "path_error_m": 0.5001698732143938,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4666226766719215,
+        "leader_step_travel_m": 0.005033803818272104,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.48423178193441535,
+        "peak_max_error_m": 0.7052570493840717,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.0,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.366476975841227
+      },
+      "per_robot_return": [
+        -0.3793434767285362,
+        -24.468475907109678,
+        -28.0004414007999,
+        -27.290025088004768,
+        -27.878505054395646
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-3.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "world_index": 4,
+      "seed": 289270423,
+      "final": {
+        "max_error_m": 0.643024693304852,
+        "rms_error_m": 0.41003870596877223,
+        "path_error_m": 0.41710902111207715,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.464227922083515,
+        "leader_step_travel_m": 0.005033798899681503,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.395664161263919,
+        "peak_max_error_m": 0.643024693304852,
+        "reacquisition_s": [],
+        "unrecovered_s": 26.3,
+        "collisions": 121,
+        "wall_violations": 0,
+        "control_cost": 9.381927400281524
+      },
+      "per_robot_return": [
+        -0.3792783684330061,
+        -199.08706051530316,
+        -88.85482870155829,
+        -87.74792097246973,
+        -202.3803810121026
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-4.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "world_index": 5,
+      "seed": 963550806,
+      "final": {
+        "max_error_m": 0.678043800590103,
+        "rms_error_m": 0.5153994328662792,
+        "path_error_m": 0.5339160736549344,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4696603077661665,
+        "leader_step_travel_m": 0.005033819468361217,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.49045001626701906,
+        "peak_max_error_m": 0.729493681813864,
+        "reacquisition_s": [],
+        "unrecovered_s": 26.5,
+        "collisions": 58,
+        "wall_violations": 0,
+        "control_cost": 9.562108104526947
+      },
+      "per_robot_return": [
+        -0.3796079329913482,
+        -25.39539754332509,
+        -94.8336208385881,
+        -144.7909804857336,
+        -79.08416887931526
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-5.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "world_index": 6,
+      "seed": 123428096,
+      "final": {
+        "max_error_m": 0.7295070524467947,
+        "rms_error_m": 0.5264943779472947,
+        "path_error_m": 0.5795336451901402,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.466749224094824,
+        "leader_step_travel_m": 0.005033810823465447,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5260987158925746,
+        "peak_max_error_m": 0.7745298012519384,
+        "reacquisition_s": [],
+        "unrecovered_s": 25.8,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.389516890774805
+      },
+      "per_robot_return": [
+        -0.37946327147074044,
+        -25.723106156103313,
+        -29.606869958806783,
+        -30.18542443262413,
+        -29.65129710547626
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-6.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "world_index": 7,
+      "seed": 1864253760,
+      "final": {
+        "max_error_m": 0.6883681304778482,
+        "rms_error_m": 0.5166489602423501,
+        "path_error_m": 0.5700793408208792,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4640950322650779,
+        "leader_step_travel_m": 0.00503382244928138,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.4763732931476933,
+        "peak_max_error_m": 0.6952324947879875,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.1,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.548236401025962
+      },
+      "per_robot_return": [
+        -0.37976025661919266,
+        -25.465868674684316,
+        -27.133291834499687,
+        -27.182918592356145,
+        -27.637328975833952
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-7.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "world_index": 0,
+      "seed": 276102408,
+      "final": {
+        "max_error_m": 0.6362384446329841,
+        "rms_error_m": 0.39012175039910096,
+        "path_error_m": 0.21440718604164533,
+        "spacing_error_m": 0.3161347341001822,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.08832313929517396,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.4044898264246455,
+        "peak_max_error_m": 0.6362384446329841,
+        "reacquisition_s": [],
+        "unrecovered_s": 25.4,
+        "collisions": 499,
+        "wall_violations": 0,
+        "control_cost": 9.027403144992347
+      },
+      "per_robot_return": [
+        -596.3908796368632,
+        -549.413109469926,
+        -295.41932866256684,
+        -423.98707463200844,
+        -201.63513967732433
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-0.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "world_index": 1,
+      "seed": 44703333,
+      "final": {
+        "max_error_m": 0.6187971561679609,
+        "rms_error_m": 0.5161251490971174,
+        "path_error_m": 0.4845514670992879,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4639589708881369,
+        "leader_step_travel_m": 0.00503379770718938,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3657150298331672,
+        "peak_max_error_m": 0.6187971561679609,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.2,
+        "collisions": 212,
+        "wall_violations": 0,
+        "control_cost": 9.274805337475398
+      },
+      "per_robot_return": [
+        -0.3792559124995023,
+        -341.2657460880873,
+        -164.99425304110628,
+        -304.03800582676195,
+        -129.81388256466016
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-1.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "world_index": 2,
+      "seed": 1633002371,
+      "final": {
+        "max_error_m": 0.6194313133996106,
+        "rms_error_m": 0.44876463526668353,
+        "path_error_m": 0.5050518855661799,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4659511077454492,
+        "leader_step_travel_m": 0.005033798303435439,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.4131182074123019,
+        "peak_max_error_m": 0.6194313133996106,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.1,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.63997647861243
+      },
+      "per_robot_return": [
+        -0.3792358012869954,
+        -22.944554797373712,
+        -23.961706949630752,
+        -23.072448292863555,
+        -24.94367132638581
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-2.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "world_index": 3,
+      "seed": 395280002,
+      "final": {
+        "max_error_m": 0.8095631508247951,
+        "rms_error_m": 0.5442568593055627,
+        "path_error_m": 0.6142650185355,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4666226766719215,
+        "leader_step_travel_m": 0.005033803818272104,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5463692935333014,
+        "peak_max_error_m": 0.8379369959163075,
+        "reacquisition_s": [],
+        "unrecovered_s": 26.7,
+        "collisions": 34,
+        "wall_violations": 0,
+        "control_cost": 9.296753789692634
+      },
+      "per_robot_return": [
+        -0.3793434767285362,
+        -21.941232523997314,
+        -70.19505065958947,
+        -100.50393996434286,
+        -61.55177079048008
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-3.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "world_index": 4,
+      "seed": 289270423,
+      "final": {
+        "max_error_m": 0.6838513761286186,
+        "rms_error_m": 0.4669539107907754,
+        "path_error_m": 0.48548556204044135,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.464227922083515,
+        "leader_step_travel_m": 0.005033798899681503,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.4998432898707261,
+        "peak_max_error_m": 0.7506040910773174,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.0,
+        "collisions": 256,
+        "wall_violations": 0,
+        "control_cost": 9.285611540113473
+      },
+      "per_robot_return": [
+        -0.3792783684330061,
+        -186.44097648956813,
+        -153.70548499526194,
+        -372.5149702754279,
+        -412.51998732960783
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-4.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "world_index": 5,
+      "seed": 963550806,
+      "final": {
+        "max_error_m": 0.7988054308077731,
+        "rms_error_m": 0.5986637341893978,
+        "path_error_m": 0.6162594753012325,
+        "spacing_error_m": 1.0199999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4696603077661665,
+        "leader_step_travel_m": 0.005033819468361217,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5094278964055803,
+        "peak_max_error_m": 0.8153291044139711,
+        "reacquisition_s": [],
+        "unrecovered_s": 26.6,
+        "collisions": 316,
+        "wall_violations": 0,
+        "control_cost": 9.471363918330916
+      },
+      "per_robot_return": [
+        -0.3796079329913482,
+        -187.35309419000987,
+        -305.8310151514597,
+        -656.260248045437,
+        -223.98891445039771
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-5.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "world_index": 6,
+      "seed": 123428096,
+      "final": {
+        "max_error_m": 0.7175364768026391,
+        "rms_error_m": 0.46005074390564354,
+        "path_error_m": 0.5841608074377629,
+        "spacing_error_m": 0.6999999999999998,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.466749224094824,
+        "leader_step_travel_m": 0.005033810823465447,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.40468831007330897,
+        "peak_max_error_m": 0.7175364768026391,
+        "reacquisition_s": [],
+        "unrecovered_s": 26.4,
+        "collisions": 17,
+        "wall_violations": 0,
+        "control_cost": 9.697563155090885
+      },
+      "per_robot_return": [
+        -0.37946327147074044,
+        -24.899182269116864,
+        -23.469687971286476,
+        -55.7837815429084,
+        -58.143810097593814
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-6.npz"
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "world_index": 7,
+      "seed": 1864253760,
+      "final": {
+        "max_error_m": 0.7339997428415892,
+        "rms_error_m": 0.5088312563162408,
+        "path_error_m": 0.5485010786967168,
+        "spacing_error_m": 1.0042445097169201,
+        "chain_order_preserved": false,
+        "leader_travel_m": 1.4640950322650779,
+        "leader_step_travel_m": 0.00503382244928138,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.5123505244752475,
+        "peak_max_error_m": 0.7418690481522584,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.4,
+        "collisions": 161,
+        "wall_violations": 0,
+        "control_cost": 9.858076090463411
+      },
+      "per_robot_return": [
+        -0.37976025661919266,
+        -182.4207281814888,
+        -200.26862701773643,
+        -18.103027053177357,
+        -346.02737091016024
+      ],
+      "recording": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-7.npz"
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "world_index": 0,
+      "seed": 276102408,
+      "final": {
+        "max_error_m": 0.13987797440876104,
+        "rms_error_m": 0.08387873150432842,
+        "path_error_m": 0.020503065854983002,
+        "spacing_error_m": 0.04023103331488756,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.465430549546882,
+        "leader_step_travel_m": 0.005033808731942205,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 23.7,
+        "holding_goal": true,
+        "hold_s": 6.299999999999994,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.21576254797828132,
+        "peak_max_error_m": 0.40367464510598244,
+        "reacquisition_s": [
+          21.5
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.748484208452924
+      },
+      "per_robot_return": [
+        -0.3794485453981906,
+        -3.3107123929075897,
+        -6.569353733444586,
+        -10.11516032088548,
+        -13.900092056719586
+      ],
+      "recording": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-0.npz"
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "world_index": 1,
+      "seed": 44703333,
+      "final": {
+        "max_error_m": 0.1411206537764783,
+        "rms_error_m": 0.08383118738801648,
+        "path_error_m": 0.0227219695422869,
+        "spacing_error_m": 0.043794154984506145,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4639589718067652,
+        "leader_step_travel_m": 0.005033797558614872,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 23.400000000000002,
+        "holding_goal": true,
+        "hold_s": 6.5999999999999925,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20727558808666796,
+        "peak_max_error_m": 0.37967107902689423,
+        "reacquisition_s": [
+          21.1
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.794894509151673
+      },
+      "per_robot_return": [
+        -0.3792559130815789,
+        -3.225103362912705,
+        -6.350466353236698,
+        -9.742294615600258,
+        -13.38866073731333
+      ],
+      "recording": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-1.npz"
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "world_index": 2,
+      "seed": 1633002371,
+      "final": {
+        "max_error_m": 0.1419434793438961,
+        "rms_error_m": 0.08526737958446981,
+        "path_error_m": 0.024119466135330035,
+        "spacing_error_m": 0.04160467157946682,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4659511033737627,
+        "leader_step_travel_m": 0.005033798348905772,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 23.3,
+        "holding_goal": true,
+        "hold_s": 6.699999999999992,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20481599894847866,
+        "peak_max_error_m": 0.37602911921381316,
+        "reacquisition_s": [
+          21.000000000000004
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.78868368899485
+      },
+      "per_robot_return": [
+        -0.3792358008213341,
+        -3.1598373632878065,
+        -6.256228064419702,
+        -9.660025703487918,
+        -13.274876621551812
+      ],
+      "recording": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-2.npz"
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "world_index": 3,
+      "seed": 395280002,
+      "final": {
+        "max_error_m": 0.13770537858596263,
+        "rms_error_m": 0.0831232771253444,
+        "path_error_m": 0.022646381379554437,
+        "spacing_error_m": 0.03910228549933295,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666226785859855,
+        "leader_step_travel_m": 0.005033803896345717,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 23.400000000000002,
+        "holding_goal": true,
+        "hold_s": 6.5999999999999925,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20361924810103418,
+        "peak_max_error_m": 0.37255455277211447,
+        "reacquisition_s": [
+          21.2
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.83604080061322
+      },
+      "per_robot_return": [
+        -0.3793434763792902,
+        -3.1574292912264355,
+        -6.227133132284507,
+        -9.560531197115779,
+        -13.146648238878697
+      ],
+      "recording": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-3.npz"
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "world_index": 4,
+      "seed": 289270423,
+      "final": {
+        "max_error_m": 0.1395052867475442,
+        "rms_error_m": 0.08337938829619698,
+        "path_error_m": 0.020573908571279116,
+        "spacing_error_m": 0.04217308176809201,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4642279222743637,
+        "leader_step_travel_m": 0.00503379900130101,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.8,
+        "holding_goal": true,
+        "hold_s": 7.19999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20117551923046237,
+        "peak_max_error_m": 0.3750456044117881,
+        "reacquisition_s": [
+          20.500000000000004
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.873317822689466
+      },
+      "per_robot_return": [
+        -0.37927836808376014,
+        -3.1416602669050917,
+        -6.14853634359315,
+        -9.52229797502514,
+        -13.087333722956828
+      ],
+      "recording": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-4.npz"
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "world_index": 5,
+      "seed": 963550806,
+      "final": {
+        "max_error_m": 0.13914545393282213,
+        "rms_error_m": 0.08318038127532866,
+        "path_error_m": 0.024509160514933803,
+        "spacing_error_m": 0.041970008238518736,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4696603054962811,
+        "leader_step_travel_m": 0.005033819558364952,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 21.900000000000002,
+        "holding_goal": true,
+        "hold_s": 8.099999999999987,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": true,
+        "mean_max_error_m": 0.19403181713308998,
+        "peak_max_error_m": 0.3438062450411786,
+        "reacquisition_s": [
+          19.7
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.012593384914707
+      },
+      "per_robot_return": [
+        -0.3796079334570095,
+        -3.100079881143756,
+        -6.036453436827287,
+        -9.207770015113056,
+        -12.558306314516813
+      ],
+      "recording": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-5.npz"
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "world_index": 6,
+      "seed": 123428096,
+      "final": {
+        "max_error_m": 0.13985062145036353,
+        "rms_error_m": 0.08250890184628966,
+        "path_error_m": 0.02337283918381056,
+        "spacing_error_m": 0.043392939438761685,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.46674922669681,
+        "leader_step_travel_m": 0.0050338107509102755,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.6,
+        "holding_goal": true,
+        "hold_s": 7.39999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20379982061458332,
+        "peak_max_error_m": 0.3720699669563634,
+        "reacquisition_s": [
+          20.4
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.895202320167022
+      },
+      "per_robot_return": [
+        -0.3794632717035711,
+        -3.2090439839521423,
+        -6.263717863941565,
+        -9.61717537138611,
+        -13.177718403749168
+      ],
+      "recording": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-6.npz"
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "world_index": 7,
+      "seed": 1864253760,
+      "final": {
+        "max_error_m": 0.1386627642870848,
+        "rms_error_m": 0.08260010996900208,
+        "path_error_m": 0.021017764883453745,
+        "spacing_error_m": 0.041940035338777465,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4640950299704474,
+        "leader_step_travel_m": 0.005033822453522029,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 22.8,
+        "holding_goal": true,
+        "hold_s": 7.19999999999999,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.21095659461354152,
+        "peak_max_error_m": 0.39078231352812737,
+        "reacquisition_s": [
+          20.400000000000002
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.8520982605776375
+      },
+      "per_robot_return": [
+        -0.3797602556878701,
+        -3.205323011148721,
+        -6.371474240906537,
+        -9.781685385853052,
+        -13.45843555405736
+      ],
+      "recording": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-7.npz"
+    }
+  ],
+  "summary": [
+    {
+      "policy": "imitation",
+      "stochastic": false,
+      "episodes": 8,
+      "successes": 1,
+      "final_holding": 0,
+      "contacts": 0,
+      "walls": 65,
+      "mean_final_max_error_m": 0.42489602588906855,
+      "mean_follower_return": -15.531833381238584
+    },
+    {
+      "policy": "imitation",
+      "stochastic": true,
+      "episodes": 8,
+      "successes": 0,
+      "final_holding": 0,
+      "contacts": 1028,
+      "walls": 281,
+      "mean_final_max_error_m": 0.7660698529884538,
+      "mean_follower_return": -123.01511147886276
+    },
+    {
+      "policy": "rl50",
+      "stochastic": false,
+      "episodes": 8,
+      "successes": 0,
+      "final_holding": 0,
+      "contacts": 179,
+      "walls": 0,
+      "mean_final_max_error_m": 0.6825511985590456,
+      "mean_follower_return": -49.05981739613071
+    },
+    {
+      "policy": "rl50",
+      "stochastic": true,
+      "episodes": 8,
+      "successes": 0,
+      "final_holding": 0,
+      "contacts": 1495,
+      "walls": 0,
+      "mean_final_max_error_m": 0.7022778864507463,
+      "mean_follower_return": -192.73161941367948
+    },
+    {
+      "policy": "local-teacher",
+      "stochastic": false,
+      "episodes": 8,
+      "successes": 8,
+      "final_holding": 8,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.1397264515666141,
+      "mean_follower_return": -8.091611404885896
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "runs/local-follow-warm-distribution/protocol.json",
+      "sha256": "2308b7249b825fcb747b1423564acf0367dd0a62a2da9e942ab3a58afd29ce55"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-0.npz",
+      "sha256": "93cef49c66e8aa8ff85c9ed68f8df9558a1e5686123167ebdb59251f8edcee38"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-1.npz",
+      "sha256": "6228a2506f4f13958c1b326bf14cb2213965aa6e667a25a9fbc68ce2e9a3b9b6"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-2.npz",
+      "sha256": "19481ccf486fed9bcdfdf1743ca99bbed611da6dab4021d9698772d48a52a36e"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-3.npz",
+      "sha256": "c1948ea20ec013af555bc0fb5ac9736de25fd78cf093282376fee2071ecbba32"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-4.npz",
+      "sha256": "8967cc167fd84f397a2b6e986f7a03c32a68fb3060252300930d6755b4ed8e12"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-5.npz",
+      "sha256": "b200716b62f15b3c75ddc7c8a3ed036ec842114dd153eb05c738da5f0848d30b"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-6.npz",
+      "sha256": "8bc21da163a10cff663fad93ef652f33a2157d143385b3ac943682ae353300e2"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-False-world-7.npz",
+      "sha256": "519c9b894fe6f9cf9a40ed034a26b33e9fb36ec08489d344249cf5c7aad9a22c"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-0.npz",
+      "sha256": "dbb10d42454cbb83966129f3d54390bb618a995400a83aba970950c8a6632e32"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-1.npz",
+      "sha256": "9720dbe45adf45a2a1cc6319ed0dae61a083cfe5287dba6d345edeb0e98dbae0"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-2.npz",
+      "sha256": "b089f8e066340e3b752a33dbf9aa0283ade882e9ee69bb5aaf185edeea469bc6"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-3.npz",
+      "sha256": "6628d7f19bccf0f2dd4d901a8a0585c4cba7d7604d909d08e46ebd6d8a24b0c3"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-4.npz",
+      "sha256": "141635013ac7e4844356f4a8c4533051f50c1a25d9de57e633429d846ea8e977"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-5.npz",
+      "sha256": "4467253a35bf9224656236279e7e48da0d9a45cf85e508e28e369567b305bcbd"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-6.npz",
+      "sha256": "72a7333312e9865bfbae17f7cb0a5878e03c8230d940173ca1eaa4dcc41532a0"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/imitation-stochastic-True-world-7.npz",
+      "sha256": "6e64ce657333fc8557eebb8d0d33a92906d1d7d1b90d9c49c5199764eb81aa8d"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-0.npz",
+      "sha256": "67ea5e870b37f6654f6bb5d54d72d40fac0f83ee62a0a80d4511401a495a9773"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-1.npz",
+      "sha256": "66d36660118436680d718621c2f056f051c24539e596958ffad22ddf0d4106d2"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-2.npz",
+      "sha256": "420829a85d5cfdf5f5b24cc4a228a719dc11ffae4eec4c589298977bcbba4f91"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-3.npz",
+      "sha256": "5d1926bbf5e5ff58e75781b3307f75a62069bbd9921cf4138898882fbe10f9f7"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-4.npz",
+      "sha256": "c4e3e112cce7a87182eff364a12317165ae1633593271ba4403251091a8694cb"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-5.npz",
+      "sha256": "cdeb969fc988ad07f8240b66b6cfa1aeaf4d79edbf427bb78426b8ed68a31614"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-6.npz",
+      "sha256": "42bb995c3b6827b8fb35957d62d1ff1e713fa1992d33b5db0031a83a702de3c2"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/local-teacher-stochastic-False-world-7.npz",
+      "sha256": "710abdf9622388ccb77a17913fb9b2fc95aab2f87a39b80cd9c03a4adfda3c6a"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-0.npz",
+      "sha256": "1322f487fc08b5a47e84c2048167c0001e311d5079dae23b982f2b9a73e6bf3a"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-1.npz",
+      "sha256": "9a76bf0ae44173f962bacf462ec4e2734a1fbe78753fcf6bfe7130d50d8975d0"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-2.npz",
+      "sha256": "47f839e6075ed7965b60d0ba58f2e54d5011d1b1af399e7a9a33520704c0d2cd"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-3.npz",
+      "sha256": "88dd2b04608d774a1175f83e88c97d08c7d558e789dcb2abeecd574e6a4c6b05"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-4.npz",
+      "sha256": "9811589d1a226e0ae4786ed117a0dced94386a84028d12d6564873a157014b8d"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-5.npz",
+      "sha256": "fecf828308a353639c39f471c24157d25b1cc00e1aaae5c62a8358448efca55d"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-6.npz",
+      "sha256": "ee7a5ff3faf1c4fd5cf17c9dfb9771c546e35d1265baa069d121e13f5d92a5f8"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-False-world-7.npz",
+      "sha256": "a4b414b4a2d505eb30abb8246cddd13ea10b28070b954057cdef9dd81deca60d"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-0.npz",
+      "sha256": "784d7483983484cdf157079ab329bbe2bbc179654b547b6d069844b84663e733"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-1.npz",
+      "sha256": "32e0304e77f7c6d460050ee6bf155404782ce26c6ab1838f85827ad7565910d7"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-2.npz",
+      "sha256": "4f4c0b5159f4373c312b540345ed1045029eba2a2894fbacc65ea9051a245f98"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-3.npz",
+      "sha256": "2bc0f743593ba7342ef56f54d9065404dc014854003dfac7e89321a73428c564"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-4.npz",
+      "sha256": "e1ed0a8952b5dd5549d386fa918c595fd1226ddcf04c089725164e3d73f85c10"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-5.npz",
+      "sha256": "3215e4be3f9fddf68b2837259c212bb3413e62ef728b1c62de454d2a1dd77c1d"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-6.npz",
+      "sha256": "23f0867c9205030146d7ecfd30508f03fcdbb8d12ea9bc97c647e5a5dc3f1c94"
+    },
+    {
+      "path": "runs/local-follow-warm-distribution/rl50-stochastic-True-world-7.npz",
+      "sha256": "2d086649ef72554188e5431109a63862dc6f08cfafa8f284a00f1cf2c4bffe9b"
+    }
+  ]
+}

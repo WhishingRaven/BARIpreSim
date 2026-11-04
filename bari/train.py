@@ -10,7 +10,8 @@ from .curriculum import TrainingPlan
 from .policy import (Actor, Critic, save_checkpoint, revision, load_checkpoint,
                      TRAINING_VERSION, SUPPORTED_TRAINING_VERSIONS, CONTEXT_CRITIC_VERSIONS,
                      ROLLOUT_BATCH_VERSIONS, NORMALIZED_VALUE_VERSIONS, MULTIWORLD_VERSIONS,
-                     ANONYMOUS_TRAINING_VERSIONS, CORRELATED_TRAINING_VERSIONS)
+                     ANONYMOUS_TRAINING_VERSIONS, CORRELATED_TRAINING_VERSIONS,
+                     PERIODIC_CRITIC_VERSIONS, NO_COMMAND_CRITIC_VERSION)
 from .metrics import ANONYMOUS_ORDER, LEGACY_ORDER
 
 
@@ -47,7 +48,12 @@ class Trainer:
             raise ValueError("Unsupported recurrent training version")
         self.training_version = training_version
         self.actor = Actor(config.hidden_size, action_correlation=.9 if training_version in CORRELATED_TRAINING_VERSIONS else 0.)
+        if self.training_version == NO_COMMAND_CRITIC_VERSION:
+            with torch.no_grad():
+                self.actor.encoder.weight[:, 6:8].zero_()
         critic_size = 98+5*config.hidden_size if self.training_version in CONTEXT_CRITIC_VERSIONS else 29
+        if self.training_version in PERIODIC_CRITIC_VERSIONS:
+            critic_size += 5  # Replace each training-only yaw by sin/cos, preserving periodicity.
         self.critic = Critic(input_size=critic_size, normalize_values=training_version in NORMALIZED_VALUE_VERSIONS)
         self.optimizer = torch.optim.Adam(list(self.actor.parameters())+list(self.critic.parameters()), lr=config.learning_rate)
         self.env = Environment(config, seed, "follow", "chain",
@@ -76,6 +82,7 @@ class Trainer:
         from .config import observation_contract
         if observation_contract(config) != observation_contract(self.config):
             raise ValueError("Actor initialization must preserve the observation/action contract")
+        self._validate_actor_constraint(actor)
         self.actor.load_state_dict(actor.state_dict())
         self.actor_initialization = {"path": str(path), "sha256": payload["file_sha256"],
                                      "source_actor_spec": actor.specification(), "target_actor_spec": self.actor.specification(),
@@ -83,8 +90,28 @@ class Trainer:
                                      "training_metadata": payload.get("training_metadata"),
                                      "semantics": "actor weights only; fresh critic, optimizer, world, hidden state and RNG"}
 
+    def actor_constraint(self):
+        if self.training_version == NO_COMMAND_CRITIC_VERSION:
+            return {"version": "bari-zero-command-encoder-v1", "columns": [6, 7],
+                    "rule": "encoder weights, gradients and Adam moments remain exactly zero"}
+        return None
+
+    def _validate_actor_constraint(self, actor=None, optimizer=False):
+        if self.training_version != NO_COMMAND_CRITIC_VERSION:
+            return
+        actor = self.actor if actor is None else actor
+        if torch.count_nonzero(actor.encoder.weight[:, 6:8]):
+            raise ValueError("Version 13 requires zero previous-command encoder weights")
+        if optimizer:
+            weight = self.actor.encoder.weight
+            state = self.optimizer.state.get(weight, {})
+            for name in ("exp_avg", "exp_avg_sq", "max_exp_avg_sq"):
+                moment = state.get(name)
+                if moment is not None and (moment.shape != weight.shape or torch.count_nonzero(moment[:, 6:8])):
+                    raise ValueError("Version 13 requires zero previous-command optimizer moments")
+
     def reset_episode(self):
-        task = str(self.rng.choice(TASKS))
+        task = str(self.rng.choice(self.plan.task_choices if self.plan is not None else TASKS))
         seed = int(self.rng.integers(0, 2**31))
         poses = None
         if self.plan is not None:
@@ -100,7 +127,8 @@ class Trainer:
 
     def prepare_control(self):
         if self.episode_switching and self.steps_until_switch <= 0:
-            choices = [task for task in TASKS if task != self.env.task]
+            choices = [task for task in (self.plan.task_choices if self.plan is not None else TASKS)
+                       if task != self.env.task]
             self.env.request_task(str(self.rng.choice(choices)))
             self.steps_until_switch = (self.plan.switch_steps(self.rng, self.config) if self.plan is not None
                                        else int(self.rng.integers(30, 80)))
@@ -116,6 +144,9 @@ class Trainer:
         """
         e, c = self.env, self.config
         state = e.critic_state()
+        if self.training_version in PERIODIC_CRITIC_VERSIONS:
+            periodic_poses = np.column_stack((e.poses[:, :2], np.sin(e.poses[:, 2]), np.cos(e.poses[:, 2])))
+            state = np.concatenate((periodic_poses.ravel(), state[15:])).astype(np.float32)
         if self.training_version not in CONTEXT_CRITIC_VERSIONS:
             return state
         relative = e.tracker.latest["fitted_targets"]-e.poses[:, :2]
@@ -220,6 +251,7 @@ class Trainer:
         leader samples stay excluded from both policy and entropy objectives.
         Legacy versions retain their original per-chunk optimizer transitions.
         """
+        self._validate_actor_constraint(optimizer=True)
         c = self.config
         tensors = {key: torch.from_numpy(value) for key, value in data.items()}
         chunks = recurrent_chunks(data, c.sequence_length)
@@ -246,9 +278,12 @@ class Trainer:
                 raise FloatingPointError("Nonfinite PPO loss")
             self.optimizer.zero_grad()
             loss.backward()
+            if self.training_version == NO_COMMAND_CRITIC_VERSION:
+                self.actor.encoder.weight.grad[:, 6:8].zero_()
             actor_norm = torch.nn.utils.clip_grad_norm_(self.actor.parameters(), .5, error_if_nonfinite=True)
             critic_norm = torch.nn.utils.clip_grad_norm_(self.critic.parameters(), .5, error_if_nonfinite=True)
             self.optimizer.step()
+            self._validate_actor_constraint(optimizer=True)
             stats.append([loss.item(), policy_loss.item(), value_loss.item(), float(actor_norm), float(critic_norm)])
         self.updates += 1
         result = dict(zip(("loss", "policy_loss", "value_loss", "actor_gradient_norm", "critic_gradient_norm"),
@@ -312,15 +347,21 @@ class Trainer:
         return {"kind": "single-world", "worlds": 1, "joint_steps_per_update": self.config.rollout_steps}
 
     def state_dict(self):
-        return {"environment": self.env.state_dict(), "rng_state": self.rng.bit_generator.state,
+        state = {"environment": self.env.state_dict(), "rng_state": self.rng.bit_generator.state,
                 "hidden": self.hidden.detach().clone(), "reset_mask": self.reset_mask.tolist(),
                 "steps_until_switch": self.steps_until_switch, "parent_checkpoint": self.parent_checkpoint,
                 "actor_initialization": self.actor_initialization,
                 "plan": self.plan.to_dict() if self.plan else None,
                 "plan_sha256": self.plan.digest() if self.plan else None,
                 "episode_switching": self.episode_switching, "episode_curriculum": self.episode_curriculum}
+        constraint = self.actor_constraint()
+        if constraint is not None:
+            state["actor_constraint"] = constraint
+        return state
 
     def load_world_state(self, state):
+        if state.get("actor_constraint") != self.actor_constraint():
+            raise ValueError("Checkpoint actor constraint is incompatible with its training version")
         if state["environment"].get("follow_ordering", LEGACY_ORDER) != self.env.follow_ordering:
             raise ValueError("Checkpoint following-order semantics are incompatible with its training version")
         self.env.load_state_dict(state["environment"])
@@ -357,6 +398,7 @@ class Trainer:
         trainer.actor.load_state_dict(actor.state_dict())
         trainer.critic.load_state_dict(payload["critic"])
         trainer.optimizer.load_state_dict(payload["optimizer"])
+        trainer._validate_actor_constraint(optimizer=True)
         trainer.load_world_state(state)
         if state.get("collector") == "multiworld-v1":
             if state["sampling_seeds"] != [world.seed for world in trainer.worlds]:

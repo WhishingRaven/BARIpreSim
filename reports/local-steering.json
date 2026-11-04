@@ -1,0 +1,345 @@
+{
+  "version": "bari-local-steering-pretraining-wrapup-v1",
+  "status": "Operator and full label verification complete; behavioral training not started",
+  "label_verification": {
+    "version": "bari-local-steering-label-result-v1",
+    "protocol": {
+      "version": "bari-local-steering-label-data-v1",
+      "planned_utc": "2026-11-03T21:01:19.086056+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+      },
+      "datasets": [
+        {
+          "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+          "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5"
+        },
+        {
+          "path": "runs/teacher-local-belief-student1/demonstrations.npz",
+          "sha256": "2b6dc8a23d375e8fc9fa4fa0d4bac24ed6bebd460872c24eb71e6f7bc8bd3c32"
+        }
+      ],
+      "feature_derivation": {
+        "path": "runs/local-geometry-feature-data-v1/result.json",
+        "sha256": "50782f06dc2a23bd5b68cca885b642554ac6458900669cc88ce117f6c4dfcdb4"
+      },
+      "verification": {
+        "path": "reports/local-steering-verification.json",
+        "sha256": "1003759551e4e9d13fbb1bdc8152589ea8ad8bb90123e61bf9be85c57cf34676"
+      },
+      "instrumentation": {
+        "path": "runs/local-steering-label-instrumentation-v1.json",
+        "sha256": "d2787a666213b45c27bbd699ecf61a60fd6e08fedcebf55bf70d0e4dfdff239b"
+      },
+      "sources": [
+        {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/derive-local-steering-labels.py",
+          "sha256": "a86361c1a44b1a93c14c597acbd050da47ec7fa791fdf62ce6687502b171b7e3"
+        },
+        {
+          "path": "runs/local_steering_labels.py",
+          "sha256": "08787de9556d0df0cb3273a53ae082734b55eaf44da65a0d748c9a91e497756f"
+        },
+        {
+          "path": "runs/local_circle_cooperative.py",
+          "sha256": "14fa30084b3bbf6c5aea7fe171547497b8b906a94e6424a4f95223c8c647ae9d"
+        },
+        {
+          "path": "runs/local_circle_history.py",
+          "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+        },
+        {
+          "path": "runs/local_circle_guarded.py",
+          "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+        },
+        {
+          "path": "runs/local_steering_decoder.py",
+          "sha256": "fac1769d29ec760c39191089e82e6423634e1b9e45c1876aabc47600707957a2"
+        }
+      ],
+      "episodes": 256,
+      "controls_per_episode": 300,
+      "decoder": {
+        "version": "bari-steering-decoder-v1",
+        "latent_shape": [
+          3
+        ],
+        "wheel_shape": [
+          2
+        ],
+        "latent_order": [
+          "steering_x_over_0.07m_s",
+          "steering_y_over_0.07m_s",
+          "twice_drive_scale_minus1"
+        ],
+        "vector_scale_m_s": 0.07,
+        "stop_vector_norm_m_s": 0.002,
+        "heading_gain_s_inverse": 3.0,
+        "yaw_limit_rad_s": 1.5,
+        "mapping": "Fold steering direction to the nearer forward/reverse heading using x sign; forward component sets signed speed and learned drive scale multiplies it. Convert(v,omega) through configured wheel separation/rim-speed and independently saturate each wheel.",
+        "physical_action": "Only two wheel requests; vector y is a steering intent, never lateral translation or a pose/target command.",
+        "information": "Decoder receives only three learned bounded outputs and calibration; no observation, teacher, environment, collision flag or formation rule."
+      },
+      "decoder_to_original_wheels_atol": 2e-05,
+      "required": "Every reconstructed teacher wheel label must equal the archived float32 label exactly. Every re-encoded steering label must decode within2e-5 of those archived wheels. Keep all episodes/samples, including failures, no clipping/filtering to repair discrepancies.",
+      "input_boundary": "Offline teacher receives only archived raw local9 and own-command history, with episode-only resets and fixed calibration. No true poses, body IDs/classes/counts, visibility, evaluator assignments/errors or final success enters label generation.",
+      "execution": "Four disjoint64-episode workers, each with independent teacher history; original episode/time/robot ordering retained.",
+      "scope": "New supervised representation of the same local teacher decisions, not additional physical data, imitation/RL updates, deployable controller or behavior acceptance."
+    },
+    "workers": [
+      {
+        "begin": 0,
+        "episodes": 64,
+        "all_archived_teacher_wheels_exact": true,
+        "decoder_max_error": 1.1920928955078125e-07
+      },
+      {
+        "begin": 64,
+        "episodes": 64,
+        "all_archived_teacher_wheels_exact": true,
+        "decoder_max_error": 1.341104507446289e-07
+      },
+      {
+        "begin": 128,
+        "episodes": 64,
+        "all_archived_teacher_wheels_exact": true,
+        "decoder_max_error": 1.1920928955078125e-07
+      },
+      {
+        "begin": 192,
+        "episodes": 64,
+        "all_archived_teacher_wheels_exact": true,
+        "decoder_max_error": 1.4901161193847656e-07
+      }
+    ],
+    "episodes": 256,
+    "joint_controls": 76800,
+    "robot_controls": 384000,
+    "all_archived_teacher_commands_recomputed_exactly": true,
+    "max_decoded_label_wheel_error": 1.4901161193847656e-07,
+    "all_episodes_and_samples_retained": true,
+    "host_derivation_seconds": 1315.0573027080027,
+    "training_updates": 0,
+    "stopped_label_fraction": 0.11223177083333333,
+    "toy_averaging_fixture": {
+      "steering_pair": [
+        [
+          1.0000000116860974e-07,
+          1.0,
+          1.0
+        ],
+        [
+          -1.0000000116860974e-07,
+          1.0,
+          1.0
+        ]
+      ],
+      "mean_of_wheel_labels": [
+        0.0,
+        0.0
+      ],
+      "decoded_mean_steering": [
+        -0.6150000095367432,
+        0.6150000095367432
+      ],
+      "scope": "Equivalent near-perpendicular steering choices demonstrate wheel-mean cancellation; not proof of the cause or prevalence of actual task failures."
+    },
+    "scope": "Complete raw-local teacher replay and label-decoder parity, not behavioral convergence or a passed learning gate.",
+    "artifacts": [
+      {
+        "path": "runs/local-steering-label-data-v1/protocol.json",
+        "sha256": "fbc19c3d143a87ba814604425d625844e516e14a13117ce4fe54510fc5c8f11d"
+      },
+      {
+        "path": "runs/local-steering-label-data-v1/steering-labels.npz",
+        "sha256": "398297cec67a6f3051fd38585453e87bc5d71fda9fc140c436cbc20bb1f32350"
+      },
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/derive-local-steering-labels.py",
+        "sha256": "a86361c1a44b1a93c14c597acbd050da47ec7fa791fdf62ce6687502b171b7e3"
+      },
+      {
+        "path": "runs/local_steering_labels.py",
+        "sha256": "08787de9556d0df0cb3273a53ae082734b55eaf44da65a0d748c9a91e497756f"
+      },
+      {
+        "path": "runs/local_circle_cooperative.py",
+        "sha256": "14fa30084b3bbf6c5aea7fe171547497b8b906a94e6424a4f95223c8c647ae9d"
+      },
+      {
+        "path": "runs/local_circle_history.py",
+        "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+      },
+      {
+        "path": "runs/local_circle_guarded.py",
+        "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+      },
+      {
+        "path": "runs/local_steering_decoder.py",
+        "sha256": "fac1769d29ec760c39191089e82e6423634e1b9e45c1876aabc47600707957a2"
+      }
+    ]
+  },
+  "operator_verification": {
+    "version": "bari-local-steering-verification-v1",
+    "decoder_cases": 10000,
+    "decoder_max_cpp_torch_error": 1.7881393432617188e-07,
+    "forward_reverse_rotation_stop_and_saturation_verified": true,
+    "physical_wheel_conversion_no_lateral_motion": true,
+    "initial_encoder_gru_blocks_exact_to_geometry_baseline": true,
+    "initial_wheel_outputs_matched": false,
+    "finite_recurrent_update_and_checkpoint_reload": true,
+    "incompatible_readers_reject": true,
+    "all12_unfinished_switch_contexts": true,
+    "repeated_switch_world_hidden_geometry_rng_resume_exact": true,
+    "decoder": {
+      "version": "bari-steering-decoder-v1",
+      "latent_shape": [
+        3
+      ],
+      "wheel_shape": [
+        2
+      ],
+      "latent_order": [
+        "steering_x_over_0.07m_s",
+        "steering_y_over_0.07m_s",
+        "twice_drive_scale_minus1"
+      ],
+      "vector_scale_m_s": 0.07,
+      "stop_vector_norm_m_s": 0.002,
+      "heading_gain_s_inverse": 3.0,
+      "yaw_limit_rad_s": 1.5,
+      "mapping": "Fold steering direction to the nearer forward/reverse heading using x sign; forward component sets signed speed and learned drive scale multiplies it. Convert(v,omega) through configured wheel separation/rim-speed and independently saturate each wheel.",
+      "physical_action": "Only two wheel requests; vector y is a steering intent, never lateral translation or a pose/target command.",
+      "information": "Decoder receives only three learned bounded outputs and calibration; no observation, teacher, environment, collision flag or formation rule."
+    },
+    "default_promoted": false,
+    "full_goal_complete": false,
+    "scope": "Host arithmetic/drive/recurrent contract checks only. No behavioral convergence, PPO run or target memory/latency acceptance.",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-steering.py",
+        "sha256": "14c7848f0eb998d202b1a8dfc0180fee8e12406c7f7900db3fd27f9e439a1728"
+      },
+      {
+        "path": "runs/local_steering_actor.py",
+        "sha256": "4496b13bcfa3af6345b7ef80c96b7574b42cdbd302c8b7917f4df31f4fd206d5"
+      },
+      {
+        "path": "runs/local_steering_decoder.py",
+        "sha256": "fac1769d29ec760c39191089e82e6423634e1b9e45c1876aabc47600707957a2"
+      },
+      {
+        "path": "runs/local_steering_decoder.hpp",
+        "sha256": "8a526cbf3564cbe99a54ad687f9b1a237c0c4ba226635efed225ba59cd7194ca"
+      },
+      {
+        "path": "runs/local_steering_decoder_bridge.cpp",
+        "sha256": "045cc5e6e791621ef39fd948249e4549e851017521d58bc49e23d796deb88876"
+      },
+      {
+        "path": "runs/local-steering-decoder-v1.dylib",
+        "sha256": "241e3332bd7dd1eda0d290b2e2348b27cbb8424a2ee330bde373a91b3e126371"
+      },
+      {
+        "path": "runs/local-steering-verification-v1/decoder-golden.npz",
+        "sha256": "a1b7397d8f1eb6cd51f352d4d8d857b258c048b0a73dec0788d6fc0f8e0e2d95"
+      },
+      {
+        "path": "runs/local-steering-verification-v1/verification-only.pt",
+        "sha256": "7feab6ed0d9ac36e034f924b3d56ff4c3086b80bc76675a97b571c54351089b8"
+      }
+    ]
+  },
+  "host_export": {
+    "path": "reports/local-steering-operator-export.json",
+    "sha256": "b8aa667d9655804556a302cd2d8350dc3920581981d09438abf94eaaa5419681"
+  },
+  "target_build": {
+    "path": "reports/local-steering-esp32s3-build.json",
+    "sha256": "e0dd1ce92414a7055d5bc3252b6e54c3333f1f4e4e6d2ca9ef21e1a6c5d2d5d6"
+  },
+  "behavioral_training_updates": 0,
+  "verification_only_actor": "A separate finite-update fixture is used for host/target operator checks. It is not a trained behavior candidate.",
+  "prepared_not_executed": {
+    "training_script": {
+      "path": "runs/train-local-steering.py",
+      "sha256": "87e42a89f3ec4cb0725dc47d38b494af29f409e87478cb3e3939d49075be6b4c"
+    },
+    "planned_training_seed": 11,
+    "epochs": 40,
+    "optimizer_steps": 6400,
+    "loss": "Equal-component three-field steering latent MSE; decoded wheel MSE is diagnostic only",
+    "initialization": "Encoder/GRU blocks match the geometry baseline exactly. Head meanings and initial decoded wheel behavior differ; this is not a matched-output ablation.",
+    "first_gate": "All five fixed development cases must succeed and end holding, with zero contact/wall attempts",
+    "larger_gate_if_first_passes": "At least18/20 fixed development successes and final holds, zero contact/wall attempts",
+    "rl_integration": "Not implemented or run for this representation. Future PPO log probabilities must describe the three latent samples before deterministic wheel decoding.",
+    "automatic_extension_or_promotion": false
+  },
+  "target_static_result": {
+    "application_binary_bytes": 1220480,
+    "actor_flash_bytes": 108044,
+    "lookup_flash_bytes": 853260,
+    "linked_iram_bytes": 16384,
+    "linked_diram_bytes": 262923,
+    "observer_hidden_state_bytes": 168696,
+    "device_peak_ram_bytes": null,
+    "device_latency_ms": null,
+    "full_firmware_headroom_bytes": null
+  },
+  "follow_criterion": "Anonymous spacing/path and preservation of the physically formed order; follower indices are not required identities. Already implemented and documented separately.",
+  "scope": "Private local24/task4 GRU64 with three learned steering fields decoded to ordinary differential-drive wheel requests. No actor truth inputs, teacher action override, lateral translation or changed success threshold.",
+  "limitations": [
+    "No steering-policy behavioral convergence, GRU-RL result, four-task success or default promotion",
+    "FOV60 and geometry/calibration are explicit unmeasured simulation assumptions",
+    "Target build uses a verification-only actor, not the final accepted actor",
+    "Static linker counts do not establish peak internal SRAM, full firmware fit, latency or deadline compliance",
+    "Exact physical board/flash/control period and sensor/motor interface remain unconfirmed"
+  ],
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "artifacts": [
+    {
+      "path": "runs/local-steering-label-data-v1/result.json",
+      "sha256": "9f57ecb0d32d35d99a37045845a7aa3c5969c5ede82a719c13f3171d443cf013"
+    },
+    {
+      "path": "reports/local-steering-verification.json",
+      "sha256": "1003759551e4e9d13fbb1bdc8152589ea8ad8bb90123e61bf9be85c57cf34676"
+    },
+    {
+      "path": "reports/local-steering-operator-export.json",
+      "sha256": "b8aa667d9655804556a302cd2d8350dc3920581981d09438abf94eaaa5419681"
+    },
+    {
+      "path": "reports/local-steering-esp32s3-build.json",
+      "sha256": "e0dd1ce92414a7055d5bc3252b6e54c3333f1f4e4e6d2ca9ef21e1a6c5d2d5d6"
+    },
+    {
+      "path": "runs/prepare-local-steering-training.py",
+      "sha256": "52b9bd825d8aff78b8a62401d91faaa10b9267c1e58a5c16e43dbffab34cc158"
+    },
+    {
+      "path": "runs/train-local-steering.py",
+      "sha256": "87e42a89f3ec4cb0725dc47d38b494af29f409e87478cb3e3939d49075be6b4c"
+    },
+    {
+      "path": "runs/local_steering_actor.py",
+      "sha256": "4496b13bcfa3af6345b7ef80c96b7574b42cdbd302c8b7917f4df31f4fd206d5"
+    },
+    {
+      "path": "runs/local_steering_decoder.py",
+      "sha256": "fac1769d29ec760c39191089e82e6423634e1b9e45c1876aabc47600707957a2"
+    },
+    {
+      "path": "runs/local_steering_decoder.hpp",
+      "sha256": "8a526cbf3564cbe99a54ad687f9b1a237c0c4ba226635efed225ba59cd7194ca"
+    },
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-local-steering-wrapup-report.py",
+      "sha256": "06310eb3f7b75106b69ec9e26c4493837b0207c3b7c1628dfd6700df92e3ed6a"
+    }
+  ]
+}

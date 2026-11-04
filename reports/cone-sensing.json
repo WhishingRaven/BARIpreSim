@@ -1,0 +1,2921 @@
+{
+  "version": "bari-configurable-cone-study-v1",
+  "observed_utc": "2026-11-03T13:24:53.275746+00:00",
+  "status": "active goal; no accepted learned policy",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "abea88c5ee1ba601d5eae3105a0bc455cd546bb5044bacff8b9f299f22b34b88"
+  },
+  "current_source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+  },
+  "current_verification": {
+    "verified_utc": "2026-11-03T13:24:52.961099+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+    },
+    "command": ".venv/bin/python -m pytest -q -W error::RuntimeWarning",
+    "result": "169 passed in 23.69s",
+    "python": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "numpy": "2.5.4",
+    "torch": "2.15.0",
+    "pytest": "9.2.0",
+    "delta_from_163": {
+      "unchanged_python_files": [
+        "__init__.py",
+        "__main__.py",
+        "baseline.py",
+        "cli.py",
+        "config.py",
+        "curriculum.py",
+        "env.py",
+        "evaluate.py",
+        "export.py",
+        "geometry.py",
+        "imitation.py",
+        "metrics.py",
+        "multiworld.py",
+        "occlusion.py",
+        "policy.py",
+        "replay.py",
+        "train.py"
+      ],
+      "renderer_only": "np.nan_to_num now maps negative infinity to sensor_max, matching actor normalization",
+      "new_tests": "six display cases: NaN/+inf/-inf for widths0/30"
+    }
+  },
+  "verification": "163 passed in 34.83s; 18 focused cone tests; exact zero-FOV training continuation/collector proof",
+  "implementation": {
+    "sensor_model": "bari-horizontal-cone-v1",
+    "width_range_deg": [
+      0,
+      180
+    ],
+    "default_width_deg": 0,
+    "actor_fields": 9,
+    "task_fields": 4,
+    "bearings_in_actor": false,
+    "occlusion_basis": "one nearest-hit representative ray per cone; not full-cone visibility or minimum-aggregation suppression",
+    "hardware_status": "hypothetical; actual VL53L7CX zone aggregation and vertical/floor response unconfirmed"
+  },
+  "migration": {
+    "version": "bari-cone-zero-migration-proof-v1",
+    "old_source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+    },
+    "new_source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "abea88c5ee1ba601d5eae3105a0bc455cd546bb5044bacff8b9f299f22b34b88"
+    },
+    "training_continuation": {
+      "shared_checkpoint": "runs/cone-zero-migration-start/checkpoint.pt",
+      "rollouts": 2,
+      "joint_steps_per_rollout": 128,
+      "optimizer_updates_after_each_rollout": true,
+      "sensor_dropout": 0.1,
+      "sensor_latency_s": 0.2,
+      "task_switching_and_many_episode_resets": true,
+      "leaf_values_exact": 1555,
+      "provenance_fields_ignored": [
+        "source",
+        "trainer.parent_checkpoint.revision",
+        "teacher_metadata.source_revision"
+      ]
+    },
+    "teacher_collector": {
+      "episodes": 4,
+      "steps_per_episode": 8,
+      "arrays_bit_exact": [
+        "observations",
+        "tasks",
+        "expert_commands",
+        "executed_commands",
+        "actor_weights",
+        "reset_masks"
+      ],
+      "metadata_exact_except_source_provenance": true
+    },
+    "zero_fov_contracts_and_raycast_exact": true,
+    "verification": "163 passed in 34.83s",
+    "visual_qa": "30-degree assumed-cone snapshot inspected: five 3D robots, circular wall, range arcs, assumption label and no measured bearing; scripted diagnostic, not learned success or native-control acceptance",
+    "artifacts": [
+      {
+        "path": "runs/probe-cone-zero-migration.py",
+        "sha256": "c38a62f578e25c96ecfb859bd508f0b81fce69a0883467b32fdec5d2f7479910"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/checkpoint.pt",
+        "sha256": "c76e46e033597a3d1016a4616cf38dd136bacfd51fbbb4b09c60f8f3341a4e93"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/collector_spec.json",
+        "sha256": "ba3abd6d985d76e4669fe9da8bdbb4543811f0bb682611b48f07bbd7d69814d8"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/config.json",
+        "sha256": "a8101dd309478182c6ee63875b1def30b4c41002005071b0752212f903da2d97"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/revision.json",
+        "sha256": "26a3abe2b87e5e32910a0f346a9adff121cc824c9e18a7b66996e0b48085dc2d"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/__init__.py",
+        "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/__main__.py",
+        "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/baseline.py",
+        "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/cli.py",
+        "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/config.py",
+        "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/curriculum.py",
+        "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/env.py",
+        "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/evaluate.py",
+        "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/export.py",
+        "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/geometry.py",
+        "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/imitation.py",
+        "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/metrics.py",
+        "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/multiworld.py",
+        "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/occlusion.py",
+        "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/policy.py",
+        "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/render.py",
+        "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/replay.py",
+        "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/source/train.py",
+        "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/training.jsonl",
+        "sha256": "cc01f821bac3b947669a048410bd3a1a22f9108aba3cd1491a25fec3e0541817"
+      },
+      {
+        "path": "runs/cone-zero-migration-start/training_plan.json",
+        "sha256": "43faa3f5609cc2b33ec2b56cd167c7300e2f4022a9c69f08862c49b913c27433"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/probe.pt",
+        "sha256": "b143a55a8db93ead0ef6bf65577d0c8d74d27c128a4e9f60a0b1b91b07e2b72b"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/config.json",
+        "sha256": "a8101dd309478182c6ee63875b1def30b4c41002005071b0752212f903da2d97"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/demonstrations.npz",
+        "sha256": "7b585eb3c411a224872b947e6c60a37414be753a513544aef76c5744d801526c"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/manifest.json",
+        "sha256": "804974449de45689532962bebd9792b62adf3569bd4c6ea8fc28792b4bdee5c9"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/__init__.py",
+        "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/__main__.py",
+        "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/baseline.py",
+        "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/cli.py",
+        "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/config.py",
+        "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/curriculum.py",
+        "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/env.py",
+        "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/evaluate.py",
+        "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/export.py",
+        "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/geometry.py",
+        "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/imitation.py",
+        "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/metrics.py",
+        "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/multiworld.py",
+        "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/occlusion.py",
+        "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/policy.py",
+        "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/render.py",
+        "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/replay.py",
+        "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+      },
+      {
+        "path": "runs/cone-zero-migration-old/teacher/source/train.py",
+        "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/probe.pt",
+        "sha256": "b0200736e184b75cb6e40d0f2c32d30058bdb5a4849442ac24fac9a2da72c9ea"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/config.json",
+        "sha256": "a8101dd309478182c6ee63875b1def30b4c41002005071b0752212f903da2d97"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/demonstrations.npz",
+        "sha256": "8fa18b652e0264a875a601e288555d6b0ecfa1cc3a932fdc13099255b72acccd"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/manifest.json",
+        "sha256": "9951834fb66afb436b53a590a552d87dbdc0b5c6da89494206d3c889c956941f"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/__init__.py",
+        "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/__main__.py",
+        "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/baseline.py",
+        "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/cli.py",
+        "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/config.py",
+        "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/curriculum.py",
+        "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/env.py",
+        "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/evaluate.py",
+        "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/export.py",
+        "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/geometry.py",
+        "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/imitation.py",
+        "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/metrics.py",
+        "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/multiworld.py",
+        "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/occlusion.py",
+        "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/policy.py",
+        "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/render.py",
+        "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/replay.py",
+        "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+      },
+      {
+        "path": "runs/cone-zero-migration-new/teacher/source/train.py",
+        "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+      },
+      {
+        "path": "runs/cone-verification-163/AGENTS.md",
+        "sha256": "17cd618bb129dc5098910ff5bc17a069dcaf03d682d07716c352860830c88f79"
+      },
+      {
+        "path": "runs/cone-verification-163/README.md",
+        "sha256": "b6aa474bfd192f90e469b3c1383f77ddb6cb150726ffffdc6d331215e1138d3e"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/__init__.py",
+        "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/__main__.py",
+        "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/baseline.py",
+        "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/cli.py",
+        "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/config.py",
+        "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/curriculum.py",
+        "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/env.py",
+        "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/evaluate.py",
+        "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/export.py",
+        "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/geometry.py",
+        "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/imitation.py",
+        "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/metrics.py",
+        "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/multiworld.py",
+        "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/occlusion.py",
+        "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/policy.py",
+        "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/render.py",
+        "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/replay.py",
+        "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+      },
+      {
+        "path": "runs/cone-verification-163/bari/train.py",
+        "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/config.json",
+        "sha256": "ffe9c2afa6c6deb5733164c21b5631438c8144ff94d4febeb8fc12ae927811fd"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/contract.json",
+        "sha256": "fb97b14d91eb553d916ddd430cc7833844f39976512a407b18fe13e0712b8cce"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/follow-teacher-h64.json",
+        "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/follow-teacher.json",
+        "sha256": "3cfb813c391182c47e44e00346b4a2a734d95e317cca6f5e64ba2bc96c1fcc25"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/hypothetical-follow-fov15-h64.json",
+        "sha256": "d550c5982b0d2795b9f1c5c9e45f071e55857a1d662321502cfe954656b7a8b4"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/hypothetical-follow-fov60-h64.json",
+        "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/isolated-circle-correction-stage.json",
+        "sha256": "634b6a811559e597271627d890882e81d83618b63869295b4479a04795616581"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/isolated-circle-stage.json",
+        "sha256": "148db0eb23b4c0f5c7d71a34fb50cecfa24a1a2ae0e3c321c558e2252d3cd305"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/isolated-follow-stage.json",
+        "sha256": "5135e4f6be2cd0788e115c32490a8c938ba1d3440823e2b1beb2ec3b9b2842aa"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/memory-64.json",
+        "sha256": "94170f5161b9a3f174ddd525dbdad8a82b061130046ece6a3bc5830e4d1bad16"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/multiworld-curriculum.json",
+        "sha256": "be92b9810fe37ee103ffbd3ea54b234537b25adb598966ee7c232626e27da966"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/occlusion-probes.json",
+        "sha256": "f3da2381a1202b638ccd70aa7705e3a1ebdf1c5070ad03e686cd770c72520be8"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/retention-stage.json",
+        "sha256": "dc2a4217ac0f9b09c0fe3d8c6b605fb8be54e1d288915fcd92b4e41997511c14"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/scan-circle-teacher.json",
+        "sha256": "17ef71428147b741dc4b0891239a6833609ffa53b95583a6653c022ccc6e419c"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/training-curriculum.json",
+        "sha256": "6d1d834d82a192277feb382879a8906e598027a21d2b2d3ffa5a4c560f30142d"
+      },
+      {
+        "path": "runs/cone-verification-163/configs/validation-seeds.json",
+        "sha256": "03313cb8e3bca8e78a95dba1943df8c878e10dbea1ba884425c5bef408c045bc"
+      },
+      {
+        "path": "runs/cone-verification-163/docs/contracts.md",
+        "sha256": "c64eeb67dbc30da2f4e85389f8b68a2067453f386404e7e4b83406e145daca22"
+      },
+      {
+        "path": "runs/cone-verification-163/docs/status.md",
+        "sha256": "ebaa08970dc624dafd2d6407a34f6ca579c3502270e7c9fd7238b320738bf71b"
+      },
+      {
+        "path": "runs/cone-verification-163/hardware/README.md",
+        "sha256": "9aa754d9e85c45aac63b281ed46f889a333ec6487f0bb8afb73f1f68ef28bcc3"
+      },
+      {
+        "path": "runs/cone-verification-163/hardware/arena.template.json",
+        "sha256": "a2bcc80bf558c2e98823735423a706e60c039b82a58806a946df0fe2e2f1ae12"
+      },
+      {
+        "path": "runs/cone-verification-163/hardware/arena_template.py",
+        "sha256": "5f7f1475422414343952834121f82a0ed98d92ff646817e6a499a125f6de6a94"
+      },
+      {
+        "path": "runs/cone-verification-163/hardware/board.template.json",
+        "sha256": "03a66139d5756039d655680fe6fd0115d0042bd1f28a4ac2b37ea3c482ac7ebd"
+      },
+      {
+        "path": "runs/cone-verification-163/hardware/sensor-reference.md",
+        "sha256": "60c6cd2c4b083b23dcf86e14408e82dfcd47606bd44215f74b061c7efe9674ce"
+      },
+      {
+        "path": "runs/cone-verification-163/pyproject.toml",
+        "sha256": "2d135b4ee89cc7fcd2e820e5085811b0f2b84e4c7df68fb0f10b675792e3bebf"
+      },
+      {
+        "path": "runs/cone-verification-163/runtime.json",
+        "sha256": "a94f5f475e1f5eb1bb02ee3c8013b8049d112bb05e4eecff714951ec6ea647bf"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_anonymous_follow.py",
+        "sha256": "f4d7dcca2413cc6f03e5a6fc1cdccbcc798374e1962f11e050a5865607014311"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_arena_template.py",
+        "sha256": "38bc739c01052ed94edf7fa978ef951ed40f395c8d0e4d861424591a827611f3"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_autoregressive.py",
+        "sha256": "d6a620489463b2b15c65e243655554e5811a8cb54610396f33e31946cafef9a2"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_baseline.py",
+        "sha256": "e7963469075e7acbf7805c70520328e2bb0d521e12724c723e1455e1c96f7537"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_cone_sensing.py",
+        "sha256": "58e79046b1f8230e6aac103d05ca36b38e5494d8b1ac6695655579e191eb580f"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_critic_boundary.py",
+        "sha256": "196e97928ddaf33b6a66e4ba37da432e1ea13dedaf116b6c9e604de294a9cf3b"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_curriculum.py",
+        "sha256": "3051f46044efe0827a3eb8f088cac1d933c60419bdc41a4f99bf73ddcd63e839"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_demo_lifecycle.py",
+        "sha256": "f38490129999b69fc16b2e2db92234e9f4e5043bb7de1631170d3eefc6f2061c"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_environment.py",
+        "sha256": "55873c3da13b3cd1f50380910a70166d313e3b3d0af8283a3aaa0a4c3e763bb8"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_export_render.py",
+        "sha256": "adf5475727591a0762848cb1359fab3b3e0863aa3495399257818463e6ac4b04"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_imitation.py",
+        "sha256": "1cf0bbba9964037532d2b4c42a1f89b5ea600d44edc8e71c3ba774bbe35ba262"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_learning.py",
+        "sha256": "27ab13a2b31bc3163d8d8ceaea6505528990befd826d486a4f4dc9eab97f20db"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_metrics.py",
+        "sha256": "f41991adb950adf6fb6a151805f3c473a7e4943907eb0bfb3320d8251eac848d"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_multiworld.py",
+        "sha256": "7f179947c163e0cbef1f646bd79a2422e3a4a1800f856d5e25ba8ec3e91c5cbd"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_occlusion_protocol.py",
+        "sha256": "7faef4c3221f74e7479e7596e859b06b36baee1a8927ccb0c52e3d0dad626bcc"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_periodic_critic.py",
+        "sha256": "db9b06e01847587987cc7363ea075d0ef528aee0fb1b15d932182c922082937d"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_replay.py",
+        "sha256": "1fb42512536a0c9f48a7f8af05875f7eff678519184e330ec813e0fda3d60f69"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_scan_teacher.py",
+        "sha256": "27ac08b65f61017128244afdafaf1cb14f0a0ae900a5f84f0034346d11478175"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_task_curriculum.py",
+        "sha256": "1c28dcf627c6489505399081b8e29663a834b6bd8f26011c9976e837cbfe71ec"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_teacher_assistance.py",
+        "sha256": "4985e4ce7ca9a646a8497e5e0b73238fe228683290274396e81bfa02ef5b58ad"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_transition_reports.py",
+        "sha256": "c58511422e71bc6dc97ce8b4a06536d6039664b8333878418c9e1419b6dc82de"
+      },
+      {
+        "path": "runs/cone-verification-163/tests/test_value_normalization.py",
+        "sha256": "60ec8265454c8e12acee9b3f60fe31f312043f2ae297a49768f94bb6d5cd3d70"
+      },
+      {
+        "path": "reports/verification-cone-sensing.txt",
+        "sha256": "68be48fa34e0c56de16c2a416ac9361193e5ebcd404234054e82b2d42d3d428c"
+      },
+      {
+        "path": "output/qa/hypothetical-cone-30.png",
+        "sha256": "754ea3c52a42f0e8d2a88ac9e3599103edfc34d61e93f29e4ffaf44cc57cb6a0"
+      }
+    ]
+  },
+  "imitation_pilots": {
+    "protocol": {
+      "version": "bari-follow-cone-imitation-pilot-v1",
+      "planned_utc": "2026-11-03T12:49:38.291932+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "abea88c5ee1ba601d5eae3105a0bc455cd546bb5044bacff8b9f299f22b34b88"
+      },
+      "verification": "163 passed in 34.83s; exact center-ray continuation and collection proof",
+      "plan": {
+        "version": "bari-training-plan-v2",
+        "isolated_episode_probability": 1,
+        "switch_min_seconds": 3.0,
+        "switch_max_seconds": 15.0,
+        "curriculum_updates": 0,
+        "curriculum_start_probability": 0.8,
+        "position_jitter_start_m": 0.015,
+        "position_jitter_end_m": 0.16,
+        "reserved_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          10001,
+          10007,
+          10009,
+          10037,
+          10039
+        ],
+        "tasks": [
+          "follow"
+        ]
+      },
+      "dataset_seed": 13,
+      "episodes_per_arm": 128,
+      "training_seed": 11,
+      "imitation_epochs": 40,
+      "baseline": {
+        "dataset": "runs/teacher-follow-h64/demonstrations.npz",
+        "dataset_sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9",
+        "checkpoint": "runs/follow-h64-actor-terminal-11/checkpoint.pt",
+        "scope": "Historical zero-width H64 teacher clone: 0/5 chain cases; default center-ray behavior remains preserved."
+      },
+      "arms": {
+        "fov15": {
+          "config": {
+            "robots": 5,
+            "arena_radius": 1.0,
+            "body_radius": 0.069,
+            "wheel_radius": 0.022,
+            "wheel_separation": 0.082,
+            "max_wheel_speed": 0.1,
+            "max_wheel_acceleration": 0.3,
+            "physics_dt": 0.01,
+            "control_dt": 0.1,
+            "sensor_period": 0.1,
+            "sensor_latency": 0.1,
+            "sensor_min": 0.015,
+            "sensor_max": 0.8,
+            "sensor_noise_std": 0.002,
+            "sensor_dropout": 0.0,
+            "sensor_mount_radius": 0.045,
+            "sensor_height": 0.078,
+            "sensor_angles_deg": [
+              0,
+              60,
+              120,
+              180,
+              240,
+              300
+            ],
+            "sensor_fov_deg": 15.0,
+            "circle_radius": 0.24,
+            "square_side": 0.32,
+            "line_spacing": 0.17,
+            "follow_spacing": 0.16,
+            "formation_tolerance": 0.035,
+            "follow_path_tolerance": 0.055,
+            "follow_spacing_tolerance": 0.055,
+            "follow_min_leader_travel": 0.3,
+            "hold_seconds": 3.0,
+            "timeout_seconds": 30.0,
+            "max_collisions": 0,
+            "max_wall_violations": 0,
+            "required_success_rate": 0.9,
+            "evaluation_seeds": [
+              10001,
+              10007,
+              10009,
+              10037,
+              10039
+            ],
+            "training_seeds": [
+              11,
+              23,
+              47
+            ],
+            "hidden_size": 64,
+            "sequence_length": 16,
+            "rollout_steps": 128,
+            "ppo_epochs": 3,
+            "learning_rate": 0.0003,
+            "gamma": 0.99,
+            "gae_lambda": 0.95,
+            "clip_ratio": 0.2,
+            "entropy_weight": 0.005,
+            "reward_error": 2.0,
+            "reward_progress": 5.0,
+            "reward_collision": 2.0,
+            "reward_wall": 2.0,
+            "reward_energy": 0.01,
+            "reward_change": 0.02,
+            "reward_time": 0.01,
+            "obstacles": []
+          },
+          "config_sha256": "2fd153e361377391b4cd981020ea23e0dac62ace2d628aa602dcb79e55525034",
+          "config_file": "configs/hypothetical-follow-fov15-h64.json",
+          "dataset": "runs/teacher-follow-cone-fov15/demonstrations.npz",
+          "dataset_sha256": "12046bd0a92cdef7722059c4847893334c9324bc6fd17b440c6aa6c6fbb2f31e",
+          "teacher_collection": {
+            "episodes": 128,
+            "successes": 128,
+            "contacts": 0,
+            "wall_attempts": 0
+          }
+        },
+        "fov60": {
+          "config": {
+            "robots": 5,
+            "arena_radius": 1.0,
+            "body_radius": 0.069,
+            "wheel_radius": 0.022,
+            "wheel_separation": 0.082,
+            "max_wheel_speed": 0.1,
+            "max_wheel_acceleration": 0.3,
+            "physics_dt": 0.01,
+            "control_dt": 0.1,
+            "sensor_period": 0.1,
+            "sensor_latency": 0.1,
+            "sensor_min": 0.015,
+            "sensor_max": 0.8,
+            "sensor_noise_std": 0.002,
+            "sensor_dropout": 0.0,
+            "sensor_mount_radius": 0.045,
+            "sensor_height": 0.078,
+            "sensor_angles_deg": [
+              0,
+              60,
+              120,
+              180,
+              240,
+              300
+            ],
+            "sensor_fov_deg": 60.0,
+            "circle_radius": 0.24,
+            "square_side": 0.32,
+            "line_spacing": 0.17,
+            "follow_spacing": 0.16,
+            "formation_tolerance": 0.035,
+            "follow_path_tolerance": 0.055,
+            "follow_spacing_tolerance": 0.055,
+            "follow_min_leader_travel": 0.3,
+            "hold_seconds": 3.0,
+            "timeout_seconds": 30.0,
+            "max_collisions": 0,
+            "max_wall_violations": 0,
+            "required_success_rate": 0.9,
+            "evaluation_seeds": [
+              10001,
+              10007,
+              10009,
+              10037,
+              10039
+            ],
+            "training_seeds": [
+              11,
+              23,
+              47
+            ],
+            "hidden_size": 64,
+            "sequence_length": 16,
+            "rollout_steps": 128,
+            "ppo_epochs": 3,
+            "learning_rate": 0.0003,
+            "gamma": 0.99,
+            "gae_lambda": 0.95,
+            "clip_ratio": 0.2,
+            "entropy_weight": 0.005,
+            "reward_error": 2.0,
+            "reward_progress": 5.0,
+            "reward_collision": 2.0,
+            "reward_wall": 2.0,
+            "reward_energy": 0.01,
+            "reward_change": 0.02,
+            "reward_time": 0.01,
+            "obstacles": []
+          },
+          "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+          "config_file": "configs/hypothetical-follow-fov60-h64.json",
+          "dataset": "runs/teacher-follow-cone-fov60/demonstrations.npz",
+          "dataset_sha256": "d1b99a1624b7648591e8a4d9eb810a58d1e5b113c12ea1f49152c86940257b24",
+          "teacher_collection": {
+            "episodes": 128,
+            "successes": 128,
+            "contacts": 0,
+            "wall_attempts": 0
+          }
+        }
+      },
+      "validation_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "hypothesis": "Exact wider horizontal sensing can expose predecessor surfaces missed by center rays. Match all teacher physical trajectories/commands and RNG states before training; change sensor construction only. Coverage does not itself prove learned control.",
+      "training": "Same ordinary independent H64 actor, initial tensors/seed, 128 episodes, ordered BPTT64, batch8, Adam settings and 40 epochs as zero-width reference. No scan or teacher intervention in student inference.",
+      "evaluation": "Final epoch40 only: five moving visible-chain cases with existing safety/leader-motion/hold gates. Full isolated/switching suite only if all five pass; otherwise stop each pilot without extension/promotion.",
+      "hardware_scope": "Hypothetical planar horizontal cone minima with scalar post-aggregation noise. Actual VL53L7CX zones, vertical/floor response and six-value reduction remain unconfirmed. Do not substitute these results for center-ray evidence or physical acceptance.",
+      "goal_scope": "Imitation-only, zero RL updates; all-four-task GRU-RL, switching, controlled occlusion, multiple training seeds, final held-out acceptance, successful 3D/export and ESP32-S3 no-PSRAM measurements remain required.",
+      "matched_physical_demonstrations": "All executed/expert commands, task/role/reset/actor weights, initial poses, clocks, velocities, world RNG snapshots, switches and final physical metrics bit exact to zero-width baseline; only first-six sensor fields and sensing/config metadata differ.",
+      "training_frozen_utc": "2026-11-03T12:52:31.951830+00:00"
+    },
+    "completed": [
+      {
+        "arm": "fov15",
+        "imitation_epochs": 40,
+        "checkpoint": "runs/follow-cone-fov15-terminal-11/checkpoint.pt",
+        "checkpoint_sha256": "766261934cc4e31afd3b84c9e5283dcd00e029398eb3f1ef054c4a2b17493e8f",
+        "chain_report": "runs/validation-follow-cone-fov15-terminal-11-chain/report.json",
+        "chain_successes": 0,
+        "chain_episodes": 5,
+        "chain_summary": {
+          "follow": {
+            "episodes": 5,
+            "success_rate": 0.0,
+            "mean_final_max_error_m": 0.8053292979306811,
+            "required_success_rate": 0.9,
+            "passes_assumed_gate": false
+          }
+        },
+        "chain_collisions": 1459,
+        "chain_wall_attempts": 0,
+        "chain_mean_leader_travel_m": 1.4666124105515823,
+        "full_report": null,
+        "evaluation_teacher_intervention": false,
+        "sensing_status": "hypothetical horizontal cone; actual zone aggregation unconfirmed",
+        "decision": "chain failed; fixed pilot ended without extension or promotion"
+      },
+      {
+        "arm": "fov60",
+        "imitation_epochs": 40,
+        "checkpoint": "runs/follow-cone-fov60-terminal-11/checkpoint.pt",
+        "checkpoint_sha256": "992003fcc79d92f3676cac8aaf836042afa0ebc7ed56275a239236fb35ba86fe",
+        "chain_report": "runs/validation-follow-cone-fov60-terminal-11-chain/report.json",
+        "chain_successes": 0,
+        "chain_episodes": 5,
+        "chain_summary": {
+          "follow": {
+            "episodes": 5,
+            "success_rate": 0.0,
+            "mean_final_max_error_m": 0.6386876571497797,
+            "required_success_rate": 0.9,
+            "passes_assumed_gate": false
+          }
+        },
+        "chain_collisions": 1500,
+        "chain_wall_attempts": 0,
+        "chain_mean_leader_travel_m": 0.9960372027064441,
+        "full_report": null,
+        "evaluation_teacher_intervention": false,
+        "sensing_status": "hypothetical horizontal cone; actual zone aggregation unconfirmed",
+        "decision": "chain failed; fixed pilot ended without extension or promotion"
+      }
+    ]
+  },
+  "recurrent_rl": {
+    "protocol": {
+      "version": "bari-cone-follow-periodic-ppo-pilot-v1",
+      "planned_utc": "2026-11-03T13:00:07.539012+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "abea88c5ee1ba601d5eae3105a0bc455cd546bb5044bacff8b9f299f22b34b88"
+      },
+      "config": {
+        "robots": 5,
+        "arena_radius": 1.0,
+        "body_radius": 0.069,
+        "wheel_radius": 0.022,
+        "wheel_separation": 0.082,
+        "max_wheel_speed": 0.1,
+        "max_wheel_acceleration": 0.3,
+        "physics_dt": 0.01,
+        "control_dt": 0.1,
+        "sensor_period": 0.1,
+        "sensor_latency": 0.1,
+        "sensor_min": 0.015,
+        "sensor_max": 0.8,
+        "sensor_noise_std": 0.002,
+        "sensor_dropout": 0.0,
+        "sensor_mount_radius": 0.045,
+        "sensor_height": 0.078,
+        "sensor_angles_deg": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "sensor_fov_deg": 60.0,
+        "circle_radius": 0.24,
+        "square_side": 0.32,
+        "line_spacing": 0.17,
+        "follow_spacing": 0.16,
+        "formation_tolerance": 0.035,
+        "follow_path_tolerance": 0.055,
+        "follow_spacing_tolerance": 0.055,
+        "follow_min_leader_travel": 0.3,
+        "hold_seconds": 3.0,
+        "timeout_seconds": 30.0,
+        "max_collisions": 0,
+        "max_wall_violations": 0,
+        "required_success_rate": 0.9,
+        "evaluation_seeds": [
+          10001,
+          10007,
+          10009,
+          10037,
+          10039
+        ],
+        "training_seeds": [
+          11,
+          23,
+          47
+        ],
+        "hidden_size": 64,
+        "sequence_length": 16,
+        "rollout_steps": 128,
+        "ppo_epochs": 3,
+        "learning_rate": 0.0003,
+        "gamma": 0.99,
+        "gae_lambda": 0.95,
+        "clip_ratio": 0.2,
+        "entropy_weight": 0.005,
+        "reward_error": 2.0,
+        "reward_progress": 5.0,
+        "reward_collision": 2.0,
+        "reward_wall": 2.0,
+        "reward_energy": 0.01,
+        "reward_change": 0.02,
+        "reward_time": 0.01,
+        "obstacles": []
+      },
+      "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+      "plan": {
+        "version": "bari-training-plan-v2",
+        "isolated_episode_probability": 1.0,
+        "switch_min_seconds": 3.0,
+        "switch_max_seconds": 15.0,
+        "curriculum_updates": 1000000000,
+        "curriculum_start_probability": 1.0,
+        "position_jitter_start_m": 0.015,
+        "position_jitter_end_m": 0.015,
+        "reserved_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          10001,
+          10007,
+          10009,
+          10037,
+          10039
+        ],
+        "tasks": [
+          "follow"
+        ]
+      },
+      "initialization": {
+        "path": "runs/cone-follow-rl-initialization.pt",
+        "sha256": "d2d6290c55ab38b2200656397845742e1681b53e6b7bcfc5a57cc932ffb67b09",
+        "metadata": {
+          "version": "bari-cone-actor-initialization-v1",
+          "parent": {
+            "path": "runs/follow-cone-fov60-terminal-11/checkpoint.pt",
+            "sha256": "992003fcc79d92f3676cac8aaf836042afa0ebc7ed56275a239236fb35ba86fe",
+            "evidence": "imitation-only"
+          },
+          "change": {
+            "log_std_before": [
+              -0.699999988079071,
+              -0.699999988079071
+            ],
+            "log_std_after": [
+              -2.0,
+              -2.0
+            ]
+          },
+          "semantics": "No learning; deterministic means unchanged. This file supplies actor weights only, not critic/optimizer/world/hidden state.",
+          "experiment_script": {
+            "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-cone-follow-rl.py",
+            "sha256": "91326396466324f6091f91c27ac6177f46bd3c008fb84bd6aef95e1ac3728dc7"
+          }
+        }
+      },
+      "initialization_proof": {
+        "actor_weights_exact": true,
+        "critic_unchanged": true,
+        "optimizer_empty": true,
+        "all_eight_worlds_rng_hidden_unchanged": true,
+        "torch_rng_unchanged": true
+      },
+      "training_seed": 11,
+      "training_version": "bari-mappo-periodic-critic-v12",
+      "worlds": 8,
+      "updates": 200,
+      "observations": [
+        50,
+        200
+      ],
+      "validation_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "exploration": "Initial independent pre-tanh Gaussian log_std=-2, std=0.1353; trainable thereafter. Deterministic actor output unchanged from the imitation parent.",
+      "hypothesis": "Wider sensing alone did not make teacher-forced clones competent. Train actual closed-loop rewards with a fresh periodic critic and a lower-noise actor-only warm start.",
+      "evaluation": "Capture first saved update >=50 as interim, then exact terminal200; record actual counts. Five moving visible-chain cases without teacher intervention at each capture. Full isolated/switching suite only if all five pass. No automatic budget extension or promotion.",
+      "scope": "Follow-only near-chain RL stage with hypothetical 60-degree horizontal sensing. Does not replace randomized four-task, all transitions, controlled occlusion/memory, multi-seed/final-heldout or ESP32-S3 no-PSRAM acceptance. Physical zone aggregation remains unconfirmed."
+    },
+    "latest_update": 200,
+    "live_processes": [],
+    "state": "terminal gate evaluated; fixed pilot complete",
+    "completed_evaluations": [
+      {
+        "stage": "interim",
+        "threshold": 50,
+        "actual_updates": 50,
+        "checkpoint": "runs/cone-follow-rl-interim-11/checkpoint.pt",
+        "checkpoint_sha256": "c20d75ac9dc1680a97841eb6756346c41a7946b65b526ab09a67758c844dd41f",
+        "chain_report": "runs/validation-cone-follow-rl-interim-11-chain/report.json",
+        "chain_successes": 0,
+        "chain_episodes": 5,
+        "chain_summary": {
+          "follow": {
+            "episodes": 5,
+            "success_rate": 0.0,
+            "mean_final_max_error_m": 0.6740443192811758,
+            "required_success_rate": 0.9,
+            "passes_assumed_gate": false
+          }
+        },
+        "chain_collisions": 170,
+        "chain_wall_attempts": 0,
+        "chain_mean_leader_travel_m": 1.4079157923752414,
+        "full_report": null,
+        "evaluation_teacher_intervention": false,
+        "scope": "follow-only hypothetical-sensing RL pilot; no default actor, sensor profile or acceptance gate promoted"
+      },
+      {
+        "stage": "terminal",
+        "threshold": 200,
+        "actual_updates": 200,
+        "checkpoint": "runs/cone-follow-rl-terminal-11/checkpoint.pt",
+        "checkpoint_sha256": "4fa846f77fb9f810070b04751cdb7ac31812c2ec3458952115216ba6ccc9d053",
+        "chain_report": "runs/validation-cone-follow-rl-terminal-11-chain/report.json",
+        "chain_successes": 0,
+        "chain_episodes": 5,
+        "chain_summary": {
+          "follow": {
+            "episodes": 5,
+            "success_rate": 0.0,
+            "mean_final_max_error_m": 0.609637073861467,
+            "required_success_rate": 0.9,
+            "passes_assumed_gate": false
+          }
+        },
+        "chain_collisions": 0,
+        "chain_wall_attempts": 0,
+        "chain_mean_leader_travel_m": 1.4666124105515823,
+        "full_report": null,
+        "evaluation_teacher_intervention": false,
+        "scope": "follow-only hypothetical-sensing RL pilot; no default actor, sensor profile or acceptance gate promoted"
+      }
+    ]
+  },
+  "remaining": [
+    "Converged four-task GRU-RL on randomized starts",
+    "All 12 directed/unfinished/repeated switches",
+    "Controlled seen/unseen occlusion and memory comparison",
+    "Multiple training seeds and final held-out acceptance",
+    "Successful continuous 3D recording/export",
+    "ESP32-S3 peak internal SRAM/latency without PSRAM",
+    "Physical calibration and measured radius-1m arena"
+  ],
+  "artifacts": [
+    {
+      "path": "reports/cone-sensing-migration-proof.json",
+      "sha256": "dc518abf79a537e6093c1af233689ebe675f3d4e49c29db04658488386fab693"
+    },
+    {
+      "path": "reports/verification-cone-sensing.txt",
+      "sha256": "68be48fa34e0c56de16c2a416ac9361193e5ebcd404234054e82b2d42d3d428c"
+    },
+    {
+      "path": "runs/cone-verification-163/AGENTS.md",
+      "sha256": "17cd618bb129dc5098910ff5bc17a069dcaf03d682d07716c352860830c88f79"
+    },
+    {
+      "path": "runs/cone-verification-163/README.md",
+      "sha256": "b6aa474bfd192f90e469b3c1383f77ddb6cb150726ffffdc6d331215e1138d3e"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/cone-verification-163/bari/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/config.json",
+      "sha256": "ffe9c2afa6c6deb5733164c21b5631438c8144ff94d4febeb8fc12ae927811fd"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/contract.json",
+      "sha256": "fb97b14d91eb553d916ddd430cc7833844f39976512a407b18fe13e0712b8cce"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/follow-teacher-h64.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/follow-teacher.json",
+      "sha256": "3cfb813c391182c47e44e00346b4a2a734d95e317cca6f5e64ba2bc96c1fcc25"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/hypothetical-follow-fov15-h64.json",
+      "sha256": "d550c5982b0d2795b9f1c5c9e45f071e55857a1d662321502cfe954656b7a8b4"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/hypothetical-follow-fov60-h64.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/isolated-circle-correction-stage.json",
+      "sha256": "634b6a811559e597271627d890882e81d83618b63869295b4479a04795616581"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/isolated-circle-stage.json",
+      "sha256": "148db0eb23b4c0f5c7d71a34fb50cecfa24a1a2ae0e3c321c558e2252d3cd305"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/isolated-follow-stage.json",
+      "sha256": "5135e4f6be2cd0788e115c32490a8c938ba1d3440823e2b1beb2ec3b9b2842aa"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/memory-64.json",
+      "sha256": "94170f5161b9a3f174ddd525dbdad8a82b061130046ece6a3bc5830e4d1bad16"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/multiworld-curriculum.json",
+      "sha256": "be92b9810fe37ee103ffbd3ea54b234537b25adb598966ee7c232626e27da966"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/occlusion-probes.json",
+      "sha256": "f3da2381a1202b638ccd70aa7705e3a1ebdf1c5070ad03e686cd770c72520be8"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/retention-stage.json",
+      "sha256": "dc2a4217ac0f9b09c0fe3d8c6b605fb8be54e1d288915fcd92b4e41997511c14"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/scan-circle-teacher.json",
+      "sha256": "17ef71428147b741dc4b0891239a6833609ffa53b95583a6653c022ccc6e419c"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/training-curriculum.json",
+      "sha256": "6d1d834d82a192277feb382879a8906e598027a21d2b2d3ffa5a4c560f30142d"
+    },
+    {
+      "path": "runs/cone-verification-163/configs/validation-seeds.json",
+      "sha256": "03313cb8e3bca8e78a95dba1943df8c878e10dbea1ba884425c5bef408c045bc"
+    },
+    {
+      "path": "runs/cone-verification-163/docs/contracts.md",
+      "sha256": "c64eeb67dbc30da2f4e85389f8b68a2067453f386404e7e4b83406e145daca22"
+    },
+    {
+      "path": "runs/cone-verification-163/docs/status.md",
+      "sha256": "ebaa08970dc624dafd2d6407a34f6ca579c3502270e7c9fd7238b320738bf71b"
+    },
+    {
+      "path": "runs/cone-verification-163/hardware/README.md",
+      "sha256": "9aa754d9e85c45aac63b281ed46f889a333ec6487f0bb8afb73f1f68ef28bcc3"
+    },
+    {
+      "path": "runs/cone-verification-163/hardware/arena.template.json",
+      "sha256": "a2bcc80bf558c2e98823735423a706e60c039b82a58806a946df0fe2e2f1ae12"
+    },
+    {
+      "path": "runs/cone-verification-163/hardware/arena_template.py",
+      "sha256": "5f7f1475422414343952834121f82a0ed98d92ff646817e6a499a125f6de6a94"
+    },
+    {
+      "path": "runs/cone-verification-163/hardware/board.template.json",
+      "sha256": "03a66139d5756039d655680fe6fd0115d0042bd1f28a4ac2b37ea3c482ac7ebd"
+    },
+    {
+      "path": "runs/cone-verification-163/hardware/sensor-reference.md",
+      "sha256": "60c6cd2c4b083b23dcf86e14408e82dfcd47606bd44215f74b061c7efe9674ce"
+    },
+    {
+      "path": "runs/cone-verification-163/pyproject.toml",
+      "sha256": "2d135b4ee89cc7fcd2e820e5085811b0f2b84e4c7df68fb0f10b675792e3bebf"
+    },
+    {
+      "path": "runs/cone-verification-163/runtime.json",
+      "sha256": "a94f5f475e1f5eb1bb02ee3c8013b8049d112bb05e4eecff714951ec6ea647bf"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_anonymous_follow.py",
+      "sha256": "f4d7dcca2413cc6f03e5a6fc1cdccbcc798374e1962f11e050a5865607014311"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_arena_template.py",
+      "sha256": "38bc739c01052ed94edf7fa978ef951ed40f395c8d0e4d861424591a827611f3"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_autoregressive.py",
+      "sha256": "d6a620489463b2b15c65e243655554e5811a8cb54610396f33e31946cafef9a2"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_baseline.py",
+      "sha256": "e7963469075e7acbf7805c70520328e2bb0d521e12724c723e1455e1c96f7537"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_cone_sensing.py",
+      "sha256": "58e79046b1f8230e6aac103d05ca36b38e5494d8b1ac6695655579e191eb580f"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_critic_boundary.py",
+      "sha256": "196e97928ddaf33b6a66e4ba37da432e1ea13dedaf116b6c9e604de294a9cf3b"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_curriculum.py",
+      "sha256": "3051f46044efe0827a3eb8f088cac1d933c60419bdc41a4f99bf73ddcd63e839"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_demo_lifecycle.py",
+      "sha256": "f38490129999b69fc16b2e2db92234e9f4e5043bb7de1631170d3eefc6f2061c"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_environment.py",
+      "sha256": "55873c3da13b3cd1f50380910a70166d313e3b3d0af8283a3aaa0a4c3e763bb8"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_export_render.py",
+      "sha256": "adf5475727591a0762848cb1359fab3b3e0863aa3495399257818463e6ac4b04"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_imitation.py",
+      "sha256": "1cf0bbba9964037532d2b4c42a1f89b5ea600d44edc8e71c3ba774bbe35ba262"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_learning.py",
+      "sha256": "27ab13a2b31bc3163d8d8ceaea6505528990befd826d486a4f4dc9eab97f20db"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_metrics.py",
+      "sha256": "f41991adb950adf6fb6a151805f3c473a7e4943907eb0bfb3320d8251eac848d"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_multiworld.py",
+      "sha256": "7f179947c163e0cbef1f646bd79a2422e3a4a1800f856d5e25ba8ec3e91c5cbd"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_occlusion_protocol.py",
+      "sha256": "7faef4c3221f74e7479e7596e859b06b36baee1a8927ccb0c52e3d0dad626bcc"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_periodic_critic.py",
+      "sha256": "db9b06e01847587987cc7363ea075d0ef528aee0fb1b15d932182c922082937d"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_replay.py",
+      "sha256": "1fb42512536a0c9f48a7f8af05875f7eff678519184e330ec813e0fda3d60f69"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_scan_teacher.py",
+      "sha256": "27ac08b65f61017128244afdafaf1cb14f0a0ae900a5f84f0034346d11478175"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_task_curriculum.py",
+      "sha256": "1c28dcf627c6489505399081b8e29663a834b6bd8f26011c9976e837cbfe71ec"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_teacher_assistance.py",
+      "sha256": "4985e4ce7ca9a646a8497e5e0b73238fe228683290274396e81bfa02ef5b58ad"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_transition_reports.py",
+      "sha256": "c58511422e71bc6dc97ce8b4a06536d6039664b8333878418c9e1419b6dc82de"
+    },
+    {
+      "path": "runs/cone-verification-163/tests/test_value_normalization.py",
+      "sha256": "60ec8265454c8e12acee9b3f60fe31f312043f2ae297a49768f94bb6d5cd3d70"
+    },
+    {
+      "path": "runs/cone-source/bari/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/cone-source/bari/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/cone-source/bari/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/cone-source/bari/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/cone-source/bari/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/cone-source/bari/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/cone-source/bari/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/cone-source/bari/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/cone-source/bari/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/cone-source/bari/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/cone-source/bari/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/cone-source/bari/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/cone-source/bari/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/cone-source/bari/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/cone-source/bari/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/cone-source/bari/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/cone-source/bari/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/cone-source/bari/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "output/qa/hypothetical-cone-30.png",
+      "sha256": "754ea3c52a42f0e8d2a88ac9e3599103edfc34d61e93f29e4ffaf44cc57cb6a0"
+    },
+    {
+      "path": "configs/hypothetical-follow-fov15-h64.json",
+      "sha256": "d550c5982b0d2795b9f1c5c9e45f071e55857a1d662321502cfe954656b7a8b4"
+    },
+    {
+      "path": "configs/hypothetical-follow-fov60-h64.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/follow-cone-imitation-protocol.json",
+      "sha256": "b72e608bbc62b740dda57f5b661326881fe691afa67b14aac3c5a39d340f7a97"
+    },
+    {
+      "path": "runs/follow-cone-imitation-results.json",
+      "sha256": "5f01242ddf4c5011b99fc257cbb45f5cce1c2a16225c833ad4697e854b897ea5"
+    },
+    {
+      "path": "runs/observe-follow-cone-imitation.py",
+      "sha256": "17333e135551fabdabb55601845410f6a02ba0dc304b2a1c8a850a560cbb2f4a"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/config.json",
+      "sha256": "d550c5982b0d2795b9f1c5c9e45f071e55857a1d662321502cfe954656b7a8b4"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/demonstrations.npz",
+      "sha256": "12046bd0a92cdef7722059c4847893334c9324bc6fd17b440c6aa6c6fbb2f31e"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/manifest.json",
+      "sha256": "9c8b4d7841407ff9f7ae666a040e248d88dee584d0a5926c88c5ea68c59465fa"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov15/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/demonstrations.npz",
+      "sha256": "d1b99a1624b7648591e8a4d9eb810a58d1e5b113c12ea1f49152c86940257b24"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/manifest.json",
+      "sha256": "dff4926013e5185c61b949e4fc57a13979a0772dcd75a76277b5db9afdaf0d12"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/teacher-follow-cone-fov60/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/prepare-cone-follow-rl.py",
+      "sha256": "91326396466324f6091f91c27ac6177f46bd3c008fb84bd6aef95e1ac3728dc7"
+    },
+    {
+      "path": "runs/cone-follow-rl-protocol.json",
+      "sha256": "d7aade2e199e3e8eb096fe82c8bca0b6dff0ce348eb6ede0b03d5317925afce8"
+    },
+    {
+      "path": "runs/cone-follow-rl-initialization.pt",
+      "sha256": "d2d6290c55ab38b2200656397845742e1681b53e6b7bcfc5a57cc932ffb67b09"
+    },
+    {
+      "path": "runs/observe-cone-follow-rl.py",
+      "sha256": "4a8ce6e9a9f12c96d0707867aa7c75361d435177d369dbf7769c63fb8ecfe441"
+    },
+    {
+      "path": "runs/update-cone-sensing-report.py",
+      "sha256": "0380c4218af527c87f8ef6d5bf21a16c6732d66d919f819e2becdd603de7ab31"
+    },
+    {
+      "path": "runs/cone-final-verification-169/AGENTS.md",
+      "sha256": "17cd618bb129dc5098910ff5bc17a069dcaf03d682d07716c352860830c88f79"
+    },
+    {
+      "path": "runs/cone-final-verification-169/README.md",
+      "sha256": "88d61537c858d55c9fd7912975a4e8acd20568b106a3bc9b66eee4cd1c34ee5e"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/cone-final-verification-169/bari/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/config.json",
+      "sha256": "ffe9c2afa6c6deb5733164c21b5631438c8144ff94d4febeb8fc12ae927811fd"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/contract.json",
+      "sha256": "fb97b14d91eb553d916ddd430cc7833844f39976512a407b18fe13e0712b8cce"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/follow-teacher-h64.json",
+      "sha256": "8f40e3d235f6d1ca6b1b3708329df6a250123d53f2c779c506d0c0a5d0d666e8"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/follow-teacher.json",
+      "sha256": "3cfb813c391182c47e44e00346b4a2a734d95e317cca6f5e64ba2bc96c1fcc25"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/hypothetical-follow-fov15-h64.json",
+      "sha256": "d550c5982b0d2795b9f1c5c9e45f071e55857a1d662321502cfe954656b7a8b4"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/hypothetical-follow-fov60-h64.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/isolated-circle-correction-stage.json",
+      "sha256": "634b6a811559e597271627d890882e81d83618b63869295b4479a04795616581"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/isolated-circle-stage.json",
+      "sha256": "148db0eb23b4c0f5c7d71a34fb50cecfa24a1a2ae0e3c321c558e2252d3cd305"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/isolated-follow-stage.json",
+      "sha256": "5135e4f6be2cd0788e115c32490a8c938ba1d3440823e2b1beb2ec3b9b2842aa"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/memory-64.json",
+      "sha256": "94170f5161b9a3f174ddd525dbdad8a82b061130046ece6a3bc5830e4d1bad16"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/multiworld-curriculum.json",
+      "sha256": "be92b9810fe37ee103ffbd3ea54b234537b25adb598966ee7c232626e27da966"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/occlusion-probes.json",
+      "sha256": "f3da2381a1202b638ccd70aa7705e3a1ebdf1c5070ad03e686cd770c72520be8"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/retention-stage.json",
+      "sha256": "dc2a4217ac0f9b09c0fe3d8c6b605fb8be54e1d288915fcd92b4e41997511c14"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/scan-circle-teacher.json",
+      "sha256": "17ef71428147b741dc4b0891239a6833609ffa53b95583a6653c022ccc6e419c"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/training-curriculum.json",
+      "sha256": "6d1d834d82a192277feb382879a8906e598027a21d2b2d3ffa5a4c560f30142d"
+    },
+    {
+      "path": "runs/cone-final-verification-169/configs/validation-seeds.json",
+      "sha256": "03313cb8e3bca8e78a95dba1943df8c878e10dbea1ba884425c5bef408c045bc"
+    },
+    {
+      "path": "runs/cone-final-verification-169/docs/contracts.md",
+      "sha256": "c64eeb67dbc30da2f4e85389f8b68a2067453f386404e7e4b83406e145daca22"
+    },
+    {
+      "path": "runs/cone-final-verification-169/docs/status.md",
+      "sha256": "b21a6628af825bce73b40b925d6664f4ffbff0ba612f382e7cd1e2a56b9b4686"
+    },
+    {
+      "path": "runs/cone-final-verification-169/hardware/README.md",
+      "sha256": "9aa754d9e85c45aac63b281ed46f889a333ec6487f0bb8afb73f1f68ef28bcc3"
+    },
+    {
+      "path": "runs/cone-final-verification-169/hardware/arena.template.json",
+      "sha256": "a2bcc80bf558c2e98823735423a706e60c039b82a58806a946df0fe2e2f1ae12"
+    },
+    {
+      "path": "runs/cone-final-verification-169/hardware/arena_template.py",
+      "sha256": "5f7f1475422414343952834121f82a0ed98d92ff646817e6a499a125f6de6a94"
+    },
+    {
+      "path": "runs/cone-final-verification-169/hardware/board.template.json",
+      "sha256": "03a66139d5756039d655680fe6fd0115d0042bd1f28a4ac2b37ea3c482ac7ebd"
+    },
+    {
+      "path": "runs/cone-final-verification-169/hardware/sensor-reference.md",
+      "sha256": "60c6cd2c4b083b23dcf86e14408e82dfcd47606bd44215f74b061c7efe9674ce"
+    },
+    {
+      "path": "runs/cone-final-verification-169/pyproject.toml",
+      "sha256": "2d135b4ee89cc7fcd2e820e5085811b0f2b84e4c7df68fb0f10b675792e3bebf"
+    },
+    {
+      "path": "runs/cone-final-verification-169/runtime.json",
+      "sha256": "e6c5da9725c592fc663de1b35fadea59fffd0b431b96fc70e4cd3a5308ec3f0d"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_anonymous_follow.py",
+      "sha256": "f4d7dcca2413cc6f03e5a6fc1cdccbcc798374e1962f11e050a5865607014311"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_arena_template.py",
+      "sha256": "38bc739c01052ed94edf7fa978ef951ed40f395c8d0e4d861424591a827611f3"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_autoregressive.py",
+      "sha256": "d6a620489463b2b15c65e243655554e5811a8cb54610396f33e31946cafef9a2"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_baseline.py",
+      "sha256": "e7963469075e7acbf7805c70520328e2bb0d521e12724c723e1455e1c96f7537"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_cone_sensing.py",
+      "sha256": "58e79046b1f8230e6aac103d05ca36b38e5494d8b1ac6695655579e191eb580f"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_critic_boundary.py",
+      "sha256": "196e97928ddaf33b6a66e4ba37da432e1ea13dedaf116b6c9e604de294a9cf3b"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_curriculum.py",
+      "sha256": "3051f46044efe0827a3eb8f088cac1d933c60419bdc41a4f99bf73ddcd63e839"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_demo_lifecycle.py",
+      "sha256": "f38490129999b69fc16b2e2db92234e9f4e5043bb7de1631170d3eefc6f2061c"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_environment.py",
+      "sha256": "55873c3da13b3cd1f50380910a70166d313e3b3d0af8283a3aaa0a4c3e763bb8"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_export_render.py",
+      "sha256": "adf5475727591a0762848cb1359fab3b3e0863aa3495399257818463e6ac4b04"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_imitation.py",
+      "sha256": "1cf0bbba9964037532d2b4c42a1f89b5ea600d44edc8e71c3ba774bbe35ba262"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_learning.py",
+      "sha256": "27ab13a2b31bc3163d8d8ceaea6505528990befd826d486a4f4dc9eab97f20db"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_metrics.py",
+      "sha256": "f41991adb950adf6fb6a151805f3c473a7e4943907eb0bfb3320d8251eac848d"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_multiworld.py",
+      "sha256": "7f179947c163e0cbef1f646bd79a2422e3a4a1800f856d5e25ba8ec3e91c5cbd"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_occlusion_protocol.py",
+      "sha256": "7faef4c3221f74e7479e7596e859b06b36baee1a8927ccb0c52e3d0dad626bcc"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_periodic_critic.py",
+      "sha256": "db9b06e01847587987cc7363ea075d0ef528aee0fb1b15d932182c922082937d"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_render_ranges.py",
+      "sha256": "49f4f6335fadfa23fe18598965732adae695c46bc1d80183beabb1314f44040e"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_replay.py",
+      "sha256": "1fb42512536a0c9f48a7f8af05875f7eff678519184e330ec813e0fda3d60f69"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_scan_teacher.py",
+      "sha256": "27ac08b65f61017128244afdafaf1cb14f0a0ae900a5f84f0034346d11478175"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_task_curriculum.py",
+      "sha256": "1c28dcf627c6489505399081b8e29663a834b6bd8f26011c9976e837cbfe71ec"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_teacher_assistance.py",
+      "sha256": "4985e4ce7ca9a646a8497e5e0b73238fe228683290274396e81bfa02ef5b58ad"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_transition_reports.py",
+      "sha256": "c58511422e71bc6dc97ce8b4a06536d6039664b8333878418c9e1419b6dc82de"
+    },
+    {
+      "path": "runs/cone-final-verification-169/tests/test_value_normalization.py",
+      "sha256": "60ec8265454c8e12acee9b3f60fe31f312043f2ae297a49768f94bb6d5cd3d70"
+    },
+    {
+      "path": "runs/cone-final-source/bari/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/cone-final-source/bari/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/cone-final-source/bari/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/cone-final-source/bari/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/cone-final-source/bari/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/cone-final-source/bari/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/cone-final-source/bari/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/cone-final-source/bari/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/cone-final-source/bari/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/cone-final-source/bari/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/cone-final-source/bari/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/cone-final-source/bari/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/cone-final-source/bari/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/cone-final-source/bari/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/cone-final-source/bari/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/cone-final-source/bari/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/cone-final-source/bari/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/cone-final-source/bari/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "reports/verification-cone-final.txt",
+      "sha256": "34dce878c17fb55da73d6e7a1e14e6c38b729dbe33e0a10bfa499ec43859b7bb"
+    },
+    {
+      "path": "runs/render-range-regression-before.txt",
+      "sha256": "f2c5e69e041b476c9ce4b74fae0f29fd36d7a4da0a8a74696ee87f597d5a6416"
+    },
+    {
+      "path": "runs/render-range-regression-after.txt",
+      "sha256": "fd14cdc4324f99c94e1c223a45b4157339986c37c6aa682625e9d58908d92420"
+    },
+    {
+      "path": "reports/cone-rl-resume-proof.json",
+      "sha256": "73fca0d8c4560e4f2605aacd5ffe83953b09e626204c46e4f498ac4494e3e885"
+    },
+    {
+      "path": "runs/verify-cone-rl-resume.py",
+      "sha256": "567ba3bd4eaf91be9701f5f3635b86b00706497b948a7eca7e2032b190c1cb0f"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/checkpoint.pt",
+      "sha256": "a1ed8a8fd31e567839941e33fa38ddcb38887648734c6d6427e272729c61fd21"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/collector_spec.json",
+      "sha256": "0170173cfe1c170cb7c55baf639592ef247cd8261d72b83bb4966702b7e0c04e"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/revision.json",
+      "sha256": "6eb32e316b254e3fc4f0019e118a8d059bfd1e879138aa338021fc89afa5e3f4"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/training.jsonl",
+      "sha256": "de120f5e96d17b437401dd36c0322216da2a5493ac65375292798bc7f2846c6b"
+    },
+    {
+      "path": "runs/cone-fov-resume-verification/saved/training_plan.json",
+      "sha256": "5135e4f6be2cd0788e115c32490a8c938ba1d3440823e2b1beb2ec3b9b2842aa"
+    },
+    {
+      "path": "runs/cone-follow-rl-terminal-motion.json",
+      "sha256": "4c5e9b54cba154abd2bb333c56b0611d878538081a4e4c79b527c740dd2d6781"
+    },
+    {
+      "path": "output/qa/cone-rl-terminal-trajectories.png",
+      "sha256": "2c009305651e40017c8a8a5a5ece55c398644e2b3253becbe744ef161006dc5a"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/checkpoint.pt",
+      "sha256": "766261934cc4e31afd3b84c9e5283dcd00e029398eb3f1ef054c4a2b17493e8f"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/config.json",
+      "sha256": "d550c5982b0d2795b9f1c5c9e45f071e55857a1d662321502cfe954656b7a8b4"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/imitation.jsonl",
+      "sha256": "5d2eb461b94761e082c8c873a61317fcf2e323ad24ed126bb2a7d0b25a271540"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/imitation_plan.json",
+      "sha256": "97a71520ec83bb9bbe8bf79520cbe25c072229e45efafb172fe220544317efdb"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/train-follow-cone-fov15-11/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/follow-cone-fov15-terminal-11/capture.json",
+      "sha256": "dfc5e5ab254290cb9cb4c3b52ea594a99055e59efe8d664029b4afb43748c3df"
+    },
+    {
+      "path": "runs/follow-cone-fov15-terminal-11/checkpoint.pt",
+      "sha256": "766261934cc4e31afd3b84c9e5283dcd00e029398eb3f1ef054c4a2b17493e8f"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/evaluation_contract.json",
+      "sha256": "2c71bf0df32f09434a9721b1e792a16daef02f8d4c3794422fbdbefad2828496"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/follow-2001.npz",
+      "sha256": "b06cbda420d9ed700d04ff1bebc268e92f6f1ade459091080b8adb5ddfaff07b"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/follow-2003.npz",
+      "sha256": "81359264285c22ef01467d576afe4753ce17ace834e719f9438e355834850ca2"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/follow-2011.npz",
+      "sha256": "30704dca7e38768efc51f055b0b2a241d32ac8cece5a7d2fbc1194bab043b31b"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/follow-2017.npz",
+      "sha256": "8deb5f760b5ef80d1ae25d5b2f26016e77a16e7e2a0ec24436a5b6d679583d77"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/follow-2027.npz",
+      "sha256": "2cb40a275e6aca7f76855807147c9fb0c052a387ae8510c5169e895552c70b2e"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/frozen_config.json",
+      "sha256": "d550c5982b0d2795b9f1c5c9e45f071e55857a1d662321502cfe954656b7a8b4"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/report.json",
+      "sha256": "fc40c70813383e01247535086eb65c9ca8566f2b016d9cb004735a108b21917a"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov15-terminal-11-chain/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/checkpoint.pt",
+      "sha256": "992003fcc79d92f3676cac8aaf836042afa0ebc7ed56275a239236fb35ba86fe"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/imitation.jsonl",
+      "sha256": "c0b4eee5a0625a3183ddb333b9b64fa538f4fda2555b5e0ddb640a4f057db6ba"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/imitation_plan.json",
+      "sha256": "c52a28e9ef62e0114cb4c6cb9513dd72a8a14c4845947711673298bccd728e8f"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/train-follow-cone-fov60-11/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/follow-cone-fov60-terminal-11/capture.json",
+      "sha256": "84c57ea06c1ab8fb4814ef6bcf0821667196838385a06278662a1d914ddb3bd3"
+    },
+    {
+      "path": "runs/follow-cone-fov60-terminal-11/checkpoint.pt",
+      "sha256": "992003fcc79d92f3676cac8aaf836042afa0ebc7ed56275a239236fb35ba86fe"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/evaluation_contract.json",
+      "sha256": "6f662edf50c5357a67305a2f5d8eef62af98f35c595be370e8338ef83b80f5c6"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/follow-2001.npz",
+      "sha256": "2f33ec765adf3f21ae6b8e9778e5618d83c5e872d6e85f4a36445b090969c601"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/follow-2003.npz",
+      "sha256": "0104205616f10892e9ead9d84a493145cbac2ac8192035660a759452edf2a6c4"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/follow-2011.npz",
+      "sha256": "7c52f16ce3bdc253c1e1c34bd4d6f2f6454b06a2f66191719cfcbad0e045beb7"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/follow-2017.npz",
+      "sha256": "4bf1492d4dd01e1109d35b118bd31a234644862932c7c97dc86424b657150c46"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/follow-2027.npz",
+      "sha256": "225d7f63b22708ce3cc6d5b8388acde81477bb8e6dcd70470e4fb9c39afa1af5"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/frozen_config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/report.json",
+      "sha256": "5de9d7e318b69aa00368f2f76ec4dc95b280238b4243bdf40f387a588f0a9093"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-follow-cone-fov60-terminal-11-chain/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/cone-follow-rl-interim-11/capture.json",
+      "sha256": "fd44748b2f68423bee769b97320af7bf89c1ddbbb1e8b2fa110511203d68e7d8"
+    },
+    {
+      "path": "runs/cone-follow-rl-interim-11/checkpoint.pt",
+      "sha256": "c20d75ac9dc1680a97841eb6756346c41a7946b65b526ab09a67758c844dd41f"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/evaluation_contract.json",
+      "sha256": "6f662edf50c5357a67305a2f5d8eef62af98f35c595be370e8338ef83b80f5c6"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/follow-2001.npz",
+      "sha256": "57537b9952f281facca5b4ff86532f6d9c2a4aab619197f2778f293ee64b1bf9"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/follow-2003.npz",
+      "sha256": "4ce0374c51cbd3a0d34463ef188e7fe2a7865a801ceb1b4795c82675cf224d8c"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/follow-2011.npz",
+      "sha256": "11a81af5d06363f08cad44bb383c6c62d3ad95b9d029e7c0a72cae11b59c7c80"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/follow-2017.npz",
+      "sha256": "cb69654318905668a5d0f090fe9edb840fb0d9aaa9cfa0132ed20e4d63ae33c1"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/follow-2027.npz",
+      "sha256": "17c74bc89e961311e3f748b5ed45d9d65833042b9d57b6d4c351e61c2e8d3534"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/frozen_config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/report.json",
+      "sha256": "c3454cbba3be6c19a021c691a356e6f88c8e354a5b9155f02ad6df716e193115"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-interim-11-chain/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/cone-follow-rl-terminal-11/capture.json",
+      "sha256": "7eb6b448a7f29573abc41e7720b00ce14dfb37527395b4899f1155567062529a"
+    },
+    {
+      "path": "runs/cone-follow-rl-terminal-11/checkpoint.pt",
+      "sha256": "4fa846f77fb9f810070b04751cdb7ac31812c2ec3458952115216ba6ccc9d053"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/evaluation_contract.json",
+      "sha256": "6f662edf50c5357a67305a2f5d8eef62af98f35c595be370e8338ef83b80f5c6"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/follow-2001.npz",
+      "sha256": "251d9a31c2010b42f698ac9f2b75418d5e6aa2348cb4a8dbd67586e18d302902"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/follow-2003.npz",
+      "sha256": "1609bf9b9d982e7382cef1c5101c4cbe2917f4f7fa5127ca841b65507a0ef5c2"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/follow-2011.npz",
+      "sha256": "8a5aa4e1a448b2c1816b518b4665e5242e6fab80e0763198bc58c4d79526edb7"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/follow-2017.npz",
+      "sha256": "823724d4265bb724f0258c865cd5658df897e2cd9d612ad27ce8f7e81812d922"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/follow-2027.npz",
+      "sha256": "0fe279600cbd8d2933ec5e633191c13fe0a60404ac1c5223d3f813d1839936a8"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/frozen_config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/report.json",
+      "sha256": "1cb72e19ad4984f292d30f516a72c532b0983187d443003c453ea7c0974db29c"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/validation-cone-follow-rl-terminal-11-chain/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/checkpoint.pt",
+      "sha256": "4fa846f77fb9f810070b04751cdb7ac31812c2ec3458952115216ba6ccc9d053"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/collector_spec.json",
+      "sha256": "0170173cfe1c170cb7c55baf639592ef247cd8261d72b83bb4966702b7e0c04e"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/config.json",
+      "sha256": "a5f3ce482478da13ee86b0f92f19f3993f90fd65f111fb0c29dd10bbaade104f"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/revision.json",
+      "sha256": "6eb32e316b254e3fc4f0019e118a8d059bfd1e879138aa338021fc89afa5e3f4"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/policy.py",
+      "sha256": "e5c34e6ccc8923ac64d7f02d1613ee9f7d34962a8b00b3f779c68e8cbc9e271b"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/render.py",
+      "sha256": "eee7798f405cabfb8f380e9c7fc812e58f70cb8303cefdf4230a6b2c707d0929"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/training.jsonl",
+      "sha256": "307543692e227fa510a1e082f197fa9e3b70d1c54ffc1879577c18be044e7037"
+    },
+    {
+      "path": "runs/train-cone-follow-rl-11/training_plan.json",
+      "sha256": "5135e4f6be2cd0788e115c32490a8c938ba1d3440823e2b1beb2ec3b9b2842aa"
+    },
+    {
+      "path": "runs/cone-follow-rl-results.json",
+      "sha256": "22d984bbd2d457593fd0657cee89fbb9f9c6f5a3afa9ad83455c70712d370362"
+    }
+  ]
+}

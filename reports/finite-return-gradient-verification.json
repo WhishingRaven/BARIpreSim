@@ -1,0 +1,56 @@
+{
+  "version": "bari-finite-return-gradient-v1-verification",
+  "quadratic_action_derivative_exact_to_1e14": true,
+  "unperturbed_branch_matches_normal_policy_exact": true,
+  "branch_world_and_torch_rng_unchanged": true,
+  "short_return_stops_at_time_limit": true,
+  "recurrent_sequence_commands_exact": true,
+  "finite_gradients_update_GRU_and_head": true,
+  "log_std_and_unused_critic_unchanged": true,
+  "zero_command_weights_and_Adam_moments": true,
+  "PPO_resume_rejects_algorithm": true,
+  "all_rollout_state_and_rng_resume_exact": true,
+  "episode_boundary_crossed": true,
+  "verification_only_updates": [
+    1,
+    2
+  ],
+  "behavior_candidates_produced": 0,
+  "stats": {
+    "update": 1,
+    "loss": -0.020859723910689354,
+    "actor_gradient_norm": 4.263587951660156,
+    "raw_action_gradient_rms": 0.0036476515233516693,
+    "gradient_component_clip_fraction": 0.0,
+    "mean_reward": -0.005970782600343227,
+    "mean_max_error_m": 0.043872468173503876,
+    "actual_controls": 2,
+    "counterfactual_controls": 144,
+    "counterfactual_controls_this_update": 140,
+    "horizon": 5,
+    "optimizer_steps": 1,
+    "algorithm": "bari-finite-return-gradient-v1"
+  },
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-finite-return-gradient.py",
+      "sha256": "d000421b42571f857bdcbac2c0378af063ae74584b35ffd7d2e1fc411d09f275"
+    },
+    {
+      "path": "runs/finite_return_gradient.py",
+      "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+    },
+    {
+      "path": "runs/finite-return-gradient-verification-v1/smoke-update1.pt",
+      "sha256": "d424a2a239be5acaa5135d9fccaf0c107777ad90fd525b14ca5f27dfa4086200"
+    },
+    {
+      "path": "runs/finite-return-gradient-verification-v1/expected-rollout.npz",
+      "sha256": "3141309804b0a3d2c25dd87ff556065515be0985ffd143b5c66b7f7df7566bc1"
+    },
+    {
+      "path": "runs/finite-return-gradient-verification-v1/actual-rollout.npz",
+      "sha256": "3141309804b0a3d2c25dd87ff556065515be0985ffd143b5c66b7f7df7566bc1"
+    }
+  ]
+}

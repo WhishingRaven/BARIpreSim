@@ -1,0 +1,474 @@
+{
+  "protocol": {
+    "version": "bari-follow-delivered-beam-coverage-v1",
+    "planned_utc": "2026-11-03T12:21:52.964115+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+    },
+    "dataset": {
+      "path": "runs/teacher-follow-h64/demonstrations.npz",
+      "sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9"
+    },
+    "training_episode_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "control_period_s": 0.1,
+    "sensor_latency_s": 0.1,
+    "sensor_period_s": 0.1,
+    "alignment": "For this equal-period/equal-latency configuration, delivered IDs/LOS at control k are the observer geometry at k-1. Step zero has no delivered sample and is reported separately.",
+    "predecessor": "Observer-only predecessor in the latched anonymous physical order; never an actor input",
+    "reported_hit": "A delivered nearest-hit object equals the predecessor and its actual noisy range lies within configured min/max. Beams are deduplicated per robot; this is not a neighbor count.",
+    "scope": "Eight successful privileged teacher episodes, exact observation/label/world replay. Describes zero-FOV baseline sensing only; not learned behavior, occlusion robustness, physical VL53L7CX aggregation or a proof of task impossibility. Extra hit IDs, predecessor identity, LOS and geometry are evaluator diagnostics only."
+  },
+  "cases": [
+    {
+      "training_episode_index": 0,
+      "robot_id_evaluator_only": 1,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 97,
+      "predecessor_unreported_with_clear_center_los_steps": 202,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 18.5,
+      "recording": "runs/follow-observation-coverage/episode-0.npz"
+    },
+    {
+      "training_episode_index": 0,
+      "robot_id_evaluator_only": 2,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 292,
+      "predecessor_unreported_with_clear_center_los_steps": 7,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.6000000000000001,
+      "recording": "runs/follow-observation-coverage/episode-0.npz"
+    },
+    {
+      "training_episode_index": 0,
+      "robot_id_evaluator_only": 3,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 289,
+      "predecessor_unreported_with_clear_center_los_steps": 10,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.9,
+      "recording": "runs/follow-observation-coverage/episode-0.npz"
+    },
+    {
+      "training_episode_index": 0,
+      "robot_id_evaluator_only": 4,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 286,
+      "predecessor_unreported_with_clear_center_los_steps": 13,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 7,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.5,
+      "recording": "runs/follow-observation-coverage/episode-0.npz"
+    },
+    {
+      "training_episode_index": 1,
+      "robot_id_evaluator_only": 1,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 98,
+      "predecessor_unreported_with_clear_center_los_steps": 201,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 2,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 18.0,
+      "recording": "runs/follow-observation-coverage/episode-1.npz"
+    },
+    {
+      "training_episode_index": 1,
+      "robot_id_evaluator_only": 2,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 282,
+      "predecessor_unreported_with_clear_center_los_steps": 17,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.7000000000000001,
+      "recording": "runs/follow-observation-coverage/episode-1.npz"
+    },
+    {
+      "training_episode_index": 1,
+      "robot_id_evaluator_only": 3,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 286,
+      "predecessor_unreported_with_clear_center_los_steps": 13,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 1.1,
+      "recording": "runs/follow-observation-coverage/episode-1.npz"
+    },
+    {
+      "training_episode_index": 1,
+      "robot_id_evaluator_only": 4,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 284,
+      "predecessor_unreported_with_clear_center_los_steps": 15,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 10,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.5,
+      "recording": "runs/follow-observation-coverage/episode-1.npz"
+    },
+    {
+      "training_episode_index": 2,
+      "robot_id_evaluator_only": 1,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 99,
+      "predecessor_unreported_with_clear_center_los_steps": 200,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 2,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 18.0,
+      "recording": "runs/follow-observation-coverage/episode-2.npz"
+    },
+    {
+      "training_episode_index": 2,
+      "robot_id_evaluator_only": 2,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 282,
+      "predecessor_unreported_with_clear_center_los_steps": 17,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.7000000000000001,
+      "recording": "runs/follow-observation-coverage/episode-2.npz"
+    },
+    {
+      "training_episode_index": 2,
+      "robot_id_evaluator_only": 3,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 285,
+      "predecessor_unreported_with_clear_center_los_steps": 14,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 1.0,
+      "recording": "runs/follow-observation-coverage/episode-2.npz"
+    },
+    {
+      "training_episode_index": 2,
+      "robot_id_evaluator_only": 4,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 283,
+      "predecessor_unreported_with_clear_center_los_steps": 16,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 10,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.5,
+      "recording": "runs/follow-observation-coverage/episode-2.npz"
+    },
+    {
+      "training_episode_index": 3,
+      "robot_id_evaluator_only": 1,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 96,
+      "predecessor_unreported_with_clear_center_los_steps": 203,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 18.400000000000002,
+      "recording": "runs/follow-observation-coverage/episode-3.npz"
+    },
+    {
+      "training_episode_index": 3,
+      "robot_id_evaluator_only": 2,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 291,
+      "predecessor_unreported_with_clear_center_los_steps": 8,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.6000000000000001,
+      "recording": "runs/follow-observation-coverage/episode-3.npz"
+    },
+    {
+      "training_episode_index": 3,
+      "robot_id_evaluator_only": 3,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 290,
+      "predecessor_unreported_with_clear_center_los_steps": 9,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.9,
+      "recording": "runs/follow-observation-coverage/episode-3.npz"
+    },
+    {
+      "training_episode_index": 3,
+      "robot_id_evaluator_only": 4,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 287,
+      "predecessor_unreported_with_clear_center_los_steps": 12,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 8,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.4,
+      "recording": "runs/follow-observation-coverage/episode-3.npz"
+    },
+    {
+      "training_episode_index": 4,
+      "robot_id_evaluator_only": 1,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 100,
+      "predecessor_unreported_with_clear_center_los_steps": 199,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 18.3,
+      "recording": "runs/follow-observation-coverage/episode-4.npz"
+    },
+    {
+      "training_episode_index": 4,
+      "robot_id_evaluator_only": 2,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 292,
+      "predecessor_unreported_with_clear_center_los_steps": 7,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.6000000000000001,
+      "recording": "runs/follow-observation-coverage/episode-4.npz"
+    },
+    {
+      "training_episode_index": 4,
+      "robot_id_evaluator_only": 3,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 289,
+      "predecessor_unreported_with_clear_center_los_steps": 10,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.9,
+      "recording": "runs/follow-observation-coverage/episode-4.npz"
+    },
+    {
+      "training_episode_index": 4,
+      "robot_id_evaluator_only": 4,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 286,
+      "predecessor_unreported_with_clear_center_los_steps": 13,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 8,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.4,
+      "recording": "runs/follow-observation-coverage/episode-4.npz"
+    },
+    {
+      "training_episode_index": 5,
+      "robot_id_evaluator_only": 1,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 101,
+      "predecessor_unreported_with_clear_center_los_steps": 198,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 18.400000000000002,
+      "recording": "runs/follow-observation-coverage/episode-5.npz"
+    },
+    {
+      "training_episode_index": 5,
+      "robot_id_evaluator_only": 2,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 292,
+      "predecessor_unreported_with_clear_center_los_steps": 7,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.6000000000000001,
+      "recording": "runs/follow-observation-coverage/episode-5.npz"
+    },
+    {
+      "training_episode_index": 5,
+      "robot_id_evaluator_only": 3,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 289,
+      "predecessor_unreported_with_clear_center_los_steps": 10,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.9,
+      "recording": "runs/follow-observation-coverage/episode-5.npz"
+    },
+    {
+      "training_episode_index": 5,
+      "robot_id_evaluator_only": 4,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 286,
+      "predecessor_unreported_with_clear_center_los_steps": 13,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 8,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.4,
+      "recording": "runs/follow-observation-coverage/episode-5.npz"
+    },
+    {
+      "training_episode_index": 6,
+      "robot_id_evaluator_only": 1,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 98,
+      "predecessor_unreported_with_clear_center_los_steps": 201,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 18.1,
+      "recording": "runs/follow-observation-coverage/episode-6.npz"
+    },
+    {
+      "training_episode_index": 6,
+      "robot_id_evaluator_only": 2,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 286,
+      "predecessor_unreported_with_clear_center_los_steps": 13,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.6000000000000001,
+      "recording": "runs/follow-observation-coverage/episode-6.npz"
+    },
+    {
+      "training_episode_index": 6,
+      "robot_id_evaluator_only": 3,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 287,
+      "predecessor_unreported_with_clear_center_los_steps": 12,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.9,
+      "recording": "runs/follow-observation-coverage/episode-6.npz"
+    },
+    {
+      "training_episode_index": 6,
+      "robot_id_evaluator_only": 4,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 284,
+      "predecessor_unreported_with_clear_center_los_steps": 15,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 10,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.5,
+      "recording": "runs/follow-observation-coverage/episode-6.npz"
+    },
+    {
+      "training_episode_index": 7,
+      "robot_id_evaluator_only": 1,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 96,
+      "predecessor_unreported_with_clear_center_los_steps": 203,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 18.5,
+      "recording": "runs/follow-observation-coverage/episode-7.npz"
+    },
+    {
+      "training_episode_index": 7,
+      "robot_id_evaluator_only": 2,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 293,
+      "predecessor_unreported_with_clear_center_los_steps": 6,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.5,
+      "recording": "runs/follow-observation-coverage/episode-7.npz"
+    },
+    {
+      "training_episode_index": 7,
+      "robot_id_evaluator_only": 3,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 289,
+      "predecessor_unreported_with_clear_center_los_steps": 10,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 0,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.9,
+      "recording": "runs/follow-observation-coverage/episode-7.npz"
+    },
+    {
+      "training_episode_index": 7,
+      "robot_id_evaluator_only": 4,
+      "steps_after_first_delivery": 299,
+      "predecessor_reported_steps": 287,
+      "predecessor_unreported_with_clear_center_los_steps": 12,
+      "predecessor_unreported_without_center_los_steps": 0,
+      "no_robot_reported_steps": 7,
+      "all_six_readings_max_steps": 0,
+      "longest_predecessor_unreported_s": 0.5,
+      "recording": "runs/follow-observation-coverage/episode-7.npz"
+    }
+  ],
+  "summary": {
+    "successful_privileged_episodes": 8,
+    "contacts": 0,
+    "wall_attempts": 0,
+    "follower_histories": 32,
+    "post_delivery_follower_steps": 9568,
+    "initial_pending_sample_steps_excluded": 32,
+    "predecessor_reported_fraction": 0.8028846153846154,
+    "unreported_with_clear_center_los_steps": 1886,
+    "unreported_without_center_los_steps": 0,
+    "no_robot_reported_fraction": 0.007525083612040134,
+    "all_six_max_fraction": 0.0,
+    "max_predecessor_unreported_duration_s": 18.5
+  },
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-follow-observation-coverage.py",
+      "sha256": "e033043fb65c2a5a207a40602a4cb1039f6e79ae77c67302d5c13838d0b179f2"
+    },
+    {
+      "path": "runs/follow-observation-coverage/protocol.json",
+      "sha256": "d9f37bfbb1b9d8a5d3480e0080cb3e0ec9e4bb1f7d1855f6653a424f814edeb6"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-0.npz",
+      "sha256": "370a06cf160021046ed3d8272e53f5a721319add37d1b2a2a144a7c59d296525"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-1.npz",
+      "sha256": "d0568575516f02cf31ead53bc438b588a1a197a9633aba6546054596a5181e9b"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-2.npz",
+      "sha256": "f436e1c15d7cb537d8d6976802b7b5371d603a4237da0745233689b27de98578"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-3.npz",
+      "sha256": "b3d85c83126507b1d6b94b78b06cf6e571cd219bf1776f90c613a20d577d9326"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-4.npz",
+      "sha256": "3d1b2c66c38343f0213fd132e3c189bb0797c47e704d09649b442d4e571b88f2"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-5.npz",
+      "sha256": "82c69ed880481c5e3b46dc68c93aa670e2895bdc1c0ae640814d943207eb8ebc"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-6.npz",
+      "sha256": "9d788ed867343a9127695658050b720617ef8fc7bf87a128a36b9ddbc4163075"
+    },
+    {
+      "path": "runs/follow-observation-coverage/episode-7.npz",
+      "sha256": "0017e548f6ab0a34d4a8d6ade307757208631b6cb5a331366a9060e93722cbb9"
+    }
+  ]
+}

@@ -1,0 +1,468 @@
+{
+  "version": "bari-follow-rl50-esp32s3-build-result-v1",
+  "completed_utc": "2026-11-03T18:01:11.919002+00:00",
+  "status": "Current H64 actor cross-compiled only; not executed on a device",
+  "protocol": {
+    "version": "bari-follow-rl50-esp32s3-build-v1",
+    "status": "inputs frozen before cross-build",
+    "sdk": "ESP-IDF v5.5.1",
+    "sdk_commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+    "model_checkpoint": {
+      "path": "runs/constrained-follow-rl-terminal-23/checkpoint.pt",
+      "sha256": "7d5059bb43b72df896279cea0c4a1affb26ac3fa2f71428813a34b19de0f536b"
+    },
+    "model_scope": "H64 near-chain following only; full four-task/random-acquisition acceptance pending",
+    "input_contract": "bari-ir-gru-v1 unchanged; command-model-history prototype NOT included",
+    "psram_permitted": false,
+    "assumed_flash_bytes": 2097152,
+    "assumed_control_period_ms": 100,
+    "board_variant": null,
+    "physical_flash_bytes": null,
+    "physical_control_period_ms": null,
+    "device_peak_ram_bytes": null,
+    "device_latency_ms": null,
+    "artifacts": [
+      {
+        "source_path": "firmware/CMakeLists.txt",
+        "path": "runs/firmware-constrained-follow-rl50/CMakeLists.txt",
+        "sha256": "12af82ab98a7d48a67deb4832a75b87afe95bc74883bbc4d579e1944983d9db5"
+      },
+      {
+        "source_path": "firmware/sdkconfig.defaults",
+        "path": "runs/firmware-constrained-follow-rl50/sdkconfig.defaults",
+        "sha256": "b37ae5f3837600d18c54146ffae160f16b70c735f93b2c5a8c73fcc7aec526c3"
+      },
+      {
+        "source_path": "firmware/main/CMakeLists.txt",
+        "path": "runs/firmware-constrained-follow-rl50/main/CMakeLists.txt",
+        "sha256": "93087008a69c48fff9489562c0ced72c8352a321649aea97a83d33b0cfb8772d"
+      },
+      {
+        "source_path": "firmware/main/benchmark.cpp",
+        "path": "runs/firmware-constrained-follow-rl50/main/benchmark.cpp",
+        "sha256": "6abe46e8b3e3d8ce1ab3c0ac2e5b605473576accdcba3bcfd6040a4702521d59"
+      },
+      {
+        "source_path": "runs/export-constrained-follow-rl50/actor.hpp",
+        "path": "runs/firmware-constrained-follow-rl50/main/export_data/actor.hpp",
+        "sha256": "a97738992370ba97d50ebab826953f59fd12f549d5db7cd1b01e757497d06804"
+      },
+      {
+        "source_path": "runs/export-constrained-follow-rl50/golden_fixture.hpp",
+        "path": "runs/firmware-constrained-follow-rl50/main/export_data/golden_fixture.hpp",
+        "sha256": "63214840f64d2a9c3d753f0fee7dff05d35664f032ebf929f7348b952fca6ccf"
+      },
+      {
+        "source_path": "runs/export-constrained-follow-rl50/contract.json",
+        "path": "runs/firmware-constrained-follow-rl50/main/export_data/contract.json",
+        "sha256": "d1729912a0684b6262a56e44d3cffce9c41af17b477bec70d3518cc8b0bc7010"
+      },
+      {
+        "source_path": "runs/export-constrained-follow-rl50/host_report.json",
+        "path": "runs/firmware-constrained-follow-rl50/main/export_data/host_report.json",
+        "sha256": "c16fd0afc337d7d2a806b0c093d50f8654c3c549faa59818bda4ffc3fbf1023b"
+      }
+    ],
+    "acceptance": "Xtensa ESP32-S3 build succeeds, effective PSRAM disabled; record linked static SRAM, binaries and weight/fixture section placement separately. No device or complete-firmware claim."
+  },
+  "sdk_commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+  "tools": {
+    "xtensa-esp-elf-g++": {
+      "path": "/private/tmp/bari-idf-tools/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp-elf-g++",
+      "version": "xtensa-esp-elf-g++ (crosstool-NG esp-14.2.0_20241119) 14.2.0"
+    },
+    "cmake": {
+      "path": "/private/tmp/bari-idf-tools/tools/cmake/3.30.2/CMake.app/Contents/bin/cmake",
+      "version": "cmake version 3.30.2"
+    },
+    "ninja": {
+      "path": "/private/tmp/bari-idf-tools/tools/ninja/1.12.1/ninja",
+      "version": "1.12.1"
+    }
+  },
+  "host_parity": {
+    "status": "host-validated; on-device verification pending",
+    "precision": "FP32",
+    "actor_spec": {
+      "version": "bari-gru-v1",
+      "action_correlation": 0.0
+    },
+    "contract_version": "bari-ir-gru-v1",
+    "source_checkpoint_evidence": "training-unvalidated",
+    "steps": 96,
+    "max_absolute_action_hidden_error": 6.109476089477539e-07,
+    "atol": 2e-05,
+    "rtol": 2e-05,
+    "exported_weight_bytes": 103944,
+    "hidden_bytes_per_robot": 256,
+    "step_local_arrays_bytes": 588,
+    "preprocessing_local_bytes": 36,
+    "wheel_state_bytes": 8,
+    "weight_storage": "static const; actual flash/RAM placement requires board map",
+    "excluded_from_estimates": [
+      "compiler spills",
+      "stack frames",
+      "sensor queues",
+      "I/O buffers",
+      "firmware heaps",
+      "other firmware",
+      "runtime and library code"
+    ],
+    "peak_ram_bytes": null,
+    "flash_binary_bytes": null,
+    "board": null,
+    "target_chip": "ESP32-S3",
+    "internal_sram_capacity_bytes": 524288,
+    "psram_permitted": false,
+    "device_latency_ms": null,
+    "deadline_compliance": null,
+    "compiler_command": [
+      "/usr/bin/c++",
+      "-std=c++17",
+      "-O2",
+      "runs/export-constrained-follow-rl50/parity.cpp",
+      "-o",
+      "runs/export-constrained-follow-rl50/parity"
+    ]
+  },
+  "effective_settings": {
+    "target": "ESP32-S3",
+    "cpu_mhz": 240,
+    "psram_enabled": false,
+    "assumed_flash_bytes": 2097152,
+    "main_task_stack_bytes": 8192,
+    "assumed_benchmark_control_period_us": 100000
+  },
+  "application_binary_bytes": 348944,
+  "linked_sizes": {
+    "dram_data": 0,
+    "dram_bss": 0,
+    "dram_rodata": 0,
+    "dram_other": 0,
+    "used_dram": 0,
+    "dram_total": 0,
+    "used_dram_ratio": 0,
+    "dram_remain": 0,
+    "iram_vectors": 1028,
+    "iram_text": 15356,
+    "iram_other": 0,
+    "used_iram": 16384,
+    "iram_total": 16384,
+    "used_iram_ratio": 1.0,
+    "iram_remain": 0,
+    "diram_data": 11248,
+    "diram_bss": 17880,
+    "diram_text": 42131,
+    "diram_vectors": 0,
+    "diram_rodata": 0,
+    "diram_other": 0,
+    "diram_total": 341760,
+    "used_diram": 71259,
+    "used_diram_ratio": 0.2085059691011236,
+    "diram_remain": 270501,
+    "flash_code": 101850,
+    "flash_rodata": 176928,
+    "flash_other": 256,
+    "used_flash_non_ram": 279034,
+    "total_size": 348797
+  },
+  "weight_arrays": [
+    {
+      "name": "bari::encoder_weight",
+      "address": 1006930716,
+      "size_bytes": 3328,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c048b1c"
+    },
+    {
+      "name": "bari::encoder_bias",
+      "address": 1006930460,
+      "size_bytes": 256,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c048a1c"
+    },
+    {
+      "name": "bari::gru_weight_ih",
+      "address": 1006881308,
+      "size_bytes": 49152,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c03ca1c"
+    },
+    {
+      "name": "bari::gru_weight_hh",
+      "address": 1006832156,
+      "size_bytes": 49152,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c030a1c"
+    },
+    {
+      "name": "bari::gru_bias_ih",
+      "address": 1006831388,
+      "size_bytes": 768,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c03071c"
+    },
+    {
+      "name": "bari::gru_bias_hh",
+      "address": 1006830620,
+      "size_bytes": 768,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c03041c"
+    },
+    {
+      "name": "bari::head_weight",
+      "address": 1006830108,
+      "size_bytes": 512,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c03021c"
+    },
+    {
+      "name": "bari::head_bias",
+      "address": 1006830100,
+      "size_bytes": 8,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c030214"
+    }
+  ],
+  "weight_arrays_flash_rodata_bytes": 103944,
+  "golden_fixtures": [
+    {
+      "name": "bari_golden::inputs",
+      "address": 1006825876,
+      "size_bytes": 4224,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c02f194"
+    },
+    {
+      "name": "bari_golden::expected",
+      "address": 1006800532,
+      "size_bytes": 25344,
+      "nm_type": "d",
+      "section": ".flash.rodata",
+      "address_hex": "0x3c028e94"
+    }
+  ],
+  "golden_fixture_flash_bytes": 29568,
+  "static_buffers": {
+    "hidden": {
+      "name": "(anonymous namespace)::hidden",
+      "address": 1070159880,
+      "size_bytes": 256,
+      "nm_type": "b",
+      "section": ".dram0.bss",
+      "address_hex": "0x3fc95808"
+    },
+    "wheels": {
+      "name": "(anonymous namespace)::wheels",
+      "address": 1070159872,
+      "size_bytes": 8,
+      "nm_type": "b",
+      "section": ".dram0.bss",
+      "address_hex": "0x3fc95800"
+    },
+    "inference_us": {
+      "name": "(anonymous namespace)::inference_us",
+      "address": 1070160136,
+      "size_bytes": 15360,
+      "nm_type": "b",
+      "section": ".dram0.bss",
+      "address_hex": "0x3fc95908"
+    }
+  },
+  "allocated_external_ram_sections": [],
+  "dummy_sections": [
+    {
+      "index": 8,
+      "name": ".dram0.dummy",
+      "type": "NOBITS",
+      "address": 1070104576,
+      "file_offset": 184320,
+      "size_bytes": 42240
+    },
+    {
+      "index": 16,
+      "name": ".ext_ram.dummy",
+      "type": "NOBITS",
+      "address": 1006632992,
+      "file_offset": 4128,
+      "size_bytes": 327648
+    }
+  ],
+  "dummy_section_interpretation": "NOLOAD linker placeholders skip aliased address ranges; .ext_ram.dummy skips the flash rodata virtual range and does not allocate PSRAM.",
+  "symbol_interpretation": "Placement uses the containing ELF section/address and linker map, not nm letter d/r alone. All eight weight arrays are in flash-mapped .flash.rodata, not RAM-resident arrays.",
+  "device_peak_ram_bytes": null,
+  "device_inference_latency_ms": null,
+  "device_parity": null,
+  "complete_firmware_deadline_compliance": null,
+  "complete_firmware_headroom_bytes": null,
+  "initial_cli_failure": {
+    "reason": "Unsupported idf.py -j option, before compilation",
+    "preserved": "runs/firmware-constrained-follow-rl50/build-result.json"
+  },
+  "successful_build": {
+    "command": [
+      "/private/tmp/bari-idf-tools/python_env/idf5.5_py3.9_env/bin/python",
+      "/private/tmp/bari-esp-idf-5.5.1/tools/idf.py",
+      "-C",
+      "/Users/whishingraven/Documents/Github/BARIpreSim/runs/firmware-constrained-follow-rl50",
+      "-B",
+      "/Users/whishingraven/Documents/Github/BARIpreSim/runs/firmware-constrained-follow-rl50/build",
+      "build"
+    ],
+    "exit_code": 0,
+    "device_run": false,
+    "status": "cross-compiled only",
+    "correction": "Standard idf.py build; the earlier unsupported -j option failed before compilation."
+  },
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "limitations": [
+    "No identified target board connected or flashed",
+    "Board flash capacity and physical control period unspecified",
+    "Following actor succeeds only near the chain; not the final four-task policy",
+    "Static linker allocations exclude dynamic heaps/stacks and complete firmware",
+    "Sensor/motor/communications drivers and full task traffic are absent",
+    "Golden fixtures and latency sample array are benchmark instrumentation"
+  ],
+  "artifacts": [
+    {
+      "path": "runs/firmware-constrained-follow-rl50/protocol.json",
+      "bytes": 2954,
+      "sha256": "03dd406c4e42f5ca003d5207b3dd8b97251ecdbacde2f3c7f87498ae0c8c373a"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/sdkconfig",
+      "bytes": 73024,
+      "sha256": "d49ea4e1bc059f004757e09e3b6da3d61c8ec5f4570a7b210af792a16aedd732"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/configure.log",
+      "bytes": 10724,
+      "sha256": "ffe3450ceac7cb141167a13bd0907936ef6347fe009eeaa0edb06330683d037a"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build.log",
+      "bytes": 124,
+      "sha256": "e9a3f3489aa4098015beb267b8825f1329f65883f231b864509116452cabf169"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build-result.json",
+      "bytes": 1892,
+      "sha256": "8d4fefa99d4af084fc0ee6d52598406ca08dd6cd94298f068b80c7eed17efdee"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build-recovery.log",
+      "bytes": 126839,
+      "sha256": "f136f2f2d3cc5918957183f644cd0f577877268d68bfe5a17a5775f6294fd995"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build-recovery-result.json",
+      "bytes": 554,
+      "sha256": "b02620786678eda427b29857229987a663c8cdd16349a134861301930dcf50ca"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/link-size.json",
+      "bytes": 749,
+      "sha256": "f39646d412441fed2f0965d2366ae157004247773db18f92cad45c581bbc35a9"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/component-sizes.json",
+      "bytes": 6794,
+      "sha256": "aed42dc6cfdc055741e3a3a7393f20a78f73f5b74e7bfa7e49f90d599e5328f0"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/elf-symbols.txt",
+      "bytes": 74213,
+      "sha256": "d1cb443adc098cd9c22f8237dff63872091f6203048b271ce5edcd5c2253081e"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/elf-sections.txt",
+      "bytes": 3574,
+      "sha256": "5a27704f49cdbb90e5f3a33b61215b3fd491f9752a5ac2c0953188cd6b97639e"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/python-packages.txt",
+      "bytes": 1064,
+      "sha256": "f3c93c2f188023f7ca5ec5a6a0cc4e5bc84f85276adecffb9d6c0616a4b320e2"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/sdk-submodules.txt",
+      "bytes": 2147,
+      "sha256": "3d819503df99d4b793b7c9686e3c09e380a5123e2a9fd5f4d0de4cb0c5663cfc"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/sdk-tools.json",
+      "bytes": 42352,
+      "sha256": "5c6a0453a9af7ee382681dab98ab9a3c51920cc68b57038d35848b0f08bc2793"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/linked-memory.ld",
+      "bytes": 5166,
+      "sha256": "6b6c022134ae6002d8c22a76017b317fa6c9d523cd53eef63180777dc9570c5d"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/linked-sections.ld",
+      "bytes": 110983,
+      "sha256": "eb9f008d716fb7dae6473ba1e102b6bb378fa3c04946754b1d8ad9813fd5b66a"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build/bari_actor_benchmark.bin",
+      "bytes": 348944,
+      "sha256": "777a644b9a2d6eef0df30d5a344d80c31ca285bc2c1039f0ab5237624083e9e2"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build/bari_actor_benchmark.elf",
+      "bytes": 4012508,
+      "sha256": "955678d39fac38bc327830d64dea0f2882ca128d5fb8a7d711b2bcafb8cfe742"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build/bari_actor_benchmark.map",
+      "bytes": 3097580,
+      "sha256": "62e2ea3ed20335cf70e0c8cae4b9c9f5664dfacf85d462adc700cdfc0feedf87"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build/bootloader/bootloader.bin",
+      "bytes": 21184,
+      "sha256": "8f10bec6fb18617f901e1ef9ee7919db56cc0fe4985ffb7b422e792f06cf2d3d"
+    },
+    {
+      "path": "runs/firmware-constrained-follow-rl50/build/partition_table/partition-table.bin",
+      "bytes": 3072,
+      "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+    },
+    {
+      "path": "runs/setup-esp-idf-h64.py",
+      "bytes": 1522,
+      "sha256": "7274962a69efe1fce902f59781b09a15750b0f1340be7a8ee61c28716fe32621"
+    },
+    {
+      "path": "runs/build-follow-rl50-esp32s3.py",
+      "bytes": 3346,
+      "sha256": "ae9caadb07146b6f2b4dbbe8a16fae914ba5917a39f0766ab690a9a77c5f675c"
+    },
+    {
+      "path": "runs/recover-follow-rl50-esp32s3-build.py",
+      "bytes": 1907,
+      "sha256": "fa7237309551bac52d561eb7efdfe2be907af4e9487c817dbe13c075ad67260e"
+    },
+    {
+      "path": "runs/esp-idf-h64-install-result.json",
+      "bytes": 1038,
+      "sha256": "9c7b61c40f5bc3a64a6d02753b7a1accf1ec809a05a3eb6d292c9e9d01194f90"
+    },
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-follow-rl50-esp32s3-report.py",
+      "bytes": 11772,
+      "sha256": "2ccd02c2e8450faa34e5312420bbd16c21010de732ef19c0179514e03e9d1f5c"
+    }
+  ]
+}

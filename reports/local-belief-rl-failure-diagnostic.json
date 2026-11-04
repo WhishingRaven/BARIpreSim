@@ -1,0 +1,2015 @@
+{
+  "version": "bari-local-belief-PPO-failure-diagnostic-v1",
+  "aggregate": {
+    "0": {
+      "episodes": 15,
+      "confident_before_any_safety": {
+        "samples": 14492,
+        "mean": 0.0038878954560447165,
+        "p90": 0.006780503558672198,
+        "maximum": 0.6022781666210462,
+        "above_40mm_fraction": 6.90035881865857e-05
+      },
+      "confident_after_any_safety": {
+        "samples": 4681,
+        "mean": 0.012198443754489802,
+        "p90": 0.018351082635140837,
+        "maximum": 0.1745422245855838,
+        "above_40mm_fraction": 0.03567613757744072
+      },
+      "successful_confident_before_safety": {
+        "samples": 8773,
+        "mean": 0.004122672300175399,
+        "p90": 0.007180532788588787,
+        "maximum": 0.020680384757579728,
+        "above_40mm_fraction": 0.0
+      },
+      "failed_confident_before_safety": {
+        "samples": 5719,
+        "mean": 0.00352774556033594,
+        "p90": 0.005937992645102666,
+        "maximum": 0.6022781666210462,
+        "above_40mm_fraction": 0.00017485574401119076
+      }
+    },
+    "200": {
+      "episodes": 15,
+      "confident_before_any_safety": {
+        "samples": 14493,
+        "mean": 0.003897839758349579,
+        "p90": 0.00678124550596006,
+        "maximum": 0.6022781512769809,
+        "above_40mm_fraction": 0.0001379976540398813
+      },
+      "confident_after_any_safety": {
+        "samples": 5099,
+        "mean": 0.019630551931397434,
+        "p90": 0.04538951335092732,
+        "maximum": 0.2028129924506525,
+        "above_40mm_fraction": 0.1353206511080604
+      },
+      "successful_confident_before_safety": {
+        "samples": 11646,
+        "mean": 0.004066585699253534,
+        "p90": 0.0069075515540370745,
+        "maximum": 0.020680309468678153,
+        "above_40mm_fraction": 0.0
+      },
+      "failed_confident_before_safety": {
+        "samples": 2847,
+        "mean": 0.003207563949509588,
+        "p90": 0.0038979400393832618,
+        "maximum": 0.6022781512769809,
+        "above_40mm_fraction": 0.0007024938531787847
+      }
+    }
+  },
+  "cases": [
+    {
+      "update": 0,
+      "seed": 2001,
+      "success": true,
+      "final_holding": false,
+      "final_max_error_m": 0.03516314601046209,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1484,
+        "mean": 0.004068389207813558,
+        "p90": 0.005808383516520577,
+        "maximum": 0.009330471195833454,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.9893333333333333,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.004498615395277739,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.13604837656021118,
+      "last5s_mean_true_arena_radius_m": [
+        0.2283252477791679,
+        0.23789051216353485,
+        0.23892401181423054,
+        0.2252296175308949,
+        0.2634289078335972
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.00405291376998365,
+        "p90": 0.005808508990838992,
+        "maximum": 0.005808738263867061,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 2003,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.05290703552949345,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1397,
+        "mean": 0.004109806528592485,
+        "p90": 0.006780268748108324,
+        "maximum": 0.013628299323591745,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.9313333333333333,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.006428935565054417,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.16482926905155182,
+      "last5s_mean_true_arena_radius_m": [
+        0.239531393411185,
+        0.23692963278129212,
+        0.18726296547844296,
+        0.24857145564199673,
+        0.25209601744849136
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.003570429584171312,
+        "p90": 0.006779793546165553,
+        "maximum": 0.006780010064473379,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 2011,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.03440151042128398,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1479,
+        "mean": 0.004214543562114829,
+        "p90": 0.007180566253931862,
+        "maximum": 0.00887764631070856,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.986,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.007250053808093071,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.13907775282859802,
+      "last5s_mean_true_arena_radius_m": [
+        0.23936188676751724,
+        0.2581158511551531,
+        0.2502432281262248,
+        0.23686846530512823,
+        0.232839889385783
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.004150780136947776,
+        "p90": 0.007179983176688573,
+        "maximum": 0.007180798687916963,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 2017,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.24439439598339865,
+      "contacts": 213,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 80,
+        "mean": 0.0033341041164946885,
+        "p90": 0.00399478004868429,
+        "maximum": 0.0039951854820243285,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 813,
+        "mean": 0.01244130531475626,
+        "p90": 0.03441987075077064,
+        "maximum": 0.0348662677271545,
+        "above_40mm_fraction": 0.0
+      },
+      "confidence_fraction": 0.5953333333333334,
+      "first_contact": {
+        "control_index": 28,
+        "time_s": 2.9,
+        "robots": [
+          1,
+          2
+        ],
+        "commands": [
+          [
+            -0.3534708321094513,
+            -0.38964569568634033
+          ],
+          [
+            0.27096739411354065,
+            -0.04715895652770996
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.030106283724308014,
+          0.040011003613471985
+        ],
+        "actor_ranges_m": [
+          [
+            0.6423115134239197,
+            0.6852153539657593,
+            0.3613368272781372,
+            0.030106283724308014,
+            0.800000011920929,
+            0.678196370601654
+          ],
+          [
+            0.040011003613471985,
+            0.045980025082826614,
+            0.2794266641139984,
+            0.1976328194141388,
+            0.800000011920929,
+            0.800000011920929
+          ]
+        ],
+        "belief_confidence": [
+          1.0,
+          0.0
+        ],
+        "center_error_m": [
+          0.002529276378578524,
+          0.14785918769155074
+        ],
+        "true_clearance_before_control_m": [
+          0.0016576174317527725,
+          0.0016576174317527725
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.0130653390660882,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.1117577850818634,
+      "last5s_mean_true_arena_radius_m": [
+        0.27078446348155094,
+        0.30775144037255664,
+        0.16968361367611093,
+        0.0327530980366355,
+        0.21610679858343806
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 150,
+        "mean": 0.01180247055787483,
+        "p90": 0.02790669881176831,
+        "maximum": 0.027906803259711763,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 2027,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.0278699602857028,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1380,
+        "mean": 0.005117571632817999,
+        "p90": 0.007588418128202044,
+        "maximum": 0.017125150947747008,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.92,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.0070812576450407505,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.2520156502723694,
+      "last5s_mean_true_arena_radius_m": [
+        0.2544182808119977,
+        0.22745937631769533,
+        0.23731292690655237,
+        0.24161319127869235,
+        0.26437694703478215
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.004586482908748215,
+        "p90": 0.007588522585750384,
+        "maximum": 0.007588762204971269,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 1594776450,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.21026211136437134,
+      "contacts": 55,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 192,
+        "mean": 0.004336923893392751,
+        "p90": 0.0073261576927132815,
+        "maximum": 0.008949469751075386,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 992,
+        "mean": 0.010218137972913495,
+        "p90": 0.017457453893036802,
+        "maximum": 0.02676480887245948,
+        "above_40mm_fraction": 0.0
+      },
+      "confidence_fraction": 0.7893333333333333,
+      "first_contact": {
+        "control_index": 51,
+        "time_s": 5.2,
+        "robots": [
+          1,
+          4
+        ],
+        "commands": [
+          [
+            -0.20060627162456512,
+            -0.24599355459213257
+          ],
+          [
+            0.3330644369125366,
+            -0.056316591799259186
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.029351629316806793,
+          0.026836559176445007
+        ],
+        "actor_ranges_m": [
+          [
+            0.6486160159111023,
+            0.6951640248298645,
+            0.2847272753715515,
+            0.029351629316806793,
+            0.800000011920929,
+            0.686234712600708
+          ],
+          [
+            0.026836559176445007,
+            0.800000011920929,
+            0.1846499741077423,
+            0.06390175223350525,
+            0.08900158852338791,
+            0.800000011920929
+          ]
+        ],
+        "belief_confidence": [
+          1.0,
+          1.0
+        ],
+        "center_error_m": [
+          0.007326175238090371,
+          0.001685493608032944
+        ],
+        "true_clearance_before_control_m": [
+          0.0010824030681994834,
+          0.0010824030681994834
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.00684781651943922,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.243422269821167,
+      "last5s_mean_true_arena_radius_m": [
+        0.07961133409479043,
+        0.29177222500265126,
+        0.26245926871167347,
+        0.25056845331957517,
+        0.08523537531818746
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.010656749805145797,
+        "p90": 0.01763369303043896,
+        "maximum": 0.02676480887245948,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 589246224,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.26158618539625905,
+      "contacts": 56,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 19,
+        "mean": 0.0362352152063396,
+        "p90": 0.012160736569015604,
+        "maximum": 0.6022781666210462,
+        "above_40mm_fraction": 0.05263157894736842
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 1291,
+        "mean": 0.023955507643243317,
+        "p90": 0.158161192836274,
+        "maximum": 0.1745422245855838,
+        "above_40mm_fraction": 0.12935708752904726
+      },
+      "confidence_fraction": 0.8733333333333333,
+      "first_contact": {
+        "control_index": 7,
+        "time_s": 0.8,
+        "robots": [
+          2,
+          3
+        ],
+        "commands": [
+          [
+            -0.6507800221443176,
+            -0.22344277799129486
+          ],
+          [
+            0.4291643798351288,
+            -0.09319784492254257
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.033869944512844086,
+          0.0396057553589344
+        ],
+        "actor_ranges_m": [
+          [
+            0.5017577409744263,
+            0.5008458495140076,
+            0.6521298289299011,
+            0.033869944512844086,
+            0.2368287593126297,
+            0.2378700226545334
+          ],
+          [
+            0.0396057553589344,
+            0.04360022768378258,
+            0.6731007695198059,
+            0.40939393639564514,
+            0.6207802891731262,
+            0.2370692789554596
+          ]
+        ],
+        "belief_confidence": [
+          1.0,
+          0.0
+        ],
+        "center_error_m": [
+          0.002066659623374577,
+          0.21182990109895475
+        ],
+        "true_clearance_before_control_m": [
+          0.000867357339278868,
+          0.000867357339278868
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.00869952142238617,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.1749003827571869,
+      "last5s_mean_true_arena_radius_m": [
+        0.2319976469317255,
+        0.23356434064926612,
+        0.5201025866275999,
+        0.22792716314855835,
+        0.228625467084329
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.0035792380014626948,
+        "p90": 0.007215310615724527,
+        "maximum": 0.007216386299850738,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 1979129855,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.22882399335705442,
+      "contacts": 72,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 208,
+        "mean": 0.002856324042484239,
+        "p90": 0.005191821840269322,
+        "maximum": 0.008077442689497637,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 681,
+        "mean": 0.00261876544357612,
+        "p90": 0.005017889158933248,
+        "maximum": 0.0051915618177009615,
+        "above_40mm_fraction": 0.0
+      },
+      "confidence_fraction": 0.5926666666666667,
+      "first_contact": {
+        "control_index": 72,
+        "time_s": 7.3,
+        "robots": [
+          1,
+          3
+        ],
+        "commands": [
+          [
+            0.15663772821426392,
+            0.01328252349048853
+          ],
+          [
+            0.05431931093335152,
+            0.10981275141239166
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.032615456730127335,
+          0.03649871423840523
+        ],
+        "actor_ranges_m": [
+          [
+            0.032615456730127335,
+            0.038916103541851044,
+            0.800000011920929,
+            0.07106363028287888,
+            0.11327823996543884,
+            0.1450166553258896
+          ],
+          [
+            0.03649871423840523,
+            0.03704921528697014,
+            0.11139563471078873,
+            0.12903884053230286,
+            0.1223638504743576,
+            0.800000011920929
+          ]
+        ],
+        "belief_confidence": [
+          0.0,
+          0.0
+        ],
+        "center_error_m": [
+          0.15683259159080426,
+          0.0849980204880278
+        ],
+        "true_clearance_before_control_m": [
+          0.000957784312703186,
+          0.000957784312703186
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.005289588123559952,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.13318674266338348,
+      "last5s_mean_true_arena_radius_m": [
+        0.27089913970303386,
+        0.1497365676399533,
+        0.25435314186683067,
+        0.07719041071279063,
+        0.29891675108437155
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 150,
+        "mean": 0.002614769314007093,
+        "p90": 0.005017908366768639,
+        "maximum": 0.005018123644546357,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 1391038837,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.15006365479746378,
+      "contacts": 31,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 20,
+        "mean": 0.0061503681111733915,
+        "p90": 0.006310463314338374,
+        "maximum": 0.006915536895927236,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 904,
+        "mean": 0.004579426427253636,
+        "p90": 0.00589066005561177,
+        "maximum": 0.026079582453784455,
+        "above_40mm_fraction": 0.0
+      },
+      "confidence_fraction": 0.616,
+      "first_contact": {
+        "control_index": 11,
+        "time_s": 1.2,
+        "robots": [
+          0,
+          3
+        ],
+        "commands": [
+          [
+            0.21591120958328247,
+            0.16490036249160767
+          ],
+          [
+            0.4361903965473175,
+            -0.2053856998682022
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.03104862943291664,
+          0.026774000376462936
+        ],
+        "actor_ranges_m": [
+          [
+            0.045882698148489,
+            0.03104862943291664,
+            0.059418220072984695,
+            0.07670456171035767,
+            0.800000011920929,
+            0.800000011920929
+          ],
+          [
+            0.800000011920929,
+            0.17275625467300415,
+            0.14410948753356934,
+            0.800000011920929,
+            0.13519909977912903,
+            0.026774000376462936
+          ]
+        ],
+        "belief_confidence": [
+          0.0,
+          0.0
+        ],
+        "center_error_m": [
+          0.04657153707043362,
+          0.1183396461883166
+        ],
+        "true_clearance_before_control_m": [
+          0.0016292365582358803,
+          0.0016292365582358803
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.012174200266599655,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.27551037073135376,
+      "last5s_mean_true_arena_radius_m": [
+        0.03348820725613819,
+        0.26814566285084657,
+        0.29153836137899986,
+        0.23560615700982254,
+        0.2608587102016083
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.0046851512590597765,
+        "p90": 0.005890028293122288,
+        "maximum": 0.02607948577926387,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 1899936300,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.019019280260346026,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1472,
+        "mean": 0.004565885388775501,
+        "p90": 0.00741696520584102,
+        "maximum": 0.01360744026260056,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.9813333333333333,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.004941279534250498,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.21082836389541626,
+      "last5s_mean_true_arena_radius_m": [
+        0.2315726222720426,
+        0.23596459366372924,
+        0.2394697374881613,
+        0.25176723781671906,
+        0.2383492822588324
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.004394610730516518,
+        "p90": 0.00741781894414451,
+        "maximum": 0.00741812309911104,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 995963224,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.022900505944803327,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1479,
+        "mean": 0.0044966205384394395,
+        "p90": 0.006057164514201859,
+        "maximum": 0.020680384757579728,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.986,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.003186298068612814,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.06032988429069519,
+      "last5s_mean_true_arena_radius_m": [
+        0.234253901517122,
+        0.2353007368765121,
+        0.2494153162717185,
+        0.24090761842327724,
+        0.2505126464932803
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.00401727588159027,
+        "p90": 0.005290563965128663,
+        "maximum": 0.006592424431408605,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 113285700,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.18325714430503448,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1173,
+        "mean": 0.0031963076394541465,
+        "p90": 0.0038974157017565574,
+        "maximum": 0.011187530230359786,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.782,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.011818286962807178,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.3379000723361969,
+      "last5s_mean_true_arena_radius_m": [
+        0.08390681780874143,
+        0.26095556693326444,
+        0.29764736612611237,
+        0.2628621242485478,
+        0.2513256089281041
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.002896529546078296,
+        "p90": 0.0038974021655217195,
+        "maximum": 0.0038975347857608004,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 1761495214,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.21680874927951194,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1153,
+        "mean": 0.001974140679955347,
+        "p90": 0.0030714459678881623,
+        "maximum": 0.022162520389493637,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.7686666666666667,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.010952743701636791,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.2228955179452896,
+      "last5s_mean_true_arena_radius_m": [
+        0.0688777248072729,
+        0.2634296861025972,
+        0.24376551639230143,
+        0.28257610258789495,
+        0.278005333187296
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.001904918309516767,
+        "p90": 0.003071697434910208,
+        "maximum": 0.0030719713162484746,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 1685651270,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.03478444036512331,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1477,
+        "mean": 0.003996827694798705,
+        "p90": 0.005937738989250738,
+        "maximum": 0.011073509157448815,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.9846666666666667,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.004950667265802622,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.1466827094554901,
+      "last5s_mean_true_arena_radius_m": [
+        0.2591797381765806,
+        0.2308165881956704,
+        0.23992894909168352,
+        0.23868945529971977,
+        0.25922567380561495
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.004036978208605297,
+        "p90": 0.005939258654425636,
+        "maximum": 0.005939832821190421,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 0,
+      "seed": 1727563011,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.031121046315784676,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1479,
+        "mean": 0.0023419003750894687,
+        "p90": 0.003931010717176958,
+        "maximum": 0.00954019124494947,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.986,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.0024681028444319963,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.06469949334859848,
+      "last5s_mean_true_arena_radius_m": [
+        0.22641288182933614,
+        0.24362811777683555,
+        0.24439266438600035,
+        0.2489384674255529,
+        0.22358800425577474
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.0021718178470381067,
+        "p90": 0.003929401876084941,
+        "maximum": 0.00393002747831393,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 2001,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.022902314069242993,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1484,
+        "mean": 0.003928052106757102,
+        "p90": 0.005807985783606629,
+        "maximum": 0.009330473397288836,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.9893333333333333,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.00542242918163538,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.11244912445545197,
+      "last5s_mean_true_arena_radius_m": [
+        0.23937881534625877,
+        0.23840599405741006,
+        0.24591570408008556,
+        0.223766638408709,
+        0.2538797716313997
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.003693950107796173,
+        "p90": 0.005346572157723768,
+        "maximum": 0.005346964131221328,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 2003,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.013387848424489071,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1395,
+        "mean": 0.0038900131621392295,
+        "p90": 0.006781056450928019,
+        "maximum": 0.014272711406874196,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.93,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.007710556033998728,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.22322025895118713,
+      "last5s_mean_true_arena_radius_m": [
+        0.2648071360889866,
+        0.25414659378769644,
+        0.20925911560537866,
+        0.2533111453411955,
+        0.23600497597189918
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.0035708683827557017,
+        "p90": 0.006781001947166002,
+        "maximum": 0.0067813438656367945,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 2011,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.012785595537567982,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1479,
+        "mean": 0.004515837271774739,
+        "p90": 0.00718160410065181,
+        "maximum": 0.008877751947874699,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.986,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.007071971893310547,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.166619673371315,
+      "last5s_mean_true_arena_radius_m": [
+        0.23030317176669599,
+        0.23974498711823672,
+        0.24628148641458594,
+        0.24016633638378096,
+        0.2294308669433469
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.00464953357834817,
+        "p90": 0.007225364640910182,
+        "maximum": 0.007225425587897445,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 2017,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.17527668660203108,
+      "contacts": 50,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 74,
+        "mean": 0.00333318347740284,
+        "p90": 0.003994624210295348,
+        "maximum": 0.003994736269813678,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 1035,
+        "mean": 0.014260376535635265,
+        "p90": 0.04538950407901423,
+        "maximum": 0.045389776326637696,
+        "above_40mm_fraction": 0.25120772946859904
+      },
+      "confidence_fraction": 0.7393333333333333,
+      "first_contact": {
+        "control_index": 26,
+        "time_s": 2.7,
+        "robots": [
+          1,
+          2
+        ],
+        "commands": [
+          [
+            -0.40504318475723267,
+            -0.4065430760383606
+          ],
+          [
+            0.18300189077854156,
+            0.02416897751390934
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.028174757957458496,
+          0.037453919649124146
+        ],
+        "actor_ranges_m": [
+          [
+            0.6419733762741089,
+            0.6951717734336853,
+            0.3705712556838989,
+            0.028174757957458496,
+            0.800000011920929,
+            0.6678417921066284
+          ],
+          [
+            0.037453919649124146,
+            0.04506189748644829,
+            0.2779271900653839,
+            0.19909973442554474,
+            0.800000011920929,
+            0.800000011920929
+          ]
+        ],
+        "belief_confidence": [
+          1.0,
+          0.0
+        ],
+        "center_error_m": [
+          0.002528228518598832,
+          0.14785917701609494
+        ],
+        "true_clearance_before_control_m": [
+          0.0019207728054670137,
+          0.0019207728054670137
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.008943059481680393,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.25171148777008057,
+      "last5s_mean_true_arena_radius_m": [
+        0.2682744827776295,
+        0.26172423687302787,
+        0.27109954551089555,
+        0.0393019387040734,
+        0.27296831015827544
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.014009084912829624,
+        "p90": 0.04538915063072091,
+        "maximum": 0.04538919508326173,
+        "above_40mm_fraction": 0.25
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 2027,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.032233012824201365,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1381,
+        "mean": 0.005071429556677498,
+        "p90": 0.007587648295679203,
+        "maximum": 0.017125097322467604,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.9206666666666666,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.008029444143176079,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.24460279941558838,
+      "last5s_mean_true_arena_radius_m": [
+        0.2357740302405647,
+        0.24247952613919452,
+        0.26527885493096903,
+        0.24978100796692954,
+        0.2413051210296303
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.004608016773648398,
+        "p90": 0.007587377742372913,
+        "maximum": 0.007587670688063398,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 1594776450,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.050394265971919275,
+      "contacts": 65,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 232,
+        "mean": 0.004159045137725193,
+        "p90": 0.007326076404799186,
+        "maximum": 0.008949463611676695,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 1009,
+        "mean": 0.018698932586381233,
+        "p90": 0.10017127692530647,
+        "maximum": 0.10097754562544489,
+        "above_40mm_fraction": 0.14469772051536176
+      },
+      "confidence_fraction": 0.8273333333333334,
+      "first_contact": {
+        "control_index": 61,
+        "time_s": 6.2,
+        "robots": [
+          1,
+          4
+        ],
+        "commands": [
+          [
+            0.007158332038670778,
+            -0.06848068535327911
+          ],
+          [
+            -0.05556725338101387,
+            0.10355120152235031
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.028827324509620667,
+          0.02666367217898369
+        ],
+        "actor_ranges_m": [
+          [
+            0.6530082821846008,
+            0.7258222103118896,
+            0.033486880362033844,
+            0.028827324509620667,
+            0.800000011920929,
+            0.6705420017242432
+          ],
+          [
+            0.02666367217898369,
+            0.7993362545967102,
+            0.18832097947597504,
+            0.08051850646734238,
+            0.0847247838973999,
+            0.06328623741865158
+          ]
+        ],
+        "belief_confidence": [
+          1.0,
+          1.0
+        ],
+        "center_error_m": [
+          0.00732603496041599,
+          0.0016855820091564925
+        ],
+        "true_clearance_before_control_m": [
+          1.690501287660018e-05,
+          1.690501287660018e-05
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.016912609338760376,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.45021605491638184,
+      "last5s_mean_true_arena_radius_m": [
+        0.19822422393264197,
+        0.2871891677734361,
+        0.2713016553409554,
+        0.26013735018584927,
+        0.21917654146917087
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.028026393016796828,
+        "p90": 0.10017131207930799,
+        "maximum": 0.10017155239674475,
+        "above_40mm_fraction": 0.216
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 589246224,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.11372460232658324,
+      "contacts": 66,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 20,
+        "mean": 0.0645373697408545,
+        "p90": 0.07117252137309082,
+        "maximum": 0.6022781512769809,
+        "above_40mm_fraction": 0.1
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 1396,
+        "mean": 0.042890951832598,
+        "p90": 0.20281273058555693,
+        "maximum": 0.2028129924506525,
+        "above_40mm_fraction": 0.2034383954154728
+      },
+      "confidence_fraction": 0.944,
+      "first_contact": {
+        "control_index": 7,
+        "time_s": 0.8,
+        "robots": [
+          2,
+          3
+        ],
+        "commands": [
+          [
+            -0.6932669878005981,
+            -0.22409585118293762
+          ],
+          [
+            0.3272199034690857,
+            0.3488222658634186
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.03374582156538963,
+          0.0405900813639164
+        ],
+        "actor_ranges_m": [
+          [
+            0.5018617510795593,
+            0.5013306140899658,
+            0.6551171541213989,
+            0.03374582156538963,
+            0.23578928411006927,
+            0.2393166869878769
+          ],
+          [
+            0.0405900813639164,
+            0.04225762188434601,
+            0.6703810095787048,
+            0.40797650814056396,
+            0.6203387379646301,
+            0.23738111555576324
+          ]
+        ],
+        "belief_confidence": [
+          1.0,
+          0.0
+        ],
+        "center_error_m": [
+          0.002066673207706432,
+          0.6077375681449705
+        ],
+        "true_clearance_before_control_m": [
+          0.000468426006352024,
+          0.000468426006352024
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.006453190930187702,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.1763446182012558,
+      "last5s_mean_true_arena_radius_m": [
+        0.29305281598096466,
+        0.26435466283347886,
+        0.356991270215516,
+        0.21169438779115912,
+        0.21369520214658105
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.044924226132514684,
+        "p90": 0.20281257370777525,
+        "maximum": 0.20281283506489825,
+        "above_40mm_fraction": 0.2
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 1979129855,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.2004208223966783,
+      "contacts": 127,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 175,
+        "mean": 0.0028955907734535737,
+        "p90": 0.005191411308195231,
+        "maximum": 0.0080774291979378,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 714,
+        "mean": 0.002623663703248516,
+        "p90": 0.005017336406885817,
+        "maximum": 0.005191256280541898,
+        "above_40mm_fraction": 0.0
+      },
+      "confidence_fraction": 0.5926666666666667,
+      "first_contact": {
+        "control_index": 61,
+        "time_s": 6.2,
+        "robots": [
+          1,
+          3
+        ],
+        "commands": [
+          [
+            0.005580684170126915,
+            0.19905324280261993
+          ],
+          [
+            0.002300541615113616,
+            0.0497683510184288
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.030979346483945847,
+          0.028631415218114853
+        ],
+        "actor_ranges_m": [
+          [
+            0.03763175010681152,
+            0.030979346483945847,
+            0.800000011920929,
+            0.10397294163703918,
+            0.09596212953329086,
+            0.17034868896007538
+          ],
+          [
+            0.06315618008375168,
+            0.028631415218114853,
+            0.11579158902168274,
+            0.800000011920929,
+            0.1277007907629013,
+            0.800000011920929
+          ]
+        ],
+        "belief_confidence": [
+          0.0,
+          0.0
+        ],
+        "center_error_m": [
+          0.1568326547835199,
+          0.08499796358525316
+        ],
+        "true_clearance_before_control_m": [
+          0.0004886865673943419,
+          0.0004886865673943419
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.0020916853100061417,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.08386661112308502,
+      "last5s_mean_true_arena_radius_m": [
+        0.25833668785525604,
+        0.10366567990257738,
+        0.2578489433365039,
+        0.06318759163441862,
+        0.2681321864230187
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 150,
+        "mean": 0.0026148911383813258,
+        "p90": 0.005017121745777756,
+        "maximum": 0.005017273028791907,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 1391038837,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.1249426979992527,
+      "contacts": 46,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 20,
+        "mean": 0.006201774183097399,
+        "p90": 0.006370969470689525,
+        "maximum": 0.00691551144934246,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": {
+        "samples": 945,
+        "mean": 0.004995139642040325,
+        "p90": 0.006310387015724919,
+        "maximum": 0.019612300493138588,
+        "above_40mm_fraction": 0.0
+      },
+      "confidence_fraction": 0.6433333333333333,
+      "first_contact": {
+        "control_index": 11,
+        "time_s": 1.2,
+        "robots": [
+          0,
+          3
+        ],
+        "commands": [
+          [
+            0.23862674832344055,
+            0.15827710926532745
+          ],
+          [
+            0.4303737282752991,
+            -0.19909299910068512
+          ]
+        ],
+        "minimum_actor_range_m": [
+          0.030472008511424065,
+          0.02604265883564949
+        ],
+        "actor_ranges_m": [
+          [
+            0.04530873894691467,
+            0.030472008511424065,
+            0.05895506590604782,
+            0.07691193372011185,
+            0.800000011920929,
+            0.800000011920929
+          ],
+          [
+            0.800000011920929,
+            0.1747656613588333,
+            0.14555534720420837,
+            0.800000011920929,
+            0.13428911566734314,
+            0.02604265883564949
+          ]
+        ],
+        "belief_confidence": [
+          0.0,
+          0.0
+        ],
+        "center_error_m": [
+          0.04657153534641371,
+          0.1183396422376365
+        ],
+        "true_clearance_before_control_m": [
+          0.0009708066206488009,
+          0.0009708066206488009
+        ]
+      },
+      "last5s_mean_absolute_requested_v_m_s": 0.005419488996267319,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.15606729686260223,
+      "last5s_mean_true_arena_radius_m": [
+        0.20692190301811153,
+        0.26302324270893823,
+        0.25512108439343767,
+        0.04986972521736597,
+        0.24313660882791016
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.0053734836858652536,
+        "p90": 0.009636736725722446,
+        "maximum": 0.009637586217236944,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 1899936300,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.023379831566181362,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1472,
+        "mean": 0.0043183425326010156,
+        "p90": 0.005960694485042833,
+        "maximum": 0.013607243381609345,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.9813333333333333,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.0042760358192026615,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.056800831109285355,
+      "last5s_mean_true_arena_radius_m": [
+        0.2341188352401919,
+        0.25236769310951507,
+        0.23980780799218945,
+        0.24163494131395757,
+        0.24626248659771716
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.004102661467459331,
+        "p90": 0.005960545763640989,
+        "maximum": 0.005960765099959764,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 995963224,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.01868489400994339,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1479,
+        "mean": 0.004521991138583157,
+        "p90": 0.006906982927795693,
+        "maximum": 0.020680309468678153,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.986,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.007263786159455776,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.22684863209724426,
+      "last5s_mean_true_arena_radius_m": [
+        0.25645537987370903,
+        0.2342475551000764,
+        0.24481685811547377,
+        0.2375171087215106,
+        0.24593075512283086
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.004225557323035104,
+        "p90": 0.0065919899080084735,
+        "maximum": 0.006592147752221142,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 113285700,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.20155366589564808,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1173,
+        "mean": 0.0030629594504572558,
+        "p90": 0.0038977355039258904,
+        "maximum": 0.011187645027467235,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.782,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.008975910022854805,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.24082328379154205,
+      "last5s_mean_true_arena_radius_m": [
+        0.08835284535946658,
+        0.2593568634301665,
+        0.26728422768483096,
+        0.2621456682862433,
+        0.25541337035720535
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.0028968729774572787,
+        "p90": 0.0038979270724698507,
+        "maximum": 0.0038982162565043975,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 1761495214,
+      "success": false,
+      "final_holding": false,
+      "final_max_error_m": 0.20686276877512247,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1153,
+        "mean": 0.0020867457205151507,
+        "p90": 0.003071672461305355,
+        "maximum": 0.010355654152181926,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.7686666666666667,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.01118448469787836,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.22213971614837646,
+      "last5s_mean_true_arena_radius_m": [
+        0.0825302795990302,
+        0.2675228804798562,
+        0.24798447597319806,
+        0.2854780476880523,
+        0.2716996523960595
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 200,
+        "mean": 0.0019046071306844659,
+        "p90": 0.0030707336304839202,
+        "maximum": 0.0030708619775826874,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 1685651270,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.028802878879994557,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1477,
+        "mean": 0.004055906676216723,
+        "p90": 0.005938480744474131,
+        "maximum": 0.011073526883276837,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.9846666666666667,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.002935561118647456,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.05257441848516464,
+      "last5s_mean_true_arena_radius_m": [
+        0.25149245079169325,
+        0.23366419869282373,
+        0.23230986695868341,
+        0.24443715739442176,
+        0.24976949193720144
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.003940354395295594,
+        "p90": 0.005939248203868916,
+        "maximum": 0.0059398257762377305,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    },
+    {
+      "update": 200,
+      "seed": 1727563011,
+      "success": true,
+      "final_holding": true,
+      "final_max_error_m": 0.027620814900468825,
+      "contacts": 0,
+      "walls": 0,
+      "all300_commands_and_physical_sensor_evaluation_fields_exact": true,
+      "confident_center_error_before_any_safety": {
+        "samples": 1479,
+        "mean": 0.002289312076026465,
+        "p90": 0.003931159898036382,
+        "maximum": 0.009540274144515089,
+        "above_40mm_fraction": 0.0
+      },
+      "confident_center_error_after_any_safety": null,
+      "confidence_fraction": 0.986,
+      "first_contact": null,
+      "last5s_mean_absolute_requested_v_m_s": 0.011300588957965374,
+      "last5s_mean_absolute_requested_omega_rad_s": 0.2136724591255188,
+      "last5s_mean_true_arena_radius_m": [
+        0.2554622332097207,
+        0.2510745765401364,
+        0.24765603544512063,
+        0.2279200222830412,
+        0.2557027057170706
+      ],
+      "last5s_mean_confident_center_error_m": {
+        "samples": 250,
+        "mean": 0.0021735766616426417,
+        "p90": 0.003933404207828088,
+        "maximum": 0.003933954585460589,
+        "above_40mm_fraction": 0.0
+      },
+      "scope": "Truth and body clearance are evaluator diagnostics only; no inference inputs, action masks, labels, filtering or new updates"
+    }
+  ],
+  "actor_weights_unchanged": true,
+  "RL_or_imitation_updates": 0,
+  "policy_interface": "begin_control/observation/task_context/task only; no true poses, classes, identities or evaluator state",
+  "scope": "Read-only initial/final15 paired development replays. Correlation is not causation or fresh held-out acceptance.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/diagnose-local-belief-rl-failures.py",
+      "sha256": "2db6845c0627f07f806c8b257ecd8aa7d8bd13aa726080d6ed2daa3a7a7628b9"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/initial-checkpoint.pt",
+      "sha256": "dd4439b4535c74f8db24b646fdd3ff8ebe3f05f869cdc9fe8fadfd946563dce9"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/report.json",
+      "sha256": "7ccb4665caa4af781cf8338743aa732d8f04bcc1dddc18b08e1b908de777ca7e"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2001.npz",
+      "sha256": "60f5c522456bf721ac83f9301b68df72d8ee0082b09db9aa7f7cc489a981516c"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-2001.npz",
+      "sha256": "020c203bf22a1070dbee8f45b26e436a864ae3e31f8ab8294372664a49874080"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2003.npz",
+      "sha256": "f24b0e8cf30860476a70e08e71b5ddefd68a0879469c8820964ca5953ddd325e"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-2003.npz",
+      "sha256": "353535eb0b655197bc2220846c32417af4c42719eeeef0da7808f7cabae86bf3"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2011.npz",
+      "sha256": "555cbcd1cc5d3dfb289b97b3ab1f8413dbc5e574c35826e09d869b28b7644430"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-2011.npz",
+      "sha256": "c623cc980cbde068903aaa80509c9efc7671700747d46e11445266f26e484d68"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2017.npz",
+      "sha256": "2730bf9440fa040ab178f443c7965940bcbd029a2adce0c75768f51635a7aab5"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-2017.npz",
+      "sha256": "f054e54183df2b0669b11cadcfc9c11a4dec62c3fd1657755c6d0daf2a24c167"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-2027.npz",
+      "sha256": "a341bd10362726da681171ee83ce7d22a466ffaf31ebb6dca7d53c9c28cc3c3a"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-2027.npz",
+      "sha256": "3e44840ed35928fd95c9a281de07e21b2938cb98a8aafadbd24269d265bbed41"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1594776450.npz",
+      "sha256": "f8677ade85ddd0069d04e4abaefbbe5860892de12e3a7e0078b03e3117856b45"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-1594776450.npz",
+      "sha256": "9ac5d9cd5e7bbb141fd843b936c960fbe09d6b0fb9b9c99a93446829c3aa9386"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-589246224.npz",
+      "sha256": "c0e2a56bc61b46d7b42f711f8b0ea911fa8731c8a8eaffef4eb44ad424a3a883"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-589246224.npz",
+      "sha256": "0dc5f426194b731ea4f2b945dc87fa0b22ddae25240c9e55c0fab2385d16770d"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1979129855.npz",
+      "sha256": "ef0396a66dcaa2ad1e66034583b8615262aa7a748fb6cbed44d0d15f1ef2f17a"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-1979129855.npz",
+      "sha256": "0c408607b2485b7f41082e3fb4eb7a37223bc0f814f5d5b1334b7ee08b6dbeb8"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1391038837.npz",
+      "sha256": "e3ae258cf564da7ca24dac7bc07a03c1dd7f8429baad01b74d4b7b735aa9e8c2"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-1391038837.npz",
+      "sha256": "86a44a06679c236b68d776017ab0042a8fd21eae38f10ea08d7a0711d36a5515"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1899936300.npz",
+      "sha256": "4c6337ec97160af67e5a8a403d1b184bc76b6920daaaf30e419792868016c908"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-1899936300.npz",
+      "sha256": "7f95cf68d90e4cfb9a39ec4031fc1bea6e0dde85a5d827e706bcf32edb70ea20"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-995963224.npz",
+      "sha256": "31b18b3c521ad1b4d0a9a2033098f75572cbb77434134c063e4a495cab578038"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-995963224.npz",
+      "sha256": "18eb59fd96366d528ecf8f4b0dc9bff9026331d9d15c1ae40b7f5cc4bdfd487c"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-113285700.npz",
+      "sha256": "770adea2e8ed102b7910e85819be97a13efdb6e36deebaa76a9b4c73b54d40d7"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-113285700.npz",
+      "sha256": "c8f69146b5dd18a2ded8ac41b796a956a2cb36ae72309ee07d46c7bb9984b6b1"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1761495214.npz",
+      "sha256": "8818b0c9ac358f49563f04afa5c85808a5759d06cbbbb75dbea5f911edcd323e"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-1761495214.npz",
+      "sha256": "e093c71dd6b4534167da16b321085ca58de61e0f3c600880d61272ae72c7ff38"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1685651270.npz",
+      "sha256": "2ed4d4af6abe6aabdbaf100c8a6462d666e13e870d8e2d4af24ff44dedbaea95"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-1685651270.npz",
+      "sha256": "6712f565902eb3d50f8ef217b0cc99508fb311d3dc770824ef7767b532e9c8b8"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0000/circle-1727563011.npz",
+      "sha256": "5ee66749b306b6d19942cf7ff3bb8bae945609705ed30a0676f2787e8a5e5abd"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0000-1727563011.npz",
+      "sha256": "377b6ad684319e730fe9632b5b9ea9329dec1694c426d32e5a201e5866671045"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/checkpoint-0200.pt",
+      "sha256": "f7b653a998e1682563586cb6f11ea45047ba60021591a418807aa34a7fb71e7a"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/report.json",
+      "sha256": "89655c1902fdb1ae1be5174f1c347c76313ef288c09428ef15cd05b3be7c648b"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2001.npz",
+      "sha256": "4143f0f3ed9d4f66c080731e89419e6f5fe47ab13eb9e7cbe5857b8e254b4bf0"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-2001.npz",
+      "sha256": "0be77e1664406d9fd7380333e0737bc9a108feeb1d0b906692df37951d070c05"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2003.npz",
+      "sha256": "6491005c694d880ad623d867abe1f0034abf1b72795c0e0c6af65fe8786d92e4"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-2003.npz",
+      "sha256": "12f09c22859dee23ee1917a6c3b0cd21d576a6cf90b7774914185648e070dab1"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2011.npz",
+      "sha256": "ed1f6f09fe70266a3a17b3fe77ebb97b0abdf9f4a0e646ed5bec60782679af64"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-2011.npz",
+      "sha256": "272b69a86b588ad04eda2a54f2d6669f28e97a1562a20df408cbed783c2fed95"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2017.npz",
+      "sha256": "e82eda35f7076d12790cfbab7362aa06dbba93a74de1fc3917c36a83c57697a0"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-2017.npz",
+      "sha256": "f28aebaf31d56572c47f41aa29cb9c27bb9ce4bddb2179abc85b4b6b090a05b4"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-2027.npz",
+      "sha256": "72fca81abcca22e4486370e1c55cb051e46a76fb8e88c8e5c216736f0bb56db1"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-2027.npz",
+      "sha256": "b129f542798f6cde99035367139a2b6a2a111b79839b16cd123646c6ee7896aa"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1594776450.npz",
+      "sha256": "b66e783cf9a8bd98b96f830da8832d05960f68e0da0be4892d13b9f44943e484"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-1594776450.npz",
+      "sha256": "b7be515a13ac393b616c0296c52d7b8b19769e260884500910b264ee040c94ff"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-589246224.npz",
+      "sha256": "c0db22a093563c6cd24eeeb8dcfc982f78080b3838f6b5337d6c7428af9a913f"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-589246224.npz",
+      "sha256": "09bf4baac3fb0af92b4728facf4892e74e66a55f7eb00569752b3f55dcbe9136"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1979129855.npz",
+      "sha256": "c3974cb75158bde5a2d2b68e573d8abc5056a8ae2c5fb810e010471ebfe2e559"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-1979129855.npz",
+      "sha256": "922eac95406b39651aef5e0c5c71c928a7f41dfa8db0422f317123c27c1729a5"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1391038837.npz",
+      "sha256": "b2bbd097b93149b94e7c1718761d19d2de42c71fe28abae977500d0df99c282e"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-1391038837.npz",
+      "sha256": "ecf2a1528b7bc304b6947eff325af2e0704a49317239243510a1aa1e821c6c95"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1899936300.npz",
+      "sha256": "97f2dd63b90cd194155755d6d8c74b79f26428fca0d1ffdff1e58ce0c8598c3b"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-1899936300.npz",
+      "sha256": "d428d855d8072cd90b7370a9adae31fa4667fc0a898fd84805c588af42989e57"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-995963224.npz",
+      "sha256": "f8d0b5144d1fe0b6d38383e31c56b28cd99e9306420a500171c52d676697736c"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-995963224.npz",
+      "sha256": "c5cf4d7d949fc9c0e00507bbbe21b586f4112c90c992b06c4eadba9bdddcffa7"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-113285700.npz",
+      "sha256": "22aeb9da687b09bb89cfb49eaadf7c7a447c26ef757451a1de927bdb64bacc3c"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-113285700.npz",
+      "sha256": "1ca7ef9272ab491665bd040475828499b6bbabd00b5d5fe9b87e2425261f8859"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1761495214.npz",
+      "sha256": "e005dc4085251b6671038550dee6766fd244a29ba04adfeb74f89f7e3a8443ff"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-1761495214.npz",
+      "sha256": "a7be798e96a198d0e16e69eff0fc8251bc5c93545373ed30ad114896141e3ff1"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1685651270.npz",
+      "sha256": "a02e63e98093020c0f1be8a9b4c6115cf3fb02325342d5f03bc05785c87a59ab"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-1685651270.npz",
+      "sha256": "425d78ff2bb743752c96e8963f56b2b0b65325522f15e7e060cbb0a7ecf9e72b"
+    },
+    {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/circle-1727563011.npz",
+      "sha256": "f4cf5cc1f7598a4bd6cfe17adeaa40a1432cd772fab2f03ee13b599e68c08205"
+    },
+    {
+      "path": "runs/local-belief-rl-failure-diagnostic-v1/diagnostic-only-0200-1727563011.npz",
+      "sha256": "2564ea1da8cae8e67b6867f74ccfc5d15d1422f4b471e303d42daeb634057c1d"
+    }
+  ]
+}

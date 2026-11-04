@@ -1,0 +1,30 @@
+{
+  "version": "bari-native-window-retry-v2",
+  "completed_utc": "2026-11-03T16:23:02.494489+00:00",
+  "checkpoint": {
+    "path": "runs/constrained-follow-rl-terminal-23/checkpoint.pt",
+    "sha256": "7d5059bb43b72df896279cea0c4a1affb26ac3fa2f71428813a34b19de0f536b"
+  },
+  "command": "MPLBACKEND=MacOSX OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m bari demo --checkpoint runs/constrained-follow-rl-terminal-23/checkpoint.pt --task follow --layout chain --seed 2001 --paused --record --output runs/native-rl50-controls-v2",
+  "result": "Computer-use getApp returned cgWindowNotFound, including after collection completed, kernel reset and explicit actual Python.app path. No UI actions or physics advance verified. Full native-control gate remains open.",
+  "diagnostic": "A read-only process sample shows Matplotlib native show/NSApplication event loop. This is process evidence, not proof that the UI is visible or usable. No simulator-code defect or permissions root cause claimed.",
+  "cleanup": {
+    "owned_process_pid": 95009,
+    "signal": "SIGTERM after exact command verification",
+    "process_exit_code": 143
+  },
+  "artifacts": [
+    {
+      "path": "runs/native-rl50-controls-v2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/native-rl50-controls-v2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/native-rl50-controls-v2.sample.txt",
+      "sha256": "4334ce947f9ed75faea679ae0e0e669051cdcd5952db677649741808736d2f78"
+    }
+  ]
+}

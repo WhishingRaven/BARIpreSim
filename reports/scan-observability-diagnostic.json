@@ -1,0 +1,254 @@
+{
+  "protocol": {
+    "version": "bari-scan-observability-diagnostic-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "0acbe2b21578e667c2e3d44c9e95efad288333c9b076c14d84a3643d4fc02337"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.0,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 0.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 32,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "6900ffd08bc2c46f8fe714c21355e4a1c146073d438a7648cfad62e6e69a36dd",
+    "actor_robot": 1,
+    "checkpoint": "runs/noise-pilot-low-interim-11/checkpoint.pt",
+    "checkpoint_sha256": "402451ccebf5bfa2c46429198da89a66e11b8c7b20e68269149c40ca480c8fae",
+    "scenes": "Same five xy positions; robot 1 yaw is 0 or pi; other yaws are zero. One zero-command control step then 12 common [-.4,.4] in-place scan commands.",
+    "scope": "Noiseless center-ray counterexample and teacher-forced local-GRU probe; not learned scanning or behavioral success. Ground truth affects diagnostic teacher labels only."
+  },
+  "status": "counterexample verified; scan distinguishes this pair",
+  "cases": [
+    {
+      "name": "forward",
+      "initial_actor_input": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delivered_actor_input_at_0_1s": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "teacher_action_at_0_1s": [
+        0.7000000000000001,
+        0.7000000000000001
+      ],
+      "max_xy_displacement_m": 0.0,
+      "contacts": 0,
+      "wall_attempts": 0
+    },
+    {
+      "name": "reverse",
+      "initial_actor_input": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delivered_actor_input_at_0_1s": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "teacher_action_at_0_1s": [
+        0.615,
+        -0.615
+      ],
+      "max_xy_displacement_m": 0.0,
+      "contacts": 0,
+      "wall_attempts": 0
+    }
+  ],
+  "first_distinguishable_local_input_s": 0.4,
+  "identical_local_input_and_GRU_prefix_steps": 4,
+  "interpretation": "Opposite headings can have identical delivered six-range/command/role/task inputs but different privileged teacher labels. Common scanning produces distinguishing ranges without translation, IDs or world reset. This does not prove complete geometry recovery or learned active perception.",
+  "artifacts": [
+    {
+      "path": "runs/scan-observability-diagnostic/diagnostic.py",
+      "sha256": "1cfa07cd5233c9bf23f916aad61e20d632a376fe19b4c2e01de41303b469cd12"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/forward-local-probe.npz",
+      "sha256": "b53797d6593dfd76c11e433d52d0fd5b0aea6f7f7274fa295e8b5254389c102c"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/forward.npz",
+      "sha256": "55da70b45d804834e0002a5d5e4ed500ecebf9d6f3feabc73ede552b6a203c59"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/protocol.json",
+      "sha256": "68a06e336d74adfbf5398a36f4d61483434b67c513474b57e933532b2bc347dd"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/reverse-local-probe.npz",
+      "sha256": "3e8046f34523427e9c7c80192459be1bf4c10a0fff6e643fa4005719162564bf"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/reverse.npz",
+      "sha256": "27a98e1af2ed961d8224fb92b73a879a068f25e82540b8efa5a575138d4bab98"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/baseline.py",
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/cli.py",
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/imitation.py",
+      "sha256": "d2df3ab5442376f04dfbbc71f3d2cf0cc4b0682ade275d756444ea3d3a0f2d5e"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/scan-observability-diagnostic/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "protocol": {
+    "version": "bari-follow-hypothetical-angular-sampling-v1",
+    "planned_utc": "2026-11-03T12:27:18.160294+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "c8bd2206331a4976d27a6fd848501fdf249624074ac3e5623b96ddd23d28e817"
+    },
+    "dataset": {
+      "path": "runs/teacher-follow-h64/demonstrations.npz",
+      "sha256": "d36c5e75d80d84398666e499dd26cb411cf18e29771a50ad15e50f8e2ada61f9"
+    },
+    "training_episode_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "profiles": [
+      {
+        "horizontal_width_deg": 0.0,
+        "rays_per_sensor": 1
+      },
+      {
+        "horizontal_width_deg": 15.0,
+        "rays_per_sensor": 61
+      },
+      {
+        "horizontal_width_deg": 15.0,
+        "rays_per_sensor": 121
+      },
+      {
+        "horizontal_width_deg": 30.0,
+        "rays_per_sensor": 61
+      },
+      {
+        "horizontal_width_deg": 30.0,
+        "rays_per_sensor": 121
+      },
+      {
+        "horizontal_width_deg": 60.0,
+        "rays_per_sensor": 61
+      },
+      {
+        "horizontal_width_deg": 60.0,
+        "rays_per_sensor": 121
+      }
+    ],
+    "aggregation": "Minimum nearest-surface distance over uniformly sampled horizontal rays from each fixed mounted sensor origin; every ray includes robot/wall nearest-hit occlusion. Self is excluded.",
+    "classification": "Unreported predecessor: no sampled intersection; all intersecting rays occluded by nearer surfaces; or visible on a subray but suppressed by minimum aggregation over that module.",
+    "scope": "Read-only hypothetical geometry on exactly replayed zero-FOV teacher trajectories. No physics, actor observation, training data or public sensing config is changed. Profiles are not measured VL53L7CX zone behavior: actual zones, vertical FoV/floor returns, statuses, noise and aggregation are unresolved. No task-success or deployability claim."
+  },
+  "summary": [
+    {
+      "horizontal_width_deg": 0.0,
+      "rays_per_sensor": 1,
+      "follower_steps": 9568,
+      "predecessor_reported_fraction": 0.8028846153846154,
+      "unreported_angular_miss_steps": 1886,
+      "unreported_per_ray_occlusion_steps": 0,
+      "unreported_module_minimum_suppression_steps": 0,
+      "max_unreported_duration_s": 18.5
+    },
+    {
+      "horizontal_width_deg": 15.0,
+      "rays_per_sensor": 61,
+      "follower_steps": 9568,
+      "predecessor_reported_fraction": 0.986517558528428,
+      "unreported_angular_miss_steps": 129,
+      "unreported_per_ray_occlusion_steps": 0,
+      "unreported_module_minimum_suppression_steps": 0,
+      "max_unreported_duration_s": 1.2000000000000002
+    },
+    {
+      "horizontal_width_deg": 15.0,
+      "rays_per_sensor": 121,
+      "follower_steps": 9568,
+      "predecessor_reported_fraction": 0.986517558528428,
+      "unreported_angular_miss_steps": 129,
+      "unreported_per_ray_occlusion_steps": 0,
+      "unreported_module_minimum_suppression_steps": 0,
+      "max_unreported_duration_s": 1.2000000000000002
+    },
+    {
+      "horizontal_width_deg": 30.0,
+      "rays_per_sensor": 61,
+      "follower_steps": 9568,
+      "predecessor_reported_fraction": 0.9997909698996655,
+      "unreported_angular_miss_steps": 2,
+      "unreported_per_ray_occlusion_steps": 0,
+      "unreported_module_minimum_suppression_steps": 0,
+      "max_unreported_duration_s": 0.1
+    },
+    {
+      "horizontal_width_deg": 30.0,
+      "rays_per_sensor": 121,
+      "follower_steps": 9568,
+      "predecessor_reported_fraction": 0.9997909698996655,
+      "unreported_angular_miss_steps": 2,
+      "unreported_per_ray_occlusion_steps": 0,
+      "unreported_module_minimum_suppression_steps": 0,
+      "max_unreported_duration_s": 0.1
+    },
+    {
+      "horizontal_width_deg": 60.0,
+      "rays_per_sensor": 61,
+      "follower_steps": 9568,
+      "predecessor_reported_fraction": 1.0,
+      "unreported_angular_miss_steps": 0,
+      "unreported_per_ray_occlusion_steps": 0,
+      "unreported_module_minimum_suppression_steps": 0,
+      "max_unreported_duration_s": 0.0
+    },
+    {
+      "horizontal_width_deg": 60.0,
+      "rays_per_sensor": 121,
+      "follower_steps": 9568,
+      "predecessor_reported_fraction": 1.0,
+      "unreported_angular_miss_steps": 0,
+      "unreported_per_ray_occlusion_steps": 0,
+      "unreported_module_minimum_suppression_steps": 0,
+      "max_unreported_duration_s": 0.0
+    }
+  ],
+  "zero_width_environment_and_delivered_coverage_exact": true,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-follow-angular-sampling.py",
+      "sha256": "bff6ebe9479f663091e95ed7c7e0c75c060b8d12a8c4e71c4cb2b4bcc0614b50"
+    },
+    {
+      "path": "runs/follow-angular-sampling/protocol.json",
+      "sha256": "db8a795c075710f54b686f08c2eb0b0922cc1fcffba1d7ab362bbbfd034621a6"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-0.npz",
+      "sha256": "1e7d2a6df263b7642279cbc98721d9f27d864def9f8e5840a037de500ae8a644"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-1.npz",
+      "sha256": "0c14851cb1a01c55f9472ef99ac3a2b15a79cf518068312915fb66bba792f613"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-2.npz",
+      "sha256": "131e7d87d696718ee2f5262f6dcf470140a0b6f2fe553ad363975dac720fdfe7"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-3.npz",
+      "sha256": "ba3064322f09c7c6a3d2f91922a0882978bb3b5888d81ff445fb060880795a09"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-4.npz",
+      "sha256": "ccee71fa868e3b940619e7cffe222f0d03f0b20a16f31bac4962f00bf1c3f331"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-5.npz",
+      "sha256": "61a7e32b94aac0dc5e6ae5fc789ddefb87565de2c9ea7b24b93e92b89c976525"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-6.npz",
+      "sha256": "934ef720653841292c145d13372febd1e63e35793436371fcd2ca8d8c82a4c45"
+    },
+    {
+      "path": "runs/follow-angular-sampling/episode-7.npz",
+      "sha256": "f82d8afba4903bf36c8db5d9386ce6db3fa1a0e16d5d73af223342722e4c68d3"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "version": "bari-local-belief-PPO-verification-v1",
+  "directed_switch_pairs": [
+    [
+      "circle",
+      "square"
+    ],
+    [
+      "circle",
+      "line"
+    ],
+    [
+      "circle",
+      "follow"
+    ],
+    [
+      "square",
+      "circle"
+    ],
+    [
+      "square",
+      "line"
+    ],
+    [
+      "square",
+      "follow"
+    ],
+    [
+      "line",
+      "circle"
+    ],
+    [
+      "line",
+      "square"
+    ],
+    [
+      "line",
+      "follow"
+    ],
+    [
+      "follow",
+      "circle"
+    ],
+    [
+      "follow",
+      "square"
+    ],
+    [
+      "follow",
+      "line"
+    ]
+  ],
+  "ordinary_controller_input_action_hidden_physics_parity": true,
+  "observer_cache_reads_idempotent": true,
+  "finite_recurrent_PPO_update": true,
+  "GRU_and_head_parameters_updated": true,
+  "update_preserves_live_world_and_observer": true,
+  "episode_hidden_and_observer_resets": true,
+  "two_world_timeout_resume_all_rollouts_stats_state_rng_exact": true,
+  "fields_excluded": [],
+  "state_and_rollout_leaves_compared": 13272,
+  "native_resume_rejected": true,
+  "imitation_not_treated_as_exact_resume": true,
+  "corrupt_cache_rejected": true,
+  "critic_input_size": 438,
+  "actor_local_shape": [
+    12
+  ],
+  "verification_only_updates": [
+    1,
+    2
+  ],
+  "behavior_candidates": 0,
+  "stats": {
+    "loss": 0.01079692505300045,
+    "policy_loss": -0.03281392157077789,
+    "value_loss": 0.026832394922773044,
+    "actor_gradient_norm": 35.881048838297524,
+    "critic_gradient_norm": 2.5094542503356934,
+    "post_update_approximate_kl": 0.010461574420332909,
+    "post_update_clip_fraction": 0.15000000596046448,
+    "optimizer_steps": 3,
+    "unnormalized_value_mse": 0.0002570979413576424,
+    "value_normalization_mean": -0.04773771688342095,
+    "value_normalization_std": 0.1,
+    "independent_worlds": 2,
+    "joint_steps_per_update": 4
+  },
+  "scope": "Implementation correctness and exact resume only, not behavioral convergence, controlled occlusion or device acceptance",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-local-belief-rl.py",
+      "sha256": "1d7030d112aae8f92ef6fa37dea81c81cb4e0b6c308601b1f3677aac83eca9a5"
+    },
+    {
+      "path": "runs/local_belief_rl.py",
+      "sha256": "f165d82af1d9a11b5d067f5bab470575e341afa9bd7fbbb3dfad1295997cd064"
+    },
+    {
+      "path": "runs/local-belief-rollout-source-proof.json",
+      "sha256": "2635d9abd1f32461c55d05fd3461b446b8c18717ad89985dc00afdbc805f7deb"
+    },
+    {
+      "path": "runs/local-belief-rl-verification-v1/protocol.json",
+      "sha256": "337e7e3e7fbd3afd28b4c26a4b883d724bbc567451330fcab1d5afea37581624"
+    },
+    {
+      "path": "runs/local-belief-rl-verification-v1/verification-only-update1.pt",
+      "sha256": "1bfc6e2e3b1d6312d1e4985d3542fad8736d9b07fc422dd617113f240f424b11"
+    },
+    {
+      "path": "runs/local-belief-rl-verification-v1/verification-only-invalid-cache.pt",
+      "sha256": "a5170dbe65f2f7647ae4321ecc5c69b86f9994e3ac80f65c6441ef3b068afbf6"
+    },
+    {
+      "path": "runs/local-belief-rl-verification-v1/expected-next-rollout.npz",
+      "sha256": "d27f78a06c4fa06ea5b84b8a7c9730aad71aa295b22ec89169be1026974bd2c7"
+    },
+    {
+      "path": "runs/local-belief-rl-verification-v1/actual-next-rollout.npz",
+      "sha256": "d27f78a06c4fa06ea5b84b8a7c9730aad71aa295b22ec89169be1026974bd2c7"
+    }
+  ]
+}

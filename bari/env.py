@@ -6,8 +6,8 @@ continue spinning wheels at blocked contacts. No collision response teleports ro
 from collections import deque
 from copy import deepcopy
 import numpy as np
-from .config import Config, TASKS
-from .geometry import normalize_ranges, ray_disks, wrap
+from .config import Config, TASKS, CONE_OCCLUSION_BASIS
+from .geometry import normalize_ranges, ray_disks, cone_disks, cone_wall, wrap
 from .metrics import TaskTracker, ANONYMOUS_ORDER, LEGACY_ORDER
 
 
@@ -99,19 +99,27 @@ class Environment:
         angle = self.poses[:, 2, None]+np.deg2rad(c.sensor_angles_deg)[None]
         directions = np.stack((np.cos(angle), np.sin(angle)), axis=2)
         origins = self.poses[:, None, :2]+c.sensor_mount_radius*directions
-        dot = np.sum(origins*directions, axis=2)
-        wall = -dot+np.sqrt(np.maximum(dot**2+c.arena_radius**2-np.sum(origins**2, axis=2), 0))
         centers = self.poses[:, :2]
         radii = np.full(5, c.body_radius)
         if c.obstacles:
             obstacles = np.asarray(c.obstacles)
             centers = np.concatenate((centers, obstacles[:, :2]))
             radii = np.concatenate((radii, obstacles[:, 2]))
-        hits = ray_disks(origins, directions, centers, radii)
+        if c.sensor_fov_deg:
+            half_angle = np.deg2rad(c.sensor_fov_deg/2)
+            hits, hit_directions = cone_disks(origins, angle, half_angle, centers, radii)
+            wall, wall_directions = cone_wall(origins, angle, half_angle, c.arena_radius)
+        else:
+            dot = np.sum(origins*directions, axis=2)
+            wall = -dot+np.sqrt(np.maximum(dot**2+c.arena_radius**2-np.sum(origins**2, axis=2), 0))
+            hits = ray_disks(origins, directions, centers, radii)
         hits[np.arange(5), :, np.arange(5)] = np.inf
         distances = np.concatenate((hits, wall[:, :, None]), axis=2)
         objects = distances.argmin(axis=2)
         ranges = distances.min(axis=2)
+        if c.sensor_fov_deg:
+            witnesses = np.concatenate((hit_directions, wall_directions[:, :, None, :]), axis=2)
+            directions = witnesses[np.arange(5)[:, None], np.arange(6)[None, :], objects]
         # -1 denotes the wall only in observer diagnostics, never in observations.
         objects = np.where(objects == len(centers), -1, objects)
         return ranges, objects, origins, directions
@@ -286,8 +294,9 @@ class Environment:
     def occlusion_diagnostics(self):
         """Observer-only robot intersections hidden behind a nearer beam surface.
 
-        Separate these from blind directions and out-of-range objects. One robot
-        may intersect multiple beams; counts are never a neighbor-count estimate.
+        For cones, these are the selected closest-hit witness rays, not the full
+        cone or scalar-aggregation suppression. One robot may intersect multiple
+        rays; counts are never a neighbor-count estimate.
         """
         ranges, objects, origins, directions = self.raycast()
         intersections = ray_disks(origins, directions, self.poses[:, :2],
@@ -295,6 +304,9 @@ class Environment:
         intersections[np.arange(5), :, np.arange(5)] = np.inf
         in_range = intersections <= self.config.sensor_max
         blocked = in_range & (intersections > ranges[:, :, None]+1e-8)
-        return {"blocked": blocked, "hit_objects": objects,
-                "blocked_robot_beam_pairs": int(blocked.sum()),
-                "directions_with_hidden_robots": int(blocked.any(axis=2).sum())}
+        result = {"blocked": blocked, "hit_objects": objects,
+                  "blocked_robot_beam_pairs": int(blocked.sum()),
+                  "directions_with_hidden_robots": int(blocked.any(axis=2).sum())}
+        if self.config.sensor_fov_deg:
+            result["basis"] = CONE_OCCLUSION_BASIS
+        return result

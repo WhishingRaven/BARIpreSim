@@ -1,0 +1,408 @@
+{
+  "version": "bari-command-model-history-result-v1",
+  "completed_utc": "2026-11-03T17:51:50.267383+00:00",
+  "verification": {
+    "version": "bari-command-model-history-verification-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "specification": {
+      "version": "bari-command-model-history-v1",
+      "settings": {
+        "arena_radius": 1.0,
+        "control_dt": 0.1,
+        "physics_dt": 0.01,
+        "max_wheel_speed": 0.1,
+        "max_wheel_acceleration": 0.3,
+        "wheel_separation": 0.082
+      },
+      "feature_order": [
+        "nominal_x_over_arena_radius",
+        "nominal_y_over_arena_radius",
+        "nominal_sin_yaw",
+        "nominal_cos_yaw",
+        "nominal_left_speed_fraction",
+        "nominal_right_speed_fraction"
+      ],
+      "output_dtype": "float32",
+      "state_dtype": "float64",
+      "state_bytes_per_robot": 40,
+      "inputs": "previous saturated requested left/right commands; continuation/reset mask",
+      "reset": "Zero relative pose/wheels only at controller or episode reset, mask 0",
+      "switch": "Preserve state; task context is not a reset input",
+      "update": "Once before each control inference; integrate the previous interval iff mask 1",
+      "limitations": "Unmeasured nominal motor/geometry model; no collision/slip correction. Not physical odometry or a ground-truth pose."
+    },
+    "teacher_nominal_state_max_error": 0.0,
+    "teacher_wheel_sidecar_all_128_episodes_exact": true,
+    "unblocked_pose_max_error": 2.1760371282653068e-14,
+    "switches_preserve_history": true,
+    "unblocked_controls_checked": 200,
+    "exact_serialization_continuation": true,
+    "stream_permutation_exact": true,
+    "individual_reset_exact": true,
+    "zero_command_actor_action_and_hidden_invariant_to_commands": true,
+    "wall_contact_model_drift_m": 0.27330000000000015,
+    "scope": "Correct local nominal-history prototype and information diagnostic, not a deployed actor, measured odometry, behavioral success or RAM/latency acceptance.",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-command-model-history.py",
+        "sha256": "0eb76354bf4f2ee95462d4fa030e12529fba26428e2a2e72115b41770ad7d4d7"
+      },
+      {
+        "path": "runs/command_model_history.py",
+        "sha256": "04d0a49c654fc44141487063a3933b3680d51c9a07ad0b530e447373498c96fd"
+      },
+      {
+        "path": "runs/teacher-local-circle-student1/demonstrations.npz",
+        "sha256": "470d3df1c3f8a52113d20ed97bcf9db60e0c318e4179ea38125df4a426e101d7"
+      },
+      {
+        "path": "runs/teacher-local-circle-student1/local-teacher-state.npz",
+        "sha256": "94a31f4fbeb44e3b93e32110715c7e7e007d30ec42302fbc2ae4313101b83b83"
+      },
+      {
+        "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+        "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+      },
+      {
+        "path": "runs/command-model-history-verification-v1/student1-features.npz",
+        "sha256": "66bb988a85a56a14d738ba2b5095c418067cd3a1fb01a2851e9689dead372870"
+      }
+    ]
+  },
+  "readout": {
+    "protocol": {
+      "version": "bari-command-model-history-readout-v1",
+      "planned_utc": "2026-11-03T17:49:01.374557+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+      },
+      "dataset": {
+        "path": "runs/teacher-local-circle-student1/demonstrations.npz",
+        "sha256": "470d3df1c3f8a52113d20ed97bcf9db60e0c318e4179ea38125df4a426e101d7"
+      },
+      "sidecar": {
+        "path": "runs/teacher-local-circle-student1/local-teacher-state.npz",
+        "sha256": "94a31f4fbeb44e3b93e32110715c7e7e007d30ec42302fbc2ae4313101b83b83"
+      },
+      "checkpoints": {
+        "original-ordinary": {
+          "path": "runs/train-local-circle-ordinary-11/checkpoint.pt",
+          "sha256": "85639d24afdf52d42284c3f8f34cca0f83288df050f8fbdeb5cbef0b3c5de201"
+        },
+        "original-no-command": {
+          "path": "runs/train-local-circle-no-command-11/checkpoint.pt",
+          "sha256": "8e7fadc16e50a0a2c5988ebeaa3c67e960e45c9b207e88e253a8437c0607202a"
+        },
+        "student1-ordinary": {
+          "path": "runs/train-local-circle-student1-ordinary-11/checkpoint.pt",
+          "sha256": "66e868d4ff3f193f727f552fbe55c5d9768f68e4cc5b8839ef38e868b10f4f79"
+        },
+        "student1-no-command": {
+          "path": "runs/train-local-circle-student1-11/checkpoint.pt",
+          "sha256": "3180b42ab68e8db30868f7200063bcaed025d52ce3fbd1bfbc12e7efa9889660"
+        }
+      },
+      "script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-command-model-history-readout.py",
+        "sha256": "b239e07c6b33921b3b611bc240285b413362c475aebe8665da68a406925187db"
+      },
+      "split_seed": 631,
+      "features": {
+        "path": "runs/command-model-history-verification-v1/student1-features.npz",
+        "sha256": "66bb988a85a56a14d738ba2b5095c418067cd3a1fb01a2851e9689dead372870"
+      },
+      "verification": {
+        "path": "reports/command-model-history-verification.json",
+        "sha256": "fa6fe9f89267b77c84e104cb910560a358d7440ea87397461ca24018433154cc"
+      },
+      "primary_comparison": "original-no-command hidden+motion versus original-no-command hidden only",
+      "qualification_for_separate_actor_pilot_only": "At least15% lower whole-episode test mean body-center vector error on the primary comparison, with no increase in p90. No actor/hardware acceptance.",
+      "train_world_seeds": [
+        1426227163,
+        1642871848,
+        1954480559,
+        1735822488,
+        545861647,
+        1911310793,
+        1556328904,
+        717035210,
+        2135230509,
+        783822680,
+        1849173001,
+        1526484007,
+        631028093,
+        1561658341,
+        1098242968,
+        682828266,
+        596017465,
+        542718027,
+        1984372015,
+        2094412827,
+        751152922,
+        339557547,
+        921532039,
+        622946141,
+        1682864514,
+        1174280309,
+        830442762,
+        589614995,
+        392954959,
+        1522941715,
+        1380123348,
+        1275994714,
+        270520118,
+        1894810040,
+        489431430,
+        796478090,
+        569614998,
+        125590161,
+        1673742079,
+        727644583,
+        335448813,
+        1695638450,
+        179620049,
+        472185483,
+        755750887,
+        1642549434,
+        225593738,
+        2049023891,
+        1671052458,
+        1980205894,
+        77488299,
+        338325528,
+        1572998859,
+        343658820,
+        399964466,
+        372386662,
+        1525723209,
+        2114843451,
+        175091321,
+        1084071891,
+        1823368393,
+        921891633,
+        10602868,
+        1935319987,
+        1438459159,
+        1448909733,
+        1779849302,
+        113147155,
+        2118262672,
+        1520472979,
+        313093398,
+        1347918571,
+        417234529,
+        314509613,
+        1827564084,
+        1889587674,
+        1990041244,
+        1074919601,
+        2006668493,
+        844551625,
+        1293858701,
+        1196506791,
+        331923284,
+        725472360,
+        77915536,
+        272110484,
+        279013654,
+        815768364,
+        1798443499,
+        378929717,
+        2087406834,
+        537484503,
+        1992583878,
+        235416628,
+        1786857254,
+        1196592153,
+        1787205679,
+        382578971,
+        141534937,
+        273650618
+      ],
+      "test_world_seeds": [
+        704069165,
+        1867621744,
+        1926318723,
+        1253358039,
+        1239545633,
+        2036851082,
+        1524300360,
+        889760326,
+        98002488,
+        691716605,
+        748215689,
+        1850432251,
+        1806544839,
+        905956396,
+        351483264,
+        1081995877,
+        1795454904,
+        1216852287,
+        1435263856,
+        1886228515,
+        1335319078,
+        1775943391,
+        1907778686,
+        2095252408,
+        1649121607,
+        721234481,
+        1551689387,
+        1513785544
+      ],
+      "method": "Fixed frozen actors; no actor training. Ridge0.001 on standardized features, train means/std only, separate bias. Fit local-derived teacher center/body x,y on teacher-ready labels. Whole100/28-episode split, never individual-timestep split. Compare current local fields/task and post-observation GRU hidden64.",
+      "limits": "Linear decodability only, not proof that information is absent from nonlinear hidden states. Labels are local teacher estimates, not true poses; post-contact error is documented. Readout weights/masks/targets never enter deployed actor or candidate training."
+    },
+    "results": {
+      "current-observation-with-commands": {
+        "features": 13,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.13985057699941122,
+        "test_vector_rmse_m": 0.20035229428797377,
+        "test_p90_vector_error_m": 0.2780485580142165,
+        "test_mean_radius_abs_error_m": 0.09418129434843055
+      },
+      "current-observation-plus-motion": {
+        "features": 19,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.14202366198743793,
+        "test_vector_rmse_m": 0.20365479501176748,
+        "test_p90_vector_error_m": 0.2792777692790194,
+        "test_mean_radius_abs_error_m": 0.0928360434603232
+      },
+      "current-observation-without-commands": {
+        "features": 11,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.14449279365517945,
+        "test_vector_rmse_m": 0.20368276632177734,
+        "test_p90_vector_error_m": 0.2921834397203922,
+        "test_mean_radius_abs_error_m": 0.09643230776450322
+      },
+      "original-ordinary": {
+        "features": 64,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.13042888615549372,
+        "test_vector_rmse_m": 0.1900342414078138,
+        "test_p90_vector_error_m": 0.27736424972304663,
+        "test_mean_radius_abs_error_m": 0.08509631217255477
+      },
+      "original-ordinary-plus-motion": {
+        "features": 70,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.13306160430269706,
+        "test_vector_rmse_m": 0.19288680255303622,
+        "test_p90_vector_error_m": 0.2761736378478503,
+        "test_mean_radius_abs_error_m": 0.08544484559106671
+      },
+      "original-no-command": {
+        "features": 64,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.13518252696439712,
+        "test_vector_rmse_m": 0.1902025456516592,
+        "test_p90_vector_error_m": 0.28066707532301866,
+        "test_mean_radius_abs_error_m": 0.09056675063578347
+      },
+      "original-no-command-plus-motion": {
+        "features": 70,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.13779786520808893,
+        "test_vector_rmse_m": 0.19338263520962348,
+        "test_p90_vector_error_m": 0.2768145776386283,
+        "test_mean_radius_abs_error_m": 0.09085478232821298
+      },
+      "student1-ordinary": {
+        "features": 64,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.1295106554855909,
+        "test_vector_rmse_m": 0.18619026115129303,
+        "test_p90_vector_error_m": 0.26200119045700576,
+        "test_mean_radius_abs_error_m": 0.08417262545943818
+      },
+      "student1-ordinary-plus-motion": {
+        "features": 70,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.1308545472958468,
+        "test_vector_rmse_m": 0.1882173355532318,
+        "test_p90_vector_error_m": 0.2634439042339306,
+        "test_mean_radius_abs_error_m": 0.08463846120182665
+      },
+      "student1-no-command": {
+        "features": 64,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.12282308392147775,
+        "test_vector_rmse_m": 0.17733862513232254,
+        "test_p90_vector_error_m": 0.24976806126162635,
+        "test_mean_radius_abs_error_m": 0.08278102941331152
+      },
+      "student1-no-command-plus-motion": {
+        "features": 70,
+        "train_sample_robots": 138971,
+        "test_sample_robots": 39195,
+        "test_mean_vector_error_m": 0.1258452531681187,
+        "test_vector_rmse_m": 0.1800583403940524,
+        "test_p90_vector_error_m": 0.2502352440022517,
+        "test_mean_radius_abs_error_m": 0.08390224560390684
+      }
+    },
+    "actors_unchanged": true,
+    "primary_relative_mean_error_reduction": -0.019346718118241846,
+    "qualified_for_separately_planned_actor_pilot_only": false,
+    "artifacts": [
+      {
+        "path": "runs/command-model-history-readout-v1/protocol.json",
+        "sha256": "0e464854211151da6b84d5e764bac9fff4a1583964acabdb623dd19965c3c3e8"
+      },
+      {
+        "path": "runs/command-model-history-readout-v1/readouts.npz",
+        "sha256": "39f5ee35170dddd246876f2b77368b6dccb31645b37ccaaea137f36b94b7b787"
+      }
+    ],
+    "scope": "Frozen-feature diagnostic, not an actor controller, memory benefit, learned success or physical acceptance."
+  },
+  "new_actor_training_runs": 0,
+  "production_source_changed": false,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "decision": "Reject this candidate at its prospective linear-information gate. Preserve the prototype and negative result; do not start the conditional actor pilot. This does not rule out nonlinear use or establish the cause of behavioral failure.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-command-model-history-report.py",
+      "sha256": "82f9955ea4a55fc08500ea9959c3fe165370bcc4f5f39c2b3b6e3db47af9798b"
+    },
+    {
+      "path": "reports/command-model-history-verification.json",
+      "sha256": "fa6fe9f89267b77c84e104cb910560a358d7440ea87397461ca24018433154cc"
+    },
+    {
+      "path": "reports/command-model-history-readout.json",
+      "sha256": "a7daa28d824f1569340a72e968e1b1b8f506b03ec9e3ab8542ac91cad14f62c5"
+    },
+    {
+      "path": "runs/command_model_history.py",
+      "sha256": "04d0a49c654fc44141487063a3933b3680d51c9a07ad0b530e447373498c96fd"
+    },
+    {
+      "path": "runs/verify-command-model-history.py",
+      "sha256": "0eb76354bf4f2ee95462d4fa030e12529fba26428e2a2e72115b41770ad7d4d7"
+    },
+    {
+      "path": "runs/probe-command-model-history-readout.py",
+      "sha256": "b239e07c6b33921b3b611bc240285b413362c475aebe8665da68a406925187db"
+    }
+  ]
+}

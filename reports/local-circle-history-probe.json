@@ -1,0 +1,392 @@
+{
+  "protocol": {
+    "version": "bari-local-circle-history-probe-v1",
+    "planned_utc": "2026-11-03T15:17:57.715542+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "development_seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "scan_seconds": [
+      0.0,
+      2.0
+    ],
+    "scan_requested_wheels": [
+      -0.3,
+      0.3
+    ],
+    "posterior": {
+      "negative_range_hinge_tolerance_m": 0.006,
+      "negative_violation_weight": 100.0,
+      "positive_long_return_match_weight": 0.001,
+      "long_return_min_m": 0.45,
+      "plausible_loss_margin": 0.003,
+      "ready_spread_m": 0.04,
+      "minimum_accumulated_matches": 6
+    },
+    "motion": "Integrate only own previous requested commands through provisional wheel speed/acceleration and differential-drive model. No true pose, measured velocity/odometry, actual wheel state or contact flag enters controller. Sensor-delay alignment uses configured timing.",
+    "information_boundary": "Controller receives local9 only and calibration; fits static arena hypotheses over actual local readings/history. Robot-shaped returns remain hypotheses, not true identities/classes/counts. No learning or deployment wrapper.",
+    "selection": "Prefer no-scan if4/4 official successes and zero cumulative contact/wall attempts; otherwise consider2s scan under same gate. No learner unless selected, no numeric gate/timeout changes. Data collection requires separate protocol.",
+    "scope": "Host-only circle-reference feasibility, hypotheticalFOV60 and unmeasured command model, not GRU-RL or hardware acceptance."
+  },
+  "cases": [
+    {
+      "scan_s": 0.0,
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.009961561622283876,
+        "max_error_m": 0.01291558128576082,
+        "success": true,
+        "acquisition_s": 3.9999999999999987,
+        "holding_goal": true,
+        "hold_s": 26.0000000000001,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.033139016849798905,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 11.486042031609976
+      },
+      "recording": "runs/local-circle-history-probe/scan-0-seed-3001.npz",
+      "mean_center_error_m": 0.005648429046658055,
+      "ready_mean_center_error_m": 0.004170658456520783,
+      "ready_max_center_error_m": 0.01787528791580232,
+      "ready_fraction": 0.984
+    },
+    {
+      "scan_s": 0.0,
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.01265340054129933,
+        "max_error_m": 0.014252993424560054,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1144806395404724,
+        "peak_max_error_m": 0.24968112201981638,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 2,
+        "wall_violations": 0,
+        "control_cost": 9.193284559488047
+      },
+      "recording": "runs/local-circle-history-probe/scan-0-seed-3007.npz",
+      "mean_center_error_m": 0.00913025426872172,
+      "ready_mean_center_error_m": 0.002951585840468684,
+      "ready_max_center_error_m": 0.012257894774082376,
+      "ready_fraction": 0.846
+    },
+    {
+      "scan_s": 0.0,
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.010776977238025879,
+        "max_error_m": 0.014346263314214121,
+        "success": true,
+        "acquisition_s": 15.299999999999999,
+        "holding_goal": true,
+        "hold_s": 14.699999999999964,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.09463215680137248,
+        "peak_max_error_m": 0.2511730805491855,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.89730942272028
+      },
+      "recording": "runs/local-circle-history-probe/scan-0-seed-3011.npz",
+      "mean_center_error_m": 0.0166981698044512,
+      "ready_mean_center_error_m": 0.0047504329283687766,
+      "ready_max_center_error_m": 0.01088190985003729,
+      "ready_fraction": 0.892
+    },
+    {
+      "scan_s": 0.0,
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.007878948509028157,
+        "max_error_m": 0.01193731202648285,
+        "success": true,
+        "acquisition_s": 16.5,
+        "holding_goal": true,
+        "hold_s": 13.499999999999968,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06804507439208413,
+        "peak_max_error_m": 0.16981126098059157,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.589918537091277
+      },
+      "recording": "runs/local-circle-history-probe/scan-0-seed-3019.npz",
+      "mean_center_error_m": 0.01913587828314679,
+      "ready_mean_center_error_m": 0.004015418037178009,
+      "ready_max_center_error_m": 0.009347875679863702,
+      "ready_fraction": 0.846
+    },
+    {
+      "scan_s": 2.0,
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.04863662286647855,
+        "max_error_m": 0.09334440530452141,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.17675149616405786,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.41731421125822
+      },
+      "recording": "runs/local-circle-history-probe/scan-2-seed-3001.npz",
+      "mean_center_error_m": 0.005869530283856088,
+      "ready_mean_center_error_m": 0.00437683493946945,
+      "ready_max_center_error_m": 0.006154189981737979,
+      "ready_fraction": 0.7906666666666666
+    },
+    {
+      "scan_s": 2.0,
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.006203664971454925,
+        "max_error_m": 0.009759604939621134,
+        "success": true,
+        "acquisition_s": 22.0,
+        "holding_goal": true,
+        "hold_s": 7.999999999999988,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.12678905809209717,
+        "peak_max_error_m": 0.24808729403146368,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.851240141541001
+      },
+      "recording": "runs/local-circle-history-probe/scan-2-seed-3007.npz",
+      "mean_center_error_m": 0.0204638916881541,
+      "ready_mean_center_error_m": 0.002465554009521791,
+      "ready_max_center_error_m": 0.010838258397879915,
+      "ready_fraction": 0.846
+    },
+    {
+      "scan_s": 2.0,
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.05701398130963213,
+        "max_error_m": 0.10939434758617089,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.18701781308174462,
+        "peak_max_error_m": 0.25610352573287964,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 7.837901933492601
+      },
+      "recording": "runs/local-circle-history-probe/scan-2-seed-3011.npz",
+      "mean_center_error_m": 0.014253581230880665,
+      "ready_mean_center_error_m": 0.0048717174272872475,
+      "ready_max_center_error_m": 0.010881906828865551,
+      "ready_fraction": 0.7906666666666666
+    },
+    {
+      "scan_s": 2.0,
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.043333163393472755,
+        "max_error_m": 0.08192073480457779,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1686485877873226,
+        "peak_max_error_m": 0.18952017422366413,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.958681720674757
+      },
+      "recording": "runs/local-circle-history-probe/scan-2-seed-3019.npz",
+      "mean_center_error_m": 0.03359081775337489,
+      "ready_mean_center_error_m": 0.0042498963187781015,
+      "ready_max_center_error_m": 0.012602749776262275,
+      "ready_fraction": 0.75
+    }
+  ],
+  "summary": [
+    {
+      "scan_s": 0.0,
+      "episodes": 4,
+      "successes": 3,
+      "final_holding": 3,
+      "contacts": 2,
+      "walls": 0,
+      "mean_final_max_error_m": 0.013363037512754462,
+      "ready_mean_center_error_m": 0.003972023815634064
+    },
+    {
+      "scan_s": 2.0,
+      "episodes": 4,
+      "successes": 1,
+      "final_holding": 1,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.07360477315872281,
+      "ready_mean_center_error_m": 0.0039910006737641475
+    }
+  ],
+  "selected_for_data_only": null,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-circle-history.py",
+      "sha256": "c5b20da151bf1b8a80ed22b2087e5b0a1723de8dc57884e8e732e4b0a23e5db2"
+    },
+    {
+      "path": "runs/local_circle_history.py",
+      "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+    },
+    {
+      "path": "runs/local_circle_guarded.py",
+      "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+    },
+    {
+      "path": "runs/local-circle-history-probe/protocol.json",
+      "sha256": "cae01dae01915c9c1cd663ce032df586d89ec7a01bb1c4e06388b6186532fe08"
+    },
+    {
+      "path": "runs/local-circle-history-probe/scan-0-seed-3001.npz",
+      "sha256": "066d5218e7b500dfa522dfa963649bdfccd2b7cb3cf95d9082d082abb46f1a50"
+    },
+    {
+      "path": "runs/local-circle-history-probe/scan-0-seed-3007.npz",
+      "sha256": "eeae95e3536ade63c9eff7d73774baab1f43f673beaa0e37cd8063dbf18567db"
+    },
+    {
+      "path": "runs/local-circle-history-probe/scan-0-seed-3011.npz",
+      "sha256": "08698ea82faae5777dca24b81e94b6c3fd5af9d7498679792bb8f61eeb3e9c4f"
+    },
+    {
+      "path": "runs/local-circle-history-probe/scan-0-seed-3019.npz",
+      "sha256": "0263e06ca929a87c38f4ecc7d758cad3449443ff1c3b68862643b16c7b6c6243"
+    },
+    {
+      "path": "runs/local-circle-history-probe/scan-2-seed-3001.npz",
+      "sha256": "ed8173d020be3c6ff7cd988a6019de4834c17e70299192f7e9e6ffd1625af093"
+    },
+    {
+      "path": "runs/local-circle-history-probe/scan-2-seed-3007.npz",
+      "sha256": "7e41b897a6b8d7e42961dffe81860c170e596131d93cc243007c8dd9a065b34d"
+    },
+    {
+      "path": "runs/local-circle-history-probe/scan-2-seed-3011.npz",
+      "sha256": "3a1411b9577da697716ec822adc1801d52b5be123a85b3a68f73316e4ec5f74e"
+    },
+    {
+      "path": "runs/local-circle-history-probe/scan-2-seed-3019.npz",
+      "sha256": "d7d9703edd377c62676b76ce8cbfe3cdbdd9240cf370c695fb114a886a30e1db"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "67595eb3f608a496a99663edf59a38166208b69f862a9d9f7097eeeea60c22f1"
+  },
+  "checkpoint": "runs/periodic-critic-invariance-check/checkpoint.pt",
+  "captured_update": 165,
+  "checkpoint_sha256": "74bf27b342e4463363b5a622ed39ee9df1a45d2874f7ab36c036fa232dce5aac",
+  "cases": 71,
+  "mean_own_value_wrap_jump": 2.2834456103737466e-07,
+  "max_own_value_wrap_jump": 1.9073486328125e-06,
+  "critic_input_size": 263,
+  "scope": "Near-equivalent heading value continuity on an early trained critic; not behavioral convergence."
+}

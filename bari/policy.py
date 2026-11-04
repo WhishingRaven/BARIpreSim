@@ -13,7 +13,10 @@ TRAINING_VERSION = "bari-mappo-anonymous-v10"
 MULTIWORLD_VERSION = "bari-mappo-multiworld-v8"
 AUTOREGRESSIVE_VERSION = "bari-mappo-autoregressive-v9"
 ANONYMOUS_AUTOREGRESSIVE_VERSION = "bari-mappo-anonymous-autoregressive-v11"
-ANONYMOUS_TRAINING_VERSIONS = (TRAINING_VERSION, ANONYMOUS_AUTOREGRESSIVE_VERSION)
+PERIODIC_CRITIC_VERSION = "bari-mappo-periodic-critic-v12"
+NO_COMMAND_CRITIC_VERSION = "bari-mappo-periodic-no-command-v13"
+PERIODIC_CRITIC_VERSIONS = (PERIODIC_CRITIC_VERSION, NO_COMMAND_CRITIC_VERSION)
+ANONYMOUS_TRAINING_VERSIONS = (TRAINING_VERSION, ANONYMOUS_AUTOREGRESSIVE_VERSION, *PERIODIC_CRITIC_VERSIONS)
 CORRELATED_TRAINING_VERSIONS = (AUTOREGRESSIVE_VERSION, ANONYMOUS_AUTOREGRESSIVE_VERSION)
 MULTIWORLD_VERSIONS = (MULTIWORLD_VERSION, AUTOREGRESSIVE_VERSION, *ANONYMOUS_TRAINING_VERSIONS)
 AR_CONTRACT_VERSION = "bari-ir-gru-ar-v2"
@@ -220,7 +223,11 @@ def load_checkpoint(path):
         actor = Actor(config.hidden_size, spec["action_correlation"])
     if spec != actor.specification() or payload["contract_version"] != actor_contract(config, actor)["version"]:
         raise ValueError("Actor specification and observation/action contract mismatch")
+    if config.sensor_fov_deg and payload["contract"] != actor_contract(config, actor):
+        raise ValueError("Cone sensor contract mismatch")
     if actor.action_correlation and payload["contract"] != actor_contract(config, actor):
         raise ValueError("Autoregressive actor contract mismatch")
     actor.load_state_dict(payload["actor"])
+    if payload.get("training_version") == NO_COMMAND_CRITIC_VERSION and torch.count_nonzero(actor.encoder.weight[:, 6:8]):
+        raise ValueError("Version 13 requires zero previous-command encoder weights")
     return actor.eval(), config, payload

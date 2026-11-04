@@ -1,0 +1,843 @@
+{
+  "protocol": {
+    "version": "bari-spin-noise-diagnostic-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "0acbe2b21578e667c2e3d44c9e95efad288333c9b076c14d84a3643d4fc02337"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 0.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 32,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "ac61e2f123808481ef57091e7b75d69547fc32fbf1246174ebd3d934d668fd5f",
+    "task": "circle",
+    "jitter_m": 0.015,
+    "seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027
+    ],
+    "conditions": {
+      "stop-deterministic": {
+        "mean": [
+          0.0,
+          0.0
+        ],
+        "std": 0.0
+      },
+      "stop-high-noise": {
+        "mean": [
+          0.0,
+          0.0
+        ],
+        "std": 0.4965853037914095
+      },
+      "stop-low-noise": {
+        "mean": [
+          0.0,
+          0.0
+        ],
+        "std": 0.1353352832366127
+      },
+      "spin-deterministic": {
+        "mean": [
+          -1.2857144308862616,
+          1.2857144308862616
+        ],
+        "std": 0.0
+      },
+      "spin-high-noise": {
+        "mean": [
+          -1.2857144308862616,
+          1.2857144308862616
+        ],
+        "std": 0.4965853037914095
+      },
+      "spin-low-noise": {
+        "mean": [
+          -1.2857144308862616,
+          1.2857144308862616
+        ],
+        "std": 0.1353352832366127
+      }
+    },
+    "noise": "Identical pre-generated standard-normal [time,robot,wheel] array for all conditions at each seed; separate action-noise and physical sensor RNGs. Wheel commands tanh(mean+std*noise).",
+    "spin_reference": "Constant +/-0.858 deterministic wheel command inspired by the measured circle actor; not a replay of that actor.",
+    "scope": "Scripted reference diagnostic of local stochastic reward incentives at already-valid starts. No learned acquisition, following, switching or acceptance claim."
+  },
+  "summary": [
+    {
+      "condition": "stop-deterministic",
+      "episodes": 5,
+      "holding_goal_at_end": 5,
+      "contact_attempts": 0,
+      "episode_mean_robot_return": -0.787393762730062,
+      "final_max_error_m": 0.013074379720397716,
+      "command_energy_integral": 0.0,
+      "command_change_integral": 0.0
+    },
+    {
+      "condition": "stop-high-noise",
+      "episodes": 5,
+      "holding_goal_at_end": 0,
+      "contact_attempts": 0,
+      "episode_mean_robot_return": -2.5925621396332645,
+      "final_max_error_m": 0.06846020335095593,
+      "command_energy_integral": 5.164434645325523,
+      "command_change_integral": 10.318109259239055
+    },
+    {
+      "condition": "stop-low-noise",
+      "episodes": 5,
+      "holding_goal_at_end": 5,
+      "contact_attempts": 0,
+      "episode_mean_robot_return": -0.9862715508724079,
+      "final_max_error_m": 0.021357667763089564,
+      "command_energy_integral": 0.5300369056122218,
+      "command_change_integral": 1.0620060899257204
+    },
+    {
+      "condition": "spin-deterministic",
+      "episodes": 5,
+      "holding_goal_at_end": 5,
+      "contact_attempts": 0,
+      "episode_mean_robot_return": -1.0097152973059564,
+      "final_max_error_m": 0.013074379720397716,
+      "command_energy_integral": 22.08491999999995,
+      "command_change_integral": 0.07361640000001243
+    },
+    {
+      "condition": "spin-high-noise",
+      "episodes": 5,
+      "holding_goal_at_end": 4,
+      "contact_attempts": 0,
+      "episode_mean_robot_return": -1.388766033934644,
+      "final_max_error_m": 0.02458885607800529,
+      "command_energy_integral": 20.295134905749713,
+      "command_change_integral": 1.967790508796608
+    },
+    {
+      "condition": "spin-low-noise",
+      "episodes": 5,
+      "holding_goal_at_end": 5,
+      "contact_attempts": 0,
+      "episode_mean_robot_return": -1.0392260822467505,
+      "final_max_error_m": 0.014162482000281144,
+      "command_energy_integral": 21.924226158235587,
+      "command_change_integral": 0.15505181690313224
+    }
+  ],
+  "episodes": [
+    {
+      "condition": "stop-deterministic",
+      "seed": 2001,
+      "episode_mean_robot_return": -0.9598284959793091,
+      "final_max_error_m": 0.01395210069880227,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.0,
+      "command_change_integral": 0.0,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 0.0,
+      "recording": "runs/spin-noise-diagnostic/stop-deterministic-2001.npz"
+    },
+    {
+      "condition": "stop-high-noise",
+      "seed": 2001,
+      "episode_mean_robot_return": -2.839390514534898,
+      "final_max_error_m": 0.082078827408361,
+      "holding_goal_at_end": false,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 5.047225631483693,
+      "command_change_integral": 10.001737752978642,
+      "mean_abs_linear_speed_m_s": 0.015724148290723074,
+      "mean_abs_yaw_speed_rad_s": 0.36309218812971716,
+      "recording": "runs/spin-noise-diagnostic/stop-high-noise-2001.npz"
+    },
+    {
+      "condition": "stop-low-noise",
+      "seed": 2001,
+      "episode_mean_robot_return": -1.27888507899479,
+      "final_max_error_m": 0.024507221295739574,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.5166063653323545,
+      "command_change_integral": 1.0222861058628459,
+      "mean_abs_linear_speed_m_s": 0.0070156133691505855,
+      "mean_abs_yaw_speed_rad_s": 0.1702162433605491,
+      "recording": "runs/spin-noise-diagnostic/stop-low-noise-2001.npz"
+    },
+    {
+      "condition": "spin-deterministic",
+      "seed": 2001,
+      "episode_mean_robot_return": -1.1821500030346215,
+      "final_max_error_m": 0.01395210069880227,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 22.08491999999995,
+      "command_change_integral": 0.07361640000001243,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 2.0860487804878054,
+      "recording": "runs/spin-noise-diagnostic/spin-deterministic-2001.npz"
+    },
+    {
+      "condition": "spin-high-noise",
+      "seed": 2001,
+      "episode_mean_robot_return": -1.3565143690211698,
+      "final_max_error_m": 0.02070357888614418,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 20.39161340122369,
+      "command_change_integral": 1.9234378721981298,
+      "mean_abs_linear_speed_m_s": 0.0072063825975476345,
+      "mean_abs_yaw_speed_rad_s": 1.9785742669649995,
+      "recording": "runs/spin-noise-diagnostic/spin-high-noise-2001.npz"
+    },
+    {
+      "condition": "spin-low-noise",
+      "seed": 2001,
+      "episode_mean_robot_return": -1.209949656156823,
+      "final_max_error_m": 0.01824372564202094,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 21.939307813302307,
+      "command_change_integral": 0.15440079186262498,
+      "mean_abs_linear_speed_m_s": 0.0020048384111374068,
+      "mean_abs_yaw_speed_rad_s": 2.0771497876830574,
+      "recording": "runs/spin-noise-diagnostic/spin-low-noise-2001.npz"
+    },
+    {
+      "condition": "stop-deterministic",
+      "seed": 2003,
+      "episode_mean_robot_return": -0.9050531079992652,
+      "final_max_error_m": 0.0196404926920979,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.0,
+      "command_change_integral": 0.0,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 0.0,
+      "recording": "runs/spin-noise-diagnostic/stop-deterministic-2003.npz"
+    },
+    {
+      "condition": "stop-high-noise",
+      "seed": 2003,
+      "episode_mean_robot_return": -2.087894660595339,
+      "final_max_error_m": 0.03752730028420709,
+      "holding_goal_at_end": false,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 5.230174543578476,
+      "command_change_integral": 10.592496831457357,
+      "mean_abs_linear_speed_m_s": 0.0158434044333055,
+      "mean_abs_yaw_speed_rad_s": 0.3756301795927119,
+      "recording": "runs/spin-noise-diagnostic/stop-high-noise-2003.npz"
+    },
+    {
+      "condition": "stop-low-noise",
+      "seed": 2003,
+      "episode_mean_robot_return": -0.9049366581020877,
+      "final_max_error_m": 0.019634565974139605,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.5297276271881637,
+      "command_change_integral": 1.0770311337178262,
+      "mean_abs_linear_speed_m_s": 0.007027426686867967,
+      "mean_abs_yaw_speed_rad_s": 0.17115341738686107,
+      "recording": "runs/spin-noise-diagnostic/stop-low-noise-2003.npz"
+    },
+    {
+      "condition": "spin-deterministic",
+      "seed": 2003,
+      "episode_mean_robot_return": -1.1273746143560857,
+      "final_max_error_m": 0.0196404926920979,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 22.08491999999995,
+      "command_change_integral": 0.07361640000001243,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 2.0860487804878054,
+      "recording": "runs/spin-noise-diagnostic/spin-deterministic-2003.npz"
+    },
+    {
+      "condition": "spin-high-noise",
+      "seed": 2003,
+      "episode_mean_robot_return": -1.646767758554688,
+      "final_max_error_m": 0.038927582143510796,
+      "holding_goal_at_end": false,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 20.318690764426833,
+      "command_change_integral": 1.850436543297683,
+      "mean_abs_linear_speed_m_s": 0.0072218633611158736,
+      "mean_abs_yaw_speed_rad_s": 1.979821054592203,
+      "recording": "runs/spin-noise-diagnostic/spin-high-noise-2003.npz"
+    },
+    {
+      "condition": "spin-low-noise",
+      "seed": 2003,
+      "episode_mean_robot_return": -1.1146517414599657,
+      "final_max_error_m": 0.020272097405101136,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 21.941738332634113,
+      "command_change_integral": 0.1518760671314992,
+      "mean_abs_linear_speed_m_s": 0.0020265165171735764,
+      "mean_abs_yaw_speed_rad_s": 2.0774623674786348,
+      "recording": "runs/spin-noise-diagnostic/spin-low-noise-2003.npz"
+    },
+    {
+      "condition": "stop-deterministic",
+      "seed": 2011,
+      "episode_mean_robot_return": -0.6894644815474749,
+      "final_max_error_m": 0.011617410537409278,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.0,
+      "command_change_integral": 0.0,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 0.0,
+      "recording": "runs/spin-noise-diagnostic/stop-deterministic-2011.npz"
+    },
+    {
+      "condition": "stop-high-noise",
+      "seed": 2011,
+      "episode_mean_robot_return": -2.407619255010104,
+      "final_max_error_m": 0.07636318652331811,
+      "holding_goal_at_end": false,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 5.211976463315697,
+      "command_change_integral": 10.077371514396233,
+      "mean_abs_linear_speed_m_s": 0.015600399037117872,
+      "mean_abs_yaw_speed_rad_s": 0.3923011042800579,
+      "recording": "runs/spin-noise-diagnostic/stop-high-noise-2011.npz"
+    },
+    {
+      "condition": "stop-low-noise",
+      "seed": 2011,
+      "episode_mean_robot_return": -0.8929267389961808,
+      "final_max_error_m": 0.0204638049125366,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.5384171836985936,
+      "command_change_integral": 1.0435990956375738,
+      "mean_abs_linear_speed_m_s": 0.006981833447450688,
+      "mean_abs_yaw_speed_rad_s": 0.171613112582807,
+      "recording": "runs/spin-noise-diagnostic/stop-low-noise-2011.npz"
+    },
+    {
+      "condition": "spin-deterministic",
+      "seed": 2011,
+      "episode_mean_robot_return": -0.9117860582191497,
+      "final_max_error_m": 0.011617410537409278,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 22.08491999999995,
+      "command_change_integral": 0.07361640000001243,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 2.0860487804878054,
+      "recording": "runs/spin-noise-diagnostic/spin-deterministic-2011.npz"
+    },
+    {
+      "condition": "spin-high-noise",
+      "seed": 2011,
+      "episode_mean_robot_return": -1.4426433352055028,
+      "final_max_error_m": 0.03186663496447962,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 20.229136308675294,
+      "command_change_integral": 1.9158153571885495,
+      "mean_abs_linear_speed_m_s": 0.007263765850477843,
+      "mean_abs_yaw_speed_rad_s": 1.97286346416685,
+      "recording": "runs/spin-noise-diagnostic/spin-high-noise-2011.npz"
+    },
+    {
+      "condition": "spin-low-noise",
+      "seed": 2011,
+      "episode_mean_robot_return": -0.8790281394030899,
+      "final_max_error_m": 0.008710252193152997,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 21.91182329216931,
+      "command_change_integral": 0.15395103263523888,
+      "mean_abs_linear_speed_m_s": 0.0020327252029025173,
+      "mean_abs_yaw_speed_rad_s": 2.0757146149451753,
+      "recording": "runs/spin-noise-diagnostic/spin-low-noise-2011.npz"
+    },
+    {
+      "condition": "stop-deterministic",
+      "seed": 2017,
+      "episode_mean_robot_return": -0.7813626201823354,
+      "final_max_error_m": 0.01274024978136333,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.0,
+      "command_change_integral": 0.0,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 0.0,
+      "recording": "runs/spin-noise-diagnostic/stop-deterministic-2017.npz"
+    },
+    {
+      "condition": "stop-high-noise",
+      "seed": 2017,
+      "episode_mean_robot_return": -2.5105217729287688,
+      "final_max_error_m": 0.05678567052541904,
+      "holding_goal_at_end": false,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 5.27747392397208,
+      "command_change_integral": 10.71150051856782,
+      "mean_abs_linear_speed_m_s": 0.016136557934268873,
+      "mean_abs_yaw_speed_rad_s": 0.37094433294779444,
+      "recording": "runs/spin-noise-diagnostic/stop-high-noise-2017.npz"
+    },
+    {
+      "condition": "stop-low-noise",
+      "seed": 2017,
+      "episode_mean_robot_return": -1.0008642118536955,
+      "final_max_error_m": 0.02093774677169391,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.5457811857856454,
+      "command_change_integral": 1.1123508299657103,
+      "mean_abs_linear_speed_m_s": 0.007295430271692602,
+      "mean_abs_yaw_speed_rad_s": 0.16726003320527855,
+      "recording": "runs/spin-noise-diagnostic/stop-low-noise-2017.npz"
+    },
+    {
+      "condition": "spin-deterministic",
+      "seed": 2017,
+      "episode_mean_robot_return": -1.0036841966211796,
+      "final_max_error_m": 0.01274024978136333,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 22.08491999999995,
+      "command_change_integral": 0.07361640000001243,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 2.0860487804878054,
+      "recording": "runs/spin-noise-diagnostic/spin-deterministic-2017.npz"
+    },
+    {
+      "condition": "spin-high-noise",
+      "seed": 2017,
+      "episode_mean_robot_return": -1.39015480899252,
+      "final_max_error_m": 0.01946585670508361,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 20.268752583568723,
+      "command_change_integral": 2.0397424703567504,
+      "mean_abs_linear_speed_m_s": 0.007383380580658425,
+      "mean_abs_yaw_speed_rad_s": 1.9783677320788804,
+      "recording": "runs/spin-noise-diagnostic/spin-high-noise-2017.npz"
+    },
+    {
+      "condition": "spin-low-noise",
+      "seed": 2017,
+      "episode_mean_robot_return": -1.070739119546488,
+      "final_max_error_m": 0.014699505106387536,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 21.926390360534782,
+      "command_change_integral": 0.15887795537484417,
+      "mean_abs_linear_speed_m_s": 0.0020896079005087624,
+      "mean_abs_yaw_speed_rad_s": 2.0767272159959376,
+      "recording": "runs/spin-noise-diagnostic/spin-low-noise-2017.npz"
+    },
+    {
+      "condition": "stop-deterministic",
+      "seed": 2027,
+      "episode_mean_robot_return": -0.6012601079419255,
+      "final_max_error_m": 0.007421644892315797,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.0,
+      "command_change_integral": 0.0,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 0.0,
+      "recording": "runs/spin-noise-diagnostic/stop-deterministic-2027.npz"
+    },
+    {
+      "condition": "stop-high-noise",
+      "seed": 2027,
+      "episode_mean_robot_return": -3.1173844950972125,
+      "final_max_error_m": 0.08954603201347437,
+      "holding_goal_at_end": false,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 5.0553226642776705,
+      "command_change_integral": 10.207439678795218,
+      "mean_abs_linear_speed_m_s": 0.01570965396034958,
+      "mean_abs_yaw_speed_rad_s": 0.37451266341635886,
+      "recording": "runs/spin-noise-diagnostic/stop-high-noise-2027.npz"
+    },
+    {
+      "condition": "stop-low-noise",
+      "seed": 2027,
+      "episode_mean_robot_return": -0.8537450664152857,
+      "final_max_error_m": 0.021244999861338123,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 0.519652166056352,
+      "command_change_integral": 1.0547632844446455,
+      "mean_abs_linear_speed_m_s": 0.006995530532326087,
+      "mean_abs_yaw_speed_rad_s": 0.1667882387523854,
+      "recording": "runs/spin-noise-diagnostic/stop-low-noise-2027.npz"
+    },
+    {
+      "condition": "spin-deterministic",
+      "seed": 2027,
+      "episode_mean_robot_return": -0.823581614298746,
+      "final_max_error_m": 0.007421644892315797,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 22.08491999999995,
+      "command_change_integral": 0.07361640000001243,
+      "mean_abs_linear_speed_m_s": 0.0,
+      "mean_abs_yaw_speed_rad_s": 2.0860487804878054,
+      "recording": "runs/spin-noise-diagnostic/spin-deterministic-2027.npz"
+    },
+    {
+      "condition": "spin-high-noise",
+      "seed": 2027,
+      "episode_mean_robot_return": -1.107749897899339,
+      "final_max_error_m": 0.011980627690808245,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 20.267481470854005,
+      "command_change_integral": 2.109520300941927,
+      "mean_abs_linear_speed_m_s": 0.007274444863906373,
+      "mean_abs_yaw_speed_rad_s": 1.9795754930521365,
+      "recording": "runs/spin-noise-diagnostic/spin-high-noise-2027.npz"
+    },
+    {
+      "condition": "spin-low-noise",
+      "seed": 2027,
+      "episode_mean_robot_return": -0.9217617546673864,
+      "final_max_error_m": 0.008886829654743104,
+      "holding_goal_at_end": true,
+      "collisions": 0,
+      "wall_attempts": 0,
+      "command_energy_integral": 21.901870992537432,
+      "command_change_integral": 0.1561532375114541,
+      "mean_abs_linear_speed_m_s": 0.0020413845833433595,
+      "mean_abs_yaw_speed_rad_s": 2.0755764111599593,
+      "recording": "runs/spin-noise-diagnostic/spin-low-noise-2027.npz"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "runs/spin-noise-diagnostic/diagnostic.py",
+      "sha256": "57609e739f2a84a7f880f93b3a4614fe6e373f21f3e124f3b564297ba196205c"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/inputs-2001.npz",
+      "sha256": "799e3bb3f4e9c65f6ba641707906bce5160c2eebe1d693943c39346442b55414"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/inputs-2003.npz",
+      "sha256": "949e8cdf7310ba49736182a72b6cac8ddf6a90876bb06b19dcb47c3845628dd7"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/inputs-2011.npz",
+      "sha256": "49003fe7644b1077a1d178ccd2830253c3688b703a26d6f9ed22c83423fc91a2"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/inputs-2017.npz",
+      "sha256": "95779827b590a4ba26d3a0a05902f9ad1b1f3c467971ab883ae792e6d9ac2868"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/inputs-2027.npz",
+      "sha256": "ccdf468a18a34fe7fbc7ae80f105d30167958cd81160a2bd0a7702fd2a206c2c"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/protocol.json",
+      "sha256": "fa7982784698783a29beedc8d02e9f0e87811f530c33bb3569b45dcdcdbee333"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/baseline.py",
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/cli.py",
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/imitation.py",
+      "sha256": "d2df3ab5442376f04dfbbc71f3d2cf0cc4b0682ade275d756444ea3d3a0f2d5e"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/source/train.py",
+      "sha256": "b2e61a8bc9076ee33ac358eb2fbbaf2920d60035c9e74a6cbd39c4f521ccad94"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-deterministic-2001.npz",
+      "sha256": "d353d1c2085d29e3fd81cc7101cf66291f977fddbaac11bd9b0f298ae6d210b9"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-deterministic-2003.npz",
+      "sha256": "fb5b190a8c63a37e1fb606599228c498711ff215d0ba34611f70019f6989831e"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-deterministic-2011.npz",
+      "sha256": "9883087490f981f1faa81f4bf1c07df77a068ba113cbdd226592c874c33bca3b"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-deterministic-2017.npz",
+      "sha256": "36db75b1e775514884a565907d84d96f63ec2f99b5a5fa06d042b012023cfa9c"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-deterministic-2027.npz",
+      "sha256": "637ff1b84fab2465f5c40ac7e800ddc62cbafa40378813158c0a0e2c45fb6057"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-high-noise-2001.npz",
+      "sha256": "2a2920c7bb4496e021f0b330e4494c9218417f7ed0b873b8707e391c4939c3d8"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-high-noise-2003.npz",
+      "sha256": "5842cfd6da49c31ebdab7905c1c7ff1de96be93733c9d1cdec2fbd6f04544de2"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-high-noise-2011.npz",
+      "sha256": "25a8880b94b3e7a4175141f790d75b18f3bd918f017252d168295b75ac8b41d7"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-high-noise-2017.npz",
+      "sha256": "079d39aabb606ffa8794e5aeee90e2785e754012bfe46973099d1efd521fd920"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-high-noise-2027.npz",
+      "sha256": "1edd517532aef2499e18f6a4efb181634f94f91664cd730796f9173658c1fc85"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-low-noise-2001.npz",
+      "sha256": "266eb51abcf0ad6418020c18e6f5705ce189f96501bd89871ea108e414331d30"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-low-noise-2003.npz",
+      "sha256": "0aa57232a6d8bc76fe3dde7d97e984d11a55fff699131543ec64a3cc249410d9"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-low-noise-2011.npz",
+      "sha256": "1ace220c6c35112533f978005471d9cbd427cca6b654088637605cace3a9bcdb"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-low-noise-2017.npz",
+      "sha256": "cb7f38faea2588c7099d40c417d5126cd4aa9ce5d30f7743c91f46fcc4c5304a"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/spin-low-noise-2027.npz",
+      "sha256": "ac059dca95d7e63ee11448213bbc846f13970854c60d40783bc0ab91f4a08ac5"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-deterministic-2001.npz",
+      "sha256": "e197b16d5a8e0436aae57f45b6826b17a12b6dad6b87af197dd5afe961a3cb3c"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-deterministic-2003.npz",
+      "sha256": "1d2c4c8428ae0b90785611f16520f09e77c7e30b94b86f1a69792b8c546094c7"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-deterministic-2011.npz",
+      "sha256": "8905e1b40f8fc2180b748cb1b3b37f90b272fd7cf20b3dc1e1fa2ecf0c79f4fa"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-deterministic-2017.npz",
+      "sha256": "b05bc506eccbecd4ca4a812c21501ea613fd541b3c297bc7ede7894dcec0c86f"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-deterministic-2027.npz",
+      "sha256": "5a35390e69907ae3b4909ef67c3233a693a7a5ea4d6889f79fdb432870563b9d"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-high-noise-2001.npz",
+      "sha256": "47fb4bb00205a5e9672bfd73da87de8ee387f41924cb7d5de882d412e211b909"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-high-noise-2003.npz",
+      "sha256": "6b38f781ba60b98e68f38f6adaa2478033ffa48aa6559f14a77123e66d2a21dc"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-high-noise-2011.npz",
+      "sha256": "44bca7004bdb36bb13fcfdf276cc4954b572a92e91a4c503b6b7c32e119d3d94"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-high-noise-2017.npz",
+      "sha256": "121bd8377f660e6bd2f80c96886947b44740ca3c0cbb9e839861444c613f50f7"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-high-noise-2027.npz",
+      "sha256": "23cb8ec69410eb63dde9ab737a3041cfaabced1ba97de9ef0754bdf717c2202d"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-low-noise-2001.npz",
+      "sha256": "3806f4e57910f2cb882f6173d438c87abfdd3ce05da76a62ed5e9a12f39dc3cb"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-low-noise-2003.npz",
+      "sha256": "a98b74d65c4d2e164d020f7b9d7bf66bdcf79f9e7d985db43015fde1ddf3c95f"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-low-noise-2011.npz",
+      "sha256": "63cb53c402c00d4993bfdbe3f877ef4f6e6ed88dec937eef6ad7df6bed518a61"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-low-noise-2017.npz",
+      "sha256": "47f7253c888739c03d2a3d1cf0f9ac182c5a27cd316e5bab1ca7fd836aac03c7"
+    },
+    {
+      "path": "runs/spin-noise-diagnostic/stop-low-noise-2027.npz",
+      "sha256": "ce65cb86d04dc933210d3c4ca98fa810ed6119dd1463a037d0c22a0379f495bd"
+    }
+  ]
+}

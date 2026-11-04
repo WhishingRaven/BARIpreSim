@@ -1,0 +1,458 @@
+{
+  "protocol": {
+    "version": "bari-local-line-history-probe-v2",
+    "planned_utc": "2026-11-03T20:12:18.001804+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "teacher_version": "local-line-history-clearance-v2",
+    "development_seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "larger_seeds": [
+      699746730,
+      947396588,
+      42032562,
+      2127349747,
+      25694697,
+      579260204,
+      942757825,
+      443028831,
+      661446613,
+      1395342943,
+      599446967,
+      202538306,
+      1362798069,
+      188944437,
+      780309098,
+      1705089267,
+      1619859460,
+      418962923,
+      1525466569,
+      195523468
+    ],
+    "maintenance_angles_rad": [
+      0.0,
+      0.37,
+      1.1,
+      2.2
+    ],
+    "geometry": "Five anonymous equally spaced line points at0.17m, using only local inferred-body PCA and nearest projected gaps; no role-specific target or global orientation. All-five invariant evaluator unchanged.",
+    "information_boundary": "Only current local9, retained own command/range history and provisional calibration. No true pose/wheels, hit class, object ID/count, evaluator target assignment or errors enter teacher actions.",
+    "repair": "Use accumulated wall/range history instead of instantaneous inference, shorten repulsion/handed detour activation to0.158/0.165m so both vanish at the0.17m goal, and reduce inferred-normal closing clearance from30 to15mm. Combined repair, not an isolated causal effect; no physical guarantee.",
+    "historical_baseline": {
+      "path": "reports/local-line-field-probe.json",
+      "sha256": "26f676104125e4056a798be21e34302b22163d68bc12426245a7cdb7bce9505a"
+    },
+    "preparation_script": {
+      "path": "runs/prepare-local-line-history-probe.py",
+      "sha256": "c155b20e2baae631ca71a27f35e9895cf04c421b9f640aa0d6b1b90aaa45f465"
+    },
+    "motion_and_safety": "Provisional own-command differential-drive integration; local inferred-normal velocity projection and speed limits, no physical safety guarantee or ground-truth mask.",
+    "selection": "Require4/4 random official successes AND final holds, zero total safety attempts, and4/4 exact-line maintenance holds with zero safety before fixed20 random cases. Then require>=18/20 success/holds with zero safety. No training, default promotion or automatic data collection; retain all failures without extensions.",
+    "sources": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-line-history.py",
+        "sha256": "9ac824d73d632e05ba87b4de9b8ae0354204322f37a9c8cbd9bdf1e33e1c6f03"
+      },
+      {
+        "path": "runs/local_line_history.py",
+        "sha256": "531105a21ceb84dcc70f04bbace60064e4584ebd0b61323add00e46b67e2c439"
+      },
+      {
+        "path": "runs/local_circle_cooperative.py",
+        "sha256": "14fa30084b3bbf6c5aea7fe171547497b8b906a94e6424a4f95223c8c647ae9d"
+      },
+      {
+        "path": "runs/local_circle_history.py",
+        "sha256": "bcd2ab152f891be6caf3df7dfa6de916a4744cd04c64aaad1f3e604393a4a16d"
+      },
+      {
+        "path": "runs/local_circle_guarded.py",
+        "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+      }
+    ],
+    "scope": "Host-only unlearned line feasibility. Hypothetical FOV60 and unmeasured geometry/timing. Not GRU-RL, four-task, occlusion, final-heldout or deployment acceptance."
+  },
+  "cases": [
+    {
+      "seed": 9101,
+      "condition": "maintenance-0",
+      "final": {
+        "rms_error_m": 0.000630405266544515,
+        "max_error_m": 0.000930955347068444,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0013168639220540377,
+        "peak_max_error_m": 0.002609003805979,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 0.5383297144714563
+      },
+      "recording": "runs/local-line-history-v2/maintenance-0-9101.npz",
+      "local_inputs": "runs/local-line-history-v2/maintenance-0-9101-local-inputs.npz",
+      "center_ready_fraction": 0.39666666666666667
+    },
+    {
+      "seed": 9102,
+      "condition": "maintenance-1",
+      "final": {
+        "rms_error_m": 0.0009530680896047872,
+        "max_error_m": 0.0015118576037206357,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0011662028253854075,
+        "peak_max_error_m": 0.0027674251472087877,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 0.3797012290863545
+      },
+      "recording": "runs/local-line-history-v2/maintenance-1-9102.npz",
+      "local_inputs": "runs/local-line-history-v2/maintenance-1-9102-local-inputs.npz",
+      "center_ready_fraction": 0.3973333333333333
+    },
+    {
+      "seed": 9103,
+      "condition": "maintenance-2",
+      "final": {
+        "rms_error_m": 0.0008960157513849926,
+        "max_error_m": 0.0011490457954774684,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0009630485607589602,
+        "peak_max_error_m": 0.0019006894422715366,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 0.48887358957373744
+      },
+      "recording": "runs/local-line-history-v2/maintenance-2-9103.npz",
+      "local_inputs": "runs/local-line-history-v2/maintenance-2-9103-local-inputs.npz",
+      "center_ready_fraction": 0.39666666666666667
+    },
+    {
+      "seed": 9104,
+      "condition": "maintenance-3",
+      "final": {
+        "rms_error_m": 0.0011789238531129394,
+        "max_error_m": 0.0017819661059739382,
+        "success": true,
+        "acquisition_s": 0.0,
+        "holding_goal": true,
+        "hold_s": 30.000000000000156,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.0010900214041196501,
+        "peak_max_error_m": 0.0020319345579937866,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 0.48839090701416493
+      },
+      "recording": "runs/local-line-history-v2/maintenance-3-9104.npz",
+      "local_inputs": "runs/local-line-history-v2/maintenance-3-9104-local-inputs.npz",
+      "center_ready_fraction": 0.3973333333333333
+    },
+    {
+      "seed": 3001,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.004938691085618427,
+        "max_error_m": 0.0067277248511884505,
+        "success": true,
+        "acquisition_s": 15.499999999999998,
+        "holding_goal": true,
+        "hold_s": 14.499999999999964,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.06060171516494517,
+        "peak_max_error_m": 0.2138628202513859,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.878632857352105
+      },
+      "recording": "runs/local-line-history-v2/development-3001.npz",
+      "local_inputs": "runs/local-line-history-v2/development-3001-local-inputs.npz",
+      "center_ready_fraction": 0.9666666666666667
+    },
+    {
+      "seed": 3007,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.002780591589869428,
+        "max_error_m": 0.0036290700067237534,
+        "success": true,
+        "acquisition_s": 5.1999999999999975,
+        "holding_goal": true,
+        "hold_s": 24.800000000000082,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.02161436067078712,
+        "peak_max_error_m": 0.17197178708520375,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 3.662301864399595
+      },
+      "recording": "runs/local-line-history-v2/development-3007.npz",
+      "local_inputs": "runs/local-line-history-v2/development-3007-local-inputs.npz",
+      "center_ready_fraction": 0.9466666666666667
+    },
+    {
+      "seed": 3011,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.06974209489425791,
+        "max_error_m": 0.09426303284602791,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.14470553297042466,
+        "peak_max_error_m": 0.21062445769266047,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 15.321740117954876
+      },
+      "recording": "runs/local-line-history-v2/development-3011.npz",
+      "local_inputs": "runs/local-line-history-v2/development-3011-local-inputs.npz",
+      "center_ready_fraction": 0.79
+    },
+    {
+      "seed": 3019,
+      "condition": "development",
+      "final": {
+        "rms_error_m": 0.008734996132641483,
+        "max_error_m": 0.011334173594543098,
+        "success": true,
+        "acquisition_s": 24.1,
+        "holding_goal": true,
+        "hold_s": 5.899999999999995,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.10824042226175931,
+        "peak_max_error_m": 0.1902711684628427,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 14.394169498269367
+      },
+      "recording": "runs/local-line-history-v2/development-3019.npz",
+      "local_inputs": "runs/local-line-history-v2/development-3019-local-inputs.npz",
+      "center_ready_fraction": 0.5953333333333334
+    }
+  ],
+  "summary": {
+    "maintenance": {
+      "episodes": 4,
+      "successes": 4,
+      "final_holds": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.0013434562130601217
+    },
+    "development": {
+      "episodes": 4,
+      "successes": 3,
+      "final_holds": 3,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.028988500324620803
+    },
+    "larger": {
+      "episodes": 0,
+      "successes": 0,
+      "final_holds": 0,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": null
+    }
+  },
+  "permutation_replay": {
+    "all300_commands_exact": true,
+    "permutation_including_center_role": [
+      3,
+      1,
+      4,
+      0,
+      2
+    ],
+    "no_robot_index_assignment_in_teacher": true
+  },
+  "selected_for_separately_planned_data_only": false,
+  "GRU_or_RL_training_updates": 0,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "artifacts": [
+    {
+      "path": "runs/local-line-history-v2/protocol.json",
+      "sha256": "da3c9ea81410c9bac038989f212a5468bb6ad6d36b9dc2d5136b3a1755a0dc21"
+    },
+    {
+      "path": "runs/local-line-history-v2/maintenance-0-9101.npz",
+      "sha256": "4766b2d0a3baca5b84947a8d140904c25f0d9f563f3488a206083eca51498218"
+    },
+    {
+      "path": "runs/local-line-history-v2/maintenance-0-9101-local-inputs.npz",
+      "sha256": "ae58faff3e451297ed6658ac5afb4d827b4b88edc5fdf6d73271d842cc14992c"
+    },
+    {
+      "path": "runs/local-line-history-v2/maintenance-1-9102.npz",
+      "sha256": "5fea119779b4267a346f59b39ad41a17447dcc2b4e7f7001b8478b1d52557547"
+    },
+    {
+      "path": "runs/local-line-history-v2/maintenance-1-9102-local-inputs.npz",
+      "sha256": "39d7c20f2c92d17318e2a1c725fea6a08d9d359d83067033f9db52ea8666a95d"
+    },
+    {
+      "path": "runs/local-line-history-v2/maintenance-2-9103.npz",
+      "sha256": "ae86007e9c2f9053323301bbe78598290fe017f22fe14a4d206fb26724635945"
+    },
+    {
+      "path": "runs/local-line-history-v2/maintenance-2-9103-local-inputs.npz",
+      "sha256": "aef6821252b12f0a3695449028db7be0c2c8cce36a9e4f34ae73f1417de61a67"
+    },
+    {
+      "path": "runs/local-line-history-v2/maintenance-3-9104.npz",
+      "sha256": "5e3a58cba00df9ddf5d96a6b3ad53f45256bcdc87a09668dfc1b29f8715f4119"
+    },
+    {
+      "path": "runs/local-line-history-v2/maintenance-3-9104-local-inputs.npz",
+      "sha256": "278bdc06158a62e17c2201e3092908315a3da3bfd3353cd904d5346c3ac4a5cd"
+    },
+    {
+      "path": "runs/local-line-history-v2/development-3001.npz",
+      "sha256": "8c73ed0ae8424b6c7d2acbae2ecde80c6ca266f1e1059fb2a45854f07772952c"
+    },
+    {
+      "path": "runs/local-line-history-v2/development-3001-local-inputs.npz",
+      "sha256": "2d9ba96d44330ee23d80fecadc6602b294a7183fe0deb606bde611e3a71b46d8"
+    },
+    {
+      "path": "runs/local-line-history-v2/development-3007.npz",
+      "sha256": "61ce1e2899912811221f7ccb453a000e02cf4d66a8cedcfe7b6c3571b13bf7cf"
+    },
+    {
+      "path": "runs/local-line-history-v2/development-3007-local-inputs.npz",
+      "sha256": "7f31f174549964eed5e27a214fa5c2b4855d6d4999b9a3d3c19a5c9cdbb50679"
+    },
+    {
+      "path": "runs/local-line-history-v2/development-3011.npz",
+      "sha256": "5d422010e95404d52a0c0845bf4c61db0d9efe0d7444f8c3eefa65b12a6c9947"
+    },
+    {
+      "path": "runs/local-line-history-v2/development-3011-local-inputs.npz",
+      "sha256": "9fb44f8287c282ae2794578812f59cc87a3e10a77a637dd45b581c184b9f3e88"
+    },
+    {
+      "path": "runs/local-line-history-v2/development-3019.npz",
+      "sha256": "7391cd02c303819d1645565e68dd6e1def5d60658d0439851ad6460d909149b2"
+    },
+    {
+      "path": "runs/local-line-history-v2/development-3019-local-inputs.npz",
+      "sha256": "f2672d7722d807461096c461419e6764477afc58b11593eaada33cd8444b0075"
+    }
+  ]
+}

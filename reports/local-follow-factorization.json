@@ -1,0 +1,1033 @@
+{
+  "protocol": {
+    "version": "bari-local-follow-factorization-v1",
+    "planned_utc": "2026-11-03T13:45:24.536573+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "arms": [
+      {
+        "direction": "local",
+        "steering": "pure-pursuit"
+      },
+      {
+        "direction": "oracle",
+        "steering": "pure-pursuit"
+      },
+      {
+        "direction": "local",
+        "steering": "angle"
+      },
+      {
+        "direction": "oracle",
+        "steering": "angle"
+      }
+    ],
+    "speed_gain": 2.0,
+    "feed_speed_m_s": 0.0,
+    "pure_pursuit_gain": 1.2,
+    "angle_gain_s_inverse": 3.0,
+    "angular_limit_rad_s": 1.5,
+    "scope": "Diagnostic-only factorization. Oracle predecessor relative poses are prohibited actor inputs, labels, or deployed wrappers. Local arms use only the 9 local fields plus fixed calibration; leader remains original mission infrastructure. Same fixed initial chain, varied sensor noise, all numeric gates unchanged.",
+    "selection": "Only local angle steering 4/4 with zero contacts/walls may proceed to a separate frozen robustness/collection protocol. No learner is trained by this probe; oracle success never qualifies.",
+    "local_boundary": "No environment passed into local range controller. Oracle poses accessed only by explicitly labelled diagnostic arms and observer errors."
+  },
+  "cases": [
+    {
+      "direction": "local",
+      "steering": "pure-pursuit",
+      "seed": 3001,
+      "final": {
+        "max_error_m": 0.17121387855307627,
+        "rms_error_m": 0.08878997136249457,
+        "path_error_m": 0.060325154302591937,
+        "spacing_error_m": 0.09936343353644897,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.413544962135908,
+        "leader_step_travel_m": 0.00503263018919494,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.22462639024511277,
+        "peak_max_error_m": 0.3864114909537486,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 81,
+        "wall_violations": 0,
+        "control_cost": 5.890628013913954
+      },
+      "travel_m": [
+        1.413544962135908,
+        1.1752092849620388,
+        1.0395692242222911,
+        0.8470803700017041,
+        0.6304090511947612
+      ],
+      "recording": "runs/local-follow-factorization/local-pure-pursuit-seed-3001.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.11025113712797914,
+      "first5s_mean_abs_bearing_error_rad": 0.19218772420333896,
+      "first5s_mean_abs_true_bearing_rad": 0.167974729168973,
+      "first5s_mean_abs_estimated_bearing_rad": 0.2073914197905507
+    },
+    {
+      "direction": "local",
+      "steering": "pure-pursuit",
+      "seed": 3007,
+      "final": {
+        "max_error_m": 0.15033827086202098,
+        "rms_error_m": 0.09574527236834238,
+        "path_error_m": 0.0414809468158069,
+        "spacing_error_m": 0.06131217431724725,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4113440060131857,
+        "leader_step_travel_m": 0.005032998634072329,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.21472873831455327,
+        "peak_max_error_m": 0.37449785079475667,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 75,
+        "wall_violations": 0,
+        "control_cost": 6.032670228539747
+      },
+      "travel_m": [
+        1.4113440060131857,
+        1.1425828368099211,
+        0.9818196948302871,
+        0.9059909155547712,
+        0.7215089167631255
+      ],
+      "recording": "runs/local-follow-factorization/local-pure-pursuit-seed-3007.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.10302313085039258,
+      "first5s_mean_abs_bearing_error_rad": 0.1779631173881931,
+      "first5s_mean_abs_true_bearing_rad": 0.15779771259922268,
+      "first5s_mean_abs_estimated_bearing_rad": 0.19750715718997056
+    },
+    {
+      "direction": "local",
+      "steering": "pure-pursuit",
+      "seed": 3011,
+      "final": {
+        "max_error_m": 0.1605038499641243,
+        "rms_error_m": 0.10055949782523509,
+        "path_error_m": 0.046284764468988895,
+        "spacing_error_m": 0.06190582539654202,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.418198479760596,
+        "leader_step_travel_m": 0.005032990622631729,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.22237691121803238,
+        "peak_max_error_m": 0.39005038084560967,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 78,
+        "wall_violations": 0,
+        "control_cost": 5.977469998299754
+      },
+      "travel_m": [
+        1.418198479760596,
+        1.164900952691124,
+        0.968954327594631,
+        0.8415858943632231,
+        0.6911222015544579
+      ],
+      "recording": "runs/local-follow-factorization/local-pure-pursuit-seed-3011.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.10682792949979068,
+      "first5s_mean_abs_bearing_error_rad": 0.1846933158559002,
+      "first5s_mean_abs_true_bearing_rad": 0.16111593285519688,
+      "first5s_mean_abs_estimated_bearing_rad": 0.2107752214015601
+    },
+    {
+      "direction": "local",
+      "steering": "pure-pursuit",
+      "seed": 3019,
+      "final": {
+        "max_error_m": 0.18078154120226564,
+        "rms_error_m": 0.09638603619103792,
+        "path_error_m": 0.06997242727775681,
+        "spacing_error_m": 0.09034383739352761,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.414240375993533,
+        "leader_step_travel_m": 0.005032449446812866,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.22677325684144473,
+        "peak_max_error_m": 0.3843770734884205,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 78,
+        "wall_violations": 0,
+        "control_cost": 5.851127324423316
+      },
+      "travel_m": [
+        1.414240375993533,
+        1.178115024361826,
+        1.0175395775195386,
+        0.8321716070236322,
+        0.6055054119438914
+      ],
+      "recording": "runs/local-follow-factorization/local-pure-pursuit-seed-3019.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.11342628925774258,
+      "first5s_mean_abs_bearing_error_rad": 0.202214251413046,
+      "first5s_mean_abs_true_bearing_rad": 0.1745681455348732,
+      "first5s_mean_abs_estimated_bearing_rad": 0.22306376409417328
+    },
+    {
+      "direction": "oracle",
+      "steering": "pure-pursuit",
+      "seed": 3001,
+      "final": {
+        "max_error_m": 0.15102973141360432,
+        "rms_error_m": 0.09045944834689104,
+        "path_error_m": 0.028968635264227424,
+        "spacing_error_m": 0.04420614669764836,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 23.400000000000002,
+        "holding_goal": true,
+        "hold_s": 6.5999999999999925,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20703974929573174,
+        "peak_max_error_m": 0.37964397007320677,
+        "reacquisition_s": [
+          21.1
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.51976888131149
+      },
+      "travel_m": [
+        1.4666124103791918,
+        1.2687329445674866,
+        1.1421422022331014,
+        1.0280230000193988,
+        0.9168996309955953
+      ],
+      "recording": "runs/local-follow-factorization/oracle-pure-pursuit-seed-3001.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.08512280544455864,
+      "first5s_mean_abs_bearing_error_rad": 0.1322590067349999,
+      "first5s_mean_abs_true_bearing_rad": 0.08288000088516898,
+      "first5s_mean_abs_estimated_bearing_rad": 0.19501382968712153
+    },
+    {
+      "direction": "oracle",
+      "steering": "pure-pursuit",
+      "seed": 3007,
+      "final": {
+        "max_error_m": 0.15102973141360432,
+        "rms_error_m": 0.09045944834689104,
+        "path_error_m": 0.028968635264227424,
+        "spacing_error_m": 0.04420614669764836,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 23.400000000000002,
+        "holding_goal": true,
+        "hold_s": 6.5999999999999925,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20703974929573174,
+        "peak_max_error_m": 0.37964397007320677,
+        "reacquisition_s": [
+          21.1
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.51976888131149
+      },
+      "travel_m": [
+        1.4666124103791918,
+        1.2687329445674866,
+        1.1421422022331014,
+        1.0280230000193988,
+        0.9168996309955953
+      ],
+      "recording": "runs/local-follow-factorization/oracle-pure-pursuit-seed-3007.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.08514125483891238,
+      "first5s_mean_abs_bearing_error_rad": 0.13284444489516373,
+      "first5s_mean_abs_true_bearing_rad": 0.08288000088516898,
+      "first5s_mean_abs_estimated_bearing_rad": 0.19670573049262627
+    },
+    {
+      "direction": "oracle",
+      "steering": "pure-pursuit",
+      "seed": 3011,
+      "final": {
+        "max_error_m": 0.15102973141360432,
+        "rms_error_m": 0.09045944834689104,
+        "path_error_m": 0.028968635264227424,
+        "spacing_error_m": 0.04420614669764836,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 23.400000000000002,
+        "holding_goal": true,
+        "hold_s": 6.5999999999999925,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20703974929573174,
+        "peak_max_error_m": 0.37964397007320677,
+        "reacquisition_s": [
+          21.1
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.51976888131149
+      },
+      "travel_m": [
+        1.4666124103791918,
+        1.2687329445674866,
+        1.1421422022331014,
+        1.0280230000193988,
+        0.9168996309955953
+      ],
+      "recording": "runs/local-follow-factorization/oracle-pure-pursuit-seed-3011.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.08314384171446644,
+      "first5s_mean_abs_bearing_error_rad": 0.12062134091093467,
+      "first5s_mean_abs_true_bearing_rad": 0.08288000088516898,
+      "first5s_mean_abs_estimated_bearing_rad": 0.18263623958369235
+    },
+    {
+      "direction": "oracle",
+      "steering": "pure-pursuit",
+      "seed": 3019,
+      "final": {
+        "max_error_m": 0.15102973141360432,
+        "rms_error_m": 0.09045944834689104,
+        "path_error_m": 0.028968635264227424,
+        "spacing_error_m": 0.04420614669764836,
+        "chain_order_preserved": true,
+        "leader_travel_m": 1.4666124103791918,
+        "leader_step_travel_m": 0.005033806079836471,
+        "leader_moving": true,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": true,
+        "acquisition_s": 23.400000000000002,
+        "holding_goal": true,
+        "hold_s": 6.5999999999999925,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.20703974929573174,
+        "peak_max_error_m": 0.37964397007320677,
+        "reacquisition_s": [
+          21.1
+        ],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.51976888131149
+      },
+      "travel_m": [
+        1.4666124103791918,
+        1.2687329445674866,
+        1.1421422022331014,
+        1.0280230000193988,
+        0.9168996309955953
+      ],
+      "recording": "runs/local-follow-factorization/oracle-pure-pursuit-seed-3019.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.08617462759900248,
+      "first5s_mean_abs_bearing_error_rad": 0.1404186317870442,
+      "first5s_mean_abs_true_bearing_rad": 0.08288000088516898,
+      "first5s_mean_abs_estimated_bearing_rad": 0.2035623811254611
+    },
+    {
+      "direction": "local",
+      "steering": "angle",
+      "seed": 3001,
+      "final": {
+        "max_error_m": 0.4454549541943818,
+        "rms_error_m": 0.3431132547703377,
+        "path_error_m": 0.2631784791880912,
+        "spacing_error_m": 0.9125320025602026,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9209195465792284,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.35391428666373215,
+        "peak_max_error_m": 0.5020105559147335,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 268,
+        "wall_violations": 0,
+        "control_cost": 5.382714180208578
+      },
+      "travel_m": [
+        0.9209195465792284,
+        0.15444659976417163,
+        0.11350780888243561,
+        0.13201315184775256,
+        0.15347587256444684
+      ],
+      "recording": "runs/local-follow-factorization/local-angle-seed-3001.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.25887037755536846,
+      "first5s_mean_abs_bearing_error_rad": 0.1993064537992383,
+      "first5s_mean_abs_true_bearing_rad": 0.1797875136333612,
+      "first5s_mean_abs_estimated_bearing_rad": 0.20142524326587624
+    },
+    {
+      "direction": "local",
+      "steering": "angle",
+      "seed": 3007,
+      "final": {
+        "max_error_m": 0.4448940735067924,
+        "rms_error_m": 0.3446785739516917,
+        "path_error_m": 0.267718649725313,
+        "spacing_error_m": 0.9229219000224587,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9345133886677525,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3528417650676567,
+        "peak_max_error_m": 0.49938450594598205,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 268,
+        "wall_violations": 0,
+        "control_cost": 5.503045212323949
+      },
+      "travel_m": [
+        0.9345133886677525,
+        0.16171658509088624,
+        0.11511343642355609,
+        0.1325990530728721,
+        0.15607441527139052
+      ],
+      "recording": "runs/local-follow-factorization/local-angle-seed-3007.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.2593507361234196,
+      "first5s_mean_abs_bearing_error_rad": 0.19141246853481694,
+      "first5s_mean_abs_true_bearing_rad": 0.17824303259324867,
+      "first5s_mean_abs_estimated_bearing_rad": 0.19768525201160267
+    },
+    {
+      "direction": "local",
+      "steering": "angle",
+      "seed": 3011,
+      "final": {
+        "max_error_m": 0.4524528518160431,
+        "rms_error_m": 0.3427285966940866,
+        "path_error_m": 0.2600774878794635,
+        "spacing_error_m": 0.9022886108351584,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9098429045727279,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.35826989734628745,
+        "peak_max_error_m": 0.5062291655782278,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 274,
+        "wall_violations": 0,
+        "control_cost": 5.214899803709412
+      },
+      "travel_m": [
+        0.9098429045727279,
+        0.1512799611290465,
+        0.1082478578961849,
+        0.1268431356280577,
+        0.14857166956352358
+      ],
+      "recording": "runs/local-follow-factorization/local-angle-seed-3011.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.267055207432443,
+      "first5s_mean_abs_bearing_error_rad": 0.18761242540514741,
+      "first5s_mean_abs_true_bearing_rad": 0.18188515046346268,
+      "first5s_mean_abs_estimated_bearing_rad": 0.1995552476387394
+    },
+    {
+      "direction": "local",
+      "steering": "angle",
+      "seed": 3019,
+      "final": {
+        "max_error_m": 0.45143677926407844,
+        "rms_error_m": 0.3453632327788441,
+        "path_error_m": 0.26998878704078877,
+        "spacing_error_m": 0.9389488056999193,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.9501208822396753,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3538510058706198,
+        "peak_max_error_m": 0.4963487972900703,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.6,
+        "collisions": 275,
+        "wall_violations": 0,
+        "control_cost": 5.45561990770291
+      },
+      "travel_m": [
+        0.9501208822396753,
+        0.16828179177394478,
+        0.11848847905292571,
+        0.13566906657413275,
+        0.15925651335102253
+      ],
+      "recording": "runs/local-follow-factorization/local-angle-seed-3019.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.2615355625942903,
+      "first5s_mean_abs_bearing_error_rad": 0.1999101753462167,
+      "first5s_mean_abs_true_bearing_rad": 0.1796021292596491,
+      "first5s_mean_abs_estimated_bearing_rad": 0.19065050655713575
+    },
+    {
+      "direction": "oracle",
+      "steering": "angle",
+      "seed": 3001,
+      "final": {
+        "max_error_m": 0.5080213965894728,
+        "rms_error_m": 0.27924252932455174,
+        "path_error_m": 0.24143192756600573,
+        "spacing_error_m": 0.526712161324269,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.8277691057544785,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3992949350634699,
+        "peak_max_error_m": 0.5545428946805893,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 127,
+        "wall_violations": 0,
+        "control_cost": 2.2031664299689084
+      },
+      "travel_m": [
+        0.8277691057544785,
+        0.514971271567066,
+        0.2360276718581174,
+        0.10474435682550375,
+        0.10330543824686146
+      ],
+      "recording": "runs/local-follow-factorization/oracle-angle-seed-3001.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.26244803721983206,
+      "first5s_mean_abs_bearing_error_rad": 0.16374769104575837,
+      "first5s_mean_abs_true_bearing_rad": 0.01995154036323658,
+      "first5s_mean_abs_estimated_bearing_rad": 0.14603775373830105
+    },
+    {
+      "direction": "oracle",
+      "steering": "angle",
+      "seed": 3007,
+      "final": {
+        "max_error_m": 0.5080213965894728,
+        "rms_error_m": 0.27924252932455174,
+        "path_error_m": 0.24143192756600573,
+        "spacing_error_m": 0.526712161324269,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.8277691057544785,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3992949350634699,
+        "peak_max_error_m": 0.5545428946805893,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 127,
+        "wall_violations": 0,
+        "control_cost": 2.2031664299689084
+      },
+      "travel_m": [
+        0.8277691057544785,
+        0.514971271567066,
+        0.2360276718581174,
+        0.10474435682550375,
+        0.10330543824686146
+      ],
+      "recording": "runs/local-follow-factorization/oracle-angle-seed-3007.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.26082820823177716,
+      "first5s_mean_abs_bearing_error_rad": 0.16285721693759803,
+      "first5s_mean_abs_true_bearing_rad": 0.01995154036323658,
+      "first5s_mean_abs_estimated_bearing_rad": 0.14514727963014068
+    },
+    {
+      "direction": "oracle",
+      "steering": "angle",
+      "seed": 3011,
+      "final": {
+        "max_error_m": 0.5080213965894728,
+        "rms_error_m": 0.27924252932455174,
+        "path_error_m": 0.24143192756600573,
+        "spacing_error_m": 0.526712161324269,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.8277691057544785,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3992949350634699,
+        "peak_max_error_m": 0.5545428946805893,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 127,
+        "wall_violations": 0,
+        "control_cost": 2.2031664299689084
+      },
+      "travel_m": [
+        0.8277691057544785,
+        0.514971271567066,
+        0.2360276718581174,
+        0.10474435682550375,
+        0.10330543824686146
+      ],
+      "recording": "runs/local-follow-factorization/oracle-angle-seed-3011.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.25830360989904283,
+      "first5s_mean_abs_bearing_error_rad": 0.15448676032089056,
+      "first5s_mean_abs_true_bearing_rad": 0.01995154036323658,
+      "first5s_mean_abs_estimated_bearing_rad": 0.1367768230134332
+    },
+    {
+      "direction": "oracle",
+      "steering": "angle",
+      "seed": 3019,
+      "final": {
+        "max_error_m": 0.5080213965894728,
+        "rms_error_m": 0.27924252932455174,
+        "path_error_m": 0.24143192756600573,
+        "spacing_error_m": 0.526712161324269,
+        "chain_order_preserved": false,
+        "leader_travel_m": 0.8277691057544785,
+        "leader_step_travel_m": 0.0,
+        "leader_moving": false,
+        "following_order_rule": "anonymous-formed-v1",
+        "formed_order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_formed_s": 0.0,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 1,
+        "chain_order_preserved_entire_segment": false,
+        "mean_max_error_m": 0.3992949350634699,
+        "peak_max_error_m": 0.5545428946805893,
+        "reacquisition_s": [],
+        "unrecovered_s": 27.7,
+        "collisions": 127,
+        "wall_violations": 0,
+        "control_cost": 2.2031664299689084
+      },
+      "travel_m": [
+        0.8277691057544785,
+        0.514971271567066,
+        0.2360276718581174,
+        0.10474435682550375,
+        0.10330543824686146
+      ],
+      "recording": "runs/local-follow-factorization/oracle-angle-seed-3019.npz",
+      "local_inference_mean_abs_bearing_error_rad": 0.26149495017496976,
+      "first5s_mean_abs_bearing_error_rad": 0.16196674282943765,
+      "first5s_mean_abs_true_bearing_rad": 0.01995154036323658,
+      "first5s_mean_abs_estimated_bearing_rad": 0.1442568055219803
+    }
+  ],
+  "summary": [
+    {
+      "direction": "local",
+      "steering": "pure-pursuit",
+      "successes": 0,
+      "episodes": 4,
+      "contacts": 312,
+      "walls": 0,
+      "mean_final_max_error_m": 0.1657093851453718,
+      "mean_final_path_error_m": 0.05451582321628613,
+      "first5s_mean_abs_bearing_error_rad": 0.1892646022151196
+    },
+    {
+      "direction": "oracle",
+      "steering": "pure-pursuit",
+      "successes": 4,
+      "episodes": 4,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.15102973141360432,
+      "mean_final_path_error_m": 0.028968635264227424,
+      "first5s_mean_abs_bearing_error_rad": 0.13153585608203563
+    },
+    {
+      "direction": "local",
+      "steering": "angle",
+      "successes": 0,
+      "episodes": 4,
+      "contacts": 1085,
+      "walls": 0,
+      "mean_final_max_error_m": 0.44855966469532393,
+      "mean_final_path_error_m": 0.2652408509584141,
+      "first5s_mean_abs_bearing_error_rad": 0.19456038077135485
+    },
+    {
+      "direction": "oracle",
+      "steering": "angle",
+      "successes": 0,
+      "episodes": 4,
+      "contacts": 508,
+      "walls": 0,
+      "mean_final_max_error_m": 0.5080213965894728,
+      "mean_final_path_error_m": 0.24143192756600573,
+      "first5s_mean_abs_bearing_error_rad": 0.16076460278342117
+    }
+  ],
+  "local_angle_qualified_for_next_diagnostic_only": false,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-follow-factorization.py",
+      "sha256": "98b85f03f66291f3d2c7f243d0af83df5230280b697df89c1a4240ca5a3073b8"
+    },
+    {
+      "path": "runs/local_range_follow_gap.py",
+      "sha256": "6f7cf38eab8faa87d0fc2f9fc27371bcaa68bd7d1074199cf222190a64f57dc4"
+    },
+    {
+      "path": "runs/local-follow-factorization/protocol.json",
+      "sha256": "08631f581b5e3c5a70d285693a2bfedaa382887382cdb554b63385de089d43ae"
+    },
+    {
+      "path": "runs/local-follow-factorization/local-angle-seed-3001.npz",
+      "sha256": "aeae8b1a39857a465801d0c1e5e0444b570cf9332fac19de17411fdad98d172e"
+    },
+    {
+      "path": "runs/local-follow-factorization/local-angle-seed-3007.npz",
+      "sha256": "d2b1a30225f07efa74e0f5bfa79087275555c233b285634d499066a91e14fdd2"
+    },
+    {
+      "path": "runs/local-follow-factorization/local-angle-seed-3011.npz",
+      "sha256": "3003325fe6e679f6fb2a10163d61d17ab8db43c874ced7b7fea49ff1c6c45d46"
+    },
+    {
+      "path": "runs/local-follow-factorization/local-angle-seed-3019.npz",
+      "sha256": "b1dc582586ddaff02206d8744ad2ab103fe766c68165e984c795b25c50e5e77b"
+    },
+    {
+      "path": "runs/local-follow-factorization/local-pure-pursuit-seed-3001.npz",
+      "sha256": "68f74fec1e0ef8cf3cb411800f6478ee98a971b74bff2e6ca6a85a9eac392707"
+    },
+    {
+      "path": "runs/local-follow-factorization/local-pure-pursuit-seed-3007.npz",
+      "sha256": "e1e264cb3964eeeac24ab2de1bcbcb5ed8897f623bc56285c36e1c9a6508a9ad"
+    },
+    {
+      "path": "runs/local-follow-factorization/local-pure-pursuit-seed-3011.npz",
+      "sha256": "b0863ebe4655af7789da39c8b071b75bdc4a669aeb207edd171eb2a4c8706e8b"
+    },
+    {
+      "path": "runs/local-follow-factorization/local-pure-pursuit-seed-3019.npz",
+      "sha256": "ce4f8bcb416e16ee92924cfdd77601805256f64afbec0fbd95b2e2569a694ba0"
+    },
+    {
+      "path": "runs/local-follow-factorization/oracle-angle-seed-3001.npz",
+      "sha256": "a5a97bd3f1b6e085a36682ff60b388dd6a2c1d38c46e8eb933bfa7a317ebc800"
+    },
+    {
+      "path": "runs/local-follow-factorization/oracle-angle-seed-3007.npz",
+      "sha256": "444b39ecfeae67c97fe6b2e2e3733fa4c74bb2764fd04751ecac50bec65efd93"
+    },
+    {
+      "path": "runs/local-follow-factorization/oracle-angle-seed-3011.npz",
+      "sha256": "a73f4a95240ab8baa97db8c435fa983514b9a3263aafdbe67fb7658e3c8ba409"
+    },
+    {
+      "path": "runs/local-follow-factorization/oracle-angle-seed-3019.npz",
+      "sha256": "d1319f560ae615cfd4da98acbb32d4a62bb7dd54dd3b62d9475cda02394bdd36"
+    },
+    {
+      "path": "runs/local-follow-factorization/oracle-pure-pursuit-seed-3001.npz",
+      "sha256": "3befd3a60f15f384392c19afb8285269acc6dec3d38c751c02be4843beb8d556"
+    },
+    {
+      "path": "runs/local-follow-factorization/oracle-pure-pursuit-seed-3007.npz",
+      "sha256": "97002afe97fc1e2419c75d87235b603735d422fbd747bed15a013be68f64e0b5"
+    },
+    {
+      "path": "runs/local-follow-factorization/oracle-pure-pursuit-seed-3011.npz",
+      "sha256": "207ff0aca4300b8b19d4993116e274c51fe47459b0db1d868a18ee71a816645c"
+    },
+    {
+      "path": "runs/local-follow-factorization/oracle-pure-pursuit-seed-3019.npz",
+      "sha256": "55e3445aaadd23daf070a6e1d10f54039b36f101d369b998219665c978098409"
+    }
+  ]
+}

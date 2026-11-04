@@ -1,0 +1,295 @@
+{
+  "protocol": {
+    "version": "bari-local-belief-confidence-gating-probe-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "checkpoint": {
+      "path": "runs/local-belief-rl-low-23/checkpoint-0200.pt",
+      "sha256": "f7b653a998e1682563586cb6f11ea45047ba60021591a418807aa34a7fb71e7a"
+    },
+    "baseline": {
+      "path": "runs/local-belief-rl-low-23/evaluation-0200/report.json",
+      "sha256": "89655c1902fdb1ae1be5174f1c347c76313ef288c09428ef15cd05b3be7c648b"
+    },
+    "script": {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-belief-confidence-gating.py",
+      "sha256": "4edc8a2bd91913c4302053a7c54a1d840cb1f50a374676520bee0fba04445ba3"
+    },
+    "seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027,
+      1594776450,
+      589246224,
+      1979129855,
+      1391038837,
+      1899936300,
+      995963224,
+      113285700,
+      1761495214,
+      1685651270,
+      1727563011
+    ],
+    "intervention": "Multiply only local9:11 estimated-center fields by existing local11 confidence; raw9/task4/GRU/observer persistence unchanged",
+    "selection": "Read-only diagnostic, no retraining/checkpoint selection/default adoption or acceptance claim; preserve all15 outcomes",
+    "scope": "Causal input perturbation of one frozen circle actor on reused development seeds; not a trained comparable controller or hardware-supported validity mask"
+  },
+  "summary": {
+    "episodes": 15,
+    "successes": 8,
+    "final_holds": 5,
+    "contacts": 280,
+    "walls": 0,
+    "mean_final_max_error_m": 0.08420977823842749
+  },
+  "paired": [
+    {
+      "seed": 2001,
+      "baseline_success": true,
+      "gated_success": true,
+      "baseline_final_hold": true,
+      "gated_final_hold": false,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.022902314069242993,
+      "gated_final_error_m": 0.03816903815592582
+    },
+    {
+      "seed": 2003,
+      "baseline_success": true,
+      "gated_success": true,
+      "baseline_final_hold": true,
+      "gated_final_hold": true,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.013387848424489071,
+      "gated_final_error_m": 0.034096278423784654
+    },
+    {
+      "seed": 2011,
+      "baseline_success": true,
+      "gated_success": true,
+      "baseline_final_hold": true,
+      "gated_final_hold": true,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.012785595537567982,
+      "gated_final_error_m": 0.015974893063204102
+    },
+    {
+      "seed": 2017,
+      "baseline_success": false,
+      "gated_success": false,
+      "baseline_final_hold": false,
+      "gated_final_hold": false,
+      "baseline_contacts": 50,
+      "gated_contacts": 15,
+      "baseline_final_error_m": 0.17527668660203108,
+      "gated_final_error_m": 0.21329154589550034
+    },
+    {
+      "seed": 2027,
+      "baseline_success": true,
+      "gated_success": true,
+      "baseline_final_hold": true,
+      "gated_final_hold": false,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.032233012824201365,
+      "gated_final_error_m": 0.036914970542935854
+    },
+    {
+      "seed": 1594776450,
+      "baseline_success": false,
+      "gated_success": false,
+      "baseline_final_hold": false,
+      "gated_final_hold": false,
+      "baseline_contacts": 65,
+      "gated_contacts": 8,
+      "baseline_final_error_m": 0.050394265971919275,
+      "gated_final_error_m": 0.132150581335581
+    },
+    {
+      "seed": 589246224,
+      "baseline_success": false,
+      "gated_success": false,
+      "baseline_final_hold": false,
+      "gated_final_hold": false,
+      "baseline_contacts": 66,
+      "gated_contacts": 18,
+      "baseline_final_error_m": 0.11372460232658324,
+      "gated_final_error_m": 0.060157072922867046
+    },
+    {
+      "seed": 1979129855,
+      "baseline_success": false,
+      "gated_success": false,
+      "baseline_final_hold": false,
+      "gated_final_hold": false,
+      "baseline_contacts": 127,
+      "gated_contacts": 202,
+      "baseline_final_error_m": 0.2004208223966783,
+      "gated_final_error_m": 0.1903154144630197
+    },
+    {
+      "seed": 1391038837,
+      "baseline_success": false,
+      "gated_success": false,
+      "baseline_final_hold": false,
+      "gated_final_hold": false,
+      "baseline_contacts": 46,
+      "gated_contacts": 37,
+      "baseline_final_error_m": 0.1249426979992527,
+      "gated_final_error_m": 0.21104080452696053
+    },
+    {
+      "seed": 1899936300,
+      "baseline_success": true,
+      "gated_success": true,
+      "baseline_final_hold": true,
+      "gated_final_hold": true,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.023379831566181362,
+      "gated_final_error_m": 0.02339448330339802
+    },
+    {
+      "seed": 995963224,
+      "baseline_success": true,
+      "gated_success": true,
+      "baseline_final_hold": true,
+      "gated_final_hold": true,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.01868489400994339,
+      "gated_final_error_m": 0.026724286831439348
+    },
+    {
+      "seed": 113285700,
+      "baseline_success": false,
+      "gated_success": false,
+      "baseline_final_hold": false,
+      "gated_final_hold": false,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.20155366589564808,
+      "gated_final_error_m": 0.18961340947750727
+    },
+    {
+      "seed": 1761495214,
+      "baseline_success": false,
+      "gated_success": false,
+      "baseline_final_hold": false,
+      "gated_final_hold": false,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.20686276877512247,
+      "gated_final_error_m": 0.017133736029310214
+    },
+    {
+      "seed": 1685651270,
+      "baseline_success": true,
+      "gated_success": true,
+      "baseline_final_hold": true,
+      "gated_final_hold": false,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.028802878879994557,
+      "gated_final_error_m": 0.048489011013193396
+    },
+    {
+      "seed": 1727563011,
+      "baseline_success": true,
+      "gated_success": true,
+      "baseline_final_hold": true,
+      "gated_final_hold": true,
+      "baseline_contacts": 0,
+      "gated_contacts": 0,
+      "baseline_final_error_m": 0.027620814900468825,
+      "gated_final_error_m": 0.025681147591785074
+    }
+  ],
+  "actor_unchanged": true,
+  "optimizer_steps": 0,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "artifacts": [
+    {
+      "path": "runs/local-belief-confidence-gating-v1/protocol.json",
+      "sha256": "0c46d27693e086ad2fc7a85efe9c99af204ebafb2cb6407bb5916df5812861f9"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/report.json",
+      "sha256": "d34a78778e89515a5abc984bb3099809621516c08155cb4a748e109fd82e3013"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/actual-gated-inputs.npz",
+      "sha256": "a6c04aa437e5f74a7620991fe018634c3057d0c97bdfdbff6cd9a74145ac1d64"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-113285700.npz",
+      "sha256": "97c6a12ff9a0bb51abd59e2ab23fb636e5b70005937254455e1354906c7afac6"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-1391038837.npz",
+      "sha256": "aa26f469b8db9e85a65c00c637c274d1cd0e1a1418ebf17c6be11b4c9b0c0e64"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-1594776450.npz",
+      "sha256": "cd7a446e83aff2422e2fbe17198defa6116f9a9de71372985555ad76d6e3d6b7"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-1685651270.npz",
+      "sha256": "810eafc305cdccc2d322d33aa8d5d4880e1f1d0395982a646e57d45b55871b12"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-1727563011.npz",
+      "sha256": "f3d380ec991182fb7d06d83c7f61e3c089445924ea01e7e67b35de539b16918f"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-1761495214.npz",
+      "sha256": "bbf3ebe7457229aaf2cc0c9df0b4c082c01c3292c3ffc8bc117cd5e9cd24e73c"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-1899936300.npz",
+      "sha256": "a777bfcdead5e022b09cfa516411de05d7b0a8835c89af235ede8481fa914757"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-1979129855.npz",
+      "sha256": "645664af62fdf97561b31e234548156c38e2dd227624752b2e4e3d36d882d71f"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-2001.npz",
+      "sha256": "2c44a66c279868e08cd1963d8fd67b09bcd8e26215e5e5a3cf5d932b95cf8a9f"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-2003.npz",
+      "sha256": "b1814f55379a0a27269021e7cf04beb30631660b85249e0483cd0d2afc105543"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-2011.npz",
+      "sha256": "bfdc1aa58473afb2d4e458529609f6088e2d05ca459a631cd47f1595525c3e14"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-2017.npz",
+      "sha256": "ff0f0200ceafde82f9cd3cd7d56974734378ef5d3e721d14b5025c3487bee34b"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-2027.npz",
+      "sha256": "3ff1518819ac47efd5c037b7f6b14766694661a9dcbc501bbb0a5932cad72332"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-589246224.npz",
+      "sha256": "f0ce1fbd81abf3a1372662c4a9ec3b83b96aba2c8d077a83a6cde1926ff09063"
+    },
+    {
+      "path": "runs/local-belief-confidence-gating-v1/evaluation/circle-995963224.npz",
+      "sha256": "2331f521942ecc00eab5491fd4e4cef33e3cceca19e10f2f9365a172f61809b5"
+    }
+  ]
+}

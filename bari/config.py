@@ -7,6 +7,7 @@ from pathlib import Path
 
 TASKS = ("circle", "square", "line", "follow")
 CONTRACT_VERSION = "bari-ir-gru-v1"
+CONE_OCCLUSION_BASIS = "one nearest-hit representative ray per cone; not full-cone visibility or minimum-aggregation suppression"
 
 
 @dataclass
@@ -31,7 +32,7 @@ class Config:
     sensor_mount_radius: float = 0.045
     sensor_height: float = 0.078
     sensor_angles_deg: list = field(default_factory=lambda: [0, 60, 120, 180, 240, 300])
-    sensor_fov_deg: float = 0.0  # Center rays only; no continuous 360-degree coverage.
+    sensor_fov_deg: float = 0.0  # Zero: legacy center rays. Nonzero: assumed horizontal cone, not measured zones.
     circle_radius: float = 0.24
     square_side: float = 0.32  # Four corners plus one center.
     line_spacing: float = 0.17
@@ -81,8 +82,8 @@ class Config:
         if min(self.physics_dt, self.control_dt, self.sensor_period, self.wheel_separation,
                self.body_radius, self.max_wheel_speed, self.max_wheel_acceleration) <= 0:
             raise ValueError("Geometry and integration periods must be positive")
-        if self.sensor_fov_deg != 0:
-            raise ValueError("v1 supports center rays only; finite FOV needs a new sensor model")
+        if not 0 <= self.sensor_fov_deg <= 180:
+            raise ValueError("Horizontal sensor FOV must be in [0,180] degrees")
         if not 0 <= self.sensor_dropout <= 1 or not 0 <= self.sensor_min < self.sensor_max:
             raise ValueError("Invalid sensing bounds")
         if self.sensor_mount_radius > self.body_radius:
@@ -120,7 +121,7 @@ class Config:
 
 
 def observation_contract(config):
-    return {
+    contract = {
         "version": CONTRACT_VERSION, "dtype": "float32", "batch_size_on_robot": 1,
         "local_order": ["range_0", "range_60", "range_120", "range_180", "range_240", "range_300",
                         "previous_left_command", "previous_right_command", "is_leader"],
@@ -138,3 +139,12 @@ def observation_contract(config):
         "switch": "same actor and hidden; new task before next control action; world preserved",
         "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
     }
+    if config.sensor_fov_deg:
+        contract["sensor_model"] = {
+            "version": "bari-horizontal-cone-v1", "horizontal_fov_deg": config.sensor_fov_deg,
+            "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+            "mount_radius_m": config.sensor_mount_radius, "height_m": config.sensor_height,
+            "noise_stage": "configured scalar noise/dropout after cone aggregation",
+            "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+            "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"}
+    return contract

@@ -1,0 +1,383 @@
+{
+  "protocol": {
+    "version": "bari-task-gradient-diagnostic-v1",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "67595eb3f608a496a99663edf59a38166208b69f862a9d9f7097eeeea60c22f1"
+    },
+    "checkpoint": "runs/retention-stage-default-terminal-11/checkpoint.pt",
+    "checkpoint_sha256": "d52cf1fbc52aecf75b0cea30f5a4f8971a97878cb75a1f8ba94809350c896ddb",
+    "rollouts": 4,
+    "joint_steps_per_rollout": 1024,
+    "method": "Task-masked score gradient at rollout policy, equivalent to PPO's unclipped policy derivative at ratio 1; original globally normalized advantages and sequence boundaries; no entropy, parameter update, or optimizer step.",
+    "scope": "Local sampled gradient alignment, not proof of a unique training failure cause or a proposed gradient surgery fix."
+  },
+  "rollouts": [
+    {
+      "rollout": 0,
+      "tasks": [
+        {
+          "task": "circle",
+          "actor_samples": 640,
+          "mean_reward": -0.008410060778260231,
+          "raw_advantage_std": 0.515995979309082,
+          "normalized_advantage_mean": 0.13944226503372192,
+          "critic_value_mse": 0.2731354236602783,
+          "policy_gradient_norm": 0.08283351361751556
+        },
+        {
+          "task": "square",
+          "actor_samples": 1280,
+          "mean_reward": -0.010141870006918907,
+          "raw_advantage_std": 0.6742092967033386,
+          "normalized_advantage_mean": 0.15847507119178772,
+          "critic_value_mse": 0.45656245946884155,
+          "policy_gradient_norm": 0.07244414836168289
+        },
+        {
+          "task": "line",
+          "actor_samples": 1280,
+          "mean_reward": -0.006048953160643578,
+          "raw_advantage_std": 0.5692877173423767,
+          "normalized_advantage_mean": 0.3089180886745453,
+          "critic_value_mse": 0.39021939039230347,
+          "policy_gradient_norm": 0.1430041640996933
+        },
+        {
+          "task": "follow",
+          "actor_samples": 1536,
+          "mean_reward": -0.12029101699590683,
+          "raw_advantage_std": 3.2272281646728516,
+          "normalized_advantage_mean": -0.4475952088832855,
+          "critic_value_mse": 12.005406379699707,
+          "policy_gradient_norm": 0.13618619740009308
+        }
+      ],
+      "gradient_cosine": [
+        [
+          0.9999999403953552,
+          0.1442817747592926,
+          0.46042174100875854,
+          0.24224519729614258
+        ],
+        [
+          0.1442817747592926,
+          1.0,
+          -0.3809741735458374,
+          -0.1634262353181839
+        ],
+        [
+          0.46042174100875854,
+          -0.3809741735458374,
+          0.9999997019767761,
+          0.6589404940605164
+        ],
+        [
+          0.24224519729614258,
+          -0.1634262353181839,
+          0.6589404940605164,
+          0.9999998807907104
+        ]
+      ]
+    },
+    {
+      "rollout": 1,
+      "tasks": [
+        {
+          "task": "circle",
+          "actor_samples": 640,
+          "mean_reward": -0.008616755716502666,
+          "raw_advantage_std": 0.5069635510444641,
+          "normalized_advantage_mean": 0.09245800971984863,
+          "critic_value_mse": 0.2695058286190033,
+          "policy_gradient_norm": 0.03875197470188141
+        },
+        {
+          "task": "square",
+          "actor_samples": 1280,
+          "mean_reward": -0.016889747232198715,
+          "raw_advantage_std": 0.5400677919387817,
+          "normalized_advantage_mean": 0.0825546532869339,
+          "critic_value_mse": 0.29551413655281067,
+          "policy_gradient_norm": 0.024793731048703194
+        },
+        {
+          "task": "line",
+          "actor_samples": 1280,
+          "mean_reward": -0.008235585875809193,
+          "raw_advantage_std": 0.5918866991996765,
+          "normalized_advantage_mean": 0.13124822080135345,
+          "critic_value_mse": 0.4444797933101654,
+          "policy_gradient_norm": 0.03293967992067337
+        },
+        {
+          "task": "follow",
+          "actor_samples": 1536,
+          "mean_reward": -0.411937952041626,
+          "raw_advantage_std": 8.691580772399902,
+          "normalized_advantage_mean": -0.2166932374238968,
+          "critic_value_mse": 77.62537384033203,
+          "policy_gradient_norm": 0.48535192012786865
+        }
+      ],
+      "gradient_cosine": [
+        [
+          1.0000001192092896,
+          -0.7413216829299927,
+          0.25596195459365845,
+          0.7178323268890381
+        ],
+        [
+          -0.7413216829299927,
+          0.9999998807907104,
+          -0.6024171710014343,
+          -0.5502314567565918
+        ],
+        [
+          0.25596195459365845,
+          -0.6024171710014343,
+          1.0,
+          0.07028212398290634
+        ],
+        [
+          0.7178323268890381,
+          -0.5502314567565918,
+          0.07028212398290634,
+          0.9999999403953552
+        ]
+      ]
+    },
+    {
+      "rollout": 2,
+      "tasks": [
+        {
+          "task": "circle",
+          "actor_samples": 1900,
+          "mean_reward": -0.00857582688331604,
+          "raw_advantage_std": 0.5891293883323669,
+          "normalized_advantage_mean": 0.2158830165863037,
+          "critic_value_mse": 0.3491671681404114,
+          "policy_gradient_norm": 0.04716608300805092
+        },
+        {
+          "task": "square",
+          "actor_samples": 860,
+          "mean_reward": -0.015629220753908157,
+          "raw_advantage_std": 0.7757272720336914,
+          "normalized_advantage_mean": 0.15785405039787292,
+          "critic_value_mse": 0.615394651889801,
+          "policy_gradient_norm": 0.04831602796912193
+        },
+        {
+          "task": "line",
+          "actor_samples": 440,
+          "mean_reward": -0.03728550672531128,
+          "raw_advantage_std": 1.1942052841186523,
+          "normalized_advantage_mean": 0.1607910543680191,
+          "critic_value_mse": 1.437914252281189,
+          "policy_gradient_norm": 0.2219640165567398
+        },
+        {
+          "task": "follow",
+          "actor_samples": 1536,
+          "mean_reward": -0.2725471556186676,
+          "raw_advantage_std": 4.597371578216553,
+          "normalized_advantage_mean": -0.40148451924324036,
+          "critic_value_mse": 23.970548629760742,
+          "policy_gradient_norm": 0.30807140469551086
+        }
+      ],
+      "gradient_cosine": [
+        [
+          1.0000001192092896,
+          0.21217890083789825,
+          0.0098255081102252,
+          0.06402852386236191
+        ],
+        [
+          0.21217890083789825,
+          1.0000001192092896,
+          -0.6162102222442627,
+          -0.6807278394699097
+        ],
+        [
+          0.0098255081102252,
+          -0.6162102222442627,
+          1.0,
+          0.7685164213180542
+        ],
+        [
+          0.06402852386236191,
+          -0.6807278394699097,
+          0.7685164213180542,
+          0.9999999403953552
+        ]
+      ]
+    },
+    {
+      "rollout": 3,
+      "tasks": [
+        {
+          "task": "circle",
+          "actor_samples": 2560,
+          "mean_reward": -0.010782452300190926,
+          "raw_advantage_std": 0.4367758631706238,
+          "normalized_advantage_mean": 0.1095653548836708,
+          "critic_value_mse": 0.19425834715366364,
+          "policy_gradient_norm": 0.028851687908172607
+        },
+        {
+          "task": "square",
+          "actor_samples": 640,
+          "mean_reward": -0.014495208859443665,
+          "raw_advantage_std": 0.50377357006073,
+          "normalized_advantage_mean": 0.0628301352262497,
+          "critic_value_mse": 0.25773996114730835,
+          "policy_gradient_norm": 0.07810880988836288
+        },
+        {
+          "task": "line",
+          "actor_samples": 0
+        },
+        {
+          "task": "follow",
+          "actor_samples": 1536,
+          "mean_reward": -0.2598244249820709,
+          "raw_advantage_std": 4.484404563903809,
+          "normalized_advantage_mean": -0.20878811180591583,
+          "critic_value_mse": 20.70485496520996,
+          "policy_gradient_norm": 0.2663744390010834
+        }
+      ],
+      "gradient_cosine": [
+        [
+          1.0000000000000004,
+          0.09468817321806837,
+          0.0,
+          0.5452075479661379
+        ],
+        [
+          0.09468817321806837,
+          1.0000000000000002,
+          0.0,
+          0.029686363333839703
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.5452075479661379,
+          0.029686363333839703,
+          0.0,
+          1.0000000000000007
+        ]
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "runs/task-gradient-diagnostic/diagnostic.py",
+      "sha256": "ab457c7aca082f8aced8340754bb2430f6f25101f08d859022938c98a8152fc1"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/gradients.npz",
+      "sha256": "89d6c5967d330954aa861eea246821bd9a72f4f33be8524229271d541650c772"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/protocol.json",
+      "sha256": "18a3ea7d69707b8eb85afcf3673ce046db1a1e8b0148a472a7a29f964bc90874"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/rollout-0.npz",
+      "sha256": "290bd1bd0d0b9d84e945061e78a8caec773f3180a88d1bab983b1f0c963cdc1f"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/rollout-1.npz",
+      "sha256": "21c29ade03a9f2e1b0b3f780f2ec22dd3af4c0d7c39b9599f9c0fd431164ec82"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/rollout-2.npz",
+      "sha256": "d0bf8fc08c84c25f3a47183d6858070248cc09b3e00fed6ac19003b45f287b34"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/rollout-3.npz",
+      "sha256": "c029b93796cfd339bae14a29069245842781b198ffd228e230aa9a702882af6c"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/baseline.py",
+      "sha256": "01c2f58666bf2f5749cd9749197d5e680502102d5357d3b8049455284bd31fb9"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/cli.py",
+      "sha256": "efe2c210e76b5c091ccd8d523ccd050bf7fa26e7fc7054757d01accb1276f6fc"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/config.py",
+      "sha256": "3b9c6e08fee981a74e489e2df86804a33250edaa250e77469d693fff3a21634b"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/curriculum.py",
+      "sha256": "d5070dfe0488760a2dcc9b041c5fb55e41b3d81267399865f3dbb696948009e5"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/env.py",
+      "sha256": "2df5551317a9de82a23100f5522e76ba6e23883ac638ae24486fa559c1178a4f"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/evaluate.py",
+      "sha256": "e2b96db744e491849774d891ff265a1e33cdfa393fd362271191e81f99cca3f4"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/geometry.py",
+      "sha256": "886d02e900484f38122f178b3c4a532ddf092674d40fcbd6a1863ac326286fc3"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/imitation.py",
+      "sha256": "e533a7e764ac4ec604d52b3a620afe3d86c9679d3484b73e40e6a71e864fcbfe"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/metrics.py",
+      "sha256": "86ea37555f94ffd88f4c8ce2cf0e867979a8105dc8f89f4e42bf44def7977a23"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/policy.py",
+      "sha256": "18405e416a2d567ee3eba3f616ecf2a9345318e7f36de9b998e78fc668f9f284"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/render.py",
+      "sha256": "eb9f8f40150ea5f2152700e14c375685aa0c6b9af2cc1dbe87bfebe8adb22e01"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/task-gradient-diagnostic/source/train.py",
+      "sha256": "4b4ded3888956315f271c711094a305cd1d70c68c7215bea4cfaf2e0e38df90d"
+    }
+  ]
+}

@@ -28,6 +28,10 @@ def main():
     parser.add_argument("--actor-initialization", help="Fresh RL run: load actor weights only; not an exact resume")
     parser.add_argument("--demonstrations", nargs="+", help="One or more local-history teacher NPZ datasets to aggregate")
     parser.add_argument("--student-checkpoint", help="Collect teacher labels while this local GRU student drives")
+    parser.add_argument("--teacher-scan-seconds", type=float, default=0.,
+                        help="Teacher-only initial scan per task segment; zero preserves reactive labels")
+    parser.add_argument("--teacher-intervention-probability", type=float, default=0.,
+                        help="Collection only: probability that the teacher executes for the learned group; requires --student-checkpoint")
     parser.add_argument("--episodes", type=int, default=64, help="Teacher collection episode count")
     parser.add_argument("--epochs", type=int, default=10, help="Optional imitation epoch count")
     parser.add_argument("--training-version", choices=SUPPORTED_TRAINING_VERSIONS,
@@ -59,6 +63,10 @@ def main():
         parser.error("Imitation uses the frozen demonstration configuration")
     if args.student_checkpoint and args.command != "collect-teacher":
         parser.error("--student-checkpoint applies only to teacher-label collection")
+    if args.teacher_scan_seconds != 0 and args.command != "collect-teacher":
+        parser.error("--teacher-scan-seconds applies only to teacher-label collection")
+    if args.teacher_intervention_probability != 0 and args.command != "collect-teacher":
+        parser.error("--teacher-intervention-probability applies only to teacher-label collection")
     if args.tasks and args.command != "evaluate":
         parser.error("--tasks applies only to isolated evaluation")
     if args.worlds is not None and (args.command != "train" or args.worlds < 1):
@@ -141,7 +149,8 @@ def main():
         from .imitation import collect_teacher
         from .curriculum import TrainingPlan
         collect_teacher(config, args.seed, args.episodes, args.output,
-                        TrainingPlan.load(args.plan, config) if args.plan else None, args.student_checkpoint)
+                        TrainingPlan.load(args.plan, config) if args.plan else None, args.student_checkpoint,
+                        scan_seconds=args.teacher_scan_seconds, teacher_probability=args.teacher_intervention_probability)
     elif args.command == "imitate":
         from .imitation import imitate
         if not args.demonstrations:

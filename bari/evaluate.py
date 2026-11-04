@@ -3,7 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import numpy as np
-from .config import TASKS
+from .config import TASKS, observation_contract, CONE_OCCLUSION_BASIS
 from .env import Environment
 from .metrics import EVALUATION_VERSION, evaluation_contract
 
@@ -18,6 +18,9 @@ class Recorder:
                          "evaluator_version": EVALUATION_VERSION,
                          "initial_poses": env.poses.tolist(),
                          "config_sha256": env.config.digest(), "recording": "one row per control step"}
+        if env.config.sensor_fov_deg:
+            self.metadata.update(sensor_model=observation_contract(env.config)["sensor_model"],
+                                 occlusion_observer_basis=CONE_OCCLUSION_BASIS)
         self.rows = []
         self.follow_trails = {}
 

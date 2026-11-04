@@ -1,0 +1,1416 @@
+{
+  "version": "bari-finite-return-pilot-result-v1",
+  "completed_utc": "2026-11-03T17:29:12.731188+00:00",
+  "source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "protocol": {
+    "version": "bari-finite-return-gradient-v1-pilot",
+    "planned_utc": "2026-11-03T17:09:55.026745+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "script": {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-finite-return-pilot.py",
+      "sha256": "dcaf5ee122b03da2ab50fe3d7c65b8305d1a861521fedff6e8cd83331f4a6b21"
+    },
+    "runner": {
+      "path": "runs/run-finite-return-pilot.py",
+      "sha256": "350e81f05288f7e75c08daee41ac952794548ce53952ffe3a495ea41648a9b29"
+    },
+    "module": {
+      "path": "runs/finite_return_gradient.py",
+      "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+    },
+    "verification": {
+      "path": "reports/finite-return-gradient-verification.json",
+      "sha256": "fecaf6d68fd7a20b6a33d75a2f55c4c7f961e925a24cf00833da45abbffddb0b"
+    },
+    "parent": {
+      "path": "runs/circle-rl-repair-high-23/training-final200/checkpoint.pt",
+      "sha256": "b3a558673f1492aea0379b010a4bce45d84203673019ac8bbdb85bd58fdbb9c6"
+    },
+    "parent_evidence": "Unvalidated PPO200 circle1/15 development successes; no full-scope acceptance.",
+    "config": {
+      "path": "runs/finite-return-pilot-v1/config.json",
+      "sha256": "b94634f4838b8997ac04cf3e793eeeb3dd74829eea43c0d61bd90896c86372f1"
+    },
+    "config_sha256": "a4b959e57e64f3c65699b88faeae354f1a7a8e0abe62a819223dd8742de85996",
+    "plan": {
+      "path": "runs/finite-return-pilot-v1/training_plan.json",
+      "sha256": "479fd3bae0c4062cedde7846eb356b3282904a420e85cefc952cbab4ab7182c9"
+    },
+    "arms": {
+      "1": {
+        "horizon": 1,
+        "initial": {
+          "path": "runs/finite-return-pilot-v1/initial-h1.pt",
+          "sha256": "c0e93f2311980a84851932804aea8fd5a4cee8ba97931eb7a032e37c4ff78f98"
+        }
+      },
+      "5": {
+        "horizon": 5,
+        "initial": {
+          "path": "runs/finite-return-pilot-v1/initial-h5.pt",
+          "sha256": "538d226aa695908d16376bc669ffe57c095dc1adac481f3a5ba4be91add5e7b9"
+        }
+      }
+    },
+    "training_seed": 47,
+    "worlds": 4,
+    "updates": 80,
+    "actual_controls_per_update": 64,
+    "actual_controls_per_arm": 5120,
+    "optimizer_steps_per_arm": 80,
+    "BPTT": 16,
+    "epsilon_normalized_command": 0.1,
+    "gradient_component_cap": 1.0,
+    "gradient_batch_RMS_normalized": true,
+    "learning_rate": 0.001,
+    "actor_gradient_clip": 0.5,
+    "observations": [
+      0,
+      20,
+      80
+    ],
+    "development_seeds": [
+      2001,
+      2003,
+      2011,
+      2017,
+      2027,
+      1594776450,
+      589246224,
+      1979129855,
+      1391038837,
+      1899936300,
+      995963224,
+      113285700,
+      1761495214,
+      1685651270,
+      1727563011
+    ],
+    "method": "At actual local-policy states,20 fixed +/-forward/turn action perturbations generate simulator-only short returns. Subsequent branch actions use frozen ordinary local actor and its correctly advanced private hidden state. Differentiate team mean discounted reward by central differences, transform to left/right derivatives, clip to[-1,1], normalize batch RMS and take one recurrent actor-gradient step per rollout. No argmax expert action labels.",
+    "budget": "Both arms share actual-state/optimizer budgets; horizon5 uses up to5x counterfactual simulator controls. Count actual and all branch controls separately. Stop branch return at time limit. No computation-efficiency claim.",
+    "boundary": "Full simulator snapshots are training infrastructure. Actor forward sees only local9/task4/privateGRU64; no snapshot coordinates, identities, visibility, fitted target or branch gradient is an input/mask/runtime controller. All5 circle robots are learned; zero command columns/moments persist. Critic is unused compatibility storage; log_std is unused and unchanged by deterministic training.",
+    "initialization_proof": {
+      "all_actor_weights_exact": true,
+      "fresh_optimizer_worlds_hidden_RNG_preserved": true,
+      "paired_states_exact_except_horizon": true
+    },
+    "reference": {
+      "title": "Deterministic Policy Gradient Algorithms, Silver et al.,2014",
+      "url": "https://proceedings.mlr.press/v32/silver14.html",
+      "use": "Motivates the actor chain rule through an action-value gradient. This custom finite-horizon simulator difference method is a biased approximation, not a reproduction or convergence guarantee for the paper's off-policy actor-critic."
+    },
+    "selection": "Only exact final80 candidates, deterministic same15 development worlds and original numeric gates. Require>=14/15 official successes AND final holds with zero total safety attempts. Intermediate20 diagnostic only. No extension or default promotion; prefer horizon1 if both pass.",
+    "scope": "Exploratory circle-only reward-based recurrent actor optimization, not PPO. Common BCseed11 and prior PPOseed23 initializer, new finite-update seed47; not independent full training pipelines, final-heldout or four-task/memory/switching/device acceptance. HypotheticalFOV60 and central-square initial sampler remain assumptions."
+  },
+  "verification": {
+    "version": "bari-finite-return-gradient-v1-verification",
+    "quadratic_action_derivative_exact_to_1e14": true,
+    "unperturbed_branch_matches_normal_policy_exact": true,
+    "branch_world_and_torch_rng_unchanged": true,
+    "short_return_stops_at_time_limit": true,
+    "recurrent_sequence_commands_exact": true,
+    "finite_gradients_update_GRU_and_head": true,
+    "log_std_and_unused_critic_unchanged": true,
+    "zero_command_weights_and_Adam_moments": true,
+    "PPO_resume_rejects_algorithm": true,
+    "all_rollout_state_and_rng_resume_exact": true,
+    "episode_boundary_crossed": true,
+    "verification_only_updates": [
+      1,
+      2
+    ],
+    "behavior_candidates_produced": 0,
+    "stats": {
+      "update": 1,
+      "loss": -0.020859723910689354,
+      "actor_gradient_norm": 4.263587951660156,
+      "raw_action_gradient_rms": 0.0036476515233516693,
+      "gradient_component_clip_fraction": 0.0,
+      "mean_reward": -0.005970782600343227,
+      "mean_max_error_m": 0.043872468173503876,
+      "actual_controls": 2,
+      "counterfactual_controls": 144,
+      "counterfactual_controls_this_update": 140,
+      "horizon": 5,
+      "optimizer_steps": 1,
+      "algorithm": "bari-finite-return-gradient-v1"
+    },
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-finite-return-gradient.py",
+        "sha256": "d000421b42571f857bdcbac2c0378af063ae74584b35ffd7d2e1fc411d09f275"
+      },
+      {
+        "path": "runs/finite_return_gradient.py",
+        "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+      },
+      {
+        "path": "runs/finite-return-gradient-verification-v1/smoke-update1.pt",
+        "sha256": "d424a2a239be5acaa5135d9fccaf0c107777ad90fd525b14ca5f27dfa4086200"
+      },
+      {
+        "path": "runs/finite-return-gradient-verification-v1/expected-rollout.npz",
+        "sha256": "3141309804b0a3d2c25dd87ff556065515be0985ffd143b5c66b7f7df7566bc1"
+      },
+      {
+        "path": "runs/finite-return-gradient-verification-v1/actual-rollout.npz",
+        "sha256": "3141309804b0a3d2c25dd87ff556065515be0985ffd143b5c66b7f7df7566bc1"
+      }
+    ]
+  },
+  "mathematical_test_atol": 1e-14,
+  "results": {
+    "1": {
+      "protocol": {
+        "version": "bari-finite-return-gradient-v1-pilot",
+        "planned_utc": "2026-11-03T17:09:55.026745+00:00",
+        "source": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-finite-return-pilot.py",
+          "sha256": "dcaf5ee122b03da2ab50fe3d7c65b8305d1a861521fedff6e8cd83331f4a6b21"
+        },
+        "runner": {
+          "path": "runs/run-finite-return-pilot.py",
+          "sha256": "350e81f05288f7e75c08daee41ac952794548ce53952ffe3a495ea41648a9b29"
+        },
+        "module": {
+          "path": "runs/finite_return_gradient.py",
+          "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+        },
+        "verification": {
+          "path": "reports/finite-return-gradient-verification.json",
+          "sha256": "fecaf6d68fd7a20b6a33d75a2f55c4c7f961e925a24cf00833da45abbffddb0b"
+        },
+        "parent": {
+          "path": "runs/circle-rl-repair-high-23/training-final200/checkpoint.pt",
+          "sha256": "b3a558673f1492aea0379b010a4bce45d84203673019ac8bbdb85bd58fdbb9c6"
+        },
+        "parent_evidence": "Unvalidated PPO200 circle1/15 development successes; no full-scope acceptance.",
+        "config": {
+          "path": "runs/finite-return-pilot-v1/config.json",
+          "sha256": "b94634f4838b8997ac04cf3e793eeeb3dd74829eea43c0d61bd90896c86372f1"
+        },
+        "config_sha256": "a4b959e57e64f3c65699b88faeae354f1a7a8e0abe62a819223dd8742de85996",
+        "plan": {
+          "path": "runs/finite-return-pilot-v1/training_plan.json",
+          "sha256": "479fd3bae0c4062cedde7846eb356b3282904a420e85cefc952cbab4ab7182c9"
+        },
+        "arms": {
+          "1": {
+            "horizon": 1,
+            "initial": {
+              "path": "runs/finite-return-pilot-v1/initial-h1.pt",
+              "sha256": "c0e93f2311980a84851932804aea8fd5a4cee8ba97931eb7a032e37c4ff78f98"
+            }
+          },
+          "5": {
+            "horizon": 5,
+            "initial": {
+              "path": "runs/finite-return-pilot-v1/initial-h5.pt",
+              "sha256": "538d226aa695908d16376bc669ffe57c095dc1adac481f3a5ba4be91add5e7b9"
+            }
+          }
+        },
+        "training_seed": 47,
+        "worlds": 4,
+        "updates": 80,
+        "actual_controls_per_update": 64,
+        "actual_controls_per_arm": 5120,
+        "optimizer_steps_per_arm": 80,
+        "BPTT": 16,
+        "epsilon_normalized_command": 0.1,
+        "gradient_component_cap": 1.0,
+        "gradient_batch_RMS_normalized": true,
+        "learning_rate": 0.001,
+        "actor_gradient_clip": 0.5,
+        "observations": [
+          0,
+          20,
+          80
+        ],
+        "development_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          1594776450,
+          589246224,
+          1979129855,
+          1391038837,
+          1899936300,
+          995963224,
+          113285700,
+          1761495214,
+          1685651270,
+          1727563011
+        ],
+        "method": "At actual local-policy states,20 fixed +/-forward/turn action perturbations generate simulator-only short returns. Subsequent branch actions use frozen ordinary local actor and its correctly advanced private hidden state. Differentiate team mean discounted reward by central differences, transform to left/right derivatives, clip to[-1,1], normalize batch RMS and take one recurrent actor-gradient step per rollout. No argmax expert action labels.",
+        "budget": "Both arms share actual-state/optimizer budgets; horizon5 uses up to5x counterfactual simulator controls. Count actual and all branch controls separately. Stop branch return at time limit. No computation-efficiency claim.",
+        "boundary": "Full simulator snapshots are training infrastructure. Actor forward sees only local9/task4/privateGRU64; no snapshot coordinates, identities, visibility, fitted target or branch gradient is an input/mask/runtime controller. All5 circle robots are learned; zero command columns/moments persist. Critic is unused compatibility storage; log_std is unused and unchanged by deterministic training.",
+        "initialization_proof": {
+          "all_actor_weights_exact": true,
+          "fresh_optimizer_worlds_hidden_RNG_preserved": true,
+          "paired_states_exact_except_horizon": true
+        },
+        "reference": {
+          "title": "Deterministic Policy Gradient Algorithms, Silver et al.,2014",
+          "url": "https://proceedings.mlr.press/v32/silver14.html",
+          "use": "Motivates the actor chain rule through an action-value gradient. This custom finite-horizon simulator difference method is a biased approximation, not a reproduction or convergence guarantee for the paper's off-policy actor-critic."
+        },
+        "selection": "Only exact final80 candidates, deterministic same15 development worlds and original numeric gates. Require>=14/15 official successes AND final holds with zero total safety attempts. Intermediate20 diagnostic only. No extension or default promotion; prefer horizon1 if both pass.",
+        "scope": "Exploratory circle-only reward-based recurrent actor optimization, not PPO. Common BCseed11 and prior PPOseed23 initializer, new finite-update seed47; not independent full training pipelines, final-heldout or four-task/memory/switching/device acceptance. HypotheticalFOV60 and central-square initial sampler remain assumptions."
+      },
+      "horizon": 1,
+      "algorithm": "bari-finite-return-gradient-v1",
+      "updates": 80,
+      "optimizer_steps": 80,
+      "actual_controls": 5120,
+      "counterfactual_controls": 102400,
+      "observations": [
+        {
+          "update": 0,
+          "checkpoint": {
+            "path": "runs/finite-return-pilot-h1-47/initial-checkpoint.pt",
+            "sha256": "ce5a5b1a5d8a86b3e36bbc299deb613036d78d0d7ffb70f4325ed59665404a77"
+          },
+          "report": {
+            "path": "runs/finite-return-pilot-h1-47/evaluation-0000/report.json",
+            "sha256": "4b9f5d536c17d0cf4e4c1e92b28abdc91b902d51b615d6fc8e5f4b06c2dc3cc5"
+          },
+          "episodes": 15,
+          "successes": 1,
+          "final_holding": 1,
+          "contacts": 83,
+          "walls": 0,
+          "mean_final_max_error_m": 0.10828825301127223,
+          "evaluation_all_training_state_rng_exact": true
+        },
+        {
+          "update": 20,
+          "checkpoint": {
+            "path": "runs/finite-return-pilot-h1-47/checkpoint-0020.pt",
+            "sha256": "5cdf89f711924ed18d567f8f3fcfc0dcfd6af5c78d7a8760855c6c1c877c9f82"
+          },
+          "report": {
+            "path": "runs/finite-return-pilot-h1-47/evaluation-0020/report.json",
+            "sha256": "120de81d09dec6444cf2e4856d7c6a1be7ec16285a0f35bc7a4d7bba1443955f"
+          },
+          "episodes": 15,
+          "successes": 0,
+          "final_holding": 0,
+          "contacts": 451,
+          "walls": 0,
+          "mean_final_max_error_m": 0.07743540282685044,
+          "evaluation_all_training_state_rng_exact": true
+        },
+        {
+          "update": 80,
+          "checkpoint": {
+            "path": "runs/finite-return-pilot-h1-47/checkpoint-0080.pt",
+            "sha256": "591aac7fb2b0d74df5ff33b82e517111759c7620c5922d8eb28a62d92c389d29"
+          },
+          "report": {
+            "path": "runs/finite-return-pilot-h1-47/evaluation-0080/report.json",
+            "sha256": "48946df003d3aa283d9961e059775dd1e20fc28c3b147d4dc964f19e7e4fe7e7"
+          },
+          "episodes": 15,
+          "successes": 0,
+          "final_holding": 0,
+          "contacts": 23,
+          "walls": 0,
+          "mean_final_max_error_m": 0.27361740422172937,
+          "evaluation_all_training_state_rng_exact": true
+        }
+      ],
+      "critic_and_log_std_unchanged": true,
+      "zero_command_columns_and_moments": true,
+      "qualified_for_separately_planned_next_stage_only": false,
+      "default_promoted": false,
+      "training_log": {
+        "path": "runs/finite-return-pilot-h1-47/training.jsonl",
+        "sha256": "e5e2708f53b1fd1e67530161359cd099c5adbf6b16e1ae0df6b1e9e12da9ad04"
+      },
+      "decision": "Fixed80 updates complete. No extension or default promotion; full goal remains open.",
+      "actor_max_parameter_changes": {
+        "log_std": 0.0,
+        "encoder.weight": 0.01998668909072876,
+        "encoder.bias": 0.01459793746471405,
+        "gru.weight_ih": 0.05021786689758301,
+        "gru.weight_hh": 0.04532477259635925,
+        "gru.bias_ih": 0.033180832862854004,
+        "gru.bias_hh": 0.03318088501691818,
+        "head.weight": 0.03339551389217377,
+        "head.bias": 0.01314610242843628
+      }
+    },
+    "5": {
+      "protocol": {
+        "version": "bari-finite-return-gradient-v1-pilot",
+        "planned_utc": "2026-11-03T17:09:55.026745+00:00",
+        "source": {
+          "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+          "dirty": true,
+          "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+        },
+        "script": {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/prepare-finite-return-pilot.py",
+          "sha256": "dcaf5ee122b03da2ab50fe3d7c65b8305d1a861521fedff6e8cd83331f4a6b21"
+        },
+        "runner": {
+          "path": "runs/run-finite-return-pilot.py",
+          "sha256": "350e81f05288f7e75c08daee41ac952794548ce53952ffe3a495ea41648a9b29"
+        },
+        "module": {
+          "path": "runs/finite_return_gradient.py",
+          "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+        },
+        "verification": {
+          "path": "reports/finite-return-gradient-verification.json",
+          "sha256": "fecaf6d68fd7a20b6a33d75a2f55c4c7f961e925a24cf00833da45abbffddb0b"
+        },
+        "parent": {
+          "path": "runs/circle-rl-repair-high-23/training-final200/checkpoint.pt",
+          "sha256": "b3a558673f1492aea0379b010a4bce45d84203673019ac8bbdb85bd58fdbb9c6"
+        },
+        "parent_evidence": "Unvalidated PPO200 circle1/15 development successes; no full-scope acceptance.",
+        "config": {
+          "path": "runs/finite-return-pilot-v1/config.json",
+          "sha256": "b94634f4838b8997ac04cf3e793eeeb3dd74829eea43c0d61bd90896c86372f1"
+        },
+        "config_sha256": "a4b959e57e64f3c65699b88faeae354f1a7a8e0abe62a819223dd8742de85996",
+        "plan": {
+          "path": "runs/finite-return-pilot-v1/training_plan.json",
+          "sha256": "479fd3bae0c4062cedde7846eb356b3282904a420e85cefc952cbab4ab7182c9"
+        },
+        "arms": {
+          "1": {
+            "horizon": 1,
+            "initial": {
+              "path": "runs/finite-return-pilot-v1/initial-h1.pt",
+              "sha256": "c0e93f2311980a84851932804aea8fd5a4cee8ba97931eb7a032e37c4ff78f98"
+            }
+          },
+          "5": {
+            "horizon": 5,
+            "initial": {
+              "path": "runs/finite-return-pilot-v1/initial-h5.pt",
+              "sha256": "538d226aa695908d16376bc669ffe57c095dc1adac481f3a5ba4be91add5e7b9"
+            }
+          }
+        },
+        "training_seed": 47,
+        "worlds": 4,
+        "updates": 80,
+        "actual_controls_per_update": 64,
+        "actual_controls_per_arm": 5120,
+        "optimizer_steps_per_arm": 80,
+        "BPTT": 16,
+        "epsilon_normalized_command": 0.1,
+        "gradient_component_cap": 1.0,
+        "gradient_batch_RMS_normalized": true,
+        "learning_rate": 0.001,
+        "actor_gradient_clip": 0.5,
+        "observations": [
+          0,
+          20,
+          80
+        ],
+        "development_seeds": [
+          2001,
+          2003,
+          2011,
+          2017,
+          2027,
+          1594776450,
+          589246224,
+          1979129855,
+          1391038837,
+          1899936300,
+          995963224,
+          113285700,
+          1761495214,
+          1685651270,
+          1727563011
+        ],
+        "method": "At actual local-policy states,20 fixed +/-forward/turn action perturbations generate simulator-only short returns. Subsequent branch actions use frozen ordinary local actor and its correctly advanced private hidden state. Differentiate team mean discounted reward by central differences, transform to left/right derivatives, clip to[-1,1], normalize batch RMS and take one recurrent actor-gradient step per rollout. No argmax expert action labels.",
+        "budget": "Both arms share actual-state/optimizer budgets; horizon5 uses up to5x counterfactual simulator controls. Count actual and all branch controls separately. Stop branch return at time limit. No computation-efficiency claim.",
+        "boundary": "Full simulator snapshots are training infrastructure. Actor forward sees only local9/task4/privateGRU64; no snapshot coordinates, identities, visibility, fitted target or branch gradient is an input/mask/runtime controller. All5 circle robots are learned; zero command columns/moments persist. Critic is unused compatibility storage; log_std is unused and unchanged by deterministic training.",
+        "initialization_proof": {
+          "all_actor_weights_exact": true,
+          "fresh_optimizer_worlds_hidden_RNG_preserved": true,
+          "paired_states_exact_except_horizon": true
+        },
+        "reference": {
+          "title": "Deterministic Policy Gradient Algorithms, Silver et al.,2014",
+          "url": "https://proceedings.mlr.press/v32/silver14.html",
+          "use": "Motivates the actor chain rule through an action-value gradient. This custom finite-horizon simulator difference method is a biased approximation, not a reproduction or convergence guarantee for the paper's off-policy actor-critic."
+        },
+        "selection": "Only exact final80 candidates, deterministic same15 development worlds and original numeric gates. Require>=14/15 official successes AND final holds with zero total safety attempts. Intermediate20 diagnostic only. No extension or default promotion; prefer horizon1 if both pass.",
+        "scope": "Exploratory circle-only reward-based recurrent actor optimization, not PPO. Common BCseed11 and prior PPOseed23 initializer, new finite-update seed47; not independent full training pipelines, final-heldout or four-task/memory/switching/device acceptance. HypotheticalFOV60 and central-square initial sampler remain assumptions."
+      },
+      "horizon": 5,
+      "algorithm": "bari-finite-return-gradient-v1",
+      "updates": 80,
+      "optimizer_steps": 80,
+      "actual_controls": 5120,
+      "counterfactual_controls": 508800,
+      "observations": [
+        {
+          "update": 0,
+          "checkpoint": {
+            "path": "runs/finite-return-pilot-h5-47/initial-checkpoint.pt",
+            "sha256": "65caac9d7e874bcdf14d457e94cb2c5005506cdf3b5020fe810af18ae4aa9db0"
+          },
+          "report": {
+            "path": "runs/finite-return-pilot-h5-47/evaluation-0000/report.json",
+            "sha256": "d736f279f22cdfdd3c1a4a124bcf35ad46be3c4e9b947e33dfa1e229c6bda16d"
+          },
+          "episodes": 15,
+          "successes": 1,
+          "final_holding": 1,
+          "contacts": 83,
+          "walls": 0,
+          "mean_final_max_error_m": 0.10828825301127223,
+          "evaluation_all_training_state_rng_exact": true
+        },
+        {
+          "update": 20,
+          "checkpoint": {
+            "path": "runs/finite-return-pilot-h5-47/checkpoint-0020.pt",
+            "sha256": "14b7dbaf39a1e76f805f0bf26c97d3127b811b386203481654e71be2f001bc52"
+          },
+          "report": {
+            "path": "runs/finite-return-pilot-h5-47/evaluation-0020/report.json",
+            "sha256": "b16eb12b0e4c532bbde855d10d277e572ca7e05e09d253452fc5f8fc571b8a2a"
+          },
+          "episodes": 15,
+          "successes": 2,
+          "final_holding": 0,
+          "contacts": 499,
+          "walls": 0,
+          "mean_final_max_error_m": 0.10593932322207615,
+          "evaluation_all_training_state_rng_exact": true
+        },
+        {
+          "update": 80,
+          "checkpoint": {
+            "path": "runs/finite-return-pilot-h5-47/checkpoint-0080.pt",
+            "sha256": "19623185e3dd99d20d62698b6c8f1c0214f23db41d4077c0771bfe6e3f370ad8"
+          },
+          "report": {
+            "path": "runs/finite-return-pilot-h5-47/evaluation-0080/report.json",
+            "sha256": "8795985655a96497c6d47d62c74e6fa3af9432bbb0c32a52bd106ed681adf330"
+          },
+          "episodes": 15,
+          "successes": 1,
+          "final_holding": 0,
+          "contacts": 1336,
+          "walls": 0,
+          "mean_final_max_error_m": 0.1003441507840756,
+          "evaluation_all_training_state_rng_exact": true
+        }
+      ],
+      "critic_and_log_std_unchanged": true,
+      "zero_command_columns_and_moments": true,
+      "qualified_for_separately_planned_next_stage_only": false,
+      "default_promoted": false,
+      "training_log": {
+        "path": "runs/finite-return-pilot-h5-47/training.jsonl",
+        "sha256": "67a59930c9d4ba0470d63d047ef150c3db3015b8263672cbfff4ab0a96e2e801"
+      },
+      "decision": "Fixed80 updates complete. No extension or default promotion; full goal remains open.",
+      "actor_max_parameter_changes": {
+        "log_std": 0.0,
+        "encoder.weight": 0.022820591926574707,
+        "encoder.bias": 0.014121919870376587,
+        "gru.weight_ih": 0.045176610350608826,
+        "gru.weight_hh": 0.04703877866268158,
+        "gru.bias_ih": 0.027181491255760193,
+        "gru.bias_hh": 0.027181491255760193,
+        "head.weight": 0.02399696409702301,
+        "head.bias": 0.007349610328674316
+      }
+    }
+  },
+  "actual_terminal_resume": {
+    "1": {
+      "version": "bari-finite-return-terminal-resume-v1",
+      "horizon": 1,
+      "parent": {
+        "path": "runs/finite-return-pilot-h1-47/checkpoint-0080.pt",
+        "sha256": "591aac7fb2b0d74df5ff33b82e517111759c7620c5922d8eb28a62d92c389d29"
+      },
+      "worlds": 4,
+      "verification_only_updates": [
+        81,
+        82
+      ],
+      "candidate_updates": 80,
+      "all_rollout_arrays_exact": true,
+      "all_state_rng_exact": true,
+      "state_and_rollout_leaves_compared": 2634,
+      "fields_excluded": [],
+      "episode_boundary_crossed_here": false,
+      "scope": "Actual four-world continuation/serialization proof; initial separate verification covers an episode boundary. No verification state is a behavioral candidate.",
+      "artifacts": [
+        {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-finite-return-terminal-resume.py",
+          "sha256": "4335ac516bc649d65bfe396f72b697b4fa4ba3ee9d3c880f2509f7bdc903be31"
+        },
+        {
+          "path": "runs/finite-return-terminal-resume-h1/verification-only-81.pt",
+          "sha256": "96f43b5e9ea288c9447886d2350dc894b2d1dbeb0cf5ab7a61b53fdff008bd3a"
+        },
+        {
+          "path": "runs/finite-return-terminal-resume-h1/expected-rollout.npz",
+          "sha256": "1ca73729bf36e1d7e2b55786e1bb8eb3c1cd38d16f0d110e2b1ddc05701e2d65"
+        },
+        {
+          "path": "runs/finite-return-terminal-resume-h1/actual-rollout.npz",
+          "sha256": "1ca73729bf36e1d7e2b55786e1bb8eb3c1cd38d16f0d110e2b1ddc05701e2d65"
+        }
+      ]
+    },
+    "5": {
+      "version": "bari-finite-return-terminal-resume-v1",
+      "horizon": 5,
+      "parent": {
+        "path": "runs/finite-return-pilot-h5-47/checkpoint-0080.pt",
+        "sha256": "19623185e3dd99d20d62698b6c8f1c0214f23db41d4077c0771bfe6e3f370ad8"
+      },
+      "worlds": 4,
+      "verification_only_updates": [
+        81,
+        82
+      ],
+      "candidate_updates": 80,
+      "all_rollout_arrays_exact": true,
+      "all_state_rng_exact": true,
+      "state_and_rollout_leaves_compared": 2634,
+      "fields_excluded": [],
+      "episode_boundary_crossed_here": false,
+      "scope": "Actual four-world continuation/serialization proof; initial separate verification covers an episode boundary. No verification state is a behavioral candidate.",
+      "artifacts": [
+        {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-finite-return-terminal-resume.py",
+          "sha256": "4335ac516bc649d65bfe396f72b697b4fa4ba3ee9d3c880f2509f7bdc903be31"
+        },
+        {
+          "path": "runs/finite-return-terminal-resume-h5/verification-only-81.pt",
+          "sha256": "271ff528ef2fde7e0407aff0d7177387c09a7025112e89fedca6b6d451e3b187"
+        },
+        {
+          "path": "runs/finite-return-terminal-resume-h5/expected-rollout.npz",
+          "sha256": "91a29e83c04282a791b18dfb8138907acf3e7f9fab9d69d5fde5fdfae3fddfbc"
+        },
+        {
+          "path": "runs/finite-return-terminal-resume-h5/actual-rollout.npz",
+          "sha256": "91a29e83c04282a791b18dfb8138907acf3e7f9fab9d69d5fde5fdfae3fddfbc"
+        }
+      ]
+    }
+  },
+  "step_diagnostic": {
+    "1": {
+      "version": "bari-finite-return-step-diagnostic-v1",
+      "horizon": 1,
+      "checkpoint": {
+        "path": "runs/finite-return-pilot-h1-47/checkpoint-0020.pt",
+        "sha256": "5cdf89f711924ed18d567f8f3fcfc0dcfd6af5c78d7a8760855c6c1c877c9f82"
+      },
+      "gradient_descent_parameter_direction_alignment": 0.004957484915394161,
+      "fractions": [
+        {
+          "Adam_step_fraction": 0.0,
+          "raw_linearized_gain_mean": 0.0,
+          "max_normalized_command_change": 0.0,
+          "max_final_hidden_change": 0.0,
+          "first_four_training_states_short_return_mean": -0.019870368530973792,
+          "first_four_training_states_short_returns": [
+            -0.021174848079681396,
+            -0.014751317910850048,
+            -0.027620822191238403,
+            -0.01593448594212532
+          ]
+        },
+        {
+          "Adam_step_fraction": 0.0625,
+          "raw_linearized_gain_mean": 3.666968495963374e-06,
+          "max_normalized_command_change": 0.012051030993461609,
+          "max_final_hidden_change": 0.021685421466827393,
+          "first_four_training_states_short_return_mean": -0.019868280505761504,
+          "first_four_training_states_short_returns": [
+            -0.02117272838950157,
+            -0.014752033166587353,
+            -0.02762213908135891,
+            -0.015926221385598183
+          ]
+        },
+        {
+          "Adam_step_fraction": 0.25,
+          "raw_linearized_gain_mean": 1.4638584616477601e-05,
+          "max_normalized_command_change": 0.04881196469068527,
+          "max_final_hidden_change": 0.08688384294509888,
+          "first_four_training_states_short_return_mean": -0.01986216427758336,
+          "first_four_training_states_short_returns": [
+            -0.02116638980805874,
+            -0.01475423015654087,
+            -0.02762608602643013,
+            -0.015901951119303703
+          ]
+        },
+        {
+          "Adam_step_fraction": 1.0,
+          "raw_linearized_gain_mean": 5.7613797252997756e-05,
+          "max_normalized_command_change": 0.19798338413238525,
+          "max_final_hidden_change": 0.3234093487262726,
+          "first_four_training_states_short_return_mean": -0.019837820902466774,
+          "first_four_training_states_short_returns": [
+            -0.02113892138004303,
+            -0.014763591811060905,
+            -0.027641599997878075,
+            -0.015807170420885086
+          ]
+        }
+      ],
+      "scope": "Isolated verification-only update21 and interpolated weights on four stored training states. No validation state is trained on, no state is a behavioral candidate, no pilot budget extension. Short-return score is not full-episode acceptance.",
+      "artifacts": [
+        {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-finite-return-step.py",
+          "sha256": "4aa127162eea2cff3fc529b8c61608102f1ce52d28e18220253255b6855ee0b1"
+        },
+        {
+          "path": "runs/finite-return-step-diagnostic-h1/verification-only-rollout.npz",
+          "sha256": "ac01cd6cdc4a190b413a89a00d4066fc6892d549d6b1a8ec4fa955c5fe7eb770"
+        }
+      ]
+    },
+    "5": {
+      "version": "bari-finite-return-step-diagnostic-v1",
+      "horizon": 5,
+      "checkpoint": {
+        "path": "runs/finite-return-pilot-h5-47/checkpoint-0020.pt",
+        "sha256": "14b7dbaf39a1e76f805f0bf26c97d3127b811b386203481654e71be2f001bc52"
+      },
+      "gradient_descent_parameter_direction_alignment": 0.0059635344996422646,
+      "fractions": [
+        {
+          "Adam_step_fraction": 0.0,
+          "raw_linearized_gain_mean": 0.0,
+          "max_normalized_command_change": 0.0,
+          "max_final_hidden_change": 0.0,
+          "first_four_training_states_short_return_mean": -0.1453311624706803,
+          "first_four_training_states_short_returns": [
+            -0.14375783199438344,
+            -0.03697876810758542,
+            -0.20543632406842796,
+            -0.19515172571232428
+          ]
+        },
+        {
+          "Adam_step_fraction": 0.0625,
+          "raw_linearized_gain_mean": 4.719751359516522e-06,
+          "max_normalized_command_change": 0.006583154201507568,
+          "max_final_hidden_change": 0.014645040035247803,
+          "first_four_training_states_short_return_mean": -0.1452754954390552,
+          "first_four_training_states_short_returns": [
+            -0.1437410856978135,
+            -0.03693418855580521,
+            -0.20539211646721672,
+            -0.1950345910353855
+          ]
+        },
+        {
+          "Adam_step_fraction": 0.25,
+          "raw_linearized_gain_mean": 1.8900467694038525e-05,
+          "max_normalized_command_change": 0.026361562311649323,
+          "max_final_hidden_change": 0.05926608294248581,
+          "first_four_training_states_short_return_mean": -0.14510849974950002,
+          "first_four_training_states_short_returns": [
+            -0.143691839838321,
+            -0.0368017880068556,
+            -0.20525941048103527,
+            -0.1946809606717882
+          ]
+        },
+        {
+          "Adam_step_fraction": 1.0,
+          "raw_linearized_gain_mean": 7.590100722154602e-05,
+          "max_normalized_command_change": 0.10500306636095047,
+          "max_final_hidden_change": 0.2417939156293869,
+          "first_four_training_states_short_return_mean": -0.14440190247679746,
+          "first_four_training_states_short_returns": [
+            -0.1435104176013356,
+            -0.036287904909451524,
+            -0.20462188122586675,
+            -0.19318740617053604
+          ]
+        }
+      ],
+      "scope": "Isolated verification-only update21 and interpolated weights on four stored training states. No validation state is trained on, no state is a behavioral candidate, no pilot budget extension. Short-return score is not full-episode acceptance.",
+      "artifacts": [
+        {
+          "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-finite-return-step.py",
+          "sha256": "4aa127162eea2cff3fc529b8c61608102f1ce52d28e18220253255b6855ee0b1"
+        },
+        {
+          "path": "runs/finite-return-step-diagnostic-h5/verification-only-rollout.npz",
+          "sha256": "bfe91b9d49d277c773419afebef84805f453e8a15b9514afdda11c1be355b0dc"
+        }
+      ]
+    }
+  },
+  "initial_behavior_proof": [
+    {
+      "seed": 2001,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 2003,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 2011,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 2017,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 2027,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 1594776450,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 589246224,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 1979129855,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 1391038837,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 1899936300,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 995963224,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 113285700,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 1761495214,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 1685651270,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    },
+    {
+      "seed": 1727563011,
+      "all_trajectory_arrays_match_parent_and_both_arms": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-finite-return-report.py",
+      "sha256": "eadafbc04e2280ea92b6f003ba6b85f70fc87b45e9cc33c4a6476ae9090a5c11"
+    },
+    {
+      "path": "runs/finite-return-pilot-v1/protocol.json",
+      "sha256": "bc4d9144bcb5df408981d3f92a0d71cee245b8b344ea2b613d131803d005fab8"
+    },
+    {
+      "path": "reports/finite-return-gradient-verification.json",
+      "sha256": "fecaf6d68fd7a20b6a33d75a2f55c4c7f961e925a24cf00833da45abbffddb0b"
+    },
+    {
+      "path": "runs/finite_return_gradient.py",
+      "sha256": "40c6136d9d4dd808de035e4f4b36e58c5f99f7d997de481ef66caaade896c410"
+    },
+    {
+      "path": "runs/verify-finite-return-gradient.py",
+      "sha256": "d000421b42571f857bdcbac2c0378af063ae74584b35ffd7d2e1fc411d09f275"
+    },
+    {
+      "path": "runs/prepare-finite-return-pilot.py",
+      "sha256": "dcaf5ee122b03da2ab50fe3d7c65b8305d1a861521fedff6e8cd83331f4a6b21"
+    },
+    {
+      "path": "runs/run-finite-return-pilot.py",
+      "sha256": "350e81f05288f7e75c08daee41ac952794548ce53952ffe3a495ea41648a9b29"
+    },
+    {
+      "path": "runs/probe-finite-return-step.py",
+      "sha256": "4aa127162eea2cff3fc529b8c61608102f1ce52d28e18220253255b6855ee0b1"
+    },
+    {
+      "path": "runs/verify-finite-return-terminal-resume.py",
+      "sha256": "4335ac516bc649d65bfe396f72b697b4fa4ba3ee9d3c880f2509f7bdc903be31"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/result.json",
+      "sha256": "85f954e4e921640131f8e1d96de11f00503d928681efb58124375fcc84c504a2"
+    },
+    {
+      "path": "runs/finite-return-terminal-resume-h1/proof.json",
+      "sha256": "17160dea4275063144d821b3868d19be1285e4c899a7a97f4f51dca79c5dc908"
+    },
+    {
+      "path": "runs/finite-return-step-diagnostic-h1/report.json",
+      "sha256": "5bfc16907230e148e468640acbe68fcc9ec8f7c3a6d4d86a6d5aafbbd2c7db97"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/training.jsonl",
+      "sha256": "e5e2708f53b1fd1e67530161359cd099c5adbf6b16e1ae0df6b1e9e12da9ad04"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-113285700.npz",
+      "sha256": "1778cbd6263407ac73e78679c470d7cfe36274ba1acfe6aef6821a0b39676dd5"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-1391038837.npz",
+      "sha256": "d21028f151dbc6ea7ab82e098240ae6e309fa6341791c6593ff7bca101df1efd"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-1594776450.npz",
+      "sha256": "92e383ef71c34a6d3ea2713c3ef3c7aad823e758e5e9a280f0e8ce775750eb70"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-1685651270.npz",
+      "sha256": "5b4db2c2cfe68f3e7b4738714337cac1414c8d569919b7269300acfe92eab52a"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-1727563011.npz",
+      "sha256": "9897b7f85452dcbabc74e25cce7a732a3cb2c9b4d5f1c8e94d965f8345a86506"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-1761495214.npz",
+      "sha256": "edc952f4a8d49d4a76fbe46ada91e3d2f06efa8ed7eda4f523aff55772f16300"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-1899936300.npz",
+      "sha256": "4c4811a2c805d9d767895f6f7607f6ff4113a91eab2aef94d849d8bae4191ac4"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-1979129855.npz",
+      "sha256": "0462312d92c57a8ad8c926a1d35d22eff34e24888d1298ec895ca3dd84204133"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-2001.npz",
+      "sha256": "67779202e8817cd97797906151ac9f9a5ec7627215ef7239bfabdba0d265aeba"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-2003.npz",
+      "sha256": "420eb9e7a472c7304bfaf2f6bdc127261f4e74b2dc8579934148033fed3d435c"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-2011.npz",
+      "sha256": "49b4c8a6df4b27795f09c9ea8da512835dc166d6a566ddcf131095b060b794f7"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-2017.npz",
+      "sha256": "6c7cbb525e459df99502f2b25b5e82b0398dd0be22d2ff6848d1376edf3a4281"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-2027.npz",
+      "sha256": "24497f92f354dbfa2bafbcb1db7624fc6f730b8393fa030c9daa8d2f23468097"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-589246224.npz",
+      "sha256": "b89630f9388fe918774719883ea930c6f292df93fefc07a1bf151658428d35b0"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0000/circle-995963224.npz",
+      "sha256": "9ab6b28c45b388c5cf9bee79cbe46bda49fed3ac41db05cc974e54cd30a0989d"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-113285700.npz",
+      "sha256": "da36914f6c38668963439d7be9954e74f01262b4070150762f2c29088648ead2"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-1391038837.npz",
+      "sha256": "7209f021d1655d6f6fdecd19bf82e854132801c22a04a12a8a01a2f90ea29fba"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-1594776450.npz",
+      "sha256": "8b1bb7d582e35c505b4c6707d6fcc1323c258d04d172eac75c1890350f5a18fc"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-1685651270.npz",
+      "sha256": "900e64c5ad9f4db9024b9d204b17046363d81952cdfc17c3271a11d326538452"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-1727563011.npz",
+      "sha256": "a0255ccd1ab654ca3ae46dc7e72883da1d85ea7b84ee51c88a18a72f00e35dd8"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-1761495214.npz",
+      "sha256": "36e35eb0d347ade4ebc449175e67aed44aa3d1f0f461fcfb6be960277a8ec167"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-1899936300.npz",
+      "sha256": "7d5465c3ec2a3e5f870ea7e608fec382bcaa42ae211edc2ceb323c6d51bbc6c4"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-1979129855.npz",
+      "sha256": "322a1ca24e7996e904d85b045bdfec5af926aecdf4be2f7e69a66ec4744e6fc3"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-2001.npz",
+      "sha256": "44e06bfce25245de7bbd0090194aa184158b2956e4f4b79db832f18a353a2863"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-2003.npz",
+      "sha256": "5a45f413fe7c40fdc8255ed93d7c4a5ab15b6b2c4ed3aba8f5b1e6ffd2ab3223"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-2011.npz",
+      "sha256": "5deb6dbdf4e014c329eedc61482c87cedb1b67d815b31612901f9a4e18fa69c1"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-2017.npz",
+      "sha256": "2883be2737ca05d12bbeabdf4f243b9db0d4d617d62157013d090dd0585b0c77"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-2027.npz",
+      "sha256": "4564a1a801851371613d8fde181607393c439bdbbad9a5b80e7c05fadb1d7944"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-589246224.npz",
+      "sha256": "f69135263ee283d5b94a65a4f6980d110314e57223b730eabd351884a8cf5e35"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0020/circle-995963224.npz",
+      "sha256": "6f005114fceb8c7a56cc4ac17b89f486ae035a77c825235f5c80318fef147253"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-113285700.npz",
+      "sha256": "b6c1931aa12eeae8c3c91e0ad659963ab9ff3352e0d78c112b138920217d26b7"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-1391038837.npz",
+      "sha256": "5be2ea1263a75c57fbda127ef7ffe4fba51ca37f91ed4e84cb4e8e238a8559b8"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-1594776450.npz",
+      "sha256": "ff017af369b66be1711c16c27ee8545fc465c063fc2a88084a59be57ef670805"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-1685651270.npz",
+      "sha256": "7df69e3b9db7f4bbee05f0002d385e2e616a7f8fd32d2ef542d880776ca8ada4"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-1727563011.npz",
+      "sha256": "9514ee8bce50d9808bb96d023d68414b0887173c4fc291316f5d4bcd0a4c78b6"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-1761495214.npz",
+      "sha256": "f423cbf52b2f4fe626f9812d36eed0c4e5c935411845f5b43aeba39e3ad40ff4"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-1899936300.npz",
+      "sha256": "ed8859664dab4d8eaea1e7bcbe2fa410b141a181ff0be40fcecca2764d93dc22"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-1979129855.npz",
+      "sha256": "e24f0e99c9cfe8012baad084f2c9857fd2075fd57163ff3cace14435f61e7694"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-2001.npz",
+      "sha256": "4e27edb6bc4d86f5d90481aa8d95522774f71233cff27b4d7e3af5994da93db9"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-2003.npz",
+      "sha256": "025d0a4f5f884ff9e0590c10dec2098743a11e7a41f215c312d8387cf7b0d08e"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-2011.npz",
+      "sha256": "5785c3b8c4e774594877a5c5cdb74a042a68b3f2b4136a1e68a0737cfd266ce0"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-2017.npz",
+      "sha256": "ccf4fc19a38c62373507a21b0199cf389d690899afc2d35c27a7825cd7265099"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-2027.npz",
+      "sha256": "b6e4fc35232c863d358ea9110da2c9d2377eca33eb71d2318df83360a220432f"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-589246224.npz",
+      "sha256": "47cf2d132282a53f1748edd1d17275a94b7f7ca96dc89fa13fb320cb0e99d59c"
+    },
+    {
+      "path": "runs/finite-return-pilot-h1-47/evaluation-0080/circle-995963224.npz",
+      "sha256": "a227d56a6de1b1eca67d1f61b5b0361eba25eaa2d403d2083f8031ef07463112"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/result.json",
+      "sha256": "c45579ea2d368f2cbd29137853029972bfed0b123501f0d2d38a8b547e34d29a"
+    },
+    {
+      "path": "runs/finite-return-terminal-resume-h5/proof.json",
+      "sha256": "bca856b0bca879a6f3bd686b04d52a0a8febf27d52e502a9409010ce1881e3fa"
+    },
+    {
+      "path": "runs/finite-return-step-diagnostic-h5/report.json",
+      "sha256": "3e2865847889b860e0e2d4de737ed7225ba5d9698ac946ca15d5df171f2228af"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/training.jsonl",
+      "sha256": "67a59930c9d4ba0470d63d047ef150c3db3015b8263672cbfff4ab0a96e2e801"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-113285700.npz",
+      "sha256": "b08dbc0be9a530b39f81cbf3fb800549f0a2cee2675f6dc4495bde6557562f02"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-1391038837.npz",
+      "sha256": "402ca89cc9face102af7504a618491556e485af8170cb21a4ee2c933ce50336d"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-1594776450.npz",
+      "sha256": "a4e3004531f2335ca96697e31f90fe8e22d8daf0f952dc62bba5ae9e94979ca6"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-1685651270.npz",
+      "sha256": "59e5321268e7e69612df467a0da27350ee9ba4c9ebb228e25e881bde9818dc17"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-1727563011.npz",
+      "sha256": "b606f2e2a7ffece543c554dfccd09df69e34f413b9e259442ace72b107c883ef"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-1761495214.npz",
+      "sha256": "fae64cd850df5d58e080b7d404a57c8c877020903320e7fe9c64c2d90fe00c9d"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-1899936300.npz",
+      "sha256": "3424e0f8025b7f8b1fa684fdfd0265efb6c3a275a0f22939efc55a6f9ecebe7b"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-1979129855.npz",
+      "sha256": "bb1d5183b1e4178cbe2e3fce0b135a2d65e7fc5321959fba2bce380eb841f512"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-2001.npz",
+      "sha256": "5cdf5266fbb7ef0c4bfbf8d64e861e7a991c760e82462242ebf686873888eeb7"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-2003.npz",
+      "sha256": "c48518c364d1e79f72a8291acaab4b0be33eb4924028071b067a6b4d9ea61e36"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-2011.npz",
+      "sha256": "e33d38013fd6a11f668905d383f1f719a4d4b761f08d8d53713165ab26973ccf"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-2017.npz",
+      "sha256": "67ae21b32a7b06babbfaa6e06ffbd9e8fdda795c8b4d01efc8e1d747b19a736b"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-2027.npz",
+      "sha256": "58411904f4712924cd8c7ea2174fea5cbb96920cdb7ee23e34ecf897413799fe"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-589246224.npz",
+      "sha256": "bd5a9701650dbb390f1d323558526b265e99f611200c24b5af451e29df96786c"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0000/circle-995963224.npz",
+      "sha256": "1d5a890d69d51d3940c3a4ac275d2101ed389241a24cc193671a24d8aad788db"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-113285700.npz",
+      "sha256": "111b616d30581551c06f644e962fee19207da6a10d268ba561c323082cc174fb"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-1391038837.npz",
+      "sha256": "f9b17ac103561c7e75321f6b2fb8cd26aab3015b4929b46cf805a28e214fe5f0"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-1594776450.npz",
+      "sha256": "30a8f092ba77dcd7346a605b4278da19035cd9a04e73307930156ea53f4a30e7"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-1685651270.npz",
+      "sha256": "8f746758015e4391636daf5d886673dee1d760c9075e701b58df744d400dfd77"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-1727563011.npz",
+      "sha256": "4f071a2b47a70ec5c4a6a99a5b04b73ded05051dfb2e9041ef6d434b7224b37f"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-1761495214.npz",
+      "sha256": "a81cc9ef0a1e3a4dcc7afc92e6acad2560a52145ef1efa576a98a238fe4b5c67"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-1899936300.npz",
+      "sha256": "39a506b678c899e6822099b1ad99c04aff5c3052832df432c3aaceba20a3b059"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-1979129855.npz",
+      "sha256": "11333411c3efc503344c798edc90e28585cb3de0789ccb711a31b9ad4a2e0ba2"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-2001.npz",
+      "sha256": "3edcc842eed8d8caed45d74a8110f717c45bdc65d7ad28564772b5ef8f7d519e"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-2003.npz",
+      "sha256": "1c5afe22824456c92a1cad365fb4f7fa08f146c2adb013edb4b34ca32d582297"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-2011.npz",
+      "sha256": "bab1be6b4cf28e5ea4d442ea095c418c2646ddcc117402bf012aec4c4012a6b3"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-2017.npz",
+      "sha256": "6ec6817e09582b07d5df9ffe0e52bfb25098933271b90c35a7d707efbb823e8e"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-2027.npz",
+      "sha256": "d1dba592964132efb3b0fd601ce854c11a6e97af43b83563160af4f14409aa46"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-589246224.npz",
+      "sha256": "cdfa18ca4e0d8afab35cfb5c9224f5b4b3d1296596c7d84edaa5b7c35205996f"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0020/circle-995963224.npz",
+      "sha256": "086c035639889ced692e623550321a11c25215567a7a7bdf23723e24de453a4d"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-113285700.npz",
+      "sha256": "b3bfbfb64f5a6c5d339ce081e1aaff6ca36c2ea459b372c8cc315272cee43c51"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-1391038837.npz",
+      "sha256": "3f2cbb3eed004670a8aa43fd20e015d6eb35fac9cdd78ffcdf057dc583c3a12d"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-1594776450.npz",
+      "sha256": "f8472f72c7d471dbcb3a42d2ca772c8fdea991b0a9e44eb33fc52ed9c572f8a7"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-1685651270.npz",
+      "sha256": "4182e86fdb29c8a3fff02b98955fea66a1faacfbbdfe93e266defc1dacc10a3b"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-1727563011.npz",
+      "sha256": "6fb58619c5e734e2bbfb7952f287a5623d3f6263baaed89825170cc507f0826b"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-1761495214.npz",
+      "sha256": "b3a6f430265cff0d8611d57a5f931633a09684d6a929f538d20998e4e0c16773"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-1899936300.npz",
+      "sha256": "22664b7b71997e6bf00d3e1b72bbbbf9e4c29b9e2ba1c1c2eda68c89b096f65d"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-1979129855.npz",
+      "sha256": "debde81cbea02a09473709a4fe1869be0b3973a3cff4ebf90a31148015be9a7e"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-2001.npz",
+      "sha256": "4b32e204bbfff680ab672cda78be9a3ab90b260a0d7b4e85a9e1254dc9eb1753"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-2003.npz",
+      "sha256": "220db97d7239b45e23478abffce3760059d4bf48dd061ca1b3df367cb1a75dc6"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-2011.npz",
+      "sha256": "c57ee67ce7e6871a58201ee4a7975523edc7ffcf8b48cd9f4f311cacd5eb67fd"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-2017.npz",
+      "sha256": "88eec11e6e4cafe70ac3f2397260c6d4db8d7b006dc8416267577baeb15ec744"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-2027.npz",
+      "sha256": "0838363d38b963e1df8161c273eae158241338b49f7333483ccb8e96128d333e"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-589246224.npz",
+      "sha256": "e34b30ffeaa491916d03db7da14c1a47cb1b933ec90ae9115b3ec0740a1ee836"
+    },
+    {
+      "path": "runs/finite-return-pilot-h5-47/evaluation-0080/circle-995963224.npz",
+      "sha256": "132e4fdca272ceebee021b46ede63c12bcb935b11442611efb176a57dcee872d"
+    }
+  ],
+  "production_source_changed": false,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "decision": "Neither final80 arm maintains the goal or passes14/15. Retain unvalidated PPO200 parent and all failures; no candidate extension/promotion. Large observed command/hidden changes motivate a separate bounded-step investigation, not another data-only repetition."
+}

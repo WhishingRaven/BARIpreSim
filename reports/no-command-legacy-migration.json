@@ -1,0 +1,68 @@
+{
+  "version": "bari-no-command-legacy-migration-v1",
+  "old_source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "bae6e324cc23281496599369515345e5fe3d572435ab992219fa64492060b9af"
+  },
+  "new_source": {
+    "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+    "dirty": true,
+    "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+  },
+  "legacy_version": "bari-mappo-periodic-critic-v12",
+  "protocol": "Same saved three-world H64 positive-FOV checkpoint, two nine-step rollouts/updates, forced switches, repeated episode resets, latency0.2s and dropout0.1. Compare all rollout arrays, diagnostics, actor/critic/optimizer/trainer/world/RNG state. Paired missing-value NaNs compare equal; no state fields excluded. Source provenance recorded separately. Verification-only, no behavioral candidate.",
+  "exact_compared_leaves": 1071,
+  "paired_missing_value_nans": 29,
+  "all_exact": true,
+  "artifacts": [
+    {
+      "path": "runs/prove-no-command-migration.py",
+      "sha256": "0cd25cfab5fc2ac9576b1d030418f5c63f4bcceebfcb0c97a40c37827a9fefed"
+    },
+    {
+      "path": "runs/no-command-migration/common-v12.pt",
+      "sha256": "543c4569450dd49d59330e08283219ecd766a2a3fdadb8b021ba54ed0b7c3e04"
+    },
+    {
+      "path": "runs/no-command-migration/old/rollout-0.npz",
+      "sha256": "511a9b30579ead472ba660e050d4689d9cf7e01870eb87f32ffba60c27e8b605"
+    },
+    {
+      "path": "runs/no-command-migration/old/rollout-1.npz",
+      "sha256": "124df46fc48fe04299a5f241d5ba7ff8b087a2b06a6141f383b764a2ffffa036"
+    },
+    {
+      "path": "runs/no-command-migration/old/source.json",
+      "sha256": "5943bb27579aab8910ff05f56f1e0d2a6ea29e14eacbe6a8991a8ade161d1996"
+    },
+    {
+      "path": "runs/no-command-migration/old/state.pt",
+      "sha256": "1c74f0004c49caa5dc8885925ff269312eaa232fd3bd6cabeb7572865bc29ffa"
+    },
+    {
+      "path": "runs/no-command-migration/old/stats.json",
+      "sha256": "ccb74c6dd4ddc7ba800369ea3e30dd0b29abd3bb053b1bf819ca818343242876"
+    },
+    {
+      "path": "runs/no-command-migration/new/rollout-0.npz",
+      "sha256": "511a9b30579ead472ba660e050d4689d9cf7e01870eb87f32ffba60c27e8b605"
+    },
+    {
+      "path": "runs/no-command-migration/new/rollout-1.npz",
+      "sha256": "124df46fc48fe04299a5f241d5ba7ff8b087a2b06a6141f383b764a2ffffa036"
+    },
+    {
+      "path": "runs/no-command-migration/new/source.json",
+      "sha256": "8417cf5d90a8905950670cebdfc2b06b12744947fc3b3cda184b223ab1bcb530"
+    },
+    {
+      "path": "runs/no-command-migration/new/state.pt",
+      "sha256": "1c74f0004c49caa5dc8885925ff269312eaa232fd3bd6cabeb7572865bc29ffa"
+    },
+    {
+      "path": "runs/no-command-migration/new/stats.json",
+      "sha256": "ccb74c6dd4ddc7ba800369ea3e30dd0b29abd3bb053b1bf819ca818343242876"
+    }
+  ]
+}

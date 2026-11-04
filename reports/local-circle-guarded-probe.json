@@ -1,0 +1,266 @@
+{
+  "protocol": {
+    "version": "bari-local-circle-guarded-probe-v2",
+    "planned_utc": "2026-11-03T15:12:23.504517+00:00",
+    "source": {
+      "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+      "dirty": true,
+      "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+    },
+    "config": {
+      "robots": 5,
+      "arena_radius": 1.0,
+      "body_radius": 0.069,
+      "wheel_radius": 0.022,
+      "wheel_separation": 0.082,
+      "max_wheel_speed": 0.1,
+      "max_wheel_acceleration": 0.3,
+      "physics_dt": 0.01,
+      "control_dt": 0.1,
+      "sensor_period": 0.1,
+      "sensor_latency": 0.1,
+      "sensor_min": 0.015,
+      "sensor_max": 0.8,
+      "sensor_noise_std": 0.002,
+      "sensor_dropout": 0.0,
+      "sensor_mount_radius": 0.045,
+      "sensor_height": 0.078,
+      "sensor_angles_deg": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "sensor_fov_deg": 60.0,
+      "circle_radius": 0.24,
+      "square_side": 0.32,
+      "line_spacing": 0.17,
+      "follow_spacing": 0.16,
+      "formation_tolerance": 0.035,
+      "follow_path_tolerance": 0.055,
+      "follow_spacing_tolerance": 0.055,
+      "follow_min_leader_travel": 0.3,
+      "hold_seconds": 3.0,
+      "timeout_seconds": 30.0,
+      "max_collisions": 0,
+      "max_wall_violations": 0,
+      "required_success_rate": 0.9,
+      "evaluation_seeds": [
+        10001,
+        10007,
+        10009,
+        10037,
+        10039
+      ],
+      "training_seeds": [
+        11,
+        23,
+        47
+      ],
+      "hidden_size": 64,
+      "sequence_length": 16,
+      "rollout_steps": 128,
+      "ppo_epochs": 3,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_ratio": 0.2,
+      "entropy_weight": 0.005,
+      "reward_error": 2.0,
+      "reward_progress": 5.0,
+      "reward_collision": 2.0,
+      "reward_wall": 2.0,
+      "reward_energy": 0.01,
+      "reward_change": 0.02,
+      "reward_time": 0.01,
+      "obstacles": []
+    },
+    "config_sha256": "68f454b7cefd6a71f663b471c7456c3367cbf93edc3b674b3a38d14ce65267c7",
+    "development_seeds": [
+      3001,
+      3007,
+      3011,
+      3019
+    ],
+    "arms": [
+      "fully-local"
+    ],
+    "gains": {
+      "radial_s_inverse": 1.0,
+      "tangential_riesz": 0.004,
+      "avoid_speed_m_s": 0.07,
+      "avoid_distance_m": 0.19,
+      "speed_cap_m_s": 0.07,
+      "angular_gain": 3.0,
+      "angular_cap_rad_s": 1.5,
+      "stop_vector_m_s": 0.003,
+      "unlocalized_exploration_m_s": 0.02
+    },
+    "inference": {
+      "range_tolerance_m": 0.006,
+      "wall_radius_grid_m": 0.005,
+      "body_distance_grid_m": 0.004,
+      "bearing_grid_deg": 2.0,
+      "wall_radial_prior": 0.0001,
+      "max_body_surface_range_m": 0.5,
+      "tangential_nearest_hypotheses": 2
+    },
+    "timing": "All three arms use geometry of the delivered sensor sample time, including oracle arms. Initial configured latency wait; no instantaneous sensor or pose correction.",
+    "information_boundary": "Fully-local class receives only9 local actor fields and calibration. Centers/disks are local hypotheses, not measured object types/IDs/bearings/counts. True poses appear only in explicitly privileged diagnostic arms and observer errors. No actor is trained by this probe.",
+    "reason": "Original full-local arm scores3/4 without safety attempts. In failure seed3011 a body at radius0.0598m infers0.775m wall-center distance from short body returns. Keep all nearest-hit constraints, but only returns>=0.45m score wall matches. This prior does not classify returns; actual long-body/short-wall ambiguity remains. Other controls/gains and numeric gates unchanged.",
+    "wall_evidence_min_range_m": 0.45,
+    "learning_gate": "Require fully-local4/4 official full episodes with zero cumulative contacts/walls before considering a separate data protocol. Otherwise no new learner. Original numeric formation gates/full timeout unchanged.",
+    "scope": "Unlearned circle-only feasibility, hypotheticalFOV60, not task/GRU-RL or hardware acceptance."
+  },
+  "cases": [
+    {
+      "arm": "fully-local",
+      "seed": 3001,
+      "final": {
+        "rms_error_m": 0.005032552092562758,
+        "max_error_m": 0.0066205318396966185,
+        "success": true,
+        "acquisition_s": 3.9999999999999987,
+        "holding_goal": true,
+        "hold_s": 26.0000000000001,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.03202801633173577,
+        "peak_max_error_m": 0.27708035329531716,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 13.604949402395079
+      },
+      "recording": "runs/local-circle-guarded-probe/fully-local-seed-3001.npz",
+      "wall_center_mean_error_m": 0.01075635601438051,
+      "wall_center_confident_mean_error_m": 0.010101476150907809,
+      "wall_center_confident_fraction": 0.9933110367892977,
+      "wall_center_confident_max_error_m": 0.06119183235930082
+    },
+    {
+      "arm": "fully-local",
+      "seed": 3007,
+      "final": {
+        "rms_error_m": 0.0074206758820956325,
+        "max_error_m": 0.00949890742976757,
+        "success": true,
+        "acquisition_s": 11.399999999999999,
+        "holding_goal": true,
+        "hold_s": 18.599999999999994,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.05481338587764729,
+        "peak_max_error_m": 0.2290205195598861,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 12.182326682660298
+      },
+      "recording": "runs/local-circle-guarded-probe/fully-local-seed-3007.npz",
+      "wall_center_mean_error_m": 0.017105750634647157,
+      "wall_center_confident_mean_error_m": 0.010130215862699313,
+      "wall_center_confident_fraction": 0.9337792642140468,
+      "wall_center_confident_max_error_m": 0.06035168405494043
+    },
+    {
+      "arm": "fully-local",
+      "seed": 3011,
+      "final": {
+        "rms_error_m": 0.017708998245470578,
+        "max_error_m": 0.023666770903079348,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.5,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.26855032853953037,
+        "peak_max_error_m": 0.34905499039557364,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 9.106588712185573
+      },
+      "recording": "runs/local-circle-guarded-probe/fully-local-seed-3011.npz",
+      "wall_center_mean_error_m": 0.17223293099680215,
+      "wall_center_confident_mean_error_m": 0.10981916290568824,
+      "wall_center_confident_fraction": 0.691638795986622,
+      "wall_center_confident_max_error_m": 1.0988285578565424
+    },
+    {
+      "arm": "fully-local",
+      "seed": 3019,
+      "final": {
+        "rms_error_m": 0.009837495414684433,
+        "max_error_m": 0.01417616821322447,
+        "success": true,
+        "acquisition_s": 17.3,
+        "holding_goal": true,
+        "hold_s": 12.69999999999997,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.07722771391857709,
+        "peak_max_error_m": 0.16989538665496343,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 10.845841071236006
+      },
+      "recording": "runs/local-circle-guarded-probe/fully-local-seed-3019.npz",
+      "wall_center_mean_error_m": 0.024835200865872792,
+      "wall_center_confident_mean_error_m": 0.00986841680984847,
+      "wall_center_confident_fraction": 0.8575250836120402,
+      "wall_center_confident_max_error_m": 0.059986684649168856
+    }
+  ],
+  "summary": [
+    {
+      "arm": "fully-local",
+      "episodes": 4,
+      "successes": 3,
+      "final_holding": 3,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.013490594596442002,
+      "mean_confident_wall_error_m": 0.03497981793228595
+    }
+  ],
+  "qualified_for_data_only": false,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-circle-guarded.py",
+      "sha256": "a9cca132482c39329fa3fa6435cd80f441b4f072734805afc53786c232bfd081"
+    },
+    {
+      "path": "runs/local_circle_guarded.py",
+      "sha256": "c5390dae2af9e39978af7bd0eff9803b40289b23c5becb6f09b05489696def12"
+    },
+    {
+      "path": "runs/local-circle-guarded-probe/protocol.json",
+      "sha256": "a38578a76f38b70987d8bc64d30df5954025451a18ae30b61ae4e1e838301d85"
+    },
+    {
+      "path": "runs/local-circle-guarded-probe/fully-local-seed-3001.npz",
+      "sha256": "308f69e8dfbcd3f53fea12c64165261040a2a705a222b0219462eb80e029541b"
+    },
+    {
+      "path": "runs/local-circle-guarded-probe/fully-local-seed-3007.npz",
+      "sha256": "a82de78223d8023bc59fc7b6185389cda2e22d6a920a64080b4ce202f758339a"
+    },
+    {
+      "path": "runs/local-circle-guarded-probe/fully-local-seed-3011.npz",
+      "sha256": "8d6703f5cdd48c6fad88bb58118daf88d03a61a0712a9c1576960635596ef4af"
+    },
+    {
+      "path": "runs/local-circle-guarded-probe/fully-local-seed-3019.npz",
+      "sha256": "28ab0a5460341035c736bbe6eaea8aa873687d67588347de96999090189156ed"
+    }
+  ]
+}

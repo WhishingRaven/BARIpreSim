@@ -1,0 +1,108 @@
+{
+  "version": "bari-local-shape-3d-diagnostics-v1",
+  "cases": [
+    {
+      "case": "square-scan",
+      "seed": 2003,
+      "frames": 61,
+      "stride_controls": 5,
+      "fps": 6,
+      "control_records": 300,
+      "final_error_m": 0.01140619975141882,
+      "final_hold_s": 13.699999999999967,
+      "contacts": 0,
+      "walls": 0,
+      "all_draw_calls_preserve_complete_environment_state_and_rng": true,
+      "source_recording_hash_unchanged": true,
+      "movie": {
+        "path": "output/gif/local-square-scan-unlearned.gif",
+        "sha256": "95e8c9083a847f0793381590734410bae0d334af8c7ad15ca806e16591259ae4"
+      },
+      "screenshots": [
+        {
+          "path": "output/qa/local-square-scan-unlearned-initial.png",
+          "sha256": "97ddc9a298f208bc88c4cc0feafe2ac1033f42458b5b470c5a91b0bf96eeebc8"
+        },
+        {
+          "path": "output/qa/local-square-scan-unlearned-final.png",
+          "sha256": "fc8a19e2866402f83b03ce7d1ff95fe4d1c8c6f20ec87ff68df71cb79fec9070"
+        }
+      ]
+    },
+    {
+      "case": "line-gain",
+      "seed": 3011,
+      "frames": 61,
+      "stride_controls": 5,
+      "fps": 6,
+      "control_records": 300,
+      "final_error_m": 0.003820747417776313,
+      "final_hold_s": 17.399999999999977,
+      "contacts": 0,
+      "walls": 0,
+      "all_draw_calls_preserve_complete_environment_state_and_rng": true,
+      "source_recording_hash_unchanged": true,
+      "movie": {
+        "path": "output/gif/local-line-gain-unlearned.gif",
+        "sha256": "e86adb719b95c5898e7487ef2bea7affc61505a26d92718b8c9bfaa1d6b0612d"
+      },
+      "screenshots": [
+        {
+          "path": "output/qa/local-line-gain-unlearned-initial.png",
+          "sha256": "cf9bf4480ee96a231c108789fb04eea8089fc8f97a3f16b92803b1de53830ab7"
+        },
+        {
+          "path": "output/qa/local-line-gain-unlearned-final.png",
+          "sha256": "9d14b67f09cde2bbc1835b52f656331678ca753fc9254c99d6166e3774aab04e"
+        }
+      ]
+    }
+  ],
+  "scope": "Offline replay of two unlearned host-teacher development successes only. No policy inference, new physics/control steps or sensor RNG draws. Models/proportions and FOV60 remain provisional. Not learned four-task/transition/occlusion/device acceptance or native-control verification.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/render-local-shape-diagnostics.py",
+      "sha256": "78cccf3658b6c7deb77d12be69df7533b196b01a15633c70dceddec42974f745"
+    },
+    {
+      "path": "bari/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "bari/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/local-square-scan-v2/development-2003.npz",
+      "sha256": "3df23838ff818a6409df8e390c087e358c87795a2bc5f46b5606752752222f22"
+    },
+    {
+      "path": "output/gif/local-square-scan-unlearned.gif",
+      "sha256": "95e8c9083a847f0793381590734410bae0d334af8c7ad15ca806e16591259ae4"
+    },
+    {
+      "path": "output/qa/local-square-scan-unlearned-initial.png",
+      "sha256": "97ddc9a298f208bc88c4cc0feafe2ac1033f42458b5b470c5a91b0bf96eeebc8"
+    },
+    {
+      "path": "output/qa/local-square-scan-unlearned-final.png",
+      "sha256": "fc8a19e2866402f83b03ce7d1ff95fe4d1c8c6f20ec87ff68df71cb79fec9070"
+    },
+    {
+      "path": "runs/local-line-gain-v3/development-3011.npz",
+      "sha256": "99c99e14d31d499e31ce339568062f9751e476c0e95f4e7eaae9e6efdf6b9ee7"
+    },
+    {
+      "path": "output/gif/local-line-gain-unlearned.gif",
+      "sha256": "e86adb719b95c5898e7487ef2bea7affc61505a26d92718b8c9bfaa1d6b0612d"
+    },
+    {
+      "path": "output/qa/local-line-gain-unlearned-initial.png",
+      "sha256": "cf9bf4480ee96a231c108789fb04eea8089fc8f97a3f16b92803b1de53830ab7"
+    },
+    {
+      "path": "output/qa/local-line-gain-unlearned-final.png",
+      "sha256": "9d14b67f09cde2bbc1835b52f656331678ca753fc9254c99d6166e3774aab04e"
+    }
+  ]
+}

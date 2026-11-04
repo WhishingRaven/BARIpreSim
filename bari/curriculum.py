@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import numpy as np
+from .config import TASKS
 from .geometry import targets
 
 
@@ -23,10 +24,20 @@ class TrainingPlan:
     position_jitter_end_m: float = .16
     reserved_seeds: list = field(default_factory=lambda: [2001, 2003, 2011, 2017, 2027,
                                                          10001, 10007, 10009, 10037, 10039])
+    tasks: list | None = None
 
     def validate(self, config):
-        if self.version != "bari-training-plan-v1":
+        if self.version not in ("bari-training-plan-v1", "bari-training-plan-v2"):
             raise ValueError("Unsupported training plan")
+        if self.version == "bari-training-plan-v1" and self.tasks is not None:
+            raise ValueError("Task subsets require training plan version 2")
+        if self.version == "bari-training-plan-v2":
+            if (not isinstance(self.tasks, list) or not self.tasks
+                    or any(task not in TASKS for task in self.tasks)
+                    or len(set(self.tasks)) != len(self.tasks)):
+                raise ValueError("Version-2 tasks must be a nonempty list of unique supported tasks")
+            if len(self.tasks) == 1 and self.isolated_episode_probability != 1:
+                raise ValueError("Single-task training requires isolated episodes")
         if not 0 <= self.isolated_episode_probability <= 1 or not 0 <= self.curriculum_start_probability <= 1:
             raise ValueError("Training probabilities must be in [0,1]")
         if not isinstance(self.curriculum_updates, int) or self.curriculum_updates < 0:
@@ -41,7 +52,14 @@ class TrainingPlan:
         return self
 
     def to_dict(self):
-        return asdict(self)
+        data = asdict(self)
+        if self.version == "bari-training-plan-v1":
+            data.pop("tasks")  # Preserve historical plan hashes and exact resumes.
+        return data
+
+    @property
+    def task_choices(self):
+        return TASKS if self.version == "bari-training-plan-v1" else tuple(self.tasks)
 
     def digest(self):
         return hashlib.sha256(json.dumps(self.to_dict(), sort_keys=True).encode()).hexdigest()

@@ -1,0 +1,1602 @@
+{
+  "version": "bari-local-belief-clean-study-v1",
+  "completed_utc": "2026-11-03T18:43:39.373963+00:00",
+  "training": {
+    "protocol": {
+      "version": "bari-local-belief-circle-clean-imitation-v1",
+      "planned_utc": "2026-11-03T18:29:53.075065+00:00",
+      "source": {
+        "commit": "c3a2d91501f216e23fd80e63e0f803766897573c",
+        "dirty": true,
+        "python_source_sha256": "3de38025e7df96f23e9be371850e4ee69dabc8a698a142e7468bab38459d9793"
+      },
+      "script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/train-local-belief-circle-clean.py",
+        "sha256": "33d8a5833497868e1c904ad41d4aa9eb59ced86d49b0543971f230aa7bdbca8f"
+      },
+      "derivation": {
+        "path": "runs/local-belief-feature-data-v1/result.json",
+        "sha256": "89923c8136ae5e928011e2a1db2a7cc6611498020f38af223be535b787eb5fd1"
+      },
+      "datasets": [
+        {
+          "path": "runs/teacher-local-circle-v5/demonstrations.npz",
+          "sha256": "95c8acb90b42eeeceaf7b1e60f5b75e21a464d5e3c29ce680b3d6e77fbf545a5"
+        }
+      ],
+      "features": {
+        "path": "runs/local-belief-feature-data-v1/features.npz",
+        "sha256": "06a8784360d2e1e3613aad7fd5ec93f43d9effd8383d951d7d15569d65c79fc5"
+      },
+      "feature_episode_slice": [
+        0,
+        128
+      ],
+      "whole_teacher_cohort_including_failures": true,
+      "paired_mixed_result": {
+        "path": "runs/train-local-belief-circle-11/result.json",
+        "sha256": "59eb4a5bc61524d47e22776b8ca56738798ede8bd0a40bccc40c5dea4f5471f6"
+      },
+      "fit_diagnosis": {
+        "path": "reports/local-belief-circle-diagnostic.json",
+        "sha256": "01d349f660a9d4049507087103e1751202b8663a9756d46bc8ac95b11f44647d"
+      },
+      "preparation_script": {
+        "path": "runs/prepare-local-belief-clean.py",
+        "sha256": "97e3ed1058d855f4480f4482ee333aa388e08f4ddabe235178923b092eaa40bf"
+      },
+      "initial_actor_exact_to_mixed_initial": true,
+      "verification": {
+        "path": "reports/local-wall-belief-verification.json",
+        "sha256": "4de5620d9064a86c193441df2b8e2b3d982f3c118daf8edf2644da632337427a"
+      },
+      "input_contract": {
+        "version": "bari-local-belief-actor-v1",
+        "dtype": "float32",
+        "batch_size_on_robot": 1,
+        "local_order": [
+          "range_0",
+          "range_60",
+          "range_120",
+          "range_180",
+          "range_240",
+          "range_300",
+          "previous_left_command",
+          "previous_right_command",
+          "is_leader",
+          "estimated_arena_center_x_body_over_radius",
+          "estimated_arena_center_y_body_over_radius",
+          "local_posterior_confidence"
+        ],
+        "local_shape": [
+          12
+        ],
+        "task_order": [
+          "circle",
+          "square",
+          "line",
+          "follow"
+        ],
+        "task_shape": [
+          4
+        ],
+        "hidden_shape": [
+          64
+        ],
+        "sensor_angles_deg": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+        "sensor_min": 0.015,
+        "sensor_max": 0.8,
+        "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+        "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+        "max_wheel_speed_m_s": 0.1,
+        "acceleration_m_s2": 0.3,
+        "control_dt_s": 0.1,
+        "previous_action": "previous saturated requested command, not measured velocity",
+        "reset": "Zero GRU and reset local belief only at controller/episode reset; preserve both across switches",
+        "switch": "same actor and hidden; new task before next control action; world preserved",
+        "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
+        "sensor_model": {
+          "version": "bari-horizontal-cone-v1",
+          "horizontal_fov_deg": 60.0,
+          "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+          "mount_radius_m": 0.045,
+          "height_m": 0.078,
+          "noise_stage": "configured scalar noise/dropout after cone aggregation",
+          "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+          "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"
+        },
+        "raw_sensor_observation_contract": {
+          "version": "bari-ir-gru-v1",
+          "dtype": "float32",
+          "batch_size_on_robot": 1,
+          "local_order": [
+            "range_0",
+            "range_60",
+            "range_120",
+            "range_180",
+            "range_240",
+            "range_300",
+            "previous_left_command",
+            "previous_right_command",
+            "is_leader"
+          ],
+          "local_shape": [
+            9
+          ],
+          "task_order": [
+            "circle",
+            "square",
+            "line",
+            "follow"
+          ],
+          "task_shape": [
+            4
+          ],
+          "hidden_shape": [
+            64
+          ],
+          "sensor_angles_deg": [
+            0,
+            60,
+            120,
+            180,
+            240,
+            300
+          ],
+          "range_normalization": "(clip(m, sensor_min, sensor_max)-sensor_min)/(sensor_max-sensor_min)",
+          "sensor_min": 0.015,
+          "sensor_max": 0.8,
+          "missing": "NaN, inf, no hit and dropout map to sensor_max; no validity mask",
+          "action": "tanh Gaussian; two normalized wheel rim speeds in [-1,1], positive forward",
+          "max_wheel_speed_m_s": 0.1,
+          "acceleration_m_s2": 0.3,
+          "control_dt_s": 0.1,
+          "previous_action": "previous saturated requested command, not measured velocity",
+          "reset": "zero hidden, previous command and sensor queue at episode/controller reset only",
+          "switch": "same actor and hidden; new task before next control action; world preserved",
+          "roles": "robot 0 preassigned leader; others followers; role is not predecessor identity",
+          "sensor_model": {
+            "version": "bari-horizontal-cone-v1",
+            "horizontal_fov_deg": 60.0,
+            "aggregation": "minimum nearest-surface distance over a closed horizontal cone",
+            "mount_radius_m": 0.045,
+            "height_m": 0.078,
+            "noise_stage": "configured scalar noise/dropout after cone aggregation",
+            "vertical_model": "planar surfaces only; no vertical zones or floor returns",
+            "hardware_match": "unmeasured assumption; VL53L7CX zone aggregation unconfirmed"
+          }
+        },
+        "belief_input": "Only raw local six ranges and own previous requested commands; no poses/IDs/evaluator inputs",
+        "belief_confidence": "Computed posterior concentration, not sensor validity or actual detection/visibility"
+      },
+      "belief": {
+        "version": "bari-local-wall-belief-v1",
+        "settings": {
+          "arena_radius": 1.0,
+          "body_radius": 0.069,
+          "max_wheel_speed": 0.1,
+          "max_wheel_acceleration": 0.3,
+          "wheel_separation": 0.082,
+          "physics_dt": 0.01,
+          "control_dt": 0.1,
+          "sensor_latency": 0.1,
+          "sensor_period": 0.1,
+          "sensor_min": 0.015,
+          "sensor_max": 0.8,
+          "sensor_mount_radius": 0.045,
+          "sensor_angles_deg": [
+            0,
+            60,
+            120,
+            180,
+            240,
+            300
+          ],
+          "sensor_fov_deg": 60.0
+        },
+        "feature_order": [
+          "estimated_arena_center_x_body_over_radius",
+          "estimated_arena_center_y_body_over_radius",
+          "local_posterior_confidence"
+        ],
+        "particles": 33660,
+        "state_bytes_per_robot_host_ABI": 168440,
+        "loss_dtype": "float32",
+        "evidence_dtype": "uint8 saturated at6",
+        "numeric_dtype": "float32",
+        "inputs": "six normalized nearest-distance readings and own preceding saturated requests only",
+        "confidence": "Computed local posterior concentration/evidence, not sensor validity, true visibility, a detected-object class or a simulator flag",
+        "reset": "Episode/controller reset only; individual stream masks. Task switches preserve state.",
+        "limitations": "Known circular arena and provisional command model; estimates can be wrong and drift after contact. Host ABI size excludes stack, output, actor and firmware; target RAM/latency not measured."
+      },
+      "initial_actor": {
+        "path": "runs/train-local-belief-circle-clean-11/initial_actor.pt",
+        "sha256": "cebfb8bf80e3863c7b42714b66b0708a2fe95b10ec54b9e24351148d17bc14a9"
+      },
+      "initial_shared_tensors_exact_to_old_seed11": true,
+      "private_sources": [
+        {
+          "path": "runs/train-local-belief-circle-clean-11/experimental-source/local_wall_belief.py",
+          "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/experimental-source/local_wall_belief.hpp",
+          "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/experimental-source/local_wall_belief_bridge.cpp",
+          "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/experimental-source/local-wall-belief-v1.dylib",
+          "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/experimental-source/local_belief_actor.py",
+          "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/experimental-source/train-local-belief-circle-clean.py",
+          "sha256": "33d8a5833497868e1c904ad41d4aa9eb59ced86d49b0543971f230aa7bdbca8f"
+        }
+      ],
+      "seed": 11,
+      "epochs": 80,
+      "episodes": 128,
+      "batch_episodes": 8,
+      "BPTT": 64,
+      "learning_rate": 0.001,
+      "gradient_clip": 0.5,
+      "expected_optimizer_steps": 6400,
+      "constraint": "Raw previous-command encoder columns6:8, gradients and Adam moments remain zero. New belief columns start at zero and train normally.",
+      "change": "Train on the entire128-world teacher cohort only, for80 epochs. No outcome filtering. Actor/observer/initial tensors, loss, Adam,6400-step budget and behavior gates unchanged from mixed256/40.",
+      "controls": "Fresh candidate, not a continuation. All initial actor tensors exact to mixed256/40. Both use batch8, BPTT64, Adam0.001, clip0.5 and6400 updates. Teacher128/80 and mixed256/40 have the same total episode presentations/control samples, with different complete-cohort composition.",
+      "development_seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "larger_gate": {
+        "path": "runs/local-circle-student1-larger-gate.json",
+        "sha256": "f11cfe8bfafb1ef1cad4fded928bc08d2985fdfb1295149501fff29f9003b739"
+      },
+      "larger_seeds": [
+        2120849351,
+        1384627394,
+        1532761059,
+        1376502237,
+        979700136,
+        2122707756,
+        1970561045,
+        24550309,
+        1480293845,
+        578337630,
+        2827126,
+        739355049,
+        373745314,
+        1127354831,
+        25487437,
+        20413573,
+        1950449760,
+        102547314,
+        752152778,
+        1665508353
+      ],
+      "selection": "Exact final80 only. Require5/5 successes AND final holds with zero total safety attempts before the fixed20-case development gate; require>=18/20 successes/holds and zero total safety there. No extension, automatic RL or default promotion.",
+      "scope": "Imitation only, zeroRLupdates; new experimental local-history architecture, hypotheticalFOV60 and central-square starts. Not full-goal, final-heldout, multi-training-seed or device acceptance."
+    },
+    "checkpoint": {
+      "path": "runs/train-local-belief-circle-clean-11/checkpoint.pt",
+      "sha256": "7e4adb96e55815da463257af09de33d43ac1d822090c3f2242b35b65a07539e1"
+    },
+    "training_log": {
+      "path": "runs/train-local-belief-circle-clean-11/imitation.jsonl",
+      "sha256": "ff8f069232653e17d3293da37f4de204044dc00fae06363ba7b22b44a8c71e7a"
+    },
+    "imitation_epochs": 80,
+    "RL_updates": 0,
+    "optimizer_steps": 6400,
+    "epoch_orders_sha256": "fac8c1d0a04d5da57baad355ac58a3198efbad10892e0aab9add119a5c087828",
+    "development": {
+      "episodes": 5,
+      "successes": 2,
+      "final_holding": 1,
+      "contacts": 74,
+      "walls": 0,
+      "mean_final_max_error_m": 0.048376069861584374,
+      "rows": [
+        {
+          "seed": 2001,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.02487242118596066,
+          "max_error_m": 0.04058481439556351,
+          "success": true,
+          "acquisition_s": 7.099999999999998,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 5,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.04500253125132758,
+          "peak_max_error_m": 0.20552099129521653,
+          "reacquisition_s": [
+            0.09999999999999964,
+            0.29999999999999716,
+            0.1999999999999993,
+            1.3999999999999986
+          ],
+          "unrecovered_s": 1.5999999999999979,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 2.95932094375862,
+          "min_visible_directed_pairs": 20,
+          "mean_visible_directed_pairs": 20.0,
+          "peak_blocked_robot_beam_pairs": 0,
+          "occlusion_events": []
+        },
+        {
+          "seed": 2003,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.02970991351660369,
+          "max_error_m": 0.050094847950694764,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.1066938088896585,
+          "peak_max_error_m": 0.2494894271004131,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 23,
+          "wall_violations": 0,
+          "control_cost": 3.6429118821175015,
+          "min_visible_directed_pairs": 16,
+          "mean_visible_directed_pairs": 19.34,
+          "peak_blocked_robot_beam_pairs": 3,
+          "occlusion_events": [
+            {
+              "onset_s": 0.5,
+              "end_s": 0.6,
+              "duration_s": 0.09999999999999998,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 5.6000000000000005,
+              "end_s": 6.0,
+              "duration_s": 0.39999999999999947,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 7.3,
+              "end_s": 7.5,
+              "duration_s": 0.20000000000000018,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 9.5,
+              "end_s": 10.200000000000001,
+              "duration_s": 0.7000000000000011,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 10.3,
+              "end_s": 13.5,
+              "duration_s": 3.1999999999999993,
+              "visibility_returned": true
+            }
+          ]
+        },
+        {
+          "seed": 2011,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.058874632738038904,
+          "max_error_m": 0.09545410783578323,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.11144136412778527,
+          "peak_max_error_m": 0.22029307007210627,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 23,
+          "wall_violations": 0,
+          "control_cost": 2.2105379569951125,
+          "min_visible_directed_pairs": 16,
+          "mean_visible_directed_pairs": 19.5,
+          "peak_blocked_robot_beam_pairs": 3,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 6.3,
+              "duration_s": 6.2,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 7.7,
+              "end_s": 7.9,
+              "duration_s": 0.20000000000000018,
+              "visibility_returned": true
+            }
+          ]
+        },
+        {
+          "seed": 2017,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.028926221282456806,
+          "max_error_m": 0.037899614126139694,
+          "success": false,
+          "acquisition_s": null,
+          "holding_goal": false,
+          "hold_s": 0.0,
+          "tracking_interruptions": 0,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.13463287763455453,
+          "peak_max_error_m": 0.2309408404402761,
+          "reacquisition_s": [],
+          "unrecovered_s": null,
+          "collisions": 28,
+          "wall_violations": 0,
+          "control_cost": 2.583403048449661,
+          "min_visible_directed_pairs": 12,
+          "mean_visible_directed_pairs": 16.69333333333333,
+          "peak_blocked_robot_beam_pairs": 7,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 4.2,
+              "duration_s": 4.1000000000000005,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 4.7,
+              "end_s": 13.6,
+              "duration_s": 8.899999999999999,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 14.0,
+              "end_s": 14.200000000000001,
+              "duration_s": 0.20000000000000107,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 14.4,
+              "end_s": 19.400000000000002,
+              "duration_s": 5.000000000000002,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 19.900000000000002,
+              "end_s": 21.900000000000002,
+              "duration_s": 2.0,
+              "visibility_returned": true
+            }
+          ]
+        },
+        {
+          "seed": 2027,
+          "initial_task": "circle",
+          "layout": "random",
+          "final_task": "circle",
+          "switches": [],
+          "segments": [],
+          "rms_error_m": 0.01348376693754437,
+          "max_error_m": 0.017846964999740682,
+          "success": true,
+          "acquisition_s": 11.299999999999999,
+          "holding_goal": true,
+          "hold_s": 11.699999999999974,
+          "tracking_interruptions": 1,
+          "chain_order_preserved_entire_segment": null,
+          "mean_max_error_m": 0.06509787264599792,
+          "peak_max_error_m": 0.27997307260720256,
+          "reacquisition_s": [
+            2.3000000000000007
+          ],
+          "unrecovered_s": null,
+          "collisions": 0,
+          "wall_violations": 0,
+          "control_cost": 2.1548344801298667,
+          "min_visible_directed_pairs": 18,
+          "mean_visible_directed_pairs": 19.506666666666668,
+          "peak_blocked_robot_beam_pairs": 3,
+          "occlusion_events": [
+            {
+              "onset_s": 0.1,
+              "end_s": 6.4,
+              "duration_s": 6.300000000000001,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 6.8,
+              "end_s": 7.0,
+              "duration_s": 0.20000000000000018,
+              "visibility_returned": true
+            },
+            {
+              "onset_s": 7.1000000000000005,
+              "end_s": 7.3,
+              "duration_s": 0.1999999999999993,
+              "visibility_returned": true
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2001/report.json",
+          "sha256": "78881d47c240fe1dcf39bb0b36764ce06b19fcdb8a0fe3fc0f1424e241a356d2"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2001/actual-actor-inputs.npz",
+          "sha256": "f31dfe22f9c7bcd1160bb548c01b71e1bb79daa5b1d18827b9e4c556476c1d6a"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2001/circle-2001.npz",
+          "sha256": "db186607a6db8a8798fc1acc0e71987d8e1d4e46b5993463fef37875ae793cb1"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2003/report.json",
+          "sha256": "5459923d9b323948ad0c59277461d6584bdad87ba85977966d7f17e40e19c80e"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2003/actual-actor-inputs.npz",
+          "sha256": "94820e9a530cf747b9c02d8f8c6187ec02f977e5873dd7d31ea586353ab31474"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2003/circle-2003.npz",
+          "sha256": "a70862337b5a48bf26ea7ae9d0371f4cc8e30325149b33ed0d0eaa825e08e9b2"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2011/report.json",
+          "sha256": "4aaf1ea2396dec25188c244fcbec62ee6302dbcb3a9f071890d84e2cc4272d64"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2011/actual-actor-inputs.npz",
+          "sha256": "316600c0668acf36854c1b1c59a27a947dba53f13ea2a23d255de241781b8059"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2011/circle-2011.npz",
+          "sha256": "6f45686dd460f75703c564fd79165e763865cf0dc5f8c240f6393ff63d447867"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2017/report.json",
+          "sha256": "a648b15d0d513e63f59e0d1390ae726a3960d6b0a6e70acf5d847f5c4fdafeca"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2017/actual-actor-inputs.npz",
+          "sha256": "aa746098991d60d1b9e65fabe5d33e836cc6c2443a3ec6e58a5b454d61b24a52"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2017/circle-2017.npz",
+          "sha256": "450d43df8e9113120a9ec2a7a2a4a103e34123e6bda615c144cf4953fb6a1312"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2027/report.json",
+          "sha256": "0898ed7892cf3ea5aae4046ca8f05c0af1d9212373b762f7cf273226b5e9fa28"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2027/actual-actor-inputs.npz",
+          "sha256": "adaee71520662b5df9bad56d27faacc2c0481f2d88be6220f49e20232e171e24"
+        },
+        {
+          "path": "runs/train-local-belief-circle-clean-11/evaluation-development/2027/circle-2027.npz",
+          "sha256": "c02359cad56ace362bdd71ced0891ca5c3b322929ba72787dd693d07f6d9a60d"
+        }
+      ]
+    },
+    "larger": null,
+    "qualified_for_separately_planned_next_stage_only": false,
+    "default_promoted": false,
+    "full_goal_complete": false,
+    "decision": "Fixed80-epoch complete-teacher-cohort imitation stage complete. No budget extension, automatic RL or default promotion."
+  },
+  "fit_and_replay": {
+    "version": "bari-local-belief-circle-clean-diagnostic-v1",
+    "checkpoint": {
+      "path": "runs/train-local-belief-circle-clean-11/checkpoint.pt",
+      "sha256": "7e4adb96e55815da463257af09de33d43ac1d822090c3f2242b35b65a07539e1"
+    },
+    "fixed_budget_verified": true,
+    "new_epoch_orders_match_source_reconstruction": true,
+    "old_epoch_order_digest_recorded": true,
+    "actor_unchanged": true,
+    "cohort_fit": {
+      "teacher": {
+        "episodes": 128,
+        "wheel_mse": 0.07829229533672333,
+        "zero_command_mse": 0.1727360039949417,
+        "high_turn_sample_fraction": 0.42915625,
+        "high_turn_mse": 0.14879971742630005,
+        "other_mse": 0.025285329669713974,
+        "scope": "Final-weight fit on the training teacher cohort"
+      },
+      "student1": {
+        "episodes": 128,
+        "wheel_mse": 0.3275265395641327,
+        "zero_command_mse": 0.37869808077812195,
+        "high_turn_sample_fraction": 0.8804166666666666,
+        "high_turn_mse": 0.35892441868782043,
+        "other_mse": 0.09636373072862625,
+        "scope": "Untrained prior-student cohort diagnostic, not fresh held-out acceptance"
+      }
+    },
+    "actual_execution_replay": [
+      {
+        "seed": 2001,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      },
+      {
+        "seed": 2003,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      },
+      {
+        "seed": 2011,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      },
+      {
+        "seed": 2017,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      },
+      {
+        "seed": 2027,
+        "all300_belief_inputs_exact": true,
+        "all_five_actor_commands_exact": true,
+        "no_formation_action_override": true
+      }
+    ],
+    "new_actor_training_or_updates": 0,
+    "scope": "Read-only fit and execution provenance; cannot promote the failed candidate or establish its failure cause",
+    "artifacts": [
+      {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/diagnose-local-belief-circle-clean.py",
+        "sha256": "9cdf40b97668af0dd197556be3ae961d1c9fbfd660d2b510aa5e18296fb327ab"
+      },
+      {
+        "path": "runs/train-local-belief-circle-clean-11/result.json",
+        "sha256": "e34bcd18b3c7e123bcbd1d4f36ec78e989fc729cc05b424e3f559c885bd3674e"
+      },
+      {
+        "path": "runs/train-local-belief-circle-clean-11/imitation.jsonl",
+        "sha256": "ff8f069232653e17d3293da37f4de204044dc00fae06363ba7b22b44a8c71e7a"
+      },
+      {
+        "path": "runs/train-local-circle-paired.py",
+        "sha256": "c7e4c9eb5db65f3b46e313e667664b380235ac572ae47c90b6a87c2916a607e6"
+      }
+    ]
+  },
+  "hidden_reset": {
+    "protocol": {
+      "version": "bari-local-belief-clean-hidden-reset-v1",
+      "planned_utc": "2026-11-03T18:38:25.209037+00:00",
+      "script": {
+        "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-local-belief-clean-hidden-reset.py",
+        "sha256": "e2c9c2ce6ece12ab4e9557beb446107f482bdc905e60e945ffc4616cb7884099"
+      },
+      "checkpoint": {
+        "path": "runs/train-local-belief-circle-clean-11/checkpoint.pt",
+        "sha256": "7e4adb96e55815da463257af09de33d43ac1d822090c3f2242b35b65a07539e1"
+      },
+      "baseline": {
+        "path": "runs/train-local-belief-circle-clean-11/result.json",
+        "sha256": "e34bcd18b3c7e123bcbd1d4f36ec78e989fc729cc05b424e3f559c885bd3674e"
+      },
+      "seeds": [
+        2001,
+        2003,
+        2011,
+        2017,
+        2027
+      ],
+      "change": "Zero only each robot's GRU hidden state immediately before every actor call. Keep local observer state, previous requests, sensor history, clock, role/task fields and physical/evaluation settings unchanged.",
+      "selection": "Read-only five-case diagnostic only. No training, model selection, extension or promotion, even if reset performs better.",
+      "limits": "Unvalidated circle-only imitation actor and reused development worlds. Not a controlled-occlusion, four-task or general memory-benefit result."
+    },
+    "baseline": {
+      "episodes": 5,
+      "successes": 2,
+      "final_holding": 1,
+      "contacts": 74,
+      "walls": 0,
+      "mean_final_max_error_m": 0.048376069861584374
+    },
+    "hidden_reset": {
+      "episodes": 5,
+      "successes": 0,
+      "final_holding": 0,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.18857407461051384
+    },
+    "rows": [
+      {
+        "seed": 2001,
+        "initial_task": "circle",
+        "layout": "random",
+        "final_task": "circle",
+        "switches": [],
+        "segments": [],
+        "rms_error_m": 0.1295618236057069,
+        "max_error_m": 0.18129993827950894,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.1861080211788863,
+        "peak_max_error_m": 0.2059064721409527,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.40474013837169,
+        "min_visible_directed_pairs": 18,
+        "mean_visible_directed_pairs": 19.993333333333332,
+        "peak_blocked_robot_beam_pairs": 0,
+        "occlusion_events": [],
+        "hidden_zeroed_controls": 300,
+        "observer_control_counts": [
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "paired_initial_poses_and_time_exact": true
+      },
+      {
+        "seed": 2003,
+        "initial_task": "circle",
+        "layout": "random",
+        "final_task": "circle",
+        "switches": [],
+        "segments": [],
+        "rms_error_m": 0.11490420405374127,
+        "max_error_m": 0.14687523667856217,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.15681099104388446,
+        "peak_max_error_m": 0.24914711475273443,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 4.307639938643855,
+        "min_visible_directed_pairs": 18,
+        "mean_visible_directed_pairs": 19.566666666666666,
+        "peak_blocked_robot_beam_pairs": 3,
+        "occlusion_events": [
+          {
+            "onset_s": 2.1,
+            "end_s": 2.2,
+            "duration_s": 0.10000000000000009,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 2.4,
+            "end_s": 2.6,
+            "duration_s": 0.20000000000000018,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 2.9,
+            "end_s": 3.3000000000000003,
+            "duration_s": 0.40000000000000036,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 3.7,
+            "end_s": 7.6000000000000005,
+            "duration_s": 3.9000000000000004,
+            "visibility_returned": true
+          }
+        ],
+        "hidden_zeroed_controls": 300,
+        "observer_control_counts": [
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "paired_initial_poses_and_time_exact": true
+      },
+      {
+        "seed": 2011,
+        "initial_task": "circle",
+        "layout": "random",
+        "final_task": "circle",
+        "switches": [],
+        "segments": [],
+        "rms_error_m": 0.14516066015308685,
+        "max_error_m": 0.2116816063158465,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.21231476786802378,
+        "peak_max_error_m": 0.2202848990929431,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 3.2772055948977408,
+        "min_visible_directed_pairs": 16,
+        "mean_visible_directed_pairs": 19.48,
+        "peak_blocked_robot_beam_pairs": 3,
+        "occlusion_events": [
+          {
+            "onset_s": 0.1,
+            "end_s": 0.6,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 0.8,
+            "end_s": 1.4000000000000001,
+            "duration_s": 0.6000000000000001,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 1.9000000000000001,
+            "end_s": 11.1,
+            "duration_s": 9.2,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 11.3,
+            "end_s": 12.200000000000001,
+            "duration_s": 0.9000000000000004,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 12.4,
+            "end_s": 13.1,
+            "duration_s": 0.6999999999999993,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 13.3,
+            "end_s": 14.1,
+            "duration_s": 0.7999999999999989,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 14.3,
+            "end_s": 14.9,
+            "duration_s": 0.5999999999999996,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 15.1,
+            "end_s": 15.700000000000001,
+            "duration_s": 0.6000000000000014,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 15.9,
+            "end_s": 16.4,
+            "duration_s": 0.4999999999999982,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 16.6,
+            "end_s": 17.0,
+            "duration_s": 0.3999999999999986,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 17.2,
+            "end_s": 17.7,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 17.900000000000002,
+            "end_s": 18.3,
+            "duration_s": 0.3999999999999986,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 18.5,
+            "end_s": 19.0,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 19.2,
+            "end_s": 19.7,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 19.900000000000002,
+            "end_s": 20.400000000000002,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 20.6,
+            "end_s": 21.2,
+            "duration_s": 0.5999999999999979,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 21.400000000000002,
+            "end_s": 21.900000000000002,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 22.1,
+            "end_s": 22.6,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 22.8,
+            "end_s": 23.3,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 23.5,
+            "end_s": 24.0,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 24.2,
+            "end_s": 24.8,
+            "duration_s": 0.6000000000000014,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 25.0,
+            "end_s": 25.5,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 25.7,
+            "end_s": 26.2,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 26.400000000000002,
+            "end_s": 27.0,
+            "duration_s": 0.5999999999999979,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 27.2,
+            "end_s": 27.7,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 27.900000000000002,
+            "end_s": 28.5,
+            "duration_s": 0.5999999999999979,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 28.7,
+            "end_s": 29.3,
+            "duration_s": 0.6000000000000014,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 29.5,
+            "end_s": 30.0,
+            "duration_s": 0.5,
+            "visibility_returned": false
+          }
+        ],
+        "hidden_zeroed_controls": 300,
+        "observer_control_counts": [
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "paired_initial_poses_and_time_exact": true
+      },
+      {
+        "seed": 2017,
+        "initial_task": "circle",
+        "layout": "random",
+        "final_task": "circle",
+        "switches": [],
+        "segments": [],
+        "rms_error_m": 0.13557312190787577,
+        "max_error_m": 0.20408210628257414,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.207918264869606,
+        "peak_max_error_m": 0.23443441718934782,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 6.952621996049461,
+        "min_visible_directed_pairs": 14,
+        "mean_visible_directed_pairs": 18.58,
+        "peak_blocked_robot_beam_pairs": 6,
+        "occlusion_events": [
+          {
+            "onset_s": 0.1,
+            "end_s": 3.0,
+            "duration_s": 2.9,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 5.3,
+            "end_s": 14.200000000000001,
+            "duration_s": 8.900000000000002,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 14.4,
+            "end_s": 15.0,
+            "duration_s": 0.5999999999999996,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 15.1,
+            "end_s": 15.5,
+            "duration_s": 0.40000000000000036,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 15.8,
+            "end_s": 15.9,
+            "duration_s": 0.09999999999999964,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 16.1,
+            "end_s": 16.3,
+            "duration_s": 0.1999999999999993,
+            "visibility_returned": true
+          }
+        ],
+        "hidden_zeroed_controls": 300,
+        "observer_control_counts": [
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "paired_initial_poses_and_time_exact": true
+      },
+      {
+        "seed": 2027,
+        "initial_task": "circle",
+        "layout": "random",
+        "final_task": "circle",
+        "switches": [],
+        "segments": [],
+        "rms_error_m": 0.15888562290574956,
+        "max_error_m": 0.1989314854960773,
+        "success": false,
+        "acquisition_s": null,
+        "holding_goal": false,
+        "hold_s": 0.0,
+        "tracking_interruptions": 0,
+        "chain_order_preserved_entire_segment": null,
+        "mean_max_error_m": 0.21855456929402592,
+        "peak_max_error_m": 0.27997307260720256,
+        "reacquisition_s": [],
+        "unrecovered_s": null,
+        "collisions": 0,
+        "wall_violations": 0,
+        "control_cost": 5.816988801456598,
+        "min_visible_directed_pairs": 18,
+        "mean_visible_directed_pairs": 19.546666666666667,
+        "peak_blocked_robot_beam_pairs": 3,
+        "occlusion_events": [
+          {
+            "onset_s": 0.1,
+            "end_s": 4.0,
+            "duration_s": 3.9,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 4.7,
+            "end_s": 4.9,
+            "duration_s": 0.20000000000000018,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 5.7,
+            "end_s": 5.8,
+            "duration_s": 0.09999999999999964,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 19.2,
+            "end_s": 21.6,
+            "duration_s": 2.400000000000002,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 21.8,
+            "end_s": 21.900000000000002,
+            "duration_s": 0.10000000000000142,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 22.2,
+            "end_s": 22.5,
+            "duration_s": 0.3000000000000007,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 22.7,
+            "end_s": 22.8,
+            "duration_s": 0.10000000000000142,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 23.1,
+            "end_s": 23.3,
+            "duration_s": 0.1999999999999993,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 23.5,
+            "end_s": 23.6,
+            "duration_s": 0.10000000000000142,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 23.8,
+            "end_s": 24.1,
+            "duration_s": 0.3000000000000007,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 24.3,
+            "end_s": 24.400000000000002,
+            "duration_s": 0.10000000000000142,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 24.6,
+            "end_s": 24.900000000000002,
+            "duration_s": 0.3000000000000007,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 25.0,
+            "end_s": 25.2,
+            "duration_s": 0.1999999999999993,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 25.400000000000002,
+            "end_s": 25.7,
+            "duration_s": 0.29999999999999716,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 25.900000000000002,
+            "end_s": 26.0,
+            "duration_s": 0.09999999999999787,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 26.2,
+            "end_s": 26.400000000000002,
+            "duration_s": 0.20000000000000284,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 26.6,
+            "end_s": 26.8,
+            "duration_s": 0.1999999999999993,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 26.900000000000002,
+            "end_s": 27.2,
+            "duration_s": 0.29999999999999716,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 27.400000000000002,
+            "end_s": 27.900000000000002,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 28.1,
+            "end_s": 28.3,
+            "duration_s": 0.1999999999999993,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 28.400000000000002,
+            "end_s": 29.3,
+            "duration_s": 0.8999999999999986,
+            "visibility_returned": true
+          },
+          {
+            "onset_s": 29.5,
+            "end_s": 30.0,
+            "duration_s": 0.5,
+            "visibility_returned": true
+          }
+        ],
+        "hidden_zeroed_controls": 300,
+        "observer_control_counts": [
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "paired_initial_poses_and_time_exact": true
+      }
+    ],
+    "weights_and_checkpoint_unchanged": true,
+    "artifacts": [
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/protocol.json",
+        "sha256": "c7ea7bc5d9233e7d2e13cec8b43cc37be9879e9ded82f96de73e81a0352b1918"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2001/report.json",
+        "sha256": "c2ed418198204cb42fa3208d9f8c26657744b22e3a7955161dd0de40504910c1"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2001/circle-2001.npz",
+        "sha256": "6a88cd475bce18bc88abe393eb39fd90e4abb026b369a5e90f15f3d1bd9fd352"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2001/actual-actor-inputs.npz",
+        "sha256": "caca6d978733b7ca47a0c998a8a74e41f9ddad365366556a4af52fa5c68c7303"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2003/report.json",
+        "sha256": "32388bcd156b826198f81d3ee9537f49afc798ca53ef7e6c60ee37cdcd232e5c"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2003/circle-2003.npz",
+        "sha256": "d8a33b9445f643720a5d59c5b21d5ab6cb5402801c4b33cc75732f5e4f07a207"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2003/actual-actor-inputs.npz",
+        "sha256": "5fabe7e1c97f73427f2d60146674fda25cf880c76498d865630632957b123c3e"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2011/report.json",
+        "sha256": "7c8d459bbac489fd990a15b606f7aba80670f1c9ea20f07dca2515497d8b75cc"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2011/circle-2011.npz",
+        "sha256": "1eaee48cb1c644c988e9ada7c1d686a9dc43dd57d06f9f61e540392e912ceb89"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2011/actual-actor-inputs.npz",
+        "sha256": "1a9a28717afc43307992da4e8cafda99de25b774977eb538214cf84a2a659e83"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2017/report.json",
+        "sha256": "41dbca5c31cc06427a7c6f6317469d8a15025469d559a586fdf5c4132aeea79a"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2017/circle-2017.npz",
+        "sha256": "44479103ad8248e4e44cd7948e9d26bd94f0e95f5ace5aada76dd6c21b28c7a8"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2017/actual-actor-inputs.npz",
+        "sha256": "c21da4fc22c0c1e0a148c16d795d6a37525cb5b70ca1aedae9c61482c0f618de"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2027/report.json",
+        "sha256": "b18e06e7cfc6cd263b5424d410d9d09a33c7ac0924759be36f5180f381cbd5d1"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2027/circle-2027.npz",
+        "sha256": "78a4a6e0d083f3e3494312b2995d39a54f4c9269e86c2dfef2a3f87486658a11"
+      },
+      {
+        "path": "runs/local-belief-clean-hidden-reset-v1/2027/actual-actor-inputs.npz",
+        "sha256": "43e94c20cfa2f7ac688b01205e1e00dab9b80eebf80e65efdf0a879546b8cf83"
+      }
+    ],
+    "default_promoted": false,
+    "full_goal_complete": false,
+    "decision": "Diagnostic completed without selecting a reset controller or changing the failed stage gate."
+  },
+  "cases": [
+    {
+      "seed": 2001,
+      "initial_max_error_m": 0.20570944789785536,
+      "final_max_error_m": 0.04058481439556351,
+      "success": true,
+      "final_holding": false,
+      "final_hold_s": 0.0,
+      "contacts": 0,
+      "walls": 0
+    },
+    {
+      "seed": 2003,
+      "initial_max_error_m": 0.24698847810560584,
+      "final_max_error_m": 0.050094847950694764,
+      "success": false,
+      "final_holding": false,
+      "final_hold_s": 0.0,
+      "contacts": 23,
+      "walls": 0
+    },
+    {
+      "seed": 2011,
+      "initial_max_error_m": 0.2175477703481113,
+      "final_max_error_m": 0.09545410783578323,
+      "success": false,
+      "final_holding": false,
+      "final_hold_s": 0.0,
+      "contacts": 23,
+      "walls": 0
+    },
+    {
+      "seed": 2017,
+      "initial_max_error_m": 0.23088493978933322,
+      "final_max_error_m": 0.037899614126139694,
+      "success": false,
+      "final_holding": false,
+      "final_hold_s": 0.0,
+      "contacts": 28,
+      "walls": 0
+    },
+    {
+      "seed": 2027,
+      "initial_max_error_m": 0.2800326972357975,
+      "final_max_error_m": 0.017846964999740682,
+      "success": true,
+      "final_holding": true,
+      "final_hold_s": 11.699999999999974,
+      "contacts": 0,
+      "walls": 0
+    }
+  ],
+  "comparison": {
+    "mixed256_epochs40": {
+      "episodes": 5,
+      "successes": 1,
+      "final_holding": 1,
+      "contacts": 511,
+      "walls": 0,
+      "mean_final_max_error_m": 0.09748513759997271
+    },
+    "teacher128_epochs80": {
+      "episodes": 5,
+      "successes": 2,
+      "final_holding": 1,
+      "contacts": 74,
+      "walls": 0,
+      "mean_final_max_error_m": 0.048376069861584374
+    },
+    "teacher128_hidden_reset": {
+      "episodes": 5,
+      "successes": 0,
+      "final_holding": 0,
+      "contacts": 0,
+      "walls": 0,
+      "mean_final_max_error_m": 0.18857407461051384
+    }
+  },
+  "initial_actor_all_tensors_exact": true,
+  "episode_presentations_per_arm": 10240,
+  "control_samples_per_arm": 3072000,
+  "production_source_changed": false,
+  "default_promoted": false,
+  "full_goal_complete": false,
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/write-local-belief-clean-report.py",
+      "sha256": "9ba60752d553ca54c9e95bb0bae682c6a557fbaab28c143e997d96f98ecf5c4a"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/result.json",
+      "sha256": "e34bcd18b3c7e123bcbd1d4f36ec78e989fc729cc05b424e3f559c885bd3674e"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/protocol.json",
+      "sha256": "ecfd2be02e93ac7405018e08633b981e86ecad5fc827d4804c5ce227615baef8"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/initial_actor.pt",
+      "sha256": "cebfb8bf80e3863c7b42714b66b0708a2fe95b10ec54b9e24351148d17bc14a9"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/imitation.jsonl",
+      "sha256": "ff8f069232653e17d3293da37f4de204044dc00fae06363ba7b22b44a8c71e7a"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/actor-contract.json",
+      "sha256": "8ed616af5b2b03b2fa07fd44c2284e356fece2e7e4bfa75385f20899ca2d8aa4"
+    },
+    {
+      "path": "runs/train-local-belief-circle-11/result.json",
+      "sha256": "59eb4a5bc61524d47e22776b8ca56738798ede8bd0a40bccc40c5dea4f5471f6"
+    },
+    {
+      "path": "reports/local-belief-circle-clean-diagnostic.json",
+      "sha256": "1d98a916015a4f994c4b47392b75bdd4151f23896cd1c0776f3012dd692fbfe4"
+    },
+    {
+      "path": "reports/local-belief-clean-hidden-reset.json",
+      "sha256": "a1ca2e9b0e3f8cc26ed88f9c985926ffcd87f721894db2ca91e4b492f8235148"
+    },
+    {
+      "path": "runs/prepare-local-belief-clean.py",
+      "sha256": "97e3ed1058d855f4480f4482ee333aa388e08f4ddabe235178923b092eaa40bf"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean.py",
+      "sha256": "33d8a5833497868e1c904ad41d4aa9eb59ced86d49b0543971f230aa7bdbca8f"
+    },
+    {
+      "path": "runs/diagnose-local-belief-circle-clean.py",
+      "sha256": "9cdf40b97668af0dd197556be3ae961d1c9fbfd660d2b510aa5e18296fb327ab"
+    },
+    {
+      "path": "runs/probe-local-belief-clean-hidden-reset.py",
+      "sha256": "e2c9c2ce6ece12ab4e9557beb446107f482bdc905e60e945ffc4616cb7884099"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/__init__.py",
+      "sha256": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/__main__.py",
+      "sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/baseline.py",
+      "sha256": "042986db6173dc16aa206c1511dde96529c8a25b0a3ae81e9dc0b9351fabcc2e"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/cli.py",
+      "sha256": "a4290497f1d7bca8515a8d71ef74b18c597b98045b0071ca2458ad44fa04e31c"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/config.py",
+      "sha256": "5f35744e3b853a3b18bcb0bb1136961ad8e23d50a271782cd851e974da82bdb7"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/curriculum.py",
+      "sha256": "7d877fcc189cecb8ca09052604fae1eb1a3488a68ff33dd42273d6cf9d7360d8"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/env.py",
+      "sha256": "802c5ef86e6f4dd33f333d7ddccedfdb28c07c0b1e48dee4174aaee1d8898b1a"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/evaluate.py",
+      "sha256": "11a402ce9c2183553287ae2f329173d2c93f81bcecfda8be008718598f6a9799"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/export.py",
+      "sha256": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/geometry.py",
+      "sha256": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/imitation.py",
+      "sha256": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/metrics.py",
+      "sha256": "d7f58b853e0b1c5696dbf60eeeba219ebd77ff30762566dab01c626a843304a3"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/multiworld.py",
+      "sha256": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/occlusion.py",
+      "sha256": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/policy.py",
+      "sha256": "5222ae354e76c5aa257e319265889b40c11543291a72634416953dfe5e1c4532"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/render.py",
+      "sha256": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/replay.py",
+      "sha256": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/source/train.py",
+      "sha256": "ab2e6f15a9b18ed367a75894b47cab9989e6566b4cbed20305a9600109d81808"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/experimental-source/local-wall-belief-v1.dylib",
+      "sha256": "5408d3886c9d2dce2891c3e58a0328c9c55faaf5bf88f6176370cf8255a52cfc"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/experimental-source/local_belief_actor.py",
+      "sha256": "23babf9b36f78bf9708a62effdf5eb9a9726f18774e1899353d5205054494d91"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/experimental-source/local_wall_belief.hpp",
+      "sha256": "59cf9fcd53f87c16158b3c9a12a2cce0c4f9233f0c050c2b486fa0592c2332a5"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/experimental-source/local_wall_belief.py",
+      "sha256": "415480f091e31b2695b13f6b1155e947f402c36a1e3976f5ce815717af11cd3d"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/experimental-source/local_wall_belief_bridge.cpp",
+      "sha256": "35eb7c485972432ed684110a8bf1f70c9366510abc92d8d41135b8b21910e9c8"
+    },
+    {
+      "path": "runs/train-local-belief-circle-clean-11/experimental-source/train-local-belief-circle-clean.py",
+      "sha256": "33d8a5833497868e1c904ad41d4aa9eb59ced86d49b0543971f230aa7bdbca8f"
+    }
+  ],
+  "decision": "Both fixed-budget cohorts fail the unchanged5/5 safety/hold gate. The teacher-only arm reduces error/contacts but does not maintain more cases. No larger gate, RL, stage extension or promotion. A fresh current-student data collection can test the observed distribution mismatch."
+}
