@@ -1,0 +1,100 @@
+{
+  "version": "bari-revision-v1-verification-v1",
+  "created": "2026-11-06T15:55:39.723768+09:00",
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q",
+    "passed": 198,
+    "elapsed_s": 28.19,
+    "output": "reports/verification-revision-v1.txt"
+  },
+  "cli_smoke": {
+    "report": "reports/revision-v1-cli-smoke.json",
+    "commands_passed": 3,
+    "learner_device": "mps",
+    "training_updates": 2,
+    "inferred_task": "square",
+    "evaluation_layout": "random",
+    "evaluator_version": "bari-evaluation-v6-random-start",
+    "legacy_loads": [
+      {
+        "path": "runs/train-follow-long-v2-23/initial.pt",
+        "updates": 50,
+        "profile_version": 1,
+        "config_sha256": "e86c9a3defd8e4ba84e062e3a23fd46d8834954590b96cc1aa244747016e9a25"
+      },
+      {
+        "path": "runs/train-follow-long-v2-23/latest.pt",
+        "updates": 5050,
+        "profile_version": 1,
+        "config_sha256": "e86c9a3defd8e4ba84e062e3a23fd46d8834954590b96cc1aa244747016e9a25"
+      }
+    ]
+  },
+  "gpu_benchmark": {
+    "report": "reports/packed-v14-benchmark.json",
+    "version": "bari-packed-v14-benchmark-v1",
+    "torch": "2.15.0",
+    "worlds": 64,
+    "joint_steps": 8192,
+    "robot_samples": 40960,
+    "bptt_steps": 64,
+    "packed_robot_sequences": 640,
+    "epochs": 3,
+    "rollout_s": 5.239932541997405,
+    "native_cpu_update_s": 3.3055176670022774,
+    "packed_cpu_update_s": 0.19431775002158247,
+    "packed_cpu_loss": 4.058563232421875,
+    "packed_mps_update_s": 0.09576937498059124,
+    "packed_mps_loss": 4.058563232421875,
+    "cpu_mps_actor_parameter_max_error": 2.738088369369507e-07,
+    "active_training_started": false,
+    "scope": "One identical random line rollout. Native CPU timing is a cold reference; packed timings follow warm-up and reset to identical initial actor/critic/Adam/entropy state. CPU/MPS use identical PPO data and entropy samples. These are verification-only updates, not behavior-convergence evidence or idle-hardware guarantees."
+  },
+  "run_cleanup": {
+    "created": "2026-11-06T15:42:47.025436+09:00",
+    "source": "/Users/whishingraven/Documents/Github/BARIpreSim/runs",
+    "trash": "/Users/whishingraven/.Trash/BARIpreSim-runs-20261106-154247",
+    "preserved": [
+      "train-follow-long-v2-23",
+      "separate-formations-long-v1"
+    ],
+    "moved_count": 1400
+  },
+  "remaining_runs": [
+    "separate-formations-long-v1",
+    "train-follow-long-v2-23"
+  ],
+  "git_diff_check": "passed",
+  "source_files_sha256": {
+    "bari/__init__.py": "73cbbfb8b525d30d5d4ae02cdbe3dd00c76a123b9f36eee982a43297652b8823",
+    "bari/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "bari/baseline.py": "1f6323d034e796b1d168d66d91fd3d58ce69009e570bcad960baa3dce8db2940",
+    "bari/cli.py": "b0a3a6b5d3b8e85a8e56bc7802bb81aea30fa6ae1ab62b6f523486a2bf31544e",
+    "bari/config.py": "25425dfd76c39cd62d0c82b70f67a76542c8b2b6855c09bc5a51cf1f8f545823",
+    "bari/curriculum.py": "cac164086a7db8e7a0859e388ce58186664564c101b002bbc46e1dd3d98829b8",
+    "bari/env.py": "7bdb5b9922e2e8d414aaa754900db459d0e3c6c3d807d114e4ee5bf4ef2b4327",
+    "bari/evaluate.py": "ad27b7998a796332aaf5b3c952ea957aeb784995ab46ff1ce353385b16d9fcbb",
+    "bari/export.py": "2e078d2a4a92261b9131e91e1437cbec16fb9464230f7bd955534b70605b10fd",
+    "bari/geometry.py": "43c0e87551dfaf036f0e9839eae6635ca1f89e5ee752b8bd154b47693adde5c2",
+    "bari/imitation.py": "dfb61d4c4daf896485c631fc30ba8b9a4e906888a488134aab72c9cdad45fe95",
+    "bari/leader.py": "8ee9d6a740620fd4660d14c648e954afdd86408ba1fd05d7044082f481fa587d",
+    "bari/metrics.py": "cfe1c8bf902cf9d06fad899cf78c116a79f4d204f5d3f62ea7160116b22fe850",
+    "bari/multiworld.py": "f237654d197958dff1d84ba846c054fce61016cffef22ccbb0667d3cf78ffd2b",
+    "bari/objectives.py": "30f078b806a4f41c663a83570a2d141486198c677e5481a492d12d52e49abe91",
+    "bari/occlusion.py": "d9839b28acbe8bb1c403cf94cb1f0839c76f2deff2f3719b141610d8d0f82986",
+    "bari/packed.py": "506d238dd4cf5433bdc6b2a69474816345c969473a9c8091dd0f0c62a40354c0",
+    "bari/policy.py": "91033ead01a8e6035e8f989a6966b4f1c88ad4835c012cbbad8fd64ca515b584",
+    "bari/render.py": "682145694140a66f5a469c00bfbde2a7f05eef432cfb26ecd14f5f84ea214895",
+    "bari/replay.py": "390f8fff63958c8c00a591578dc51c08e76dcf0bd58e53af6ddba3b2e4b2e7d8",
+    "bari/train.py": "ae74a4155e900c7d7795f04afde55af80762b80152d02baecc7199697231bd2c",
+    "configs/circle-v1.json": "bdb417810c4f8aa1712e785e0a20ef008bed42c2ebbcc45cb19d196fda737032",
+    "configs/config.json": "bdb417810c4f8aa1712e785e0a20ef008bed42c2ebbcc45cb19d196fda737032",
+    "configs/contract.json": "e0b71af4639b427df99c4ed1f1ff2caa0fa7df6f4a3497bea285c9426ad360fd",
+    "configs/follow-v1.json": "bdb417810c4f8aa1712e785e0a20ef008bed42c2ebbcc45cb19d196fda737032",
+    "configs/line-v1.json": "bdb417810c4f8aa1712e785e0a20ef008bed42c2ebbcc45cb19d196fda737032",
+    "configs/square-v1.json": "bdb417810c4f8aa1712e785e0a20ef008bed42c2ebbcc45cb19d196fda737032"
+  },
+  "source_manifest_sha256": "b3d4872363445a5c1b756d525364fee16ab4ee3590da26677a74d33a6396209d",
+  "long_training_started": false,
+  "acceptance_scope": "Software correctness and bounded smoke updates only. New 10,000-update training, learned behavior convergence, final held-out evaluation, separate-model switching, controlled occlusion and on-device SRAM/latency remain pending."
+}

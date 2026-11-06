@@ -56,7 +56,7 @@ class Trainer:
             critic_size += 5  # Replace each training-only yaw by sin/cos, preserving periodicity.
         self.critic = Critic(input_size=critic_size, normalize_values=training_version in NORMALIZED_VALUE_VERSIONS)
         self.optimizer = torch.optim.Adam(list(self.actor.parameters())+list(self.critic.parameters()), lr=config.learning_rate)
-        self.env = Environment(config, seed, "follow", "chain",
+        self.env = Environment(config, seed, "follow", "random" if config.profile_version == 2 else "chain",
                                ANONYMOUS_ORDER if training_version in ANONYMOUS_TRAINING_VERSIONS else LEGACY_ORDER)
         self.hidden = torch.zeros(5, config.hidden_size)
         self.reset_mask = np.zeros(5, dtype=np.float32)
@@ -121,7 +121,7 @@ class Trainer:
             self.steps_until_switch = self.plan.switch_steps(self.rng, self.config)
             poses = self.plan.sample_poses(self.env, self.rng, task, self.updates)
         self.episode_curriculum = poses is not None
-        self.env.reset(seed, task, "chain" if task == "follow" else "random", poses=poses)
+        self.env.reset(seed, task, "chain" if task == "follow" and self.config.profile_version == 1 else "random", poses=poses)
         self.hidden.zero_()
         self.reset_mask[:] = 0
 
@@ -375,6 +375,10 @@ class Trainer:
     @classmethod
     def restore(cls, path):
         actor, config, payload = load_checkpoint(path)
+        from .policy import PACKED_TRAINING_VERSION
+        if payload.get("training_version") == PACKED_TRAINING_VERSION:
+            from .packed import PackedTrainer
+            return PackedTrainer.restore(path)
         if payload.get("training_version") not in SUPPORTED_TRAINING_VERSIONS or "trainer_state" not in payload:
             raise ValueError("This checkpoint supports actor evaluation/export only; exact training resume requires v3 trainer state")
         state = payload["trainer_state"]

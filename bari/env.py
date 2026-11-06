@@ -49,7 +49,11 @@ class Environment:
         self.control_cost = 0.0
         self.reward_vector = np.zeros(5, dtype=np.float32)
         self.contact_robots = np.zeros(5, dtype=bool)
+        if self.config.profile_version == 2:
+            self.leader_control = None
         if poses is None:
+            if self.config.profile_version == 2 and layout != "random":
+                raise ValueError("Profile 2 always starts from random valid poses")
             if layout == "chain":
                 poses = np.zeros((5, 3))
                 poses[:, 0] = .32-np.arange(5)*self.config.follow_spacing
@@ -58,6 +62,13 @@ class Environment:
             elif layout == "random":
                 for _ in range(10000):
                     candidate = self.rng.uniform(-.42, .42, (5, 3))
+                    if self.config.profile_version == 2:
+                        radius = (self.config.arena_radius-self.config.body_radius-self.config.spawn_clearance)*np.sqrt(self.rng.random(5))
+                        angle = self.rng.uniform(-np.pi, np.pi, 5)
+                        candidate[:, :2] = radius[:, None]*np.column_stack((np.cos(angle), np.sin(angle)))
+                        distances = np.linalg.norm(candidate[:, None, :2]-candidate[None, :, :2], axis=-1)+np.eye(5)*100
+                        if distances.min() < 2*self.config.body_radius+self.config.spawn_clearance:
+                            continue
                     candidate[:, 2] = self.rng.uniform(-np.pi, np.pi, 5)
                     if self.valid_poses(candidate):
                         poses = candidate
@@ -155,7 +166,11 @@ class Environment:
         if actions.shape != (5, 2) or not np.isfinite(actions).all():
             raise ValueError("Expected finite [5,2] wheel commands")
         commands = np.clip(actions, -1, 1)
-        before = np.linalg.norm(self.poses[:, :2]-self.tracker.measure()["fitted_targets"], axis=1)
+        before_measurement = self.tracker.measure()
+        before = np.linalg.norm(self.poses[:, :2]-before_measurement["fitted_targets"], axis=1)
+        if c.profile_version == 2:
+            from .objectives import task_objective
+            before_objective = task_objective(self, before_measurement)
         changes = np.mean((commands-self.previous_commands)**2, axis=1)
         collision_pairs, wall_robots = set(), set()
         self.contact_robots[:] = False
@@ -218,6 +233,13 @@ class Environment:
         self.reward_vector = (c.reward_progress*(before-error)-c.reward_error*error*c.control_dt
                               -c.reward_collision*contacts-c.reward_wall*walls
                               -(c.reward_energy*energy+c.reward_change*changes+c.reward_time)*c.control_dt).astype(np.float32)
+        if c.profile_version == 2:
+            objective = task_objective(self, self.tracker.latest)
+            team_reward = (c.reward_progress*(before_objective["cost_m"]-objective["cost_m"])
+                           +(c.reward_shape*objective["score"]-c.reward_error*objective["cost_m"])*c.control_dt)
+            self.reward_vector = (team_reward-c.reward_error*error*c.control_dt
+                -c.reward_collision*contacts-c.reward_wall*walls
+                -(c.reward_energy*energy+c.reward_change*changes+c.reward_time)*c.control_dt).astype(np.float32)
         terminated = False  # Success does not stop continuous tasks or switching.
         truncated = self.time+1e-9 >= c.timeout_seconds
         return self.observation(), float(self.reward_vector.mean()), terminated, truncated, self.tracker.summary()

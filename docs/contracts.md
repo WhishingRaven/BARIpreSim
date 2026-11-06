@@ -1,5 +1,25 @@
 # Simulation and policy contracts
 
+## November 6 profile-2 revision
+
+Current separate-task runs use `configs/{follow,line,square,circle}-v1.json` and
+`bari-mappo-packed-v14`. Random valid poses across the usable disk are mandatory
+for training, evaluation and demo. Circle radius is 0.5 m, square side is 1 m with
+a fifth center robot, line spacing remains 0.17 m and following spacing is 0.30 m.
+Stationary formation holds are allowed. The new 60 s timeout and smooth random
+leader settings are prospective assumptions. See [training](training.md) for
+the reward formula, actual-trail evaluation, batching, checkpoint and reset rules.
+
+Local input order (9 readings/commands/role + 4 task fields) and two wheel
+outputs are unchanged; the new GRU hidden width is 64 and remains part of each
+checkpoint's I/O contract. Separate-model switching is pending an explicit model
+selector and hidden-state rules. Critic truth and reward geometry remain
+training-only. Profile 1 omits the new fields when serialized,
+preserving historical checkpoint config hashes and saved behavior. Earlier
+sections below describe those versioned experiments, not new default goals.
+
+## Historical versioned contracts
+
 Contract `bari-ir-gru-v1` uses SI units: x/y in meters, z upward, body-forward +x,
 yaw in radians counterclockwise. Configuration is in `configs/config.json` and the
 machine-readable inference contract is in `configs/contract.json`.

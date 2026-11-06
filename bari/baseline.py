@@ -15,6 +15,9 @@ def leader_command(env):
     The scripted leader is permitted mission infrastructure. Followers receive no
     leader heading, pose, target, or predecessor identity.
     """
+    if env.config.profile_version == 2:
+        from .leader import random_leader_command
+        return random_leader_command(env)
     x, y, yaw = env.poses[0]
     radius = np.hypot(x, y)
     tangent = np.arctan2(y, x)+np.pi/2

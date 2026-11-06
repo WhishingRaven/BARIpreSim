@@ -15,7 +15,8 @@ AUTOREGRESSIVE_VERSION = "bari-mappo-autoregressive-v9"
 ANONYMOUS_AUTOREGRESSIVE_VERSION = "bari-mappo-anonymous-autoregressive-v11"
 PERIODIC_CRITIC_VERSION = "bari-mappo-periodic-critic-v12"
 NO_COMMAND_CRITIC_VERSION = "bari-mappo-periodic-no-command-v13"
-PERIODIC_CRITIC_VERSIONS = (PERIODIC_CRITIC_VERSION, NO_COMMAND_CRITIC_VERSION)
+PACKED_TRAINING_VERSION = "bari-mappo-packed-v14"
+PERIODIC_CRITIC_VERSIONS = (PERIODIC_CRITIC_VERSION, NO_COMMAND_CRITIC_VERSION, PACKED_TRAINING_VERSION)
 ANONYMOUS_TRAINING_VERSIONS = (TRAINING_VERSION, ANONYMOUS_AUTOREGRESSIVE_VERSION, *PERIODIC_CRITIC_VERSIONS)
 CORRELATED_TRAINING_VERSIONS = (AUTOREGRESSIVE_VERSION, ANONYMOUS_AUTOREGRESSIVE_VERSION)
 MULTIWORLD_VERSIONS = (MULTIWORLD_VERSION, AUTOREGRESSIVE_VERSION, *ANONYMOUS_TRAINING_VERSIONS)
@@ -66,6 +67,15 @@ class Actor(nn.Module):
         if self.action_correlation:
             std = std*np.sqrt(1-self.action_correlation**2)
         return Normal(means, std)
+
+    def packed_sequence(self, observations, tasks, hidden, reset_masks):
+        """Batch independent BPTT streams; encode/head once, mask every GRU step."""
+        encoded = torch.tanh(self.encoder(torch.cat((observations, tasks), dim=-1)))
+        states = []
+        for inputs, mask in zip(encoded, reset_masks):
+            hidden = self.gru(inputs, hidden*mask[:, None])
+            states.append(hidden)
+        return self.head(torch.stack(states)), hidden
 
     def log_probability(self, means, raw_actions):
         # Stable log(1-tanh(x)^2). Store the pre-tanh sample in rollouts.

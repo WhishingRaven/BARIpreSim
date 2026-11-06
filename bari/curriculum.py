@@ -27,6 +27,8 @@ class TrainingPlan:
     tasks: list | None = None
 
     def validate(self, config):
+        if config.profile_version == 2 and self.curriculum_updates and self.curriculum_start_probability:
+            raise ValueError("Profile 2 requires random starts, without a target-near curriculum")
         if self.version not in ("bari-training-plan-v1", "bari-training-plan-v2"):
             raise ValueError("Unsupported training plan")
         if self.version == "bari-training-plan-v1" and self.tasks is not None:

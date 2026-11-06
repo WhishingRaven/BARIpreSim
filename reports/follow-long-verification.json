@@ -1,0 +1,106 @@
+{
+  "version": "bari-long-follow-verification-v1",
+  "parent_checkpoint": "runs/constrained-follow-rl-terminal-23/checkpoint.pt",
+  "parent_sha256": "7d5059bb43b72df896279cea0c4a1affb26ac3fa2f71428813a34b19de0f536b",
+  "branch_actor_critic_optimizer_torch_and_world_hidden_rng_exact": true,
+  "sampler_valid_cases": 2000,
+  "sampler_counts": {
+    "0": {
+      "stage": {
+        "additional_update": 0,
+        "near_probability": 0.5,
+        "random_probability": 0.05,
+        "position_jitter_m": 0.015,
+        "heading_std_rad": 0.05
+      },
+      "actual_counts": {
+        "near": 217,
+        "progressive": 168,
+        "random": 15
+      }
+    },
+    "500": {
+      "stage": {
+        "additional_update": 500,
+        "near_probability": 0.25,
+        "random_probability": 0.15,
+        "position_jitter_m": 0.04,
+        "heading_std_rad": 0.25
+      },
+      "actual_counts": {
+        "near": 106,
+        "progressive": 233,
+        "random": 61
+      }
+    },
+    "1500": {
+      "stage": {
+        "additional_update": 1500,
+        "near_probability": 0.25,
+        "random_probability": 0.35,
+        "position_jitter_m": 0.1,
+        "heading_std_rad": 0.7
+      },
+      "actual_counts": {
+        "near": 99,
+        "progressive": 172,
+        "random": 129
+      }
+    },
+    "3000": {
+      "stage": {
+        "additional_update": 3000,
+        "near_probability": 0.25,
+        "random_probability": 0.55,
+        "position_jitter_m": 0.22,
+        "heading_std_rad": 2.0
+      },
+      "actual_counts": {
+        "near": 85,
+        "progressive": 97,
+        "random": 218
+      }
+    },
+    "5000": {
+      "stage": {
+        "additional_update": 5000,
+        "near_probability": 0.25,
+        "random_probability": 0.55,
+        "position_jitter_m": 0.22,
+        "heading_std_rad": 3.141592653589793
+      },
+      "actual_counts": {
+        "near": 98,
+        "progressive": 76,
+        "random": 226
+      }
+    }
+  },
+  "native_actor_reader_compatible": true,
+  "native_trainer_rejects_private_sampler": "TypeError",
+  "three_rollout_updates_and_full_checkpoint_resume_exact": true,
+  "all_eight_worlds_crossed_episode_reset": true,
+  "zero_command_weights_and_finite_losses": true,
+  "verification_joint_controls_per_branch": 3072,
+  "host_seconds_per_update": 1.1697667083329482,
+  "estimated_training_hours_excluding_evaluation": 1.6246759837957612,
+  "scope": "Verification-only updates; no trained behavior candidate or final acceptance",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-follow-long.py",
+      "sha256": "5b8bf71b79bf426cb1813b2c55659da9cfc0ced2d3dd48bf914ddd5909998b47"
+    },
+    {
+      "path": "runs/follow_long_curriculum.py",
+      "sha256": "c36928e35a9a1c69dea959301ee889033c663dc1ce2dab8b76fa2a8f1883b4af"
+    },
+    {
+      "path": "runs/follow-long-verification-v1/initial.pt",
+      "sha256": "63bd115d8e0d8c72231e046d08388df9ac5812e2e6cd655db5c756b276cf5a9c"
+    },
+    {
+      "path": "runs/follow-long-verification-v1/verification-only-update53.pt",
+      "sha256": "ed94770313bef298f3ef6547c89c8d12a7dfc4b4ca7aa03f0558c51e58cc27db"
+    }
+  ]
+}

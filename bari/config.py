@@ -66,8 +66,29 @@ class Config:
     reward_time: float = 0.01
     # Static physical disks, sensed and collided with. No object classes in actor input.
     obstacles: list = field(default_factory=list)  # Each [x, y, radius] in m.
+    # Profile 1 omits these fields, preserving historical config hashes.
+    profile_version: int = 1
+    spawn_clearance: float = .02
+    reward_shape: float = 4.0
+    reward_shape_scale: float = .25
+    leader_speed: float = .04
+    leader_max_curvature: float = 2.0  # 1/m during translation
+    leader_lookahead: float = .60
+    leader_reorientation_rate: float = .20  # rad/s at rest near boundaries
+
+    V2_FIELDS = ("profile_version", "spawn_clearance", "reward_shape", "reward_shape_scale",
+                 "leader_speed", "leader_max_curvature", "leader_lookahead", "leader_reorientation_rate")
 
     def validate(self):
+        if self.profile_version not in (1, 2):
+            raise ValueError("Unsupported configuration profile")
+        if self.profile_version == 2 and (self.spawn_clearance < 0 or self.reward_shape < 0
+                or min(self.reward_shape_scale, self.leader_speed, self.leader_max_curvature,
+                       self.leader_lookahead, self.leader_reorientation_rate) <= 0
+                or self.leader_speed*(1+self.leader_max_curvature*self.wheel_separation/2) > self.max_wheel_speed
+                or self.body_radius+self.spawn_clearance >= self.arena_radius
+                or self.follow_spacing < 2*self.body_radius):
+            raise ValueError("Invalid random-start/reward/leader settings")
         for name, value in self.to_dict().items():
             if isinstance(value, (int, float)) and not math.isfinite(value):
                 raise ValueError(f"{name} must be finite")
@@ -107,7 +128,11 @@ class Config:
         return self
 
     def to_dict(self):
-        return asdict(self)
+        data = asdict(self)
+        if self.profile_version == 1:
+            for name in self.V2_FIELDS:
+                data.pop(name)
+        return data
 
     def digest(self):
         return hashlib.sha256(json.dumps(self.to_dict(), sort_keys=True).encode()).hexdigest()
@@ -117,7 +142,10 @@ class Config:
 
     @classmethod
     def load(cls, path=None):
-        return cls(**(json.loads(Path(path).read_text()) if path else {})).validate()
+        if path:
+            return cls(**json.loads(Path(path).read_text())).validate()
+        return cls(profile_version=2, circle_radius=.5, square_side=1., follow_spacing=.30,
+                   timeout_seconds=60., sensor_fov_deg=60., hidden_size=64, sequence_length=64).validate()
 
 
 def observation_contract(config):

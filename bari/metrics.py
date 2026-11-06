@@ -32,6 +32,12 @@ def evaluation_contract(config):
     if config.sensor_fov_deg:
         contract.update(sensor_model=observation_contract(config)["sensor_model"],
                         occlusion_observer_basis=CONE_OCCLUSION_BASIS)
+    if config.profile_version == 2:
+        contract.update(version="bari-evaluation-v6-random-start",
+                        following_initial_trail="actual leader trail only; no invented pre-episode path; require four spacings of recorded travel",
+                        circle_radius_m=config.circle_radius, square_side_m=config.square_side,
+                        line_spacing_m=config.line_spacing, following_spacing_m=config.follow_spacing,
+                        initial_layout="random valid poses across the usable disk")
     return contract
 
 
@@ -58,7 +64,9 @@ class TaskTracker:
         self.last_leader = e.poses[0, :2].copy()
         self.formed_order = None
         self.formed_at = None
-        if e.follow_ordering == ANONYMOUS_ORDER:
+        if e.config.profile_version == 2:
+            self.path = [e.poses[0, :2].copy(), e.poses[0, :2].copy()]
+        elif e.follow_ordering == ANONYMOUS_ORDER:
             # Explicit startup reference, independent of anonymous follower labels.
             backward = np.arange(4, -1, -1)*e.config.follow_spacing
             heading = np.array([np.cos(e.poses[0, 2]), np.sin(e.poses[0, 2])])
@@ -70,7 +78,7 @@ class TaskTracker:
         for a, b in zip(self.path, self.path[1:]):
             self.path_s.append(self.path_s[-1]+float(np.linalg.norm(b-a)))
         self.projection_rule = "recent-trail-continuous-ties-v1"
-        self.projection_progress = np.asarray(self.path_s[::-1])
+        self.projection_progress = (np.zeros(5) if e.config.profile_version == 2 else np.asarray(self.path_s[::-1]))
         self.latest = self.measure()
 
     def close(self):
@@ -97,7 +105,7 @@ class TaskTracker:
             # trail the leader. Old laps/bootstrap chords are not a current queue.
             span = 4*(c.follow_spacing+c.follow_spacing_tolerance)
             cutoff = max(0.0, arc[-1]-span)
-            start = max(0, int(np.searchsorted(arc, cutoff, side="right"))-1)
+            start = min(len(arc)-2, max(0, int(np.searchsorted(arc, cutoff, side="right"))-1))
             path, arc = path[start:], arc[start:]
         vectors = np.diff(path, axis=0)
         length2 = np.sum(vectors**2, axis=1)
@@ -126,6 +134,7 @@ class TaskTracker:
             mapped[order] = desired
             desired = mapped
             if (self.formed_order is None and np.all(gaps > 0)
+                    and (c.profile_version == 1 or self.leader_travel >= 4*c.follow_spacing)
                     and distance.min(axis=1).max() <= c.follow_path_tolerance
                     and np.max(np.abs(gaps-c.follow_spacing)) <= c.follow_spacing_tolerance):
                 self.formed_order = order.tolist()
@@ -134,12 +143,15 @@ class TaskTracker:
             gaps = progress[:-1]-progress[1:]
         # Includes spacing and path position for every follower, not only a centroid.
         tracking = np.linalg.norm(e.poses[:, :2]-desired, axis=1)
-        return {"max_error_m": float(tracking.max()), "rms_error_m": float(np.sqrt(np.mean(tracking**2))),
+        result = {"max_error_m": float(tracking.max()), "rms_error_m": float(np.sqrt(np.mean(tracking**2))),
                 "path_error_m": float(distance.min(axis=1).max()),
                 "spacing_error_m": float(np.max(np.abs(gaps-c.follow_spacing))),
                 "chain_order_preserved": bool(np.all(gaps > 0)),
                 "leader_travel_m": self.leader_travel, "leader_step_travel_m": delta,
                 "leader_moving": delta > 1e-9, "fitted_targets": desired}
+        if c.profile_version == 2:
+            result["trail_ready"] = self.leader_travel >= 4*c.follow_spacing
+        return result
 
     def update(self):
         e, c = self.env, self.env.config
@@ -155,6 +167,8 @@ class TaskTracker:
                         and self.latest["chain_order_preserved"])
             valid = (tracking and self.leader_travel >= c.follow_min_leader_travel
                      and self.latest["leader_moving"])
+            if c.profile_version == 2:
+                valid &= self.latest["trail_ready"]
         else:
             tracking = self.latest["max_error_m"] <= c.formation_tolerance
             valid = tracking

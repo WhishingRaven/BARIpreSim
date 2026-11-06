@@ -1,0 +1,62 @@
+{
+  "version": "bari-gpu-training-probe-v1",
+  "torch_version": "2.15.0",
+  "mps_built": true,
+  "mps_available": true,
+  "cuda_available": false,
+  "active_source_checkpoint": "runs/separate-formations-long-v1/circle-seed11/training/checkpoint.pt",
+  "captured_actual_update": 247,
+  "actor_parameter_device": "cpu",
+  "cpu_actual_rollout_seconds": 1.133538292000594,
+  "cpu_actual_ppo_update_seconds": 0.7022010410000803,
+  "cpu_rollout_fraction": 0.6174832513653928,
+  "cpu_inference": {
+    "median_seconds_per40_robot_forward": 5.832584007293917e-05,
+    "repeats": 150,
+    "host_inputs_actions_hidden_transfer_each_control": false
+  },
+  "cpu_packed_actor_backward": {
+    "median_seconds": 0.022637729001871776,
+    "steps": 64,
+    "robot_sequences_in_batch": 80,
+    "scope": "Packed actor recurrent forward/backward only; diagnostic squared-output objective, not a complete PPO update or a validated faster trainer"
+  },
+  "mps_resident_inference": {
+    "median_seconds_per40_robot_forward": 0.0003271991599467583,
+    "repeats": 150,
+    "host_inputs_actions_hidden_transfer_each_control": false
+  },
+  "mps_control_transfer_inference": {
+    "median_seconds_per40_robot_forward": 0.0038575591798871755,
+    "repeats": 150,
+    "host_inputs_actions_hidden_transfer_each_control": true
+  },
+  "mps_packed_actor_backward": {
+    "median_seconds": 0.04462593749849475,
+    "steps": 64,
+    "robot_sequences_in_batch": 80,
+    "scope": "Packed actor recurrent forward/backward only; diagnostic squared-output objective, not a complete PPO update or a validated faster trainer"
+  },
+  "single_step_mps_parity": {
+    "mean_max_error": 2.384185791015625e-07,
+    "hidden_max_error": 8.940696716308594e-08
+  },
+  "naive_full_critic_move_to_mps": {
+    "success": false,
+    "error_type": "TypeError",
+    "message": "Cannot convert a MPS Tensor to float64 dtype as the MPS framework doesn't support float64. Please use float32 instead."
+  },
+  "active_training_modified": false,
+  "device_migration_performed": false,
+  "measurement_scope": "One captured8-world GRU64 formation checkpoint under the current concurrent host load. Timings are bounded diagnostics, not idle-machine benchmarks or evidence of task convergence.",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/probe-gpu-training.py",
+      "sha256": "b5b939dc2819e4d6691c378713e5b227bd0e97ccb5cc59fe0a976168c4eb68dd"
+    },
+    {
+      "path": "runs/gpu-training-probe-v1/captured-checkpoint.pt",
+      "sha256": "b117873415c51355cdaf7e01741c6975a0f7f719790e850d0635e5821d4e21cb"
+    }
+  ]
+}

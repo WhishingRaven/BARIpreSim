@@ -15,7 +15,7 @@ class Recorder:
     def __init__(self, env, model="scripted-privileged"):
         self.metadata = {"seed": env.seed, "model": model, "config": env.config.to_dict(),
                          "recording_version": 2, "follow_ordering": env.follow_ordering,
-                         "evaluator_version": EVALUATION_VERSION,
+                         "evaluator_version": evaluation_contract(env.config)["version"],
                          "initial_poses": env.poses.tolist(),
                          "config_sha256": env.config.digest(), "recording": "one row per control step"}
         if env.config.sensor_fov_deg:
@@ -158,7 +158,7 @@ def evaluate(config, controller, seeds, output, model="scripted-privileged", che
                         "required_success_rate": config.required_success_rate,
                         "passes_assumed_gate": rate >= config.required_success_rate}
     report = {"model": model, "checkpoint_sha256": source_hash, "evaluation_revision": code_revision,
-              "evaluator_version": EVALUATION_VERSION,
+              "evaluator_version": contract["version"],
               "evaluation_contract_sha256": hashlib.sha256(contract_text.encode()).hexdigest(),
               "training_seed": checkpoint_metadata.get("training_seed"),
               "training_updates": checkpoint_metadata.get("updates"),

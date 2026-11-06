@@ -1,0 +1,607 @@
+{
+  "version": "bari-long-follow-progress-v1",
+  "updated_utc": "2026-11-04T04:23:42.386052+00:00",
+  "status": "completed",
+  "protocol": {
+    "path": "runs/train-follow-long-v2-23/protocol.json",
+    "sha256": "e980789e4f2bad6711bbe941804ace753a57acc1104dad2cd4c9e859857d8ace"
+  },
+  "progress": {
+    "status": "completed",
+    "additional_update": 5000,
+    "total_update": 5050,
+    "selected_development_candidate": null
+  },
+  "evaluation_summaries": [
+    {
+      "additional_updates": 0,
+      "total_updates": 50,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/initial.pt",
+        "sha256": "82a01d4115e77143b6a35218de7232a9aa23cc7239b66ac675d3a501d8157265"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 21,
+        "final_holds": 21,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.0681319722133485
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 4300,
+        "walls": 171,
+        "mean_final_max_error_m": 0.7988412329122601
+      },
+      "retention_pass": true,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    },
+    {
+      "additional_updates": 250,
+      "total_updates": 300,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/checkpoint-additional-00250.pt",
+        "sha256": "7da85ff3d3b51fd9a4819dffea17ea1a29dcf1c57b785a67eaf0c3da5ee52942"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.9892265494746065
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 2589,
+        "walls": 0,
+        "mean_final_max_error_m": 0.7702205505279902
+      },
+      "retention_pass": false,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    },
+    {
+      "additional_updates": 500,
+      "total_updates": 550,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/checkpoint-additional-00500.pt",
+        "sha256": "b96a54b0b757a9a2a7d76b4360f8a1e037e175643d4774463ba67a1879e27e63"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 334,
+        "walls": 0,
+        "mean_final_max_error_m": 0.9137565672835554
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 2578,
+        "walls": 0,
+        "mean_final_max_error_m": 0.8058962907279492
+      },
+      "retention_pass": false,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    },
+    {
+      "additional_updates": 1000,
+      "total_updates": 1050,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/checkpoint-additional-01000.pt",
+        "sha256": "5da4e6b90bb840e6645628680f1d9ebc21fab3625b20d7d4c8c4dd231105021e"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.4062115823443432
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 2113,
+        "walls": 0,
+        "mean_final_max_error_m": 0.7924779086660241
+      },
+      "retention_pass": false,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    },
+    {
+      "additional_updates": 1500,
+      "total_updates": 1550,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/checkpoint-additional-01500.pt",
+        "sha256": "4c46771f877e7a540b06138c7415c0f5daa1fbdd35260954d65fb04350040fb0"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.47550505297589585
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 1590,
+        "walls": 0,
+        "mean_final_max_error_m": 0.7972383068313883
+      },
+      "retention_pass": false,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    },
+    {
+      "additional_updates": 2000,
+      "total_updates": 2050,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/checkpoint-additional-02000.pt",
+        "sha256": "9026a1b958aaa2c5fe3873bcd5826e65f1e0c1018d6335f30ae7394f22146767"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.6872388026394272
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 1020,
+        "walls": 0,
+        "mean_final_max_error_m": 0.5881985448502088
+      },
+      "retention_pass": false,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    },
+    {
+      "additional_updates": 3000,
+      "total_updates": 3050,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/checkpoint-additional-03000.pt",
+        "sha256": "dc9fce332536c0cb1a0804f730f51934e74de2e8ed98b6604690df83073c5ab4"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 1222,
+        "walls": 0,
+        "mean_final_max_error_m": 0.5714370911407918
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 901,
+        "walls": 0,
+        "mean_final_max_error_m": 0.6333830708846481
+      },
+      "retention_pass": false,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    },
+    {
+      "additional_updates": 4000,
+      "total_updates": 4050,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/checkpoint-additional-04000.pt",
+        "sha256": "1257d9c9063a5142d6540687020395dfe869782d02c70c7d8d314c716954328c"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 4198,
+        "walls": 0,
+        "mean_final_max_error_m": 0.6540729896560832
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 906,
+        "walls": 0,
+        "mean_final_max_error_m": 0.6163535048921925
+      },
+      "retention_pass": false,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    },
+    {
+      "additional_updates": 5000,
+      "total_updates": 5050,
+      "checkpoint": {
+        "path": "runs/train-follow-long-v2-23/checkpoint-additional-05000.pt",
+        "sha256": "a6138a68043ae750d478b9bc245ed6d78a00fcc6eaf09bce65c518aa84ce0e77"
+      },
+      "retention": {
+        "episodes": 21,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 606,
+        "walls": 1144,
+        "mean_final_max_error_m": 0.6947841708117175
+      },
+      "random_acquisition": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 1224,
+        "walls": 0,
+        "mean_final_max_error_m": 0.6556467849105664
+      },
+      "retention_pass": false,
+      "acquisition_pass": false,
+      "qualified_development_candidate": false,
+      "training_rng_and_weights_unchanged": true,
+      "final_heldout_used": false,
+      "scope": "Follow-only development, not four-task/hardware acceptance"
+    }
+  ],
+  "terminal_result": {
+    "version": "bari-long-follow-continuation-v1",
+    "status": "completed",
+    "additional_updates": 5000,
+    "total_updates": 5050,
+    "protocol": {
+      "path": "runs/train-follow-long-v2-23/protocol.json",
+      "sha256": "e980789e4f2bad6711bbe941804ace753a57acc1104dad2cd4c9e859857d8ace"
+    },
+    "evaluations": [
+      {
+        "additional_updates": 0,
+        "total_updates": 50,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/initial.pt",
+          "sha256": "82a01d4115e77143b6a35218de7232a9aa23cc7239b66ac675d3a501d8157265"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 21,
+          "final_holds": 21,
+          "contacts": 0,
+          "walls": 0,
+          "mean_final_max_error_m": 0.0681319722133485
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 4300,
+          "walls": 171,
+          "mean_final_max_error_m": 0.7988412329122601
+        },
+        "retention_pass": true,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      },
+      {
+        "additional_updates": 250,
+        "total_updates": 300,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/checkpoint-additional-00250.pt",
+          "sha256": "7da85ff3d3b51fd9a4819dffea17ea1a29dcf1c57b785a67eaf0c3da5ee52942"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 0,
+          "walls": 0,
+          "mean_final_max_error_m": 0.9892265494746065
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 2589,
+          "walls": 0,
+          "mean_final_max_error_m": 0.7702205505279902
+        },
+        "retention_pass": false,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      },
+      {
+        "additional_updates": 500,
+        "total_updates": 550,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/checkpoint-additional-00500.pt",
+          "sha256": "b96a54b0b757a9a2a7d76b4360f8a1e037e175643d4774463ba67a1879e27e63"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 334,
+          "walls": 0,
+          "mean_final_max_error_m": 0.9137565672835554
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 2578,
+          "walls": 0,
+          "mean_final_max_error_m": 0.8058962907279492
+        },
+        "retention_pass": false,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      },
+      {
+        "additional_updates": 1000,
+        "total_updates": 1050,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/checkpoint-additional-01000.pt",
+          "sha256": "5da4e6b90bb840e6645628680f1d9ebc21fab3625b20d7d4c8c4dd231105021e"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 0,
+          "walls": 0,
+          "mean_final_max_error_m": 0.4062115823443432
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 2113,
+          "walls": 0,
+          "mean_final_max_error_m": 0.7924779086660241
+        },
+        "retention_pass": false,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      },
+      {
+        "additional_updates": 1500,
+        "total_updates": 1550,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/checkpoint-additional-01500.pt",
+          "sha256": "4c46771f877e7a540b06138c7415c0f5daa1fbdd35260954d65fb04350040fb0"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 0,
+          "walls": 0,
+          "mean_final_max_error_m": 0.47550505297589585
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 1590,
+          "walls": 0,
+          "mean_final_max_error_m": 0.7972383068313883
+        },
+        "retention_pass": false,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      },
+      {
+        "additional_updates": 2000,
+        "total_updates": 2050,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/checkpoint-additional-02000.pt",
+          "sha256": "9026a1b958aaa2c5fe3873bcd5826e65f1e0c1018d6335f30ae7394f22146767"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 0,
+          "walls": 0,
+          "mean_final_max_error_m": 0.6872388026394272
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 1020,
+          "walls": 0,
+          "mean_final_max_error_m": 0.5881985448502088
+        },
+        "retention_pass": false,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      },
+      {
+        "additional_updates": 3000,
+        "total_updates": 3050,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/checkpoint-additional-03000.pt",
+          "sha256": "dc9fce332536c0cb1a0804f730f51934e74de2e8ed98b6604690df83073c5ab4"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 1222,
+          "walls": 0,
+          "mean_final_max_error_m": 0.5714370911407918
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 901,
+          "walls": 0,
+          "mean_final_max_error_m": 0.6333830708846481
+        },
+        "retention_pass": false,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      },
+      {
+        "additional_updates": 4000,
+        "total_updates": 4050,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/checkpoint-additional-04000.pt",
+          "sha256": "1257d9c9063a5142d6540687020395dfe869782d02c70c7d8d314c716954328c"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 4198,
+          "walls": 0,
+          "mean_final_max_error_m": 0.6540729896560832
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 906,
+          "walls": 0,
+          "mean_final_max_error_m": 0.6163535048921925
+        },
+        "retention_pass": false,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      },
+      {
+        "additional_updates": 5000,
+        "total_updates": 5050,
+        "checkpoint": {
+          "path": "runs/train-follow-long-v2-23/checkpoint-additional-05000.pt",
+          "sha256": "a6138a68043ae750d478b9bc245ed6d78a00fcc6eaf09bce65c518aa84ce0e77"
+        },
+        "retention": {
+          "episodes": 21,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 606,
+          "walls": 1144,
+          "mean_final_max_error_m": 0.6947841708117175
+        },
+        "random_acquisition": {
+          "episodes": 15,
+          "successes": 0,
+          "final_holds": 0,
+          "contacts": 1224,
+          "walls": 0,
+          "mean_final_max_error_m": 0.6556467849105664
+        },
+        "retention_pass": false,
+        "acquisition_pass": false,
+        "qualified_development_candidate": false,
+        "training_rng_and_weights_unchanged": true,
+        "final_heldout_used": false,
+        "scope": "Follow-only development, not four-task/hardware acceptance"
+      }
+    ],
+    "selected_development_candidate": null,
+    "default_promoted": false,
+    "final_heldout_used": false,
+    "device_run": false,
+    "full_goal_complete": false
+  },
+  "run_directory": "runs/train-follow-long-v2-23",
+  "stdout": "runs/train-follow-long-v2.stdout",
+  "stderr": "runs/train-follow-long-v2.stderr",
+  "default_promoted": false,
+  "final_heldout_used": false,
+  "device_run": false,
+  "full_goal_complete": false,
+  "preserved_initial_output_directory_failure": [
+    {
+      "path": "runs/train-follow-long.py",
+      "sha256": "81327b1e52a9c45e54604bfc50b8d48209ef4ac50d9497e2fb8254b8b7607994"
+    },
+    {
+      "path": "runs/train-follow-long.stderr",
+      "sha256": "2cbb8f5d322fe0c8d2b292cf65fb1be529995efee4bf24b1b560e54c8ef6d348"
+    },
+    {
+      "path": "runs/train-follow-long-23/protocol.json",
+      "sha256": "c58ba0b9dae42ffa3487473a41e4b868dc81cb84f4688ca16a26f55f175036d9"
+    }
+  ],
+  "verification": {
+    "path": "reports/follow-long-verification.json",
+    "sha256": "c964e1348b5677fc9dbda5d3d1630557cac93736abf108f45b7450b8113ecdab"
+  },
+  "reporter": {
+    "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/report-follow-long-progress.py",
+    "sha256": "24fcf03d1c0db0288f8b880c70c8d5cbab46c0b0a70d95cf857eb1f01a211ebd"
+  },
+  "terminal_result_artifact": {
+    "path": "runs/train-follow-long-v2-23/result.json",
+    "sha256": "2b8daf3bef0b224f32bdfe148794cae2dd1b32d5a00c557279dc5a701bb3c25c"
+  }
+}

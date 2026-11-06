@@ -1,0 +1,60 @@
+{
+  "version": "bari-separate-formations-long-verification-v1",
+  "tasks": [
+    {
+      "task": "circle",
+      "stopped_correct_formation_passes": true,
+      "all_five_actor_samples_learned": true,
+      "only_assigned_task_in_rollout": true,
+      "finite_recurrent_ppo_update": true,
+      "native_checkpoint_next_update_exact": true
+    },
+    {
+      "task": "square",
+      "stopped_correct_formation_passes": true,
+      "all_five_actor_samples_learned": true,
+      "only_assigned_task_in_rollout": true,
+      "finite_recurrent_ppo_update": true,
+      "native_checkpoint_next_update_exact": true
+    },
+    {
+      "task": "line",
+      "stopped_correct_formation_passes": true,
+      "all_five_actor_samples_learned": true,
+      "only_assigned_task_in_rollout": true,
+      "finite_recurrent_ppo_update": true,
+      "native_checkpoint_next_update_exact": true
+    }
+  ],
+  "scope": "Verification-only updates, not behavioral training candidates",
+  "artifacts": [
+    {
+      "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/verify-separate-formations-long-v2.py",
+      "sha256": "8cf8c4b2f89a3d5d23bd8294dfa3e327d018144836615e9c75f2853188aad04e"
+    },
+    {
+      "path": "runs/prepare-separate-formations-long.py",
+      "sha256": "7258ce271f591a6f16aae677ed6c0b82b5d76e973d9e4396399b6ed2f128c0e8"
+    },
+    {
+      "path": "runs/separate-formations-long-v1/definition.json",
+      "sha256": "9afb557e23271f586ad24415688609fedb6edffc13f40f3f19bd999f2b274b8f"
+    },
+    {
+      "path": "runs/separate-formations-long-v1/config.json",
+      "sha256": "262aaa79962be68431653cc9d5aaec1417755b714f92995263b3d6ba203b808c"
+    },
+    {
+      "path": "runs/separate-formations-long-v1/plan-circle.json",
+      "sha256": "f3928c5f4feeb8ff31a9e8caa0ac23b74e26e0261c87b0b63441d62bd37fdd12"
+    },
+    {
+      "path": "runs/separate-formations-long-v1/plan-square.json",
+      "sha256": "7c7f6e17ac2d9d375157a27e5e345c5109e4c87e9bd5c302968e115c848405b6"
+    },
+    {
+      "path": "runs/separate-formations-long-v1/plan-line.json",
+      "sha256": "cb7effb2ef6c489cfd7b79c55480168b79844d4af5570a667b5edd2e0035e67d"
+    }
+  ]
+}

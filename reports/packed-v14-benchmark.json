@@ -1,0 +1,19 @@
+{
+  "version": "bari-packed-v14-benchmark-v1",
+  "torch": "2.15.0",
+  "worlds": 64,
+  "joint_steps": 8192,
+  "robot_samples": 40960,
+  "bptt_steps": 64,
+  "packed_robot_sequences": 640,
+  "epochs": 3,
+  "rollout_s": 5.239932541997405,
+  "native_cpu_update_s": 3.3055176670022774,
+  "packed_cpu_update_s": 0.19431775002158247,
+  "packed_cpu_loss": 4.058563232421875,
+  "packed_mps_update_s": 0.09576937498059124,
+  "packed_mps_loss": 4.058563232421875,
+  "cpu_mps_actor_parameter_max_error": 2.738088369369507e-07,
+  "active_training_started": false,
+  "scope": "One identical random line rollout. Native CPU timing is a cold reference; packed timings follow warm-up and reset to identical initial actor/critic/Adam/entropy state. CPU/MPS use identical PPO data and entropy samples. These are verification-only updates, not behavior-convergence evidence or idle-hardware guarantees."
+}

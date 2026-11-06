@@ -1,0 +1,2209 @@
+{
+  "version": "bari-separate-formations-long-progress-v1",
+  "updated_utc": "2026-11-04T04:40:16.577788+00:00",
+  "status": "completed",
+  "protocol": {
+    "path": "runs/separate-formations-long-v1/protocol.json",
+    "sha256": "6b2956b675a015cb7fa03ce460d0e533a81b8023945082b7b66d2efc1e8d33f0"
+  },
+  "jobs": [
+    {
+      "task": "circle",
+      "seed": 11,
+      "pid": 29746,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/circle-seed11/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/circle-seed11/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/circle-seed11/stderr.log"
+    },
+    {
+      "task": "circle",
+      "seed": 23,
+      "pid": 29747,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/circle-seed23/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/circle-seed23/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/circle-seed23/stderr.log"
+    },
+    {
+      "task": "circle",
+      "seed": 47,
+      "pid": 29749,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/circle-seed47/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/circle-seed47/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/circle-seed47/stderr.log"
+    },
+    {
+      "task": "square",
+      "seed": 11,
+      "pid": 29751,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/square-seed11/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/square-seed11/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/square-seed11/stderr.log"
+    },
+    {
+      "task": "square",
+      "seed": 23,
+      "pid": 29754,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/square-seed23/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/square-seed23/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/square-seed23/stderr.log"
+    },
+    {
+      "task": "square",
+      "seed": 47,
+      "pid": 29755,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/square-seed47/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/square-seed47/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/square-seed47/stderr.log"
+    },
+    {
+      "task": "line",
+      "seed": 11,
+      "pid": 29760,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/line-seed11/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/line-seed11/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/line-seed11/stderr.log"
+    },
+    {
+      "task": "line",
+      "seed": 23,
+      "pid": 29761,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/line-seed23/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/line-seed23/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/line-seed23/stderr.log"
+    },
+    {
+      "task": "line",
+      "seed": 47,
+      "pid": 29765,
+      "updates": 5000,
+      "status": "completed",
+      "checkpoint_path": "runs/separate-formations-long-v1/line-seed47/training/checkpoint.pt",
+      "stdout": "runs/separate-formations-long-v1/line-seed47/stdout.log",
+      "stderr": "runs/separate-formations-long-v1/line-seed47/stderr.log"
+    }
+  ],
+  "evaluations": [
+    {
+      "task": "circle",
+      "training_seed": 11,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed11/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "d04e2ea62c138547c7d03b863fe0148e8c5603b62d60b92fe2fffa822c18c4ec"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 4,
+        "walls": 0,
+        "mean_final_max_error_m": 0.23063239616645953
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.07173877537942917
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 23,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed23/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "6f07972159db5b97693f33489e3ee22ee62eb4034dd7f345cfcb1f587de34396"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 94,
+        "walls": 0,
+        "mean_final_max_error_m": 0.22620625002148895
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.006875453259366894
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 47,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed47/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "07983aea9404a3cacb3c26cfd033f8f0e800506ec60ae42882969fb1f110eedc"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 43,
+        "walls": 0,
+        "mean_final_max_error_m": 0.23213967799963928
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.08035256769907866
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 11,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed11/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "b0f323ef0f8c90dda2061464145b730591fc479752b4678265e381398a2dfe13"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.24932757175572046
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.08936468934214456
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 23,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed23/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "08aa49fe2de20dec4379c0569366a163bf2488dcc7151b7a5d8b591b4f320954"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 101,
+        "walls": 0,
+        "mean_final_max_error_m": 0.23373531882851636
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.011636920579205914
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 47,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed47/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "fdcd6905804789d731f15786cc4f07955b3053814df5e580fd94f173cf541619"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 443,
+        "walls": 0,
+        "mean_final_max_error_m": 0.26795377076807075
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 3,
+        "final_holds": 0,
+        "contacts": 141,
+        "walls": 0,
+        "mean_final_max_error_m": 0.11891893734572012
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 11,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed11/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "237d020c4aa0e15497e9cf29681814fc7e72856d6fa8d059da100cb9d3cf6f44"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 6,
+        "walls": 0,
+        "mean_final_max_error_m": 0.31414118897056537
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.06009073424655934
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 23,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed23/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "5711fd238976bebaf6d1b24f2aca16f38a0f4170fccf4836265dd2221ed7a80b"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 752,
+        "walls": 0,
+        "mean_final_max_error_m": 0.27857954726119727
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 670,
+        "walls": 0,
+        "mean_final_max_error_m": 0.03099402367107
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 47,
+      "threshold_updates": 0,
+      "actual_updates": 0,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed47/evaluation/threshold-00000-actual-00000/checkpoint.pt",
+        "sha256": "510708afee8bd7c10a80c70ec6b1245dfb7f9176dc449521ca36e2b93daf0ddf"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 237,
+        "walls": 0,
+        "mean_final_max_error_m": 0.30840960539000045
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 1,
+        "final_holds": 0,
+        "contacts": 478,
+        "walls": 0,
+        "mean_final_max_error_m": 0.044632713847803075
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 23,
+      "threshold_updates": 250,
+      "actual_updates": 250,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed23/evaluation/threshold-00250-actual-00250/checkpoint.pt",
+        "sha256": "9545fb298ef709da95a9e4c98e79d9e885607316f849f0f18b71bb26b607bbb4"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.23803741871220124
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.024335208751796247
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 47,
+      "threshold_updates": 250,
+      "actual_updates": 255,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed47/evaluation/threshold-00250-actual-00255/checkpoint.pt",
+        "sha256": "8888d315af63a729e30ada524e681f74f528fad97997a45fd3626839b98205e1"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.24667926313305785
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.026688452333453908
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 11,
+      "threshold_updates": 250,
+      "actual_updates": 261,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed11/evaluation/threshold-00250-actual-00261/checkpoint.pt",
+        "sha256": "af24cdeb7a73ba174089f01df172906c300cfaa15628074c3c457aa19cf35839"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.3220398296664551
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.06799779620098907
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 23,
+      "threshold_updates": 250,
+      "actual_updates": 267,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed23/evaluation/threshold-00250-actual-00267/checkpoint.pt",
+        "sha256": "cf1b8946eb84f2c4ef070d12204042b550903fffbfeeec560e7aa52fb2ee5ff2"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.3330219392708964
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.05549276473383706
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 47,
+      "threshold_updates": 250,
+      "actual_updates": 275,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed47/evaluation/threshold-00250-actual-00275/checkpoint.pt",
+        "sha256": "76a9555b61be416658ca5da44114e7794f6f3a02cebb3d44b992392d5a923932"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 157,
+        "walls": 0,
+        "mean_final_max_error_m": 0.30676098380508965
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 3,
+        "final_holds": 1,
+        "contacts": 2,
+        "walls": 0,
+        "mean_final_max_error_m": 0.047230574380608556
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 11,
+      "threshold_updates": 250,
+      "actual_updates": 284,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed11/evaluation/threshold-00250-actual-00284/checkpoint.pt",
+        "sha256": "a15fe20b18fa3618b85eaf442bda58466faee58006a9eeddd63329e3ac325edb"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 23,
+        "walls": 0,
+        "mean_final_max_error_m": 0.21982906572143002
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.01641408314713489
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 23,
+      "threshold_updates": 250,
+      "actual_updates": 289,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed23/evaluation/threshold-00250-actual-00289/checkpoint.pt",
+        "sha256": "182368249c8c697dec34a22566ddf4b7f3f1c7a15ffd90a7ee503fcf559eec09"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 80,
+        "walls": 0,
+        "mean_final_max_error_m": 0.21966509539026033
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.020559335734796708
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 47,
+      "threshold_updates": 250,
+      "actual_updates": 297,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed47/evaluation/threshold-00250-actual-00297/checkpoint.pt",
+        "sha256": "c312593f709975f587636432973ba9a5b09cc331eae8cedadeba60e408b1df50"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.22307715308680584
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.022271629988595647
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 11,
+      "threshold_updates": 250,
+      "actual_updates": 305,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed11/evaluation/threshold-00250-actual-00305/checkpoint.pt",
+        "sha256": "baa96ab3971b72e51f0996b8463e743047142043311b85f9bc02bc0441446816"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.24045999064813725
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.014596213736533385
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 11,
+      "threshold_updates": 500,
+      "actual_updates": 501,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed11/evaluation/threshold-00500-actual-00501/checkpoint.pt",
+        "sha256": "42334d8c45328683c571e09c522183f839b2294af4c0a96a843781157ca5ee50"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 299,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2379402436897769
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.0908403151929854
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 23,
+      "threshold_updates": 500,
+      "actual_updates": 506,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed23/evaluation/threshold-00500-actual-00506/checkpoint.pt",
+        "sha256": "0d0797a08a38ae5957c652c965ce20277cc1d34b497a060c9f02a9516a6332e3"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 395,
+        "walls": 0,
+        "mean_final_max_error_m": 0.21567018252903225
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.02515887652388345
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 47,
+      "threshold_updates": 500,
+      "actual_updates": 513,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed47/evaluation/threshold-00500-actual-00513/checkpoint.pt",
+        "sha256": "1a75af31a2a9c6569597db4ca0a0fd0517675f98192ada8a1b862b147a656cc0"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 10,
+        "walls": 0,
+        "mean_final_max_error_m": 0.21857684590490817
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.018126247387628226
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 11,
+      "threshold_updates": 500,
+      "actual_updates": 522,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed11/evaluation/threshold-00500-actual-00522/checkpoint.pt",
+        "sha256": "f411d4ed2177fef08bd8dbaae7812575bba207c0318ac0d5aa15a803e34cb4eb"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 9,
+        "walls": 0,
+        "mean_final_max_error_m": 0.24643387102293063
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.040111497390682566
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 23,
+      "threshold_updates": 500,
+      "actual_updates": 534,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed23/evaluation/threshold-00500-actual-00534/checkpoint.pt",
+        "sha256": "68233986d86dc6e27ab76f788ccea092c1b455d2eca297e92de6869d664a3b96"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 373,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2354146042430622
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 1,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.03145024270598093
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 47,
+      "threshold_updates": 500,
+      "actual_updates": 538,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed47/evaluation/threshold-00500-actual-00538/checkpoint.pt",
+        "sha256": "4b5dacbdec000428e02dad94d9c7260cb70bbf58b0faaa8ea77d697654e97395"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2395950550501458
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.05312092742390813
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 11,
+      "threshold_updates": 500,
+      "actual_updates": 543,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed11/evaluation/threshold-00500-actual-00543/checkpoint.pt",
+        "sha256": "135b9d67d2dec1bdf4383412872e7fa5dae7ed7e74fda99b65603fb20cc3c537"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 13,
+        "walls": 0,
+        "mean_final_max_error_m": 0.35338900988686367
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.07848543796229776
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 23,
+      "threshold_updates": 500,
+      "actual_updates": 550,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed23/evaluation/threshold-00500-actual-00550/checkpoint.pt",
+        "sha256": "e12f725be77f5b3a545cc4ce4eaa54af32b58bee8bb4477f5fac88c168e20319"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.3076581410700036
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 2,
+        "final_holds": 2,
+        "contacts": 26,
+        "walls": 0,
+        "mean_final_max_error_m": 0.02111852661900705
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 47,
+      "threshold_updates": 500,
+      "actual_updates": 559,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed47/evaluation/threshold-00500-actual-00559/checkpoint.pt",
+        "sha256": "c02532564b0806635acab585419de06e36dba1ea47fddd1e336f0e4e44bd2a14"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 288,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2978650178420621
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.06875024911135431
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 23,
+      "threshold_updates": 1000,
+      "actual_updates": 1004,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed23/evaluation/threshold-01000-actual-01004/checkpoint.pt",
+        "sha256": "cff33b2588493bf56f17c0b41cb9dcbaa5e8f9624d4383b0b0f5154ee0dd448b"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 285,
+        "walls": 0,
+        "mean_final_max_error_m": 0.24234547817921376
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 2,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.0390305940911278
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 47,
+      "threshold_updates": 1000,
+      "actual_updates": 1005,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed47/evaluation/threshold-01000-actual-01005/checkpoint.pt",
+        "sha256": "52885208c0a512b99e7eea208ebe19e8228338e2adc371cfdf533b0c06e2b31a"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.23933307387106512
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 1,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.03422015410415133
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 11,
+      "threshold_updates": 1000,
+      "actual_updates": 1011,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed11/evaluation/threshold-01000-actual-01011/checkpoint.pt",
+        "sha256": "232636cef58c144b87699b553e75a2c887557b4ea7806e6f0781f24a6d210a28"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 2,
+        "walls": 0,
+        "mean_final_max_error_m": 0.31104959316066133
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 1,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.037697913939269065
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 23,
+      "threshold_updates": 1000,
+      "actual_updates": 1015,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed23/evaluation/threshold-01000-actual-01015/checkpoint.pt",
+        "sha256": "b455b1508d6f5a085b702fa9f96986315a31dd8e9107f102800a299e22bc0952"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.29925437235345326
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 1,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.0463751699372549
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 47,
+      "threshold_updates": 1000,
+      "actual_updates": 1027,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed47/evaluation/threshold-01000-actual-01027/checkpoint.pt",
+        "sha256": "51c277a56521876116d6622a2757baa11f5ab73d2869427f1c7e600c705211da"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 605,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2790389884213068
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 3,
+        "final_holds": 0,
+        "contacts": 84,
+        "walls": 0,
+        "mean_final_max_error_m": 0.10687693864691389
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 11,
+      "threshold_updates": 1000,
+      "actual_updates": 1030,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed11/evaluation/threshold-01000-actual-01030/checkpoint.pt",
+        "sha256": "f34abaaabbc14bdf5ea1cfd3adfbb445e7802929927ceabb88e58187a34a55ce"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 10,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2215052295078403
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.03584329731226099
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 23,
+      "threshold_updates": 1000,
+      "actual_updates": 1034,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed23/evaluation/threshold-01000-actual-01034/checkpoint.pt",
+        "sha256": "2a5c1574f999be6d25ca20dcc2ba13a91e3cb44f1587400a22c398d3034d93ed"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 8,
+        "walls": 0,
+        "mean_final_max_error_m": 0.22120085155444405
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.011446086747265782
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 47,
+      "threshold_updates": 1000,
+      "actual_updates": 1040,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed47/evaluation/threshold-01000-actual-01040/checkpoint.pt",
+        "sha256": "12529c21ad526c28076e8273d7575bfd5d214043de7a6f60338a8494e20fd20b"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 2201,
+        "walls": 0,
+        "mean_final_max_error_m": 0.21234061673357585
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 1,
+        "final_holds": 0,
+        "contacts": 381,
+        "walls": 0,
+        "mean_final_max_error_m": 0.1478428580214483
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 11,
+      "threshold_updates": 1000,
+      "actual_updates": 1053,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed11/evaluation/threshold-01000-actual-01053/checkpoint.pt",
+        "sha256": "65bcec2c53bc3c2a1c3eb7c346b79a742388e2e64b03397504e6acfcb8393ff0"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.23931006514388004
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.025732369315474464
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 23,
+      "threshold_updates": 2000,
+      "actual_updates": 2004,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed23/evaluation/threshold-02000-actual-02004/checkpoint.pt",
+        "sha256": "4a0a2213cf83d72d23299638c642a80a1da4175e4858e002488a7e2639780df9"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 9,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2263741697547302
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.06924264964522849
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 47,
+      "threshold_updates": 2000,
+      "actual_updates": 2000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed47/evaluation/threshold-02000-actual-02000/checkpoint.pt",
+        "sha256": "5ca90b546fb0c2853d9508ea14152f5d9bc0c10ac44e3162aa0485e196c74e7e"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.300926979723167
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 2,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.03901101416402267
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 11,
+      "threshold_updates": 2000,
+      "actual_updates": 2002,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed11/evaluation/threshold-02000-actual-02002/checkpoint.pt",
+        "sha256": "3e6638666c5b2902d8a35365be2b558ce38fc6c2cb9020eaddc637d6c93fe20b"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 138,
+        "walls": 0,
+        "mean_final_max_error_m": 0.25228811656542793
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 3,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.0333522715064299
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 47,
+      "threshold_updates": 2000,
+      "actual_updates": 2015,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed47/evaluation/threshold-02000-actual-02015/checkpoint.pt",
+        "sha256": "4e9db7855cfa9b681b54605b3ddd026b527cddbae3b0dc7877d25cc3bf23e32d"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 7,
+        "walls": 0,
+        "mean_final_max_error_m": 0.24747190252776646
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.07181824454954806
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 11,
+      "threshold_updates": 2000,
+      "actual_updates": 2021,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed11/evaluation/threshold-02000-actual-02021/checkpoint.pt",
+        "sha256": "2d016f5811b0e15e24b400854af9cf89190d416f3c82b9de0c3609f87faf194f"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.32936278946697234
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.03800260954338397
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 23,
+      "threshold_updates": 2000,
+      "actual_updates": 2022,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed23/evaluation/threshold-02000-actual-02022/checkpoint.pt",
+        "sha256": "d0cd4beec8bb425ff309da3fb0bfaa8d6678feb58ba1d05101ca6cd926e6b81c"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 3,
+        "walls": 0,
+        "mean_final_max_error_m": 0.30214062745841475
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.10170829347665267
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 11,
+      "threshold_updates": 2000,
+      "actual_updates": 2027,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed11/evaluation/threshold-02000-actual-02027/checkpoint.pt",
+        "sha256": "90c863b8de536b79085592f1a2b5c09a9ce00be5fe55b4865e1a9219c602542a"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 1,
+        "walls": 0,
+        "mean_final_max_error_m": 0.20535818207178427
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.039202627470120065
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 23,
+      "threshold_updates": 2000,
+      "actual_updates": 2029,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed23/evaluation/threshold-02000-actual-02029/checkpoint.pt",
+        "sha256": "40ee484016301959bf68ed2cab7348b4c25720691ac42b1f835c8b926f0aa561"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 165,
+        "walls": 0,
+        "mean_final_max_error_m": 0.21169230917873583
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 2,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.046354643608876235
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 47,
+      "threshold_updates": 2000,
+      "actual_updates": 2034,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed47/evaluation/threshold-02000-actual-02034/checkpoint.pt",
+        "sha256": "2cffaa83b4646dd2c70996680d01759569b15202fcc0a67f41955baa64c57407"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 2,
+        "final_holds": 2,
+        "contacts": 781,
+        "walls": 0,
+        "mean_final_max_error_m": 0.11683085683114705
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.0157379038757505
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 23,
+      "threshold_updates": 3000,
+      "actual_updates": 3000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed23/evaluation/threshold-03000-actual-03000/checkpoint.pt",
+        "sha256": "3d2ccd6af0d3a08ae95bbc7dba11592dc297f38d8ca5373679b8aca6ce4ff28b"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 16,
+        "walls": 0,
+        "mean_final_max_error_m": 0.23644905471553998
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.041514545981676254
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 47,
+      "threshold_updates": 3000,
+      "actual_updates": 3001,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed47/evaluation/threshold-03000-actual-03001/checkpoint.pt",
+        "sha256": "17c3e15f1d147aa38865ad79dd20db7cf505b52cc98b2984878ada92f577550d"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 4,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2730188393474103
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.09935440824409744
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 11,
+      "threshold_updates": 3000,
+      "actual_updates": 3004,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed11/evaluation/threshold-03000-actual-03004/checkpoint.pt",
+        "sha256": "e7b6f01128388c6351ce078a82550daa9397e1415e45e7bf103807c7a49ac780"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 10,
+        "walls": 0,
+        "mean_final_max_error_m": 0.28839225220104436
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 248,
+        "walls": 0,
+        "mean_final_max_error_m": 0.18286978123846884
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 23,
+      "threshold_updates": 3000,
+      "actual_updates": 3005,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed23/evaluation/threshold-03000-actual-03005/checkpoint.pt",
+        "sha256": "5bed9e52a71b8dd80a467a96ff3a633a8602f28941bb4465a8963764cb0dae43"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 3,
+        "walls": 0,
+        "mean_final_max_error_m": 0.28622641296817153
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 3,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.13435561099680582
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 47,
+      "threshold_updates": 3000,
+      "actual_updates": 3024,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed47/evaluation/threshold-03000-actual-03024/checkpoint.pt",
+        "sha256": "851cddf78a54792e93ebc5f489a043c2f30215a93946ced2ce8aad882dfaf445"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 39,
+        "walls": 0,
+        "mean_final_max_error_m": 0.3061849589323183
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 2,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.04250363194167381
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 11,
+      "threshold_updates": 3000,
+      "actual_updates": 3013,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed11/evaluation/threshold-03000-actual-03013/checkpoint.pt",
+        "sha256": "46efd89c668565d4fb7962508d235dcb2c7fee40e518cd99a26b9b4560a14d6c"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.18577335679049722
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 3,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.04752427362711152
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 23,
+      "threshold_updates": 3000,
+      "actual_updates": 3013,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed23/evaluation/threshold-03000-actual-03013/checkpoint.pt",
+        "sha256": "ebc797d12c52091783c76f1552e73e40f06d825ba514e95c594936d23619c441"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 8,
+        "walls": 0,
+        "mean_final_max_error_m": 0.1922532541184544
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 2,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.041018358329669005
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 47,
+      "threshold_updates": 3000,
+      "actual_updates": 3015,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed47/evaluation/threshold-03000-actual-03015/checkpoint.pt",
+        "sha256": "f7cd31bd3b7b1af83f9f756d12bd5c6f7254a276d22f3d3ea8bceb2ec9bfc701"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 53,
+        "walls": 0,
+        "mean_final_max_error_m": 0.13236201352167049
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.022396198446164774
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 11,
+      "threshold_updates": 3000,
+      "actual_updates": 3041,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed11/evaluation/threshold-03000-actual-03041/checkpoint.pt",
+        "sha256": "51844798f97e460ee89506d8f5283a419a7716c9ea0be047649dcf66e58e993a"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 22,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2521344094927074
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 1,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.07962074031497804
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 23,
+      "threshold_updates": 4000,
+      "actual_updates": 4009,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed23/evaluation/threshold-04000-actual-04009/checkpoint.pt",
+        "sha256": "04073950ae261079d9db766f8cb6c7097f5fce59a8a1932fe7eec5cd0cf8c1cd"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 1,
+        "walls": 0,
+        "mean_final_max_error_m": 0.3721274189622314
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.36354410323340575
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 47,
+      "threshold_updates": 4000,
+      "actual_updates": 4003,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed47/evaluation/threshold-04000-actual-04003/checkpoint.pt",
+        "sha256": "86ef05b09c1ebf1bedfe504e27cbc08da56bd2ca4b10c48f2454a901331a3885"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 392,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2053703693784752
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 1,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.09832378061912653
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 11,
+      "threshold_updates": 4000,
+      "actual_updates": 4005,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed11/evaluation/threshold-04000-actual-04005/checkpoint.pt",
+        "sha256": "c40b8cdce072e286f331c14c863a9246f4c3372746c7f43fd93a689fcb2e59b7"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 1,
+        "walls": 0,
+        "mean_final_max_error_m": 0.31620540393144897
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 3,
+        "final_holds": 2,
+        "contacts": 74,
+        "walls": 0,
+        "mean_final_max_error_m": 0.03506238009742177
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 23,
+      "threshold_updates": 4000,
+      "actual_updates": 4003,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed23/evaluation/threshold-04000-actual-04003/checkpoint.pt",
+        "sha256": "bcdecb10623b4d397ff347f84995a9c68f4a276a8ccb88bf9250de952b3e1ab0"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 114,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2926112900642686
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 107,
+        "walls": 0,
+        "mean_final_max_error_m": 0.14366503661649446
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 47,
+      "threshold_updates": 4000,
+      "actual_updates": 4026,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed47/evaluation/threshold-04000-actual-04026/checkpoint.pt",
+        "sha256": "1016ea42eedc13cf3befcfcefd7840b76a72643e51a43ec9a75a338dcb398a2e"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 223,
+        "walls": 0,
+        "mean_final_max_error_m": 0.28711392744593217
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.07859435773341124
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 11,
+      "threshold_updates": 4000,
+      "actual_updates": 4008,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed11/evaluation/threshold-04000-actual-04008/checkpoint.pt",
+        "sha256": "76829ce73567d8f67a04bdd3c885731c464e70273fef260412b612edf3eef006"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 6,
+        "final_holds": 5,
+        "contacts": 3,
+        "walls": 0,
+        "mean_final_max_error_m": 0.05975350666308776
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.021212014343527617
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 23,
+      "threshold_updates": 4000,
+      "actual_updates": 4005,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed23/evaluation/threshold-04000-actual-04005/checkpoint.pt",
+        "sha256": "bbe5739568b886ce1d42d0f34efb6556111db424f84f98881aa97575590d51aa"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 216,
+        "walls": 0,
+        "mean_final_max_error_m": 0.1825179144014307
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 2,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.042057230882469
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 47,
+      "threshold_updates": 4000,
+      "actual_updates": 4007,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed47/evaluation/threshold-04000-actual-04007/checkpoint.pt",
+        "sha256": "8cac5696f6d6875ea47727beb65668ef5c30e70ba99974a93992ab746b51824c"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 48,
+        "walls": 0,
+        "mean_final_max_error_m": 0.1502427032024506
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.041336509400124254
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 11,
+      "threshold_updates": 4000,
+      "actual_updates": 4039,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed11/evaluation/threshold-04000-actual-04039/checkpoint.pt",
+        "sha256": "0b9e992d3d8771c8116d2c33cd7436f2347605b4ed631ba1f5945d7ee50a16cf"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.20974129421981344
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 1,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.076190111161408
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 23,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed23/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "591dd2706271ce22598b301b296d6491a2cffd190dc8159fc766262575f2122b"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.35673037420979675
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.400135197490325
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 47,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed47/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "9b74e3507a0f5667e6184e17e7dfcfaaa8508864efaae163c7d1d7cdd3939e8e"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 129,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2929595584224009
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 3,
+        "final_holds": 0,
+        "contacts": 62,
+        "walls": 0,
+        "mean_final_max_error_m": 0.06140690021879375
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 47,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed47/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "5dac362e1dc17a1138246462d431636a65fb661e85c99d12f089b35f3460a0eb"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 88,
+        "walls": 0,
+        "mean_final_max_error_m": 0.273153680269778
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 3,
+        "final_holds": 1,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.10512218475106894
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 11,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed11/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "b663ce18eadbba4d5e9d675f71328b2089238ae07c692a8c410798eaa19cbda5"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 251,
+        "walls": 0,
+        "mean_final_max_error_m": 0.27394390204905117
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 1,
+        "final_holds": 0,
+        "contacts": 99,
+        "walls": 0,
+        "mean_final_max_error_m": 0.04779370942417101
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "line",
+      "training_seed": 23,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/line-seed23/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "8e4b4773db62975c27c696d47c510195f9c143ddcc968382c72c4006a1f1ef59"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 343,
+        "walls": 0,
+        "mean_final_max_error_m": 0.2937778526732618
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 312,
+        "walls": 0,
+        "mean_final_max_error_m": 0.05266518584028014
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 11,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed11/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "dbb7f0e92249f60a6c559c2b6846232b5b457a3bd959451b69eb10857827ece2"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 10,
+        "final_holds": 10,
+        "contacts": 28,
+        "walls": 0,
+        "mean_final_max_error_m": 0.08872838772652576
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.010987100548924517
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "square",
+      "training_seed": 11,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/square-seed11/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "c602e72cf60574a106d445c3717a22935fe9116ec7e9628a9e0fa60e872419ee"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.29626629004430727
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 2,
+        "final_holds": 0,
+        "contacts": 116,
+        "walls": 0,
+        "mean_final_max_error_m": 0.21869712907185024
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 23,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed23/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "be71a81ac50328425e3b84fd56696d4387ea10268acb68f156dbb4f7e89366f8"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 0,
+        "final_holds": 0,
+        "contacts": 25,
+        "walls": 0,
+        "mean_final_max_error_m": 0.1715031421835896
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 0,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.06751108620473764
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    },
+    {
+      "task": "circle",
+      "training_seed": 47,
+      "threshold_updates": 5000,
+      "actual_updates": 5000,
+      "checkpoint": {
+        "path": "runs/separate-formations-long-v1/circle-seed47/evaluation/threshold-05000-actual-05000/checkpoint.pt",
+        "sha256": "289320ae802a9a52fafb47e4b85e772891470719ee262f8a0291d7b8666727d5"
+      },
+      "random": {
+        "episodes": 15,
+        "successes": 11,
+        "final_holds": 11,
+        "contacts": 24,
+        "walls": 0,
+        "mean_final_max_error_m": 0.033766356988823486
+      },
+      "maintenance": {
+        "episodes": 4,
+        "successes": 4,
+        "final_holds": 4,
+        "contacts": 0,
+        "walls": 0,
+        "mean_final_max_error_m": 0.008754475582678348
+      },
+      "qualified_development_candidate": false,
+      "default_promoted": false,
+      "final_heldout_used": false
+    }
+  ],
+  "selected_development_candidates": {
+    "circle": null,
+    "square": null,
+    "line": null
+  },
+  "verification": {
+    "path": "reports/separate-formations-long-verification.json",
+    "sha256": "8c062a80623e12fd9b458dc8fa54511b61bec77aadb65190dbd849af0e91aca3"
+  },
+  "observer": {
+    "path": "/Users/whishingraven/Documents/Github/BARIpreSim/runs/observe-separate-formations-long.py",
+    "sha256": "acabf316cd2134115ac9e7c16f3b2c861c99d1c6dc24dda1af54a648661aa2b1"
+  },
+  "existing_follow_unchanged": true,
+  "default_promoted": false,
+  "final_heldout_used": false,
+  "full_goal_complete": false,
+  "device_run": false
+}
